@@ -34,5 +34,10 @@
     "tinacms-gitprovider-github": "^2.0.19",
     "typescript": "^5.9.3",
     "upstash-redis-level": "^1.1.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "nanoid": "^3.3.0"
+    }
   }
 }
