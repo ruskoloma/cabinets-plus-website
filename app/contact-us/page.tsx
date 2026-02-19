@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { client } from "@/tina/__generated__/client";
-import HomeClient from "./home-client";
+import GenericPageClient from "../generic-page-client";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const result = await client.queries.page({ relativePath: "home.md" });
+  const result = await client.queries.page({ relativePath: "contact-us.md" });
   const { title, seo } = result.data.page;
   return {
     title: seo?.title || title,
@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Home() {
-  const result = await client.queries.page({ relativePath: "home.md" });
-  return <HomeClient {...result} />;
+export default async function ContactPage() {
+  const result = await client.queries.page({ relativePath: "contact-us.md" });
+  return <GenericPageClient {...result} />;
 }

@@ -1,0 +1,44 @@
+{
+  "siteName": "Cabinets Plus",
+  "phone": "1-509-218-3349",
+  "address": "4630 E Sprague Ave, Spokane, WA",
+  "email": "info@spokanecabinetsplus.com",
+  "hours": "Mon–Fri: 9:00am–5:00pm",
+  "ctaLabel": "Free Design Consultation",
+  "ctaLink": "/contact-us",
+  "navLinks": [
+    {
+      "label": "Products",
+      "children": [
+        { "label": "Cabinets", "href": "/cabinets" },
+        { "label": "Countertops", "href": "/countertops" },
+        { "label": "Flooring", "href": "/flooring" }
+      ]
+    },
+    {
+      "label": "Services",
+      "children": [
+        { "label": "Bathroom Remodel", "href": "/bathroom-remodel" },
+        { "label": "Kitchen Remodel", "href": "/kitchen-remodel" }
+      ]
+    },
+    { "label": "Gallery", "href": "/#projects" },
+    { "label": "About Us", "href": "/about-us" },
+    { "label": "Contacts", "href": "/contact-us" }
+  ],
+  "footerLinks": [
+    { "label": "Cabinets", "href": "/cabinets" },
+    { "label": "Countertops", "href": "/countertops" },
+    { "label": "Flooring", "href": "/flooring" },
+    { "label": "Bathroom Remodel", "href": "/bathroom-remodel" },
+    { "label": "Gallery", "href": "/#projects" },
+    { "label": "About Us", "href": "/about-us" },
+    { "label": "Contacts", "href": "/contact-us" },
+    { "label": "Privacy Policy", "href": "/privacy-policy" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "FAQs", "href": "/#faq" }
+  ],
+  "instagramUrl": "https://instagram.com",
+  "facebookUrl": "https://facebook.com",
+  "copyrightText": "© 2026 Cabinets Plus Spokane. All rights reserved."
+}
