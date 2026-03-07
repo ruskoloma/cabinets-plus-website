@@ -27,12 +27,16 @@ export default defineConfig({
         },
         fields: [
           { type: "string", name: "siteName", label: "Site Name" },
+          { type: "image", name: "logo", label: "Header Logo" },
+          { type: "image", name: "footerLogo", label: "Footer Logo" },
           { type: "string", name: "phone", label: "Phone" },
           { type: "string", name: "address", label: "Address" },
           { type: "string", name: "email", label: "Email" },
           { type: "string", name: "hours", label: "Business Hours" },
           { type: "string", name: "ctaLabel", label: "CTA Button Text" },
           { type: "string", name: "ctaLink", label: "CTA Button Link" },
+          { type: "string", name: "navSearchLabel", label: "Header Search Label" },
+          { type: "string", name: "navSearchLink", label: "Header Search Link" },
           {
             // Supports two item types:
             // 1. Simple link: { label, href }  — href is set, no children
@@ -60,6 +64,7 @@ export default defineConfig({
               { type: "string", name: "href", label: "Link" },
             ],
           },
+          { type: "string", name: "pinterestUrl", label: "Pinterest URL" },
           { type: "string", name: "instagramUrl", label: "Instagram URL" },
           { type: "string", name: "facebookUrl", label: "Facebook URL" },
           { type: "string", name: "copyrightText", label: "Copyright Text" },
@@ -140,6 +145,8 @@ export default defineConfig({
                 fields: [
                   { type: "string", name: "title", label: "Section Title" },
                   { type: "string", name: "subtitle", label: "Subtitle" },
+                  { type: "string", name: "introText", label: "Intro Text (line 1)", ui: { component: "textarea" } },
+                  { type: "string", name: "introText2", label: "Intro Text (line 2)", ui: { component: "textarea" } },
                   {
                     type: "object", name: "features", label: "Features", list: true,
                     ui: { itemProps: (item: any) => ({ label: item.title }) },
@@ -147,6 +154,7 @@ export default defineConfig({
                       { type: "string", name: "icon", label: "Icon (emoji)" },
                       { type: "string", name: "title", label: "Title" },
                       { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+                      { type: "image", name: "image", label: "Feature Image" },
                     ],
                   },
                 ],
@@ -154,8 +162,9 @@ export default defineConfig({
               {
                 name: "aboutSection", label: "About Section",
                 fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  { type: "string", name: "bodyText", label: "Body Text", ui: { component: "textarea" } },
+                  { type: "string", name: "trustStripText", label: "Top Trust Message", ui: { component: "textarea" } },
+                  { type: "string", name: "trustStripHighlight", label: "Top Trust Message Highlight" },
+                  { type: "image", name: "trustStripTexture", label: "Top Trust Background Texture" },
                   {
                     type: "object", name: "stats", label: "Stats", list: true,
                     ui: { itemProps: (item: any) => ({ label: item.label }) },
@@ -164,6 +173,21 @@ export default defineConfig({
                       { type: "string", name: "label", label: "Label" },
                     ],
                   },
+                  { type: "image", name: "membershipDesktopLogo", label: "Membership Logo (Desktop)" },
+                  { type: "image", name: "membershipMobileTopLogo", label: "Membership Logo Top (Mobile)" },
+                  { type: "image", name: "membershipMobileBottomLogo", label: "Membership Logo Bottom (Mobile)" },
+                  { type: "string", name: "membershipLabel", label: "Membership Label" },
+                  { type: "string", name: "partnershipLabel", label: "Partnership Label" },
+                  {
+                    type: "object", name: "partnerLogos", label: "Partner Logos", list: true,
+                    ui: { itemProps: (item: any) => ({ label: item.alt || "Partner logo" }) },
+                    fields: [
+                      { type: "image", name: "logo", label: "Logo" },
+                      { type: "string", name: "alt", label: "Alt Text" },
+                    ],
+                  },
+                  { type: "string", name: "ctaLabel", label: "Button Text" },
+                  { type: "string", name: "ctaLink", label: "Button Link" },
                 ],
               },
               {
@@ -173,6 +197,7 @@ export default defineConfig({
                   { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
                   { type: "string", name: "ctaLabel", label: "CTA Text" },
                   { type: "string", name: "ctaLink", label: "CTA Link" },
+                  { type: "image", name: "image", label: "Main Image" },
                 ],
               },
               {
@@ -184,8 +209,10 @@ export default defineConfig({
                     ui: { itemProps: (item: any) => ({ label: item.title }) },
                     fields: [
                       { type: "number", name: "number", label: "Step Number" },
+                      { type: "image", name: "iconImage", label: "Step Icon" },
                       { type: "string", name: "title", label: "Title" },
                       { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+                      { type: "string", name: "icon", label: "Legacy Icon (optional)" },
                     ],
                   },
                 ],
@@ -215,8 +242,17 @@ export default defineConfig({
                 name: "contactSection", label: "Contact Section",
                 fields: [
                   { type: "string", name: "title", label: "Section Title" },
-                  // ℹ️ Contact info comes from Global Settings
-                  // ℹ️ Form labels/placeholders are set in the component
+                  { type: "image", name: "image", label: "Section Image" },
+                  { type: "string", name: "nameLabel", label: "Name Field Label" },
+                  { type: "string", name: "namePlaceholder", label: "Name Placeholder" },
+                  { type: "string", name: "emailLabel", label: "Email Field Label" },
+                  { type: "string", name: "emailPlaceholder", label: "Email Placeholder" },
+                  { type: "string", name: "messageLabel", label: "Message Field Label" },
+                  { type: "string", name: "messagePlaceholder", label: "Message Placeholder" },
+                  { type: "string", name: "submitLabel", label: "Submit Button Label" },
+                  { type: "string", name: "showroomTitle", label: "Showroom Title" },
+                  { type: "string", name: "followUsLabel", label: "Follow Label" },
+                  { type: "string", name: "mapEmbedUrl", label: "Google Maps Embed URL", ui: { component: "textarea" } },
                 ],
               },
               {

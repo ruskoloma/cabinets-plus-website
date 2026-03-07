@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { client } from "@/tina/__generated__/client";
 import GenericPageClient from "../generic-page-client";
+import { getPageDataSafe } from "../get-page-data-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const result = await client.queries.page({ relativePath: "about-us.md" });
-  const { title, seo } = result.data.page;
+  const result = await getPageDataSafe("about-us.md");
+  const page = result.data.page;
+  if (!page) return {};
+  const { title, seo } = page;
   return {
     title: seo?.title || title,
     description: seo?.description || undefined,
@@ -13,6 +15,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
-  const result = await client.queries.page({ relativePath: "about-us.md" });
+  const result = await getPageDataSafe("about-us.md");
   return <GenericPageClient {...result} />;
 }

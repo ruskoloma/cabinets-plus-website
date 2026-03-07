@@ -7,6 +7,9 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "outline";
   className?: string;
   type?: "button" | "submit";
+  size?: "large" | "small";
+  disabled?: boolean;
+  dataTinaField?: string;
 }
 
 export default function Button({
@@ -16,20 +19,39 @@ export default function Button({
   variant = "primary",
   className = "",
   type = "button",
+  size = "large",
+  disabled = false,
+  dataTinaField,
 }: ButtonProps) {
-  const base = "inline-block px-6 py-3 rounded-md font-semibold text-sm transition-all duration-200 cursor-pointer";
-  const variants = {
-    primary: "bg-amber-600 hover:bg-amber-700 text-white shadow-md hover:shadow-lg",
-    secondary: "bg-slate-800 hover:bg-slate-900 text-white shadow-md hover:shadow-lg",
-    outline: "border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white",
-  };
-  const classes = `${base} ${variants[variant]} ${className}`;
+  const classes = [
+    "cp-btn",
+    `cp-btn--${variant}`,
+    `cp-btn--${size}`,
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cp-primary-500)]",
+    disabled ? "cp-btn--disabled pointer-events-none" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   if (href) {
-    return <Link href={href} className={classes}>{children}</Link>;
+    if (disabled) {
+      return (
+        <span aria-disabled className={classes}>
+          {children}
+        </span>
+      );
+    }
+
+    return (
+      <Link className={classes} data-tina-field={dataTinaField} href={href}>
+        {children}
+      </Link>
+    );
   }
+
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button className={classes} data-tina-field={dataTinaField} disabled={disabled} onClick={onClick} type={type}>
       {children}
     </button>
   );
