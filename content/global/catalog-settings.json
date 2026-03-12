@@ -1,0 +1,32 @@
+{
+  "paintOptions": [
+    "white",
+    "off white",
+    "timber",
+    "gray",
+    "brown",
+    "blue",
+    "green",
+    "black",
+    "custom paint"
+  ],
+  "stainTypes": [
+    "white glaze stain",
+    "mocha stain"
+  ],
+  "rooms": [
+    "Kitchen",
+    "Bathroom",
+    "Laundry",
+    "Other"
+  ],
+  "countertopTypes": [
+    "Quartz",
+    "Granite",
+    "Marble",
+    "Quartzite",
+    "Porcelain",
+    "Butcher Block",
+    "Other"
+  ]
+}

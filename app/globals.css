@@ -160,3 +160,14 @@ h1, h2, h3, h4, h5, h6 {
 .cp-section-title__line {
   display: none;
 }
+
+.cp-hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cp-hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}

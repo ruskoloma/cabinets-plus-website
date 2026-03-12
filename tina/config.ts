@@ -1,4 +1,8 @@
+import fs from "node:fs";
+import path from "node:path";
+import React from "react";
 import { defineConfig } from "tinacms";
+import { cabinetReferenceLabelsByValue, cabinetReferenceSelectOptions } from "./cabinet-reference-options";
 import { seoFields } from "./seo-fields";
 
 const branch =
@@ -7,12 +11,109 @@ const branch =
   process.env.HEAD ||
   "main";
 
+const defaultPaintOptions = [
+  "white",
+  "off white",
+  "timber",
+  "gray",
+  "brown",
+  "blue",
+  "green",
+  "black",
+  "custom paint",
+];
+
+const defaultCabinetStainTypes = ["white glaze stain", "mocha stain"];
+const defaultRooms = ["Kitchen", "Bathroom", "Laundry", "Other"];
+const defaultCountertopTypes = ["Quartz", "Granite", "Marble", "Quartzite", "Porcelain", "Butcher Block", "Other"];
+
+function readCatalogSettingsOptions() {
+  try {
+    const raw = fs.readFileSync(path.join(process.cwd(), "content", "global", "catalog-settings.json"), "utf8");
+    const parsed = JSON.parse(raw) as {
+      stainTypes?: unknown;
+      rooms?: unknown;
+      paintOptions?: unknown;
+      countertopTypes?: unknown;
+    };
+    const stainTypes = Array.isArray(parsed.stainTypes)
+      ? parsed.stainTypes.map((value) => String(value).trim()).filter(Boolean)
+      : [];
+    const rooms = Array.isArray(parsed.rooms)
+      ? parsed.rooms.map((value) => String(value).trim()).filter(Boolean)
+      : [];
+    const paintOptions = Array.isArray(parsed.paintOptions)
+      ? parsed.paintOptions.map((value) => String(value).trim()).filter(Boolean)
+      : [];
+    const countertopTypes = Array.isArray(parsed.countertopTypes)
+      ? parsed.countertopTypes.map((value) => String(value).trim()).filter(Boolean)
+      : [];
+    return {
+      stainTypes: stainTypes.length ? stainTypes : defaultCabinetStainTypes,
+      rooms: rooms.length ? rooms : defaultRooms,
+      paintOptions: paintOptions.length ? paintOptions : defaultPaintOptions,
+      countertopTypes: countertopTypes.length ? countertopTypes : defaultCountertopTypes,
+    };
+  } catch {
+    return {
+      stainTypes: defaultCabinetStainTypes,
+      rooms: defaultRooms,
+      paintOptions: defaultPaintOptions,
+      countertopTypes: defaultCountertopTypes,
+    };
+  }
+}
+
+const catalogSettingsOptions = readCatalogSettingsOptions();
+
+function resolveCabinetReferenceLabel(value: unknown) {
+  const ref = String(value || "").trim();
+  if (!ref) return "Select cabinet door";
+
+  const cleaned = ref.replace(/^\/+/, "");
+  const file = cleaned.split("/").pop() || cleaned;
+  const slug = file.replace(/\.md$/, "");
+  const normalizedWithExt = file.endsWith(".md") ? file : `${file}.md`;
+
+  return (
+    cabinetReferenceLabelsByValue[cleaned] ||
+    cabinetReferenceLabelsByValue[`content/${cleaned}`] ||
+    cabinetReferenceLabelsByValue[`content/cabinets/${normalizedWithExt}`] ||
+    cabinetReferenceLabelsByValue[normalizedWithExt] ||
+    cabinetReferenceLabelsByValue[`content/cabinets/${slug}.md`] ||
+    slug
+  );
+}
+
+function mediaItemLabel(file?: string) {
+  if (!file) return "Media item";
+
+  const name = file.split("?")[0].split("/").pop() || file;
+
+  return React.createElement(
+    "span",
+    { className: "inline-flex items-center gap-2" },
+    React.createElement("img", {
+      src: file,
+      alt: name,
+      className: "h-8 w-8 rounded object-cover border border-gray-200",
+      loading: "lazy",
+    }),
+    React.createElement("span", { className: "truncate" }, name)
+  );
+}
+
 export default defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
   build: { outputFolder: "admin", publicFolder: "public" },
-  media: { tina: { mediaRoot: "", publicFolder: "public" } },
+  media: {
+    loadCustomStore: async () => {
+      const pack = await import("next-tinacms-s3");
+      return pack.TinaCloudS3MediaStore;
+    },
+  },
   schema: {
     collections: [
       // ─── GLOBAL: Navbar + Footer ───────────────────────────────
@@ -21,6 +122,9 @@ export default defineConfig({
         label: "Global Settings",
         path: "content/global",
         format: "json",
+        match: {
+          include: "settings",
+        },
         ui: {
           global: true,
           allowedActions: { create: false, delete: false },
@@ -68,6 +172,86 @@ export default defineConfig({
           { type: "string", name: "instagramUrl", label: "Instagram URL" },
           { type: "string", name: "facebookUrl", label: "Facebook URL" },
           { type: "string", name: "copyrightText", label: "Copyright Text" },
+        ],
+      },
+      {
+        name: "catalogSettings",
+        label: "Catalog Settings",
+        path: "content/global",
+        format: "json",
+        match: {
+          include: "catalog-settings",
+        },
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "stainTypes",
+            label: "Stain Type Options",
+            list: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "rooms",
+            label: "Rooms",
+            list: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "paintOptions",
+            label: "Paint Options",
+            list: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "countertopTypes",
+            label: "Countertop Types",
+            list: true,
+          },
+        ],
+      },
+      {
+        name: "cabinetPageSettings",
+        label: "Cabinet Page Settings",
+        path: "content/global",
+        format: "json",
+        match: {
+          include: "cabinet-page-settings",
+        },
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          { type: "string", name: "breadcrumbLabel", label: "Breadcrumb Label" },
+          { type: "string", name: "technicalDetailsTitle", label: "Technical Details Title" },
+          { type: "string", name: "contactButtonLabel", label: "Contact Button Label" },
+          { type: "string", name: "descriptionLabel", label: "Description Label" },
+          { type: "string", name: "relatedProductsTitle", label: "Related Products Title" },
+          { type: "string", name: "projectsSectionTitle", label: "Projects Section Title" },
+          {
+            type: "string",
+            name: "projectsSectionDescription",
+            label: "Projects Section Description",
+            ui: { component: "textarea" },
+          },
+          { type: "string", name: "projectFallbackTitle", label: "Project Card Fallback Title" },
+          {
+            type: "object",
+            name: "mockProjects",
+            label: "Mock Projects (fallback)",
+            list: true,
+            fields: [
+              { type: "image", name: "file", label: "Image" },
+              { type: "string", name: "title", label: "Title" },
+            ],
+          },
         ],
       },
 
@@ -323,6 +507,105 @@ export default defineConfig({
               },
             ],
           },
+        ],
+      },
+
+      // ─── CABINETS: Cabinet door catalog imported from Strapi ───
+      {
+        name: "cabinet",
+        label: "Cabinet Doors",
+        path: "content/cabinets",
+        format: "md",
+        ui: {
+          router: ({ document }) => `/cabinets/${document._sys.filename}`,
+        },
+        fields: [
+          { type: "string", name: "name", label: "Name", isTitle: true, required: true },
+          { type: "string", name: "code", label: "Code", required: true },
+          { type: "string", name: "slug", label: "Slug", required: true },
+          {
+            type: "string",
+            name: "paint",
+            label: "Paint",
+            options: catalogSettingsOptions.paintOptions,
+            description: "Optional. Fill this or Stain Type.",
+          },
+          {
+            type: "string",
+            name: "stainType",
+            label: "Stain Type",
+            options: catalogSettingsOptions.stainTypes,
+            description: "Optional. Fill this or Paint.",
+          },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          { type: "image", name: "picture", label: "Primary Picture" },
+          {
+            type: "string",
+            name: "relatedProjects",
+            label: "Related Projects",
+            list: true,
+            description: "Project slugs or IDs related to this cabinet door.",
+          },
+          {
+            type: "object",
+            name: "relatedProducts",
+            label: "Related Products",
+            list: true,
+            description: "Select other cabinet door entries from this collection.",
+            ui: {
+              itemProps: (item: any) => ({
+                label: resolveCabinetReferenceLabel(item?.product),
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "product",
+                label: "Cabinet Door",
+                options: cabinetReferenceSelectOptions,
+                ui: { component: "select" },
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "technicalDetails",
+            label: "Technical Details",
+            list: true,
+            ui: { itemProps: (item: any) => ({ label: item.key || "Detail" }) },
+            fields: [
+              { type: "string", name: "key", label: "Key" },
+              { type: "string", name: "value", label: "Value" },
+              { type: "string", name: "unit", label: "Unit" },
+              { type: "number", name: "order", label: "Order" },
+            ],
+          },
+          {
+            type: "object",
+            name: "media",
+            label: "Media",
+            list: true,
+            ui: {
+              itemProps: (item: any) => ({
+                label: mediaItemLabel(item?.file) as any,
+              }),
+            },
+            fields: [
+              { type: "image", name: "file", label: "File" },
+              { type: "boolean", name: "roomPriority", label: "Room Priority" },
+              { type: "boolean", name: "paintPriority", label: "Paint Priority" },
+              { type: "boolean", name: "stainPriority", label: "Stain Priority" },
+              { type: "boolean", name: "countertopPriority", label: "Countertop Priority" },
+              { type: "string", name: "room", label: "Room", options: catalogSettingsOptions.rooms },
+              { type: "string", name: "paint", label: "Paint", options: catalogSettingsOptions.paintOptions },
+              { type: "string", name: "stain", label: "Stain", options: catalogSettingsOptions.stainTypes },
+              { type: "string", name: "countertop", label: "Countertop", options: catalogSettingsOptions.countertopTypes },
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+            ],
+          },
+          { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
+          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
         ],
       },
 

@@ -1,0 +1,169 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { tinaField } from "tinacms/dist/react";
+import Button from "@/components/ui/Button";
+import { formatProductCode } from "./helpers";
+import CabinetImageGallery from "./CabinetImageGallery";
+import CabinetProjectStrip from "./CabinetProjectStrip";
+import CabinetRelatedProducts from "./CabinetRelatedProducts";
+import CabinetTechnicalDetailsTable from "./CabinetTechnicalDetailsTable";
+import ContactUsSection from "@/components/home/ContactUsSection";
+import type {
+  CabinetData,
+  CabinetGalleryItem,
+  CabinetListItem,
+  CabinetPageTextConfig,
+  CabinetProjectItem,
+  CabinetRelatedItem,
+  CabinetTechnicalDetail,
+} from "./types";
+
+interface CabinetDoorPageProps {
+  cabinet: CabinetData;
+  currentSlug: string;
+  previousProduct?: CabinetListItem;
+  nextProduct?: CabinetListItem;
+  galleryItems: CabinetGalleryItem[];
+  technicalDetails: CabinetTechnicalDetail[];
+  projectItems: CabinetProjectItem[];
+  relatedItems: CabinetRelatedItem[];
+  pageText: CabinetPageTextConfig;
+  contactBlock?: Record<string, unknown> | null;
+}
+
+function ArrowNavButton({
+  href,
+  direction,
+}: {
+  href?: string;
+  direction: "previous" | "next";
+}) {
+  const iconClass = direction === "previous" ? "rotate-180" : "";
+  const ariaLabel = direction === "previous" ? "Previous product" : "Next product";
+
+  const content = (
+    <span className="flex h-full w-full items-center justify-center">
+      <img alt="" aria-hidden className={`h-6 w-6 ${iconClass}`} src="/figma/assets/nav-chevron-right.svg" />
+    </span>
+  );
+
+  if (!href) {
+    return (
+      <button
+        aria-label={ariaLabel}
+        className="h-[61px] w-[59px] border border-[var(--cp-primary-100)] opacity-40"
+        disabled
+        type="button"
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <Link aria-label={ariaLabel} className="h-[61px] w-[59px] border border-[var(--cp-primary-100)] transition-colors hover:border-[var(--cp-primary-500)]" href={href}>
+      {content}
+    </Link>
+  );
+}
+
+export default function CabinetDoorPage({
+  cabinet,
+  currentSlug,
+  previousProduct,
+  nextProduct,
+  galleryItems,
+  technicalDetails,
+  projectItems,
+  relatedItems,
+  pageText,
+  contactBlock,
+}: CabinetDoorPageProps) {
+  const [descriptionOpen, setDescriptionOpen] = useState(Boolean(cabinet.description));
+
+  const displayName = cabinet.name?.trim() || "Cabinet Door";
+  const description = cabinet.description?.trim() || "";
+  const code = formatProductCode(cabinet.code);
+
+  return (
+    <div className="bg-white">
+      <section className="bg-white">
+        <div className="cp-container px-4 pb-12 pt-7 md:px-8 md:pb-16">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-[14px] leading-[1.2] text-[var(--cp-primary-300)]">
+              <Link className="transition-colors hover:text-[var(--cp-primary-500)]" href="/cabinets">
+                {pageText.breadcrumbLabel}
+              </Link>
+              <span>/</span>
+              <span data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name")}>{displayName}</span>
+            </nav>
+
+            <div className="flex gap-4 self-end md:self-auto">
+              <ArrowNavButton href={previousProduct ? `/cabinets/${previousProduct.slug}` : undefined} direction="previous" />
+              <ArrowNavButton href={nextProduct ? `/cabinets/${nextProduct.slug}` : undefined} direction="next" />
+            </div>
+          </div>
+
+          <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,667px)_minmax(0,674px)] lg:gap-7">
+            <CabinetImageGallery cabinet={cabinet} items={galleryItems} />
+    
+            <div>
+              {code ? (
+                <p className="text-[18px] uppercase leading-normal text-[var(--cp-primary-300)]" data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "code")}>
+                  {code}
+                </p>
+              ) : null}
+
+              <h1 className="mt-2 font-[var(--font-red-hat-display)] text-[42px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)]" data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name")}>
+                {displayName}
+              </h1>
+
+              <h2 className="mt-6 text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]">{pageText.technicalDetailsTitle}</h2>
+              <CabinetTechnicalDetailsTable details={technicalDetails} />
+
+              <Button className="mt-8 !min-h-12 !px-8 !text-[20px]" href="/contact-us" size="small" variant="secondary">
+                {pageText.contactButtonLabel}
+              </Button>
+
+              {description ? (
+                <div className="mt-8 max-w-[677px]">
+                  <button
+                    className="inline-flex items-center gap-2 text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]"
+                    onClick={() => setDescriptionOpen((open) => !open)}
+                    type="button"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden
+                      className={`h-6 w-6 transition-transform ${descriptionOpen ? "rotate-90" : ""}`}
+                      src="/figma/assets/nav-chevron-right.svg"
+                    />
+                    <span>{pageText.descriptionLabel}</span>
+                  </button>
+
+                  {descriptionOpen ? (
+                    <p className="mt-4 whitespace-pre-line text-[16px] leading-[1.4] text-[var(--cp-primary-500)]" data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "description")}>
+                      {description}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CabinetProjectStrip
+        description={pageText.projectsSectionDescription}
+        items={projectItems}
+        title={pageText.projectsSectionTitle}
+      />
+      <CabinetRelatedProducts items={relatedItems} title={pageText.relatedProductsTitle} />
+      {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
+
+      <div className="sr-only" data-current-cabinet={currentSlug} />
+    </div>
+  );
+}

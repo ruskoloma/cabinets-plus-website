@@ -1,0 +1,28 @@
+{
+  "breadcrumbLabel": "Cabinets",
+  "technicalDetailsTitle": "Technical Details",
+  "contactButtonLabel": "Contact us",
+  "descriptionLabel": "Description",
+  "relatedProductsTitle": "Related products",
+  "projectsSectionTitle": "Material in Real Projects",
+  "projectsSectionDescription": "Explore real installations showcasing this material in completed kitchens, bathrooms, and living spaces to see how it looks and performs in everyday use.",
+  "projectFallbackTitle": "Project Name",
+  "mockProjects": [
+    {
+      "file": "/figma/home/project-main.jpg",
+      "title": "Project Name"
+    },
+    {
+      "file": "/figma/home/project-2.jpg",
+      "title": "Project Name"
+    },
+    {
+      "file": "/figma/home/project-3.jpg",
+      "title": "Project Name"
+    },
+    {
+      "file": "/figma/home/project-4.jpg",
+      "title": "Project Name"
+    }
+  ]
+}

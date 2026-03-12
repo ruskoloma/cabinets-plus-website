@@ -1,0 +1,11 @@
+{
+  "importedAt": "2026-03-12T19:11:02.596Z",
+  "cabinets": 76,
+  "media": {
+    "copiedWithinS3": 0,
+    "uploadedFromDownload": 201,
+    "skippedExisting": 0
+  },
+  "contentPath": "content/cabinets",
+  "uploadPrefix": "uploads/cabinets"
+}
