@@ -55,10 +55,10 @@ function readNonEmpty(value: unknown, fallback: string): string {
 }
 
 const DEFAULT_PROJECT_MOCK_FILES = [
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-main.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-2.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-3.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-4.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
 ];
 
 const DEFAULT_CABINET_PAGE_TEXT: CabinetPageTextConfig = {

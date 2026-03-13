@@ -45,11 +45,11 @@ const PRODUCT_CATALOG_BY_KEY: Record<ProductCatalogKey, { columnWidth: number; i
   cabinets: {
     columnWidth: 203,
     items: [
-      { name: "Trenton Fairy", code: "#TGB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-tgb.png" },
-      { name: "Trenton Swan White", code: "#TWB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-twb.png" },
-      { name: "Designer White", code: "#SWK", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-swk.png" },
-      { name: "Artisanal Blue", code: "#ABB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-abb.png" },
-      { name: "Artisanal Ebony", code: "#AEB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-aeb.png" },
+      { name: "Trenton Fairy", code: "#TGB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-tgb.png" },
+      { name: "Trenton Swan White", code: "#TWB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-twb.png" },
+      { name: "Designer White", code: "#SWK", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-swk.png" },
+      { name: "Artisanal Blue", code: "#ABB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-abb.png" },
+      { name: "Artisanal Ebony", code: "#AEB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-aeb.png" },
     ],
   },
   countertops: {
@@ -58,31 +58,31 @@ const PRODUCT_CATALOG_BY_KEY: Record<ProductCatalogKey, { columnWidth: number; i
       {
         name: "Calacatta Dolce",
         code: "#CalacattaDolce",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-countertops-calacatta-dolce.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-dolce.png",
         imageFrame: { width: 162, height: 80 },
       },
       {
         name: "Calacatta Simple Grey",
         code: "#CalacattaSimpleGrey",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-countertops-calacatta-simple-grey.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-grey.png",
         imageFrame: { width: 162, height: 80 },
       },
       {
         name: "Calacatta Slim Gold",
         code: "#CalacattaSlimGold",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-countertops-calacatta-slim-gold.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-slim-gold.png",
         imageFrame: { width: 157, height: 80 },
       },
       {
         name: "Calacatta Simple Gold",
         code: "#CalacattaSimpleGold",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-countertops-calacatta-simple-gold.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-gold.png",
         imageFrame: { width: 157, height: 80 },
       },
       {
         name: "Calacatta Straight Grey",
         code: "#CalacattaStraightGrey",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-countertops-calacatta-straight-grey.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-straight-grey.png",
         imageFrame: { width: 162, height: 80 },
       },
     ],
@@ -93,27 +93,27 @@ const PRODUCT_CATALOG_BY_KEY: Record<ProductCatalogKey, { columnWidth: number; i
       {
         name: "Prescott XL Wolfeboro",
         code: "#MPR-WOLFEBORO-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-flooring-prescott-xl-wolfeboro.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-wolfeboro.png",
       },
       {
         name: "Prescott XL Woburn",
         code: "#MPR-WOBURN-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-flooring-prescott-xl-woburn.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-woburn.png",
       },
       {
         name: "Prescott XL Walnut Waves",
         code: "#MPR-WALNUT-WAVES-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-flooring-prescott-xl-walnut-waves.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-walnut-waves.png",
       },
       {
         name: "Prescott XL Runmill Isle",
         code: "#MPR-RUNMILL-ISLE-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-flooring-prescott-xl-runmill-isle.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-runmill-isle.png",
       },
       {
         name: "Prescott XL Kardigan",
         code: "#MPR-KARDIGAN-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/nav-catalog-flooring-prescott-xl-kardigan.png",
+        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-kardigan.png",
       },
     ],
   },
@@ -142,19 +142,19 @@ function CaretIcon() {
 }
 
 function SearchIcon() {
-  return <img alt="" aria-hidden className="h-6 w-6" src="/figma/assets/nav-search.svg" />;
+  return <img alt="" aria-hidden className="h-6 w-6" src="/library/header/nav-search.svg" />;
 }
 
 function MenuIcon() {
-  return <img alt="" aria-hidden className="h-6 w-6" src="/figma/assets/nav-menu.svg" />;
+  return <img alt="" aria-hidden className="h-6 w-6" src="/library/header/nav-menu.svg" />;
 }
 
 function CloseIcon() {
-  return <img alt="" aria-hidden className="h-6 w-6" src="/figma/assets/nav-close.svg" />;
+  return <img alt="" aria-hidden className="h-6 w-6" src="/library/header/nav-close.svg" />;
 }
 
 function ChevronRightIcon() {
-  return <img alt="" aria-hidden className="h-[18px] w-[18px]" src="/figma/assets/nav-chevron-right.svg" />;
+  return <img alt="" aria-hidden className="h-[18px] w-[18px]" src="/library/header/nav-chevron-right.svg" />;
 }
 
 function KitchenIcon() {
@@ -192,16 +192,16 @@ function BathroomIcon() {
 
 function getProductIcon(label: string): string {
   const normalized = label.toLowerCase();
-  if (normalized.includes("cabinet")) return "/figma/assets/nav-product-cabinets.svg";
-  if (normalized.includes("counter")) return "/figma/assets/nav-product-countertops.svg";
-  return "/figma/assets/nav-product-flooring.svg";
+  if (normalized.includes("cabinet")) return "/library/header/nav-product-cabinets.svg";
+  if (normalized.includes("counter")) return "/library/header/nav-product-countertops.svg";
+  return "/library/header/nav-product-flooring.svg";
 }
 
 function getDesktopProductIcon(label: string): string {
   const normalized = label.toLowerCase();
-  if (normalized.includes("cabinet")) return "/figma/assets/nav-product-cabinets-desktop.svg";
-  if (normalized.includes("counter")) return "/figma/assets/nav-product-countertops.svg";
-  return "/figma/assets/nav-product-flooring.svg";
+  if (normalized.includes("cabinet")) return "/library/header/nav-product-cabinets-desktop.svg";
+  if (normalized.includes("counter")) return "/library/header/nav-product-countertops.svg";
+  return "/library/header/nav-product-flooring.svg";
 }
 
 export default function Header({ data, raw }: { data: GlobalData; raw: Record<string, unknown> }) {
@@ -344,13 +344,13 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
       <div className="bg-[var(--cp-brand-neutral-100)] px-4 py-2 md:px-10">
         <div className="cp-container flex items-center justify-center gap-8 text-[14px] leading-6 text-[var(--cp-primary-500)] md:justify-end md:gap-16">
           <span className="inline-flex items-center gap-2 whitespace-nowrap" data-tina-field={tinaField(raw, "phone")}>
-            <img alt="" aria-hidden className="h-4 w-4" src="/figma/assets/icon-phone.svg" />
+            <img alt="" aria-hidden className="h-4 w-4" src="/library/header/icon-phone.svg" />
             <span className="hidden font-semibold md:inline">Call Us:</span>
             <span>{data.phone}</span>
           </span>
 
           <span className="inline-flex items-center gap-3 whitespace-nowrap" data-tina-field={tinaField(raw, "address")}>
-            <img alt="" aria-hidden className="h-4 w-4" src="/figma/assets/icon-location.svg" />
+            <img alt="" aria-hidden className="h-4 w-4" src="/library/header/icon-location.svg" />
             <span className="hidden font-semibold md:inline">Find Us:</span>
             <span>{topBarAddress}</span>
           </span>

@@ -77,19 +77,19 @@ interface FaqTab {
   faqs: FaqItem[];
 }
 
-const fallbackHeroImage = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/hero.jpg";
+const fallbackHeroImage = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/hero.jpg";
 const fallbackProjectImages = [
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-main.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-2.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-3.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-4.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-5.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg",
 ];
 const fallbackProcessIcons = [
-  "/figma/assets/process-step-1.svg",
-  "/figma/assets/process-step-2.svg",
-  "/figma/assets/process-step-3.svg",
-  "/figma/assets/process-step-4.svg",
+  "/library/process/process-step-1.svg",
+  "/library/process/process-step-2.svg",
+  "/library/process/process-step-3.svg",
+  "/library/process/process-step-4.svg",
 ];
 
 const TYPE_TO_TEMPLATE: Record<string, string> = {
@@ -247,27 +247,27 @@ function mapFaqTabs(list: HomeBlock[]): FaqTab[] {
 }
 
 function MailIcon() {
-  return <img alt="" aria-hidden className="h-10 w-10 md:h-12 md:w-12" src="/figma/assets/showroom-icon-mail.svg" />;
+  return <img alt="" aria-hidden className="h-10 w-10 md:h-12 md:w-12" src="/library/showroom/showroom-icon-mail.svg" />;
 }
 
 function PhoneIcon() {
-  return <img alt="" aria-hidden className="h-10 w-10 md:h-12 md:w-12" src="/figma/assets/showroom-icon-phone.svg" />;
+  return <img alt="" aria-hidden className="h-10 w-10 md:h-12 md:w-12" src="/library/showroom/showroom-icon-phone.svg" />;
 }
 
 function LocationIcon() {
-  return <img alt="" aria-hidden className="h-10 w-10 md:h-12 md:w-12" src="/figma/assets/showroom-icon-location.svg" />;
+  return <img alt="" aria-hidden className="h-10 w-10 md:h-12 md:w-12" src="/library/showroom/showroom-icon-location.svg" />;
 }
 
 function FacebookIcon() {
-  return <img alt="" aria-hidden className="h-8 w-8 md:h-10 md:w-10" src="/figma/assets/showroom-social-facebook.svg" />;
+  return <img alt="" aria-hidden className="h-8 w-8 md:h-10 md:w-10" src="/library/showroom/showroom-social-facebook.svg" />;
 }
 
 function InstagramIcon() {
-  return <img alt="" aria-hidden className="h-8 w-8 md:h-10 md:w-10" src="/figma/assets/showroom-social-instagram.svg" />;
+  return <img alt="" aria-hidden className="h-8 w-8 md:h-10 md:w-10" src="/library/showroom/showroom-social-instagram.svg" />;
 }
 
 function PinterestIcon() {
-  return <img alt="" aria-hidden className="h-8 w-8 md:h-10 md:w-10" src="/figma/assets/showroom-social-pinterest.svg" />;
+  return <img alt="" aria-hidden className="h-8 w-8 md:h-10 md:w-10" src="/library/showroom/showroom-social-pinterest.svg" />;
 }
 
 export default function FigmaHome({ page }: Props) {
@@ -310,12 +310,12 @@ export default function FigmaHome({ page }: Props) {
   const projectImageFields = projectGallery.map((_, index) => tinaField(projectsRecord, `images.${index}`));
   const partnerLogos = mapPartnerLogos(about.partnerLogos);
   const fallbackTrustPartnerLogos = [
-    { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-lions-floor.png", alt: "Lions Floor" },
-    { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-lyrus.png", alt: "Lyrus Collection" },
-    { src: "/figma/assets/trust-cambria.svg", alt: "Cambria" },
-    { src: "/figma/assets/trust-bedrosians.svg", alt: "Bedrosians" },
-    { src: "/figma/assets/trust-msi.svg", alt: "MSI" },
-    { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-easy-stones.png", alt: "Easy Stones" },
+    { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png", alt: "Lions Floor" },
+    { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png", alt: "Lyrus Collection" },
+    { src: "/library/trust/trust-cambria.svg", alt: "Cambria" },
+    { src: "/library/trust/trust-bedrosians.svg", alt: "Bedrosians" },
+    { src: "/library/trust/trust-msi.svg", alt: "MSI" },
+    { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png", alt: "Easy Stones" },
   ];
   const trustPartnerLogos = (partnerLogos.length > 0 ? partnerLogos : fallbackTrustPartnerLogos).map((logo) => {
     const raw = "raw" in logo ? logo.raw : undefined;
@@ -332,8 +332,8 @@ export default function FigmaHome({ page }: Props) {
     labelField: tinaField(stat.raw as Record<string, unknown>, "label"),
   }));
 
-  const contactImage = text(contact.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/contact-figma.jpg");
-  const showroomImage = text(showroom.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/showroom-banner.jpg");
+  const contactImage = text(contact.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg");
+  const showroomImage = text(showroom.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg");
   const mapEmbedUrl = text(
     contact.mapEmbedUrl,
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus"
@@ -468,11 +468,11 @@ export default function FigmaHome({ page }: Props) {
           ctaLink={text(about.ctaLink, "/about-us")}
           membershipLabel={text(about.membershipLabel, "Membership")}
           membershipLabelField={tinaField(aboutRecord, "membershipLabel")}
-          membershipLogo={text(about.membershipDesktopLogo, "/figma/assets/trust-membership.svg")}
+          membershipLogo={text(about.membershipDesktopLogo, "/library/trust/trust-membership.svg")}
           membershipLogoField={tinaField(aboutRecord, "membershipDesktopLogo")}
-          membershipMobileBottomLogo={text(about.membershipMobileBottomLogo, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-membership-mobile-bottom.png")}
+          membershipMobileBottomLogo={text(about.membershipMobileBottomLogo, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-membership-mobile-bottom.png")}
           membershipMobileBottomLogoField={tinaField(aboutRecord, "membershipMobileBottomLogo")}
-          membershipMobileTopLogo={text(about.membershipMobileTopLogo, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-shba.png")}
+          membershipMobileTopLogo={text(about.membershipMobileTopLogo, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-shba.png")}
           membershipMobileTopLogoField={tinaField(aboutRecord, "membershipMobileTopLogo")}
           partnerLogos={trustPartnerLogos}
           partnershipLabel={text(about.partnershipLabel, "Exclusive Partnership")}
@@ -486,7 +486,7 @@ export default function FigmaHome({ page }: Props) {
             "You're buying from people you can call directly if anything needs attention, not a 1-800 number three states away."
           )}
           stripTextureField={tinaField(aboutRecord, "trustStripTexture")}
-          stripTexture={text(about.trustStripTexture, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-strip-texture.jpg")}
+          stripTexture={text(about.trustStripTexture, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-strip-texture.jpg")}
         />
       </div> : null}
 
@@ -595,7 +595,7 @@ export default function FigmaHome({ page }: Props) {
 
       {hasTemplate("contactSection") ? <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-50)] py-16" data-tina-field={tinaField(contactRecord)} style={{ order: getSectionOrder("contactSection", 9, 1) }}>
         <div className="absolute inset-0 bg-[#f2f2f2]" />
-        <img alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" src="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/showroom-texture.png" />
+        <img alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" src="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-texture.png" />
 
         <div className="cp-container relative px-4 md:px-0">
           <div className="mx-auto grid max-w-[1248px] gap-12 md:grid-cols-[412px_623px] md:justify-between md:gap-10">

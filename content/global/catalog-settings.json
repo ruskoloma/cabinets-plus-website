@@ -1,25 +1,43 @@
 {
+  "stainTypes": [
+    {
+      "value": "white glaze stain",
+      "label": "White glaze",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/stain-white-glaze.png"
+    },
+    {
+      "value": "mocha stain",
+      "label": "Mocha",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/mocha.png"
+    }
+  ],
   "doorStyles": [
     {
       "value": "shaker",
       "label": "Shaker",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-shaker.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-shaker.png"
     },
     {
       "value": "slim shaker",
       "label": "Slim Shaker",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-slim-shaker.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-slim-shaker.png"
     },
     {
       "value": "elegant shaker",
       "label": "Elegant Shaker",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-elegant-shaker.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-elegant-shaker.png"
     },
     {
       "value": "flat panel",
       "label": "Flat panel",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-flat-panel.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-flat-panel.png"
     }
+  ],
+  "rooms": [
+    "Kitchen",
+    "Bathroom",
+    "Laundry",
+    "Other"
   ],
   "paintOptions": [
     {
@@ -65,26 +83,8 @@
     {
       "value": "custom paint",
       "label": "Custom paint",
-      "image": "/figma/catalog/paint-custom-pattern.svg"
+      "image": "/library/catalog/paint-custom-pattern.svg"
     }
-  ],
-  "stainTypes": [
-    {
-      "value": "white glaze stain",
-      "label": "White glaze",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-white-glaze.png"
-    },
-    {
-      "value": "mocha stain",
-      "label": "Mocha",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-mocha.png"
-    }
-  ],
-  "rooms": [
-    "Kitchen",
-    "Bathroom",
-    "Laundry",
-    "Other"
   ],
   "countertopTypes": [
     "Quartz",

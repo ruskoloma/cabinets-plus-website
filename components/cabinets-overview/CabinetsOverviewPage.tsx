@@ -141,8 +141,8 @@ function OverlayOptionState({ selected }: { selected: boolean }) {
   if (selected) {
     return (
       <span className="absolute inset-0 flex items-center justify-center bg-black/30">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--cp-brand-neutral-300)] text-[26px] leading-none text-white">
-          ✓
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--cp-brand-neutral-300)]">
+          <img alt="" aria-hidden="true" className="h-6 w-6" src="/library/catalog/filter-card-selected-check.svg" />
         </span>
       </span>
     );
@@ -212,7 +212,7 @@ function FinishOptionCard({
         data-tina-field={hasCustomImage ? tinaField(record, "image") : tinaField(record, "swatchColor")}
         style={swatchStyle}
       >
-        {hasCustomImage ? <img alt={option.label} className="h-full w-full object-cover" src={option.image || ""} /> : null}
+        {hasCustomImage ? <img alt={option.label} className="h-full w-full object-contain" src={option.image || ""} /> : null}
 
         <OverlayOptionState selected={selected} />
       </span>
@@ -489,7 +489,7 @@ export default function CabinetsOverviewPage({
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                 <label className="flex h-10 w-full items-center gap-2 rounded-[2px] border border-[var(--cp-primary-100)] px-3 sm:w-[268px]">
-                  <img alt="" aria-hidden className="h-5 w-5" src="/figma/assets/nav-search.svg" />
+                  <img alt="" aria-hidden className="h-5 w-5" src="/library/header/nav-search.svg" />
                   <input
                     className="h-full w-full border-0 bg-transparent text-[14px] leading-[1.5] text-[var(--cp-primary-500)] outline-none placeholder:text-[var(--cp-primary-300)]"
                     defaultValue={queryState.q}
@@ -531,7 +531,7 @@ export default function CabinetsOverviewPage({
                       alt=""
                       aria-hidden
                       className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
-                      src="/figma/assets/nav-chevron-right.svg"
+                      src="/library/header/nav-chevron-right.svg"
                     />
                   </button>
 
@@ -598,7 +598,7 @@ export default function CabinetsOverviewPage({
                     type="button"
                   >
                       <span>Door style</span>
-                      <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/figma/assets/nav-chevron-right.svg" />
+                      <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
                     </button>
 
                     {openPanel === "doorStyle" ? (
@@ -666,7 +666,7 @@ export default function CabinetsOverviewPage({
                     type="button"
                   >
                       <span>Finish</span>
-                      <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/figma/assets/nav-chevron-right.svg" />
+                      <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
                     </button>
 
                     {openPanel === "finish" ? (
@@ -740,7 +740,7 @@ export default function CabinetsOverviewPage({
                     type="button"
                   >
                     <span>{selectedStyleLabel}</span>
-                    <img alt="" aria-hidden className="h-4 w-4" src="/figma/assets/nav-close.svg" />
+                    <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
                   </button>
                 ) : null}
 
@@ -751,7 +751,7 @@ export default function CabinetsOverviewPage({
                     type="button"
                   >
                     <span>{selectedFinishLabel}</span>
-                    <img alt="" aria-hidden className="h-4 w-4" src="/figma/assets/nav-close.svg" />
+                    <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
                   </button>
                 ) : null}
 
@@ -820,7 +820,7 @@ export default function CabinetsOverviewPage({
                     disabled={currentPage <= 1}
                     onClick={() => updateQuery({ page: String(Math.max(1, currentPage - 1)) })}
                   >
-                    <img alt="" aria-hidden className="h-4 w-4 rotate-180" src="/figma/assets/nav-chevron-right.svg" />
+                    <img alt="" aria-hidden className="h-4 w-4 rotate-180" src="/library/header/nav-chevron-right.svg" />
                   </PaginationButton>
 
                   {visiblePages.map((page) => (
@@ -837,7 +837,7 @@ export default function CabinetsOverviewPage({
                     disabled={currentPage >= totalPages}
                     onClick={() => updateQuery({ page: String(Math.min(totalPages, currentPage + 1)) })}
                   >
-                    <img alt="" aria-hidden className="h-4 w-4" src="/figma/assets/nav-chevron-right.svg" />
+                    <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-chevron-right.svg" />
                   </PaginationButton>
                 </div>
               ) : null}

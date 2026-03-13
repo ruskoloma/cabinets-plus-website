@@ -49,10 +49,10 @@ export function normalizeOptionValue(value: string): string {
 }
 
 const DEFAULT_DOOR_STYLE_OPTIONS: CatalogVisualOption[] = [
-  { value: "shaker", label: "Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-shaker.png" },
-  { value: "slim shaker", label: "Slim Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-slim-shaker.png" },
-  { value: "elegant shaker", label: "Elegant Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-elegant-shaker.png" },
-  { value: "flat panel", label: "Flat panel", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-flat-panel.png" },
+  { value: "shaker", label: "Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-shaker.png" },
+  { value: "slim shaker", label: "Slim Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-slim-shaker.png" },
+  { value: "elegant shaker", label: "Elegant Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-elegant-shaker.png" },
+  { value: "flat panel", label: "Flat panel", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/door-style-flat-panel.png" },
 ];
 
 const DEFAULT_PAINT_OPTIONS: CatalogVisualOption[] = [
@@ -64,12 +64,12 @@ const DEFAULT_PAINT_OPTIONS: CatalogVisualOption[] = [
   { value: "blue", label: "Blue", swatchColor: "#47596A" },
   { value: "green", label: "Green", swatchColor: "#56716F" },
   { value: "black", label: "Black", swatchColor: "#101010" },
-  { value: "custom paint", label: "Custom paint", image: "/figma/catalog/paint-custom-pattern.svg" },
+  { value: "custom paint", label: "Custom paint", image: "/library/catalog/paint-custom-pattern.svg" },
 ];
 
 const DEFAULT_STAIN_OPTIONS: CatalogVisualOption[] = [
-  { value: "white glaze stain", label: "White glaze", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-white-glaze.png" },
-  { value: "mocha stain", label: "Mocha", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-mocha.png" },
+  { value: "white glaze stain", label: "White glaze", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/catalog/stain-white-glaze.png" },
+  { value: "mocha stain", label: "Mocha", image: "" },
 ];
 
 const DEFAULT_ROOMS = ["Kitchen", "Bathroom", "Laundry", "Other"];

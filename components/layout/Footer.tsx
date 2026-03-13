@@ -20,8 +20,8 @@ interface GlobalData {
 }
 
 const PINTEREST_URL = "https://www.pinterest.com/";
-const FOOTER_TPM_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-membership-mobile-bottom.png";
-const FOOTER_SHBA_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-shba.png";
+const FOOTER_TPM_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-membership-mobile-bottom.png";
+const FOOTER_SHBA_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-shba.png";
 
 function FooterLinkItem({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -99,9 +99,9 @@ export default function Footer({ data, raw }: { data: GlobalData; raw: Record<st
           <div className="flex items-center gap-14 pt-2">
             <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-white">Follow us:</p>
             <div className="flex items-center gap-6">
-              <SocialIcon alt="Pinterest" field={tinaField(raw, "pinterestUrl")} href={pinterestUrl} src="/figma/assets/footer-social-pinterest.svg" />
-              <SocialIcon alt="Instagram" field={tinaField(raw, "instagramUrl")} href={instagramUrl} src="/figma/assets/footer-social-instagram.svg" />
-              <SocialIcon alt="Facebook" field={tinaField(raw, "facebookUrl")} href={facebookUrl} src="/figma/assets/footer-social-facebook.svg" />
+              <SocialIcon alt="Pinterest" field={tinaField(raw, "pinterestUrl")} href={pinterestUrl} src="/library/footer/footer-social-pinterest.svg" />
+              <SocialIcon alt="Instagram" field={tinaField(raw, "instagramUrl")} href={instagramUrl} src="/library/footer/footer-social-instagram.svg" />
+              <SocialIcon alt="Facebook" field={tinaField(raw, "facebookUrl")} href={facebookUrl} src="/library/footer/footer-social-facebook.svg" />
             </div>
           </div>
         </div>
@@ -111,15 +111,15 @@ export default function Footer({ data, raw }: { data: GlobalData; raw: Record<st
         <div className="mt-[30px] flex items-start justify-between">
           <div className="w-[262px] space-y-4">
             <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(raw, "address")}>
-              <img alt="" aria-hidden className="h-5 w-5" src="/figma/assets/footer-icon-location.svg" />
+              <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-location.svg" />
               <span>{primaryAddress}</span>
             </p>
             <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(raw, "phone")}>
-              <img alt="" aria-hidden className="h-5 w-5" src="/figma/assets/footer-icon-mail.svg" />
+              <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-mail.svg" />
               <span>{phone}</span>
             </p>
             <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(raw, "email")}>
-              <img alt="" aria-hidden className="h-5 w-5" src="/figma/assets/footer-icon-phone.svg" />
+              <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-phone.svg" />
               <span>{email}</span>
             </p>
           </div>
@@ -170,15 +170,15 @@ export default function Footer({ data, raw }: { data: GlobalData; raw: Record<st
 
         <div className="mt-[17px] w-[262px] space-y-4">
           <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(raw, "address")}>
-            <img alt="" aria-hidden className="h-5 w-5" src="/figma/assets/footer-icon-location.svg" />
+            <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-location.svg" />
             <span>{primaryAddress}</span>
           </p>
           <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(raw, "phone")}>
-            <img alt="" aria-hidden className="h-5 w-5" src="/figma/assets/footer-icon-mail.svg" />
+            <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-mail.svg" />
             <span>{phone}</span>
           </p>
           <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(raw, "email")}>
-            <img alt="" aria-hidden className="h-5 w-5" src="/figma/assets/footer-icon-phone.svg" />
+            <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-phone.svg" />
             <span>{email}</span>
           </p>
         </div>
@@ -205,9 +205,9 @@ export default function Footer({ data, raw }: { data: GlobalData; raw: Record<st
         <div className="mt-[87px]">
           <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase leading-[1.5] tracking-[0.01em] text-white">Follow us:</p>
           <div className="mt-4 flex items-center gap-6">
-            <SocialIcon alt="Pinterest" field={tinaField(raw, "pinterestUrl")} href={pinterestUrl} src="/figma/assets/footer-social-pinterest.svg" />
-            <SocialIcon alt="Instagram" field={tinaField(raw, "instagramUrl")} href={instagramUrl} src="/figma/assets/footer-social-instagram.svg" />
-            <SocialIcon alt="Facebook" field={tinaField(raw, "facebookUrl")} href={facebookUrl} src="/figma/assets/footer-social-facebook.svg" />
+            <SocialIcon alt="Pinterest" field={tinaField(raw, "pinterestUrl")} href={pinterestUrl} src="/library/footer/footer-social-pinterest.svg" />
+            <SocialIcon alt="Instagram" field={tinaField(raw, "instagramUrl")} href={instagramUrl} src="/library/footer/footer-social-instagram.svg" />
+            <SocialIcon alt="Facebook" field={tinaField(raw, "facebookUrl")} href={facebookUrl} src="/library/footer/footer-social-facebook.svg" />
           </div>
         </div>
 

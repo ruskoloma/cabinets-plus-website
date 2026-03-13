@@ -84,8 +84,8 @@ function StaticLayout({ global, children }: { global: GlobalSettings; children: 
 
 const FALLBACK_GLOBAL: GlobalSettings = {
   siteName: "Cabinets Plus",
-  logo: "/figma/assets/logo-main.svg",
-  footerLogo: "/figma/assets/logo-footer-light.svg",
+  logo: "/library/branding/logo-main.svg",
+  footerLogo: "/library/branding/logo-footer-light.svg",
   phone: "1-509-218-3349",
   address: "4630 E Sprague Ave",
   email: "info@spokanecabinetsplus.com",

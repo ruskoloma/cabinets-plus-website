@@ -12,7 +12,7 @@ function text(value: unknown, fallback = ""): string {
 }
 
 export default function ContactUsSection({ block }: ContactUsSectionProps) {
-  const contactImage = text(block.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/contact-figma.jpg");
+  const contactImage = text(block.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg");
 
   return (
     <section className="bg-[var(--cp-brand-neutral-100)]" data-tina-field={tinaField(block)}>

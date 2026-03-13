@@ -45,7 +45,7 @@ function ArrowNavButton({
 
   const content = (
     <span className="flex h-full w-full items-center justify-center">
-      <img alt="" aria-hidden className={`h-6 w-6 ${iconClass}`} src="/figma/assets/nav-chevron-right.svg" />
+      <img alt="" aria-hidden className={`h-6 w-6 ${iconClass}`} src="/library/header/nav-chevron-right.svg" />
     </span>
   );
 
@@ -146,7 +146,7 @@ export default function CabinetDoorPage({
                       alt=""
                       aria-hidden
                       className={`h-6 w-6 transition-transform ${descriptionOpen ? "rotate-90" : ""}`}
-                      src="/figma/assets/nav-chevron-right.svg"
+                      src="/library/header/nav-chevron-right.svg"
                     />
                     <span>{pageText.descriptionLabel}</span>
                   </button>
