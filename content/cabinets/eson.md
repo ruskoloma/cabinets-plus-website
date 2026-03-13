@@ -143,13 +143,14 @@ media:
     stain: ''
 sourceId: 279
 sourceUpdatedAt: '2025-07-25T22:53:53.604Z'
-stainType: ''
+stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/fsh-iwb.md
   - product: content/cabinets/fsh-nbb.md
   - product: content/cabinets/fsl-dgb.md
   - product: content/cabinets/fsl-iwb.md
+doorStyle: elegant shaker
 paint: timber
 ---
 

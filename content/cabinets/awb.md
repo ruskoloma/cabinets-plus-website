@@ -139,6 +139,7 @@ relatedProducts:
   - product: content/cabinets/bfk.md
   - product: content/cabinets/bgk.md
   - product: content/cabinets/bmk.md
+doorStyle: flat panel
 paint: white
 ---
 

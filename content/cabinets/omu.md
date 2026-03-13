@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/osn.md
   - product: content/cabinets/osu.md
   - product: content/cabinets/otu.md
+doorStyle: flat panel
 paint: custom paint
 ---
 

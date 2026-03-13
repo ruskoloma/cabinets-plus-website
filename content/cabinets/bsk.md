@@ -102,6 +102,7 @@ relatedProducts:
   - product: content/cabinets/csu.md
   - product: content/cabinets/cwu.md
   - product: content/cabinets/escp.md
+doorStyle: flat panel
 paint: gray
 ---
 

@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/haan.md
   - product: content/cabinets/habn.md
   - product: content/cabinets/hawn.md
+doorStyle: elegant shaker
 paint: off white
 ---
 

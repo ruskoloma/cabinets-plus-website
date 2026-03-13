@@ -90,6 +90,7 @@ relatedProducts:
   - product: content/cabinets/arm.md
   - product: content/cabinets/atb.md
   - product: content/cabinets/awb.md
+doorStyle: shaker
 paint: gray
 ---
 

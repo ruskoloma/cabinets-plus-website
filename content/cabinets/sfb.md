@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/sk.md
   - product: content/cabinets/skk.md
   - product: content/cabinets/smb.md
+doorStyle: slim shaker
 paint: white
 ---
 

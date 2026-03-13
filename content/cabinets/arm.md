@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/awb.md
   - product: content/cabinets/axm.md
   - product: content/cabinets/bfk.md
+doorStyle: shaker
 paint: gray
 ---
 

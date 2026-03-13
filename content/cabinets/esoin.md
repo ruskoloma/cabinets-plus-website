@@ -90,6 +90,7 @@ relatedProducts:
   - product: content/cabinets/eson.md
   - product: content/cabinets/fsh-iwb.md
   - product: content/cabinets/fsh-nbb.md
+doorStyle: elegant shaker
 paint: off white
 ---
 

@@ -127,6 +127,7 @@ relatedProducts:
   - product: content/cabinets/aap.md
   - product: content/cabinets/abb.md
   - product: content/cabinets/acb.md
+doorStyle: flat panel
 paint: white
 ---
 

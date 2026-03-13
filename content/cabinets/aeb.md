@@ -115,6 +115,7 @@ relatedProducts:
   - product: content/cabinets/anm.md
   - product: content/cabinets/aop.md
   - product: content/cabinets/arm.md
+doorStyle: flat panel
 paint: custom paint
 ---
 

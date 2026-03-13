@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/psm.md
   - product: content/cabinets/rhc.md
   - product: content/cabinets/sbu.md
+doorStyle: flat panel
 paint: blue
 ---
 

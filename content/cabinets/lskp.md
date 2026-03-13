@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/mbs.md
   - product: content/cabinets/mhws.md
   - product: content/cabinets/moss.md
+doorStyle: shaker
 paint: custom paint
 ---
 

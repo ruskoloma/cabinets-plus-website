@@ -126,6 +126,7 @@ relatedProducts:
   - product: content/cabinets/aeb.md
   - product: content/cabinets/algb.md
   - product: content/cabinets/anm.md
+doorStyle: flat panel
 paint: blue
 ---
 

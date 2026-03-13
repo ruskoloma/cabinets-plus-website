@@ -138,6 +138,7 @@ relatedProducts:
   - product: content/cabinets/lse.md
   - product: content/cabinets/lsg.md
   - product: content/cabinets/lskp.md
+doorStyle: shaker
 paint: green
 ---
 

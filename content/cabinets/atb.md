@@ -120,13 +120,14 @@ media:
     stain: ''
 sourceId: 243
 sourceUpdatedAt: '2025-07-25T22:53:52.983Z'
-stainType: ''
+stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/awb.md
   - product: content/cabinets/axm.md
   - product: content/cabinets/bfk.md
   - product: content/cabinets/bgk.md
+doorStyle: flat panel
 paint: timber
 ---
 

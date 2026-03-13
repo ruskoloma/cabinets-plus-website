@@ -114,6 +114,7 @@ relatedProducts:
   - product: content/cabinets/swk.md
   - product: content/cabinets/swoa.md
   - product: content/cabinets/swu.md
+doorStyle: shaker
 paint: green
 ---
 

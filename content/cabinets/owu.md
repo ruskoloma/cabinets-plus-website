@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/prm.md
   - product: content/cabinets/psm.md
   - product: content/cabinets/rhc.md
+doorStyle: flat panel
 paint: white
 ---
 

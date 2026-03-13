@@ -59,13 +59,14 @@ media:
     stain: ''
 sourceId: 307
 sourceUpdatedAt: '2025-07-25T22:53:56.098Z'
-stainType: ''
+stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/owk.md
   - product: content/cabinets/owu.md
   - product: content/cabinets/pdm.md
   - product: content/cabinets/prm.md
+doorStyle: flat panel
 paint: brown
 ---
 

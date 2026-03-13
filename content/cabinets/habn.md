@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/jgs.md
   - product: content/cabinets/lsa.md
   - product: content/cabinets/lse.md
+doorStyle: shaker
 paint: custom paint
 ---
 

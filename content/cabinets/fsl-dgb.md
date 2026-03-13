@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/fsl-nbb.md
   - product: content/cabinets/haan.md
   - product: content/cabinets/habn.md
+doorStyle: elegant shaker
 paint: gray
 ---
 

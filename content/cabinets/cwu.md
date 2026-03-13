@@ -2,6 +2,7 @@
 name: Antique White
 code: CWU
 slug: cwu
+doorStyle: flat panel
 paint: off white
 stainType: ''
 description: |-

@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/tgm.md
   - product: content/cabinets/twb.md
   - product: content/cabinets/aab.md
+doorStyle: shaker
 paint: white
 ---
 

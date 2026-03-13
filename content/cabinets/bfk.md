@@ -102,6 +102,7 @@ relatedProducts:
   - product: content/cabinets/bmk.md
   - product: content/cabinets/bsk.md
   - product: content/cabinets/bwk.md
+doorStyle: flat panel
 paint: custom paint
 ---
 

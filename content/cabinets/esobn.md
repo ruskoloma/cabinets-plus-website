@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/esomn.md
   - product: content/cabinets/eson.md
   - product: content/cabinets/fsh-iwb.md
+doorStyle: elegant shaker
 paint: black
 ---
 

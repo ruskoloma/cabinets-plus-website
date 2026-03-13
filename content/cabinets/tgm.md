@@ -102,6 +102,7 @@ relatedProducts:
   - product: content/cabinets/aab.md
   - product: content/cabinets/aap.md
   - product: content/cabinets/abb.md
+doorStyle: flat panel
 paint: gray
 ---
 

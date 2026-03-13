@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/habn.md
   - product: content/cabinets/hawn.md
   - product: content/cabinets/jgs.md
+doorStyle: elegant shaker
 paint: blue
 ---
 

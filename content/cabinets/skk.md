@@ -59,13 +59,14 @@ media:
     stain: ''
 sourceId: 264
 sourceUpdatedAt: '2025-07-25T22:53:54.972Z'
-stainType: ''
+stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/smb.md
   - product: content/cabinets/snu.md
   - product: content/cabinets/ssgh.md
   - product: content/cabinets/sskp.md
+doorStyle: shaker
 paint: brown
 ---
 

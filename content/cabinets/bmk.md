@@ -102,6 +102,7 @@ relatedProducts:
   - product: content/cabinets/bwk.md
   - product: content/cabinets/csu.md
   - product: content/cabinets/cwu.md
+doorStyle: flat panel
 paint: custom paint
 ---
 

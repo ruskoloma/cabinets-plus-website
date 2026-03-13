@@ -138,6 +138,7 @@ relatedProducts:
   - product: content/cabinets/mhws.md
   - product: content/cabinets/moss.md
   - product: content/cabinets/nwk.md
+doorStyle: shaker
 paint: white
 ---
 

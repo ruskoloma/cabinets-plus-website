@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/sdwa.md
   - product: content/cabinets/sdwh.md
   - product: content/cabinets/sek.md
+doorStyle: shaker
 paint: gray
 ---
 

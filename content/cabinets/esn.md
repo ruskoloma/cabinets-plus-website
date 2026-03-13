@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/esobn.md
   - product: content/cabinets/esoin.md
   - product: content/cabinets/esomn.md
+doorStyle: elegant shaker
 paint: white
 ---
 

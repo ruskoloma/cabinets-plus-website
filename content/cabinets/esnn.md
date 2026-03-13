@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/esoin.md
   - product: content/cabinets/esomn.md
   - product: content/cabinets/eson.md
+doorStyle: elegant shaker
 paint: blue
 ---
 

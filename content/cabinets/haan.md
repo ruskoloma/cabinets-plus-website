@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/hawn.md
   - product: content/cabinets/jgs.md
   - product: content/cabinets/lsa.md
+doorStyle: shaker
 paint: gray
 ---
 

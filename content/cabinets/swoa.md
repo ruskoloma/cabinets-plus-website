@@ -102,6 +102,7 @@ relatedProducts:
   - product: content/cabinets/tgb.md
   - product: content/cabinets/tgm.md
   - product: content/cabinets/twb.md
+doorStyle: slim shaker
 paint: white
 ---
 

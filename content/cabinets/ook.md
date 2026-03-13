@@ -56,6 +56,7 @@ relatedProducts:
   - product: content/cabinets/osu.md
   - product: content/cabinets/otu.md
   - product: content/cabinets/owk.md
+doorStyle: slim shaker
 paint: white
 ---
 

@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/esnn.md
   - product: content/cabinets/esobn.md
   - product: content/cabinets/esoin.md
+doorStyle: elegant shaker
 paint: gray
 ---
 

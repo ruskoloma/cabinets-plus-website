@@ -102,6 +102,7 @@ relatedProducts:
   - product: content/cabinets/ook.md
   - product: content/cabinets/osn.md
   - product: content/cabinets/osu.md
+doorStyle: flat panel
 paint: white
 ---
 

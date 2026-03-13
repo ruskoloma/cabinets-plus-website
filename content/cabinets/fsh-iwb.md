@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/fsl-dgb.md
   - product: content/cabinets/fsl-iwb.md
   - product: content/cabinets/fsl-nbb.md
+doorStyle: elegant shaker
 paint: off white
 ---
 

@@ -59,13 +59,14 @@ media:
     stain: ''
 sourceId: 271
 sourceUpdatedAt: '2025-07-25T22:53:54.159Z'
-stainType: ''
+stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/rhc.md
   - product: content/cabinets/sbu.md
   - product: content/cabinets/scu.md
   - product: content/cabinets/sdu.md
+doorStyle: flat panel
 paint: brown
 ---
 

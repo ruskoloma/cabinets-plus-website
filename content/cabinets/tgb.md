@@ -126,6 +126,7 @@ relatedProducts:
   - product: content/cabinets/twb.md
   - product: content/cabinets/aab.md
   - product: content/cabinets/aap.md
+doorStyle: flat panel
 paint: custom paint
 ---
 

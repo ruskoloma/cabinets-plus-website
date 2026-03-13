@@ -126,6 +126,7 @@ relatedProducts:
   - product: content/cabinets/swu.md
   - product: content/cabinets/tgb.md
   - product: content/cabinets/tgm.md
+doorStyle: shaker
 paint: white
 ---
 

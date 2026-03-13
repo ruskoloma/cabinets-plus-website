@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/bgk.md
   - product: content/cabinets/bmk.md
   - product: content/cabinets/bsk.md
+doorStyle: shaker
 paint: blue
 ---
 

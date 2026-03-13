@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/fsh-iwb.md
   - product: content/cabinets/fsh-nbb.md
   - product: content/cabinets/fsl-dgb.md
+doorStyle: elegant shaker
 paint: brown
 ---
 

@@ -90,6 +90,7 @@ relatedProducts:
   - product: content/cabinets/moss.md
   - product: content/cabinets/nwk.md
   - product: content/cabinets/omu.md
+doorStyle: flat panel
 paint: black
 ---
 

@@ -90,6 +90,7 @@ relatedProducts:
   - product: content/cabinets/sek.md
   - product: content/cabinets/sfb.md
   - product: content/cabinets/sgu.md
+doorStyle: slim shaker
 paint: white
 ---
 

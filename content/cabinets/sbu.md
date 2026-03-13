@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/sdu.md
   - product: content/cabinets/sdwa.md
   - product: content/cabinets/sdwh.md
+doorStyle: shaker
 paint: black
 ---
 

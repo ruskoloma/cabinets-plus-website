@@ -56,6 +56,7 @@ relatedProducts:
   - product: content/cabinets/pdm.md
   - product: content/cabinets/prm.md
   - product: content/cabinets/psm.md
+doorStyle: slim shaker
 paint: white
 ---
 

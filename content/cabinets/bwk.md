@@ -126,6 +126,7 @@ relatedProducts:
   - product: content/cabinets/cwu.md
   - product: content/cabinets/escp.md
   - product: content/cabinets/esgn.md
+doorStyle: flat panel
 paint: white
 ---
 

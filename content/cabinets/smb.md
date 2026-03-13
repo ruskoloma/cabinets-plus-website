@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/ssgh.md
   - product: content/cabinets/sskp.md
   - product: content/cabinets/swk.md
+doorStyle: slim shaker
 paint: brown
 ---
 

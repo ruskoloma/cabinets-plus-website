@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/nwk.md
   - product: content/cabinets/omu.md
   - product: content/cabinets/ook.md
+doorStyle: shaker
 paint: off white
 ---
 

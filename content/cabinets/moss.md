@@ -56,6 +56,7 @@ relatedProducts:
   - product: content/cabinets/omu.md
   - product: content/cabinets/ook.md
   - product: content/cabinets/osn.md
+doorStyle: shaker
 paint: custom paint
 ---
 

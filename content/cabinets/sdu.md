@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/sdwh.md
   - product: content/cabinets/sek.md
   - product: content/cabinets/sfb.md
+doorStyle: shaker
 paint: custom paint
 ---
 

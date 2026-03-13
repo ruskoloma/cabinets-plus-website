@@ -102,6 +102,7 @@ relatedProducts:
   - product: content/cabinets/sfb.md
   - product: content/cabinets/sgu.md
   - product: content/cabinets/sk.md
+doorStyle: shaker
 paint: white
 ---
 

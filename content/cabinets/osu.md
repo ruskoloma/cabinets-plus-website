@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/owk.md
   - product: content/cabinets/owu.md
   - product: content/cabinets/pdm.md
+doorStyle: flat panel
 paint: green
 ---
 

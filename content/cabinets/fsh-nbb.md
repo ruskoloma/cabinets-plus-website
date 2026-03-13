@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/fsl-iwb.md
   - product: content/cabinets/fsl-nbb.md
   - product: content/cabinets/haan.md
+doorStyle: elegant shaker
 paint: blue
 ---
 

@@ -67,6 +67,7 @@ media:
     stain: ''
 sourceId: 240
 sourceUpdatedAt: 2025-07-25T22:53:52.619Z
+doorStyle: flat panel
 paint: custom paint
 ---
 

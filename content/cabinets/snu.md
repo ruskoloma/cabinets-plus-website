@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/sskp.md
   - product: content/cabinets/swk.md
   - product: content/cabinets/swoa.md
+doorStyle: shaker
 paint: blue
 ---
 

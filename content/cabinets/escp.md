@@ -106,5 +106,6 @@ relatedProducts:
   - product: content/cabinets/esn.md
   - product: content/cabinets/esnn.md
   - product: content/cabinets/esobn.md
+doorStyle: elegant shaker
 paint: custom paint
 ---

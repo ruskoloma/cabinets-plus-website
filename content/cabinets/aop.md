@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/atb.md
   - product: content/cabinets/awb.md
   - product: content/cabinets/axm.md
+doorStyle: shaker
 paint: custom paint
 ---
 

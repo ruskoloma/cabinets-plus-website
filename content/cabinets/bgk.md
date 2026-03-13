@@ -114,6 +114,7 @@ relatedProducts:
   - product: content/cabinets/bsk.md
   - product: content/cabinets/bwk.md
   - product: content/cabinets/csu.md
+doorStyle: flat panel
 paint: gray
 ---
 

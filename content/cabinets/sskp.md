@@ -56,6 +56,7 @@ relatedProducts:
   - product: content/cabinets/swoa.md
   - product: content/cabinets/swu.md
   - product: content/cabinets/tgb.md
+doorStyle: slim shaker
 paint: custom paint
 ---
 

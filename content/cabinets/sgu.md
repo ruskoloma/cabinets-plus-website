@@ -66,6 +66,7 @@ relatedProducts:
   - product: content/cabinets/skk.md
   - product: content/cabinets/smb.md
   - product: content/cabinets/snu.md
+doorStyle: shaker
 paint: gray
 ---
 

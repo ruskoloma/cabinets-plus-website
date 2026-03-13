@@ -90,6 +90,7 @@ relatedProducts:
   - product: content/cabinets/lsg.md
   - product: content/cabinets/lskp.md
   - product: content/cabinets/lsw.md
+doorStyle: shaker
 paint: gray
 ---
 
