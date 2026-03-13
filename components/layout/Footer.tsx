@@ -20,8 +20,8 @@ interface GlobalData {
 }
 
 const PINTEREST_URL = "https://www.pinterest.com/";
-const FOOTER_TPM_LOGO = "/figma/assets/trust-membership-mobile-bottom.png";
-const FOOTER_SHBA_LOGO = "/figma/assets/trust-shba.png";
+const FOOTER_TPM_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-membership-mobile-bottom.png";
+const FOOTER_SHBA_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/assets/trust-shba.png";
 
 function FooterLinkItem({ href, children }: { href: string; children: React.ReactNode }) {
   return (

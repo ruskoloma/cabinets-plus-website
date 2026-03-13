@@ -3,22 +3,22 @@
     {
       "value": "shaker",
       "label": "Shaker",
-      "image": "/figma/catalog/door-style-shaker.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-shaker.png"
     },
     {
       "value": "slim shaker",
       "label": "Slim Shaker",
-      "image": "/figma/catalog/door-style-slim-shaker.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-slim-shaker.png"
     },
     {
       "value": "elegant shaker",
       "label": "Elegant Shaker",
-      "image": "/figma/catalog/door-style-elegant-shaker.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-elegant-shaker.png"
     },
     {
       "value": "flat panel",
       "label": "Flat panel",
-      "image": "/figma/catalog/door-style-flat-panel.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-flat-panel.png"
     }
   ],
   "paintOptions": [
@@ -72,12 +72,12 @@
     {
       "value": "white glaze stain",
       "label": "White glaze",
-      "image": "/figma/catalog/stain-white-glaze.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-white-glaze.png"
     },
     {
       "value": "mocha stain",
       "label": "Mocha",
-      "image": "/figma/catalog/stain-mocha.png"
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-mocha.png"
     }
   ],
   "rooms": [

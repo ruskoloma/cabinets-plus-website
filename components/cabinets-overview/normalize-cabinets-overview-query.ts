@@ -49,10 +49,10 @@ export function normalizeOptionValue(value: string): string {
 }
 
 const DEFAULT_DOOR_STYLE_OPTIONS: CatalogVisualOption[] = [
-  { value: "shaker", label: "Shaker", image: "/figma/catalog/door-style-shaker.png" },
-  { value: "slim shaker", label: "Slim Shaker", image: "/figma/catalog/door-style-slim-shaker.png" },
-  { value: "elegant shaker", label: "Elegant Shaker", image: "/figma/catalog/door-style-elegant-shaker.png" },
-  { value: "flat panel", label: "Flat panel", image: "/figma/catalog/door-style-flat-panel.png" },
+  { value: "shaker", label: "Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-shaker.png" },
+  { value: "slim shaker", label: "Slim Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-slim-shaker.png" },
+  { value: "elegant shaker", label: "Elegant Shaker", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-elegant-shaker.png" },
+  { value: "flat panel", label: "Flat panel", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/door-style-flat-panel.png" },
 ];
 
 const DEFAULT_PAINT_OPTIONS: CatalogVisualOption[] = [
@@ -68,8 +68,8 @@ const DEFAULT_PAINT_OPTIONS: CatalogVisualOption[] = [
 ];
 
 const DEFAULT_STAIN_OPTIONS: CatalogVisualOption[] = [
-  { value: "white glaze stain", label: "White glaze", image: "/figma/catalog/stain-white-glaze.png" },
-  { value: "mocha stain", label: "Mocha", image: "/figma/catalog/stain-mocha.png" },
+  { value: "white glaze stain", label: "White glaze", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-white-glaze.png" },
+  { value: "mocha stain", label: "Mocha", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/catalog/stain-mocha.png" },
 ];
 
 const DEFAULT_ROOMS = ["Kitchen", "Bathroom", "Laundry", "Other"];

@@ -71,16 +71,16 @@ export default function ComponentsShowcasePage() {
       <section className="cp-container px-4 py-8 md:px-8">
         <h2 className="text-[24px] uppercase md:text-[32px]">Cards</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <PreviewCard href="#" image="/figma/home/product-cabinets.jpg" imageClassName="h-[320px]" title="cabinets" />
+          <PreviewCard href="#" image="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/product-cabinets.jpg" imageClassName="h-[320px]" title="cabinets" />
           <PreviewCard
             description="Cabinets Plus provides professional remodeling services in Spokane."
-            image="/figma/home/service-kitchen.jpg"
+            image="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/service-kitchen.jpg"
             imageClassName="h-[320px]"
             title="Kitchen remodel"
           />
           <PreviewCard
             description="Our semi-custom cabinets give you design flexibility without custom pricing."
-            image="/figma/home/feature-1.jpg"
+            image="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/feature-1.jpg"
             imageClassName="h-[320px]"
             title="More Design Freedom, Better Value"
           />
@@ -92,11 +92,11 @@ export default function ComponentsShowcasePage() {
           <h2 className="text-[24px] uppercase md:text-[32px]">Project Mosaic</h2>
           <ProjectMosaic
             images={[
-              "/figma/home/project-main.jpg",
-              "/figma/home/project-2.jpg",
-              "/figma/home/project-3.jpg",
-              "/figma/home/project-4.jpg",
-              "/figma/home/project-5.jpg",
+              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-main.jpg",
+              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-2.jpg",
+              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-3.jpg",
+              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-4.jpg",
+              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-5.jpg",
             ]}
           />
         </div>

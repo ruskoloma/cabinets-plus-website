@@ -55,10 +55,10 @@ function readNonEmpty(value: unknown, fallback: string): string {
 }
 
 const DEFAULT_PROJECT_MOCK_FILES = [
-  "/figma/home/project-main.jpg",
-  "/figma/home/project-2.jpg",
-  "/figma/home/project-3.jpg",
-  "/figma/home/project-4.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-main.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-2.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-3.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-4.jpg",
 ];
 
 const DEFAULT_CABINET_PAGE_TEXT: CabinetPageTextConfig = {

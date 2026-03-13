@@ -9,19 +9,19 @@
   "projectFallbackTitle": "Project Name",
   "mockProjects": [
     {
-      "file": "/figma/home/project-main.jpg",
+      "file": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-main.jpg",
       "title": "Project Name"
     },
     {
-      "file": "/figma/home/project-2.jpg",
+      "file": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-2.jpg",
       "title": "Project Name"
     },
     {
-      "file": "/figma/home/project-3.jpg",
+      "file": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-3.jpg",
       "title": "Project Name"
     },
     {
-      "file": "/figma/home/project-4.jpg",
+      "file": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/site-assets/figma/home/project-4.jpg",
       "title": "Project Name"
     }
   ]
