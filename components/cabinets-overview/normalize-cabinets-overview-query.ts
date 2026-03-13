@@ -1,0 +1,205 @@
+import type {
+  CabinetOverviewItem,
+  CabinetsOverviewDataShape,
+  CatalogSettingsData,
+  CatalogSystemInfo,
+  CatalogVisualOption,
+} from "./types";
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object") return null;
+  return value as Record<string, unknown>;
+}
+
+function asString(value: unknown): string | undefined {
+  return typeof value === "string" ? value : undefined;
+}
+
+function toSlug(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/\.md$/i, "")
+    .replace(/^content\//i, "")
+    .replace(/^cabinets\//i, "")
+    .replace(/\s+/g, "-");
+}
+
+function toLabel(value: string): string {
+  return value
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function normalizeSystemInfo(value: unknown, fallbackFilename?: string): CatalogSystemInfo | undefined {
+  const record = asRecord(value);
+  if (!record && !fallbackFilename) return undefined;
+
+  return {
+    filename: asString(record?.filename) || fallbackFilename,
+    basename: asString(record?.basename) || fallbackFilename?.replace(/\.md$/i, ""),
+    relativePath: asString(record?.relativePath) || (fallbackFilename ? `cabinets/${fallbackFilename}` : undefined),
+  };
+}
+
+export function normalizeOptionValue(value: string): string {
+  return value.trim().toLowerCase();
+}
+
+const DEFAULT_DOOR_STYLE_OPTIONS: CatalogVisualOption[] = [
+  { value: "shaker", label: "Shaker", image: "/figma/catalog/door-style-shaker.png" },
+  { value: "slim shaker", label: "Slim Shaker", image: "/figma/catalog/door-style-slim-shaker.png" },
+  { value: "elegant shaker", label: "Elegant Shaker", image: "/figma/catalog/door-style-elegant-shaker.png" },
+  { value: "flat panel", label: "Flat panel", image: "/figma/catalog/door-style-flat-panel.png" },
+];
+
+const DEFAULT_PAINT_OPTIONS: CatalogVisualOption[] = [
+  { value: "white", label: "White", swatchColor: "#FFFFFF" },
+  { value: "off white", label: "Off white", swatchColor: "#FAF9F6" },
+  { value: "timber", label: "Timber", swatchColor: "#966F33" },
+  { value: "gray", label: "Gray", swatchColor: "#D6D6D6" },
+  { value: "brown", label: "Brown", swatchColor: "#67564C" },
+  { value: "blue", label: "Blue", swatchColor: "#47596A" },
+  { value: "green", label: "Green", swatchColor: "#56716F" },
+  { value: "black", label: "Black", swatchColor: "#101010" },
+  { value: "custom paint", label: "Custom paint", image: "/figma/catalog/paint-custom-pattern.svg" },
+];
+
+const DEFAULT_STAIN_OPTIONS: CatalogVisualOption[] = [
+  { value: "white glaze stain", label: "White glaze", image: "/figma/catalog/stain-white-glaze.png" },
+  { value: "mocha stain", label: "Mocha", image: "/figma/catalog/stain-mocha.png" },
+];
+
+const DEFAULT_ROOMS = ["Kitchen", "Bathroom", "Laundry", "Other"];
+const DEFAULT_COUNTERTOP_TYPES = ["Quartz", "Granite", "Marble", "Quartzite", "Porcelain", "Butcher Block", "Other"];
+
+function normalizeCatalogOption(entry: unknown): CatalogVisualOption | null {
+  if (typeof entry === "string") {
+    const value = normalizeOptionValue(entry);
+    if (!value) return null;
+
+    return {
+      value,
+      label: toLabel(value),
+    };
+  }
+
+  const record = asRecord(entry);
+  if (!record) return null;
+
+  const rawValue = asString(record.value) || asString(record.label) || "";
+  const value = normalizeOptionValue(rawValue);
+  if (!value) return null;
+
+  return {
+    value,
+    label: asString(record.label)?.trim() || toLabel(value),
+    image: asString(record.image) || null,
+    swatchColor: asString(record.swatchColor) || null,
+    _content_source: record._content_source as unknown,
+  };
+}
+
+function normalizeCatalogOptionList(value: unknown, fallback: CatalogVisualOption[]): CatalogVisualOption[] {
+  if (!Array.isArray(value)) return fallback;
+
+  const normalized = value
+    .map((entry) => normalizeCatalogOption(entry))
+    .filter((entry): entry is CatalogVisualOption => Boolean(entry));
+
+  return normalized.length ? normalized : fallback;
+}
+
+function normalizeCabinet(value: unknown): CabinetOverviewItem | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  const fallbackFilename = asString(asRecord(record._sys)?.filename);
+  const fallbackSlug = fallbackFilename ? toSlug(fallbackFilename) : undefined;
+
+  return {
+    __typename: asString(record.__typename),
+    _sys: normalizeSystemInfo(record._sys, fallbackFilename),
+    id: asString(record.id),
+    name: asString(record.name) ?? null,
+    code: asString(record.code) ?? null,
+    slug: toSlug(asString(record.slug) || fallbackSlug || "") || null,
+    doorStyle: asString(record.doorStyle) ?? null,
+    paint: asString(record.paint) ?? null,
+    stainType: asString(record.stainType) ?? null,
+    description: asString(record.description) ?? null,
+    picture: asString(record.picture) ?? null,
+    sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
+    _content_source: record._content_source as unknown,
+    _values: record._values as unknown,
+  };
+}
+
+function normalizeCatalogSettings(value: unknown): CatalogSettingsData {
+  const record = asRecord(value);
+
+  return {
+    _sys: normalizeSystemInfo(record?._sys, "catalog-settings.json") || {
+      filename: "catalog-settings.json",
+      basename: "catalog-settings",
+      relativePath: "catalog-settings.json",
+    },
+    id: asString(record?.id),
+    doorStyles: normalizeCatalogOptionList(record?.doorStyles, DEFAULT_DOOR_STYLE_OPTIONS),
+    paintOptions: normalizeCatalogOptionList(record?.paintOptions, DEFAULT_PAINT_OPTIONS),
+    stainTypes: normalizeCatalogOptionList(record?.stainTypes, DEFAULT_STAIN_OPTIONS),
+    rooms: Array.isArray(record?.rooms)
+      ? record.rooms.map((entry) => String(entry).trim()).filter(Boolean)
+      : DEFAULT_ROOMS,
+    countertopTypes: Array.isArray(record?.countertopTypes)
+      ? record.countertopTypes.map((entry) => String(entry).trim()).filter(Boolean)
+      : DEFAULT_COUNTERTOP_TYPES,
+    _content_source: record?._content_source as unknown,
+    _values: record?._values as unknown,
+  };
+}
+
+export function normalizeCabinetsOverviewQueryData(value: unknown): CabinetsOverviewDataShape {
+  const record = asRecord(value);
+  const connection = asRecord(record?.cabinetConnection);
+  const edges = Array.isArray(connection?.edges) ? connection.edges : [];
+
+  const normalizedEdges = edges
+    .map((edge) => {
+      const edgeRecord = asRecord(edge);
+      const node = normalizeCabinet(edgeRecord?.node);
+      if (!node) return null;
+      return { node };
+    })
+    .filter((edge): edge is { node: CabinetOverviewItem } => Boolean(edge));
+
+  return {
+    catalogSettings: normalizeCatalogSettings(record?.catalogSettings),
+    cabinetConnection: {
+      edges: normalizedEdges,
+    },
+  };
+}
+
+export function getOverviewCabinetItems(data: CabinetsOverviewDataShape): CabinetOverviewItem[] {
+  const edges = Array.isArray(data.cabinetConnection?.edges) ? data.cabinetConnection.edges : [];
+
+  return edges
+    .map((edge) => edge?.node || null)
+    .filter((node): node is CabinetOverviewItem => Boolean(node));
+}
+
+export function inferDoorStyleValue(name: string, explicitDoorStyle?: string | null): string {
+  const explicit = normalizeOptionValue(explicitDoorStyle || "");
+  if (explicit) return explicit;
+
+  const normalizedName = normalizeOptionValue(name);
+  if (normalizedName.includes("slim") && normalizedName.includes("shaker")) return "slim shaker";
+  if (normalizedName.includes("elegant") && normalizedName.includes("shaker")) return "elegant shaker";
+  if (normalizedName.includes("flat") || normalizedName.includes("panel")) return "flat panel";
+  if (normalizedName.includes("shaker")) return "shaker";
+
+  return "shaker";
+}

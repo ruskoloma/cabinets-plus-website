@@ -1,18 +1,84 @@
 {
+  "doorStyles": [
+    {
+      "value": "shaker",
+      "label": "Shaker",
+      "image": "/figma/catalog/door-style-shaker.png"
+    },
+    {
+      "value": "slim shaker",
+      "label": "Slim Shaker",
+      "image": "/figma/catalog/door-style-slim-shaker.png"
+    },
+    {
+      "value": "elegant shaker",
+      "label": "Elegant Shaker",
+      "image": "/figma/catalog/door-style-elegant-shaker.png"
+    },
+    {
+      "value": "flat panel",
+      "label": "Flat panel",
+      "image": "/figma/catalog/door-style-flat-panel.png"
+    }
+  ],
   "paintOptions": [
-    "white",
-    "off white",
-    "timber",
-    "gray",
-    "brown",
-    "blue",
-    "green",
-    "black",
-    "custom paint"
+    {
+      "value": "white",
+      "label": "White",
+      "swatchColor": "#FFFFFF"
+    },
+    {
+      "value": "off white",
+      "label": "Off white",
+      "swatchColor": "#FAF9F6"
+    },
+    {
+      "value": "timber",
+      "label": "Timber",
+      "swatchColor": "#966F33"
+    },
+    {
+      "value": "gray",
+      "label": "Gray",
+      "swatchColor": "#D6D6D6"
+    },
+    {
+      "value": "brown",
+      "label": "Brown",
+      "swatchColor": "#67564C"
+    },
+    {
+      "value": "blue",
+      "label": "Blue",
+      "swatchColor": "#47596A"
+    },
+    {
+      "value": "green",
+      "label": "Green",
+      "swatchColor": "#56716F"
+    },
+    {
+      "value": "black",
+      "label": "Black",
+      "swatchColor": "#101010"
+    },
+    {
+      "value": "custom paint",
+      "label": "Custom paint",
+      "image": "/figma/catalog/paint-custom-pattern.svg"
+    }
   ],
   "stainTypes": [
-    "white glaze stain",
-    "mocha stain"
+    {
+      "value": "white glaze stain",
+      "label": "White glaze",
+      "image": "/figma/catalog/stain-white-glaze.png"
+    },
+    {
+      "value": "mocha stain",
+      "label": "Mocha",
+      "image": "/figma/catalog/stain-mocha.png"
+    }
   ],
   "rooms": [
     "Kitchen",

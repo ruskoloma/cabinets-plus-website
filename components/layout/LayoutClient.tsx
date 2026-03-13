@@ -28,9 +28,33 @@ interface GlobalSettings {
   copyrightText?: string;
 }
 
+interface GlobalSettingsInput {
+  siteName?: string | null;
+  phone?: string | null;
+  address?: string | null;
+  email?: string | null;
+  hours?: string | null;
+  ctaLabel?: string | null;
+  ctaLink?: string | null;
+  navSearchLabel?: string | null;
+  navSearchLink?: string | null;
+  pinterestUrl?: string | null;
+  navLinks?: Array<{
+    label?: string | null;
+    href?: string | null;
+    children?: Array<{ label?: string | null; href?: string | null } | null> | null;
+  } | null> | null;
+  footerLinks?: Array<{ label?: string | null; href?: string | null } | null> | null;
+  logo?: string | null;
+  footerLogo?: string | null;
+  instagramUrl?: string | null;
+  facebookUrl?: string | null;
+  copyrightText?: string | null;
+}
+
 interface LayoutClientProps {
   globalData: {
-    data: { global?: GlobalSettings };
+    data: { global?: GlobalSettingsInput | null };
     query?: string;
     variables?: Record<string, unknown>;
   };
@@ -39,7 +63,7 @@ interface LayoutClientProps {
 
 interface TinaLayoutClientProps {
   globalData: {
-    data: { global?: GlobalSettings };
+    data: { global?: GlobalSettingsInput | null };
     query: string;
     variables: Record<string, unknown>;
   };
@@ -58,16 +82,6 @@ function StaticLayout({ global, children }: { global: GlobalSettings; children: 
   );
 }
 
-function TinaLayoutClient({ globalData, children }: TinaLayoutClientProps) {
-  const { data } = useTina({
-    data: globalData.data,
-    query: globalData.query,
-    variables: globalData.variables,
-  });
-
-  return <StaticLayout global={(data.global || globalData.data.global) as GlobalSettings}>{children}</StaticLayout>;
-}
-
 const FALLBACK_GLOBAL: GlobalSettings = {
   siteName: "Cabinets Plus",
   logo: "/figma/assets/logo-main.svg",
@@ -84,11 +98,62 @@ const FALLBACK_GLOBAL: GlobalSettings = {
   footerLinks: [],
 };
 
+function normalizeGlobalSettings(global?: GlobalSettingsInput | null): GlobalSettings {
+  const navLinks = Array.isArray(global?.navLinks)
+    ? global.navLinks.flatMap((item) => {
+        if (!item?.label) return [];
+        const children = Array.isArray(item.children)
+          ? item.children.flatMap((child) => (child?.label && child?.href ? [{ label: child.label, href: child.href }] : []))
+          : undefined;
+
+        return [{
+          label: item.label,
+          href: item.href ?? undefined,
+          children: children && children.length > 0 ? children : undefined,
+        }];
+      })
+    : FALLBACK_GLOBAL.navLinks;
+
+  const footerLinks = Array.isArray(global?.footerLinks)
+    ? global.footerLinks.flatMap((item) => (item?.label && item?.href ? [{ label: item.label, href: item.href }] : []))
+    : FALLBACK_GLOBAL.footerLinks;
+
+  return {
+    siteName: global?.siteName ?? FALLBACK_GLOBAL.siteName,
+    phone: global?.phone ?? FALLBACK_GLOBAL.phone,
+    address: global?.address ?? FALLBACK_GLOBAL.address,
+    email: global?.email ?? FALLBACK_GLOBAL.email,
+    hours: global?.hours ?? FALLBACK_GLOBAL.hours,
+    ctaLabel: global?.ctaLabel ?? FALLBACK_GLOBAL.ctaLabel,
+    ctaLink: global?.ctaLink ?? FALLBACK_GLOBAL.ctaLink,
+    navSearchLabel: global?.navSearchLabel ?? FALLBACK_GLOBAL.navSearchLabel,
+    navSearchLink: global?.navSearchLink ?? FALLBACK_GLOBAL.navSearchLink,
+    pinterestUrl: global?.pinterestUrl ?? FALLBACK_GLOBAL.pinterestUrl,
+    navLinks,
+    footerLinks,
+    logo: global?.logo ?? FALLBACK_GLOBAL.logo,
+    footerLogo: global?.footerLogo ?? FALLBACK_GLOBAL.footerLogo,
+    instagramUrl: global?.instagramUrl ?? FALLBACK_GLOBAL.instagramUrl,
+    facebookUrl: global?.facebookUrl ?? FALLBACK_GLOBAL.facebookUrl,
+    copyrightText: global?.copyrightText ?? FALLBACK_GLOBAL.copyrightText,
+  };
+}
+
+function TinaLayoutClient({ globalData, children }: TinaLayoutClientProps) {
+  const { data } = useTina({
+    data: globalData.data,
+    query: globalData.query,
+    variables: globalData.variables,
+  });
+
+  return <StaticLayout global={normalizeGlobalSettings(data.global || globalData.data.global)}>{children}</StaticLayout>;
+}
+
 export default function LayoutClient({ globalData, children }: LayoutClientProps) {
   const hasLiveQuery = Boolean(globalData.query && globalData.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    return <StaticLayout global={globalData.data.global || FALLBACK_GLOBAL}>{children}</StaticLayout>;
+    return <StaticLayout global={normalizeGlobalSettings(globalData.data.global)}>{children}</StaticLayout>;
   }
 
   return (

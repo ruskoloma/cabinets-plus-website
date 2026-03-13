@@ -24,32 +24,50 @@ const defaultPaintOptions = [
 ];
 
 const defaultCabinetStainTypes = ["white glaze stain", "mocha stain"];
+const defaultDoorStyles = ["shaker", "slim shaker", "elegant shaker", "flat panel"];
 const defaultRooms = ["Kitchen", "Bathroom", "Laundry", "Other"];
 const defaultCountertopTypes = ["Quartz", "Granite", "Marble", "Quartzite", "Porcelain", "Butcher Block", "Other"];
+
+function extractCatalogOptionValues(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((entry) => {
+      if (typeof entry === "string") return entry.trim();
+      if (!entry || typeof entry !== "object") return "";
+
+      const record = entry as Record<string, unknown>;
+      const fromValue = typeof record.value === "string" ? record.value.trim() : "";
+      if (fromValue) return fromValue;
+
+      const fromLabel = typeof record.label === "string" ? record.label.trim() : "";
+      return fromLabel;
+    })
+    .filter(Boolean);
+}
 
 function readCatalogSettingsOptions() {
   try {
     const raw = fs.readFileSync(path.join(process.cwd(), "content", "global", "catalog-settings.json"), "utf8");
     const parsed = JSON.parse(raw) as {
       stainTypes?: unknown;
+      doorStyles?: unknown;
       rooms?: unknown;
       paintOptions?: unknown;
       countertopTypes?: unknown;
     };
-    const stainTypes = Array.isArray(parsed.stainTypes)
-      ? parsed.stainTypes.map((value) => String(value).trim()).filter(Boolean)
-      : [];
+    const stainTypes = extractCatalogOptionValues(parsed.stainTypes);
+    const doorStyles = extractCatalogOptionValues(parsed.doorStyles);
     const rooms = Array.isArray(parsed.rooms)
       ? parsed.rooms.map((value) => String(value).trim()).filter(Boolean)
       : [];
-    const paintOptions = Array.isArray(parsed.paintOptions)
-      ? parsed.paintOptions.map((value) => String(value).trim()).filter(Boolean)
-      : [];
+    const paintOptions = extractCatalogOptionValues(parsed.paintOptions);
     const countertopTypes = Array.isArray(parsed.countertopTypes)
       ? parsed.countertopTypes.map((value) => String(value).trim()).filter(Boolean)
       : [];
     return {
       stainTypes: stainTypes.length ? stainTypes : defaultCabinetStainTypes,
+      doorStyles: doorStyles.length ? doorStyles : defaultDoorStyles,
       rooms: rooms.length ? rooms : defaultRooms,
       paintOptions: paintOptions.length ? paintOptions : defaultPaintOptions,
       countertopTypes: countertopTypes.length ? countertopTypes : defaultCountertopTypes,
@@ -57,6 +75,7 @@ function readCatalogSettingsOptions() {
   } catch {
     return {
       stainTypes: defaultCabinetStainTypes,
+      doorStyles: defaultDoorStyles,
       rooms: defaultRooms,
       paintOptions: defaultPaintOptions,
       countertopTypes: defaultCountertopTypes,
@@ -188,11 +207,30 @@ export default defineConfig({
         },
         fields: [
           {
-            type: "string",
+            type: "object",
             name: "stainTypes",
             label: "Stain Type Options",
             list: true,
             required: true,
+            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Stain type" }) },
+            fields: [
+              { type: "string", name: "value", label: "Value", required: true },
+              { type: "string", name: "label", label: "Label" },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          {
+            type: "object",
+            name: "doorStyles",
+            label: "Door Style Options",
+            list: true,
+            required: true,
+            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Door style" }) },
+            fields: [
+              { type: "string", name: "value", label: "Value", required: true },
+              { type: "string", name: "label", label: "Label" },
+              { type: "image", name: "image", label: "Image" },
+            ],
           },
           {
             type: "string",
@@ -202,11 +240,18 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "string",
+            type: "object",
             name: "paintOptions",
             label: "Paint Options",
             list: true,
             required: true,
+            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Paint option" }) },
+            fields: [
+              { type: "string", name: "value", label: "Value", required: true },
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "swatchColor", label: "Swatch Color" },
+              { type: "image", name: "image", label: "Swatch Image" },
+            ],
           },
           {
             type: "string",
@@ -523,6 +568,13 @@ export default defineConfig({
           { type: "string", name: "name", label: "Name", isTitle: true, required: true },
           { type: "string", name: "code", label: "Code", required: true },
           { type: "string", name: "slug", label: "Slug", required: true },
+          {
+            type: "string",
+            name: "doorStyle",
+            label: "Door Style",
+            options: catalogSettingsOptions.doorStyles,
+            description: "Used for cabinet catalog filtering.",
+          },
           {
             type: "string",
             name: "paint",

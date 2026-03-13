@@ -6,18 +6,18 @@ import { notFound } from "next/navigation";
 import { client } from "@/tina/__generated__/client";
 import ServicePageClient from "./service-client";
 
-const SERVICE_SLUGS = ["cabinets", "countertops", "flooring", "bathroom-remodel"];
+const SERVICE_SLUGS = ["countertops", "flooring", "bathroom-remodel"];
 
 interface ServiceSeo {
-  title?: string;
-  description?: string;
-  ogImage?: string;
+  title?: string | null;
+  description?: string | null;
+  ogImage?: string | null;
 }
 
 interface ServiceData {
-  title?: string;
-  seo?: ServiceSeo;
-  blocks?: unknown[];
+  title?: string | null;
+  seo?: ServiceSeo | null;
+  blocks?: unknown[] | null;
 }
 
 interface ServiceQueryLikeResult {

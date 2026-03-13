@@ -2,65 +2,12 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { client } from "@/tina/__generated__/client";
+import { CABINET_LIVE_QUERY } from "@/app/cabinet-live-query";
 import { normalizeCabinetQueryData } from "@/components/cabinet-door/normalize-cabinet-query";
 import type {
   CabinetListItem,
   CabinetQueryLikeResult,
 } from "@/components/cabinet-door/types";
-
-export const CABINET_LIVE_QUERY = `
-  query CabinetDoorLive($relativePath: String!) {
-    cabinet(relativePath: $relativePath) {
-      ... on Document {
-        _sys {
-          filename
-          basename
-          relativePath
-        }
-        id
-      }
-      ... on Cabinet {
-        __typename
-        name
-        code
-        slug
-        paint
-        stainType
-        description
-        picture
-        relatedProjects
-        relatedProducts {
-          __typename
-          product
-        }
-        technicalDetails {
-          __typename
-          key
-          value
-          unit
-          order
-        }
-        media {
-          __typename
-          file
-          roomPriority
-          paintPriority
-          stainPriority
-          countertopPriority
-          room
-          paint
-          stain
-          countertop
-          label
-          description
-        }
-        sourceId
-        sourceUpdatedAt
-        _values
-      }
-    }
-  }
-`;
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object") return null;
@@ -150,6 +97,7 @@ export async function getCabinetIndexSafe(): Promise<CabinetListItem[]> {
           name: asString(data.name)?.trim() || toHumanizedName(slug),
           code: asString(data.code)?.trim() || "",
           picture: asString(data.picture)?.trim() || "",
+          doorStyle: asString(data.doorStyle)?.trim() || undefined,
           paint: asString(data.paint)?.trim() || undefined,
           stainType: asString(data.stainType)?.trim() || undefined,
         } as CabinetListItem;

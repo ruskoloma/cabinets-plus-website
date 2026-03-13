@@ -1,8 +1,9 @@
 "use client";
 
-import { useTina } from "tinacms/dist/react";
+import { useEditState, useTina } from "tinacms/dist/react";
 import CabinetDoorPage from "@/components/cabinet-door/CabinetDoorPage";
 import { normalizeCabinetQueryData } from "@/components/cabinet-door/normalize-cabinet-query";
+import { CABINET_LIVE_QUERY } from "@/app/cabinet-live-query";
 import {
   buildGalleryItems,
   buildMockProjectItems,
@@ -121,7 +122,7 @@ function StaticCabinetDetailPage({
   );
 }
 
-function TinaCabinetDetailPageWithStaticHome(props: {
+function TinaCabinetDetailPageWithHome(props: {
   data: CabinetDataShape;
   query: string;
   variables: Record<string, unknown>;
@@ -130,47 +131,21 @@ function TinaCabinetDetailPageWithStaticHome(props: {
   homePageData: HomePageQueryLikeResult;
   pageSettings?: CabinetPageSettings | null;
 }) {
-  const { data } = useTina({
+  const homeQuery = props.homePageData.query?.trim() || "";
+  const homeVariables = props.homePageData.variables || {};
+  const { data: tinaData } = useTina({
     data: props.data,
     query: props.query,
     variables: props.variables,
   });
-  const normalized = normalizeCabinetQueryData(data, `${props.currentSlug}.md`);
-  const contactBlock = extractContactBlock(props.homePageData.data);
-
-  return (
-    <CabinetDoorRenderer
-      cabinetIndex={props.cabinetIndex}
-      contactBlock={contactBlock}
-      currentSlug={props.currentSlug}
-      data={normalized}
-      pageSettings={props.pageSettings}
-    />
-  );
-}
-
-function TinaCabinetDetailPageWithLiveHome(props: {
-  data: CabinetDataShape;
-  query: string;
-  variables: Record<string, unknown>;
-  cabinetIndex: CabinetListItem[];
-  currentSlug: string;
-  homePageData: HomePageQueryLikeResult;
-  pageSettings?: CabinetPageSettings | null;
-}) {
-  const { data } = useTina({
-    data: props.data,
-    query: props.query,
-    variables: props.variables,
-  });
-  const normalized = normalizeCabinetQueryData(data, `${props.currentSlug}.md`);
-
-  const home = useTina({
+  const { data: homeTinaData } = useTina({
     data: props.homePageData.data,
-    query: props.homePageData.query || "",
-    variables: props.homePageData.variables || {},
+    query: homeQuery,
+    variables: homeVariables,
   });
-  const contactBlock = extractContactBlock(home.data);
+  const normalized = normalizeCabinetQueryData(tinaData, `${props.currentSlug}.md`);
+  const homeData = homeQuery ? homeTinaData : props.homePageData.data;
+  const contactBlock = extractContactBlock(homeData);
 
   return (
     <CabinetDoorRenderer
@@ -184,10 +159,9 @@ function TinaCabinetDetailPageWithLiveHome(props: {
 }
 
 export default function CabinetDetailClient(props: CabinetDetailClientProps) {
-  const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
-  const hasHomeLiveQuery = Boolean(props.homePageData.query && props.homePageData.query.trim().length > 0);
-
-  if (!hasLiveQuery) {
+  const { edit } = useEditState();
+  const hasQuery = Boolean(props.query && props.query.trim().length > 0);
+  if (!hasQuery && !edit) {
     return (
       <StaticCabinetDetailPage
         cabinetIndex={props.cabinetIndex}
@@ -199,29 +173,17 @@ export default function CabinetDetailClient(props: CabinetDetailClientProps) {
     );
   }
 
-  if (!hasHomeLiveQuery) {
-    return (
-      <TinaCabinetDetailPageWithStaticHome
-        cabinetIndex={props.cabinetIndex}
-        currentSlug={props.currentSlug}
-        data={props.data}
-        homePageData={props.homePageData}
-        pageSettings={props.pageSettings}
-        query={props.query || ""}
-        variables={props.variables || {}}
-      />
-    );
-  }
-
+  const liveQuery = props.query?.trim() || CABINET_LIVE_QUERY;
+  const liveVariables = props.query?.trim() ? (props.variables || {}) : { relativePath: `${props.currentSlug}.md` };
   return (
-    <TinaCabinetDetailPageWithLiveHome
+    <TinaCabinetDetailPageWithHome
       cabinetIndex={props.cabinetIndex}
       currentSlug={props.currentSlug}
       data={props.data}
       homePageData={props.homePageData}
       pageSettings={props.pageSettings}
-      query={props.query || ""}
-      variables={props.variables || {}}
+      query={liveQuery}
+      variables={liveVariables}
     />
   );
 }

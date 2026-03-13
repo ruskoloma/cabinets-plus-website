@@ -97,7 +97,9 @@ export default function CabinetDoorPage({
                 {pageText.breadcrumbLabel}
               </Link>
               <span>/</span>
-              <span data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name")}>{displayName}</span>
+              <span data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name") || undefined}>
+                {displayName}
+              </span>
             </nav>
 
             <div className="flex gap-4 self-end md:self-auto">
@@ -111,12 +113,18 @@ export default function CabinetDoorPage({
     
             <div>
               {code ? (
-                <p className="text-[18px] uppercase leading-normal text-[var(--cp-primary-300)]" data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "code")}>
+                <p
+                  className="text-[18px] uppercase leading-normal text-[var(--cp-primary-300)]"
+                  data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "code") || undefined}
+                >
                   {code}
                 </p>
               ) : null}
 
-              <h1 className="mt-2 font-[var(--font-red-hat-display)] text-[42px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)]" data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name")}>
+              <h1
+                className="mt-2 font-[var(--font-red-hat-display)] text-[42px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)]"
+                data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name") || undefined}
+              >
                 {displayName}
               </h1>
 
@@ -144,7 +152,10 @@ export default function CabinetDoorPage({
                   </button>
 
                   {descriptionOpen ? (
-                    <p className="mt-4 whitespace-pre-line text-[16px] leading-[1.4] text-[var(--cp-primary-500)]" data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "description")}>
+                    <p
+                      className="mt-4 whitespace-pre-line text-[16px] leading-[1.4] text-[var(--cp-primary-500)]"
+                      data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "description") || undefined}
+                    >
                       {description}
                     </p>
                   ) : null}

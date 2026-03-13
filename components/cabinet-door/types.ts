@@ -36,6 +36,7 @@ export interface CabinetReferenceProduct {
   name?: string | null;
   code?: string | null;
   slug?: string | null;
+  doorStyle?: string | null;
   paint?: string | null;
   stainType?: string | null;
   description?: string | null;
@@ -56,6 +57,7 @@ export interface CabinetData {
   name?: string | null;
   code?: string | null;
   slug?: string | null;
+  doorStyle?: string | null;
   paint?: string | null;
   stainType?: string | null;
   description?: string | null;
@@ -82,6 +84,7 @@ export interface CabinetListItem {
   name: string;
   code: string;
   picture: string;
+  doorStyle?: string;
   paint?: string;
   stainType?: string;
 }
