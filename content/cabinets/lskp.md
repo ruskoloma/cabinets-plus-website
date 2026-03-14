@@ -3,16 +3,15 @@ name: Liberty Shaker Karmel
 code: LSKP
 slug: lskp
 description: >-
-  Liberty Shaker Karmel sample door from Pro Collection is produced using the
-  exact same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+  Liberty Shaker Karmel sample door from Pro Collection is produced using the exact same
+  manufacturing process as our full cabinet line, ensuring absolute consistency in material
+  selection, construction methods, and finishing techniques. The style, recessed panel, stile and
+  rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a
+  precise representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSKP/3138-lskp-liberty-shaker-karmel.jpg
 technicalDetails:
@@ -54,9 +53,10 @@ media:
     label: LSKP Liberty Shaker Karmel.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 294
 sourceUpdatedAt: '2025-07-25T22:53:53.246Z'
 stainType: ''
@@ -69,4 +69,3 @@ relatedProducts:
 doorStyle: shaker
 paint: custom paint
 ---
-

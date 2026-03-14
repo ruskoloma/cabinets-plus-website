@@ -8,6 +8,7 @@ import ContactUsSection from "@/components/home/ContactUsSection";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import Button from "@/components/ui/Button";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
+import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import {
   getOverviewCabinetItems,
   inferDoorStyleValue,
@@ -510,65 +511,22 @@ export default function CabinetsOverviewPage({
                   />
                 </label>
 
-                <div
-                  className="pb-3"
+                <CatalogSortDropdown
+                  isOpen={openPanel === "sort"}
                   onMouseEnter={() => {
                     clearPanelCloseTimeout();
                     setOpenPanel("sort");
                   }}
                   onMouseLeave={() => schedulePanelClose("sort")}
-                >
-                  <button
-                    className="inline-flex items-center gap-2 text-[16px] leading-none text-[var(--cp-primary-500)] md:text-[18px]"
-                    onClick={() => setOpenPanel("sort")}
-                    onMouseEnter={() => setOpenPanel("sort")}
-                    type="button"
-                  >
-                    <span>
-                      Sort by <span className="font-bold">{sortLabel}</span>
-                    </span>
-                    <img
-                      alt=""
-                      aria-hidden
-                      className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
-                      src="/library/header/nav-chevron-right.svg"
-                    />
-                  </button>
-
-                  {openPanel === "sort" ? (
-                    <div
-                      className="absolute left-0 right-0 top-full z-40 w-full bg-white p-6 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]"
-                      onMouseLeave={() => {
-                        if (openPanel === "sort") schedulePanelClose("sort");
-                      }}
-                      onMouseEnter={clearPanelCloseTimeout}
-                    >
-                      <p className="font-[var(--font-red-hat-display)] text-[28px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
-                        Sort by:
-                      </p>
-                      <div className="mt-6 flex flex-col gap-4">
-                        {SORT_OPTIONS.map((option) => {
-                          const selected = queryState.sort === option.value;
-                          return (
-                            <button
-                              className={`text-left font-[var(--font-red-hat-display)] text-[18px] leading-[1.5] transition-colors ${
-                                selected ? "font-semibold" : "hover:text-[var(--cp-brand-neutral-300)]"
-                              }`}
-                              key={option.value}
-                              onClick={() => {
-                                updateQuery({ sort: option.value }, true);
-                                setOpenPanel(null);
-                              }}
-                              type="button"
-                            >
-                              {option.label}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
+                  onOpen={() => setOpenPanel("sort")}
+                  onSelect={(value) => {
+                    updateQuery({ sort: value }, true);
+                    setOpenPanel(null);
+                  }}
+                  options={SORT_OPTIONS}
+                  selectedLabel={sortLabel}
+                  selectedValue={queryState.sort}
+                />
               </div>
             </div>
 

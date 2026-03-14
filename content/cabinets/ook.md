@@ -2,9 +2,8 @@
 name: Slim Shaker White Oak
 code: OOK
 slug: ook
-description: 'NEW, update code, Oslo Oak'
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
+description: NEW, update code, Oslo Oak
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
@@ -35,8 +34,7 @@ technicalDetails:
     unit: ''
     order: 7
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -44,9 +42,10 @@ media:
     label: Oslo Oak.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 260
 sourceUpdatedAt: '2025-07-25T22:53:53.386Z'
 stainType: ''
@@ -59,4 +58,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
-

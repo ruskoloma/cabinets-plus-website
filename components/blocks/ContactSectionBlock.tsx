@@ -3,11 +3,13 @@ import { useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
-import { useGlobal } from "@/components/layout/GlobalContext";
+import { useGlobal, useGlobalRawDocument } from "@/components/layout/GlobalContext";
 
-export default function ContactSectionBlock({ block }: { block: any }) {
+export default function ContactSectionBlock({ block }: { block: Record<string, unknown> }) {
   const global = useGlobal();
+  const generalRecord = useGlobalRawDocument("general");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const title = typeof block.title === "string" ? block.title : "";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ export default function ContactSectionBlock({ block }: { block: any }) {
   return (
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionTitle title={block.title} tinaField={tinaField(block, "title")} />
+        <SectionTitle title={title} tinaField={tinaField(block, "title")} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 mt-10">
 
@@ -67,7 +69,7 @@ export default function ContactSectionBlock({ block }: { block: any }) {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">{label}</p>
-                  <p data-tina-field={tinaField(global as any, tinaKey)} className="text-slate-700 font-medium">
+                  <p data-tina-field={tinaField(generalRecord, tinaKey)} className="text-slate-700 font-medium">
                     {value}
                   </p>
                 </div>

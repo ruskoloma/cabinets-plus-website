@@ -3,18 +3,16 @@ name: Slim Frost
 code: SFB
 slug: sfb
 description: >-
-  Slim Frost sample door from Buy Wholesale Collection is produced using the
-  exact same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+  Slim Frost sample door from Buy Wholesale Collection is produced using the exact same
+  manufacturing process as our full cabinet line, ensuring absolute consistency in material
+  selection, construction methods, and finishing techniques. The style, recessed panel, stile and
+  rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a
+  precise representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SFB/3083-sfb-slim-frost.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SFB/3083-sfb-slim-frost.jpg
 technicalDetails:
   - key: Manufacturer
     value: Buy Wholesale Collection
@@ -54,9 +52,10 @@ media:
     label: SFB Slim Frost.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 245
 sourceUpdatedAt: '2025-07-25T22:53:55.774Z'
 stainType: ''
@@ -69,4 +68,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
-

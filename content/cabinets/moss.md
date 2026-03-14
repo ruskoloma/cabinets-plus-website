@@ -3,8 +3,7 @@ name: Moss Shaker
 code: MOSS
 slug: moss
 description: NEW
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/MOSS/3097-moss.jpg
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/MOSS/3097-moss.jpg
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
@@ -35,8 +34,7 @@ technicalDetails:
     unit: ''
     order: 7
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/MOSS/3097-moss.jpg
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/MOSS/3097-moss.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -44,9 +42,10 @@ media:
     label: MOSS.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 258
 sourceUpdatedAt: '2025-07-25T22:53:54.308Z'
 stainType: ''
@@ -59,4 +58,3 @@ relatedProducts:
 doorStyle: shaker
 paint: custom paint
 ---
-

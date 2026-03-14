@@ -38,9 +38,10 @@ export const CABINET_LIVE_QUERY = `
           paintPriority
           stainPriority
           countertopPriority
+          flooring
           room
-          paint
-          stain
+          cabinetPaints
+          cabinetStains
           countertop
           label
           description

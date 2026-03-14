@@ -26,7 +26,7 @@ const defaultPaintOptions = [
 const defaultCabinetStainTypes = ["white glaze stain", "mocha stain"];
 const defaultDoorStyles = ["shaker", "slim shaker", "elegant shaker", "flat panel"];
 const defaultRooms = ["Kitchen", "Bathroom", "Laundry", "Other"];
-const defaultCountertopTypes = ["Quartz", "Granite", "Marble", "Quartzite", "Porcelain", "Butcher Block", "Other"];
+const defaultCountertopTypes = ["Quartz", "Granite", "Marble", "Quartzite", "Soapstone", "Porcelain", "Butcher Block", "Other"];
 
 function extractCatalogOptionValues(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
@@ -62,9 +62,7 @@ function readCatalogSettingsOptions() {
       ? parsed.rooms.map((value) => String(value).trim()).filter(Boolean)
       : [];
     const paintOptions = extractCatalogOptionValues(parsed.paintOptions);
-    const countertopTypes = Array.isArray(parsed.countertopTypes)
-      ? parsed.countertopTypes.map((value) => String(value).trim()).filter(Boolean)
-      : [];
+    const countertopTypes = extractCatalogOptionValues(parsed.countertopTypes);
     return {
       stainTypes: stainTypes.length ? stainTypes : defaultCabinetStainTypes,
       doorStyles: doorStyles.length ? doorStyles : defaultDoorStyles,
@@ -104,10 +102,37 @@ function resolveCabinetReferenceLabel(value: unknown) {
   );
 }
 
-function mediaItemLabel(file?: string) {
+function resolveDocumentRouteSegment(document: { _sys: { filename: string } } & Record<string, unknown>) {
+  const slug = typeof document.slug === "string" ? document.slug.trim() : "";
+  return slug || document._sys.filename;
+}
+
+function mediaItemLabel(item?: string | { file?: string; mimeType?: string; kind?: string }) {
+  const file = typeof item === "string" ? item : item?.file;
   if (!file) return "Media item";
 
+  const mimeType = typeof item === "string" ? "" : String(item?.mimeType || item?.kind || "");
   const name = file.split("?")[0].split("/").pop() || file;
+  const cleaned = file.split("?")[0].toLowerCase();
+  const isVideo =
+    mimeType.toLowerCase().startsWith("video/") ||
+    [".mp4", ".mov", ".webm", ".m4v", ".avi"].some((ext) => cleaned.endsWith(ext));
+
+  if (isVideo) {
+    return React.createElement(
+      "span",
+      { className: "inline-flex items-center gap-2" },
+      React.createElement(
+        "span",
+        {
+          className:
+            "inline-flex h-8 w-8 items-center justify-center rounded border border-gray-200 bg-gray-50 text-[10px] font-semibold uppercase text-gray-500",
+        },
+        "video"
+      ),
+      React.createElement("span", { className: "truncate" }, name)
+    );
+  }
 
   return React.createElement(
     "span",
@@ -135,17 +160,16 @@ export default defineConfig({
   },
   schema: {
     collections: [
-      // ─── GLOBAL: Navbar + Footer ───────────────────────────────
+      // ─── SITE CONFIGURATION: Header + Footer documents ────────
       {
         name: "global",
-        label: "Global Settings",
+        label: "Site Configuration",
         path: "content/global",
         format: "json",
         match: {
-          include: "settings",
+          include: "@(header|footer|general)",
         },
         ui: {
-          global: true,
           allowedActions: { create: false, delete: false },
         },
         fields: [
@@ -190,6 +214,8 @@ export default defineConfig({
           { type: "string", name: "pinterestUrl", label: "Pinterest URL" },
           { type: "string", name: "instagramUrl", label: "Instagram URL" },
           { type: "string", name: "facebookUrl", label: "Facebook URL" },
+          { type: "string", name: "headScripts", label: "Head Scripts", ui: { component: "textarea" } },
+          { type: "string", name: "bodyScripts", label: "Body Scripts", ui: { component: "textarea" } },
           { type: "string", name: "copyrightText", label: "Copyright Text" },
         ],
       },
@@ -254,10 +280,16 @@ export default defineConfig({
             ],
           },
           {
-            type: "string",
+            type: "object",
             name: "countertopTypes",
             label: "Countertop Types",
             list: true,
+            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Countertop type" }) },
+            fields: [
+              { type: "string", name: "value", label: "Value", required: true },
+              { type: "string", name: "label", label: "Label" },
+              { type: "image", name: "image", label: "Image" },
+            ],
           },
         ],
       },
@@ -639,7 +671,7 @@ export default defineConfig({
             list: true,
             ui: {
               itemProps: (item: any) => ({
-                label: mediaItemLabel(item?.file) as any,
+                label: mediaItemLabel(item) as any,
               }),
             },
             fields: [
@@ -648,9 +680,121 @@ export default defineConfig({
               { type: "boolean", name: "paintPriority", label: "Paint Priority" },
               { type: "boolean", name: "stainPriority", label: "Stain Priority" },
               { type: "boolean", name: "countertopPriority", label: "Countertop Priority" },
+              { type: "boolean", name: "flooring", label: "Flooring" },
               { type: "string", name: "room", label: "Room", options: catalogSettingsOptions.rooms },
-              { type: "string", name: "paint", label: "Paint", options: catalogSettingsOptions.paintOptions },
-              { type: "string", name: "stain", label: "Stain", options: catalogSettingsOptions.stainTypes },
+              { type: "string", name: "cabinetPaints", label: "Cabinet Paints", list: true, options: catalogSettingsOptions.paintOptions },
+              { type: "string", name: "cabinetStains", label: "Cabinet Stains", list: true, options: catalogSettingsOptions.stainTypes },
+              { type: "string", name: "countertop", label: "Countertop", options: catalogSettingsOptions.countertopTypes },
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+            ],
+          },
+          { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
+          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
+        ],
+      },
+      {
+        name: "countertop",
+        label: "Countertops",
+        path: "content/countertops",
+        format: "md",
+        ui: {
+          router: ({ document }) => `/countertops/${resolveDocumentRouteSegment(document as { _sys: { filename: string } } & Record<string, unknown>)}`,
+        },
+        fields: [
+          { type: "string", name: "name", label: "Name", isTitle: true, required: true },
+          { type: "string", name: "code", label: "Code", required: true },
+          { type: "string", name: "slug", label: "Slug", required: true },
+          {
+            type: "string",
+            name: "countertopType",
+            label: "Countertop Type",
+            options: catalogSettingsOptions.countertopTypes,
+          },
+          { type: "boolean", name: "inStock", label: "In Stock" },
+          { type: "string", name: "storeCollection", label: "Store Collection" },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          { type: "image", name: "picture", label: "Primary Picture" },
+          {
+            type: "object",
+            name: "technicalDetails",
+            label: "Technical Details",
+            list: true,
+            ui: { itemProps: (item: any) => ({ label: item.key || "Detail" }) },
+            fields: [
+              { type: "string", name: "key", label: "Key" },
+              { type: "string", name: "value", label: "Value" },
+              { type: "string", name: "unit", label: "Unit" },
+              { type: "number", name: "order", label: "Order" },
+            ],
+          },
+          {
+            type: "object",
+            name: "media",
+            label: "Media",
+            list: true,
+            ui: {
+              itemProps: (item: any) => ({
+                label: mediaItemLabel(item) as any,
+              }),
+            },
+            fields: [
+              { type: "image", name: "file", label: "File" },
+              { type: "string", name: "kind", label: "Kind", options: ["image", "video", "other"] },
+              { type: "string", name: "mimeType", label: "MIME Type" },
+              { type: "boolean", name: "isPrimary", label: "Primary" },
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "altText", label: "Alt Text" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "number", name: "sourceId", label: "Source Media ID (Strapi)" },
+            ],
+          },
+          { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
+          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
+        ],
+      },
+      {
+        name: "project",
+        label: "Projects",
+        path: "content/projects",
+        format: "md",
+        ui: {
+          router: ({ document }) => `/projects/${document._sys.filename}`,
+        },
+        fields: [
+          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
+          { type: "string", name: "slug", label: "Slug", required: true },
+          { type: "string", name: "address", label: "Address" },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          { type: "string", name: "notes", label: "Notes", ui: { component: "textarea" } },
+          { type: "image", name: "primaryPicture", label: "Primary Picture" },
+          {
+            type: "string",
+            name: "relatedProjects",
+            label: "Related Projects",
+            list: true,
+            description: "Related project slugs.",
+          },
+          {
+            type: "object",
+            name: "media",
+            label: "Media",
+            list: true,
+            ui: {
+              itemProps: (item: any) => ({
+                label: mediaItemLabel(item) as any,
+              }),
+            },
+            fields: [
+              { type: "image", name: "file", label: "File" },
+              { type: "boolean", name: "roomPriority", label: "Room Priority" },
+              { type: "boolean", name: "paintPriority", label: "Paint Priority" },
+              { type: "boolean", name: "stainPriority", label: "Stain Priority" },
+              { type: "boolean", name: "countertopPriority", label: "Countertop Priority" },
+              { type: "boolean", name: "flooring", label: "Flooring" },
+              { type: "string", name: "room", label: "Room", options: catalogSettingsOptions.rooms },
+              { type: "string", name: "cabinetPaints", label: "Cabinet Paints", list: true, options: catalogSettingsOptions.paintOptions },
+              { type: "string", name: "cabinetStains", label: "Cabinet Stains", list: true, options: catalogSettingsOptions.stainTypes },
               { type: "string", name: "countertop", label: "Countertop", options: catalogSettingsOptions.countertopTypes },
               { type: "string", name: "label", label: "Label" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },

@@ -3,18 +3,16 @@ name: Liberty Shaker Ashen
 code: LSA
 slug: lsa
 description: >-
-  Liberty Shaker Ashen sample door from Pro Collection is produced using the
-  exact same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+  Liberty Shaker Ashen sample door from Pro Collection is produced using the exact same
+  manufacturing process as our full cabinet line, ensuring absolute consistency in material
+  selection, construction methods, and finishing techniques. The style, recessed panel, stile and
+  rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a
+  precise representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3131-lsa.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3131-lsa.jpg
 technicalDetails:
   - key: Manufacturer
     value: Pro Collection
@@ -45,8 +43,7 @@ technicalDetails:
     unit: ''
     order: 7
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3131-lsa.jpg
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3131-lsa.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -54,11 +51,11 @@ media:
     label: LSA .jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3203-dsc03805.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3203-dsc03805.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -66,11 +63,11 @@ media:
     label: DSC03805.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3204-dsc03794.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3204-dsc03794.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -78,9 +75,10 @@ media:
     label: DSC03794.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 290
 sourceUpdatedAt: '2025-07-25T22:53:53.545Z'
 stainType: ''
@@ -93,4 +91,3 @@ relatedProducts:
 doorStyle: shaker
 paint: gray
 ---
-

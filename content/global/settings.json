@@ -26,7 +26,7 @@
         { "label": "Bathroom remodeling", "href": "/bathroom-remodel" }
       ]
     },
-    { "label": "Gallery", "href": "/#projects" },
+    { "label": "Gallery", "href": "/gallery" },
     { "label": "About us", "href": "/about-us" },
     { "label": "Contacts", "href": "/contact-us" }
   ],
@@ -36,7 +36,7 @@
     { "label": "Flooring", "href": "/flooring" },
     { "label": "Bathroom remodel", "href": "/bathroom-remodel" },
     { "label": "Kitchen remodel", "href": "/kitchen-remodel" },
-    { "label": "Gallery", "href": "/#projects" },
+    { "label": "Gallery", "href": "/gallery" },
     { "label": "About us", "href": "/about-us" },
     { "label": "Contacts", "href": "/contact-us" },
     { "label": "Privacy Policy", "href": "/privacy-policy" },

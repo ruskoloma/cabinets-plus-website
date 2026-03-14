@@ -2,9 +2,8 @@
 name: Slim Shaker
 code: SSKP
 slug: sskp
-description: 'New, add name'
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSKP/3144-sskp.jpg
+description: New, add name
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSKP/3144-sskp.jpg
 technicalDetails:
   - key: Manufacturer
     value: Pro Collection
@@ -35,8 +34,7 @@ technicalDetails:
     unit: ''
     order: 7
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSKP/3144-sskp.jpg
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSKP/3144-sskp.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -44,9 +42,10 @@ media:
     label: SSKP.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 299
 sourceUpdatedAt: '2025-07-25T22:53:53.178Z'
 stainType: ''
@@ -59,4 +58,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: custom paint
 ---
-

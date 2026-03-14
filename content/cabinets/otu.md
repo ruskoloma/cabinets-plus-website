@@ -3,16 +3,15 @@ name: Oxford Toffee
 code: OTU
 slug: otu
 description: >-
-  Oxford Toffee sample door from US Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+  Oxford Toffee sample door from US Collection is produced using the exact same manufacturing
+  process as our full cabinet line, ensuring absolute consistency in material selection,
+  construction methods, and finishing techniques. The style, recessed panel, stile and rail
+  dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise
+  representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OTU/3153-otu-oxford-toffee.jpg
 technicalDetails:
@@ -54,9 +53,10 @@ media:
     label: OTU Oxford Toffee.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 307
 sourceUpdatedAt: '2025-07-25T22:53:56.098Z'
 stainType: mocha stain
@@ -69,4 +69,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: brown
 ---
-

@@ -3,16 +3,15 @@ name: Rustic Hickory
 code: RHC
 slug: rhc
 description: >-
-  Rustic Hickory sample door from Carriage Collection is produced using the
-  exact same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
+  Rustic Hickory sample door from Carriage Collection is produced using the exact same manufacturing
+  process as our full cabinet line, ensuring absolute consistency in material selection,
+  construction methods, and finishing techniques. The style, recessed panel, stile and rail
+  dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise
   representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3094-rhc-rustic-hickory.jpg
 technicalDetails:
@@ -54,11 +53,11 @@ media:
     label: RHC Rustic Hickory.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3228-dsc08126.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3228-dsc08126.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -66,11 +65,11 @@ media:
     label: DSC08126.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3229-dsc08094.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3229-dsc08094.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -78,11 +77,11 @@ media:
     label: DSC08094.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3230-dsc08117.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3230-dsc08117.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -90,11 +89,11 @@ media:
     label: DSC08117.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3231-dsc08122.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/RHC/3231-dsc08122.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -102,9 +101,10 @@ media:
     label: DSC08122.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 249
 sourceUpdatedAt: '2025-07-25T22:53:50.969Z'
 stainType: mocha stain
@@ -117,4 +117,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: timber
 ---
-

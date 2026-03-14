@@ -1,0 +1,578 @@
+---
+title: Modern Two-Tone Kitchen and Bath Cabinetry
+slug: modern-two-tone-kitchen-and-bath-cabinetry
+description: >-
+  Bright, contemporary cabinetry with a clean two-tone palette pairs white shaker uppers with warm
+  natural wood lowers for a balanced modern look. The kitchen features a large waterfall island,
+  tall pantry storage, integrated pantry workspace, quartz counters, black hardware, and a
+  wood-wrapped hood. Matching wood vanity cabinetry, under-cabinet glow, and minimalist lighting
+  extend the design into the bath and utility areas with cohesive, functional style.
+address: 9807 E Peone Rd, Mead, WA 99021, USA
+notes: |-
+  Old Strapi slug: modern-natural-light-home
+  Imported labels: modern design, natural wood, large island, ambient lighting
+primaryPicture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3485-dsc06888.jpg
+relatedProjects:
+  - two-tone-shaker-kitchen-and-bath-cabinetry
+  - bright-shaker-cabinetry-with-black-accents
+  - bright-shaker-kitchen-and-bath-remodel
+media:
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3485-dsc06888.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Bathroom
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Double vanity timber cabinets
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring double vanity timber cabinets, bathroom,
+      timber cabinetry, quartz surfaces, primary project view.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3483-dsc06815.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3484-dsc06823.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3486-dsc06822.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Other
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, other surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3487-dsc06839.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Other
+    cabinetPaints:
+      - white
+    cabinetStains: []
+    countertop: Other
+    label: White utility cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring white utility cabinetry, other, white
+      cabinetry, other surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3488-dsc06817.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3489-dsc06703.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Kitchen
+    cabinetPaints:
+      - white
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3490-dsc06744.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen island
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen island, kitchen, white +
+      timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3491-dsc06910.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Other
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: Quartz
+    label: Wood desk cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring wood desk cabinetry, other, quartz
+      surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3492-dsc06800.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3493-dsc06771.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints: []
+    cabinetStains:
+      - mocha stain
+    countertop: Quartz
+    label: Wood kitchen island
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring wood kitchen island, kitchen, mocha
+      stain, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3494-dsc06746.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen island
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen island, kitchen, white +
+      timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3495-dsc06791.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3496-dsc06758.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3497-dsc06892.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Bathroom
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Double vanity bathroom
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring double vanity bathroom, bathroom, timber
+      cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3498-dsc06880.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Bathroom
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Modern bathroom vanity
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring modern bathroom vanity, bathroom, timber
+      cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3499-dsc06723.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3500-dsc06906.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Bathroom
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Double vanity bathroom
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring double vanity bathroom, bathroom, timber
+      cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3501-dsc06845.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Other
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: Other
+    label: White cabinetry workspace
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring white cabinetry workspace, other, other
+      surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3502-dsc06790.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3503-dsc06828.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3504-dsc06873.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Other
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: Granite
+    label: Timber built-in cabinets
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring timber built-in cabinets, other, granite
+      surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3505-dsc06862.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Other
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: Other
+    label: Built-in timber cabinets
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring built-in timber cabinets, other, other
+      surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3506-dsc06867.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Other
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: Other
+    label: Fireplace built-in cabinets
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring fireplace built-in cabinets, other, other
+      surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3507-dsc06811.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Timber kitchen cabinets
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring timber kitchen cabinets, kitchen, timber
+      cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3508-dsc06717.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3509-dsc06789.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - off white
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen, off
+      white cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3510-dsc06735.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone modern kitchen
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone modern kitchen, kitchen, white +
+      timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3511-dsc06711.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3512-dsc06707.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+    cabinetStains:
+      - mocha stain
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white cabinetry, mocha stain, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3513-dsc06696.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen island
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen island, kitchen, white +
+      timber cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3514-dsc06693.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen island
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen island, kitchen, white
+      cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3515-dsc06853.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Other
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Wood base cabinet
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring wood base cabinet, other, timber
+      cabinetry, quartz surfaces.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-and-bath-cabinetry/3516-dsc06785.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: Two-tone kitchen cabinetry
+    description: >-
+      Modern Two-Tone Kitchen and Bath Cabinetry featuring two-tone kitchen cabinetry, kitchen,
+      white + timber cabinetry, quartz surfaces.
+sourceId: 41
+sourceUpdatedAt: '2025-07-29T21:33:42.465Z'
+---

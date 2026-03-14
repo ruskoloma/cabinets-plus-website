@@ -3,16 +3,15 @@ name: Dove Gray
 code: FSL-DGB
 slug: fsl-dgb
 description: >-
-  Dove Gray sample door from Box Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+  Dove Gray sample door from Box Collection is produced using the exact same manufacturing process
+  as our full cabinet line, ensuring absolute consistency in material selection, construction
+  methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise representation of the
+  quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/FSL-DGB/3079-fsl-dgb-dove-gray.jpg
 technicalDetails:
@@ -54,9 +53,10 @@ media:
     label: FSL-DGB Dove Gray.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 235
 sourceUpdatedAt: '2025-07-25T22:53:55.097Z'
 stainType: ''
@@ -69,4 +69,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: gray
 ---
-

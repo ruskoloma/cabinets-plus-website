@@ -32,7 +32,12 @@ export const CABINETS_OVERVIEW_QUERY = `
           image
         }
         rooms
-        countertopTypes
+        countertopTypes {
+          __typename
+          value
+          label
+          image
+        }
         _values
       }
     }

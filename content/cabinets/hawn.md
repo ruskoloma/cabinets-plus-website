@@ -3,18 +3,16 @@ name: Walnut
 code: HAWN
 slug: hawn
 description: >-
-  Walnut sample door from NGY Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+  Walnut sample door from NGY Collection is produced using the exact same manufacturing process as
+  our full cabinet line, ensuring absolute consistency in material selection, construction methods,
+  and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise representation of the
+  quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/HAWN/3126-hawn-walnut.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/HAWN/3126-hawn-walnut.jpg
 technicalDetails:
   - key: Manufacturer
     value: NGY Collection
@@ -45,8 +43,7 @@ technicalDetails:
     unit: ''
     order: 7
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/HAWN/3126-hawn-walnut.jpg
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/HAWN/3126-hawn-walnut.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -54,9 +51,10 @@ media:
     label: HAWN Walnut.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 284
 sourceUpdatedAt: '2025-07-25T22:53:54.812Z'
 stainType: mocha stain
@@ -69,4 +67,3 @@ relatedProducts:
 doorStyle: shaker
 paint: brown
 ---
-

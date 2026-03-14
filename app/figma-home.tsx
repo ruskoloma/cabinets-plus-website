@@ -1,6 +1,6 @@
 "use client";
 
-import { useGlobal } from "@/components/layout/GlobalContext";
+import { useGlobal, useGlobalRawDocument } from "@/components/layout/GlobalContext";
 import Button from "@/components/ui/Button";
 import PreviewCard from "@/components/home/PreviewCard";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
@@ -272,6 +272,7 @@ function PinterestIcon() {
 
 export default function FigmaHome({ page }: Props) {
   const global = useGlobal();
+  const generalRecord = useGlobalRawDocument("general");
   const parsedBlocks = toBlockArray(page.blocks);
 
   const hero = getBlock(parsedBlocks, "hero");
@@ -295,7 +296,6 @@ export default function FigmaHome({ page }: Props) {
   const processRecord = process as Record<string, unknown>;
   const faqRecord = faq as Record<string, unknown>;
   const contactRecord = contact as Record<string, unknown>;
-  const globalRecord = global as unknown as Record<string, unknown>;
 
   const productItems = mapProducts(toBlockArray(products.products)).slice(0, 4);
   const serviceItems = mapServices(toBlockArray(services.services)).slice(0, 2);
@@ -608,23 +608,23 @@ export default function FigmaHome({ page }: Props) {
                 <div className="flex items-center gap-5">
                   <LocationIcon />
                   <div className="text-[16px] leading-[1.5] md:text-[18px]">
-                    <p className="font-semibold" data-tina-field={tinaField(globalRecord, "address")}>
+                    <p className="font-semibold" data-tina-field={tinaField(generalRecord, "address")}>
                       {global.address.split(",")[0].trim()}
                     </p>
-                    <p data-tina-field={tinaField(globalRecord, "hours")}>{global.hours}</p>
+                    <p data-tina-field={tinaField(generalRecord, "hours")}>{global.hours}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-5">
                   <MailIcon />
-                  <p className="text-[16px] leading-[1.5] md:text-[18px]" data-tina-field={tinaField(globalRecord, "email")}>
+                  <p className="text-[16px] leading-[1.5] md:text-[18px]" data-tina-field={tinaField(generalRecord, "email")}>
                     {global.email}
                   </p>
                 </div>
 
                 <div className="flex items-center gap-5">
                   <PhoneIcon />
-                  <p className="text-[16px] leading-[1.5] md:text-[18px]" data-tina-field={tinaField(globalRecord, "phone")}>
+                  <p className="text-[16px] leading-[1.5] md:text-[18px]" data-tina-field={tinaField(generalRecord, "phone")}>
                     {global.phone}
                   </p>
                 </div>
@@ -635,16 +635,16 @@ export default function FigmaHome({ page }: Props) {
                   {text(contact.followUsLabel, "Follow us")}
                 </p>
                 <div className="mt-4 flex items-center gap-4 md:gap-6">
-                  <a aria-label="Pinterest" className="transition-opacity hover:opacity-75" data-tina-field={tinaField(globalRecord, "pinterestUrl")} href={pinterestUrl} rel="noreferrer" target="_blank">
+                  <a aria-label="Pinterest" className="transition-opacity hover:opacity-75" data-tina-field={tinaField(generalRecord, "pinterestUrl")} href={pinterestUrl} rel="noreferrer" target="_blank">
                     <PinterestIcon />
                   </a>
                   {global.instagramUrl ? (
-                    <a aria-label="Instagram" className="transition-opacity hover:opacity-75" data-tina-field={tinaField(globalRecord, "instagramUrl")} href={global.instagramUrl} rel="noreferrer" target="_blank">
+                    <a aria-label="Instagram" className="transition-opacity hover:opacity-75" data-tina-field={tinaField(generalRecord, "instagramUrl")} href={global.instagramUrl} rel="noreferrer" target="_blank">
                       <InstagramIcon />
                     </a>
                   ) : null}
                   {global.facebookUrl ? (
-                    <a aria-label="Facebook" className="transition-opacity hover:opacity-75" data-tina-field={tinaField(globalRecord, "facebookUrl")} href={global.facebookUrl} rel="noreferrer" target="_blank">
+                    <a aria-label="Facebook" className="transition-opacity hover:opacity-75" data-tina-field={tinaField(generalRecord, "facebookUrl")} href={global.facebookUrl} rel="noreferrer" target="_blank">
                       <FacebookIcon />
                     </a>
                   ) : null}

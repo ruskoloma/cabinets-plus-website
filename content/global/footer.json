@@ -1,0 +1,18 @@
+{
+  "footerLogo": "/library/branding/logo-footer-light.svg",
+  "footerLinks": [
+    { "label": "Cabinets", "href": "/cabinets" },
+    { "label": "Countertops", "href": "/countertops" },
+    { "label": "Flooring", "href": "/flooring" },
+    { "label": "Bathroom remodel", "href": "/bathroom-remodel" },
+    { "label": "Kitchen remodel", "href": "/kitchen-remodel" },
+    { "label": "Gallery", "href": "/gallery" },
+    { "label": "About us", "href": "/about-us" },
+    { "label": "Contacts", "href": "/contact-us" },
+    { "label": "Privacy Policy", "href": "/privacy-policy" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "FAQ's", "href": "/#faq" },
+    { "label": "Magazine", "href": "/blog" }
+  ],
+  "copyrightText": "© 2026 Cabinets Plus Spokane"
+}

@@ -20,9 +20,10 @@ export interface CabinetMediaItem {
   paintPriority?: boolean | null;
   stainPriority?: boolean | null;
   countertopPriority?: boolean | null;
+  flooring?: boolean | null;
   room?: string | null;
-  paint?: string | null;
-  stain?: string | null;
+  cabinetPaints?: Array<string | null> | null;
+  cabinetStains?: Array<string | null> | null;
   countertop?: string | null;
   label?: string | null;
   description?: string | null;

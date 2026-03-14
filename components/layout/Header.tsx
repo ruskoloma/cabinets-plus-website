@@ -119,18 +119,41 @@ const PRODUCT_CATALOG_BY_KEY: Record<ProductCatalogKey, { columnWidth: number; i
   },
 };
 
-function getProductCatalogKey(label: string): ProductCatalogKey {
-  const normalized = label.toLowerCase();
+function getNavItemLookupValue(label: string, href?: string) {
+  return `${label} ${href || ""}`.trim().toLowerCase();
+}
+
+function getProductCatalogKey(label: string, href?: string): ProductCatalogKey {
+  const normalized = getNavItemLookupValue(label, href);
   if (normalized.includes("counter")) return "countertops";
   if (normalized.includes("floor")) return "flooring";
   return "cabinets";
 }
 
-function getServiceSortRank(label: string): number {
-  const normalized = label.toLowerCase();
-  if (normalized.includes("kitchen")) return 0;
-  if (normalized.includes("bathroom")) return 1;
-  return 2;
+function getNormalizedNavValue(value?: string) {
+  return (value || "").trim().toLowerCase();
+}
+
+function getNavGroupKind(link: NavLink): "products" | "services" | null {
+  const linkLabel = getNormalizedNavValue(link.label);
+  const childValues = (link.children || []).flatMap((child) => [getNormalizedNavValue(child.label), getNormalizedNavValue(child.href)]);
+
+  if (linkLabel.includes("product")) return "products";
+  if (linkLabel.includes("service")) return "services";
+
+  if (childValues.some((value) => value.includes("cabinet") || value.includes("counter") || value.includes("floor"))) {
+    return "products";
+  }
+
+  if (childValues.some((value) => value.includes("kitchen") || value.includes("bathroom") || value.includes("remodel"))) {
+    return "services";
+  }
+
+  return null;
+}
+
+function getTopLevelLinkHref(link: NavLink) {
+  return link.href || link.children?.[0]?.href || "#";
 }
 
 function CaretIcon() {
@@ -190,21 +213,33 @@ function BathroomIcon() {
   );
 }
 
-function getProductIcon(label: string): string {
-  const normalized = label.toLowerCase();
+function getProductIcon(label: string, href?: string): string {
+  const normalized = getNavItemLookupValue(label, href);
   if (normalized.includes("cabinet")) return "/library/header/nav-product-cabinets.svg";
   if (normalized.includes("counter")) return "/library/header/nav-product-countertops.svg";
   return "/library/header/nav-product-flooring.svg";
 }
 
-function getDesktopProductIcon(label: string): string {
-  const normalized = label.toLowerCase();
+function getDesktopProductIcon(label: string, href?: string): string {
+  const normalized = getNavItemLookupValue(label, href);
   if (normalized.includes("cabinet")) return "/library/header/nav-product-cabinets-desktop.svg";
   if (normalized.includes("counter")) return "/library/header/nav-product-countertops.svg";
   return "/library/header/nav-product-flooring.svg";
 }
 
-export default function Header({ data, raw }: { data: GlobalData; raw: Record<string, unknown> }) {
+function isKitchenServiceItem(item: NavChild): boolean {
+  return getNavItemLookupValue(item.label, item.href).includes("kitchen");
+}
+
+export default function Header({
+  data,
+  generalRaw,
+  headerRaw,
+}: {
+  data: GlobalData;
+  generalRaw: Record<string, unknown>;
+  headerRaw: Record<string, unknown>;
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
@@ -218,26 +253,33 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
   const servicesTriggerRef = useRef<HTMLButtonElement | null>(null);
   const logoLabel = useMemo(() => data.siteName || "Cabinets Plus", [data.siteName]);
   const topBarAddress = useMemo(() => data.address.split(",")[0].trim(), [data.address]);
-
-  const productsGroup = useMemo(() => data.navLinks?.find((link) => link.label.toLowerCase() === "products"), [data.navLinks]);
-  const servicesGroup = useMemo(() => data.navLinks?.find((link) => link.label.toLowerCase() === "services"), [data.navLinks]);
-  const staticLinks = useMemo(() => data.navLinks?.filter((link) => !link.children?.length).slice(0, 3) || [], [data.navLinks]);
+  const topLevelLinks = useMemo(() => data.navLinks || [], [data.navLinks]);
+  const dropdownLinks = useMemo(() => topLevelLinks.filter((link) => (link.children || []).length > 0), [topLevelLinks]);
+  const productsGroup = useMemo(
+    () => dropdownLinks.find((link) => getNavGroupKind(link) === "products") || dropdownLinks[0],
+    [dropdownLinks]
+  );
+  const servicesGroup = useMemo(
+    () =>
+      dropdownLinks.find((link) => link !== productsGroup && getNavGroupKind(link) === "services") ||
+      dropdownLinks.find((link) => link !== productsGroup),
+    [dropdownLinks, productsGroup]
+  );
   const productsItems = useMemo(() => (productsGroup?.children || []).slice(0, 3), [productsGroup]);
-  const servicesItems = useMemo(() => {
-    const list = servicesGroup?.children || [];
-    return [...list].sort((a, b) => getServiceSortRank(a.label) - getServiceSortRank(b.label));
-  }, [servicesGroup]);
+  const servicesItems = useMemo(() => servicesGroup?.children || [], [servicesGroup]);
+  const productsGroupIndex = useMemo(() => topLevelLinks.findIndex((link) => link === productsGroup), [topLevelLinks, productsGroup]);
+  const servicesGroupIndex = useMemo(() => topLevelLinks.findIndex((link) => link === servicesGroup), [topLevelLinks, servicesGroup]);
 
   const defaultProductCatalogKey = useMemo<ProductCatalogKey>(() => {
     if (!productsItems.length) return "cabinets";
-    return getProductCatalogKey(productsItems[0].label);
+    return getProductCatalogKey(productsItems[0].label, productsItems[0].href);
   }, [productsItems]);
 
   const productsPanelOpen = desktopProductsOpen && !desktopSearchOpen;
   const servicesPanelOpen = desktopServicesOpen && !desktopSearchOpen;
   const activeCatalog = PRODUCT_CATALOG_BY_KEY[activeProductCatalogKey];
   const desktopProductsPanelLink =
-    productsItems.find((item) => getProductCatalogKey(item.label) === activeProductCatalogKey)?.href ||
+    productsItems.find((item) => getProductCatalogKey(item.label, item.href) === activeProductCatalogKey)?.href ||
     productsItems[0]?.href ||
     "/cabinets";
 
@@ -343,13 +385,13 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
     <header className="sticky top-0 z-50 bg-white">
       <div className="bg-[var(--cp-brand-neutral-100)] px-4 py-2 md:px-10">
         <div className="cp-container flex items-center justify-center gap-8 text-[14px] leading-6 text-[var(--cp-primary-500)] md:justify-end md:gap-16">
-          <span className="inline-flex items-center gap-2 whitespace-nowrap" data-tina-field={tinaField(raw, "phone")}>
+          <span className="inline-flex items-center gap-2 whitespace-nowrap" data-tina-field={tinaField(generalRaw, "phone")}>
             <img alt="" aria-hidden className="h-4 w-4" src="/library/header/icon-phone.svg" />
             <span className="hidden font-semibold md:inline">Call Us:</span>
             <span>{data.phone}</span>
           </span>
 
-          <span className="inline-flex items-center gap-3 whitespace-nowrap" data-tina-field={tinaField(raw, "address")}>
+          <span className="inline-flex items-center gap-3 whitespace-nowrap" data-tina-field={tinaField(generalRaw, "address")}>
             <img alt="" aria-hidden className="h-4 w-4" src="/library/header/icon-location.svg" />
             <span className="hidden font-semibold md:inline">Find Us:</span>
             <span>{topBarAddress}</span>
@@ -365,7 +407,7 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
         >
           <Link aria-label={logoLabel} className="inline-flex items-center" href="/">
             {data.logo ? (
-              <img alt={logoLabel} className="h-[37px] w-auto" data-tina-field={tinaField(raw, "logo")} src={data.logo} />
+              <img alt={logoLabel} className="h-[37px] w-auto" data-tina-field={tinaField(headerRaw, "logo")} src={data.logo} />
             ) : (
               <span className="font-[var(--font-red-hat-display)] text-2xl font-semibold uppercase tracking-wide text-[var(--cp-primary-500)]">{logoLabel}</span>
             )}
@@ -395,53 +437,70 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
                 </button>
               </div>
             ) : (
-              <nav className="flex items-center gap-12">
-                <button
-                  className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
-                  ref={productsTriggerRef}
-                  onClick={() => {
-                    if (desktopProductsOpen) {
-                      setDesktopProductsOpen(false);
-                    } else {
-                      openProductsPanel();
-                    }
-                  }}
-                  onMouseEnter={openProductsPanel}
-                  type="button"
-                >
-                  <span>Products</span>
-                  <CaretIcon />
-                </button>
+              <nav className="flex items-center gap-12" data-tina-field={tinaField(headerRaw, "navLinks")}>
+                {topLevelLinks.map((link, index) => {
+                  const key = `${link.label}-${link.href || "group"}`;
+                  const isProductsDropdown = productsGroup === link && productsItems.length > 0;
+                  const isServicesDropdown = servicesGroup === link && servicesItems.length > 0;
 
-                {servicesGroup ? (
-                  <button
-                    className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
-                    ref={servicesTriggerRef}
-                    onClick={() => {
-                      if (desktopServicesOpen) {
-                        setDesktopServicesOpen(false);
-                      } else {
-                        openServicesPanel();
-                      }
-                    }}
-                    onMouseEnter={openServicesPanel}
-                    type="button"
-                  >
-                    <span>{servicesGroup.label}</span>
-                    <CaretIcon />
-                  </button>
-                ) : null}
+                  if (isProductsDropdown) {
+                    return (
+                      <button
+                        className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                        data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                        key={key}
+                        ref={productsTriggerRef}
+                        onClick={() => {
+                          if (desktopProductsOpen) {
+                            setDesktopProductsOpen(false);
+                          } else {
+                            openProductsPanel();
+                          }
+                        }}
+                        onMouseEnter={openProductsPanel}
+                        type="button"
+                      >
+                        <span>{link.label}</span>
+                        <CaretIcon />
+                      </button>
+                    );
+                  }
 
-                {staticLinks.map((link) => (
-                  <Link
-                    className="text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
-                    href={link.href || "#"}
-                    key={`${link.label}-${link.href || "page"}`}
-                    onMouseEnter={closeDesktopDropdowns}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                  if (isServicesDropdown) {
+                    return (
+                      <button
+                        className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                        data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                        key={key}
+                        ref={servicesTriggerRef}
+                        onClick={() => {
+                          if (desktopServicesOpen) {
+                            setDesktopServicesOpen(false);
+                          } else {
+                            openServicesPanel();
+                          }
+                        }}
+                        onMouseEnter={openServicesPanel}
+                        type="button"
+                      >
+                        <span>{link.label}</span>
+                        <CaretIcon />
+                      </button>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      className="text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                      data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                      href={getTopLevelLinkHref(link)}
+                      key={key}
+                      onMouseEnter={closeDesktopDropdowns}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
 
                 <button
                   aria-label={data.navSearchLabel || "Search"}
@@ -486,14 +545,17 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
               <span className="absolute left-[245px] top-0 h-full w-px bg-[var(--cp-primary-100)]" />
 
               <div className="absolute left-10 top-10 w-[185px]">
-                <p className="font-[var(--font-red-hat-display)] text-[24px] font-normal uppercase tracking-[0.04em] text-[var(--cp-primary-500)]">Products</p>
+                <p className="font-[var(--font-red-hat-display)] text-[24px] font-normal uppercase tracking-[0.04em] text-[var(--cp-primary-500)]">
+                  {productsGroup?.label || "Products"}
+                </p>
                 <div className="mt-10 space-y-8">
-                  {productsItems.map((item) => {
-                    const catalogKey = getProductCatalogKey(item.label);
+                  {productsItems.map((item, index) => {
+                    const catalogKey = getProductCatalogKey(item.label, item.href);
                     const isActive = activeProductCatalogKey === catalogKey;
                     return (
                       <Link
                         className={`flex items-center justify-between ${isActive ? "" : "opacity-60"}`}
+                        data-tina-field={productsGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${productsGroupIndex}.children.${index}`) : undefined}
                         href={item.href}
                         key={`${item.label}-${item.href}-desktop-products`}
                         onClick={() => setDesktopProductsOpen(false)}
@@ -501,7 +563,7 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
                         onMouseEnter={() => setActiveProductCatalogKey(catalogKey)}
                       >
                         <span className="flex items-center gap-4">
-                          <img alt="" aria-hidden className="h-10 w-10" src={getDesktopProductIcon(item.label)} />
+                          <img alt="" aria-hidden className="h-10 w-10" src={getDesktopProductIcon(item.label, item.href)} />
                           <span className={`text-base font-medium text-[var(--cp-primary-500)] ${catalogKey === "countertops" ? "leading-none" : "leading-6"}`}>
                             {item.label}
                           </span>
@@ -569,16 +631,19 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
               }}
             >
               <div className="absolute left-10 top-10 w-[269px]">
-                <p className="font-[var(--font-red-hat-display)] text-[24px] font-normal uppercase leading-[1.25] tracking-[0.04em] text-[var(--cp-primary-500)]">Services</p>
+                <p className="font-[var(--font-red-hat-display)] text-[24px] font-normal uppercase leading-[1.25] tracking-[0.04em] text-[var(--cp-primary-500)]">
+                  {servicesGroup?.label || "Services"}
+                </p>
                 <div className="mt-10 space-y-8">
-                  {servicesItems.map((item) => (
+                  {servicesItems.map((item, index) => (
                     <Link
                       className="flex items-center gap-4 text-base font-medium leading-6 text-[var(--cp-primary-500)]"
+                      data-tina-field={servicesGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${servicesGroupIndex}.children.${index}`) : undefined}
                       href={item.href}
                       key={`${item.label}-${item.href}-desktop-services`}
                       onClick={() => setDesktopServicesOpen(false)}
                     >
-                      {item.label.toLowerCase().includes("kitchen") ? <KitchenIcon /> : <BathroomIcon />}
+                      {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
                       <span>{item.label}</span>
                     </Link>
                   ))}
@@ -591,58 +656,74 @@ export default function Header({ data, raw }: { data: GlobalData; raw: Record<st
 
       {mobileOpen ? (
         <div className="fixed inset-x-0 bottom-0 top-[130px] z-40 overflow-y-auto border-t border-[var(--cp-primary-100)] bg-white px-[21px] pb-10 pt-6 md:hidden">
-          <nav className="mx-auto max-w-[347px]">
-            <div>
-              <p className="text-[18px] leading-6 uppercase text-[var(--cp-primary-500)]">Products</p>
-              <div className="mt-3 border-t border-[var(--cp-primary-100)]">
-                {productsItems.map((item) => (
-                  <Link
-                    className="flex items-center justify-between border-b border-[var(--cp-primary-100)] py-3"
-                    href={item.href}
-                    key={`${item.label}-${item.href}`}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <span className="flex items-center gap-4">
-                      <img alt="" aria-hidden className="h-10 w-10" src={getProductIcon(item.label)} />
-                      <span className="text-base font-medium text-[var(--cp-primary-500)]">{item.label}</span>
-                    </span>
-                    <ChevronRightIcon />
-                  </Link>
-                ))}
-              </div>
-            </div>
+          <nav className="mx-auto max-w-[347px]" data-tina-field={tinaField(headerRaw, "navLinks")}>
+            {topLevelLinks.map((link, index) => {
+              const key = `${link.label}-${link.href || "group"}-mobile`;
+              const sectionClassName = index === 0 ? "" : "mt-10";
+              const isProductsDropdown = productsGroup === link && productsItems.length > 0;
+              const isServicesDropdown = servicesGroup === link && servicesItems.length > 0;
 
-            <div className="mt-10">
-              <p className="text-[18px] leading-6 uppercase text-[var(--cp-primary-500)]">Services</p>
-              <div className="mt-3 border-t border-[var(--cp-primary-100)]">
-                {servicesItems.map((item) => (
-                  <Link
-                    className="flex items-center justify-between border-b border-[var(--cp-primary-100)] py-3"
-                    href={item.href}
-                    key={`${item.label}-${item.href}`}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <span className="flex items-center gap-4">
-                      {item.label.toLowerCase().includes("kitchen") ? <KitchenIcon /> : <BathroomIcon />}
-                      <span className="text-base font-medium text-[var(--cp-primary-500)]">{item.label}</span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+              if (isProductsDropdown) {
+                return (
+                  <div className={sectionClassName} key={key}>
+                    <p className="text-[18px] leading-6 uppercase text-[var(--cp-primary-500)]">{link.label}</p>
+                    <div className="mt-3 border-t border-[var(--cp-primary-100)]">
+                      {productsItems.map((item, itemIndex) => (
+                        <Link
+                          className="flex items-center justify-between border-b border-[var(--cp-primary-100)] py-3"
+                          data-tina-field={productsGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${productsGroupIndex}.children.${itemIndex}`) : undefined}
+                          href={item.href}
+                          key={`${item.label}-${item.href}`}
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          <span className="flex items-center gap-4">
+                            <img alt="" aria-hidden className="h-10 w-10" src={getProductIcon(item.label, item.href)} />
+                            <span className="text-base font-medium text-[var(--cp-primary-500)]">{item.label}</span>
+                          </span>
+                          <ChevronRightIcon />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
 
-            <div className="mt-10 space-y-8">
-              {staticLinks.map((link) => (
+              if (isServicesDropdown) {
+                return (
+                  <div className={sectionClassName} key={key}>
+                    <p className="text-[18px] leading-6 uppercase text-[var(--cp-primary-500)]">{link.label}</p>
+                    <div className="mt-3 border-t border-[var(--cp-primary-100)]">
+                      {servicesItems.map((item, itemIndex) => (
+                        <Link
+                          className="flex items-center justify-between border-b border-[var(--cp-primary-100)] py-3"
+                          data-tina-field={servicesGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${servicesGroupIndex}.children.${itemIndex}`) : undefined}
+                          href={item.href}
+                          key={`${item.label}-${item.href}`}
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          <span className="flex items-center gap-4">
+                            {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
+                            <span className="text-base font-medium text-[var(--cp-primary-500)]">{item.label}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
                 <Link
-                  className="block text-[18px] leading-6 uppercase text-[var(--cp-primary-500)]"
-                  href={link.href || "#"}
-                  key={`${link.label}-${link.href}`}
+                  className={`${sectionClassName ? `${sectionClassName} ` : ""}block text-[18px] leading-6 uppercase text-[var(--cp-primary-500)]`}
+                  data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                  href={getTopLevelLinkHref(link)}
+                  key={key}
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
                 </Link>
-              ))}
-            </div>
+              );
+            })}
           </nav>
         </div>
       ) : null}

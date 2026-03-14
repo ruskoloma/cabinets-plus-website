@@ -1,0 +1,13 @@
+{
+  "importedAt": "2026-03-13T19:58:58.504Z",
+  "projects": 51,
+  "projectModel": "openai/gpt-5.4",
+  "imageModel": "openai/gpt-5.4",
+  "media": {
+    "copiedWithinS3": 0,
+    "uploadedFromDownload": 266,
+    "skippedExisting": 990
+  },
+  "contentPath": "content/projects",
+  "uploadPrefix": "uploads/projects"
+}

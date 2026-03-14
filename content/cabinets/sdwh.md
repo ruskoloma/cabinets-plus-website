@@ -3,16 +3,15 @@ name: White Shaker
 code: SDWH
 slug: sdwh
 description: >-
-  White Shaker sample door from Hand Crafted Collection is produced using the
-  exact same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+  White Shaker sample door from Hand Crafted Collection is produced using the exact same
+  manufacturing process as our full cabinet line, ensuring absolute consistency in material
+  selection, construction methods, and finishing techniques. The style, recessed panel, stile and
+  rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a
+  precise representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWH/3095-sdwh-white-shaker.jpg
 technicalDetails:
@@ -54,11 +53,11 @@ media:
     label: SDWH White Shaker.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWH/3225-dsc05380.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWH/3225-dsc05380.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -66,11 +65,11 @@ media:
     label: DSC05380.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWH/3226-dsc05459.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWH/3226-dsc05459.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -78,11 +77,11 @@ media:
     label: DSC05459.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWH/3227-dsc05326.jpg
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
+  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWH/3227-dsc05326.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -90,9 +89,10 @@ media:
     label: DSC05326.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 250
 sourceUpdatedAt: '2025-07-25T22:53:51.874Z'
 stainType: ''
@@ -105,4 +105,3 @@ relatedProducts:
 doorStyle: shaker
 paint: white
 ---
-

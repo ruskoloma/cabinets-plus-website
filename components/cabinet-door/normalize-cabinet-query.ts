@@ -23,6 +23,11 @@ function asBoolean(value: unknown): boolean | undefined {
   return typeof value === "boolean" ? value : undefined;
 }
 
+function asStringList(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === "string");
+}
+
 function normalizeSystemInfo(value: unknown, fallbackFilename?: string): CabinetSystemInfo | undefined {
   const record = asRecord(value);
 
@@ -60,9 +65,20 @@ function normalizeMediaItem(value: unknown): CabinetMediaItem | null {
     paintPriority: asBoolean(record.paintPriority) ?? null,
     stainPriority: asBoolean(record.stainPriority) ?? null,
     countertopPriority: asBoolean(record.countertopPriority) ?? null,
+    flooring: asBoolean(record.flooring) ?? null,
     room: asString(record.room) ?? null,
-    paint: asString(record.paint) ?? null,
-    stain: asString(record.stain) ?? null,
+    cabinetPaints: (() => {
+      const values = asStringList(record.cabinetPaints);
+      if (values.length > 0) return values;
+      const legacy = asString(record.paint);
+      return legacy ? [legacy] : [];
+    })(),
+    cabinetStains: (() => {
+      const values = asStringList(record.cabinetStains);
+      if (values.length > 0) return values;
+      const legacy = asString(record.stain);
+      return legacy ? [legacy] : [];
+    })(),
     countertop: asString(record.countertop) ?? null,
     label: asString(record.label) ?? null,
     description: asString(record.description) ?? null,

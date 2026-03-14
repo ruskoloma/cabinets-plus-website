@@ -3,18 +3,16 @@ name: Oxford White
 code: OWU
 slug: owu
 description: >-
-  Oxford White sample door from US Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+  Oxford White sample door from US Collection is produced using the exact same manufacturing process
+  as our full cabinet line, ensuring absolute consistency in material selection, construction
+  methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise representation of the
+  quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWU/3148-owu-oxford-white.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWU/3148-owu-oxford-white.jpg
 technicalDetails:
   - key: Manufacturer
     value: US Collection
@@ -54,9 +52,10 @@ media:
     label: OWU Oxford White.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 308
 sourceUpdatedAt: '2025-07-25T22:53:51.414Z'
 stainType: ''
@@ -69,4 +68,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: white
 ---
-

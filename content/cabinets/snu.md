@@ -3,18 +3,16 @@ name: Shaker Navy
 code: SNU
 slug: snu
 description: >-
-  Shaker Navy sample door from US Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+  Shaker Navy sample door from US Collection is produced using the exact same manufacturing process
+  as our full cabinet line, ensuring absolute consistency in material selection, construction
+  methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise representation of the
+  quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SNU/3156-snu-shaker-navy.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SNU/3156-snu-shaker-navy.jpg
 technicalDetails:
   - key: Manufacturer
     value: US Collection
@@ -54,9 +52,10 @@ media:
     label: SNU Shaker Navy.jpg
     description: ''
     room: ''
-    paint: ''
     countertop: ''
-    stain: ''
+    cabinetPaints: []
+    cabinetStains: []
+    flooring: false
 sourceId: 313
 sourceUpdatedAt: '2025-07-25T22:53:56.398Z'
 stainType: ''
@@ -69,4 +68,3 @@ relatedProducts:
 doorStyle: shaker
 paint: blue
 ---
-

@@ -73,7 +73,15 @@ const DEFAULT_STAIN_OPTIONS: CatalogVisualOption[] = [
 ];
 
 const DEFAULT_ROOMS = ["Kitchen", "Bathroom", "Laundry", "Other"];
-const DEFAULT_COUNTERTOP_TYPES = ["Quartz", "Granite", "Marble", "Quartzite", "Porcelain", "Butcher Block", "Other"];
+const DEFAULT_COUNTERTOP_OPTIONS: CatalogVisualOption[] = [
+  { value: "quartz", label: "Quartz", image: "/library/catalog/countertop-quartz.png" },
+  { value: "granite", label: "Granite", image: "/library/catalog/countertop-granite.png" },
+  { value: "marble", label: "Marble", image: "/library/catalog/countertop-marble.png" },
+  { value: "quartzite", label: "Quartzite", image: "/library/catalog/countertop-quartzite.png" },
+  { value: "porcelain", label: "Porcelain" },
+  { value: "butcher block", label: "Butcher Block" },
+  { value: "other", label: "Other" },
+];
 
 function normalizeCatalogOption(entry: unknown): CatalogVisualOption | null {
   if (typeof entry === "string") {
@@ -153,9 +161,7 @@ function normalizeCatalogSettings(value: unknown): CatalogSettingsData {
     rooms: Array.isArray(record?.rooms)
       ? record.rooms.map((entry) => String(entry).trim()).filter(Boolean)
       : DEFAULT_ROOMS,
-    countertopTypes: Array.isArray(record?.countertopTypes)
-      ? record.countertopTypes.map((entry) => String(entry).trim()).filter(Boolean)
-      : DEFAULT_COUNTERTOP_TYPES,
+    countertopTypes: normalizeCatalogOptionList(record?.countertopTypes, DEFAULT_COUNTERTOP_OPTIONS),
     _content_source: record?._content_source as unknown,
     _values: record?._values as unknown,
   };

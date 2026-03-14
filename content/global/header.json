@@ -1,0 +1,28 @@
+{
+  "siteName": "Cabinets Plus",
+  "logo": "/library/branding/logo-main.svg",
+  "ctaLabel": "Free Design Consultation",
+  "ctaLink": "/contact-us",
+  "navSearchLabel": "Search",
+  "navSearchLink": "/",
+  "navLinks": [
+    {
+      "label": "Products",
+      "children": [
+        { "label": "Cabinets", "href": "/cabinets" },
+        { "label": "Countertops", "href": "/countertops" },
+        { "label": "Flooring", "href": "/flooring" }
+      ]
+    },
+    {
+      "label": "Services",
+      "children": [
+        { "label": "Kitchen remodeling", "href": "/kitchen-remodel" },
+        { "label": "Bathroom remodeling", "href": "/bathroom-remodel" }
+      ]
+    },
+    { "label": "Gallery", "href": "/gallery" },
+    { "label": "About us", "href": "/about-us" },
+    { "label": "Contacts", "href": "/contact-us" }
+  ]
+}

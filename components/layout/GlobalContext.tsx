@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext } from "react";
 
-interface GlobalSettings {
+export interface GlobalSettings {
   siteName: string;
   logo?: string;
   footerLogo?: string;
@@ -25,12 +25,29 @@ interface GlobalSettings {
   footerLinks?: Array<{ label: string; href: string }>;
 }
 
-const GlobalContext = createContext<GlobalSettings | null>(null);
+interface GlobalRawDocuments {
+  footer: Record<string, unknown>;
+  general: Record<string, unknown>;
+  header: Record<string, unknown>;
+}
+
+interface GlobalContextValue {
+  rawDocuments: GlobalRawDocuments;
+  settings: GlobalSettings;
+}
+
+const GlobalContext = createContext<GlobalContextValue | null>(null);
 
 export const GlobalProvider = GlobalContext.Provider;
 
 export function useGlobal(): GlobalSettings {
   const ctx = useContext(GlobalContext);
   if (!ctx) throw new Error("useGlobal must be used inside GlobalProvider");
-  return ctx;
+  return ctx.settings;
+}
+
+export function useGlobalRawDocument(documentName: keyof GlobalRawDocuments): Record<string, unknown> {
+  const ctx = useContext(GlobalContext);
+  if (!ctx) throw new Error("useGlobalRawDocument must be used inside GlobalProvider");
+  return ctx.rawDocuments[documentName];
 }
