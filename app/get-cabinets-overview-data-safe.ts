@@ -1,6 +1,11 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-import matter from "gray-matter";
+import {
+  asRecord,
+  createStaticQueryResult,
+  listMarkdownFiles,
+  readJsonContentFile,
+  readMarkdownFrontmatter,
+  withContentSysFields,
+} from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 import { normalizeCabinetsOverviewQueryData } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
 import { CABINETS_OVERVIEW_QUERY } from "@/components/cabinets-overview/queries";
@@ -13,7 +18,7 @@ export async function getCabinetsOverviewDataSafe(): Promise<CabinetsOverviewQue
       variables: {},
     }, {});
 
-    const record = result && typeof result === "object" ? (result as Record<string, unknown>) : {};
+    const record = asRecord(result) || {};
 
     return {
       data: normalizeCabinetsOverviewQueryData(record.data),
@@ -22,49 +27,30 @@ export async function getCabinetsOverviewDataSafe(): Promise<CabinetsOverviewQue
     };
   } catch (error) {
     try {
-      const [settingsRaw, cabinetFiles] = await Promise.all([
-        fs.readFile(path.join(process.cwd(), "content", "global", "catalog-settings.json"), "utf8"),
-        fs.readdir(path.join(process.cwd(), "content", "cabinets")),
+      const [settings, files] = await Promise.all([
+        readJsonContentFile("global", "catalog-settings.json"),
+        listMarkdownFiles("cabinets"),
       ]);
-
-      const settings = JSON.parse(settingsRaw) as unknown;
-      const files = cabinetFiles.filter((file) => file.endsWith(".md"));
 
       const cabinets = await Promise.all(
         files.map(async (filename) => {
-          const fullPath = path.join(process.cwd(), "content", "cabinets", filename);
-          const raw = await fs.readFile(fullPath, "utf8");
-          const parsed = matter(raw);
-
-          return {
-            ...(parsed.data as Record<string, unknown>),
-            _sys: {
-              filename,
-              basename: filename.replace(/\.md$/i, ""),
-              relativePath: `cabinets/${filename}`,
-            },
-          };
+          const frontmatter = await readMarkdownFrontmatter("cabinets", filename);
+          return withContentSysFields("cabinets", filename, frontmatter);
         }),
       );
 
-      return {
-        data: normalizeCabinetsOverviewQueryData({
+      return createStaticQueryResult(
+        normalizeCabinetsOverviewQueryData({
           catalogSettings: settings,
           cabinetConnection: {
             edges: cabinets.map((cabinet) => ({ node: cabinet })),
           },
         }),
-        query: "",
-        variables: {},
-      };
+      );
     } catch {
       console.error("Unable to load cabinets overview data from Tina or local files.", error);
 
-      return {
-        data: normalizeCabinetsOverviewQueryData({}),
-        query: "",
-        variables: {},
-      };
+      return createStaticQueryResult(normalizeCabinetsOverviewQueryData({}));
     }
   }
 }

@@ -1,249 +1,34 @@
 "use client";
 
+import {
+  FALLBACK_HERO_IMAGE,
+  FALLBACK_PROCESS_ICONS,
+  FALLBACK_PROJECT_IMAGES,
+  getBlock,
+  mapFaqTabs,
+  mapFeatures,
+  mapPartnerLogos,
+  mapProducts,
+  resolveTemplateName,
+  mapServices,
+  mapStats,
+  mapSteps,
+  text,
+  toBlockArray,
+  type Dict,
+  type PartnerLogoItem,
+} from "@/app/figma-home.helpers";
+import ContactUsSection from "@/components/home/ContactUsSection";
 import { useGlobal, useGlobalRawDocument } from "@/components/layout/GlobalContext";
 import Button from "@/components/ui/Button";
 import PreviewCard from "@/components/home/PreviewCard";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
-import ContactForm from "@/components/home/ContactForm";
 import TrustBar from "@/components/home/TrustBar";
 import { tinaField } from "tinacms/dist/react";
 
 interface Props {
   page: Dict;
-}
-
-interface HomeBlock {
-  _template?: string;
-  __typename?: string | null;
-  [key: string]: unknown;
-}
-
-interface Dict {
-  [key: string]: unknown;
-}
-
-interface ProductItem {
-  raw: Dict;
-  name: string;
-  link: string;
-  image?: string;
-}
-
-interface ServiceItem {
-  raw: Dict;
-  title: string;
-  description: string;
-  link: string;
-  image?: string;
-}
-
-interface FeatureItem {
-  raw: Dict;
-  icon?: string;
-  title: string;
-  description: string;
-  image?: string;
-}
-
-interface StatItem {
-  raw: Dict;
-  value: string;
-  label: string;
-}
-
-interface PartnerLogoItem {
-  raw?: Dict;
-  src: string;
-  alt: string;
-}
-
-interface ProcessItem {
-  raw: Dict;
-  iconImage?: string;
-  title: string;
-  description: string;
-}
-
-interface FaqItem {
-  raw?: Dict;
-  question: string;
-  answer: string;
-}
-
-interface FaqTab {
-  raw?: Dict;
-  label: string;
-  faqs: FaqItem[];
-}
-
-const fallbackHeroImage = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/hero.jpg";
-const fallbackProjectImages = [
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg",
-];
-const fallbackProcessIcons = [
-  "/library/process/process-step-1.svg",
-  "/library/process/process-step-2.svg",
-  "/library/process/process-step-3.svg",
-  "/library/process/process-step-4.svg",
-];
-
-const TYPE_TO_TEMPLATE: Record<string, string> = {
-  PageBlocksHero: "hero",
-  PageBlocksProductsSection: "productsSection",
-  PageBlocksServicesSection: "servicesSection",
-  PageBlocksProjectsSection: "projectsSection",
-  PageBlocksWhyUsSection: "whyUsSection",
-  PageBlocksAboutSection: "aboutSection",
-  PageBlocksShowroomBanner: "showroomBanner",
-  PageBlocksProcessSection: "processSection",
-  PageBlocksFaqSection: "faqSection",
-  PageBlocksContactSection: "contactSection",
-};
-
-const fallbackFaqTabs: FaqTab[] = [
-  {
-    label: "General Questions",
-    faqs: [
-      {
-        question: "Can you provide advice on DIY projects?",
-        answer: "Yes. We offer consultations for DIY projects and can help with selections, planning, and measurements.",
-      },
-    ],
-  },
-];
-
-function toBlockArray(value: unknown): HomeBlock[] {
-  if (!Array.isArray(value)) return [];
-  return value.filter((item): item is HomeBlock => Boolean(item) && typeof item === "object");
-}
-
-function toDict(value: unknown): Dict {
-  return value && typeof value === "object" ? (value as Dict) : {};
-}
-
-function text(value: unknown, fallback = ""): string {
-  return typeof value === "string" ? value : fallback;
-}
-
-function resolveTemplateName(block: HomeBlock): string {
-  if (typeof block._template === "string" && block._template.length > 0) return block._template;
-  if (typeof block.__typename === "string") return TYPE_TO_TEMPLATE[block.__typename] || "";
-  return "";
-}
-
-function getBlock(blocks: HomeBlock[], template: string): Dict {
-  return toDict(blocks.find((block) => resolveTemplateName(block) === template));
-}
-
-function mapProducts(list: HomeBlock[]): ProductItem[] {
-  return list
-    .map((item) => {
-      const raw = toDict(item);
-      return {
-        raw,
-        name: text(raw.name),
-        link: text(raw.link),
-        image: text(raw.image) || undefined,
-      };
-    })
-    .filter((item) => item.name.length > 0);
-}
-
-function mapServices(list: HomeBlock[]): ServiceItem[] {
-  return list
-    .map((item) => {
-      const raw = toDict(item);
-      return {
-        raw,
-        title: text(raw.title),
-        description: text(raw.description),
-        link: text(raw.link),
-        image: text(raw.image) || undefined,
-      };
-    })
-    .filter((item) => item.title.length > 0);
-}
-
-function mapFeatures(list: HomeBlock[]): FeatureItem[] {
-  return list
-    .map((item) => {
-      const raw = toDict(item);
-      return {
-        raw,
-        icon: text(raw.icon) || undefined,
-        title: text(raw.title),
-        description: text(raw.description),
-        image: text(raw.image) || undefined,
-      };
-    })
-    .filter((item) => item.title.length > 0);
-}
-
-function mapStats(list: HomeBlock[]): StatItem[] {
-  return list
-    .map((item) => {
-      const raw = toDict(item);
-      return { raw, value: text(raw.value), label: text(raw.label) };
-    })
-    .filter((item) => item.value.length > 0 || item.label.length > 0);
-}
-
-function mapPartnerLogos(value: unknown): PartnerLogoItem[] {
-  if (!Array.isArray(value)) return [];
-
-  return value
-    .map((item) => {
-      if (typeof item === "string") {
-        return { src: item, alt: "Partner logo" };
-      }
-
-      const mapped = toDict(item);
-      return {
-        raw: mapped,
-        src: text(mapped.logo),
-        alt: text(mapped.alt, "Partner logo"),
-      };
-    })
-    .filter((item) => item.src.length > 0);
-}
-
-function mapSteps(list: HomeBlock[]): ProcessItem[] {
-  return list
-    .map((item) => {
-      const raw = toDict(item);
-      return {
-        raw,
-        iconImage: text(raw.iconImage) || undefined,
-        title: text(raw.title),
-        description: text(raw.description),
-      };
-    })
-    .filter((item) => item.title.length > 0);
-}
-
-function mapFaqTabs(list: HomeBlock[]): FaqTab[] {
-  const tabs = list
-    .map((tab) => {
-      const rawTab = toDict(tab);
-      return {
-        raw: rawTab,
-        label: text(rawTab.label),
-        faqs: toBlockArray(rawTab.faqs)
-          .map((faq) => {
-            const rawFaq = toDict(faq);
-            return { raw: rawFaq, question: text(rawFaq.question), answer: text(rawFaq.answer) };
-          })
-          .filter((faq) => faq.question.length > 0),
-      };
-    })
-    .filter((tab) => tab.label.length > 0);
-
-  return tabs.length > 0 ? tabs : fallbackFaqTabs;
 }
 
 function MailIcon() {
@@ -304,12 +89,12 @@ export default function FigmaHome({ page }: Props) {
   const processItems = mapSteps(toBlockArray(process.steps));
   const faqTabs = mapFaqTabs(toBlockArray(faq.tabs));
 
-  const heroImage = text(hero.backgroundImage, fallbackHeroImage);
+  const heroImage = text(hero.backgroundImage, FALLBACK_HERO_IMAGE);
   const projectGallery = (Array.isArray(projects.images) ? (projects.images as unknown[]) : []).map((item) => text(item)).filter(Boolean);
-  const projectImages = projectGallery.length > 0 ? projectGallery : fallbackProjectImages;
+  const projectImages = projectGallery.length > 0 ? projectGallery : FALLBACK_PROJECT_IMAGES;
   const projectImageFields = projectGallery.map((_, index) => tinaField(projectsRecord, `images.${index}`));
   const partnerLogos = mapPartnerLogos(about.partnerLogos);
-  const fallbackTrustPartnerLogos = [
+  const fallbackTrustPartnerLogos: PartnerLogoItem[] = [
     { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png", alt: "Lions Floor" },
     { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png", alt: "Lyrus Collection" },
     { src: "/library/trust/trust-cambria.svg", alt: "Cambria" },
@@ -318,7 +103,7 @@ export default function FigmaHome({ page }: Props) {
     { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png", alt: "Easy Stones" },
   ];
   const trustPartnerLogos = (partnerLogos.length > 0 ? partnerLogos : fallbackTrustPartnerLogos).map((logo) => {
-    const raw = "raw" in logo ? logo.raw : undefined;
+    const raw = logo.raw;
     return {
       ...logo,
       tinaField: raw ? tinaField(raw as Record<string, unknown>) : undefined,
@@ -331,8 +116,6 @@ export default function FigmaHome({ page }: Props) {
     valueField: tinaField(stat.raw as Record<string, unknown>, "value"),
     labelField: tinaField(stat.raw as Record<string, unknown>, "label"),
   }));
-
-  const contactImage = text(contact.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg");
   const showroomImage = text(showroom.image, "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg");
   const mapEmbedUrl = text(
     contact.mapEmbedUrl,
@@ -529,7 +312,7 @@ export default function FigmaHome({ page }: Props) {
             <div className="flex flex-col gap-12">
               {processItems.map((item, index) => {
                 const iconSizeClass = index < 2 ? "h-10 w-10 md:h-12 md:w-12" : "h-8 w-8 md:h-12 md:w-12";
-                const iconSrc = item.iconImage || fallbackProcessIcons[index];
+                const iconSrc = item.iconImage || FALLBACK_PROCESS_ICONS[index];
                 return (
                   <article className="grid grid-cols-[40px_1fr] gap-6 md:grid-cols-[48px_1fr]" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
                     <div className="relative z-10 flex justify-center bg-[var(--cp-brand-neutral-50)]">
@@ -560,38 +343,9 @@ export default function FigmaHome({ page }: Props) {
         </div>
       </section> : null}
 
-      {hasTemplate("contactSection") ? <section className="bg-[var(--cp-brand-neutral-100)]" data-tina-field={tinaField(contactRecord)} style={{ order: getSectionOrder("contactSection", 9, 0) }}>
-        <div className="mx-auto w-full max-w-[1440px] md:grid md:grid-cols-[720px_720px]">
-          <div className="px-[43px] pb-12 pt-[35px] md:pl-[79px] md:pr-[91px] md:pb-[82px] md:pt-16">
-            <h2 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(contactRecord, "title")}>
-              {text(contact.title, "Contact us")}
-            </h2>
-
-            <div className="mt-[54px] w-full max-w-[550px] md:mt-[39px]">
-              <ContactForm
-                emailLabel={text(contact.emailLabel, "Email")}
-                emailLabelField={tinaField(contactRecord, "emailLabel")}
-                emailPlaceholder={text(contact.emailPlaceholder, "Enter your email")}
-                emailPlaceholderField={tinaField(contactRecord, "emailPlaceholder")}
-                messageLabel={text(contact.messageLabel, "Project Idea (optional)")}
-                messageLabelField={tinaField(contactRecord, "messageLabel")}
-                messagePlaceholder={text(contact.messagePlaceholder, "Tell us more about your project")}
-                messagePlaceholderField={tinaField(contactRecord, "messagePlaceholder")}
-                nameLabel={text(contact.nameLabel, "Name")}
-                nameLabelField={tinaField(contactRecord, "nameLabel")}
-                namePlaceholder={text(contact.namePlaceholder, "Enter your name")}
-                namePlaceholderField={tinaField(contactRecord, "namePlaceholder")}
-                submitLabel={text(contact.submitLabel, "Send request")}
-                submitLabelField={tinaField(contactRecord, "submitLabel")}
-              />
-            </div>
-          </div>
-
-          <div className="h-[380px] overflow-hidden bg-[var(--cp-primary-100)] md:h-[697px] md:w-[720px]" data-tina-field={tinaField(contactRecord, "image")}>
-            <img alt="Contact section" className="h-full w-full object-cover" src={contactImage} />
-          </div>
-        </div>
-      </section> : null}
+      {hasTemplate("contactSection") ? <div style={{ order: getSectionOrder("contactSection", 9, 0) }}>
+        <ContactUsSection block={contactRecord} />
+      </div> : null}
 
       {hasTemplate("contactSection") ? <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-50)] py-16" data-tina-field={tinaField(contactRecord)} style={{ order: getSectionOrder("contactSection", 9, 1) }}>
         <div className="absolute inset-0 bg-[#f2f2f2]" />

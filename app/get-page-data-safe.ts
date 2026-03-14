@@ -1,6 +1,7 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-import matter from "gray-matter";
+import {
+  createStaticQueryResult,
+  readMarkdownFrontmatter,
+} from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 
 interface PageSeo {
@@ -74,23 +75,13 @@ export async function getPageDataSafe(relativePath: string): Promise<PageQueryLi
     return await client.queries.page({ relativePath });
   } catch (error) {
     try {
-      const filePath = path.join(process.cwd(), "content", "pages", relativePath);
-      const raw = await fs.readFile(filePath, "utf8");
-      const parsed = matter(raw);
-      const normalized = normalizePageData(parsed.data);
-
-      return {
-        data: { page: normalized },
-        query: "",
-        variables: {},
-      };
+      const frontmatter = await readMarkdownFrontmatter("pages", relativePath);
+      return createStaticQueryResult({
+        page: normalizePageData(frontmatter),
+      });
     } catch {
       console.error(`Unable to load page "${relativePath}" from Tina or local file.`, error);
-      return {
-        data: { page: null },
-        query: "",
-        variables: {},
-      };
+      return createStaticQueryResult({ page: null });
     }
   }
 }

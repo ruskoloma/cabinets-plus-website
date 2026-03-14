@@ -1,7 +1,12 @@
 import { tinaField } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
+import { asText, type BlockRecord } from "./block-types";
 
-export default function ShowroomBannerBlock({ block }: { block: any }) {
+export default function ShowroomBannerBlock({ block }: { block: BlockRecord }) {
+  const heading = asText(block.heading);
+  const subtext = asText(block.subtext);
+  const ctaLabel = asText(block.ctaLabel);
+
   return (
     <section className="py-24 bg-amber-600 relative overflow-hidden">
       {/* Decorative shapes */}
@@ -13,17 +18,17 @@ export default function ShowroomBannerBlock({ block }: { block: any }) {
           data-tina-field={tinaField(block, "heading")}
           className="text-3xl md:text-5xl font-bold text-white mb-5 leading-tight"
         >
-          {block.heading}
+          {heading}
         </h2>
         <p
           data-tina-field={tinaField(block, "subtext")}
           className="text-amber-100 text-lg leading-relaxed mb-10"
         >
-          {block.subtext}
+          {subtext}
         </p>
-        {block.ctaLabel && (
-          <Button href={block.ctaLink || "#"} variant="secondary" className="px-8 py-4 text-base">
-            {block.ctaLabel}
+        {ctaLabel && (
+          <Button href={asText(block.ctaLink, "#")} variant="secondary" className="px-8 py-4 text-base">
+            {ctaLabel}
           </Button>
         )}
       </div>

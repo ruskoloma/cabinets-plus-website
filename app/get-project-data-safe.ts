@@ -1,6 +1,10 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-import matter from "gray-matter";
+import {
+  asRecord,
+  createStaticQueryResult,
+  listMarkdownFiles,
+  readMarkdownFrontmatter,
+  withContentSysFields,
+} from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 import { PROJECT_LIVE_QUERY } from "@/app/project-live-query";
 import { normalizeProjectQueryData } from "@/components/project-detail/normalize-project-query";
@@ -45,7 +49,7 @@ export async function getProjectDataSafe(slug: string): Promise<ProjectDetailQue
       {},
     );
 
-    const record = result && typeof result === "object" ? (result as Record<string, unknown>) : {};
+    const record = asRecord(result) || {};
 
     return {
       data: normalizeProjectQueryData(record.data, relativePath),
@@ -54,37 +58,21 @@ export async function getProjectDataSafe(slug: string): Promise<ProjectDetailQue
     };
   } catch (error) {
     try {
-      const filePath = path.join(process.cwd(), "content", "projects", relativePath);
-      const raw = await fs.readFile(filePath, "utf8");
-      const parsed = matter(raw);
-
-      return {
-        data: normalizeProjectQueryData(
+      const frontmatter = await readMarkdownFrontmatter("projects", relativePath);
+      return createStaticQueryResult(
+        normalizeProjectQueryData(
           {
-            project: {
-              ...(parsed.data as Record<string, unknown>),
-              _sys: {
-                filename: relativePath,
-                basename: relativePath.replace(/\.md$/i, ""),
-                relativePath: `projects/${relativePath}`,
-              },
-            },
+            project: withContentSysFields("projects", relativePath, frontmatter),
           },
           relativePath,
         ),
-        query: "",
-        variables: {},
-      };
+      );
     } catch {
       if (!isMissingProjectError(error, relativePath)) {
         console.error(`Unable to load project "${slug}" from Tina or local file.`, error);
       }
 
-      return {
-        data: { project: null },
-        query: "",
-        variables: {},
-      };
+      return createStaticQueryResult({ project: null });
     }
   }
 }
@@ -93,9 +81,7 @@ export async function getProjectIndexSafe(): Promise<Array<{ slug: string }>> {
   if (projectIndexCache) return projectIndexCache;
 
   try {
-    const projectDir = path.join(process.cwd(), "content", "projects");
-    const files = (await fs.readdir(projectDir)).filter((file) => file.endsWith(".md"));
-
+    const files = await listMarkdownFiles("projects");
     projectIndexCache = files
       .map((filename) => ({ slug: toSlug(filename) }))
       .sort((left, right) => left.slug.localeCompare(right.slug));

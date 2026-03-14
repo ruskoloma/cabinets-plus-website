@@ -1,5 +1,6 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
+import { asBlockArray } from "@/components/blocks/block-types";
 import BlockRenderer from "@/components/blocks/BlockRenderer";
 
 interface GenericPageClientProps {
@@ -14,7 +15,7 @@ function TinaGenericPageClient(props: GenericPageClientProps) {
     query: props.query || "",
     variables: props.variables || {},
   });
-  return <BlockRenderer blocks={data.page?.blocks || []} />;
+  return <BlockRenderer blocks={asBlockArray(data.page?.blocks)} />;
 }
 
 // Shared client component for any page collection document (about-us, contact-us, etc.)
@@ -22,7 +23,7 @@ export default function GenericPageClient(props: GenericPageClientProps) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    return <BlockRenderer blocks={props.data?.page?.blocks || []} />;
+    return <BlockRenderer blocks={asBlockArray(props.data?.page?.blocks)} />;
   }
 
   return <TinaGenericPageClient {...props} />;

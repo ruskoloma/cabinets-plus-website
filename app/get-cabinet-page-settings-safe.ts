@@ -1,21 +1,9 @@
-import fs from "node:fs/promises";
-import path from "node:path";
+import { asRecord, asString, readJsonContentFile } from "@/app/lib/content";
 import type { CabinetPageSettings } from "@/components/cabinet-door/types";
-
-function asRecord(value: unknown): Record<string, unknown> | null {
-  if (!value || typeof value !== "object") return null;
-  return value as Record<string, unknown>;
-}
-
-function asString(value: unknown): string | null {
-  return typeof value === "string" ? value : null;
-}
 
 export async function getCabinetPageSettingsSafe(): Promise<CabinetPageSettings | null> {
   try {
-    const filePath = path.join(process.cwd(), "content", "global", "cabinet-page-settings.json");
-    const raw = await fs.readFile(filePath, "utf8");
-    const parsed = JSON.parse(raw) as unknown;
+    const parsed = await readJsonContentFile("global", "cabinet-page-settings.json");
     const record = asRecord(parsed);
     if (!record) return null;
 
@@ -25,22 +13,22 @@ export async function getCabinetPageSettingsSafe(): Promise<CabinetPageSettings 
             const row = asRecord(item);
             if (!row) return null;
             return {
-              file: asString(row.file),
-              title: asString(row.title),
+              file: asString(row.file) ?? null,
+              title: asString(row.title) ?? null,
             };
           })
           .filter(Boolean)
       : [];
 
     return {
-      breadcrumbLabel: asString(record.breadcrumbLabel),
-      technicalDetailsTitle: asString(record.technicalDetailsTitle),
-      contactButtonLabel: asString(record.contactButtonLabel),
-      descriptionLabel: asString(record.descriptionLabel),
-      relatedProductsTitle: asString(record.relatedProductsTitle),
-      projectsSectionTitle: asString(record.projectsSectionTitle),
-      projectsSectionDescription: asString(record.projectsSectionDescription),
-      projectFallbackTitle: asString(record.projectFallbackTitle),
+      breadcrumbLabel: asString(record.breadcrumbLabel) ?? null,
+      technicalDetailsTitle: asString(record.technicalDetailsTitle) ?? null,
+      contactButtonLabel: asString(record.contactButtonLabel) ?? null,
+      descriptionLabel: asString(record.descriptionLabel) ?? null,
+      relatedProductsTitle: asString(record.relatedProductsTitle) ?? null,
+      projectsSectionTitle: asString(record.projectsSectionTitle) ?? null,
+      projectsSectionDescription: asString(record.projectsSectionDescription) ?? null,
+      projectFallbackTitle: asString(record.projectFallbackTitle) ?? null,
       mockProjects,
     };
   } catch {

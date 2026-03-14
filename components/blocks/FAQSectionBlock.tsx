@@ -2,20 +2,23 @@
 import { useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
-export default function FAQSectionBlock({ block }: { block: any }) {
+export default function FAQSectionBlock({ block }: { block: BlockRecord }) {
   const [activeTab, setActiveTab] = useState(0);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const currentTab = block.tabs?.[activeTab];
+  const tabs = asBlockArray(block.tabs);
+  const currentTab = tabs[activeTab];
+  const faqs = currentTab ? asBlockArray(currentTab.faqs) : [];
 
   return (
     <section className="py-20 bg-white" id="faq">
       <div className="max-w-4xl mx-auto px-6">
-        <SectionTitle title={block.title} tinaField={tinaField(block, "title")} centered />
+        <SectionTitle title={asText(block.title)} tinaField={tinaField(block, "title")} centered />
 
         {/* Tab Bar */}
         <div className="flex flex-wrap gap-2 justify-center mt-8 mb-10">
-          {block.tabs?.map((tab: any, i: number) => (
+          {tabs.map((tab, i) => (
             <button
               key={i}
               onClick={() => { setActiveTab(i); setOpenIndex(null); }}
@@ -25,14 +28,14 @@ export default function FAQSectionBlock({ block }: { block: any }) {
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
-              {tab.label}
+              {asText(tab.label)}
             </button>
           ))}
         </div>
 
         {/* FAQ Accordion */}
         <div className="space-y-3">
-          {currentTab?.faqs?.map((faq: any, i: number) => (
+          {faqs.map((faq, i) => (
             <div
               key={i}
               className="border border-slate-200 rounded-xl overflow-hidden"
@@ -45,7 +48,7 @@ export default function FAQSectionBlock({ block }: { block: any }) {
                   data-tina-field={tinaField(faq, "question")}
                   className="font-semibold text-slate-800 text-sm pr-4"
                 >
-                  {faq.question}
+                  {asText(faq.question)}
                 </span>
                 <span className={`text-amber-600 text-xl flex-shrink-0 transition-transform duration-200 ${openIndex === i ? "rotate-45" : ""}`}>
                   +
@@ -53,7 +56,7 @@ export default function FAQSectionBlock({ block }: { block: any }) {
               </button>
               {openIndex === i && (
                 <div className="px-6 pb-5 text-slate-500 text-sm leading-relaxed border-t border-slate-100 pt-4 bg-slate-50">
-                  <span data-tina-field={tinaField(faq, "answer")}>{faq.answer}</span>
+                  <span data-tina-field={tinaField(faq, "answer")}>{asText(faq.answer)}</span>
                 </div>
               )}
             </div>

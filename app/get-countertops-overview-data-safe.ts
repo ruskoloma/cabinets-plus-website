@@ -1,6 +1,11 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-import matter from "gray-matter";
+import {
+  asRecord,
+  createStaticQueryResult,
+  listMarkdownFiles,
+  readJsonContentFile,
+  readMarkdownFrontmatter,
+  withContentSysFields,
+} from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 import { normalizeCountertopsOverviewQueryData } from "@/components/countertops-overview/normalize-countertops-overview-query";
 import { COUNTERTOPS_OVERVIEW_QUERY } from "@/components/countertops-overview/queries";
@@ -13,7 +18,7 @@ export async function getCountertopsOverviewDataSafe(): Promise<CountertopsOverv
       variables: {},
     }, {});
 
-    const record = result && typeof result === "object" ? (result as Record<string, unknown>) : {};
+    const record = asRecord(result) || {};
 
     return {
       data: normalizeCountertopsOverviewQueryData(record.data),
@@ -22,49 +27,30 @@ export async function getCountertopsOverviewDataSafe(): Promise<CountertopsOverv
     };
   } catch (error) {
     try {
-      const [settingsRaw, countertopFiles] = await Promise.all([
-        fs.readFile(path.join(process.cwd(), "content", "global", "catalog-settings.json"), "utf8"),
-        fs.readdir(path.join(process.cwd(), "content", "countertops")),
+      const [settings, files] = await Promise.all([
+        readJsonContentFile("global", "catalog-settings.json"),
+        listMarkdownFiles("countertops"),
       ]);
-
-      const settings = JSON.parse(settingsRaw) as unknown;
-      const files = countertopFiles.filter((file) => file.endsWith(".md"));
 
       const countertops = await Promise.all(
         files.map(async (filename) => {
-          const fullPath = path.join(process.cwd(), "content", "countertops", filename);
-          const raw = await fs.readFile(fullPath, "utf8");
-          const parsed = matter(raw);
-
-          return {
-            ...(parsed.data as Record<string, unknown>),
-            _sys: {
-              filename,
-              basename: filename.replace(/\.md$/i, ""),
-              relativePath: `countertops/${filename}`,
-            },
-          };
+          const frontmatter = await readMarkdownFrontmatter("countertops", filename);
+          return withContentSysFields("countertops", filename, frontmatter);
         }),
       );
 
-      return {
-        data: normalizeCountertopsOverviewQueryData({
+      return createStaticQueryResult(
+        normalizeCountertopsOverviewQueryData({
           catalogSettings: settings,
           countertopConnection: {
             edges: countertops.map((countertop) => ({ node: countertop })),
           },
         }),
-        query: "",
-        variables: {},
-      };
+      );
     } catch {
       console.error("Unable to load countertops overview data from Tina or local files.", error);
 
-      return {
-        data: normalizeCountertopsOverviewQueryData({}),
-        query: "",
-        variables: {},
-      };
+      return createStaticQueryResult(normalizeCountertopsOverviewQueryData({}));
     }
   }
 }

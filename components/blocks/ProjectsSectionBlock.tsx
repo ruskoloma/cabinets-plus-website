@@ -1,6 +1,7 @@
 import { tinaField } from "tinacms/dist/react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import { asText, type BlockRecord } from "./block-types";
 
 const PROJECT_COLORS = [
   "from-amber-800 to-amber-600",
@@ -16,19 +17,24 @@ const PROJECT_LABELS = [
   "Custom Cabinets", "Flooring Install", "Full Kitchen Renovation",
 ];
 
-export default function ProjectsSectionBlock({ block }: { block: any }) {
-  const images = block.images?.length ? block.images : Array(6).fill(null);
+export default function ProjectsSectionBlock({ block }: { block: BlockRecord }) {
+  const images = Array.isArray(block.images) && block.images.length > 0
+    ? block.images
+    : Array<string | null>(6).fill(null);
 
   return (
     <section className="py-20 bg-slate-900" id="projects">
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle
-          title={block.title}
+          title={asText(block.title)}
           tinaField={tinaField(block, "title")}
           light
         />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-          {images.slice(0, 6).map((img: string | null, i: number) => (
+          {images.slice(0, 6).map((image, i) => {
+            const img = typeof image === "string" ? image : null;
+
+            return (
             <div
               key={i}
               className="group relative rounded-xl overflow-hidden aspect-[4/3] shadow-lg hover:shadow-2xl transition-shadow duration-300"
@@ -42,12 +48,13 @@ export default function ProjectsSectionBlock({ block }: { block: any }) {
                 <span className="text-white font-semibold text-sm">{PROJECT_LABELS[i]}</span>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
-        {block.ctaLabel && (
+        {asText(block.ctaLabel) && (
           <div className="mt-10 text-center">
-            <Button href={block.ctaLink || "#"} variant="outline" className="border-amber-500 text-amber-400 hover:bg-amber-600 hover:text-white">
-              {block.ctaLabel}
+            <Button href={asText(block.ctaLink, "#")} variant="outline" className="border-amber-500 text-amber-400 hover:bg-amber-600 hover:text-white">
+              {asText(block.ctaLabel)}
             </Button>
           </div>
         )}

@@ -1,7 +1,13 @@
 import { tinaField } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
+import { asText, type BlockRecord } from "./block-types";
 
-export default function HeroBlock({ block }: { block: any }) {
+export default function HeroBlock({ block }: { block: BlockRecord }) {
+  const heading = asText(block.heading);
+  const subtext = asText(block.subtext);
+  const ctaLabel = asText(block.ctaLabel);
+  const ctaLink = asText(block.ctaLink, "#");
+
   return (
     <section className="relative min-h-[90vh] flex items-center bg-slate-800 overflow-hidden">
       {/* Background gradient overlay */}
@@ -19,17 +25,17 @@ export default function HeroBlock({ block }: { block: any }) {
             data-tina-field={tinaField(block, "heading")}
             className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6"
           >
-            {block.heading}
+            {heading}
           </h1>
           <p
             data-tina-field={tinaField(block, "subtext")}
             className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10"
           >
-            {block.subtext}
+            {subtext}
           </p>
-          {block.ctaLabel && (
-            <Button href={block.ctaLink || "#"} className="px-8 py-4 text-base">
-              {block.ctaLabel}
+          {ctaLabel && (
+            <Button href={ctaLink} className="px-8 py-4 text-base">
+              {ctaLabel}
             </Button>
           )}
         </div>
