@@ -2,6 +2,7 @@
 
 import { tinaField } from "tinacms/dist/react";
 import ContactForm from "@/components/home/ContactForm";
+import FillImage from "@/components/ui/FillImage";
 
 interface ContactUsSectionProps {
   block: Record<string, unknown>;
@@ -42,8 +43,8 @@ export default function ContactUsSection({ block }: ContactUsSectionProps) {
           </div>
         </div>
 
-        <div className="h-[380px] overflow-hidden bg-[var(--cp-primary-100)] md:h-[697px] md:w-[720px]" data-tina-field={tinaField(block, "image")}>
-          <img alt="Contact section" className="h-full w-full object-cover" src={contactImage} />
+        <div className="relative h-[380px] overflow-hidden bg-[var(--cp-primary-100)] md:h-[697px] md:w-[720px]" data-tina-field={tinaField(block, "image")}>
+          <FillImage alt="Contact section" className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" src={contactImage} />
         </div>
       </div>
     </section>

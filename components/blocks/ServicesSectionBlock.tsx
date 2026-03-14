@@ -1,6 +1,7 @@
 import { tinaField } from "tinacms/dist/react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import FillImage from "@/components/ui/FillImage";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
 const SERVICE_GRADIENTS = [
@@ -22,7 +23,9 @@ export default function ServicesSectionBlock({ block }: { block: BlockRecord }) 
               className="group rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100"
             >
               {asText(service.image) ? (
-                <img src={asText(service.image)} alt={asText(service.title, "Service")} className="w-full h-56 object-cover" />
+                <div className="relative h-56">
+                  <FillImage alt={asText(service.title, "Service")} className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" src={asText(service.image)} />
+                </div>
               ) : (
                 <div className={`h-56 bg-gradient-to-br ${SERVICE_GRADIENTS[i % SERVICE_GRADIENTS.length]} flex items-center justify-center`}>
                   <span className="text-6xl">{i === 0 ? "🛁" : "🍳"}</span>

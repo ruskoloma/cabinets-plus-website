@@ -6,9 +6,11 @@ import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } fro
 import { tinaField } from "tinacms/dist/react";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
+import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
+import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
 import {
   getOverviewCabinetItems,
   inferDoorStyleValue,
@@ -171,10 +173,11 @@ function DoorStyleOptionCard({
     <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
       <span className="relative block h-[177px] w-[177px] overflow-hidden bg-[#f2f2f2]">
         {option.image ? (
-          <img
+          <FillImage
             alt={option.label}
-            className="h-full w-full object-contain"
+            className="object-contain"
             data-tina-field={tinaField(record, "image")}
+            sizes="177px"
             src={option.image}
           />
         ) : null}
@@ -213,7 +216,7 @@ function FinishOptionCard({
         data-tina-field={hasCustomImage ? tinaField(record, "image") : tinaField(record, "swatchColor")}
         style={swatchStyle}
       >
-        {hasCustomImage ? <img alt={option.label} className="h-full w-full object-contain" src={option.image || ""} /> : null}
+        {hasCustomImage ? <FillImage alt={option.label} className="object-contain" sizes="120px" src={option.image || ""} /> : null}
 
         <OverlayOptionState selected={selected} />
       </span>
@@ -371,6 +374,7 @@ export default function CabinetsOverviewPage({
   const filtersRef = useRef<HTMLDivElement | null>(null);
   const searchDebounceRef = useRef<number | null>(null);
   const closePanelTimeoutRef = useRef<number | null>(null);
+  const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const sortLabel = SORT_OPTIONS.find((option) => option.value === queryState.sort)?.label || "New";
   const selectedStyleLabel = queryState.style
@@ -472,6 +476,12 @@ export default function CabinetsOverviewPage({
     updateQuery({ finish: pendingFinish || null }, true);
     setOpenPanel(null);
   };
+
+  const handlePageChange = useCallback((nextPage: number) => {
+    if (nextPage === currentPage) return;
+    updateQuery({ page: String(nextPage) });
+    scrollToResultsTop();
+  }, [currentPage, scrollToResultsTop, updateQuery]);
 
   return (
     <div className="bg-white" suppressHydrationWarning>
@@ -745,12 +755,13 @@ export default function CabinetsOverviewPage({
                         href={`/cabinets/${item.slug}`}
                       >
                         <span
-                          className="block aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
+                          className="relative block aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
                         >
                           {item.picture ? (
-                            <img
+                            <FillImage
                               alt={item.name}
-                              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                               src={item.picture}
                             />
                           ) : null}
@@ -776,7 +787,7 @@ export default function CabinetsOverviewPage({
                 <div className="mt-10 flex items-center justify-center gap-2 md:mt-12">
                   <PaginationButton
                     disabled={currentPage <= 1}
-                    onClick={() => updateQuery({ page: String(Math.max(1, currentPage - 1)) })}
+                    onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                   >
                     <img alt="" aria-hidden className="h-4 w-4 rotate-180" src="/library/header/nav-chevron-right.svg" />
                   </PaginationButton>
@@ -785,7 +796,7 @@ export default function CabinetsOverviewPage({
                     <PaginationButton
                       active={page === currentPage}
                       key={`page-${page}`}
-                      onClick={() => updateQuery({ page: String(page) })}
+                      onClick={() => handlePageChange(page)}
                     >
                       {page}
                     </PaginationButton>
@@ -793,7 +804,7 @@ export default function CabinetsOverviewPage({
 
                   <PaginationButton
                     disabled={currentPage >= totalPages}
-                    onClick={() => updateQuery({ page: String(Math.min(totalPages, currentPage + 1)) })}
+                    onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                   >
                     <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-chevron-right.svg" />
                   </PaginationButton>

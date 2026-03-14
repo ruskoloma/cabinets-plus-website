@@ -4,6 +4,7 @@ import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
 import ContactUsSection from "@/components/home/ContactUsSection";
+import FillImage from "@/components/ui/FillImage";
 import {
   getProjectDescription,
   getProjectGalleryAlt,
@@ -30,8 +31,8 @@ function MaterialCard({
 }) {
   const content = (
     <>
-      <div className="h-20 w-20 overflow-hidden bg-[var(--cp-primary-100)]" data-tina-field={tinaField}>
-        {image ? <img alt={title} className="h-full w-full object-cover" src={image} /> : null}
+      <div className="relative h-20 w-20 overflow-hidden bg-[var(--cp-primary-100)]" data-tina-field={tinaField}>
+        {image ? <FillImage alt={title} className="object-cover" sizes="80px" src={image} /> : null}
       </div>
       <div className="min-w-0">
         <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
@@ -102,11 +103,11 @@ export default function ProjectDetailPage({
             <div className="mt-8 grid grid-cols-2 gap-4 md:mt-8 md:grid-cols-4 md:gap-7">
               {galleryItems.map((item, index) => (
                 <div
-                  className="aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
+                  className="relative aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
                   data-tina-field={getProjectGalleryField(project, item, tinaField)}
                   key={`${item.file}-${index}`}
                 >
-                  <img alt={getProjectGalleryAlt(project, item)} className="h-full w-full object-cover" src={item.file} />
+                  <FillImage alt={getProjectGalleryAlt(project, item)} className="object-cover" sizes="(min-width: 768px) 25vw, 50vw" src={item.file} />
                 </div>
               ))}
             </div>
@@ -156,7 +157,9 @@ export default function ProjectDetailPage({
                 href={`/projects/${item.slug}`}
                 key={item.slug}
               >
-                <img alt={item.title} className="h-[215px] w-full object-cover md:h-[330px]" src={item.image} />
+                <div className="relative h-[215px] w-full md:h-[330px]">
+                  <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 294px" src={item.image} />
+                </div>
                 <span className="sr-only">{item.title}</span>
               </Link>
             ))}

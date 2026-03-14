@@ -25,6 +25,7 @@ import PreviewCard from "@/components/home/PreviewCard";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import TrustBar from "@/components/home/TrustBar";
+import FillImage from "@/components/ui/FillImage";
 import { tinaField } from "tinacms/dist/react";
 
 interface Props {
@@ -134,9 +135,16 @@ export default function FigmaHome({ page }: Props) {
   const getSectionOrder = (template: string, fallbackOrder: number, offset = 0) => ((templateOrder[template] ?? fallbackOrder) * 10) + offset;
 
   return (
-    <div className="flex flex-col bg-white text-[var(--cp-primary-500)]">
+      <div className="flex flex-col bg-white text-[var(--cp-primary-500)]">
       {hasTemplate("hero") ? <section className="relative h-[697px] overflow-hidden" data-tina-field={tinaField(heroRecord)} style={{ order: getSectionOrder("hero", 0) }}>
-        <img alt="Kitchen renovation" className="absolute inset-0 h-full w-full object-cover" data-tina-field={tinaField(heroRecord, "backgroundImage")} src={heroImage} />
+        <FillImage
+          alt="Kitchen renovation"
+          className="object-cover"
+          data-tina-field={tinaField(heroRecord, "backgroundImage")}
+          priority
+          sizes="100vw"
+          src={heroImage}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(38,36,35,0.8)]" />
 
         <div className="cp-container relative h-full px-8">
@@ -274,7 +282,13 @@ export default function FigmaHome({ page }: Props) {
       </div> : null}
 
       {hasTemplate("showroomBanner") ? <section className="relative h-[697px] overflow-hidden" data-tina-field={tinaField(showroomRecord)} style={{ order: getSectionOrder("showroomBanner", 6) }}>
-        <img alt="Showroom" className="absolute inset-0 h-full w-full object-cover object-center" data-tina-field={tinaField(showroomRecord, "image")} src={showroomImage} />
+        <FillImage
+          alt="Showroom"
+          className="object-cover object-center"
+          data-tina-field={tinaField(showroomRecord, "image")}
+          sizes="100vw"
+          src={showroomImage}
+        />
         <div className="absolute inset-0 bg-[rgba(38,38,35,0.4)] md:hidden" />
         <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgba(38,38,35,0.6)_0%,rgba(38,38,35,0.45)_50%,rgba(38,38,35,0)_100%)] md:block" />
 
@@ -349,7 +363,13 @@ export default function FigmaHome({ page }: Props) {
 
       {hasTemplate("contactSection") ? <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-50)] py-16" data-tina-field={tinaField(contactRecord)} style={{ order: getSectionOrder("contactSection", 9, 1) }}>
         <div className="absolute inset-0 bg-[#f2f2f2]" />
-        <img alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" src="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-texture.png" />
+        <FillImage
+          alt=""
+          aria-hidden
+          className="object-cover"
+          sizes="100vw"
+          src="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-texture.png"
+        />
 
         <div className="cp-container relative px-4 md:px-0">
           <div className="mx-auto grid max-w-[1248px] gap-12 md:grid-cols-[412px_623px] md:justify-between md:gap-10">

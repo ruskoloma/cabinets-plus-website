@@ -3,6 +3,7 @@
 import { useTina } from "tinacms/dist/react";
 import Header from "./Header";
 import Footer from "./Footer";
+import RouteScrollReset from "./RouteScrollReset";
 import { GlobalProvider, type GlobalSettings } from "./GlobalContext";
 import {
   normalizeGlobalSettings,
@@ -53,6 +54,7 @@ function StaticLayout({
         settings: global,
       }}
     >
+      <RouteScrollReset />
       <Header data={global} generalRaw={generalRaw} headerRaw={headerRaw} />
       <main className="min-h-screen">{children}</main>
       <Footer data={global} footerRaw={footerRaw} generalRaw={generalRaw} />

@@ -1,6 +1,7 @@
 import { tinaField } from "tinacms/dist/react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import FillImage from "@/components/ui/FillImage";
 import { asText, type BlockRecord } from "./block-types";
 
 const PROJECT_COLORS = [
@@ -37,10 +38,10 @@ export default function ProjectsSectionBlock({ block }: { block: BlockRecord }) 
             return (
             <div
               key={i}
-              className="group relative rounded-xl overflow-hidden aspect-[4/3] shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-2xl"
             >
               {img ? (
-                <img src={img} alt={PROJECT_LABELS[i]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <FillImage alt={PROJECT_LABELS[i]} className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(min-width: 768px) 33vw, 50vw" src={img} />
               ) : (
                 <div className={`w-full h-full bg-gradient-to-br ${PROJECT_COLORS[i]} group-hover:scale-110 transition-transform duration-500`} />
               )}

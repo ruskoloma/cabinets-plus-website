@@ -6,9 +6,11 @@ import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } fro
 import { tinaField } from "tinacms/dist/react";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
+import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
+import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
 import {
   getOverviewCountertopItems,
   normalizeOptionValue,
@@ -194,10 +196,10 @@ function CountertopOptionCard({
       <span className="relative flex h-[132px] w-[132px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
         {hasImage ? (
           <span
-            className="block h-[90px] w-[90px] overflow-hidden md:h-[120px] md:w-[120px]"
+            className="relative block h-[90px] w-[90px] overflow-hidden md:h-[120px] md:w-[120px]"
             data-tina-field={tinaField(record, "image")}
           >
-            <img alt={option.label} className="h-full w-full object-cover" src={option.image || ""} />
+            <FillImage alt={option.label} className="object-cover" sizes="120px" src={option.image || ""} />
           </span>
         ) : (
           <span
@@ -336,6 +338,7 @@ export default function CountertopsOverviewPage({
   const filtersRef = useRef<HTMLDivElement | null>(null);
   const searchDebounceRef = useRef<number | null>(null);
   const closePanelTimeoutRef = useRef<number | null>(null);
+  const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const sortLabel = SORT_OPTIONS.find((option) => option.value === queryState.sort)?.label || "New";
   const selectedCountertopLabel = queryState.countertop
@@ -429,6 +432,12 @@ export default function CountertopsOverviewPage({
     updateQuery({ countertop: pendingCountertop || null }, true);
     setOpenPanel(null);
   };
+
+  const handlePageChange = useCallback((nextPage: number) => {
+    if (nextPage === currentPage) return;
+    updateQuery({ page: String(nextPage) });
+    scrollToResultsTop();
+  }, [currentPage, scrollToResultsTop, updateQuery]);
 
   return (
     <div className="bg-white" suppressHydrationWarning>
@@ -594,12 +603,15 @@ export default function CountertopsOverviewPage({
                   >
                     <span className="block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
                       {item.picture ? (
-                        <img
-                          alt={item.name}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                          data-tina-field={tinaField(item.raw, "picture")}
-                          src={item.picture}
-                        />
+                        <div className="relative h-full w-full">
+                          <FillImage
+                            alt={item.name}
+                            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                            data-tina-field={tinaField(item.raw, "picture")}
+                            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                            src={item.picture}
+                          />
+                        </div>
                       ) : null}
                     </span>
                     <span
@@ -624,7 +636,7 @@ export default function CountertopsOverviewPage({
                 <div className="mt-10 flex items-center justify-center gap-2 md:mt-12">
                   <PaginationButton
                     disabled={currentPage <= 1}
-                    onClick={() => updateQuery({ page: String(Math.max(1, currentPage - 1)) })}
+                    onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                   >
                     <img alt="" aria-hidden className="h-4 w-4 rotate-180" src="/library/header/nav-chevron-right.svg" />
                   </PaginationButton>
@@ -633,7 +645,7 @@ export default function CountertopsOverviewPage({
                     <PaginationButton
                       active={page === currentPage}
                       key={`page-${page}`}
-                      onClick={() => updateQuery({ page: String(page) })}
+                      onClick={() => handlePageChange(page)}
                     >
                       {page}
                     </PaginationButton>
@@ -641,7 +653,7 @@ export default function CountertopsOverviewPage({
 
                   <PaginationButton
                     disabled={currentPage >= totalPages}
-                    onClick={() => updateQuery({ page: String(Math.min(totalPages, currentPage + 1)) })}
+                    onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                   >
                     <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-chevron-right.svg" />
                   </PaginationButton>

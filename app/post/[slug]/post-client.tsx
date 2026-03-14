@@ -2,6 +2,7 @@
 import type { ComponentProps } from "react";
 import { useTina, tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import FillImage from "@/components/ui/FillImage";
 
 type RichTextContent = ComponentProps<typeof TinaMarkdown>["content"];
 
@@ -51,7 +52,9 @@ export default function PostClient(props: PostClientProps) {
         </p>
       )}
       {thumbnail && (
-        <img src={thumbnail} alt={title || "Post"} className="w-full rounded-xl mb-10 object-cover h-72" />
+        <div className="relative mb-10 h-72 w-full overflow-hidden rounded-xl">
+          <FillImage alt={title || "Post"} className="object-cover" sizes="(min-width: 768px) 768px, 100vw" src={thumbnail} />
+        </div>
       )}
       {/* Rich text body */}
       {body ? (

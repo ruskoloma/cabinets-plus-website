@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import FillImage from "@/components/ui/FillImage";
 import type { ProductGalleryItemViewModel } from "./types";
 
 interface ProductMediaGalleryProps {
@@ -87,7 +88,7 @@ export default function ProductMediaGallery({
                 onClick={() => setActiveId(item.id)}
                 type="button"
               >
-                <img alt="" aria-hidden className="h-full w-full object-cover" src={item.previewFile} />
+                <FillImage alt="" aria-hidden className="object-cover" sizes="90px" src={item.previewFile} />
                 {item.kind === "video" ? (
                   <>
                     <div className="absolute inset-0 bg-black/20" />
@@ -125,7 +126,15 @@ export default function ProductMediaGallery({
                 </div>
               </>
             ) : (
-              <img alt={activeItem.alt} className="h-full w-full object-contain p-[11.8%]" data-tina-field={activeItem.tinaField} src={activeItem.previewFile} />
+              <div className="relative h-full w-full">
+                <FillImage
+                  alt={activeItem.alt}
+                  className="object-contain p-[11.8%]"
+                  data-tina-field={activeItem.tinaField}
+                  sizes="(min-width: 1024px) 557px, 100vw"
+                  src={activeItem.previewFile}
+                />
+              </div>
             )}
           </div>
 
@@ -172,7 +181,9 @@ export default function ProductMediaGallery({
                 src={activeItem.file}
               />
             ) : (
-              <img alt={activeItem.alt} className="max-h-[85vh] w-full rounded-[4px] object-contain" src={activeItem.file} />
+              <div className="relative h-[min(85vh,900px)] w-[min(95vw,1100px)]">
+                <FillImage alt={activeItem.alt} className="rounded-[4px] object-contain" sizes="95vw" src={activeItem.file} />
+              </div>
             )}
           </div>
         </div>

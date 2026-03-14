@@ -1,6 +1,7 @@
 import { tinaField } from "tinacms/dist/react";
 import Link from "next/link";
 import SectionTitle from "@/components/ui/SectionTitle";
+import FillImage from "@/components/ui/FillImage";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
 const GRADIENTS = [
@@ -24,11 +25,14 @@ export default function ProductsSectionBlock({ block }: { block: BlockRecord }) 
               className="group block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               {asText(product.image) ? (
-                <img
-                  src={asText(product.image)}
-                  alt={asText(product.name, "Product")}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                <div className="relative h-64">
+                  <FillImage
+                    alt={asText(product.name, "Product")}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    src={asText(product.image)}
+                  />
+                </div>
               ) : (
                 <div className={`h-64 bg-gradient-to-br ${GRADIENTS[i % GRADIENTS.length]} flex items-center justify-center group-hover:scale-105 transition-transform duration-500`}>
                   <span className="text-5xl">🏠</span>

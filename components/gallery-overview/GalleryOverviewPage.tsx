@@ -5,7 +5,9 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import ContactUsSection from "@/components/home/ContactUsSection";
+import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
+import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
 import { normalizeOptionValue } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
 import {
   EMPTY_GALLERY_FILTERS,
@@ -198,7 +200,7 @@ function RoomOptionCard({
   return (
     <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
       <span className="relative block h-[132px] w-[132px] overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
-        <img alt={label} className="h-full w-full object-cover" src={image} />
+        <FillImage alt={label} className="object-cover" sizes="177px" src={image} />
         <OverlayOptionState selected={selected} />
       </span>
       <span className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
@@ -238,7 +240,7 @@ function DoorStyleOptionCard({
   return (
     <button className="group flex flex-col items-center gap-3" onClick={onClick} type="button">
       <span className="relative block h-[120px] w-[120px] overflow-hidden bg-[#f2f2f2] md:h-[160px] md:w-[160px]">
-        {option.image ? <img alt={option.label} className="h-full w-full object-contain" src={option.image} /> : null}
+        {option.image ? <FillImage alt={option.label} className="object-contain" sizes="160px" src={option.image} /> : null}
         <OverlayOptionState selected={selected} />
       </span>
       <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.35] text-[var(--cp-primary-500)] md:text-[18px]">
@@ -263,8 +265,8 @@ function CountertopOptionCard({
     <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
       <span className="relative flex h-[132px] w-[132px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
         {hasImage ? (
-          <span className="block h-[90px] w-[90px] overflow-hidden md:h-[120px] md:w-[120px]">
-            <img alt={option.label} className="h-full w-full object-cover" src={option.image || ""} />
+          <span className="relative block h-[90px] w-[90px] overflow-hidden md:h-[120px] md:w-[120px]">
+            <FillImage alt={option.label} className="object-cover" sizes="120px" src={option.image || ""} />
           </span>
         ) : (
           <span className="px-4 text-center font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.25] text-[var(--cp-primary-500)]/70">
@@ -300,7 +302,7 @@ function FinishOptionCard({
         className={`relative block h-[96px] w-[96px] overflow-hidden ${needsBorder ? "border border-[var(--cp-primary-100)]" : ""} md:h-[112px] md:w-[112px]`}
         style={swatchStyle}
       >
-        {hasCustomImage ? <img alt={option.label} className="h-full w-full object-contain" src={option.image || ""} /> : null}
+        {hasCustomImage ? <FillImage alt={option.label} className="object-contain" sizes="112px" src={option.image || ""} /> : null}
         <OverlayOptionState selected={selected} />
       </span>
       <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.35] text-[var(--cp-primary-500)] md:text-[18px]">
@@ -362,6 +364,7 @@ export default function GalleryOverviewPage({
   const [finishTab, setFinishTab] = useState<FinishTab>("paint");
   const filtersRef = useRef<HTMLDivElement | null>(null);
   const closePanelTimeoutRef = useRef<number | null>(null);
+  const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const roomOptions = useMemo(
     () =>
@@ -597,6 +600,12 @@ export default function GalleryOverviewPage({
   const updatePage = useCallback((nextPage: number) => {
     updateQuery({ page: nextPage <= 1 ? null : String(nextPage) });
   }, [updateQuery]);
+
+  const handlePageChange = useCallback((nextPage: number) => {
+    if (nextPage === currentPage) return;
+    updatePage(nextPage);
+    scrollToResultsTop();
+  }, [currentPage, scrollToResultsTop, updatePage]);
 
   useEffect(() => {
     if (queryState.page === currentPage) return;
@@ -901,7 +910,7 @@ export default function GalleryOverviewPage({
             <div className="mt-8 grid grid-cols-3 gap-3 md:mt-7 md:gap-7">
               {visibleProjects.map((project, index) => (
                 <Link
-                  className="aspect-square overflow-hidden bg-[#f2f2f2] md:aspect-[4/3]"
+                  className="relative aspect-square overflow-hidden bg-[#f2f2f2] md:aspect-[4/3]"
                   data-tina-field={
                     project.previewMedia && Object.keys(project.previewMedia.rawMedia).length > 0
                       ? tinaField(project.previewMedia.rawMedia, "file")
@@ -910,7 +919,7 @@ export default function GalleryOverviewPage({
                   href={`/projects/${project.projectSlug}`}
                   key={`${project.projectSlug}-${index}`}
                 >
-                  <img alt={project.projectTitle} className="h-full w-full object-cover" src={project.previewImage} />
+                  <FillImage alt={project.projectTitle} className="object-cover" sizes="(min-width: 768px) 33vw, 33vw" src={project.previewImage} />
                 </Link>
               ))}
             </div>
@@ -926,7 +935,7 @@ export default function GalleryOverviewPage({
             <div className="mt-10 flex items-center justify-center gap-2 md:mt-12">
               <PaginationButton
                 disabled={currentPage <= 1}
-                onClick={() => updatePage(Math.max(1, currentPage - 1))}
+                onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
               >
                 <img alt="" aria-hidden className="h-4 w-4 rotate-180" src="/library/header/nav-chevron-right.svg" />
               </PaginationButton>
@@ -935,7 +944,7 @@ export default function GalleryOverviewPage({
                 <PaginationButton
                   active={page === currentPage}
                   key={`page-${page}`}
-                  onClick={() => updatePage(page)}
+                  onClick={() => handlePageChange(page)}
                 >
                   {page}
                 </PaginationButton>
@@ -943,7 +952,7 @@ export default function GalleryOverviewPage({
 
               <PaginationButton
                 disabled={currentPage >= totalPages}
-                onClick={() => updatePage(Math.min(totalPages, currentPage + 1))}
+                onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
               >
                 <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-chevron-right.svg" />
               </PaginationButton>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEditState } from "tinacms/dist/react";
+import FillImage from "@/components/ui/FillImage";
 import type { ProductRelatedCardItem } from "./types";
 
 interface ProductRelatedProductsProps {
@@ -41,11 +42,14 @@ export default function ProductRelatedProducts({ items, title }: ProductRelatedP
               >
                 <div className="aspect-square w-full overflow-hidden bg-[#f0f0f0]">
                   {item.image ? (
-                    <img
-                      alt={item.name}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                      src={item.image}
-                    />
+                    <div className="relative h-full w-full">
+                      <FillImage
+                        alt={item.name}
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 215px"
+                        src={item.image}
+                      />
+                    </div>
                   ) : null}
                 </div>
                 <p className="mt-2 font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:mt-3">

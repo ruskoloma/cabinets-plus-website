@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FillImage from "@/components/ui/FillImage";
 
 interface PreviewCardProps {
   title: string;
@@ -38,8 +39,8 @@ export default function PreviewCard({
 
   const content = (
     <>
-      <div className={`overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] ${imageClassName}`} data-tina-field={tinaImageField}>
-        {image ? <img alt={title} className={imageClasses} src={image} /> : null}
+      <div className={`relative overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] ${imageClassName}`} data-tina-field={tinaImageField}>
+        {image ? <FillImage alt={title} className={imageClasses} sizes="(min-width: 768px) 25vw, 100vw" src={image} /> : null}
       </div>
       <h3 className={titleClassName} data-tina-field={tinaTitleField}>
         {title}

@@ -1,3 +1,4 @@
+import FillImage from "@/components/ui/FillImage";
 import type { ProductProjectCardItem } from "./types";
 
 interface ProductProjectStripProps {
@@ -23,8 +24,8 @@ export default function ProductProjectStrip({ items, title, description }: Produ
           <div className="flex min-w-max gap-5 md:gap-8">
             {items.map((project, index) => (
               <article className="w-[293px] md:w-[426px]" key={`${project.file}-${index}`}>
-                <div className="h-[215px] overflow-hidden bg-[var(--cp-primary-100)] md:h-[312px]" data-tina-field={project.imageTinaField}>
-                  <img alt={project.title} className="h-full w-full object-cover" src={project.file} />
+                <div className="relative h-[215px] overflow-hidden bg-[var(--cp-primary-100)] md:h-[312px]" data-tina-field={project.imageTinaField}>
+                  <FillImage alt={project.title} className="object-cover" sizes="(min-width: 768px) 426px, 293px" src={project.file} />
                 </div>
                 <p
                   className="mt-2 font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:mt-3 md:text-[24px]"
