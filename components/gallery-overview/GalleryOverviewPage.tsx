@@ -30,7 +30,6 @@ const ROOM_VISUALS: Record<string, string> = {
 
 type OpenPanel = "room" | "doorStyle" | "finish" | "countertop" | null;
 type FinishTab = "paint" | "stain";
-
 function toReadableLabel(value: string): string {
   return value
     .split(/[-_\s]+/)
@@ -555,7 +554,7 @@ export default function GalleryOverviewPage({
     }
 
     openFilter(panel);
-  }, [clearPanelCloseTimeout, openFilter, openPanel]);
+  }, [clearPanelCloseTimeout, openFilter, openPanel, selectedFilters.flooringOnly]);
 
   function applyOpenPanel() {
     updateFilters(pendingFilters);

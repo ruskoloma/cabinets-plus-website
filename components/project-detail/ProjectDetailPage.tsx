@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
 import ContactUsSection from "@/components/home/ContactUsSection";
@@ -13,6 +14,14 @@ import {
   getProjectSlug,
 } from "./helpers";
 import type { ProjectDetailPageProps } from "./types";
+
+function CloseIcon() {
+  return (
+    <svg aria-hidden className="h-6 w-6" fill="none" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+    </svg>
+  );
+}
 
 function MaterialCard({
   label,
@@ -76,6 +85,31 @@ export default function ProjectDetailPage({
   const heading = getProjectHeading(project, currentSlug);
   const description = getProjectDescription(project);
   const rawProject = project as unknown as Record<string, unknown>;
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(null);
+  const activeGalleryItem = useMemo(
+    () => (activeGalleryIndex === null ? null : galleryItems[activeGalleryIndex] || null),
+    [activeGalleryIndex, galleryItems],
+  );
+
+  useEffect(() => {
+    if (activeGalleryIndex === null) return undefined;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveGalleryIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeGalleryIndex]);
 
   return (
     <div className="bg-white">
@@ -102,13 +136,15 @@ export default function ProjectDetailPage({
 
             <div className="mt-8 grid grid-cols-2 gap-4 md:mt-8 md:grid-cols-4 md:gap-7">
               {galleryItems.map((item, index) => (
-                <div
+                <button
                   className="relative aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
                   data-tina-field={getProjectGalleryField(project, item, tinaField)}
                   key={`${item.file}-${index}`}
+                  onClick={() => setActiveGalleryIndex(index)}
+                  type="button"
                 >
                   <FillImage alt={getProjectGalleryAlt(project, item)} className="object-cover" sizes="(min-width: 768px) 25vw, 50vw" src={item.file} />
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -174,6 +210,35 @@ export default function ProjectDetailPage({
       </section>
 
       {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
+
+      {activeGalleryItem ? (
+        <div
+          aria-modal="true"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/75 p-4"
+          onClick={() => setActiveGalleryIndex(null)}
+          role="dialog"
+        >
+          <button
+            aria-label="Close preview"
+            className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--cp-primary-500)] transition hover:bg-white"
+            onClick={() => setActiveGalleryIndex(null)}
+            type="button"
+          >
+            <CloseIcon />
+          </button>
+
+          <div className="max-h-[90vh] max-w-[min(95vw,1200px)]" onClick={(event) => event.stopPropagation()}>
+            <div className="relative h-[min(85vh,900px)] w-[min(95vw,1100px)]">
+              <FillImage
+                alt={getProjectGalleryAlt(project, activeGalleryItem)}
+                className="rounded-[4px] object-contain"
+                sizes="95vw"
+                src={activeGalleryItem.file}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       <div className="sr-only" data-current-project={currentSlug} />
     </div>

@@ -33,8 +33,8 @@ interface QueryState {
   page: number;
   sort: SortValue;
   q: string;
-  style: string;
-  finish: string;
+  styles: string[];
+  finishes: string[];
 }
 
 interface FaqItem {
@@ -81,6 +81,41 @@ function toReadableLabel(value: string): string {
     .join(" ");
 }
 
+function uniqueNormalizedList(values: string[]): string[] {
+  const seen = new Set<string>();
+  const normalized: string[] = [];
+
+  for (const value of values) {
+    const item = normalizeOptionValue(value);
+    if (!item || seen.has(item)) continue;
+    seen.add(item);
+    normalized.push(item);
+  }
+
+  return normalized;
+}
+
+function parseMultiValue(value: string | null): string[] {
+  if (!value) return [];
+  return uniqueNormalizedList(value.split(","));
+}
+
+function serializeMultiValue(values: string[]): string | null {
+  const normalized = uniqueNormalizedList(values);
+  return normalized.length ? normalized.join(",") : null;
+}
+
+function toggleMultiValue(values: string[], value: string): string[] {
+  const normalizedValue = normalizeOptionValue(value);
+  if (!normalizedValue) return values;
+
+  if (values.includes(normalizedValue)) {
+    return values.filter((item) => item !== normalizedValue);
+  }
+
+  return [...values, normalizedValue];
+}
+
 function parseQueryState(params: URLSearchParams): QueryState {
   const rawPage = Number(params.get("page") || "1");
   const sort = normalizeOptionValue(params.get("sort") || "new");
@@ -93,8 +128,8 @@ function parseQueryState(params: URLSearchParams): QueryState {
     page: Number.isFinite(rawPage) && rawPage > 0 ? Math.floor(rawPage) : 1,
     sort: normalizedSort,
     q: (params.get("q") || "").trim(),
-    style: normalizeOptionValue(params.get("style") || ""),
-    finish: normalizeOptionValue(params.get("finish") || ""),
+    styles: parseMultiValue(params.get("style")),
+    finishes: parseMultiValue(params.get("finish")),
   };
 }
 
@@ -328,16 +363,22 @@ export default function CabinetsOverviewPage({
 
     return cabinets
       .filter((item) => {
-        if (queryState.style && item.doorStyle !== queryState.style) return false;
+        if (queryState.styles.length > 0 && !queryState.styles.includes(item.doorStyle)) return false;
 
-        if (queryState.finish) {
-          if (stainValueSet.has(queryState.finish)) {
-            if (item.stainType !== queryState.finish) return false;
-          } else if (paintValueSet.has(queryState.finish)) {
-            if (item.paint !== queryState.finish) return false;
-          } else if (item.paint !== queryState.finish && item.stainType !== queryState.finish) {
-            return false;
-          }
+        if (queryState.finishes.length > 0) {
+          const hasMatchingFinish = queryState.finishes.some((finish) => {
+            if (stainValueSet.has(finish)) {
+              return item.stainType === finish;
+            }
+
+            if (paintValueSet.has(finish)) {
+              return item.paint === finish;
+            }
+
+            return item.paint === finish || item.stainType === finish;
+          });
+
+          if (!hasMatchingFinish) return false;
         }
 
         if (searchValue && !item.searchable.includes(searchValue)) return false;
@@ -354,7 +395,7 @@ export default function CabinetsOverviewPage({
 
         return left.name.localeCompare(right.name);
       });
-  }, [cabinets, paintValueSet, queryState.finish, queryState.q, queryState.sort, queryState.style, stainValueSet]);
+  }, [cabinets, paintValueSet, queryState.finishes, queryState.q, queryState.sort, queryState.styles, stainValueSet]);
 
   const totalResults = filteredItems.length;
   const totalPages = Math.max(1, Math.ceil(totalResults / PAGE_SIZE));
@@ -369,20 +410,22 @@ export default function CabinetsOverviewPage({
 
   const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
   const [finishTab, setFinishTab] = useState<FinishTab>("paint");
-  const [pendingDoorStyle, setPendingDoorStyle] = useState<string | null>(queryState.style || null);
-  const [pendingFinish, setPendingFinish] = useState<string | null>(queryState.finish || null);
+  const [pendingDoorStyles, setPendingDoorStyles] = useState<string[]>(queryState.styles);
+  const [pendingFinishes, setPendingFinishes] = useState<string[]>(queryState.finishes);
   const filtersRef = useRef<HTMLDivElement | null>(null);
   const searchDebounceRef = useRef<number | null>(null);
   const closePanelTimeoutRef = useRef<number | null>(null);
   const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const sortLabel = SORT_OPTIONS.find((option) => option.value === queryState.sort)?.label || "New";
-  const selectedStyleLabel = queryState.style
-    ? doorStyleMap.get(queryState.style)?.label || toReadableLabel(queryState.style)
-    : "";
-  const selectedFinishLabel = queryState.finish
-    ? paintMap.get(queryState.finish)?.label || stainMap.get(queryState.finish)?.label || toReadableLabel(queryState.finish)
-    : "";
+  const selectedStyleLabels = useMemo(
+    () => queryState.styles.map((value) => doorStyleMap.get(value)?.label || toReadableLabel(value)),
+    [doorStyleMap, queryState.styles],
+  );
+  const selectedFinishLabels = useMemo(
+    () => queryState.finishes.map((value) => paintMap.get(value)?.label || stainMap.get(value)?.label || toReadableLabel(value)),
+    [paintMap, queryState.finishes, stainMap],
+  );
 
   const updateQuery = useCallback((patch: Record<string, string | null>, resetPage = false) => {
     const nextParams = new URLSearchParams(resolvedSearchParams.toString());
@@ -468,12 +511,12 @@ export default function CabinetsOverviewPage({
   }, [openPanel]);
 
   const applyDoorStyle = () => {
-    updateQuery({ style: pendingDoorStyle || null }, true);
+    updateQuery({ style: serializeMultiValue(pendingDoorStyles) }, true);
     setOpenPanel(null);
   };
 
   const applyFinish = () => {
-    updateQuery({ finish: pendingFinish || null }, true);
+    updateQuery({ finish: serializeMultiValue(pendingFinishes) }, true);
     setOpenPanel(null);
   };
 
@@ -546,7 +589,7 @@ export default function CabinetsOverviewPage({
                   className="pb-3"
                   onMouseEnter={() => {
                     clearPanelCloseTimeout();
-                    setPendingDoorStyle(queryState.style || null);
+                    setPendingDoorStyles(queryState.styles);
                     setOpenPanel("doorStyle");
                   }}
                   onMouseLeave={() => {
@@ -556,11 +599,11 @@ export default function CabinetsOverviewPage({
                   <button
                     className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
                     onClick={() => {
-                      setPendingDoorStyle(queryState.style || null);
+                      setPendingDoorStyles(queryState.styles);
                       setOpenPanel("doorStyle");
                     }}
                     onMouseEnter={() => {
-                      setPendingDoorStyle(queryState.style || null);
+                      setPendingDoorStyles(queryState.styles);
                       setOpenPanel("doorStyle");
                     }}
                     type="button"
@@ -584,12 +627,12 @@ export default function CabinetsOverviewPage({
                         <div className="mt-8 flex flex-wrap items-start justify-center gap-8">
                           {doorStyles.map((option, index) => {
                             const value = normalizeOptionValue(option.value);
-                            const selected = pendingDoorStyle === value;
+                            const selected = pendingDoorStyles.includes(value);
 
                             return (
                               <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                                 <DoorStyleOptionCard
-                                  onClick={() => setPendingDoorStyle((current) => (current === value ? null : value))}
+                                  onClick={() => setPendingDoorStyles((current) => toggleMultiValue(current, value))}
                                   option={option}
                                   selected={selected}
                                 />
@@ -611,8 +654,8 @@ export default function CabinetsOverviewPage({
                   className="pb-3"
                   onMouseEnter={() => {
                     clearPanelCloseTimeout();
-                    setPendingFinish(queryState.finish || null);
-                    setFinishTab(queryState.finish && stainValueSet.has(queryState.finish) ? "stain" : "paint");
+                    setPendingFinishes(queryState.finishes);
+                    setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
                     setOpenPanel("finish");
                   }}
                   onMouseLeave={() => {
@@ -622,13 +665,13 @@ export default function CabinetsOverviewPage({
                   <button
                     className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
                     onClick={() => {
-                      setPendingFinish(queryState.finish || null);
-                      setFinishTab(queryState.finish && stainValueSet.has(queryState.finish) ? "stain" : "paint");
+                      setPendingFinishes(queryState.finishes);
+                      setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
                       setOpenPanel("finish");
                     }}
                     onMouseEnter={() => {
-                      setPendingFinish(queryState.finish || null);
-                      setFinishTab(queryState.finish && stainValueSet.has(queryState.finish) ? "stain" : "paint");
+                      setPendingFinishes(queryState.finishes);
+                      setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
                       setOpenPanel("finish");
                     }}
                     type="button"
@@ -675,12 +718,12 @@ export default function CabinetsOverviewPage({
                         <div className="mt-9 flex flex-wrap items-start justify-center gap-6">
                           {(finishTab === "paint" ? paintOptions : stainTypes).map((option, index) => {
                             const value = normalizeOptionValue(option.value);
-                            const selected = pendingFinish === value;
+                            const selected = pendingFinishes.includes(value);
 
                             return (
                               <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                                 <FinishOptionCard
-                                  onClick={() => setPendingFinish((current) => (current === value ? null : value))}
+                                  onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
                                   option={option}
                                   selected={selected}
                                 />
@@ -699,29 +742,41 @@ export default function CabinetsOverviewPage({
                   </div>
                 </div>
 
-            {(queryState.style || queryState.finish) ? (
+            {(queryState.styles.length > 0 || queryState.finishes.length > 0) ? (
               <div className="flex flex-wrap items-center gap-4">
-                {queryState.style ? (
+                {queryState.styles.map((value, index) => (
                   <button
                     className="inline-flex h-8 items-center gap-[6px] border border-[var(--cp-primary-500)] px-3 text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
-                    onClick={() => updateQuery({ style: null }, true)}
+                    key={`style-chip-${value}-${index}`}
+                    onClick={() =>
+                      updateQuery(
+                        { style: serializeMultiValue(queryState.styles.filter((item) => item !== value)) },
+                        true,
+                      )
+                    }
                     type="button"
                   >
-                    <span>{selectedStyleLabel}</span>
+                    <span>{selectedStyleLabels[index] || toReadableLabel(value)}</span>
                     <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
                   </button>
-                ) : null}
+                ))}
 
-                {queryState.finish ? (
+                {queryState.finishes.map((value, index) => (
                   <button
                     className="inline-flex h-8 items-center gap-[6px] border border-[var(--cp-primary-500)] px-3 text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
-                    onClick={() => updateQuery({ finish: null }, true)}
+                    key={`finish-chip-${value}-${index}`}
+                    onClick={() =>
+                      updateQuery(
+                        { finish: serializeMultiValue(queryState.finishes.filter((item) => item !== value)) },
+                        true,
+                      )
+                    }
                     type="button"
                   >
-                    <span>{selectedFinishLabel}</span>
+                    <span>{selectedFinishLabels[index] || toReadableLabel(value)}</span>
                     <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
                   </button>
-                ) : null}
+                ))}
 
                 <button
                   className="text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
