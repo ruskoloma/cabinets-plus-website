@@ -199,6 +199,33 @@ export default defineConfig({
                 fields: [
                   { type: "string", name: "label", label: "Label" },
                   { type: "string", name: "href", label: "Link" },
+                  {
+                    type: "object",
+                    name: "catalogItems",
+                    label: "Catalog Items",
+                    list: true,
+                    description: "Shown in the right column of the Products dropdown. Cabinets and Countertops are seeded, Flooring can stay empty for now.",
+                    ui: {
+                      itemProps: (item: any) => ({
+                        label: item?.name || item?.code || "Catalog item",
+                      }),
+                    },
+                    fields: [
+                      { type: "string", name: "name", label: "Name" },
+                      { type: "string", name: "code", label: "Code" },
+                      { type: "image", name: "image", label: "Image" },
+                      {
+                        type: "object",
+                        name: "imageFrame",
+                        label: "Image Frame",
+                        description: "Optional render size override for wide swatches like countertops.",
+                        fields: [
+                          { type: "number", name: "width", label: "Width" },
+                          { type: "number", name: "height", label: "Height" },
+                        ],
+                      },
+                    ],
+                  },
                 ],
               },
             ],

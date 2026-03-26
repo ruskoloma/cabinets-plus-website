@@ -20,7 +20,19 @@ export interface GlobalSettings {
   navLinks?: Array<{
     label: string;
     href?: string;
-    children?: Array<{ label: string; href: string }>;
+    children?: Array<{
+      label: string;
+      href: string;
+      catalogItems?: Array<{
+        name: string;
+        code: string;
+        image: string;
+        imageFrame?: {
+          width?: number;
+          height?: number;
+        };
+      }>;
+    }>;
   }>;
   footerLinks?: Array<{ label: string; href: string }>;
 }

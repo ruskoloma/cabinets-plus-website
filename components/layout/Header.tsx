@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { type MouseEvent as ReactMouseEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { tinaField } from "tinacms/dist/react";
+import { tinaField, useEditState } from "tinacms/dist/react";
 
 interface NavChild {
   label: string;
   href: string;
+  catalogItems?: CatalogItem[];
 }
 
 interface NavLink {
@@ -30,9 +31,21 @@ interface CatalogItem {
   code: string;
   image: string;
   imageFrame?: {
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
   };
+}
+
+interface RawNavChild extends Record<string, unknown> {
+  children?: RawNavChild[];
+  href?: string;
+  label?: string;
+}
+
+interface RawNavLink extends Record<string, unknown> {
+  children?: RawNavChild[];
+  href?: string;
+  label?: string;
 }
 
 type ProductCatalogKey = "cabinets" | "countertops" | "flooring";
@@ -40,83 +53,10 @@ const DESKTOP_DROPDOWN_TOP = 90;
 const DESKTOP_DROPDOWN_LEFT_OFFSET = 30;
 const DESKTOP_PRODUCTS_DROPDOWN_SIZE = { width: 599, height: 558 } as const;
 const DESKTOP_SERVICES_DROPDOWN_SIZE = { width: 332, height: 262 } as const;
-
-const PRODUCT_CATALOG_BY_KEY: Record<ProductCatalogKey, { columnWidth: number; items: CatalogItem[] }> = {
-  cabinets: {
-    columnWidth: 203,
-    items: [
-      { name: "Trenton Fairy", code: "#TGB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-tgb.png" },
-      { name: "Trenton Swan White", code: "#TWB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-twb.png" },
-      { name: "Designer White", code: "#SWK", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-swk.png" },
-      { name: "Artisanal Blue", code: "#ABB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-abb.png" },
-      { name: "Artisanal Ebony", code: "#AEB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-aeb.png" },
-    ],
-  },
-  countertops: {
-    columnWidth: 232,
-    items: [
-      {
-        name: "Calacatta Dolce",
-        code: "#CalacattaDolce",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-dolce.png",
-        imageFrame: { width: 162, height: 80 },
-      },
-      {
-        name: "Calacatta Simple Grey",
-        code: "#CalacattaSimpleGrey",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-grey.png",
-        imageFrame: { width: 162, height: 80 },
-      },
-      {
-        name: "Calacatta Slim Gold",
-        code: "#CalacattaSlimGold",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-slim-gold.png",
-        imageFrame: { width: 157, height: 80 },
-      },
-      {
-        name: "Calacatta Simple Gold",
-        code: "#CalacattaSimpleGold",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-gold.png",
-        imageFrame: { width: 157, height: 80 },
-      },
-      {
-        name: "Calacatta Straight Grey",
-        code: "#CalacattaStraightGrey",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-straight-grey.png",
-        imageFrame: { width: 162, height: 80 },
-      },
-    ],
-  },
-  flooring: {
-    columnWidth: 251,
-    items: [
-      {
-        name: "Prescott XL Wolfeboro",
-        code: "#MPR-WOLFEBORO-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-wolfeboro.png",
-      },
-      {
-        name: "Prescott XL Woburn",
-        code: "#MPR-WOBURN-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-woburn.png",
-      },
-      {
-        name: "Prescott XL Walnut Waves",
-        code: "#MPR-WALNUT-WAVES-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-walnut-waves.png",
-      },
-      {
-        name: "Prescott XL Runmill Isle",
-        code: "#MPR-RUNMILL-ISLE-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-runmill-isle.png",
-      },
-      {
-        name: "Prescott XL Kardigan",
-        code: "#MPR-KARDIGAN-XL",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-flooring-prescott-xl-kardigan.png",
-      },
-    ],
-  },
+const PRODUCT_CATALOG_COLUMN_WIDTH_BY_KEY: Record<ProductCatalogKey, number> = {
+  cabinets: 203,
+  countertops: 232,
+  flooring: 251,
 };
 
 function getNavItemLookupValue(label: string, href?: string) {
@@ -251,9 +191,16 @@ export default function Header({
   const desktopHeaderRef = useRef<HTMLDivElement | null>(null);
   const productsTriggerRef = useRef<HTMLButtonElement | null>(null);
   const servicesTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const { edit } = useEditState();
   const logoLabel = useMemo(() => data.siteName || "Cabinets Plus", [data.siteName]);
   const topBarAddress = useMemo(() => data.address.split(",")[0].trim(), [data.address]);
   const topLevelLinks = useMemo(() => data.navLinks || [], [data.navLinks]);
+  const rawNavLinks = useMemo<RawNavLink[]>(() => {
+    const navLinks = (headerRaw as { navLinks?: unknown }).navLinks;
+    return Array.isArray(navLinks)
+      ? navLinks.filter((item): item is RawNavLink => Boolean(item && typeof item === "object"))
+      : [];
+  }, [headerRaw]);
   const dropdownLinks = useMemo(() => topLevelLinks.filter((link) => (link.children || []).length > 0), [topLevelLinks]);
   const productsGroup = useMemo(
     () => dropdownLinks.find((link) => getNavGroupKind(link) === "products") || dropdownLinks[0],
@@ -269,6 +216,14 @@ export default function Header({
   const servicesItems = useMemo(() => servicesGroup?.children || [], [servicesGroup]);
   const productsGroupIndex = useMemo(() => topLevelLinks.findIndex((link) => link === productsGroup), [topLevelLinks, productsGroup]);
   const servicesGroupIndex = useMemo(() => topLevelLinks.findIndex((link) => link === servicesGroup), [topLevelLinks, servicesGroup]);
+  const rawProductsItems = useMemo(
+    () => (productsGroupIndex >= 0 && Array.isArray(rawNavLinks[productsGroupIndex]?.children) ? rawNavLinks[productsGroupIndex].children || [] : []),
+    [productsGroupIndex, rawNavLinks]
+  );
+  const rawServicesItems = useMemo(
+    () => (servicesGroupIndex >= 0 && Array.isArray(rawNavLinks[servicesGroupIndex]?.children) ? rawNavLinks[servicesGroupIndex].children || [] : []),
+    [servicesGroupIndex, rawNavLinks]
+  );
 
   const defaultProductCatalogKey = useMemo<ProductCatalogKey>(() => {
     if (!productsItems.length) return "cabinets";
@@ -277,11 +232,14 @@ export default function Header({
 
   const productsPanelOpen = desktopProductsOpen && !desktopSearchOpen;
   const servicesPanelOpen = desktopServicesOpen && !desktopSearchOpen;
-  const activeCatalog = PRODUCT_CATALOG_BY_KEY[activeProductCatalogKey];
-  const desktopProductsPanelLink =
-    productsItems.find((item) => getProductCatalogKey(item.label, item.href) === activeProductCatalogKey)?.href ||
-    productsItems[0]?.href ||
-    "/cabinets";
+  const activeProductItemIndex = useMemo(() => {
+    const index = productsItems.findIndex((item) => getProductCatalogKey(item.label, item.href) === activeProductCatalogKey);
+    return index >= 0 ? index : 0;
+  }, [productsItems, activeProductCatalogKey]);
+  const activeProductItem = productsItems[activeProductItemIndex];
+  const activeCatalogItems = activeProductItem?.catalogItems || [];
+  const activeCatalogColumnWidth = PRODUCT_CATALOG_COLUMN_WIDTH_BY_KEY[activeProductCatalogKey];
+  const desktopProductsPanelLink = activeProductItem?.href || productsItems[0]?.href || "/cabinets";
 
   const getDropdownLeft = useCallback((triggerElement: HTMLButtonElement, panelWidth: number): number => {
     if (!desktopHeaderRef.current) return 0;
@@ -381,6 +339,18 @@ export default function Header({
     setDesktopServicesOpen(false);
   };
 
+  const handleEditableClick = useCallback(
+    (event: ReactMouseEvent<HTMLElement>, action?: () => void) => {
+      if (edit) {
+        event.preventDefault();
+        return;
+      }
+
+      action?.();
+    },
+    [edit]
+  );
+
   return (
     <header className="sticky top-0 z-50 bg-white">
       <div className="bg-[var(--cp-brand-neutral-100)] px-4 py-2 md:px-10">
@@ -402,10 +372,15 @@ export default function Header({
       <div className="h-[90px] border-b border-[var(--cp-primary-100)] px-4 md:px-8">
         <div
           className="cp-container relative flex h-full items-center justify-between gap-4"
-          onMouseLeave={closeDesktopDropdowns}
+          onMouseLeave={edit ? undefined : closeDesktopDropdowns}
           ref={desktopHeaderRef}
         >
-          <Link aria-label={logoLabel} className="inline-flex items-center" href="/">
+          <Link
+            aria-label={logoLabel}
+            className="inline-flex items-center"
+            href="/"
+            onClick={(event) => handleEditableClick(event)}
+          >
             {data.logo ? (
               <img alt={logoLabel} className="h-[37px] w-auto" data-tina-field={tinaField(headerRaw, "logo")} src={data.logo} />
             ) : (
@@ -437,26 +412,29 @@ export default function Header({
                 </button>
               </div>
             ) : (
-              <nav className="flex items-center gap-12" data-tina-field={tinaField(headerRaw, "navLinks")}>
+              <nav className="flex items-center gap-12">
                 {topLevelLinks.map((link, index) => {
                   const key = `${link.label}-${link.href || "group"}`;
                   const isProductsDropdown = productsGroup === link && productsItems.length > 0;
                   const isServicesDropdown = servicesGroup === link && servicesItems.length > 0;
+                  const navItemField = rawNavLinks[index] ? tinaField(rawNavLinks[index]) || undefined : undefined;
 
                   if (isProductsDropdown) {
                     return (
                       <button
                         className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
-                        data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                        data-tina-field={navItemField}
                         key={key}
                         ref={productsTriggerRef}
-                        onClick={() => {
-                          if (desktopProductsOpen) {
-                            setDesktopProductsOpen(false);
-                          } else {
-                            openProductsPanel();
-                          }
-                        }}
+                        onClick={(event) =>
+                          handleEditableClick(event, () => {
+                            if (desktopProductsOpen) {
+                              setDesktopProductsOpen(false);
+                            } else {
+                              openProductsPanel();
+                            }
+                          })
+                        }
                         onMouseEnter={openProductsPanel}
                         type="button"
                       >
@@ -470,16 +448,18 @@ export default function Header({
                     return (
                       <button
                         className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
-                        data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                        data-tina-field={navItemField}
                         key={key}
                         ref={servicesTriggerRef}
-                        onClick={() => {
-                          if (desktopServicesOpen) {
-                            setDesktopServicesOpen(false);
-                          } else {
-                            openServicesPanel();
-                          }
-                        }}
+                        onClick={(event) =>
+                          handleEditableClick(event, () => {
+                            if (desktopServicesOpen) {
+                              setDesktopServicesOpen(false);
+                            } else {
+                              openServicesPanel();
+                            }
+                          })
+                        }
                         onMouseEnter={openServicesPanel}
                         type="button"
                       >
@@ -492,12 +472,13 @@ export default function Header({
                   return (
                     <Link
                       className="text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
-                      data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                      data-tina-field={navItemField}
                       href={getTopLevelLinkHref(link)}
                       key={key}
-                      onMouseEnter={closeDesktopDropdowns}
+                      onClick={(event) => handleEditableClick(event)}
+                      onMouseEnter={edit ? undefined : closeDesktopDropdowns}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
                     </Link>
                   );
                 })}
@@ -509,7 +490,7 @@ export default function Header({
                     closeDesktopDropdowns();
                     setDesktopSearchOpen(true);
                   }}
-                  onMouseEnter={closeDesktopDropdowns}
+                  onMouseEnter={edit ? undefined : closeDesktopDropdowns}
                   type="button"
                 >
                   <SearchIcon />
@@ -555,20 +536,26 @@ export default function Header({
                     return (
                       <Link
                         className={`flex items-center justify-between ${isActive ? "" : "opacity-60"}`}
-                        data-tina-field={productsGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${productsGroupIndex}.children.${index}`) : undefined}
+                        data-tina-field={rawProductsItems[index] ? tinaField(rawProductsItems[index]) || undefined : undefined}
                         href={item.href}
                         key={`${item.label}-${item.href}-desktop-products`}
-                        onClick={() => setDesktopProductsOpen(false)}
+                        onClick={(event) =>
+                          handleEditableClick(event, () => {
+                            setDesktopProductsOpen(false);
+                          })
+                        }
                         onFocus={() => setActiveProductCatalogKey(catalogKey)}
                         onMouseEnter={() => setActiveProductCatalogKey(catalogKey)}
                       >
-                        <span className="flex items-center gap-4">
-                          <img alt="" aria-hidden className="h-10 w-10" src={getDesktopProductIcon(item.label, item.href)} />
-                          <span className={`text-base font-medium text-[var(--cp-primary-500)] ${catalogKey === "countertops" ? "leading-none" : "leading-6"}`}>
-                            {item.label}
+                        <span className="flex w-full items-center justify-between">
+                          <span className="flex items-center gap-4">
+                            <img alt="" aria-hidden className="h-10 w-10" src={getDesktopProductIcon(item.label, item.href)} />
+                            <span className={`text-base font-medium text-[var(--cp-primary-500)] ${catalogKey === "countertops" ? "leading-none" : "leading-6"}`}>
+                              {item.label}
+                            </span>
                           </span>
+                          {isActive ? <ChevronRightIcon /> : null}
                         </span>
-                        {isActive ? <ChevronRightIcon /> : null}
                       </Link>
                     );
                   })}
@@ -576,11 +563,13 @@ export default function Header({
               </div>
 
               <div className="absolute left-[280px] top-10 w-[162px]">
-                <p className="font-[var(--font-red-hat-display)] text-[24px] font-normal uppercase tracking-[0.04em] text-[var(--cp-primary-500)]">Catalog</p>
+                <p className="font-[var(--font-red-hat-display)] text-[24px] font-normal uppercase tracking-[0.04em] text-[var(--cp-primary-500)]">
+                  Catalog
+                </p>
               </div>
 
-              <div className="absolute left-[286px] top-[110px] space-y-8" style={{ width: `${activeCatalog.columnWidth}px` }}>
-                {activeCatalog.items.map((item) => (
+              <div className="absolute left-[286px] top-[110px] space-y-8" style={{ width: `${activeCatalogColumnWidth}px` }}>
+                {activeCatalogItems.map((item) => (
                   <article className="flex items-center gap-5" key={`${activeProductCatalogKey}-${item.name}-${item.code}`}>
                     <span className="relative block h-10 w-10 overflow-hidden">
                       {item.imageFrame ? (
@@ -590,12 +579,17 @@ export default function Header({
                           className="absolute left-0 top-0 max-w-none object-cover"
                           src={item.image}
                           style={{
-                            width: `${item.imageFrame.width}px`,
-                            height: `${item.imageFrame.height}px`,
+                            height: item.imageFrame.height ? `${item.imageFrame.height}px` : undefined,
+                            width: item.imageFrame.width ? `${item.imageFrame.width}px` : undefined,
                           }}
                         />
                       ) : (
-                        <img alt="" aria-hidden className="h-10 w-10 object-cover" src={item.image} />
+                        <img
+                          alt=""
+                          aria-hidden
+                          className="h-10 w-10 object-cover"
+                          src={item.image}
+                        />
                       )}
                     </span>
                     <div className="text-base leading-[1.2]">
@@ -609,7 +603,11 @@ export default function Header({
               <Link
                 className="absolute left-[286px] top-[478px] inline-flex h-10 items-center justify-center bg-[var(--cp-primary-500)] px-5 text-base font-medium leading-none text-white transition-colors hover:bg-[#3a3a3a]"
                 href={desktopProductsPanelLink}
-                onClick={() => setDesktopProductsOpen(false)}
+                onClick={(event) =>
+                  handleEditableClick(event, () => {
+                    setDesktopProductsOpen(false);
+                  })
+                }
               >
                 View All Catalog
               </Link>
@@ -638,13 +636,19 @@ export default function Header({
                   {servicesItems.map((item, index) => (
                     <Link
                       className="flex items-center gap-4 text-base font-medium leading-6 text-[var(--cp-primary-500)]"
-                      data-tina-field={servicesGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${servicesGroupIndex}.children.${index}`) : undefined}
+                      data-tina-field={rawServicesItems[index] ? tinaField(rawServicesItems[index]) || undefined : undefined}
                       href={item.href}
                       key={`${item.label}-${item.href}-desktop-services`}
-                      onClick={() => setDesktopServicesOpen(false)}
+                      onClick={(event) =>
+                        handleEditableClick(event, () => {
+                          setDesktopServicesOpen(false);
+                        })
+                      }
                     >
-                      {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
-                      <span>{item.label}</span>
+                      <span className="flex items-center gap-4">
+                        {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
+                        <span>{item.label}</span>
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -656,12 +660,13 @@ export default function Header({
 
       {mobileOpen ? (
         <div className="fixed inset-x-0 bottom-0 top-[130px] z-40 overflow-y-auto border-t border-[var(--cp-primary-100)] bg-white px-[21px] pb-10 pt-6 md:hidden">
-          <nav className="mx-auto max-w-[347px]" data-tina-field={tinaField(headerRaw, "navLinks")}>
+          <nav className="mx-auto max-w-[347px]">
             {topLevelLinks.map((link, index) => {
               const key = `${link.label}-${link.href || "group"}-mobile`;
               const sectionClassName = index === 0 ? "" : "mt-10";
               const isProductsDropdown = productsGroup === link && productsItems.length > 0;
               const isServicesDropdown = servicesGroup === link && servicesItems.length > 0;
+              const navItemField = rawNavLinks[index] ? tinaField(rawNavLinks[index]) || undefined : undefined;
 
               if (isProductsDropdown) {
                 return (
@@ -671,10 +676,14 @@ export default function Header({
                       {productsItems.map((item, itemIndex) => (
                         <Link
                           className="flex items-center justify-between border-b border-[var(--cp-primary-100)] py-3"
-                          data-tina-field={productsGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${productsGroupIndex}.children.${itemIndex}`) : undefined}
+                          data-tina-field={rawProductsItems[itemIndex] ? tinaField(rawProductsItems[itemIndex]) || undefined : undefined}
                           href={item.href}
                           key={`${item.label}-${item.href}`}
-                          onClick={() => setMobileOpen(false)}
+                          onClick={(event) =>
+                            handleEditableClick(event, () => {
+                              setMobileOpen(false);
+                            })
+                          }
                         >
                           <span className="flex items-center gap-4">
                             <img alt="" aria-hidden className="h-10 w-10" src={getProductIcon(item.label, item.href)} />
@@ -696,10 +705,14 @@ export default function Header({
                       {servicesItems.map((item, itemIndex) => (
                         <Link
                           className="flex items-center justify-between border-b border-[var(--cp-primary-100)] py-3"
-                          data-tina-field={servicesGroupIndex >= 0 ? tinaField(headerRaw, `navLinks.${servicesGroupIndex}.children.${itemIndex}`) : undefined}
+                          data-tina-field={rawServicesItems[itemIndex] ? tinaField(rawServicesItems[itemIndex]) || undefined : undefined}
                           href={item.href}
                           key={`${item.label}-${item.href}`}
-                          onClick={() => setMobileOpen(false)}
+                          onClick={(event) =>
+                            handleEditableClick(event, () => {
+                              setMobileOpen(false);
+                            })
+                          }
                         >
                           <span className="flex items-center gap-4">
                             {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
@@ -715,12 +728,16 @@ export default function Header({
               return (
                 <Link
                   className={`${sectionClassName ? `${sectionClassName} ` : ""}block text-[18px] leading-6 uppercase text-[var(--cp-primary-500)]`}
-                  data-tina-field={tinaField(headerRaw, `navLinks.${index}`)}
+                  data-tina-field={navItemField}
                   href={getTopLevelLinkHref(link)}
                   key={key}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(event) =>
+                    handleEditableClick(event, () => {
+                      setMobileOpen(false);
+                    })
+                  }
                 >
-                  {link.label}
+                  <span>{link.label}</span>
                 </Link>
               );
             })}
