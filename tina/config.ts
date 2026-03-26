@@ -214,6 +214,7 @@ export default defineConfig({
                       { type: "string", name: "name", label: "Name" },
                       { type: "string", name: "code", label: "Code" },
                       { type: "image", name: "image", label: "Image" },
+                      { type: "string", name: "link", label: "Link" },
                       {
                         type: "object",
                         name: "imageFrame",

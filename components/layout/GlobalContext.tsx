@@ -27,6 +27,7 @@ export interface GlobalSettings {
         name: string;
         code: string;
         image: string;
+        link?: string;
         imageFrame?: {
           width?: number;
           height?: number;

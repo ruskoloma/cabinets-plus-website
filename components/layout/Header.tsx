@@ -1,6 +1,6 @@
 "use client";
 
-import { type MouseEvent as ReactMouseEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { tinaField, useEditState } from "tinacms/dist/react";
 
@@ -30,6 +30,7 @@ interface CatalogItem {
   name: string;
   code: string;
   image: string;
+  link?: string;
   imageFrame?: {
     width?: number;
     height?: number;
@@ -339,18 +340,6 @@ export default function Header({
     setDesktopServicesOpen(false);
   };
 
-  const handleEditableClick = useCallback(
-    (event: ReactMouseEvent<HTMLElement>, action?: () => void) => {
-      if (edit) {
-        event.preventDefault();
-        return;
-      }
-
-      action?.();
-    },
-    [edit]
-  );
-
   return (
     <header className="sticky top-0 z-50 bg-white">
       <div className="bg-[var(--cp-brand-neutral-100)] px-4 py-2 md:px-10">
@@ -379,7 +368,6 @@ export default function Header({
             aria-label={logoLabel}
             className="inline-flex items-center"
             href="/"
-            onClick={(event) => handleEditableClick(event)}
           >
             {data.logo ? (
               <img alt={logoLabel} className="h-[37px] w-auto" data-tina-field={tinaField(headerRaw, "logo")} src={data.logo} />
@@ -426,15 +414,13 @@ export default function Header({
                         data-tina-field={navItemField}
                         key={key}
                         ref={productsTriggerRef}
-                        onClick={(event) =>
-                          handleEditableClick(event, () => {
-                            if (desktopProductsOpen) {
-                              setDesktopProductsOpen(false);
-                            } else {
-                              openProductsPanel();
-                            }
-                          })
-                        }
+                        onClick={() => {
+                          if (desktopProductsOpen) {
+                            setDesktopProductsOpen(false);
+                          } else {
+                            openProductsPanel();
+                          }
+                        }}
                         onMouseEnter={openProductsPanel}
                         type="button"
                       >
@@ -451,15 +437,13 @@ export default function Header({
                         data-tina-field={navItemField}
                         key={key}
                         ref={servicesTriggerRef}
-                        onClick={(event) =>
-                          handleEditableClick(event, () => {
-                            if (desktopServicesOpen) {
-                              setDesktopServicesOpen(false);
-                            } else {
-                              openServicesPanel();
-                            }
-                          })
-                        }
+                        onClick={() => {
+                          if (desktopServicesOpen) {
+                            setDesktopServicesOpen(false);
+                          } else {
+                            openServicesPanel();
+                          }
+                        }}
                         onMouseEnter={openServicesPanel}
                         type="button"
                       >
@@ -475,7 +459,6 @@ export default function Header({
                       data-tina-field={navItemField}
                       href={getTopLevelLinkHref(link)}
                       key={key}
-                      onClick={(event) => handleEditableClick(event)}
                       onMouseEnter={edit ? undefined : closeDesktopDropdowns}
                     >
                       <span>{link.label}</span>
@@ -539,11 +522,6 @@ export default function Header({
                         data-tina-field={rawProductsItems[index] ? tinaField(rawProductsItems[index]) || undefined : undefined}
                         href={item.href}
                         key={`${item.label}-${item.href}-desktop-products`}
-                        onClick={(event) =>
-                          handleEditableClick(event, () => {
-                            setDesktopProductsOpen(false);
-                          })
-                        }
                         onFocus={() => setActiveProductCatalogKey(catalogKey)}
                         onMouseEnter={() => setActiveProductCatalogKey(catalogKey)}
                       >
@@ -569,45 +547,50 @@ export default function Header({
               </div>
 
               <div className="absolute left-[286px] top-[110px] space-y-8" style={{ width: `${activeCatalogColumnWidth}px` }}>
-                {activeCatalogItems.map((item) => (
-                  <article className="flex items-center gap-5" key={`${activeProductCatalogKey}-${item.name}-${item.code}`}>
-                    <span className="relative block h-10 w-10 overflow-hidden">
-                      {item.imageFrame ? (
-                        <img
-                          alt=""
-                          aria-hidden
-                          className="absolute left-0 top-0 max-w-none object-cover"
-                          src={item.image}
-                          style={{
-                            height: item.imageFrame.height ? `${item.imageFrame.height}px` : undefined,
-                            width: item.imageFrame.width ? `${item.imageFrame.width}px` : undefined,
-                          }}
-                        />
-                      ) : (
-                        <img
-                          alt=""
-                          aria-hidden
-                          className="h-10 w-10 object-cover"
-                          src={item.image}
-                        />
-                      )}
-                    </span>
-                    <div className="text-base leading-[1.2]">
-                      <p className="text-[var(--cp-primary-500)]">{item.name}</p>
-                      <p className="text-[var(--cp-primary-300)]">{item.code}</p>
-                    </div>
-                  </article>
-                ))}
+                {activeCatalogItems.map((item) => {
+                  const itemHref = item.link || desktopProductsPanelLink;
+
+                  return (
+                    <Link
+                      className="group flex items-center gap-5 rounded-[2px] transition-opacity hover:opacity-80"
+                      href={itemHref}
+                      key={`${activeProductCatalogKey}-${item.name}-${item.code}`}
+                      onClick={() => setDesktopProductsOpen(false)}
+                    >
+                      <span className="relative block h-10 w-10 overflow-hidden">
+                        {item.imageFrame ? (
+                          <img
+                            alt=""
+                            aria-hidden
+                            className="absolute left-0 top-0 max-w-none object-cover"
+                            src={item.image}
+                            style={{
+                              height: item.imageFrame.height ? `${item.imageFrame.height}px` : undefined,
+                              width: item.imageFrame.width ? `${item.imageFrame.width}px` : undefined,
+                            }}
+                          />
+                        ) : (
+                          <img
+                            alt=""
+                            aria-hidden
+                            className="h-10 w-10 object-cover"
+                            src={item.image}
+                          />
+                        )}
+                      </span>
+                      <div className="text-base leading-[1.2]">
+                        <p className="text-[var(--cp-primary-500)] group-hover:text-[var(--cp-brand-neutral-300)]">{item.name}</p>
+                        <p className="text-[var(--cp-primary-300)]">{item.code}</p>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
 
               <Link
                 className="absolute left-[286px] top-[478px] inline-flex h-10 items-center justify-center bg-[var(--cp-primary-500)] px-5 text-base font-medium leading-none text-white transition-colors hover:bg-[#3a3a3a]"
                 href={desktopProductsPanelLink}
-                onClick={(event) =>
-                  handleEditableClick(event, () => {
-                    setDesktopProductsOpen(false);
-                  })
-                }
+                onClick={() => setDesktopProductsOpen(false)}
               >
                 View All Catalog
               </Link>
@@ -639,11 +622,6 @@ export default function Header({
                       data-tina-field={rawServicesItems[index] ? tinaField(rawServicesItems[index]) || undefined : undefined}
                       href={item.href}
                       key={`${item.label}-${item.href}-desktop-services`}
-                      onClick={(event) =>
-                        handleEditableClick(event, () => {
-                          setDesktopServicesOpen(false);
-                        })
-                      }
                     >
                       <span className="flex items-center gap-4">
                         {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
@@ -679,11 +657,7 @@ export default function Header({
                           data-tina-field={rawProductsItems[itemIndex] ? tinaField(rawProductsItems[itemIndex]) || undefined : undefined}
                           href={item.href}
                           key={`${item.label}-${item.href}`}
-                          onClick={(event) =>
-                            handleEditableClick(event, () => {
-                              setMobileOpen(false);
-                            })
-                          }
+                          onClick={() => setMobileOpen(false)}
                         >
                           <span className="flex items-center gap-4">
                             <img alt="" aria-hidden className="h-10 w-10" src={getProductIcon(item.label, item.href)} />
@@ -708,11 +682,7 @@ export default function Header({
                           data-tina-field={rawServicesItems[itemIndex] ? tinaField(rawServicesItems[itemIndex]) || undefined : undefined}
                           href={item.href}
                           key={`${item.label}-${item.href}`}
-                          onClick={(event) =>
-                            handleEditableClick(event, () => {
-                              setMobileOpen(false);
-                            })
-                          }
+                          onClick={() => setMobileOpen(false)}
                         >
                           <span className="flex items-center gap-4">
                             {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
@@ -731,11 +701,7 @@ export default function Header({
                   data-tina-field={navItemField}
                   href={getTopLevelLinkHref(link)}
                   key={key}
-                  onClick={(event) =>
-                    handleEditableClick(event, () => {
-                      setMobileOpen(false);
-                    })
-                  }
+                  onClick={() => setMobileOpen(false)}
                 >
                   <span>{link.label}</span>
                 </Link>

@@ -23,6 +23,7 @@ export interface GlobalDocumentInput {
         name?: string | null;
         code?: string | null;
         image?: string | null;
+        link?: string | null;
         imageFrame?: {
           width?: number | null;
           height?: number | null;
@@ -49,6 +50,7 @@ type CatalogItemInput = {
   name: string;
   code: string;
   image: string;
+  link?: string;
   imageFrame?: {
     width?: number;
     height?: number;
@@ -57,41 +59,46 @@ type CatalogItemInput = {
 
 const FALLBACK_PRODUCT_CATALOG_ITEMS: Record<ProductCatalogKey, CatalogItemInput[]> = {
   cabinets: [
-      { name: "Trenton Fairy", code: "#TGB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-tgb.png" },
-      { name: "Trenton Swan White", code: "#TWB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-twb.png" },
-      { name: "Designer White", code: "#SWK", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-swk.png" },
-      { name: "Artisanal Blue", code: "#ABB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-abb.png" },
-      { name: "Artisanal Ebony", code: "#AEB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-aeb.png" },
+      { name: "Trenton Fairy", code: "#TGB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-tgb.png", link: "/cabinets/tgb" },
+      { name: "Trenton Swan White", code: "#TWB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-twb.png", link: "/cabinets/twb" },
+      { name: "Designer White", code: "#SWK", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-swk.png", link: "/cabinets/swk" },
+      { name: "Artisanal Blue", code: "#ABB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-abb.png", link: "/cabinets/abb" },
+      { name: "Artisanal Ebony", code: "#AEB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-aeb.png", link: "/cabinets/aeb" },
   ],
   countertops: [
       {
         name: "Calacatta Dolce",
         code: "#CalacattaDolce",
         image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-dolce.png",
+        link: "/countertops/calacattadolce",
         imageFrame: { width: 162, height: 80 },
       },
       {
         name: "Calacatta Simple Grey",
         code: "#CalacattaSimpleGrey",
         image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-grey.png",
+        link: "/countertops/calacattasimplegrey",
         imageFrame: { width: 162, height: 80 },
       },
       {
         name: "Calacatta Slim Gold",
         code: "#CalacattaSlimGold",
         image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-slim-gold.png",
+        link: "/countertops/calacattaslimgold",
         imageFrame: { width: 157, height: 80 },
       },
       {
         name: "Calacatta Simple Gold",
         code: "#CalacattaSimpleGold",
         image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-gold.png",
+        link: "/countertops/calacattasimplegold",
         imageFrame: { width: 157, height: 80 },
       },
       {
         name: "Calacatta Straight Grey",
         code: "#CalacattaStraightGrey",
         image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-straight-grey.png",
+        link: "/countertops/calacattastraightgrey",
         imageFrame: { width: 162, height: 80 },
       },
   ],
@@ -119,6 +126,7 @@ function normalizeCatalogItems(
     name?: string | null;
     code?: string | null;
     image?: string | null;
+    link?: string | null;
     imageFrame?: { width?: number | null; height?: number | null } | null;
   } | null> | null,
   fallbackItems?: CatalogItemInput[],
@@ -135,6 +143,7 @@ function normalizeCatalogItems(
             name: item.name,
             code: item.code,
             image: item.image,
+            link: item.link || undefined,
             imageFrame: width || height ? { width, height } : undefined,
           },
         ];
@@ -143,6 +152,7 @@ function normalizeCatalogItems(
         name: item.name,
         code: item.code,
         image: item.image,
+        link: item.link || undefined,
         imageFrame: item.imageFrame
           ? {
               width: item.imageFrame.width,
