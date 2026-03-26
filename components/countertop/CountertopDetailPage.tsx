@@ -79,7 +79,7 @@ export default function CountertopDetailPage({
   pageText,
   contactBlock,
 }: CountertopDetailPageProps) {
-  const [descriptionOpen, setDescriptionOpen] = useState(Boolean(countertop.description));
+  const [descriptionOpen, setDescriptionOpen] = useState(false);
 
   const displayName = countertop.name?.trim() || "Countertop";
   const description = countertop.description?.trim() || "";
@@ -98,8 +98,8 @@ export default function CountertopDetailPage({
     <div className="bg-white">
       <section className="bg-white">
         <div className="cp-container px-4 pb-12 pt-[34px] md:px-8 md:pb-16 md:pt-7">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-[14px] leading-[1.2] text-[var(--cp-primary-300)]">
+          <div className="flex items-start justify-between gap-4 md:items-center">
+            <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[14px] leading-[1.2] text-[var(--cp-primary-300)]">
               <Link className="transition-colors hover:text-[var(--cp-primary-500)]" href="/countertops">
                 {pageText.breadcrumbLabel}
               </Link>
@@ -109,13 +109,13 @@ export default function CountertopDetailPage({
               </span>
             </nav>
 
-            <div className="flex gap-2 self-end md:gap-4 md:self-auto">
+            <div className="flex shrink-0 gap-2 md:gap-4">
               <ArrowNavButton href={previousProduct ? `/countertops/${previousProduct.slug}` : undefined} direction="previous" />
               <ArrowNavButton href={nextProduct ? `/countertops/${nextProduct.slug}` : undefined} direction="next" />
             </div>
           </div>
 
-          <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,557px)_minmax(0,674px)] lg:items-start lg:gap-[117px]">
+          <div className="mt-7 grid gap-8 lg:grid-cols-[675px_minmax(0,674px)] lg:items-start lg:gap-7">
             <ProductMediaGallery items={galleryItemsWithFields} productName={displayName} />
 
             <div>
@@ -129,7 +129,7 @@ export default function CountertopDetailPage({
               ) : null}
 
               <h1
-                className="mt-2 max-w-[457px] font-[var(--font-red-hat-display)] text-[28px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)] md:text-[32px]"
+                className="mt-2 max-w-[361px] font-[var(--font-red-hat-display)] text-[28px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)] md:max-w-[457px] md:text-[32px]"
                 data-tina-field={tinaField(countertop as unknown as Record<string, unknown>, "name") || undefined}
               >
                 {displayName}

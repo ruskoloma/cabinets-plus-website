@@ -11,12 +11,14 @@ import Button from "@/components/ui/Button";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
+import CatalogMobileFilterOverlay from "./CatalogMobileFilterOverlay";
+import { DoorStyleOptionCard, FinishOptionCard } from "./CatalogFilterOptionCards";
 import {
   getOverviewCabinetItems,
   inferDoorStyleValue,
   normalizeOptionValue,
 } from "./normalize-cabinets-overview-query";
-import type { CabinetsOverviewDataShape, CatalogVisualOption } from "./types";
+import type { CabinetsOverviewDataShape } from "./types";
 
 const PAGE_SIZE = 16;
 const SORT_OPTIONS = [
@@ -175,96 +177,6 @@ function mapFaqTabs(block?: Record<string, unknown> | null): FaqTab[] {
     .filter((tab) => tab.label.length > 0 && tab.faqs.length > 0);
 }
 
-function OverlayOptionState({ selected }: { selected: boolean }) {
-  if (selected) {
-    return (
-      <span className="absolute inset-0 flex items-center justify-center bg-black/30">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--cp-brand-neutral-300)]">
-          <img alt="" aria-hidden="true" className="h-6 w-6" src="/library/catalog/filter-card-selected-check.svg" />
-        </span>
-      </span>
-    );
-  }
-
-  return (
-    <span className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
-      <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-white">Select</span>
-    </span>
-  );
-}
-
-function DoorStyleOptionCard({
-  option,
-  selected,
-  onClick,
-}: {
-  option: CatalogVisualOption;
-  selected: boolean;
-  onClick: () => void;
-}) {
-  const record = option as unknown as Record<string, unknown>;
-
-  return (
-    <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
-      <span className="relative block h-[177px] w-[177px] overflow-hidden bg-[#f2f2f2]">
-        {option.image ? (
-          <FillImage
-            alt={option.label}
-            className="object-contain"
-            data-tina-field={tinaField(record, "image")}
-            sizes="177px"
-            src={option.image}
-          />
-        ) : null}
-
-        <OverlayOptionState selected={selected} />
-      </span>
-      <span
-        className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]"
-        data-tina-field={tinaField(record, "label")}
-      >
-        {option.label}
-      </span>
-    </button>
-  );
-}
-
-function FinishOptionCard({
-  option,
-  selected,
-  onClick,
-}: {
-  option: CatalogVisualOption;
-  selected: boolean;
-  onClick: () => void;
-}) {
-  const record = option as unknown as Record<string, unknown>;
-  const swatchColor = option.swatchColor?.trim();
-  const hasCustomImage = Boolean(option.image);
-  const swatchStyle = !hasCustomImage && swatchColor ? { backgroundColor: swatchColor } : undefined;
-  const needsBorder = !hasCustomImage && (!swatchColor || ["#ffffff", "#faf9f6"].includes(swatchColor.toLowerCase()));
-
-  return (
-    <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
-      <span
-        className={`relative block h-[120px] w-[120px] overflow-hidden ${needsBorder ? "border border-[var(--cp-primary-100)]" : ""}`}
-        data-tina-field={hasCustomImage ? tinaField(record, "image") : tinaField(record, "swatchColor")}
-        style={swatchStyle}
-      >
-        {hasCustomImage ? <FillImage alt={option.label} className="object-contain" sizes="120px" src={option.image || ""} /> : null}
-
-        <OverlayOptionState selected={selected} />
-      </span>
-      <span
-        className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]"
-        data-tina-field={tinaField(record, "label")}
-      >
-        {option.label}
-      </span>
-    </button>
-  );
-}
-
 function PaginationButton({
   active,
   children,
@@ -414,7 +326,6 @@ export default function CabinetsOverviewPage({
   const [pendingFinishes, setPendingFinishes] = useState<string[]>(queryState.finishes);
   const filtersRef = useRef<HTMLDivElement | null>(null);
   const searchDebounceRef = useRef<number | null>(null);
-  const closePanelTimeoutRef = useRef<number | null>(null);
   const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const sortLabel = SORT_OPTIONS.find((option) => option.value === queryState.sort)?.label || "New";
@@ -451,26 +362,6 @@ export default function CabinetsOverviewPage({
     updateQuery({ page: String(currentPage) });
   }, [currentPage, queryState.page, updateQuery]);
 
-  const clearPanelCloseTimeout = useCallback(() => {
-    if (closePanelTimeoutRef.current) {
-      window.clearTimeout(closePanelTimeoutRef.current);
-      closePanelTimeoutRef.current = null;
-    }
-  }, []);
-
-  const schedulePanelClose = useCallback(
-    (panel: OpenPanel) => {
-      if (!panel) return;
-      clearPanelCloseTimeout();
-
-      closePanelTimeoutRef.current = window.setTimeout(() => {
-        setOpenPanel((current) => (current === panel ? null : current));
-        closePanelTimeoutRef.current = null;
-      }, 60);
-    },
-    [clearPanelCloseTimeout],
-  );
-
   useEffect(() => {
     return () => {
       if (searchDebounceRef.current) {
@@ -478,12 +369,6 @@ export default function CabinetsOverviewPage({
       }
     };
   }, []);
-
-  useEffect(() => {
-    return () => {
-      clearPanelCloseTimeout();
-    };
-  }, [clearPanelCloseTimeout]);
 
   useEffect(() => {
     if (!openPanel) return;
@@ -535,7 +420,58 @@ export default function CabinetsOverviewPage({
           </h1>
 
           <div ref={filtersRef}>
-            <div className="relative mt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="mt-4 flex items-center justify-between gap-6 md:hidden">
+              <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]">
+                <span>Showing </span>
+                <span className="font-bold">{totalResults} results</span>
+              </p>
+
+              <div className="relative">
+                <button
+                  className="inline-flex items-center gap-2 font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]"
+                  onClick={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
+                  type="button"
+                >
+                  <span>
+                    Sort by <span className="font-bold">{sortLabel}</span>
+                  </span>
+                  <img
+                    alt=""
+                    aria-hidden
+                    className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
+                    src="/library/header/nav-chevron-right.svg"
+                  />
+                </button>
+
+                {openPanel === "sort" ? (
+                  <div className="absolute right-0 top-full z-30 mt-3 min-w-[184px] bg-white p-4 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
+                    <div className="flex flex-col gap-3">
+                      {SORT_OPTIONS.map((option) => {
+                        const selected = queryState.sort === option.value;
+
+                        return (
+                          <button
+                            className={`text-left font-[var(--font-red-hat-display)] text-[16px] leading-[1.5] text-[var(--cp-primary-500)] ${
+                              selected ? "font-semibold" : ""
+                            }`}
+                            key={`mobile-sort-${option.value}`}
+                            onClick={() => {
+                              updateQuery({ sort: option.value }, true);
+                              setOpenPanel(null);
+                            }}
+                            type="button"
+                          >
+                            {option.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="relative mt-4 hidden flex-col gap-4 md:flex md:flex-row md:items-center md:justify-between">
               <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)] md:text-[18px]">
                 <span>Showing </span>
                 <span className="font-bold">{totalResults} results</span>
@@ -566,12 +502,7 @@ export default function CabinetsOverviewPage({
 
                 <CatalogSortDropdown
                   isOpen={openPanel === "sort"}
-                  onMouseEnter={() => {
-                    clearPanelCloseTimeout();
-                    setOpenPanel("sort");
-                  }}
-                  onMouseLeave={() => schedulePanelClose("sort")}
-                  onOpen={() => setOpenPanel("sort")}
+                  onOpen={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
                   onSelect={(value) => {
                     updateQuery({ sort: value }, true);
                     setOpenPanel(null);
@@ -584,27 +515,40 @@ export default function CabinetsOverviewPage({
             </div>
 
             <div className="mt-5 flex flex-col gap-4">
-              <div className="relative flex flex-wrap items-center gap-6 md:gap-10">
-                <div
-                  className="pb-3"
-                  onMouseEnter={() => {
-                    clearPanelCloseTimeout();
+              <div className="flex items-center gap-10 md:hidden">
+                <button
+                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  onClick={() => {
                     setPendingDoorStyles(queryState.styles);
                     setOpenPanel("doorStyle");
                   }}
-                  onMouseLeave={() => {
-                    if (openPanel === "doorStyle") schedulePanelClose("doorStyle");
-                  }}
+                  type="button"
                 >
+                  <span>Door style</span>
+                  <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+                </button>
+
+                <button
+                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  onClick={() => {
+                    setPendingFinishes(queryState.finishes);
+                    setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
+                    setOpenPanel("finish");
+                  }}
+                  type="button"
+                >
+                  <span>Finish</span>
+                  <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+                </button>
+              </div>
+
+              <div className="relative hidden flex-wrap items-center gap-6 md:flex md:gap-10">
+                <div className="pb-3">
                   <button
                     className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
                     onClick={() => {
                       setPendingDoorStyles(queryState.styles);
-                      setOpenPanel("doorStyle");
-                    }}
-                    onMouseEnter={() => {
-                      setPendingDoorStyles(queryState.styles);
-                      setOpenPanel("doorStyle");
+                      setOpenPanel((current) => (current === "doorStyle" ? null : "doorStyle"));
                     }}
                     type="button"
                   >
@@ -612,14 +556,8 @@ export default function CabinetsOverviewPage({
                       <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
                     </button>
 
-                    {openPanel === "doorStyle" ? (
-                      <div
-                        className="absolute left-0 right-0 top-full z-30 w-full bg-white p-6 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]"
-                        onMouseLeave={() => {
-                          if (openPanel === "doorStyle") schedulePanelClose("doorStyle");
-                        }}
-                        onMouseEnter={clearPanelCloseTimeout}
-                      >
+                  {openPanel === "doorStyle" ? (
+                      <div className="absolute left-0 right-0 top-full z-30 w-full bg-white p-6 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
                         <h2 className="text-center font-[var(--font-red-hat-display)] text-[28px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
                           Select door style
                         </h2>
@@ -650,29 +588,13 @@ export default function CabinetsOverviewPage({
                 ) : null}
               </div>
 
-                <div
-                  className="pb-3"
-                  onMouseEnter={() => {
-                    clearPanelCloseTimeout();
-                    setPendingFinishes(queryState.finishes);
-                    setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
-                    setOpenPanel("finish");
-                  }}
-                  onMouseLeave={() => {
-                    if (openPanel === "finish") schedulePanelClose("finish");
-                  }}
-                >
+                <div className="pb-3">
                   <button
                     className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
                     onClick={() => {
                       setPendingFinishes(queryState.finishes);
                       setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
-                      setOpenPanel("finish");
-                    }}
-                    onMouseEnter={() => {
-                      setPendingFinishes(queryState.finishes);
-                      setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
-                      setOpenPanel("finish");
+                      setOpenPanel((current) => (current === "finish" ? null : "finish"));
                     }}
                     type="button"
                   >
@@ -681,13 +603,7 @@ export default function CabinetsOverviewPage({
                     </button>
 
                     {openPanel === "finish" ? (
-                      <div
-                        className="absolute left-0 right-0 top-full z-30 w-full bg-white p-6 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]"
-                        onMouseLeave={() => {
-                          if (openPanel === "finish") schedulePanelClose("finish");
-                        }}
-                        onMouseEnter={clearPanelCloseTimeout}
-                      >
+                      <div className="absolute left-0 right-0 top-full z-30 w-full bg-white p-6 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
                         <h2 className="text-center font-[var(--font-red-hat-display)] text-[28px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
                           Select Finish
                         </h2>
@@ -743,7 +659,7 @@ export default function CabinetsOverviewPage({
                 </div>
 
             {(queryState.styles.length > 0 || queryState.finishes.length > 0) ? (
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 md:gap-6">
                 {queryState.styles.map((value, index) => (
                   <button
                     className="inline-flex h-8 items-center gap-[6px] border border-[var(--cp-primary-500)] px-3 text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
@@ -787,6 +703,93 @@ export default function CabinetsOverviewPage({
                 </button>
               </div>
             ) : null}
+
+            <CatalogMobileFilterOverlay
+              onApply={applyDoorStyle}
+              onClose={() => setOpenPanel(null)}
+              open={openPanel === "doorStyle"}
+              title="Select door style"
+            >
+              <div className="grid grid-cols-2 gap-x-[15px] gap-y-8">
+                {doorStyles.map((option, index) => {
+                  const value = normalizeOptionValue(option.value);
+                  const selected = pendingDoorStyles.includes(value);
+
+                  return (
+                    <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-door-style-${option.value}-${index}`}>
+                      <DoorStyleOptionCard
+                        onClick={() => setPendingDoorStyles((current) => toggleMultiValue(current, value))}
+                        option={option}
+                        selected={selected}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </CatalogMobileFilterOverlay>
+
+            <CatalogMobileFilterOverlay
+              onApply={applyFinish}
+              onClose={() => setOpenPanel(null)}
+              open={openPanel === "finish"}
+              tabs={
+                <div className="flex items-start gap-8">
+                  <button
+                    className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]"
+                    onClick={() => setFinishTab("paint")}
+                    type="button"
+                  >
+                    <span>Paint</span>
+                    <span className={`h-0.5 w-full ${finishTab === "paint" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
+                  </button>
+                  <button
+                    className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]"
+                    onClick={() => setFinishTab("stain")}
+                    type="button"
+                  >
+                    <span>Stain</span>
+                    <span className={`h-0.5 w-full ${finishTab === "stain" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
+                  </button>
+                </div>
+              }
+              title="Select Finish"
+            >
+              {finishTab === "paint" ? (
+                <div className="grid grid-cols-3 justify-between gap-x-[12.5px] gap-y-8">
+                  {paintOptions.map((option, index) => {
+                    const value = normalizeOptionValue(option.value);
+                    const selected = pendingFinishes.includes(value);
+
+                    return (
+                      <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-paint-${option.value}-${index}`}>
+                        <FinishOptionCard
+                          onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
+                          option={option}
+                          selected={selected}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="flex flex-col items-center gap-8">
+                  {stainTypes.map((option, index) => {
+                    const value = normalizeOptionValue(option.value);
+                    const selected = pendingFinishes.includes(value);
+
+                    return (
+                      <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-stain-${option.value}-${index}`}>
+                        <DoorStyleOptionCard
+                          onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
+                          option={option}
+                          selected={selected}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </CatalogMobileFilterOverlay>
           </div>
 
           </div>

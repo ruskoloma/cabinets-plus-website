@@ -56,6 +56,45 @@ function PinterestIcon() {
   return <img alt="" aria-hidden className="h-8 w-8 md:h-10 md:w-10" src="/library/showroom/showroom-social-pinterest.svg" />;
 }
 
+function renderHighlightedText(textValue: string, highlights: string[], emphasisClassName: string) {
+  if (!textValue) return null;
+
+  const matches = highlights
+    .filter((phrase) => phrase.length > 0)
+    .map((phrase) => {
+      const start = textValue.indexOf(phrase);
+      return start >= 0 ? { phrase, start, end: start + phrase.length } : null;
+    })
+    .filter((match): match is { phrase: string; start: number; end: number } => Boolean(match))
+    .sort((left, right) => left.start - right.start);
+
+  if (matches.length === 0) {
+    return textValue;
+  }
+
+  const nodes: React.ReactNode[] = [];
+  let cursor = 0;
+
+  matches.forEach((match, index) => {
+    if (match.start > cursor) {
+      nodes.push(textValue.slice(cursor, match.start));
+    }
+
+    nodes.push(
+      <strong className={emphasisClassName} key={`${match.phrase}-${index}`}>
+        {match.phrase}
+      </strong>
+    );
+    cursor = match.end;
+  });
+
+  if (cursor < textValue.length) {
+    nodes.push(textValue.slice(cursor));
+  }
+
+  return nodes;
+}
+
 export default function FigmaHome({ page }: Props) {
   const global = useGlobal();
   const generalRecord = useGlobalRawDocument("general");
@@ -82,6 +121,22 @@ export default function FigmaHome({ page }: Props) {
   const processRecord = process as Record<string, unknown>;
   const faqRecord = faq as Record<string, unknown>;
   const contactRecord = contact as Record<string, unknown>;
+  const whyUsHighlights = [
+    ["Our semi-custom cabinets"],
+    ["We start with a free 3D design consultation"],
+    ["Our installation team"],
+  ];
+  const introHighlight = "local team";
+  const processDesktopLineSegments = [
+    { left: "22px", top: "65px", height: "80px" },
+    { left: "22px", top: "221px", height: "80px" },
+    { left: "23px", top: "380px", height: "80px" },
+  ];
+  const processMobileLineSegments = [
+    { left: "19px", top: "66px", height: "176px" },
+    { left: "18px", top: "349px", height: "222px" },
+    { left: "15px", top: "666px", height: "215px" },
+  ];
 
   const productItems = mapProducts(toBlockArray(products.products)).slice(0, 4);
   const serviceItems = mapServices(toBlockArray(services.services)).slice(0, 2);
@@ -207,47 +262,61 @@ export default function FigmaHome({ page }: Props) {
         </div>
       </section> : null}
 
-      {hasTemplate("projectsSection") ? <section className="bg-[var(--cp-brand-neutral-50)] py-16" data-tina-field={tinaField(projectsRecord)} id="projects" style={{ order: getSectionOrder("projectsSection", 3) }}>
+      {hasTemplate("projectsSection") ? <section className="bg-[var(--cp-brand-neutral-50)] py-[35px] md:py-16" data-tina-field={tinaField(projectsRecord)} id="projects" style={{ order: getSectionOrder("projectsSection", 3) }}>
         <div className="cp-container px-4 md:px-8">
           <h2 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(projectsRecord, "title")}>
             {text(projects.title, "Our projects")}
           </h2>
           <ProjectMosaic imageFields={projectImageFields} images={projectImages} />
-          <div className="mt-7 text-center">
-            <Button dataTinaField={tinaField(projectsRecord, "ctaLabel")} href={text(projects.ctaLink, "/gallery")} variant="outline">
+          <div className="mt-12 text-center md:mt-7">
+            <Button className="!min-h-12 md:!min-h-14" dataTinaField={tinaField(projectsRecord, "ctaLabel")} href={text(projects.ctaLink, "/gallery")} variant="outline">
               {text(projects.ctaLabel, "View All projects")}
             </Button>
           </div>
         </div>
       </section> : null}
 
-      {hasTemplate("whyUsSection") ? <section className="cp-container px-4 py-16 md:px-8" data-tina-field={tinaField(whyUsRecord)} style={{ order: getSectionOrder("whyUsSection", 4) }}>
-        <h2 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(whyUsRecord, "title")}>
+      {hasTemplate("whyUsSection") ? <section className="cp-container px-4 py-16 md:px-[31px] md:py-16" data-tina-field={tinaField(whyUsRecord)} style={{ order: getSectionOrder("whyUsSection", 4) }}>
+        <h2 className="text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(whyUsRecord, "title")}>
           {text(whyUs.title, "The difference is real:")}
         </h2>
 
         {text(whyUs.introText).length > 0 || text(whyUs.introText2).length > 0 ? (
-          <div className="mt-5 space-y-3 text-[18px] leading-[1.5] text-[var(--cp-primary-500)] md:max-w-[960px]">
-            {text(whyUs.introText).length > 0 ? <p data-tina-field={tinaField(whyUsRecord, "introText")}>{text(whyUs.introText)}</p> : null}
-            {text(whyUs.introText2).length > 0 ? <p data-tina-field={tinaField(whyUsRecord, "introText2")}>{text(whyUs.introText2)}</p> : null}
+          <div className="mt-6 grid gap-4 text-[20px] leading-[1.45] text-[var(--cp-primary-500)] md:mt-5 md:grid-cols-[558px_minmax(0,1fr)] md:gap-20 md:py-8 md:text-[24px]">
+            {text(whyUs.introText).length > 0 ? (
+              <p className="max-w-[22ch] md:max-w-none" data-tina-field={tinaField(whyUsRecord, "introText")}>
+                {text(whyUs.introText)}
+              </p>
+            ) : null}
+            {text(whyUs.introText2).length > 0 ? (
+              <p className="max-w-[24ch] md:max-w-none" data-tina-field={tinaField(whyUsRecord, "introText2")}>
+                {renderHighlightedText(text(whyUs.introText2), [introHighlight], "font-black")}
+              </p>
+            ) : null}
           </div>
         ) : null}
 
-        <div className="mt-8 grid gap-8 md:grid-cols-3 md:gap-7">
+        <div className="mt-8 grid gap-8 md:mt-0 md:grid-cols-3 md:gap-5 lg:gap-7">
           {featureItems.map((item, index) => (
-            <PreviewCard
-              description={item.description}
-              descriptionClassName="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
-              image={item.image}
-              imageClassName="h-[373px] md:h-[455px]"
-              key={`${item.title}-${index}`}
-              tinaCardField={tinaField(item.raw as Record<string, unknown>)}
-              tinaDescriptionField={tinaField(item.raw as Record<string, unknown>, "description")}
-              tinaImageField={tinaField(item.raw as Record<string, unknown>, "image")}
-              tinaTitleField={tinaField(item.raw as Record<string, unknown>, "title")}
-              title={item.title}
-              titleClassName="mt-3 text-[20px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]"
-            />
+            <article className="flex flex-col" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
+              <div className="relative h-[373px] overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] md:h-[455px]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "image")}>
+                {item.image ? <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 31vw, 100vw" src={item.image} /> : null}
+              </div>
+              <h3
+                className="mt-3 text-[20px] font-semibold leading-[1.15] text-[var(--cp-primary-500)] md:text-[24px] md:leading-[1.25]"
+                data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}
+              >
+                {item.title}
+              </h3>
+              {item.description ? (
+                <p
+                  className="mt-2 text-base leading-[1.45] text-[var(--cp-primary-500)] md:text-[18px] md:leading-[1.5]"
+                  data-tina-field={tinaField(item.raw as Record<string, unknown>, "description")}
+                >
+                  {renderHighlightedText(item.description, whyUsHighlights[index] ?? [], "font-semibold")}
+                </p>
+              ) : null}
+            </article>
           ))}
         </div>
       </section> : null}
@@ -309,34 +378,45 @@ export default function FigmaHome({ page }: Props) {
         </div>
       </section> : null}
 
-      {hasTemplate("processSection") ? <section className="bg-[var(--cp-brand-neutral-50)] py-16 md:py-20" data-tina-field={tinaField(processRecord)} style={{ order: getSectionOrder("processSection", 7) }}>
-        <div className="cp-container px-4 md:px-8">
-          <h2 className="text-center text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(processRecord, "title")}>
+      {hasTemplate("processSection") ? <section className="bg-[var(--cp-brand-neutral-50)] py-20" data-tina-field={tinaField(processRecord)} style={{ order: getSectionOrder("processSection", 7) }}>
+        <div className="cp-container px-4 md:px-[130px]">
+          <h2 className="text-center text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(processRecord, "title")}>
             {text(process.title, "Our process")}
           </h2>
 
-          <div className="relative mx-auto mt-12 max-w-[1018px]">
-            <span className="absolute left-[19px] top-[66px] h-[176px] w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:hidden" />
-            <span className="absolute left-[18px] top-[349px] h-[222px] w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:hidden" />
-            <span className="absolute left-[15px] top-[666px] h-[215px] w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:hidden" />
-            <span className="absolute left-[22px] top-[65px] hidden h-20 w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:block" />
-            <span className="absolute left-[22px] top-[221px] hidden h-20 w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:block" />
-            <span className="absolute left-[23px] top-[380px] hidden h-20 w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:block" />
+          <div className="relative mx-auto mt-12 w-full max-w-[361px] md:max-w-[1018px]">
+            {processMobileLineSegments.map((segment, index) => (
+              <span
+                className="absolute w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:hidden"
+                key={`process-mobile-line-${index}`}
+                style={{ height: segment.height, left: segment.left, top: segment.top }}
+              />
+            ))}
+            {processDesktopLineSegments.map((segment, index) => (
+              <span
+                className="absolute hidden w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:block"
+                key={`process-desktop-line-${index}`}
+                style={{ height: segment.height, left: segment.left, top: segment.top }}
+              />
+            ))}
 
             <div className="flex flex-col gap-12">
               {processItems.map((item, index) => {
                 const iconSizeClass = index < 2 ? "h-10 w-10 md:h-12 md:w-12" : "h-8 w-8 md:h-12 md:w-12";
+                const iconMaskClass = index < 2 ? "h-10 w-10 md:h-12 md:w-12" : "h-8 w-8 md:h-12 md:w-12";
                 const iconSrc = item.iconImage || FALLBACK_PROCESS_ICONS[index];
                 return (
-                  <article className="grid grid-cols-[40px_1fr] gap-6 md:grid-cols-[48px_1fr]" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
-                    <div className="relative z-10 flex justify-center bg-[var(--cp-brand-neutral-50)]">
-                      {iconSrc ? <img alt="" aria-hidden className={`${iconSizeClass} object-contain`} data-tina-field={tinaField(item.raw as Record<string, unknown>, "iconImage")} src={iconSrc} /> : null}
+                  <article className="grid items-start grid-cols-[40px_1fr] gap-6 md:grid-cols-[48px_1fr]" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
+                    <div className="relative z-10 flex justify-center">
+                      <div className={`flex items-center justify-center bg-[var(--cp-brand-neutral-50)] ${iconMaskClass}`}>
+                        {iconSrc ? <img alt="" aria-hidden className={`${iconSizeClass} object-contain`} data-tina-field={tinaField(item.raw as Record<string, unknown>, "iconImage")} src={iconSrc} /> : null}
+                      </div>
                     </div>
-                    <div className="pt-0.5">
-                      <h3 className="font-[var(--font-red-hat-display)] text-[20px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}>
+                    <div>
+                      <h3 className="font-[var(--font-red-hat-display)] text-[20px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}>
                         {item.title}
                       </h3>
-                      <p className="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)]/90" data-tina-field={tinaField(item.raw as Record<string, unknown>, "description")}>
+                      <p className="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "description")}>
                         {item.description}
                       </p>
                     </div>

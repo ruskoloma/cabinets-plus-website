@@ -11,11 +11,12 @@ import Button from "@/components/ui/Button";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
+import CatalogMobileFilterOverlay from "@/components/cabinets-overview/CatalogMobileFilterOverlay";
 import {
   getOverviewCountertopItems,
   normalizeOptionValue,
 } from "./normalize-countertops-overview-query";
-import type { CatalogVisualOption, CountertopsOverviewDataShape } from "./types";
+import type { CountertopsOverviewDataShape } from "./types";
 
 const PAGE_SIZE = 16;
 const SORT_OPTIONS = [
@@ -136,12 +137,23 @@ function mapFaqTabs(block?: Record<string, unknown> | null): FaqTab[] {
     .filter((tab) => tab.label.length > 0 && tab.faqs.length > 0);
 }
 
-function OverlayOptionState({ selected }: { selected: boolean }) {
+function PanelShell({ children, title }: { children: ReactNode; title: string }) {
+  return (
+    <div className="mt-5 border border-[var(--cp-primary-100)] bg-white p-5 shadow-[0_8px_12px_6px_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)] md:absolute md:left-0 md:right-0 md:top-full md:z-30 md:mt-3 md:p-8">
+      <h2 className="text-center font-[var(--font-red-hat-display)] text-[24px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]">
+        {title}
+      </h2>
+      {children}
+    </div>
+  );
+}
+
+function CountertopOptionState({ selected }: { selected: boolean }) {
   if (selected) {
     return (
       <span className="absolute inset-0 flex items-center justify-center bg-black/25">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--cp-brand-neutral-300)]">
-          <img alt="" aria-hidden="true" className="h-6 w-6" src="/library/catalog/filter-card-selected-check.svg" />
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--cp-brand-neutral-300)]">
+          <img alt="" aria-hidden="true" className="h-5 w-5" src="/library/catalog/filter-card-selected-check.svg" />
         </span>
       </span>
     );
@@ -154,67 +166,29 @@ function OverlayOptionState({ selected }: { selected: boolean }) {
   );
 }
 
-function PanelShell({
-  children,
-  onMouseEnter,
-  onMouseLeave,
-  title,
-}: {
-  children: ReactNode;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  title: string;
-}) {
-  return (
-    <div
-      className="mt-5 border border-[var(--cp-primary-100)] bg-white p-5 shadow-[0_8px_12px_6px_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)] md:absolute md:left-0 md:right-0 md:top-full md:z-30 md:mt-3 md:p-8"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <h2 className="text-center font-[var(--font-red-hat-display)] text-[24px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]">
-        {title}
-      </h2>
-      {children}
-    </div>
-  );
-}
-
 function CountertopOptionCard({
   option,
   selected,
   onClick,
 }: {
-  option: CatalogVisualOption;
+  option: { value: string; label: string; image?: string | null };
   selected: boolean;
   onClick: () => void;
 }) {
   const record = option as unknown as Record<string, unknown>;
-  const hasImage = Boolean(option.image);
 
   return (
-    <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
-      <span className="relative flex h-[132px] w-[132px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
-        {hasImage ? (
-          <span
-            className="relative block h-[90px] w-[90px] overflow-hidden md:h-[120px] md:w-[120px]"
-            data-tina-field={tinaField(record, "image")}
-          >
-            <FillImage alt={option.label} className="object-cover" sizes="120px" src={option.image || ""} />
+    <button className="group flex flex-col items-center gap-2" onClick={onClick} type="button">
+      <span className="relative flex h-[173px] w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2]">
+        {option.image ? (
+          <span className="relative block h-[116px] w-[116px]" data-tina-field={tinaField(record, "image")}>
+            <FillImage alt={option.label} className="object-cover object-center" sizes="116px" src={option.image} />
           </span>
-        ) : (
-          <span
-            className="px-4 text-center font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.25] text-[var(--cp-primary-500)]/70"
-            data-tina-field={tinaField(record, "label")}
-          >
-            {option.label}
-          </span>
-        )}
-
-        <OverlayOptionState selected={selected} />
+        ) : null}
+        <CountertopOptionState selected={selected} />
       </span>
-
       <span
-        className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]"
+        className="w-full text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]"
         data-tina-field={tinaField(record, "label")}
       >
         {option.label}
@@ -337,7 +311,6 @@ export default function CountertopsOverviewPage({
   const [pendingCountertop, setPendingCountertop] = useState<string | null>(queryState.countertop || null);
   const filtersRef = useRef<HTMLDivElement | null>(null);
   const searchDebounceRef = useRef<number | null>(null);
-  const closePanelTimeoutRef = useRef<number | null>(null);
   const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const sortLabel = SORT_OPTIONS.find((option) => option.value === queryState.sort)?.label || "New";
@@ -369,26 +342,6 @@ export default function CountertopsOverviewPage({
     updateQuery({ page: String(currentPage) });
   }, [currentPage, queryState.page, updateQuery]);
 
-  const clearPanelCloseTimeout = useCallback(() => {
-    if (closePanelTimeoutRef.current) {
-      window.clearTimeout(closePanelTimeoutRef.current);
-      closePanelTimeoutRef.current = null;
-    }
-  }, []);
-
-  const schedulePanelClose = useCallback(
-    (panel: OpenPanel) => {
-      if (!panel) return;
-      clearPanelCloseTimeout();
-
-      closePanelTimeoutRef.current = window.setTimeout(() => {
-        setOpenPanel((current) => (current === panel ? null : current));
-        closePanelTimeoutRef.current = null;
-      }, 60);
-    },
-    [clearPanelCloseTimeout],
-  );
-
   useEffect(() => {
     return () => {
       if (searchDebounceRef.current) {
@@ -396,12 +349,6 @@ export default function CountertopsOverviewPage({
       }
     };
   }, []);
-
-  useEffect(() => {
-    return () => {
-      clearPanelCloseTimeout();
-    };
-  }, [clearPanelCloseTimeout]);
 
   useEffect(() => {
     if (!openPanel) return;
@@ -448,7 +395,47 @@ export default function CountertopsOverviewPage({
           </h1>
 
           <div ref={filtersRef}>
-            <div className="relative mt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="mt-4 flex items-center justify-between gap-6 md:hidden">
+              <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]">
+                <span>Showing </span>
+                <span className="font-bold">{totalResults} results</span>
+              </p>
+
+              <div className="relative">
+                <button
+                  className="inline-flex items-center gap-2 font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]"
+                  onClick={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
+                  type="button"
+                >
+                  <span>
+                    Sort by <span className="font-bold">{sortLabel}</span>
+                  </span>
+                  <img alt="" aria-hidden className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`} src="/library/header/nav-chevron-right.svg" />
+                </button>
+
+                {openPanel === "sort" ? (
+                  <div className="absolute right-0 top-full z-30 mt-3 min-w-[184px] bg-white p-4 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
+                    <div className="flex flex-col gap-3">
+                      {SORT_OPTIONS.map((option) => (
+                        <button
+                          className={`text-left font-[var(--font-red-hat-display)] text-[16px] leading-[1.5] text-[var(--cp-primary-500)] ${queryState.sort === option.value ? "font-semibold" : ""}`}
+                          key={`countertops-mobile-sort-${option.value}`}
+                          onClick={() => {
+                            updateQuery({ sort: option.value }, true);
+                            setOpenPanel(null);
+                          }}
+                          type="button"
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="relative mt-4 hidden flex-col gap-4 md:flex md:flex-row md:items-center md:justify-between">
               <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)] md:text-[18px]">
                 <span>Showing </span>
                 <span className="font-bold">{totalResults} results</span>
@@ -479,12 +466,7 @@ export default function CountertopsOverviewPage({
 
                 <CatalogSortDropdown
                   isOpen={openPanel === "sort"}
-                  onMouseEnter={() => {
-                    clearPanelCloseTimeout();
-                    setOpenPanel("sort");
-                  }}
-                  onMouseLeave={() => schedulePanelClose("sort")}
-                  onOpen={() => setOpenPanel("sort")}
+                  onOpen={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
                   onSelect={(value) => {
                     updateQuery({ sort: value }, true);
                     setOpenPanel(null);
@@ -497,42 +479,36 @@ export default function CountertopsOverviewPage({
             </div>
 
             <div className="mt-5 flex flex-col gap-4">
-              <div className="relative flex flex-wrap items-center gap-6 md:gap-10">
-                <div
-                  className="pb-3"
-                  onMouseEnter={() => {
-                    clearPanelCloseTimeout();
+              <div className="flex items-center gap-10 md:hidden">
+                <button
+                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  onClick={() => {
                     setPendingCountertop(queryState.countertop || null);
                     setOpenPanel("countertop");
                   }}
-                  onMouseLeave={() => {
-                    if (openPanel === "countertop") schedulePanelClose("countertop");
-                  }}
+                  type="button"
                 >
+                  <span>Select Countertop</span>
+                  <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+                </button>
+              </div>
+
+              <div className="relative hidden flex-wrap items-center gap-6 md:flex md:gap-10">
+                <div className="pb-3">
                   <button
-                    className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
-                    onClick={() => {
-                      setPendingCountertop(queryState.countertop || null);
-                      setOpenPanel("countertop");
-                    }}
-                    onMouseEnter={() => {
-                      setPendingCountertop(queryState.countertop || null);
-                      setOpenPanel("countertop");
-                    }}
-                    type="button"
-                  >
-                    <span>Select countertop</span>
+                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  onClick={() => {
+                    setPendingCountertop(queryState.countertop || null);
+                    setOpenPanel((current) => (current === "countertop" ? null : "countertop"));
+                  }}
+                  type="button"
+                >
+                    <span>Select Countertop</span>
                     <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
                   </button>
 
                   {openPanel === "countertop" ? (
-                    <PanelShell
-                      onMouseEnter={clearPanelCloseTimeout}
-                      onMouseLeave={() => {
-                        if (openPanel === "countertop") schedulePanelClose("countertop");
-                      }}
-                      title="Select countertop"
-                    >
+                    <PanelShell title="Select Countertop">
                       <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:mt-[52px] md:gap-10">
                         {countertopOptions.map((option, index) => {
                           const value = normalizeOptionValue(option.value);
@@ -581,6 +557,30 @@ export default function CountertopsOverviewPage({
                 </div>
               ) : null}
             </div>
+
+            <CatalogMobileFilterOverlay
+              onApply={applyCountertop}
+              onClose={() => setOpenPanel(null)}
+              open={openPanel === "countertop"}
+              title="Select Countertop"
+            >
+              <div className="grid grid-cols-2 gap-x-[15px] gap-y-8">
+                {countertopOptions.map((option, index) => {
+                  const value = normalizeOptionValue(option.value);
+                  const selected = pendingCountertop === value;
+
+                  return (
+                    <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-countertop-${option.value}-${index}`}>
+                      <CountertopOptionCard
+                        onClick={() => setPendingCountertop((current) => (current === value ? null : value))}
+                        option={option}
+                        selected={selected}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </CatalogMobileFilterOverlay>
           </div>
 
           {totalResults === 0 ? (

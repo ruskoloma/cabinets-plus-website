@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import FillImage from "@/components/ui/FillImage";
 import type { ProductGalleryItemViewModel } from "./types";
 
@@ -35,6 +35,9 @@ function CloseIcon() {
   );
 }
 
+const ACTIVE_MEDIA_MIN_PADDING = 12;
+const ACTIVE_MEDIA_PREFERRED_PADDING = 65;
+
 export default function ProductMediaGallery({
   items,
   productName,
@@ -42,6 +45,13 @@ export default function ProductMediaGallery({
 }: ProductMediaGalleryProps) {
   const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [frameSize, setFrameSize] = useState(0);
+  const [imageAspectRatios, setImageAspectRatios] = useState<Record<string, number>>({});
+  const activeMediaFrameRef = useRef<HTMLDivElement | null>(null);
+  const activeItem = useMemo(
+    () => items.find((item) => item.id === activeId) || items[0] || null,
+    [activeId, items],
+  );
 
   useEffect(() => {
     if (!lightboxOpen) return undefined;
@@ -63,10 +73,73 @@ export default function ProductMediaGallery({
     };
   }, [lightboxOpen]);
 
-  const activeItem = useMemo(
-    () => items.find((item) => item.id === activeId) || items[0] || null,
-    [activeId, items],
-  );
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const pendingImages = items.filter((item) => item.kind === "image" && !imageAspectRatios[item.id]);
+    if (!pendingImages.length) return undefined;
+
+    let cancelled = false;
+
+    pendingImages.forEach((item) => {
+      const image = new window.Image();
+      image.src = item.previewFile;
+      image.onload = () => {
+        if (cancelled || !image.naturalWidth || !image.naturalHeight) return;
+
+        const aspectRatio = image.naturalWidth / image.naturalHeight;
+        setImageAspectRatios((current) => {
+          if (current[item.id] === aspectRatio) return current;
+          return { ...current, [item.id]: aspectRatio };
+        });
+      };
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [imageAspectRatios, items]);
+
+  useEffect(() => {
+    const element = activeMediaFrameRef.current;
+    if (!element || typeof ResizeObserver === "undefined") return undefined;
+
+    const updateFrameSize = () => {
+      setFrameSize(Math.round(element.getBoundingClientRect().width));
+    };
+
+    updateFrameSize();
+
+    const observer = new ResizeObserver(() => updateFrameSize());
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [activeItem?.id]);
+
+  const activeImageLayout = useMemo(() => {
+    if (!activeItem || activeItem.kind !== "image" || !frameSize) return null;
+
+    const aspectRatio = imageAspectRatios[activeItem.id];
+    const minimumPadding = Math.min(ACTIVE_MEDIA_MIN_PADDING, frameSize / 2);
+    const preferredPadding = Math.min(ACTIVE_MEDIA_PREFERRED_PADDING, frameSize / 2);
+    const maxSizeWithMinimumPadding = Math.max(frameSize - minimumPadding * 2, 0);
+    const maxSizeWithPreferredPadding = Math.max(frameSize - preferredPadding * 2, 0);
+
+    if (!aspectRatio || !maxSizeWithMinimumPadding) {
+      return {
+        height: maxSizeWithMinimumPadding || frameSize,
+        width: maxSizeWithMinimumPadding || frameSize,
+      };
+    }
+
+    if (aspectRatio >= 1) {
+      const height = Math.min(maxSizeWithPreferredPadding, maxSizeWithMinimumPadding / aspectRatio);
+      return { height, width: height * aspectRatio };
+    }
+
+    const width = Math.min(maxSizeWithPreferredPadding, maxSizeWithMinimumPadding * aspectRatio);
+    return { height: width / aspectRatio, width };
+  }, [activeItem, frameSize, imageAspectRatios]);
 
   if (!activeItem) return null;
 
@@ -75,7 +148,7 @@ export default function ProductMediaGallery({
   return (
     <>
       <div className="flex flex-col-reverse gap-5 lg:flex-row lg:gap-7">
-        <div className="cp-hide-scrollbar flex flex-shrink-0 gap-4 overflow-x-auto pb-1 lg:h-[557px] lg:w-fit lg:flex-col lg:items-start lg:gap-[29px] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0 lg:pr-2">
+        <div className="cp-hide-scrollbar flex flex-shrink-0 gap-4 overflow-x-auto pb-1 lg:h-[557px] lg:w-fit lg:flex-col lg:items-start lg:gap-[29px] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0">
           {items.map((item, index) => {
             const isActive = activeItem.id === item.id;
 
@@ -104,11 +177,11 @@ export default function ProductMediaGallery({
 
         <button
           aria-label={activeItem.kind === "video" ? `Open video for ${productName}` : `Expand image for ${productName}`}
-          className="group relative block w-full max-w-[557px] overflow-hidden bg-[#fafafa] text-left"
+          className="group relative block h-auto w-full max-w-[557px] overflow-hidden bg-[#fafafa] text-left lg:h-[557px] lg:w-[557px] lg:max-w-none lg:shrink-0"
           onClick={openLightbox}
           type="button"
         >
-          <div className="aspect-square w-full">
+          <div ref={activeMediaFrameRef} className="aspect-square h-full w-full">
             {activeItem.kind === "video" ? (
               <>
                 <video
@@ -127,13 +200,23 @@ export default function ProductMediaGallery({
               </>
             ) : (
               <div className="relative h-full w-full">
-                <FillImage
-                  alt={activeItem.alt}
-                  className="object-contain p-[11.8%]"
-                  data-tina-field={activeItem.tinaField}
-                  sizes="(min-width: 1024px) 557px, 100vw"
-                  src={activeItem.previewFile}
-                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div
+                    className="relative shrink-0"
+                    style={{
+                      height: activeImageLayout ? `${activeImageLayout.height}px` : `calc(100% - ${ACTIVE_MEDIA_MIN_PADDING * 2}px)`,
+                      width: activeImageLayout ? `${activeImageLayout.width}px` : `calc(100% - ${ACTIVE_MEDIA_MIN_PADDING * 2}px)`,
+                    }}
+                  >
+                    <FillImage
+                      alt={activeItem.alt}
+                      className="object-contain object-center"
+                      data-tina-field={activeItem.tinaField}
+                      sizes="(min-width: 1024px) 557px, 100vw"
+                      src={activeItem.previewFile}
+                    />
+                  </div>
+                </div>
               </div>
             )}
           </div>

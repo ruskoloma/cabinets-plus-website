@@ -7,7 +7,10 @@ import { tinaField } from "tinacms/dist/react";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
+import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
+import CatalogMobileFilterOverlay from "@/components/cabinets-overview/CatalogMobileFilterOverlay";
+import { DoorStyleOptionCard as SharedDoorStyleOptionCard, FinishOptionCard as SharedFinishOptionCard } from "@/components/cabinets-overview/CatalogFilterOptionCards";
 import { normalizeOptionValue } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
 import {
   EMPTY_GALLERY_FILTERS,
@@ -27,8 +30,14 @@ const ROOM_VISUALS: Record<string, string> = {
   laundry: "/library/gallery/filter-room-laundry.png",
   other: "/library/gallery/filter-room-other.png",
 };
+const SORT_OPTIONS = [
+  { value: "az", label: "Projects (A-Z)" },
+  { value: "za", label: "Projects (Z-A)" },
+  { value: "new", label: "New" },
+] as const;
 
-type OpenPanel = "room" | "doorStyle" | "finish" | "countertop" | null;
+type SortValue = (typeof SORT_OPTIONS)[number]["value"];
+type OpenPanel = "room" | "doorStyle" | "finish" | "countertop" | "sort" | null;
 type FinishTab = "paint" | "stain";
 function toReadableLabel(value: string): string {
   return value
@@ -84,28 +93,26 @@ function PaginationButton({
 
 function FilterTrigger({
   active,
-  onMouseEnter,
-  onMouseLeave,
   disabled,
   label,
   onClick,
+  className = "",
 }: {
   active: boolean;
   disabled?: boolean;
   label: string;
   onClick: () => void;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
+  className?: string;
 }) {
   return (
     <button
-      className={`inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)] transition-opacity md:text-[24px] ${
+      className={`inline-flex shrink-0 items-center gap-[9px] leading-none text-[var(--cp-primary-500)] transition-opacity md:text-[24px] ${
+        className || "text-[20px]"
+      } ${
         active ? "opacity-100" : disabled ? "cursor-not-allowed opacity-40" : "opacity-95 hover:opacity-70"
       }`}
       disabled={disabled}
       onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
       type="button"
     >
       <span>{label}</span>
@@ -135,17 +142,13 @@ function FilterChip({
 
 function FlooringToggle({
   checked,
-  onMouseEnter,
-  onMouseLeave,
   onChange,
 }: {
   checked: boolean;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
   onChange: () => void;
 }) {
   return (
-    <button className="inline-flex items-center gap-4" onClick={onChange} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} type="button">
+    <button className="inline-flex shrink-0 items-center gap-4" onClick={onChange} type="button">
       <span
         className={`flex h-6 w-[42px] items-center rounded-full border border-[var(--cp-primary-100)] bg-white px-[3px] transition-colors md:h-8 md:w-14 md:px-1 ${
           checked ? "justify-end" : "justify-start"
@@ -153,30 +156,16 @@ function FlooringToggle({
       >
         <span className="h-[18px] w-[18px] rounded-full bg-[var(--cp-primary-300)] md:h-6 md:w-6" />
       </span>
-      <span className="font-[var(--font-red-hat-display)] text-[20px] leading-none text-[var(--cp-primary-500)] md:text-[24px]">
+      <span className="whitespace-nowrap font-[var(--font-red-hat-display)] text-[20px] leading-none text-[var(--cp-primary-500)] md:text-[24px]">
         Flooring Projects Only
       </span>
     </button>
   );
 }
 
-function PanelShell({
-  children,
-  onMouseEnter,
-  onMouseLeave,
-  title,
-}: {
-  children: React.ReactNode;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  title: string;
-}) {
+function PanelShell({ children, title }: { children: React.ReactNode; title: string }) {
   return (
-    <div
-      className="mt-5 border border-[var(--cp-primary-100)] bg-white p-5 shadow-[0_8px_12px_6px_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)] md:absolute md:left-0 md:right-0 md:top-full md:z-30 md:mt-3 md:p-8"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
+    <div className="mt-5 border border-[var(--cp-primary-100)] bg-white p-5 shadow-[0_8px_12px_6px_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)] md:absolute md:left-0 md:right-0 md:top-full md:z-30 md:mt-3 md:p-8">
       <h2 className="text-center font-[var(--font-red-hat-display)] text-[24px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]">
         {title}
       </h2>
@@ -236,17 +225,7 @@ function DoorStyleOptionCard({
   selected: boolean;
   onClick: () => void;
 }) {
-  return (
-    <button className="group flex flex-col items-center gap-3" onClick={onClick} type="button">
-      <span className="relative block h-[120px] w-[120px] overflow-hidden bg-[#f2f2f2] md:h-[160px] md:w-[160px]">
-        {option.image ? <FillImage alt={option.label} className="object-contain" sizes="160px" src={option.image} /> : null}
-        <OverlayOptionState selected={selected} />
-      </span>
-      <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.35] text-[var(--cp-primary-500)] md:text-[18px]">
-        {option.label}
-      </span>
-    </button>
-  );
+  return <SharedDoorStyleOptionCard onClick={onClick} option={option} selected={selected} />;
 }
 
 function CountertopOptionCard({
@@ -290,25 +269,7 @@ function FinishOptionCard({
   selected: boolean;
   onClick: () => void;
 }) {
-  const swatchColor = option.swatchColor?.trim();
-  const hasCustomImage = Boolean(option.image);
-  const swatchStyle = !hasCustomImage && swatchColor ? { backgroundColor: swatchColor } : undefined;
-  const needsBorder = !hasCustomImage && (!swatchColor || ["#ffffff", "#faf9f6"].includes(swatchColor.toLowerCase()));
-
-  return (
-    <button className="group flex flex-col items-center gap-3" onClick={onClick} type="button">
-      <span
-        className={`relative block h-[96px] w-[96px] overflow-hidden ${needsBorder ? "border border-[var(--cp-primary-100)]" : ""} md:h-[112px] md:w-[112px]`}
-        style={swatchStyle}
-      >
-        {hasCustomImage ? <FillImage alt={option.label} className="object-contain" sizes="112px" src={option.image || ""} /> : null}
-        <OverlayOptionState selected={selected} />
-      </span>
-      <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.35] text-[var(--cp-primary-500)] md:text-[18px]">
-        {option.label}
-      </span>
-    </button>
-  );
+  return <SharedFinishOptionCard onClick={onClick} option={option} selected={selected} />;
 }
 
 export default function GalleryOverviewPage({
@@ -326,6 +287,10 @@ export default function GalleryOverviewPage({
     [liveSearchParams],
   );
   const queryState = useMemo(() => parseGalleryQueryState(resolvedSearchParams), [resolvedSearchParams]);
+  const sortValue = useMemo<SortValue>(() => {
+    const rawSort = normalizeOptionValue(resolvedSearchParams.get("sort") || "");
+    return SORT_OPTIONS.some((option) => option.value === rawSort) ? (rawSort as SortValue) : "new";
+  }, [resolvedSearchParams]);
   const baseSelectedFilters = useMemo<GalleryFilterState>(
     () => ({
       room: queryState.room,
@@ -349,7 +314,23 @@ export default function GalleryOverviewPage({
     [baseSelectedFilters],
   );
   const projects = useMemo(() => buildGalleryProjects(data), [data]);
-  const filteredProjects = useMemo(() => filterGalleryProjects(projects, selectedFilters), [projects, selectedFilters]);
+  const sortLabel = useMemo(
+    () => SORT_OPTIONS.find((option) => option.value === sortValue)?.label || "New",
+    [sortValue],
+  );
+  const filteredProjects = useMemo(() => {
+    const rankedProjects = filterGalleryProjects(projects, selectedFilters);
+
+    if (sortValue === "az") {
+      return [...rankedProjects].sort((left, right) => left.projectTitle.localeCompare(right.projectTitle));
+    }
+
+    if (sortValue === "za") {
+      return [...rankedProjects].sort((left, right) => right.projectTitle.localeCompare(left.projectTitle));
+    }
+
+    return rankedProjects;
+  }, [projects, selectedFilters, sortValue]);
   const totalResults = filteredProjects.length;
   const totalPages = Math.max(1, Math.ceil(totalResults / PAGE_SIZE));
   const currentPage = Math.min(Math.max(queryState.page, 1), totalPages);
@@ -362,7 +343,6 @@ export default function GalleryOverviewPage({
   const [pendingFilters, setPendingFilters] = useState<GalleryFilterState>(selectedFilters);
   const [finishTab, setFinishTab] = useState<FinishTab>("paint");
   const filtersRef = useRef<HTMLDivElement | null>(null);
-  const closePanelTimeoutRef = useRef<number | null>(null);
   const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const roomOptions = useMemo(
@@ -401,25 +381,6 @@ export default function GalleryOverviewPage({
   const stainValueSet = useMemo(
     () => new Set(stainTypes.map((option) => normalizeOptionValue(option.value))),
     [stainTypes],
-  );
-
-  const clearPanelCloseTimeout = useCallback(() => {
-    if (closePanelTimeoutRef.current) {
-      window.clearTimeout(closePanelTimeoutRef.current);
-      closePanelTimeoutRef.current = null;
-    }
-  }, []);
-
-  const schedulePanelClose = useCallback(
-    (panel: OpenPanel) => {
-      if (!panel) return;
-      clearPanelCloseTimeout();
-      closePanelTimeoutRef.current = window.setTimeout(() => {
-        setOpenPanel((current) => (current === panel ? null : current));
-        closePanelTimeoutRef.current = null;
-      }, 60);
-    },
-    [clearPanelCloseTimeout],
   );
 
   const updateQuery = useCallback((patch: Record<string, string | null>, resetPage = false) => {
@@ -465,7 +426,7 @@ export default function GalleryOverviewPage({
 
   useEffect(() => {
     if (!baseSelectedFilters.flooringOnly) return;
-    if (!openPanel || openPanel === "room") return;
+    if (!openPanel || openPanel === "room" || openPanel === "sort") return;
     setOpenPanel(null);
   }, [baseSelectedFilters.flooringOnly, openPanel]);
 
@@ -538,9 +499,8 @@ export default function GalleryOverviewPage({
       const hasSelectedPaints = selectedFilters.finishes.some((value) => !stainValueSet.has(value));
       setFinishTab(hasSelectedStains && !hasSelectedPaints ? "stain" : "paint");
     }
-    clearPanelCloseTimeout();
     setOpenPanel(panel);
-  }, [clearPanelCloseTimeout, selectedFilters, stainValueSet]);
+  }, [selectedFilters, stainValueSet]);
 
   const toggleFilter = useCallback((panel: Exclude<OpenPanel, null>) => {
     if (selectedFilters.flooringOnly && panel !== "room") {
@@ -548,13 +508,12 @@ export default function GalleryOverviewPage({
     }
 
     if (openPanel === panel) {
-      clearPanelCloseTimeout();
       setOpenPanel(null);
       return;
     }
 
     openFilter(panel);
-  }, [clearPanelCloseTimeout, openFilter, openPanel, selectedFilters.flooringOnly]);
+  }, [openFilter, openPanel, selectedFilters.flooringOnly]);
 
   function applyOpenPanel() {
     updateFilters(pendingFilters);
@@ -564,12 +523,6 @@ export default function GalleryOverviewPage({
   useEffect(() => {
     setPendingFilters(selectedFilters);
   }, [selectedFilters]);
-
-  useEffect(() => {
-    return () => {
-      clearPanelCloseTimeout();
-    };
-  }, [clearPanelCloseTimeout]);
 
   useEffect(() => {
     if (!openPanel) return;
@@ -621,80 +574,168 @@ export default function GalleryOverviewPage({
 
           <div className="mt-4 flex flex-col gap-5 md:mt-12 md:gap-8">
             <div className="relative" ref={filtersRef}>
-              <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+              <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
                 <div className="order-2 flex flex-col gap-5 md:order-1 md:gap-8">
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-4 md:gap-x-10">
-                  <FilterTrigger
-                    active={openPanel === "room"}
-                    label="Room"
-                    onClick={() => toggleFilter("room")}
-                    onMouseEnter={() => openFilter("room")}
-                    onMouseLeave={() => schedulePanelClose("room")}
-                  />
-                  <FilterTrigger
-                    active={openPanel === "doorStyle"}
-                    disabled={selectedFilters.flooringOnly}
-                    label="Door Style"
-                    onClick={() => toggleFilter("doorStyle")}
-                    onMouseEnter={selectedFilters.flooringOnly ? undefined : () => openFilter("doorStyle")}
-                    onMouseLeave={() => schedulePanelClose("doorStyle")}
-                  />
-                  <FilterTrigger
-                    active={openPanel === "finish"}
-                    disabled={selectedFilters.flooringOnly}
-                    label="Finish"
-                    onClick={() => toggleFilter("finish")}
-                    onMouseEnter={selectedFilters.flooringOnly ? undefined : () => openFilter("finish")}
-                    onMouseLeave={() => schedulePanelClose("finish")}
-                  />
-                  <FilterTrigger
-                    active={openPanel === "countertop"}
-                    disabled={selectedFilters.flooringOnly}
-                    label="Countertop"
-                    onClick={() => toggleFilter("countertop")}
-                    onMouseEnter={selectedFilters.flooringOnly ? undefined : () => openFilter("countertop")}
-                    onMouseLeave={() => schedulePanelClose("countertop")}
-                  />
-                  <FlooringToggle
-                    checked={selectedFilters.flooringOnly}
-                    onChange={() => {
-                      const nextFlooringOnly = !selectedFilters.flooringOnly;
+                  <div className="flex items-center justify-between gap-4 md:hidden">
+                    <FilterTrigger
+                      active={openPanel === "room"}
+                      label="Room"
+                      onClick={() => toggleFilter("room")}
+                    />
+                    <FlooringToggle
+                      checked={selectedFilters.flooringOnly}
+                      onChange={() => {
+                        const nextFlooringOnly = !selectedFilters.flooringOnly;
+                        setOpenPanel(null);
+                        updateFilters({
+                          ...selectedFilters,
+                          flooringOnly: nextFlooringOnly,
+                          doorStyles: [],
+                          finishes: [],
+                          countertops: [],
+                        });
+                      }}
+                    />
+                  </div>
 
-                      setOpenPanel(null);
+                  <div className="flex items-center justify-between gap-3 md:hidden">
+                    <FilterTrigger
+                      active={openPanel === "doorStyle"}
+                      className="text-[18px]"
+                      disabled={selectedFilters.flooringOnly}
+                      label="Door Style"
+                      onClick={() => toggleFilter("doorStyle")}
+                    />
+                    <FilterTrigger
+                      active={openPanel === "countertop"}
+                      className="text-[18px]"
+                      disabled={selectedFilters.flooringOnly}
+                      label="Countertop"
+                      onClick={() => toggleFilter("countertop")}
+                    />
+                    <FilterTrigger
+                      active={openPanel === "finish"}
+                      className="text-[18px]"
+                      disabled={selectedFilters.flooringOnly}
+                      label="Finish"
+                      onClick={() => toggleFilter("finish")}
+                    />
+                  </div>
 
-                      updateFilters({
-                        ...selectedFilters,
-                        flooringOnly: nextFlooringOnly,
-                        doorStyles: [],
-                        finishes: [],
-                        countertops: [],
-                      });
-                    }}
-                  />
+                  <div className="hidden flex-wrap items-center gap-x-10 gap-y-4 md:flex">
+                    <FilterTrigger
+                      active={openPanel === "room"}
+                      label="Room"
+                      onClick={() => toggleFilter("room")}
+                    />
+                    <FilterTrigger
+                      active={openPanel === "doorStyle"}
+                      disabled={selectedFilters.flooringOnly}
+                      label="Door Style"
+                      onClick={() => toggleFilter("doorStyle")}
+                    />
+                    <FilterTrigger
+                      active={openPanel === "finish"}
+                      disabled={selectedFilters.flooringOnly}
+                      label="Finish"
+                      onClick={() => toggleFilter("finish")}
+                    />
+                    <FilterTrigger
+                      active={openPanel === "countertop"}
+                      disabled={selectedFilters.flooringOnly}
+                      label="Countertop"
+                      onClick={() => toggleFilter("countertop")}
+                    />
+                    <FlooringToggle
+                      checked={selectedFilters.flooringOnly}
+                      onChange={() => {
+                        const nextFlooringOnly = !selectedFilters.flooringOnly;
+
+                        setOpenPanel(null);
+
+                        updateFilters({
+                          ...selectedFilters,
+                          flooringOnly: nextFlooringOnly,
+                          doorStyles: [],
+                          finishes: [],
+                          countertops: [],
+                        });
+                      }}
+                    />
+                  </div>
                 </div>
 
-              </div>
+                <div className="order-1 flex items-center justify-between gap-6 md:hidden">
+                  <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]">
+                    <span>Showing </span>
+                    <span className="font-bold">{totalResults} results</span>
+                  </p>
+                  <div className="relative">
+                    <button
+                      className="inline-flex items-center gap-2 font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]"
+                      onClick={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
+                      type="button"
+                    >
+                      <span>
+                        Sort by <span className="font-bold">{sortLabel}</span>
+                      </span>
+                      <img
+                        alt=""
+                        aria-hidden
+                        className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
+                        src="/library/header/nav-chevron-right.svg"
+                      />
+                    </button>
 
-              <div className="order-1 flex items-center justify-between gap-6 md:order-2 md:justify-end md:gap-10">
-                <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]">
-                  <span>Showing </span>
-                  <span className="font-bold">{totalResults} results</span>
-                </p>
-                <button className="inline-flex items-center gap-2 text-[16px] leading-none text-[var(--cp-primary-500)]" type="button">
-                  <span>
-                    Sort by <span className="font-bold">New</span>
-                  </span>
-                  <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
-                </button>
+                    {openPanel === "sort" ? (
+                      <div className="absolute right-0 top-full z-30 mt-3 min-w-[184px] bg-white p-4 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
+                        <div className="flex flex-col gap-3">
+                          {SORT_OPTIONS.map((option) => {
+                            const selected = sortValue === option.value;
+
+                            return (
+                              <button
+                                className={`text-left font-[var(--font-red-hat-display)] text-[16px] leading-[1.5] text-[var(--cp-primary-500)] ${
+                                  selected ? "font-semibold" : ""
+                                }`}
+                                key={`gallery-mobile-sort-${option.value}`}
+                                onClick={() => {
+                                  updateQuery({ sort: option.value }, true);
+                                  setOpenPanel(null);
+                                }}
+                                type="button"
+                              >
+                                {option.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+
+                <div className="order-1 hidden items-center justify-between gap-6 md:order-2 md:flex md:justify-end md:gap-10">
+                  <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]">
+                    <span>Showing </span>
+                    <span className="font-bold">{totalResults} results</span>
+                  </p>
+                  <CatalogSortDropdown
+                    isOpen={openPanel === "sort"}
+                    onOpen={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
+                    onSelect={(value) => {
+                      updateQuery({ sort: value }, true);
+                      setOpenPanel(null);
+                    }}
+                    options={SORT_OPTIONS}
+                    selectedLabel={sortLabel}
+                    selectedValue={sortValue}
+                  />
+                </div>
               </div>
-            </div>
 
             {openPanel === "room" ? (
-              <PanelShell
-                onMouseEnter={clearPanelCloseTimeout}
-                onMouseLeave={() => schedulePanelClose("room")}
-                title="Select Room"
-              >
+              <PanelShell title="Select Room">
                 <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:mt-[52px] md:gap-10">
                   {roomOptions.map((option) => {
                     const normalized = normalizeOptionValue(option.value);
@@ -721,11 +762,7 @@ export default function GalleryOverviewPage({
             ) : null}
 
             {openPanel === "doorStyle" ? (
-              <PanelShell
-                onMouseEnter={clearPanelCloseTimeout}
-                onMouseLeave={() => schedulePanelClose("doorStyle")}
-                title="Select door style"
-              >
+              <PanelShell title="Select door style">
                 <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:gap-8">
                   {doorStyles.map((option, index) => {
                     const value = normalizeOptionValue(option.value);
@@ -756,11 +793,7 @@ export default function GalleryOverviewPage({
             ) : null}
 
             {openPanel === "finish" ? (
-              <PanelShell
-                onMouseEnter={clearPanelCloseTimeout}
-                onMouseLeave={() => schedulePanelClose("finish")}
-                title="Select finish"
-              >
+              <PanelShell title="Select finish">
                 <div className="mt-6 flex items-start justify-center gap-8">
                   <button
                     className={`flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[20px] font-semibold uppercase tracking-[0.01em] ${
@@ -813,11 +846,7 @@ export default function GalleryOverviewPage({
             ) : null}
 
             {openPanel === "countertop" ? (
-              <PanelShell
-                onMouseEnter={clearPanelCloseTimeout}
-                onMouseLeave={() => schedulePanelClose("countertop")}
-                title="Select countertop"
-              >
+              <PanelShell title="Select countertop">
                 <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:mt-[52px] md:gap-10">
                   {countertopOptions.map((option, index) => {
                     const value = normalizeOptionValue(option.value);
@@ -846,7 +875,140 @@ export default function GalleryOverviewPage({
                 </div>
               </PanelShell>
             ) : null}
-          </div>
+
+            <CatalogMobileFilterOverlay onApply={applyOpenPanel} onClose={() => setOpenPanel(null)} open={openPanel === "room"} title="Select Room">
+              <div className="grid grid-cols-2 gap-x-[15px] gap-y-8">
+                {roomOptions.map((option) => {
+                  const normalized = normalizeOptionValue(option.value);
+                  const image = ROOM_VISUALS[normalized] || ROOM_VISUALS.other;
+                  const selected = pendingFilters.room === normalized;
+
+                  return (
+                    <RoomOptionCard
+                      image={image}
+                      key={`mobile-room-${option.value}`}
+                      label={option.label}
+                      onClick={() => setPendingFilters((current) => ({ ...current, room: current.room === normalized ? "" : normalized }))}
+                      selected={selected}
+                    />
+                  );
+                })}
+              </div>
+            </CatalogMobileFilterOverlay>
+
+            <CatalogMobileFilterOverlay onApply={applyOpenPanel} onClose={() => setOpenPanel(null)} open={openPanel === "doorStyle"} title="Select door style">
+              <div className="grid grid-cols-2 gap-x-[15px] gap-y-8">
+                {doorStyles.map((option, index) => {
+                  const value = normalizeOptionValue(option.value);
+                  const selected = pendingFilters.doorStyles.includes(value);
+
+                  return (
+                    <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-door-style-${option.value}-${index}`}>
+                      <DoorStyleOptionCard
+                        onClick={() =>
+                          setPendingFilters((current) => ({
+                            ...current,
+                            doorStyles: toggleMultiValue(current.doorStyles, value),
+                          }))
+                        }
+                        option={option}
+                        selected={selected}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </CatalogMobileFilterOverlay>
+
+            <CatalogMobileFilterOverlay
+              onApply={applyOpenPanel}
+              onClose={() => setOpenPanel(null)}
+              open={openPanel === "finish"}
+              tabs={
+                <div className="flex items-start gap-8">
+                  <button className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]" onClick={() => setFinishTab("paint")} type="button">
+                    <span>Paint</span>
+                    <span className={`h-0.5 w-full ${finishTab === "paint" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
+                  </button>
+                  <button className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]" onClick={() => setFinishTab("stain")} type="button">
+                    <span>Stain</span>
+                    <span className={`h-0.5 w-full ${finishTab === "stain" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
+                  </button>
+                </div>
+              }
+              title="Select finish"
+            >
+              {finishTab === "paint" ? (
+                <div className="grid grid-cols-3 justify-between gap-x-[12.5px] gap-y-8">
+                  {paintOptions.map((option, index) => {
+                    const value = normalizeOptionValue(option.value);
+                    const selected = pendingFilters.finishes.includes(value);
+
+                    return (
+                      <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-paint-${option.value}-${index}`}>
+                        <FinishOptionCard
+                          onClick={() =>
+                            setPendingFilters((current) => ({
+                              ...current,
+                              finishes: toggleMultiValue(current.finishes, value),
+                            }))
+                          }
+                          option={option}
+                          selected={selected}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="flex flex-col items-center gap-8">
+                  {stainTypes.map((option, index) => {
+                    const value = normalizeOptionValue(option.value);
+                    const selected = pendingFilters.finishes.includes(value);
+
+                    return (
+                      <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-stain-${option.value}-${index}`}>
+                        <SharedDoorStyleOptionCard
+                          onClick={() =>
+                            setPendingFilters((current) => ({
+                              ...current,
+                              finishes: toggleMultiValue(current.finishes, value),
+                            }))
+                          }
+                          option={option}
+                          selected={selected}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </CatalogMobileFilterOverlay>
+
+            <CatalogMobileFilterOverlay onApply={applyOpenPanel} onClose={() => setOpenPanel(null)} open={openPanel === "countertop"} title="Select countertop">
+              <div className="grid grid-cols-2 gap-x-[15px] gap-y-8">
+                {countertopOptions.map((option, index) => {
+                  const value = normalizeOptionValue(option.value);
+                  const selected = pendingFilters.countertops.includes(value);
+
+                  return (
+                    <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-countertop-${option.value}-${index}`}>
+                      <CountertopOptionCard
+                        onClick={() =>
+                          setPendingFilters((current) => ({
+                            ...current,
+                            countertops: toggleMultiValue(current.countertops, value),
+                          }))
+                        }
+                        option={option}
+                        selected={selected}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </CatalogMobileFilterOverlay>
+            </div>
 
             {hasSelectedFilters ? (
               <div className="flex flex-wrap items-center gap-[14px]">
@@ -906,7 +1068,7 @@ export default function GalleryOverviewPage({
           </div>
 
           {visibleProjects.length ? (
-            <div className="mt-8 grid grid-cols-3 gap-3 md:mt-7 md:gap-7">
+            <div className="mt-5 grid grid-cols-3 gap-3 md:mt-7 md:gap-7">
               {visibleProjects.map((project, index) => (
                 <Link
                   className="relative aspect-square overflow-hidden bg-[#f2f2f2] md:aspect-[4/3]"
@@ -923,7 +1085,7 @@ export default function GalleryOverviewPage({
               ))}
             </div>
           ) : (
-            <div className="mt-8 border border-[var(--cp-primary-100)] px-6 py-10 text-center md:mt-7">
+            <div className="mt-5 border border-[var(--cp-primary-100)] px-6 py-10 text-center md:mt-7">
               <p className="font-[var(--font-red-hat-display)] text-[20px] text-[var(--cp-primary-500)]">
                 No projects match these filters yet.
               </p>

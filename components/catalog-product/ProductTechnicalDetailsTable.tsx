@@ -16,11 +16,14 @@ export default function ProductTechnicalDetailsTable({ details }: ProductTechnic
   return (
     <div className="mt-4 border-t border-[var(--cp-primary-100)]">
       {details.map((detail, index) => (
-        <div className="grid grid-cols-2 gap-5 border-b border-[var(--cp-primary-100)] py-[11px]" key={`${detail.key || "detail"}-${index}`}>
-          <p className="text-sm font-semibold leading-[1.4] text-[var(--cp-primary-500)]" data-tina-field={detail.keyTinaField}>
+        <div
+          className="grid h-10 grid-cols-[189px_minmax(0,1fr)] items-center border-b border-[var(--cp-primary-100)] md:grid-cols-2"
+          key={`${detail.key || "detail"}-${index}`}
+        >
+          <p className="pr-3 text-sm font-semibold leading-[1.4] text-[var(--cp-primary-500)]" data-tina-field={detail.keyTinaField}>
             {detail.key}
           </p>
-          <p className="text-sm leading-[1.4] text-[var(--cp-primary-500)]" data-tina-field={detail.valueTinaField}>
+          <p className="pr-3 text-sm leading-[1.4] text-[var(--cp-primary-500)]" data-tina-field={detail.valueTinaField}>
             {getValue(detail)}
           </p>
         </div>

@@ -12,7 +12,7 @@ export default function ProductProjectStrip({ items, title, description }: Produ
 
   return (
     <section className="bg-[var(--cp-brand-neutral-50)]">
-      <div className="cp-container px-4 py-14 md:px-8 md:py-16">
+      <div className="cp-container px-4 py-10 md:px-8 md:py-16">
         <h2 className="font-[var(--font-red-hat-display)] text-[28px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]">
           {title}
         </h2>
