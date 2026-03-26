@@ -76,7 +76,14 @@ export default function TrustBar({
   ctaLink,
 }: TrustBarProps) {
   const normalizedStats = stats.slice(0, 3);
-  const desktopLogoHeights = ["md:h-[77px]", "md:h-[89px]", "md:h-[48px]", "md:h-[48px]", "md:h-[48px]", "md:h-[48px]"];
+  const desktopLogoSizes = [
+    { width: 212, height: 77, topOffset: 6 },
+    { width: 68, height: 89, topOffset: 0 },
+    { width: 221, height: 48, topOffset: 21 },
+    { width: 270, height: 48, topOffset: 21 },
+    { width: 116, height: 48, topOffset: 21 },
+    { width: 198, height: 48, topOffset: 21 },
+  ] as const;
   const { before, marked, after } = splitWithHighlight(stripText, stripHighlight);
   const [logo1, logo2, logo3, logo4, logo5, logo6] = partnerLogos;
   const mobileTopMembershipLogo = membershipMobileTopLogo || membershipLogo;
@@ -178,10 +185,29 @@ export default function TrustBar({
               <span className="h-px bg-white/20" />
             </div>
 
-            <div className="mt-[57px] flex items-end justify-between">
-              {partnerLogos.map((logo, index) => (
-                <img alt={logo.alt} className={`${desktopLogoHeights[index] || "md:h-[48px]"} w-auto object-contain opacity-40`} data-tina-field={logo.logoField || logo.tinaField} key={`${logo.src}-desktop-${index}`} src={logo.src} />
-              ))}
+            <div className="mx-auto mt-[57px] flex max-w-[1376px] items-start justify-center gap-[58px]">
+              {partnerLogos.map((logo, index) => {
+                const size = desktopLogoSizes[index] || { width: 198, height: 48, topOffset: 21 };
+
+                return (
+                  <div
+                    className="shrink-0"
+                    key={`${logo.src}-desktop-${index}`}
+                    style={{
+                      height: `${size.height}px`,
+                      marginTop: `${size.topOffset}px`,
+                      width: `${size.width}px`,
+                    }}
+                  >
+                    <img
+                      alt={logo.alt}
+                      className="block h-full w-full object-contain opacity-40"
+                      data-tina-field={logo.logoField || logo.tinaField}
+                      src={logo.src}
+                    />
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-[57px] text-center">
