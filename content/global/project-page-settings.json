@@ -1,0 +1,7 @@
+{
+  "_template": "project",
+  "projectDetailMaterialCardImageSize": "thumb",
+  "projectDetailGalleryImageSize": "card",
+  "projectDetailLightboxImageSize": "full",
+  "projectDetailRelatedProjectsImageSize": "card"
+}

@@ -1,0 +1,6 @@
+{
+  "_template": "cabinetsOverview",
+  "pageTitle": "Cabinets",
+  "cabinetsOverviewCardImageSize": "card",
+  "cabinetsOverviewFilterImageSize": "thumb"
+}

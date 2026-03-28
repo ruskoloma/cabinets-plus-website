@@ -1,0 +1,22 @@
+{
+  "thumb": {
+    "suffix": "thumb",
+    "width": 480,
+    "quality": 72
+  },
+  "card": {
+    "suffix": "card",
+    "width": 960,
+    "quality": 74
+  },
+  "feature": {
+    "suffix": "feature",
+    "width": 1600,
+    "quality": 78
+  },
+  "full": {
+    "suffix": "full",
+    "width": 2400,
+    "quality": 82
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "_template": "gallery",
+  "pageTitle": "Gallery",
+  "galleryOverviewProjectCardImageSize": "card",
+  "galleryOverviewFilterImageSize": "thumb"
+}

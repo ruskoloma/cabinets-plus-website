@@ -1,0 +1,15 @@
+{
+  "_template": "countertop",
+  "breadcrumbLabel": "Countertops",
+  "technicalDetailsTitle": "Technical Details",
+  "contactButtonLabel": "Contact us",
+  "descriptionLabel": "Description",
+  "galleryThumbImageSize": "thumb",
+  "galleryMainImageSize": "feature",
+  "galleryLightboxImageSize": "full",
+  "relatedProductsTitle": "Related products",
+  "relatedProductsImageSize": "card",
+  "projectsSectionTitle": "Material in Real Projects",
+  "projectsSectionDescription": "Explore real installations showcasing this material in completed kitchens, bathrooms, and living spaces to see how it looks and performs in everyday use.",
+  "projectsSectionImageSize": "card"
+}
