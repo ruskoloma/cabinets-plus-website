@@ -4,8 +4,11 @@ import { useEditState } from "tinacms/dist/react";
 import { useTina } from "tinacms/dist/react";
 import CabinetsOverviewPage from "@/components/cabinets-overview/CabinetsOverviewPage";
 import { normalizeCabinetsOverviewQueryData } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
+import { CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
+import type { CabinetsOverviewPageSettingsQueryLikeResult } from "@/components/page-settings/types";
 import { CABINETS_OVERVIEW_QUERY } from "@/components/cabinets-overview/queries";
 import type { CabinetsOverviewQueryLikeResult } from "@/components/cabinets-overview/types";
+import { normalizeImageSizeChoice } from "@/lib/image-size-controls";
 
 interface HomePageDataShape {
   page?: {
@@ -22,6 +25,7 @@ interface HomePageQueryLikeResult {
 interface CabinetsOverviewClientProps {
   overviewData: CabinetsOverviewQueryLikeResult;
   homePageData: HomePageQueryLikeResult;
+  pageSettingsData: CabinetsOverviewPageSettingsQueryLikeResult;
 }
 
 function extractHomeBlock(
@@ -46,9 +50,11 @@ function extractHomeBlock(
 function CabinetsOverviewRenderer({
   overviewData,
   homePageData,
+  pageSettingsData,
 }: {
   overviewData: unknown;
   homePageData: HomePageDataShape;
+  pageSettingsData?: CabinetsOverviewPageSettingsQueryLikeResult["data"];
 }) {
   const normalized = normalizeCabinetsOverviewQueryData(overviewData);
   const faqBlock = extractHomeBlock(homePageData, { typename: "PageBlocksFaqSection", template: "faqSection" });
@@ -56,32 +62,43 @@ function CabinetsOverviewRenderer({
     typename: "PageBlocksContactSection",
     template: "contactSection",
   });
+  const pageSettings = pageSettingsData?.cabinetsOverviewPageSettings || null;
 
   return (
     <CabinetsOverviewPage
+      cardImageSizeChoice={normalizeImageSizeChoice(pageSettings?.cabinetsOverviewCardImageSize, "card")}
       contactBlock={contactBlock}
       data={normalized}
       faqBlock={faqBlock}
+      filterImageSizeChoice={normalizeImageSizeChoice(pageSettings?.cabinetsOverviewFilterImageSize, "thumb")}
+      pageTitle={pageSettings?.pageTitle || "Cabinets"}
+      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
     />
   );
 }
 
-function TinaOverviewWithStaticHome(props: CabinetsOverviewClientProps & { overviewQuery: string }) {
+function TinaOverviewWithStaticHome(props: CabinetsOverviewClientProps & { overviewQuery: string; settingsQuery: string }) {
   const overview = useTina({
     data: props.overviewData.data,
     query: props.overviewQuery,
     variables: props.overviewData.variables || {},
+  });
+  const pageSettings = useTina({
+    data: props.pageSettingsData.data,
+    query: props.settingsQuery,
+    variables: props.pageSettingsData.variables || {},
   });
 
   return (
     <CabinetsOverviewRenderer
       homePageData={props.homePageData.data}
       overviewData={overview.data}
+      pageSettingsData={pageSettings.data}
     />
   );
 }
 
-function TinaOverviewWithLiveHome(props: CabinetsOverviewClientProps & { overviewQuery: string; homeQuery: string }) {
+function TinaOverviewWithLiveHome(props: CabinetsOverviewClientProps & { overviewQuery: string; homeQuery: string; settingsQuery: string }) {
   const overview = useTina({
     data: props.overviewData.data,
     query: props.overviewQuery,
@@ -93,11 +110,17 @@ function TinaOverviewWithLiveHome(props: CabinetsOverviewClientProps & { overvie
     query: props.homeQuery,
     variables: props.homePageData.variables || {},
   });
+  const pageSettings = useTina({
+    data: props.pageSettingsData.data,
+    query: props.settingsQuery,
+    variables: props.pageSettingsData.variables || {},
+  });
 
   return (
     <CabinetsOverviewRenderer
       homePageData={home.data}
       overviewData={overview.data}
+      pageSettingsData={pageSettings.data}
     />
   );
 }
@@ -106,16 +129,17 @@ export default function CabinetsOverviewClient(props: CabinetsOverviewClientProp
   const { edit } = useEditState();
   const overviewQuery = props.overviewData.query?.trim() || CABINETS_OVERVIEW_QUERY;
   const homeQuery = props.homePageData.query?.trim() || "";
+  const settingsQuery = props.pageSettingsData.query?.trim() || CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY;
   const hasHomeLiveQuery = Boolean(homeQuery);
   const hasOverviewLiveQuery = Boolean(props.overviewData.query?.trim());
 
   if (!hasOverviewLiveQuery && !edit) {
-    return <TinaOverviewWithStaticHome {...props} overviewQuery={overviewQuery} />;
+    return <TinaOverviewWithStaticHome {...props} overviewQuery={overviewQuery} settingsQuery={settingsQuery} />;
   }
 
   if (!hasHomeLiveQuery) {
-    return <TinaOverviewWithStaticHome {...props} overviewQuery={overviewQuery} />;
+    return <TinaOverviewWithStaticHome {...props} overviewQuery={overviewQuery} settingsQuery={settingsQuery} />;
   }
 
-  return <TinaOverviewWithLiveHome {...props} homeQuery={homeQuery} overviewQuery={overviewQuery} />;
+  return <TinaOverviewWithLiveHome {...props} homeQuery={homeQuery} overviewQuery={overviewQuery} settingsQuery={settingsQuery} />;
 }

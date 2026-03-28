@@ -53,5 +53,10 @@ export interface ProjectDetailPageProps {
   galleryItems: ProjectGalleryItem[];
   materialCards: ProjectMaterialCardData[];
   relatedProjects: ProjectRelatedCardData[];
+  pageSettingsRecord?: Record<string, unknown> | null;
   contactBlock?: Record<string, unknown> | null;
+  materialCardImageSizeChoice?: string | null;
+  galleryImageSizeChoice?: string | null;
+  lightboxImageSizeChoice?: string | null;
+  relatedProjectsImageSizeChoice?: string | null;
 }

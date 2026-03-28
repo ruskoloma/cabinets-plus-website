@@ -2,7 +2,10 @@
 import type { ComponentProps } from "react";
 import { useTina, tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { POST_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
+import type { PostPageSettingsQueryLikeResult } from "@/components/page-settings/types";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 
 type RichTextContent = ComponentProps<typeof TinaMarkdown>["content"];
 
@@ -18,16 +21,34 @@ interface PostClientProps {
   data: { post?: PostDocument | null };
   query: string;
   variables: Record<string, unknown>;
+  pageSettingsData: PostPageSettingsQueryLikeResult;
 }
 
 export default function PostClient(props: PostClientProps) {
-  const { data } = useTina(props);
+  const { data } = useTina({
+    data: props.data,
+    query: props.query,
+    variables: props.variables,
+  });
+  const { data: pageSettingsData } = useTina({
+    data: props.pageSettingsData.data,
+    query: props.pageSettingsData.query?.trim() || POST_PAGE_SETTINGS_QUERY,
+    variables: props.pageSettingsData.variables || {},
+  });
   const post = data.post;
   if (!post) return null;
   const title = typeof post.title === "string" ? post.title : "";
   const excerpt = typeof post.excerpt === "string" ? post.excerpt : "";
   const thumbnail = typeof post.thumbnail === "string" ? post.thumbnail : undefined;
   const body = post.body || null;
+  const thumbnailImageVariant = resolveConfiguredImageVariant(
+    pageSettingsData.postPageSettings?.postDetailThumbnailImageSize,
+    "feature",
+  );
+  const pageSettingsRecord =
+    pageSettingsData.postPageSettings && typeof pageSettingsData.postPageSettings === "object"
+      ? (pageSettingsData.postPageSettings as Record<string, unknown>)
+      : null;
 
   return (
     <article className="max-w-3xl mx-auto px-6 py-16">
@@ -53,7 +74,13 @@ export default function PostClient(props: PostClientProps) {
       )}
       {thumbnail && (
         <div className="relative mb-10 h-72 w-full overflow-hidden rounded-xl">
-          <FillImage alt={title || "Post"} className="object-cover" sizes="(min-width: 768px) 768px, 100vw" src={thumbnail} />
+          <FillImage
+            alt={title || "Post"}
+            className="object-cover"
+            sizes="(min-width: 768px) 768px, 100vw"
+            src={thumbnail}
+            variant={thumbnailImageVariant}
+          />
         </div>
       )}
       {/* Rich text body */}

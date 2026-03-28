@@ -107,7 +107,10 @@ media:
 sourceId: 251
 sourceUpdatedAt: '2025-07-25T22:53:51.791Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
 relatedProducts:
   - product: content/cabinets/sskp.md
   - product: content/cabinets/swk.md

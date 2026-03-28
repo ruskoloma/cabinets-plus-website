@@ -31,6 +31,12 @@ interface CabinetDoorPageProps {
   relatedItems: CabinetRelatedItem[];
   pageText: CabinetPageTextConfig;
   contactBlock?: Record<string, unknown> | null;
+  pageSettingsRecord?: Record<string, unknown> | null;
+  galleryThumbImageSize?: string | null;
+  galleryMainImageSize?: string | null;
+  galleryLightboxImageSize?: string | null;
+  projectsSectionImageSize?: string | null;
+  relatedProductsImageSize?: string | null;
 }
 
 function ArrowNavButton({
@@ -84,6 +90,12 @@ export default function CabinetDoorPage({
   relatedItems,
   pageText,
   contactBlock,
+  pageSettingsRecord,
+  galleryThumbImageSize,
+  galleryMainImageSize,
+  galleryLightboxImageSize,
+  projectsSectionImageSize,
+  relatedProductsImageSize,
 }: CabinetDoorPageProps) {
   const [descriptionOpen, setDescriptionOpen] = useState(false);
 
@@ -98,7 +110,9 @@ export default function CabinetDoorPage({
           <div className="flex items-start justify-between gap-4 md:items-center">
             <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[14px] leading-[1.2] text-[var(--cp-primary-300)]">
               <Link className="transition-colors hover:text-[var(--cp-primary-500)]" href="/cabinets">
-                {pageText.breadcrumbLabel}
+                <span data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "breadcrumbLabel") || undefined : undefined}>
+                  {pageText.breadcrumbLabel}
+                </span>
               </Link>
               <span>/</span>
               <span data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name") || undefined}>
@@ -113,7 +127,13 @@ export default function CabinetDoorPage({
           </div>
 
           <div className="mt-7 grid gap-8 lg:grid-cols-[675px_minmax(0,674px)] lg:items-start lg:gap-7">
-            <CabinetImageGallery cabinet={cabinet} items={galleryItems} />
+            <CabinetImageGallery
+              cabinet={cabinet}
+              items={galleryItems}
+              lightboxImageSizeChoice={galleryLightboxImageSize}
+              mainImageSizeChoice={galleryMainImageSize}
+              thumbImageSizeChoice={galleryThumbImageSize}
+            />
     
             <div>
               {code ? (
@@ -138,7 +158,12 @@ export default function CabinetDoorPage({
                 </Button>
 
                 <div className="order-2 md:order-1">
-                  <h2 className="text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]">{pageText.technicalDetailsTitle}</h2>
+                  <h2
+                    className="text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]"
+                    data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "technicalDetailsTitle") || undefined : undefined}
+                  >
+                    {pageText.technicalDetailsTitle}
+                  </h2>
                   <CabinetTechnicalDetailsTable details={technicalDetails} />
                 </div>
 
@@ -176,10 +201,18 @@ export default function CabinetDoorPage({
 
       <CabinetProjectStrip
         description={pageText.projectsSectionDescription}
+        descriptionTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionDescription") || undefined : undefined}
+        imageSizeChoice={projectsSectionImageSize}
         items={projectItems}
         title={pageText.projectsSectionTitle}
+        titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionTitle") || undefined : undefined}
       />
-      <CabinetRelatedProducts items={relatedItems} title={pageText.relatedProductsTitle} />
+      <CabinetRelatedProducts
+        imageSizeChoice={relatedProductsImageSize}
+        items={relatedItems}
+        title={pageText.relatedProductsTitle}
+        titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "relatedProductsTitle") || undefined : undefined}
+      />
       {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
 
       <div className="sr-only" data-current-cabinet={currentSlug} />

@@ -6,27 +6,32 @@ countertopType: Quartz
 inStock: true
 storeCollection: in-stock
 description: >-
-  A soft white background is traced with long, airy veining in pale gray and delicate warm taupe-gold tones. The lines
-  drift diagonally with gentle, fluid movement, creating an elegant sense of openness. Low to moderate contrast keeps
-  the look refined, subtle, and distinctly luxurious with a calm, contemporary Calacatta-inspired character.
+  A soft white background is traced with long, airy veining in pale gray and delicate warm
+  taupe-gold tones. The lines drift diagonally with gentle, fluid movement, creating an elegant
+  sense of openness. Low to moderate contrast keeps the look refined, subtle, and distinctly
+  luxurious with a calm, contemporary Calacatta-inspired character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaperfection/3285-calacatta-perfection.jpg
+relatedProjects:
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
+  - project: content/projects/warm-wood-kitchen-with-black-island.md
 technicalDetails:
   - key: Type
     value: Quartz
-    unit: ""
+    unit: ''
     order: 2
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
   - file: >-
@@ -36,7 +41,7 @@ media:
     isPrimary: true
     label: Calacatta Perfection.jpg
     altText: Calacatta Perfection
-    description: ""
+    description: ''
     sourceId: 3285
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaperfection/3558-calacatta-perfection.mp4
@@ -44,9 +49,9 @@ media:
     mimeType: video/mp4
     isPrimary: false
     label: Calacatta Perfection.mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3558
 sourceId: 1691
-sourceUpdatedAt: "2025-09-18T18:25:11.958Z"
+sourceUpdatedAt: '2025-09-18T18:25:11.958Z'
 ---

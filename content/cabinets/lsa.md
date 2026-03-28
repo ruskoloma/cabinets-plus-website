@@ -82,7 +82,10 @@ media:
 sourceId: 290
 sourceUpdatedAt: '2025-07-25T22:53:53.545Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/modern-gray-shaker-kitchen-and-bath-cabinetry.md
+  - project: content/projects/modern-classic-galley-kitchen-soft-gray.md
+  - project: content/projects/modern-white-kitchen-and-compact-vanity.md
 relatedProducts:
   - product: content/cabinets/lse.md
   - product: content/cabinets/lsg.md

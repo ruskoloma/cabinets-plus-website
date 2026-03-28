@@ -83,7 +83,10 @@ media:
 sourceId: 301
 sourceUpdatedAt: '2025-07-25T22:53:52.537Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/modern-black-and-white-kitchen-custom-closet-suite.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
 relatedProducts:
   - product: content/cabinets/mhws.md
   - product: content/cabinets/moss.md

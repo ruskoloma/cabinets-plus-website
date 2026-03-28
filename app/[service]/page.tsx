@@ -12,12 +12,18 @@ export async function generateMetadata(
   { params }: { params: Promise<{ service: string }> }
 ): Promise<Metadata> {
   const { service } = await params;
+  if (!SERVICE_SLUGS.includes(service as (typeof SERVICE_SLUGS)[number])) {
+    return {};
+  }
   const result = await getServiceDataSafe(service);
   return buildDocumentMetadata(result.data.service);
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ service: string }> }) {
   const { service } = await params;
+  if (!SERVICE_SLUGS.includes(service as (typeof SERVICE_SLUGS)[number])) {
+    notFound();
+  }
   const result = await getServiceDataSafe(service);
   if (!result.data.service) notFound();
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
+import FallbackImg from "@/components/ui/FallbackImg";
 
 interface FooterLink {
   label: string;
@@ -55,8 +56,8 @@ function SocialIcon({ href, src, alt, field }: { href: string; src: string; alt:
 function FooterMembershipLogo() {
   return (
     <div className="flex h-[49.256px] w-[213.802px] items-center gap-[18px] opacity-80">
-      <img alt="TPM" className="h-[49.256px] w-[34.604px] object-contain" src={FOOTER_TPM_LOGO} />
-      <img alt="Spokane Home Builders Association" className="h-[49.256px] w-[160.697px] object-contain" src={FOOTER_SHBA_LOGO} />
+      <FallbackImg alt="TPM" className="h-[49.256px] w-[34.604px] object-contain" src={FOOTER_TPM_LOGO} variant="thumb" />
+      <FallbackImg alt="Spokane Home Builders Association" className="h-[49.256px] w-[160.697px] object-contain" src={FOOTER_SHBA_LOGO} variant="thumb" />
     </div>
   );
 }
@@ -93,11 +94,12 @@ export default function Footer({
         <div className="flex items-start justify-between">
           <Link aria-label={data.siteName || "Cabinets Plus"} href="/">
             {data.footerLogo ? (
-              <img
+              <FallbackImg
                 alt={data.siteName || "Cabinets Plus"}
                 className="h-[46.87px] w-[240px]"
                 data-tina-field={tinaField(footerRaw, "footerLogo")}
                 src={data.footerLogo}
+                variant="thumb"
               />
             ) : (
               <span className="font-[var(--font-red-hat-display)] text-2xl font-semibold uppercase tracking-wide">{data.siteName}</span>
@@ -169,11 +171,12 @@ export default function Footer({
       <div className="cp-container px-4 pb-[63px] pt-[46px] md:hidden">
         <Link aria-label={data.siteName || "Cabinets Plus"} href="/">
           {data.footerLogo ? (
-            <img
+            <FallbackImg
               alt={data.siteName || "Cabinets Plus"}
               className="h-[46.87px] w-[240px]"
               data-tina-field={tinaField(footerRaw, "footerLogo")}
               src={data.footerLogo}
+              variant="thumb"
             />
           ) : (
             <span className="font-[var(--font-red-hat-display)] text-2xl font-semibold uppercase tracking-wide">{data.siteName}</span>

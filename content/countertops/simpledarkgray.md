@@ -2,45 +2,52 @@
 name: Simple Dark Gray
 code: SimpleDarkGray
 slug: simpledarkgray
-countertopType: ""
+countertopType: ''
 inStock: true
 storeCollection: in-stock
 description: >-
-  A deep charcoal to near-black gray palette defines this slab, with very subtle tonal variation softly dispersed across
-  the surface. Veining is essentially absent, creating minimal movement and low visual contrast. The overall design
-  character is sleek, understated, and modern, emphasizing a clean, monolithic appearance with quiet depth rather than
-  pattern.
+  A deep charcoal to near-black gray palette defines this slab, with very subtle tonal variation
+  softly dispersed across the surface. Veining is essentially absent, creating minimal movement and
+  low visual contrast. The overall design character is sleek, understated, and modern, emphasizing a
+  clean, monolithic appearance with quiet depth rather than pattern.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3664-simple-dark-gray-1.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3664-simple-dark-gray-1.jpg
+relatedProjects:
+  - project: content/projects/modern-classic-galley-kitchen-soft-gray.md
+  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
 technicalDetails:
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3664-simple-dark-gray-1.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3664-simple-dark-gray-1.jpg
     kind: image
     mimeType: image/jpeg
     isPrimary: true
     label: SIMPLE DARK GRAY 1.jpg
     altText: Simple Dark Gray
-    description: ""
+    description: ''
     sourceId: 3664
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3675-simple-dark-gray.mp4
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3675-simple-dark-gray.mp4
     kind: video
     mimeType: video/mp4
     isPrimary: false
     label: SIMPLE DARK GRAY.mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3675
 sourceId: 1710
-sourceUpdatedAt: "2025-09-18T18:25:10.455Z"
+sourceUpdatedAt: '2025-09-18T18:25:10.455Z'
 ---

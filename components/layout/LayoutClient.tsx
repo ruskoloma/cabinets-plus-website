@@ -110,7 +110,11 @@ function TinaLayoutClient({ headerData, footerData, generalData, children }: Tin
 }
 
 export default function LayoutClient({ headerData, footerData, generalData, children }: LayoutClientProps) {
-  if (![headerData, footerData, generalData].every(hasLiveQuery)) {
+  if (
+    !hasLiveQuery(headerData)
+    || !hasLiveQuery(footerData)
+    || !hasLiveQuery(generalData)
+  ) {
     return (
       <StaticLayout
         footerRaw={toRawDocument(footerData.data.global)}

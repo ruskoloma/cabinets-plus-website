@@ -95,7 +95,10 @@ media:
 sourceId: 259
 sourceUpdatedAt: '2025-07-25T22:53:53.754Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/bright-white-shaker-kitchen-with-glass-uppers.md
+  - project: content/projects/modern-white-kitchen-and-compact-vanity.md
+  - project: content/projects/bright-shaker-cabinetry-with-black-accents.md
 relatedProducts:
   - product: content/cabinets/omu.md
   - product: content/cabinets/ook.md

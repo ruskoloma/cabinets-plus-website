@@ -6,7 +6,6 @@ import CountertopDetailPage from "@/components/countertop/CountertopDetailPage";
 import {
   buildCountertopGalleryItems,
   buildCountertopProjectItems,
-  buildMockProjectItems,
   buildRelatedCountertopItems,
   getAdjacentCountertops,
   getCountertopSlug,
@@ -15,7 +14,8 @@ import {
 } from "@/components/countertop/helpers";
 import { normalizeCountertopQueryData } from "@/components/countertop/normalize-countertop-query";
 import type {
-  CabinetPageSettings,
+  CountertopPageSettings,
+  CountertopPageSettingsQueryLikeResult,
   CountertopData,
   CountertopListItem,
   ProductTechnicalDetailViewModel,
@@ -47,7 +47,7 @@ interface CountertopDetailClientProps {
   currentSlug: string;
   homePageData: HomePageQueryLikeResult;
   galleryOverviewData: GalleryOverviewQueryLikeResult;
-  pageSettings?: CabinetPageSettings | null;
+  pageSettingsData: CountertopPageSettingsQueryLikeResult;
 }
 
 function extractContactBlock(pageData: unknown): Record<string, unknown> | null {
@@ -71,13 +71,15 @@ function CountertopRenderer({
   contactBlock,
   galleryOverviewData,
   pageSettings,
+  pageSettingsRecord,
 }: {
   data: CountertopDataShape;
   countertopIndex: CountertopListItem[];
   currentSlug: string;
   contactBlock?: Record<string, unknown> | null;
   galleryOverviewData: GalleryOverviewQueryLikeResult["data"];
-  pageSettings?: CabinetPageSettings | null;
+  pageSettings?: CountertopPageSettings | null;
+  pageSettingsRecord?: Record<string, unknown> | null;
 }) {
   const countertop = data.countertop;
   if (!countertop) return null;
@@ -92,10 +94,7 @@ function CountertopRenderer({
     keyTinaField: tinaField(detail as unknown as Record<string, unknown>, "key") || undefined,
     valueTinaField: tinaField(detail as unknown as Record<string, unknown>, "value") || undefined,
   }));
-  const projectItemsFromData = buildCountertopProjectItems(countertop, galleryOverviewData, {
-    fallbackTitle: pageText.projectFallbackTitle,
-  });
-  const projectItems = projectItemsFromData.length ? projectItemsFromData : buildMockProjectItems(countertop, pageSettings);
+  const projectItems = buildCountertopProjectItems(countertop, galleryOverviewData);
   const relatedItems = buildRelatedCountertopItems(countertop, countertopIndex, resolvedSlug);
   const adjacent = getAdjacentCountertops(countertopIndex, resolvedSlug);
 
@@ -105,12 +104,18 @@ function CountertopRenderer({
       countertop={countertop}
       currentSlug={resolvedSlug}
       galleryItems={galleryItems}
+      galleryLightboxImageSize={pageSettings?.galleryLightboxImageSize ?? null}
+      galleryMainImageSize={pageSettings?.galleryMainImageSize ?? null}
+      galleryThumbImageSize={pageSettings?.galleryThumbImageSize ?? null}
       nextProduct={adjacent.next}
       pageText={pageText}
       previousProduct={adjacent.previous}
       projectItems={projectItems}
       relatedItems={relatedItems}
       technicalDetails={technicalDetails}
+      pageSettingsRecord={pageSettingsRecord}
+      projectsSectionImageSize={pageSettings?.projectsSectionImageSize ?? null}
+      relatedProductsImageSize={pageSettings?.relatedProductsImageSize ?? null}
     />
   );
 }
@@ -121,16 +126,17 @@ function StaticCountertopDetailPage({
   currentSlug,
   homePageData,
   galleryOverviewData,
-  pageSettings,
+  pageSettingsData,
 }: {
   data: CountertopDataShape;
   countertopIndex: CountertopListItem[];
   currentSlug: string;
   homePageData: HomePageQueryLikeResult;
   galleryOverviewData: GalleryOverviewQueryLikeResult;
-  pageSettings?: CabinetPageSettings | null;
+  pageSettingsData: CountertopPageSettingsQueryLikeResult;
 }) {
   const contactBlock = extractContactBlock(homePageData.data);
+  const pageSettings = pageSettingsData.data.countertopPageSettings || null;
 
   return (
     <CountertopRenderer
@@ -140,6 +146,7 @@ function StaticCountertopDetailPage({
       data={data}
       galleryOverviewData={galleryOverviewData.data}
       pageSettings={pageSettings}
+      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
     />
   );
 }
@@ -152,7 +159,7 @@ function TinaCountertopDetailPageWithSupportingData(props: {
   currentSlug: string;
   homePageData: HomePageQueryLikeResult;
   galleryOverviewData: GalleryOverviewQueryLikeResult;
-  pageSettings?: CabinetPageSettings | null;
+  pageSettingsData: CountertopPageSettingsQueryLikeResult;
 }) {
   const homeQuery = props.homePageData.query?.trim() || "";
   const homeVariables = props.homePageData.variables || {};
@@ -174,6 +181,13 @@ function TinaCountertopDetailPageWithSupportingData(props: {
     query: galleryQuery,
     variables: galleryVariables,
   });
+  const pageSettingsQuery = props.pageSettingsData.query?.trim() || "";
+  const pageSettingsVariables = props.pageSettingsData.variables || {};
+  const { data: pageSettingsTinaData } = useTina({
+    data: props.pageSettingsData.data,
+    query: pageSettingsQuery,
+    variables: pageSettingsVariables,
+  });
 
   const normalized = normalizeCountertopQueryData(tinaData, `${props.currentSlug}.md`);
   const homeData = homeQuery ? homeTinaData : props.homePageData.data;
@@ -181,6 +195,9 @@ function TinaCountertopDetailPageWithSupportingData(props: {
     ? normalizeGalleryOverviewQueryData(galleryTinaData)
     : props.galleryOverviewData.data;
   const contactBlock = extractContactBlock(homeData);
+  const pageSettings = pageSettingsQuery
+    ? pageSettingsTinaData.countertopPageSettings || props.pageSettingsData.data.countertopPageSettings
+    : props.pageSettingsData.data.countertopPageSettings;
 
   return (
     <CountertopRenderer
@@ -189,7 +206,8 @@ function TinaCountertopDetailPageWithSupportingData(props: {
       currentSlug={props.currentSlug}
       data={normalized}
       galleryOverviewData={normalizedGallery}
-      pageSettings={props.pageSettings}
+      pageSettings={pageSettings || null}
+      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
     />
   );
 }
@@ -206,7 +224,7 @@ export default function CountertopDetailClient(props: CountertopDetailClientProp
         data={props.data}
         galleryOverviewData={props.galleryOverviewData}
         homePageData={props.homePageData}
-        pageSettings={props.pageSettings}
+        pageSettingsData={props.pageSettingsData}
       />
     );
   }
@@ -221,7 +239,7 @@ export default function CountertopDetailClient(props: CountertopDetailClientProp
       data={props.data}
       galleryOverviewData={props.galleryOverviewData}
       homePageData={props.homePageData}
-      pageSettings={props.pageSettings}
+      pageSettingsData={props.pageSettingsData}
       query={liveQuery}
       variables={liveVariables}
     />

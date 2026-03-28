@@ -49,7 +49,9 @@ media:
 sourceId: 299
 sourceUpdatedAt: '2025-07-25T22:53:53.178Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/soft-tan-arched-kitchen-brass-accents.md
+  - project: content/projects/modern-oak-and-black-kitchen-with-blush-laundry.md
 relatedProducts:
   - product: content/cabinets/swk.md
   - product: content/cabinets/swoa.md

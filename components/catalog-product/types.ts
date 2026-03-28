@@ -18,6 +18,7 @@ export interface ProductTechnicalDetailViewModel {
 export interface ProductProjectCardItem {
   file: string;
   title: string;
+  href?: string;
   imageTinaField?: string;
   titleTinaField?: string;
 }

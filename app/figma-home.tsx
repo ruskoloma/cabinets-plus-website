@@ -21,11 +21,14 @@ import {
 import ContactUsSection from "@/components/home/ContactUsSection";
 import { useGlobal, useGlobalRawDocument } from "@/components/layout/GlobalContext";
 import Button from "@/components/ui/Button";
+import FallbackImg from "@/components/ui/FallbackImg";
 import PreviewCard from "@/components/home/PreviewCard";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import TrustBar from "@/components/home/TrustBar";
 import FillImage from "@/components/ui/FillImage";
+import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
+import type { ImageVariantPreset } from "@/lib/image-variants";
 import { tinaField } from "tinacms/dist/react";
 
 interface Props {
@@ -121,6 +124,13 @@ export default function FigmaHome({ page }: Props) {
   const processRecord = process as Record<string, unknown>;
   const faqRecord = faq as Record<string, unknown>;
   const contactRecord = contact as Record<string, unknown>;
+  const heroImageOptions = resolveHomepageSectionImageOptions(heroRecord);
+  const productsImageOptions = resolveHomepageSectionImageOptions(productsRecord);
+  const servicesImageOptions = resolveHomepageSectionImageOptions(servicesRecord);
+  const projectsImageOptions = resolveHomepageSectionImageOptions(projectsRecord);
+  const whyUsImageOptions = resolveHomepageSectionImageOptions(whyUsRecord);
+  const showroomImageOptions = resolveHomepageSectionImageOptions(showroomRecord);
+  const contactImageOptions = resolveHomepageSectionImageOptions(contactRecord);
   const whyUsHighlights = [
     ["Our semi-custom cabinets"],
     ["We start with a free 3D design consultation"],
@@ -188,6 +198,10 @@ export default function FigmaHome({ page }: Props) {
 
   const hasTemplate = (template: string) => templateOrder[template] !== undefined;
   const getSectionOrder = (template: string, fallbackOrder: number, offset = 0) => ((templateOrder[template] ?? fallbackOrder) * 10) + offset;
+  const resolveSectionVariant = (
+    options: { useOriginal?: boolean; variant?: ImageVariantPreset },
+    defaultVariant: ImageVariantPreset,
+  ) => (options.useOriginal ? undefined : (options.variant ?? defaultVariant));
 
   return (
       <div className="flex flex-col bg-white text-[var(--cp-primary-500)]">
@@ -199,6 +213,7 @@ export default function FigmaHome({ page }: Props) {
           priority
           sizes="100vw"
           src={heroImage}
+          variant={resolveSectionVariant(heroImageOptions, "full")}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(38,36,35,0.8)]" />
 
@@ -229,6 +244,7 @@ export default function FigmaHome({ page }: Props) {
               href={item.link || "#"}
               image={item.image}
               imageClassName="h-[440px]"
+              imageVariant={productsImageOptions.useOriginal ? null : productsImageOptions.variant}
               key={`${item.name}-${index}`}
               tinaCardField={tinaField(item.raw as Record<string, unknown>)}
               tinaImageField={tinaField(item.raw as Record<string, unknown>, "image")}
@@ -250,6 +266,7 @@ export default function FigmaHome({ page }: Props) {
               descriptionClassName="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
               image={item.image}
               imageClassName="h-[214px] md:h-[399px]"
+              imageVariant={servicesImageOptions.useOriginal ? null : servicesImageOptions.variant}
               key={`${item.title}-${index}`}
               tinaCardField={tinaField(item.raw as Record<string, unknown>)}
               tinaDescriptionField={tinaField(item.raw as Record<string, unknown>, "description")}
@@ -267,7 +284,11 @@ export default function FigmaHome({ page }: Props) {
           <h2 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(projectsRecord, "title")}>
             {text(projects.title, "Our projects")}
           </h2>
-          <ProjectMosaic imageFields={projectImageFields} images={projectImages} />
+          <ProjectMosaic
+            imageFields={projectImageFields}
+            imageVariant={projectsImageOptions.useOriginal ? null : projectsImageOptions.variant}
+            images={projectImages}
+          />
           <div className="mt-12 text-center md:mt-7">
             <Button className="!min-h-12 md:!min-h-14" dataTinaField={tinaField(projectsRecord, "ctaLabel")} href={text(projects.ctaLink, "/gallery")} variant="outline">
               {text(projects.ctaLabel, "View All projects")}
@@ -300,7 +321,7 @@ export default function FigmaHome({ page }: Props) {
           {featureItems.map((item, index) => (
             <article className="flex flex-col" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
               <div className="relative h-[373px] overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] md:h-[455px]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "image")}>
-                {item.image ? <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 31vw, 100vw" src={item.image} /> : null}
+                {item.image ? <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 31vw, 100vw" src={item.image} variant={resolveSectionVariant(whyUsImageOptions, "card")} /> : null}
               </div>
               <h3
                 className="mt-3 text-[20px] font-semibold leading-[1.15] text-[var(--cp-primary-500)] md:text-[24px] md:leading-[1.25]"
@@ -357,6 +378,7 @@ export default function FigmaHome({ page }: Props) {
           data-tina-field={tinaField(showroomRecord, "image")}
           sizes="100vw"
           src={showroomImage}
+          variant={resolveSectionVariant(showroomImageOptions, "full")}
         />
         <div className="absolute inset-0 bg-[rgba(38,38,35,0.4)] md:hidden" />
         <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgba(38,38,35,0.6)_0%,rgba(38,38,35,0.45)_50%,rgba(38,38,35,0)_100%)] md:block" />
@@ -409,7 +431,7 @@ export default function FigmaHome({ page }: Props) {
                   <article className="grid items-start grid-cols-[40px_1fr] gap-6 md:grid-cols-[48px_1fr]" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
                     <div className="relative z-10 flex justify-center">
                       <div className={`flex items-center justify-center bg-[var(--cp-brand-neutral-50)] ${iconMaskClass}`}>
-                        {iconSrc ? <img alt="" aria-hidden className={`${iconSizeClass} object-contain`} data-tina-field={tinaField(item.raw as Record<string, unknown>, "iconImage")} src={iconSrc} /> : null}
+                        {iconSrc ? <FallbackImg alt="" aria-hidden className={`${iconSizeClass} object-contain`} data-tina-field={tinaField(item.raw as Record<string, unknown>, "iconImage")} src={iconSrc} variant="thumb" /> : null}
                       </div>
                     </div>
                     <div>
@@ -438,7 +460,7 @@ export default function FigmaHome({ page }: Props) {
       </section> : null}
 
       {hasTemplate("contactSection") ? <div style={{ order: getSectionOrder("contactSection", 9, 0) }}>
-        <ContactUsSection block={contactRecord} />
+        <ContactUsSection block={contactRecord} imageVariant={contactImageOptions.useOriginal ? null : contactImageOptions.variant} />
       </div> : null}
 
       {hasTemplate("contactSection") ? <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-50)] py-16" data-tina-field={tinaField(contactRecord)} style={{ order: getSectionOrder("contactSection", 9, 1) }}>
@@ -449,6 +471,7 @@ export default function FigmaHome({ page }: Props) {
           className="object-cover"
           sizes="100vw"
           src="https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-texture.png"
+          variant="full"
         />
 
         <div className="cp-container relative px-4 md:px-0">

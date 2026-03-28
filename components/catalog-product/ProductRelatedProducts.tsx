@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { useEditState } from "tinacms/dist/react";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import type { ProductRelatedCardItem } from "./types";
 
 interface ProductRelatedProductsProps {
   items: ProductRelatedCardItem[];
   title: string;
+  imageSizeChoice?: string | null;
+  titleTinaField?: string;
 }
 
 function formatProductCode(code?: string): string {
@@ -15,14 +18,23 @@ function formatProductCode(code?: string): string {
   return `#${code.replace(/^#+/, "").trim()}`;
 }
 
-export default function ProductRelatedProducts({ items, title }: ProductRelatedProductsProps) {
+export default function ProductRelatedProducts({
+  items,
+  title,
+  imageSizeChoice,
+  titleTinaField,
+}: ProductRelatedProductsProps) {
   const { edit } = useEditState();
+  const relatedImageVariant = resolveConfiguredImageVariant(imageSizeChoice, "card");
   if (!items.length) return null;
 
   return (
     <section className="bg-white">
       <div className="cp-container px-4 py-10 md:px-8 md:py-16">
-        <h2 className="font-[var(--font-red-hat-display)] text-[28px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]">
+        <h2
+          className="font-[var(--font-red-hat-display)] text-[28px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]"
+          data-tina-field={titleTinaField}
+        >
           {title}
         </h2>
 
@@ -48,6 +60,7 @@ export default function ProductRelatedProducts({ items, title }: ProductRelatedP
                         className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                         sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 215px"
                         src={item.image}
+                        variant={relatedImageVariant}
                       />
                     </div>
                   ) : null}

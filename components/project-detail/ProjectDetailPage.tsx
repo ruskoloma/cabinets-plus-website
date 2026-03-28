@@ -6,6 +6,8 @@ import { tinaField } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
+import type { ImageVariantPreset } from "@/lib/image-variants";
 import {
   getProjectDescription,
   getProjectGalleryAlt,
@@ -28,6 +30,7 @@ function MaterialCard({
   title,
   subtitle,
   image,
+  imageVariant,
   href,
   tinaField,
 }: {
@@ -35,13 +38,14 @@ function MaterialCard({
   title: string;
   subtitle?: string;
   image?: string;
+  imageVariant?: ImageVariantPreset;
   href?: string;
   tinaField?: string;
 }) {
   const content = (
     <>
       <div className="relative h-20 w-20 overflow-hidden bg-[var(--cp-primary-100)]" data-tina-field={tinaField}>
-        {image ? <FillImage alt={title} className="object-cover" sizes="80px" src={image} /> : null}
+        {image ? <FillImage alt={title} className="object-cover" sizes="80px" src={image} variant={imageVariant} /> : null}
       </div>
       <div className="min-w-0">
         <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
@@ -79,13 +83,22 @@ export default function ProjectDetailPage({
   galleryItems,
   materialCards,
   relatedProjects,
+  pageSettingsRecord,
   contactBlock,
+  materialCardImageSizeChoice,
+  galleryImageSizeChoice,
+  lightboxImageSizeChoice,
+  relatedProjectsImageSizeChoice,
 }: ProjectDetailPageProps) {
   const currentSlug = getProjectSlug(project, "project");
   const heading = getProjectHeading(project, currentSlug);
   const description = getProjectDescription(project);
   const rawProject = project as unknown as Record<string, unknown>;
   const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(null);
+  const materialCardImageVariant = resolveConfiguredImageVariant(materialCardImageSizeChoice, "thumb");
+  const galleryGridImageVariant = resolveConfiguredImageVariant(galleryImageSizeChoice, "card");
+  const lightboxImageVariant = resolveConfiguredImageVariant(lightboxImageSizeChoice, "full");
+  const relatedProjectsImageVariant = resolveConfiguredImageVariant(relatedProjectsImageSizeChoice, "card");
   const activeGalleryItem = useMemo(
     () => (activeGalleryIndex === null ? null : galleryItems[activeGalleryIndex] || null),
     [activeGalleryIndex, galleryItems],
@@ -140,10 +153,10 @@ export default function ProjectDetailPage({
                   className="relative aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
                   data-tina-field={getProjectGalleryField(project, item, tinaField)}
                   key={`${item.file}-${index}`}
-                  onClick={() => setActiveGalleryIndex(index)}
-                  type="button"
-                >
-                  <FillImage alt={getProjectGalleryAlt(project, item)} className="object-cover" sizes="(min-width: 768px) 25vw, 50vw" src={item.file} />
+                onClick={() => setActiveGalleryIndex(index)}
+                type="button"
+              >
+                  <FillImage alt={getProjectGalleryAlt(project, item)} className="object-cover" sizes="(min-width: 768px) 25vw, 50vw" src={item.file} variant={galleryGridImageVariant} />
                 </button>
               ))}
             </div>
@@ -165,6 +178,7 @@ export default function ProjectDetailPage({
                     <MaterialCard
                       href={card.href}
                       image={card.image}
+                      imageVariant={materialCardImageVariant}
                       key={`${card.kind}-${card.title}`}
                       label={card.label}
                       subtitle={card.subtitle}
@@ -194,7 +208,7 @@ export default function ProjectDetailPage({
                 key={item.slug}
               >
                 <div className="relative h-[215px] w-full md:h-[330px]">
-                  <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 294px" src={item.image} />
+                  <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 294px" src={item.image} variant={relatedProjectsImageVariant} />
                 </div>
                 <span className="sr-only">{item.title}</span>
               </Link>
@@ -234,6 +248,7 @@ export default function ProjectDetailPage({
                 className="rounded-[4px] object-contain"
                 sizes="95vw"
                 src={activeGalleryItem.file}
+                variant={lightboxImageVariant}
               />
             </div>
           </div>

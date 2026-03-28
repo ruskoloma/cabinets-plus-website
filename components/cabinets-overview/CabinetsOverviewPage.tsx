@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { tinaField } from "tinacms/dist/react";
+import { tinaField, useEditState, useTina } from "tinacms/dist/react";
+import { CABINET_LIVE_QUERY } from "@/app/cabinet-live-query";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import FillImage from "@/components/ui/FillImage";
@@ -11,6 +12,7 @@ import Button from "@/components/ui/Button";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
+import { resolveConfiguredImageVariant, type ImageSizeChoice } from "@/lib/image-size-controls";
 import CatalogMobileFilterOverlay from "./CatalogMobileFilterOverlay";
 import { DoorStyleOptionCard, FinishOptionCard } from "./CatalogFilterOptionCards";
 import {
@@ -51,10 +53,23 @@ interface FaqTab {
   faqs: FaqItem[];
 }
 
+interface CabinetCardItem {
+  raw: Record<string, unknown>;
+  slug: string;
+  name: string;
+  code: string;
+  picture: string;
+  relativePath: string;
+}
+
 interface CabinetsOverviewPageProps {
   data: CabinetsOverviewDataShape;
   faqBlock?: Record<string, unknown> | null;
   contactBlock?: Record<string, unknown> | null;
+  cardImageSizeChoice?: ImageSizeChoice | null;
+  filterImageSizeChoice?: ImageSizeChoice | null;
+  pageSettingsRecord?: Record<string, unknown> | null;
+  pageTitle?: string | null;
 }
 
 function toDict(value: unknown): Record<string, unknown> {
@@ -206,11 +221,107 @@ function PaginationButton({
   );
 }
 
+function StaticCabinetCard({
+  item,
+  imageVariant,
+}: {
+  item: CabinetCardItem;
+  imageVariant?: ReturnType<typeof resolveConfiguredImageVariant>;
+}) {
+  return (
+    <div className="group block">
+      <Link
+        className="block"
+        data-tina-field={tinaField(item.raw, "name") || undefined}
+        href={`/cabinets/${item.slug}`}
+      >
+        <span className="relative block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
+          {item.picture ? (
+            <FillImage
+              alt={item.name}
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              src={item.picture}
+              variant={imageVariant}
+            />
+          ) : null}
+        </span>
+        <span className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
+          {item.name}
+        </span>
+        {item.code ? (
+          <span className="block text-[16px] leading-none text-[var(--cp-primary-300)]">
+            {formatProductCode(item.code)}
+          </span>
+        ) : null}
+      </Link>
+    </div>
+  );
+}
+
+function TinaCabinetCard({
+  item,
+  imageVariant,
+}: {
+  item: CabinetCardItem;
+  imageVariant?: ReturnType<typeof resolveConfiguredImageVariant>;
+}) {
+  const initialData = useMemo(() => ({ cabinet: item.raw }), [item.relativePath]);
+  const variables = useMemo(() => ({ relativePath: item.relativePath }), [item.relativePath]);
+
+  const { data } = useTina({
+    data: initialData,
+    query: CABINET_LIVE_QUERY,
+    variables,
+  });
+
+  const liveCabinet = data.cabinet as Record<string, unknown> | null | undefined;
+  const liveName = typeof liveCabinet?.name === "string" ? liveCabinet.name : item.name;
+  const liveCode = typeof liveCabinet?.code === "string" ? liveCabinet.code : item.code;
+  const livePicture = typeof liveCabinet?.picture === "string" ? liveCabinet.picture : item.picture;
+  const liveSlug = typeof liveCabinet?.slug === "string" && liveCabinet.slug.trim().length > 0 ? liveCabinet.slug : item.slug;
+
+  return (
+    <div className="group block">
+      <Link
+        className="block"
+        data-tina-field={liveCabinet ? tinaField(liveCabinet, "name") || undefined : undefined}
+        href={`/cabinets/${liveSlug}`}
+      >
+        <span className="relative block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
+          {livePicture ? (
+            <FillImage
+              alt={liveName}
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              src={livePicture}
+              variant={imageVariant}
+            />
+          ) : null}
+        </span>
+        <span className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
+          {liveName}
+        </span>
+        {liveCode ? (
+          <span className="block text-[16px] leading-none text-[var(--cp-primary-300)]">
+            {formatProductCode(liveCode)}
+          </span>
+        ) : null}
+      </Link>
+    </div>
+  );
+}
+
 export default function CabinetsOverviewPage({
   data,
   faqBlock,
   contactBlock,
+  cardImageSizeChoice,
+  filterImageSizeChoice,
+  pageSettingsRecord,
+  pageTitle,
 }: CabinetsOverviewPageProps) {
+  const { edit } = useEditState();
   const router = useRouter();
   const pathname = usePathname();
   const currentPathname = pathname || "/cabinets";
@@ -228,6 +339,7 @@ export default function CabinetsOverviewPage({
   const paintOptions = useMemo(() => catalogSettings?.paintOptions || [], [catalogSettings?.paintOptions]);
   const stainTypes = useMemo(() => catalogSettings?.stainTypes || [], [catalogSettings?.stainTypes]);
   const faqTabs = useMemo(() => mapFaqTabs(faqBlock), [faqBlock]);
+  const cabinetCardImageVariant = resolveConfiguredImageVariant(cardImageSizeChoice, "card");
 
   const doorStyleMap = useMemo(
     () => new Map(doorStyles.map((option) => [normalizeOptionValue(option.value), option])),
@@ -260,6 +372,7 @@ export default function CabinetsOverviewPage({
           name,
           code,
           picture: (item.picture || "").trim(),
+          relativePath: (item._sys?.relativePath || "").trim(),
           searchable,
           doorStyle: inferDoorStyleValue(name, item.doorStyle),
           paint: normalizeOptionValue(item.paint || ""),
@@ -415,8 +528,11 @@ export default function CabinetsOverviewPage({
     <div className="bg-white" suppressHydrationWarning>
       <section className="bg-white">
         <div className="cp-container px-4 pb-14 pt-8 md:px-10 md:pb-16 md:pt-12">
-          <h1 className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]">
-            Cabinets
+          <h1
+            className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]"
+            data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "pageTitle") || undefined : undefined}
+          >
+            {pageTitle || "Cabinets"}
           </h1>
 
           <div ref={filtersRef}>
@@ -570,6 +686,7 @@ export default function CabinetsOverviewPage({
                             return (
                               <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                                 <DoorStyleOptionCard
+                                  imageSizeChoice={filterImageSizeChoice || undefined}
                                   onClick={() => setPendingDoorStyles((current) => toggleMultiValue(current, value))}
                                   option={option}
                                   selected={selected}
@@ -639,6 +756,7 @@ export default function CabinetsOverviewPage({
                             return (
                               <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                                 <FinishOptionCard
+                                  imageSizeChoice={filterImageSizeChoice || undefined}
                                   onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
                                   option={option}
                                   selected={selected}
@@ -718,6 +836,7 @@ export default function CabinetsOverviewPage({
                   return (
                     <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-door-style-${option.value}-${index}`}>
                       <DoorStyleOptionCard
+                        imageSizeChoice={filterImageSizeChoice || undefined}
                         onClick={() => setPendingDoorStyles((current) => toggleMultiValue(current, value))}
                         option={option}
                         selected={selected}
@@ -763,6 +882,7 @@ export default function CabinetsOverviewPage({
                     return (
                       <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-paint-${option.value}-${index}`}>
                         <FinishOptionCard
+                          imageSizeChoice={filterImageSizeChoice || undefined}
                           onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
                           option={option}
                           selected={selected}
@@ -780,6 +900,7 @@ export default function CabinetsOverviewPage({
                     return (
                       <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-stain-${option.value}-${index}`}>
                         <DoorStyleOptionCard
+                          imageSizeChoice={filterImageSizeChoice || undefined}
                           onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
                           option={option}
                           selected={selected}
@@ -807,37 +928,13 @@ export default function CabinetsOverviewPage({
             <>
               <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
                 {paginatedItems.map((item) => (
-                    <div className="group block" key={item.slug}>
-                      <Link
-                        className="block"
-                        href={`/cabinets/${item.slug}`}
-                      >
-                        <span
-                          className="relative block aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
-                        >
-                          {item.picture ? (
-                            <FillImage
-                              alt={item.name}
-                              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                              src={item.picture}
-                            />
-                          ) : null}
-                        </span>
-                        <span
-                          className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
-                        >
-                          {item.name}
-                        </span>
-                        {item.code ? (
-                          <span
-                            className="block text-[16px] leading-none text-[var(--cp-primary-300)]"
-                          >
-                            {formatProductCode(item.code)}
-                          </span>
-                        ) : null}
-                      </Link>
-                    </div>
+                  <div key={item.slug}>
+                    {edit && item.relativePath ? (
+                      <TinaCabinetCard imageVariant={cabinetCardImageVariant} item={item as CabinetCardItem} />
+                    ) : (
+                      <StaticCabinetCard imageVariant={cabinetCardImageVariant} item={item as CabinetCardItem} />
+                    )}
+                  </div>
                   ))}
               </div>
 

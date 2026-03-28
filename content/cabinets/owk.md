@@ -49,7 +49,10 @@ media:
 sourceId: 261
 sourceUpdatedAt: '2025-07-25T22:53:53.480Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/bright-white-shaker-kitchen-with-glass-uppers.md
+  - project: content/projects/bright-shaker-cabinetry-with-black-accents.md
+  - project: content/projects/bright-white-shaker-kitchen-and-bath-2.md
 relatedProducts:
   - product: content/cabinets/owu.md
   - product: content/cabinets/pdm.md

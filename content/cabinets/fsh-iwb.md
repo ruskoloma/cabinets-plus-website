@@ -60,7 +60,10 @@ media:
 sourceId: 233
 sourceUpdatedAt: '2025-07-25T22:53:53.873Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/soft-tan-arched-kitchen-brass-accents.md
+  - project: content/projects/warm-wood-kitchen-and-bath-cabinetry.md
+  - project: content/projects/modern-two-tone-kitchen-and-bath-cabinetry.md
 relatedProducts:
   - product: content/cabinets/fsh-nbb.md
   - product: content/cabinets/fsl-dgb.md

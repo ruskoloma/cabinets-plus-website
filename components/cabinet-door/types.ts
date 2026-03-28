@@ -99,7 +99,10 @@ export interface CabinetGalleryItem {
 export interface CabinetProjectItem {
   file: string;
   title: string;
+  href?: string;
   source?: CabinetMediaItem;
+  projectSource?: Record<string, unknown>;
+  mediaSource?: Record<string, unknown>;
   isMock?: boolean;
 }
 
@@ -111,21 +114,29 @@ export interface CabinetRelatedItem {
   relation?: CabinetRelatedProduct;
 }
 
-export interface CabinetPageMockProject {
-  file?: string | null;
-  title?: string | null;
-}
-
 export interface CabinetPageSettings {
+  __typename?: string;
+  id?: string;
+  _sys?: CabinetSystemInfo | null;
+  _content_source?: unknown;
   breadcrumbLabel?: string | null;
   technicalDetailsTitle?: string | null;
   contactButtonLabel?: string | null;
   descriptionLabel?: string | null;
+  galleryThumbImageSize?: string | null;
+  galleryMainImageSize?: string | null;
+  galleryLightboxImageSize?: string | null;
   relatedProductsTitle?: string | null;
+  relatedProductsImageSize?: string | null;
   projectsSectionTitle?: string | null;
   projectsSectionDescription?: string | null;
-  projectFallbackTitle?: string | null;
-  mockProjects?: Array<CabinetPageMockProject | null> | null;
+  projectsSectionImageSize?: string | null;
+}
+
+export interface CabinetPageSettingsQueryLikeResult {
+  data: { cabinetPageSettings?: CabinetPageSettings | null };
+  query?: string;
+  variables?: Record<string, unknown>;
 }
 
 export interface CabinetPageTextConfig {
@@ -136,5 +147,4 @@ export interface CabinetPageTextConfig {
   relatedProductsTitle: string;
   projectsSectionTitle: string;
   projectsSectionDescription: string;
-  projectFallbackTitle: string;
 }

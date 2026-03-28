@@ -96,7 +96,10 @@ media:
 sourceId: 232
 sourceUpdatedAt: '2025-07-25T22:53:53.679Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/bright-modern-white-oak-interior.md
+  - project: content/projects/light-wood-kitchen-waterfall-island-black-accents.md
 relatedProducts:
   - product: content/cabinets/swu.md
   - product: content/cabinets/tgb.md

@@ -6,7 +6,8 @@
     "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
     "build": "tinacms build && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images:generate-variants": "node scripts/generate-s3-image-variants.mjs"
   },
   "dependencies": {
     "@tinacms/auth": "^1.1.2",
@@ -18,6 +19,7 @@
     "tinacms": "^3.5.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1018.0",
     "@tailwindcss/postcss": "^4",
     "@tinacms/cli": "^2.1.6",
     "@types/node": "^20.19.33",
@@ -25,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

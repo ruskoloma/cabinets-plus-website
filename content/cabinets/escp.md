@@ -103,7 +103,10 @@ media:
 sourceId: 289
 sourceUpdatedAt: '2025-07-25T22:53:51.583Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/soft-tan-arched-kitchen-brass-accents.md
+  - project: content/projects/modern-oak-and-black-kitchen-with-blush-laundry.md
+  - project: content/projects/warm-brown-shaker-kitchen-white-quartz.md
 relatedProducts:
   - product: content/cabinets/esgn.md
   - product: content/cabinets/esn.md

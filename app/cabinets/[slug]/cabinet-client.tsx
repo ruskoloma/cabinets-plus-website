@@ -6,7 +6,6 @@ import { normalizeCabinetQueryData } from "@/components/cabinet-door/normalize-c
 import { CABINET_LIVE_QUERY } from "@/app/cabinet-live-query";
 import {
   buildGalleryItems,
-  buildMockProjectItems,
   buildProjectItems,
   buildRelatedItems,
   getAdjacentCabinets,
@@ -14,7 +13,14 @@ import {
   resolveCabinetPageText,
   sortTechnicalDetails,
 } from "@/components/cabinet-door/helpers";
-import type { CabinetData, CabinetListItem, CabinetPageSettings } from "@/components/cabinet-door/types";
+import type {
+  CabinetData,
+  CabinetListItem,
+  CabinetPageSettings,
+  CabinetPageSettingsQueryLikeResult,
+} from "@/components/cabinet-door/types";
+import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
+import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
 
 interface CabinetDataShape {
   cabinet?: CabinetData | null;
@@ -39,7 +45,8 @@ interface CabinetDetailClientProps {
   cabinetIndex: CabinetListItem[];
   currentSlug: string;
   homePageData: HomePageQueryLikeResult;
-  pageSettings?: CabinetPageSettings | null;
+  galleryOverviewData: GalleryOverviewQueryLikeResult;
+  pageSettingsData: CabinetPageSettingsQueryLikeResult;
 }
 
 function extractContactBlock(pageData: unknown): Record<string, unknown> | null {
@@ -61,13 +68,17 @@ function CabinetDoorRenderer({
   cabinetIndex,
   currentSlug,
   contactBlock,
+  galleryOverviewData,
   pageSettings,
+  pageSettingsRecord,
 }: {
   data: CabinetDataShape;
   cabinetIndex: CabinetListItem[];
   currentSlug: string;
   contactBlock?: Record<string, unknown> | null;
+  galleryOverviewData: GalleryOverviewQueryLikeResult["data"];
   pageSettings?: CabinetPageSettings | null;
+  pageSettingsRecord?: Record<string, unknown> | null;
 }) {
   const cabinet = data.cabinet;
   if (!cabinet) return null;
@@ -76,8 +87,7 @@ function CabinetDoorRenderer({
   const pageText = resolveCabinetPageText(pageSettings);
   const galleryItems = buildGalleryItems(cabinet);
   const technicalDetails = sortTechnicalDetails(cabinet.technicalDetails);
-  const projectItemsFromData = buildProjectItems(cabinet, { fallbackTitle: pageText.projectFallbackTitle });
-  const projectItems = projectItemsFromData.length ? projectItemsFromData : buildMockProjectItems(cabinet, pageSettings);
+  const projectItems = buildProjectItems(cabinet, galleryOverviewData);
   const relatedItems = buildRelatedItems(cabinet, cabinetIndex, resolvedSlug);
   const adjacent = getAdjacentCabinets(cabinetIndex, resolvedSlug);
 
@@ -86,6 +96,9 @@ function CabinetDoorRenderer({
       cabinet={cabinet}
       currentSlug={resolvedSlug}
       galleryItems={galleryItems}
+      galleryLightboxImageSize={pageSettings?.galleryLightboxImageSize ?? null}
+      galleryMainImageSize={pageSettings?.galleryMainImageSize ?? null}
+      galleryThumbImageSize={pageSettings?.galleryThumbImageSize ?? null}
       nextProduct={adjacent.next}
       previousProduct={adjacent.previous}
       projectItems={projectItems}
@@ -93,6 +106,9 @@ function CabinetDoorRenderer({
       technicalDetails={technicalDetails}
       pageText={pageText}
       contactBlock={contactBlock || null}
+      pageSettingsRecord={pageSettingsRecord}
+      projectsSectionImageSize={pageSettings?.projectsSectionImageSize ?? null}
+      relatedProductsImageSize={pageSettings?.relatedProductsImageSize ?? null}
     />
   );
 }
@@ -102,22 +118,27 @@ function StaticCabinetDetailPage({
   cabinetIndex,
   currentSlug,
   homePageData,
-  pageSettings,
+  galleryOverviewData,
+  pageSettingsData,
 }: {
   data: CabinetDataShape;
   cabinetIndex: CabinetListItem[];
   currentSlug: string;
   homePageData: HomePageQueryLikeResult;
-  pageSettings?: CabinetPageSettings | null;
+  galleryOverviewData: GalleryOverviewQueryLikeResult;
+  pageSettingsData: CabinetPageSettingsQueryLikeResult;
 }) {
   const contactBlock = extractContactBlock(homePageData.data);
+  const pageSettings = pageSettingsData.data.cabinetPageSettings || null;
   return (
     <CabinetDoorRenderer
       cabinetIndex={cabinetIndex}
       contactBlock={contactBlock}
       currentSlug={currentSlug}
       data={data}
+      galleryOverviewData={galleryOverviewData.data}
       pageSettings={pageSettings}
+      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
     />
   );
 }
@@ -129,10 +150,13 @@ function TinaCabinetDetailPageWithHome(props: {
   cabinetIndex: CabinetListItem[];
   currentSlug: string;
   homePageData: HomePageQueryLikeResult;
-  pageSettings?: CabinetPageSettings | null;
+  galleryOverviewData: GalleryOverviewQueryLikeResult;
+  pageSettingsData: CabinetPageSettingsQueryLikeResult;
 }) {
   const homeQuery = props.homePageData.query?.trim() || "";
   const homeVariables = props.homePageData.variables || {};
+  const galleryQuery = props.galleryOverviewData.query?.trim() || "";
+  const galleryVariables = props.galleryOverviewData.variables || {};
   const { data: tinaData } = useTina({
     data: props.data,
     query: props.query,
@@ -143,9 +167,27 @@ function TinaCabinetDetailPageWithHome(props: {
     query: homeQuery,
     variables: homeVariables,
   });
+  const { data: galleryTinaData } = useTina({
+    data: props.galleryOverviewData.data,
+    query: galleryQuery,
+    variables: galleryVariables,
+  });
+  const pageSettingsQuery = props.pageSettingsData.query?.trim() || "";
+  const pageSettingsVariables = props.pageSettingsData.variables || {};
+  const { data: pageSettingsTinaData } = useTina({
+    data: props.pageSettingsData.data,
+    query: pageSettingsQuery,
+    variables: pageSettingsVariables,
+  });
   const normalized = normalizeCabinetQueryData(tinaData, `${props.currentSlug}.md`);
   const homeData = homeQuery ? homeTinaData : props.homePageData.data;
+  const normalizedGallery = galleryQuery
+    ? normalizeGalleryOverviewQueryData(galleryTinaData)
+    : props.galleryOverviewData.data;
   const contactBlock = extractContactBlock(homeData);
+  const pageSettings = pageSettingsQuery
+    ? pageSettingsTinaData.cabinetPageSettings || props.pageSettingsData.data.cabinetPageSettings
+    : props.pageSettingsData.data.cabinetPageSettings;
 
   return (
     <CabinetDoorRenderer
@@ -153,7 +195,9 @@ function TinaCabinetDetailPageWithHome(props: {
       contactBlock={contactBlock}
       currentSlug={props.currentSlug}
       data={normalized}
-      pageSettings={props.pageSettings}
+      galleryOverviewData={normalizedGallery}
+      pageSettings={pageSettings || null}
+      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
     />
   );
 }
@@ -167,8 +211,9 @@ export default function CabinetDetailClient(props: CabinetDetailClientProps) {
         cabinetIndex={props.cabinetIndex}
         currentSlug={props.currentSlug}
         data={props.data}
+        galleryOverviewData={props.galleryOverviewData}
         homePageData={props.homePageData}
-        pageSettings={props.pageSettings}
+        pageSettingsData={props.pageSettingsData}
       />
     );
   }
@@ -180,8 +225,9 @@ export default function CabinetDetailClient(props: CabinetDetailClientProps) {
       cabinetIndex={props.cabinetIndex}
       currentSlug={props.currentSlug}
       data={props.data}
+      galleryOverviewData={props.galleryOverviewData}
       homePageData={props.homePageData}
-      pageSettings={props.pageSettings}
+      pageSettingsData={props.pageSettingsData}
       query={liveQuery}
       variables={liveVariables}
     />

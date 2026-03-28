@@ -6,28 +6,32 @@ countertopType: Quartz
 inStock: true
 storeCollection: in-stock
 description: >-
-  Cararra Black Mist Suede quartz presents a deep charcoal to near-black palette with subtle soft gray undertones. Fine,
-  wispy veining drifts gently across the surface in low-contrast patterns, creating restrained movement rather than bold
-  drama. The overall character is moody, refined, and contemporary, with an understated elegance and softly textured
-  visual depth.
+  Cararra Black Mist Suede quartz presents a deep charcoal to near-black palette with subtle soft
+  gray undertones. Fine, wispy veining drifts gently across the surface in low-contrast patterns,
+  creating restrained movement rather than bold drama. The overall character is moody, refined, and
+  contemporary, with an understated elegance and softly textured visual depth.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/cararrablackmistsuede/3281-cararra-black-mist-suede.jpg
+relatedProjects:
+  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/modern-classic-galley-kitchen-soft-gray.md
 technicalDetails:
   - key: Type
     value: Quartz
-    unit: ""
+    unit: ''
     order: 2
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
   - file: >-
@@ -37,7 +41,7 @@ media:
     isPrimary: true
     label: Cararra Black Mist Suede.jpg
     altText: Cararra Black Mist Suede
-    description: ""
+    description: ''
     sourceId: 3281
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/cararrablackmistsuede/3562-carrara-mist-black-suede.mp4
@@ -45,9 +49,9 @@ media:
     mimeType: video/mp4
     isPrimary: false
     label: Carrara Mist Black Suede.mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3562
 sourceId: 1695
-sourceUpdatedAt: "2025-09-18T18:25:11.504Z"
+sourceUpdatedAt: '2025-09-18T18:25:11.504Z'
 ---

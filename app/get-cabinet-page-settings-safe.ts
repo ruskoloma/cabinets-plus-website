@@ -1,37 +1,40 @@
-import { asRecord, asString, readJsonContentFile } from "@/app/lib/content";
-import type { CabinetPageSettings } from "@/components/cabinet-door/types";
+import { createStaticQueryResult, readJsonContentFile } from "@/app/lib/content";
+import type {
+  CabinetPageSettings,
+  CabinetPageSettingsQueryLikeResult,
+} from "@/components/cabinet-door/types";
+import { CABINET_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
+import { client } from "@/tina/__generated__/client";
 
-export async function getCabinetPageSettingsSafe(): Promise<CabinetPageSettings | null> {
+export async function getCabinetPageSettingsSafe(): Promise<CabinetPageSettingsQueryLikeResult> {
   try {
-    const parsed = await readJsonContentFile("global", "cabinet-page-settings.json");
-    const record = asRecord(parsed);
-    if (!record) return null;
-
-    const mockProjects = Array.isArray(record.mockProjects)
-      ? record.mockProjects
-          .map((item) => {
-            const row = asRecord(item);
-            if (!row) return null;
-            return {
-              file: asString(row.file) ?? null,
-              title: asString(row.title) ?? null,
-            };
-          })
-          .filter(Boolean)
-      : [];
+    const result = await client.request(
+      {
+        query: CABINET_PAGE_SETTINGS_QUERY,
+        variables: { relativePath: "cabinet-page-settings.json" },
+      },
+      {},
+    );
 
     return {
-      breadcrumbLabel: asString(record.breadcrumbLabel) ?? null,
-      technicalDetailsTitle: asString(record.technicalDetailsTitle) ?? null,
-      contactButtonLabel: asString(record.contactButtonLabel) ?? null,
-      descriptionLabel: asString(record.descriptionLabel) ?? null,
-      relatedProductsTitle: asString(record.relatedProductsTitle) ?? null,
-      projectsSectionTitle: asString(record.projectsSectionTitle) ?? null,
-      projectsSectionDescription: asString(record.projectsSectionDescription) ?? null,
-      projectFallbackTitle: asString(record.projectFallbackTitle) ?? null,
-      mockProjects,
+      data: (result as { data?: { cabinetPageSettings?: CabinetPageSettings | null } }).data || {},
+      query: CABINET_PAGE_SETTINGS_QUERY,
+      variables: { relativePath: "cabinet-page-settings.json" },
     };
   } catch {
-    return null;
+    try {
+      const cabinetPageSettings = await readJsonContentFile<CabinetPageSettings>(
+        "global",
+        "cabinet-page-settings.json",
+      );
+
+      return {
+        ...createStaticQueryResult({ cabinetPageSettings }),
+        query: CABINET_PAGE_SETTINGS_QUERY,
+        variables: { relativePath: "cabinet-page-settings.json" },
+      };
+    } catch {
+      return createStaticQueryResult({ cabinetPageSettings: null });
+    }
   }
 }

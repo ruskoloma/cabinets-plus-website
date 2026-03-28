@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getPostPageSettingsSafe } from "@/app/get-post-page-settings-safe";
 import { client } from "@/tina/__generated__/client";
 import PostClient from "./post-client";
 
@@ -21,6 +22,9 @@ export async function generateMetadata(
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const result = await client.queries.post({ relativePath: `${slug}.md` });
-  return <PostClient {...result} />;
+  const [result, pageSettingsData] = await Promise.all([
+    client.queries.post({ relativePath: `${slug}.md` }),
+    getPostPageSettingsSafe(),
+  ]);
+  return <PostClient {...result} pageSettingsData={pageSettingsData} />;
 }

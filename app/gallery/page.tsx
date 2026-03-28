@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import GalleryOverviewClient from "./gallery-overview-client";
 import { getGalleryOverviewDataSafe } from "@/app/get-gallery-overview-data-safe";
+import { getGalleryPageSettingsSafe } from "@/app/get-gallery-page-settings-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 
 export const metadata: Metadata = {
@@ -10,14 +11,15 @@ export const metadata: Metadata = {
 };
 
 export default async function GalleryPage() {
-  const [overviewData, homePageData] = await Promise.all([
+  const [overviewData, homePageData, pageSettingsData] = await Promise.all([
     getGalleryOverviewDataSafe(),
     getPageDataSafe("home.md"),
+    getGalleryPageSettingsSafe(),
   ]);
 
   return (
     <Suspense fallback={null}>
-      <GalleryOverviewClient homePageData={homePageData} overviewData={overviewData} />
+      <GalleryOverviewClient homePageData={homePageData} overviewData={overviewData} pageSettingsData={pageSettingsData} />
     </Suspense>
   );
 }

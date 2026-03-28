@@ -6,28 +6,32 @@ countertopType: Quartz
 inStock: true
 storeCollection: in-stock
 description: >-
-  Calacatta Highlight quartz presents a soft white background with delicate cool gray veining and subtle tonal
-  variation. Fine linear veins drift diagonally and vertically, creating graceful movement, while a few slightly bolder
-  layered streaks add gentle contrast. The overall design character is airy, refined, and elegant with a clean
-  contemporary marble-inspired appearance.
+  Calacatta Highlight quartz presents a soft white background with delicate cool gray veining and
+  subtle tonal variation. Fine linear veins drift diagonally and vertically, creating graceful
+  movement, while a few slightly bolder layered streaks add gentle contrast. The overall design
+  character is airy, refined, and elegant with a clean contemporary marble-inspired appearance.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattahighlight/3279-calacatta-highlight.jpg
+relatedProjects:
+  - project: content/projects/bright-white-shaker-kitchen-remodel.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/bright-open-concept-kitchen-and-bath-cabinetry.md
 technicalDetails:
   - key: Type
     value: Quartz
-    unit: ""
+    unit: ''
     order: 2
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
   - file: >-
@@ -37,7 +41,7 @@ media:
     isPrimary: true
     label: Calacatta Highlight.jpg
     altText: Calacatta Highlight
-    description: ""
+    description: ''
     sourceId: 3279
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattahighlight/3542-calacatta-highlight.mp4
@@ -45,9 +49,9 @@ media:
     mimeType: video/mp4
     isPrimary: false
     label: Calacatta highlight.mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3542
 sourceId: 1697
-sourceUpdatedAt: "2025-09-18T18:25:11.358Z"
+sourceUpdatedAt: '2025-09-18T18:25:11.358Z'
 ---

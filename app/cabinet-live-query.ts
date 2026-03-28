@@ -19,7 +19,6 @@ export const CABINET_LIVE_QUERY = `
         stainType
         description
         picture
-        relatedProjects
         relatedProducts {
           __typename
           product

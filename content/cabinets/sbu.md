@@ -59,7 +59,10 @@ media:
 sourceId: 309
 sourceUpdatedAt: '2025-07-25T22:53:51.501Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/modern-black-and-white-kitchen-custom-closet-suite.md
+  - project: content/projects/black-and-white-shaker-kitchen-and-bath.md
 relatedProducts:
   - product: content/cabinets/scu.md
   - product: content/cabinets/sdu.md

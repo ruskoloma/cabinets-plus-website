@@ -58,7 +58,10 @@ media:
 sourceId: 284
 sourceUpdatedAt: '2025-07-25T22:53:54.812Z'
 stainType: mocha stain
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/warm-wood-contemporary-kitchen-and-built-in-office.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/warm-wood-contemporary-kitchen-and-living-built-ins.md
 relatedProducts:
   - product: content/cabinets/jgs.md
   - product: content/cabinets/lsa.md

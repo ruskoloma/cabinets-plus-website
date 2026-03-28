@@ -96,7 +96,10 @@ media:
 sourceId: 254
 sourceUpdatedAt: '2025-07-25T22:53:54.743Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/modern-black-and-white-kitchen-custom-closet-suite.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
 relatedProducts:
   - product: content/cabinets/bsk.md
   - product: content/cabinets/bwk.md

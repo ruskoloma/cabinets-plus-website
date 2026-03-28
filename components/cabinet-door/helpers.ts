@@ -1,3 +1,5 @@
+import { buildCabinetProjectMatches } from "@/components/catalog-product/project-matching";
+import type { GalleryOverviewDataShape } from "@/components/gallery-overview/types";
 import {
   type CabinetData,
   type CabinetGalleryItem,
@@ -54,12 +56,7 @@ function readNonEmpty(value: unknown, fallback: string): string {
   return trimmed.length ? trimmed : fallback;
 }
 
-const DEFAULT_PROJECT_MOCK_FILES = [
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
-];
+const DEFAULT_PROJECT_CARD_TITLE = "Project";
 
 const DEFAULT_CABINET_PAGE_TEXT: CabinetPageTextConfig = {
   breadcrumbLabel: "Cabinets",
@@ -70,7 +67,6 @@ const DEFAULT_CABINET_PAGE_TEXT: CabinetPageTextConfig = {
   projectsSectionTitle: "Material in Real Projects",
   projectsSectionDescription:
     "Explore real installations showcasing this material in completed kitchens, bathrooms, and living spaces to see how it looks and performs in everyday use.",
-  projectFallbackTitle: "Project Name",
 };
 
 function referenceProductToCard(
@@ -141,13 +137,24 @@ export function buildGalleryItems(cabinet: CabinetData): CabinetGalleryItem[] {
 
 export function buildProjectItems(
   cabinet: CabinetData,
+  overviewData: GalleryOverviewDataShape,
   options?: {
     maxItems?: number;
-    fallbackTitle?: string;
   },
 ): CabinetProjectItem[] {
-  const maxItems = options?.maxItems ?? 4;
-  const fallbackTitle = readNonEmpty(options?.fallbackTitle, DEFAULT_CABINET_PAGE_TEXT.projectFallbackTitle);
+  const maxItems = options?.maxItems ?? 3;
+  const matchedProjects = buildCabinetProjectMatches(cabinet, overviewData, maxItems);
+
+  if (matchedProjects.length) {
+    return matchedProjects.map((item) => ({
+      file: item.file,
+      title: item.title || DEFAULT_PROJECT_CARD_TITLE,
+      href: item.href,
+      projectSource: item.projectSource,
+      mediaSource: item.mediaSource,
+    }));
+  }
+
   const mediaItems = (cabinet.media || []).filter((item): item is CabinetMediaItem => Boolean(item && isTruthyString(item.file)));
 
   if (!mediaItems.length) return [];
@@ -161,7 +168,7 @@ export function buildProjectItems(
 
   return projectCandidates.slice(0, maxItems).map((item) => {
     const label = isTruthyString(item.label) ? item.label.trim() : "";
-    const title = isGenericProjectLabel(label) ? fallbackTitle : label;
+    const title = isGenericProjectLabel(label) ? DEFAULT_PROJECT_CARD_TITLE : label;
 
     return {
       file: item.file!.trim(),
@@ -183,59 +190,7 @@ export function resolveCabinetPageText(settings?: CabinetPageSettings | null): C
       settings?.projectsSectionDescription,
       DEFAULT_CABINET_PAGE_TEXT.projectsSectionDescription,
     ),
-    projectFallbackTitle: readNonEmpty(settings?.projectFallbackTitle, DEFAULT_CABINET_PAGE_TEXT.projectFallbackTitle),
   };
-}
-
-export function buildMockProjectItems(
-  cabinet: CabinetData,
-  settings?: CabinetPageSettings | null,
-  maxItems = 4,
-): CabinetProjectItem[] {
-  const text = resolveCabinetPageText(settings);
-
-  const configuredMocks = (settings?.mockProjects || [])
-    .map((item) => {
-      const file = typeof item?.file === "string" ? item.file.trim() : "";
-      const title = typeof item?.title === "string" ? item.title.trim() : "";
-      if (!file) return null;
-      return {
-        file,
-        title: title || text.projectFallbackTitle,
-      };
-    })
-    .filter((item): item is { file: string; title: string } => Boolean(item));
-
-  const baseMocks = configuredMocks.length
-    ? configuredMocks
-    : DEFAULT_PROJECT_MOCK_FILES.map((file) => ({
-        file,
-        title: text.projectFallbackTitle,
-      }));
-
-  const picked = baseMocks.slice(0, maxItems);
-  if (picked.length) {
-    return picked.map((item) => ({
-      file: item.file,
-      title: item.title,
-      isMock: true,
-    }));
-  }
-
-  const fallbackImage =
-    (typeof cabinet.picture === "string" ? cabinet.picture.trim() : "") ||
-    (cabinet.media || [])
-      .map((item) => (typeof item?.file === "string" ? item.file.trim() : ""))
-      .find(Boolean) ||
-    "";
-
-  if (!fallbackImage) return [];
-
-  return Array.from({ length: maxItems }, () => ({
-    file: fallbackImage,
-    title: text.projectFallbackTitle,
-    isMock: true,
-  }));
 }
 
 export function getAdjacentCabinets(

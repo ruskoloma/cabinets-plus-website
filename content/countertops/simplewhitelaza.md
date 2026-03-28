@@ -2,27 +2,32 @@
 name: Simple White Laza
 code: SimpleWhiteLaza
 slug: simplewhitelaza
-countertopType: ""
+countertopType: ''
 inStock: true
 storeCollection: in-stock
 description: >-
-  Simple White Laza features a crisp white background traced with soft to medium gray veining that flows diagonally in
-  elongated, branching lines. The movement is graceful and airy, with delicate secondary threads adding subtle depth.
-  Contrast remains gentle and refined, giving the surface a clean, elegant, marble-inspired character with understated
-  drama.
+  Simple White Laza features a crisp white background traced with soft to medium gray veining that
+  flows diagonally in elongated, branching lines. The movement is graceful and airy, with delicate
+  secondary threads adding subtle depth. Contrast remains gentle and refined, giving the surface a
+  clean, elegant, marble-inspired character with understated drama.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplewhitelaza/3661-simple-white-laza-1.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplewhitelaza/3661-simple-white-laza-1.jpg
+relatedProjects:
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/warm-wood-kitchen-with-black-island.md
 technicalDetails:
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
   - file: >-
@@ -32,16 +37,17 @@ media:
     isPrimary: true
     label: SIMPLE WHITE LAZA 1.jpg
     altText: Simple White Laza
-    description: ""
+    description: ''
     sourceId: 3661
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplewhitelaza/3673-simple-white-laza.mp4
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplewhitelaza/3673-simple-white-laza.mp4
     kind: video
     mimeType: video/mp4
     isPrimary: false
     label: SIMPLE WHITE LAZA.mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3673
 sourceId: 1713
-sourceUpdatedAt: "2025-09-18T18:25:10.258Z"
+sourceUpdatedAt: '2025-09-18T18:25:10.258Z'
 ---

@@ -6,45 +6,52 @@ countertopType: Quartz
 inStock: true
 storeCollection: in-stock
 description: >-
-  Calacatta Days quartz features a soft white background traced with delicate light gray veining that flows diagonally
-  across the surface. The pattern shows gentle, elongated movement with occasional wider intersections and subtle
-  branching lines. Low to moderate contrast gives it an airy, refined look with a calm, elegant, contemporary design
-  character.
+  Calacatta Days quartz features a soft white background traced with delicate light gray veining
+  that flows diagonally across the surface. The pattern shows gentle, elongated movement with
+  occasional wider intersections and subtle branching lines. Low to moderate contrast gives it an
+  airy, refined look with a calm, elegant, contemporary design character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/3282-calacatta-days.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/3282-calacatta-days.jpg
+relatedProjects:
+  - project: content/projects/bright-white-shaker-kitchen-remodel.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
 technicalDetails:
   - key: Type
     value: Quartz
-    unit: ""
+    unit: ''
     order: 2
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/3282-calacatta-days.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/3282-calacatta-days.jpg
     kind: image
     mimeType: image/jpeg
     isPrimary: true
     label: Calacatta Days.jpg
     altText: Calacatta Days
-    description: ""
+    description: ''
     sourceId: 3282
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/3547-calacatta-days.mp4
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/3547-calacatta-days.mp4
     kind: video
     mimeType: video/mp4
     isPrimary: false
     label: Calacatta Days.mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3547
 sourceId: 1694
-sourceUpdatedAt: "2025-09-18T18:25:11.591Z"
+sourceUpdatedAt: '2025-09-18T18:25:11.591Z'
 ---

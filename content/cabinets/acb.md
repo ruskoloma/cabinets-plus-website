@@ -15,7 +15,10 @@ description: >-
   making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ACB/3090-acb-artisanal-charcoal.jpg
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/modern-black-and-white-kitchen-custom-closet-suite.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
 relatedProducts:
   - product: content/cabinets/aeb.md
   - product: content/cabinets/algb.md

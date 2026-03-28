@@ -6,44 +6,52 @@ countertopType: Quartz
 inStock: true
 storeCollection: in-stock
 description: >-
-  This quartz slab presents a clean, uniform white palette with very subtle soft gray undertones. No visible veining or
-  patterning interrupts the surface, creating an exceptionally quiet sense of movement. Contrast is minimal and gentle,
-  giving the slab a sleek, understated, and modern design character with a calm, seamless visual presence.
+  This quartz slab presents a clean, uniform white palette with very subtle soft gray undertones. No
+  visible veining or patterning interrupts the surface, creating an exceptionally quiet sense of
+  movement. Contrast is minimal and gentle, giving the slab a sleek, understated, and modern design
+  character with a calm, seamless visual presence.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3268-simple-pure-white.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3268-simple-pure-white.jpg
+relatedProjects:
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/bright-open-concept-kitchen-and-bath-cabinetry.md
 technicalDetails:
   - key: Type
     value: Quartz
-    unit: ""
+    unit: ''
     order: 2
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3268-simple-pure-white.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3268-simple-pure-white.jpg
     kind: image
     mimeType: image/jpeg
     isPrimary: true
     label: Simple Pure White.jpg
     altText: Simple Pure White
-    description: ""
+    description: ''
     sourceId: 3268
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3555-simple-pure-white.mp4
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3555-simple-pure-white.mp4
     kind: video
     mimeType: video/mp4
     isPrimary: false
     label: Simple pure white .mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3555
 sourceId: 1706
-sourceUpdatedAt: "2025-09-18T18:25:10.722Z"
+sourceUpdatedAt: '2025-09-18T18:25:10.722Z'
 ---

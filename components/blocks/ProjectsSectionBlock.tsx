@@ -2,6 +2,7 @@ import { tinaField } from "tinacms/dist/react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import { asText, type BlockRecord } from "./block-types";
 
 const PROJECT_COLORS = [
@@ -22,6 +23,7 @@ export default function ProjectsSectionBlock({ block }: { block: BlockRecord }) 
   const images = Array.isArray(block.images) && block.images.length > 0
     ? block.images
     : Array<string | null>(6).fill(null);
+  const imageVariant = resolveConfiguredImageVariant(block.imageSize, "card");
 
   return (
     <section className="py-20 bg-slate-900" id="projects">
@@ -41,7 +43,7 @@ export default function ProjectsSectionBlock({ block }: { block: BlockRecord }) 
               className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-2xl"
             >
               {img ? (
-                <FillImage alt={PROJECT_LABELS[i]} className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(min-width: 768px) 33vw, 50vw" src={img} />
+                <FillImage alt={PROJECT_LABELS[i]} className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(min-width: 768px) 33vw, 50vw" src={img} variant={imageVariant} />
               ) : (
                 <div className={`w-full h-full bg-gradient-to-br ${PROJECT_COLORS[i]} group-hover:scale-110 transition-transform duration-500`} />
               )}

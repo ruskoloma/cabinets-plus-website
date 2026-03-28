@@ -4,6 +4,8 @@ import { useEditState, useTina, tinaField } from "tinacms/dist/react";
 import { GALLERY_OVERVIEW_QUERY } from "@/components/gallery-overview/queries";
 import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
 import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
+import { PROJECT_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
+import type { ProjectPageSettingsQueryLikeResult } from "@/components/page-settings/types";
 import ProjectDetailPage from "@/components/project-detail/ProjectDetailPage";
 import { normalizeProjectQueryData } from "@/components/project-detail/normalize-project-query";
 import {
@@ -35,6 +37,7 @@ interface ProjectDetailClientProps {
   projectData: ProjectDetailQueryLikeResult;
   overviewData: GalleryOverviewQueryLikeResult;
   homePageData: HomePageQueryLikeResult;
+  pageSettingsData: ProjectPageSettingsQueryLikeResult;
 }
 
 function extractContactBlock(pageData: unknown): Record<string, unknown> | null {
@@ -57,6 +60,7 @@ function ProjectDetailRenderer({
   projectData,
   overviewData,
   homePageData,
+  pageSettingsData,
 }: ProjectDetailClientProps) {
   const project = projectData.data.project;
   if (!project) return null;
@@ -66,14 +70,20 @@ function ProjectDetailRenderer({
   const galleryItems = buildProjectGallery(project);
   const materialCards = buildMaterialCards(project, normalizedOverview.catalogSettings, cabinetIndex, tinaField);
   const relatedProjects = buildRelatedProjectCards(project, normalizedOverview, tinaField);
+  const pageSettings = pageSettingsData.data.projectPageSettings || null;
 
   return (
     <ProjectDetailPage
       contactBlock={contactBlock}
       galleryItems={galleryItems}
+      galleryImageSizeChoice={pageSettings?.projectDetailGalleryImageSize}
+      lightboxImageSizeChoice={pageSettings?.projectDetailLightboxImageSize}
+      materialCardImageSizeChoice={pageSettings?.projectDetailMaterialCardImageSize}
       materialCards={materialCards}
+      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
       project={project}
       relatedProjects={relatedProjects}
+      relatedProjectsImageSizeChoice={pageSettings?.projectDetailRelatedProjectsImageSize}
     />
   );
 }
@@ -85,6 +95,7 @@ function TinaProjectDetailClient(props: ProjectDetailClientProps) {
     : { relativePath: `${props.currentSlug}.md` };
   const overviewQuery = props.overviewData.query?.trim() || GALLERY_OVERVIEW_QUERY;
   const homeQuery = props.homePageData.query?.trim() || "";
+  const pageSettingsQuery = props.pageSettingsData.query?.trim() || PROJECT_PAGE_SETTINGS_QUERY;
 
   const { data: projectData } = useTina({
     data: props.projectData.data,
@@ -103,6 +114,11 @@ function TinaProjectDetailClient(props: ProjectDetailClientProps) {
     query: homeQuery,
     variables: props.homePageData.variables || {},
   });
+  const { data: pageSettingsData } = useTina({
+    data: props.pageSettingsData.data,
+    query: pageSettingsQuery,
+    variables: props.pageSettingsData.variables || {},
+  });
 
   return (
     <ProjectDetailRenderer
@@ -111,6 +127,10 @@ function TinaProjectDetailClient(props: ProjectDetailClientProps) {
       homePageData={{
         ...props.homePageData,
         data: homeQuery ? homePageData : props.homePageData.data,
+      }}
+      pageSettingsData={{
+        ...props.pageSettingsData,
+        data: pageSettingsQuery ? pageSettingsData : props.pageSettingsData.data,
       }}
       overviewData={{
         ...props.overviewData,

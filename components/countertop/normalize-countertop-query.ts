@@ -22,6 +22,24 @@ function asBoolean(value: unknown): boolean | undefined {
   return typeof value === "boolean" ? value : undefined;
 }
 
+function normalizeProjectReference(value: unknown): string | null {
+  if (typeof value === "string") return value;
+
+  const record = asRecord(value);
+  if (!record) return null;
+
+  if ("project" in record) {
+    return normalizeProjectReference(record.project);
+  }
+
+  return (
+    asString(record.slug) ||
+    asString(asRecord(record._sys)?.relativePath) ||
+    asString(asRecord(record._sys)?.filename) ||
+    null
+  );
+}
+
 function normalizeSystemInfo(value: unknown, fallbackFilename?: string): CountertopSystemInfo | undefined {
   const record = asRecord(value);
 
@@ -69,6 +87,17 @@ function normalizeMediaItem(value: unknown): CountertopMediaItem | null {
 function normalizeCountertopData(value: unknown, fallbackFilename?: string): CountertopData | null {
   const record = asRecord(value);
   if (!record) return null;
+  const rawValues = asRecord(record._values);
+
+  const typedRelatedProjects = Array.isArray(record.relatedProjects)
+    ? record.relatedProjects.map((item) => normalizeProjectReference(item))
+    : [];
+
+  const rawRelatedProjects = Array.isArray(rawValues?.relatedProjects)
+    ? rawValues.relatedProjects.map((item) => normalizeProjectReference(item))
+    : [];
+
+  const relatedProjects = typedRelatedProjects.length > 0 ? typedRelatedProjects : rawRelatedProjects;
 
   return {
     __typename: asString(record.__typename),
@@ -82,6 +111,7 @@ function normalizeCountertopData(value: unknown, fallbackFilename?: string): Cou
     storeCollection: asString(record.storeCollection) ?? null,
     description: asString(record.description) ?? null,
     picture: asString(record.picture) ?? null,
+    relatedProjects,
     technicalDetails: Array.isArray(record.technicalDetails)
       ? record.technicalDetails
           .map((item) => normalizeTechnicalDetail(item))

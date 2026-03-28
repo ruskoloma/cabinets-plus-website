@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import FallbackImg from "@/components/ui/FallbackImg";
 
 interface TrustStat {
   value: string;
@@ -92,11 +93,13 @@ export default function TrustBar({
   return (
     <>
       <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-100)]">
-        <div
+        <FallbackImg
+          alt=""
           aria-hidden
-          className="absolute inset-0 bg-cover bg-center opacity-35"
+          className="absolute inset-0 h-full w-full object-cover opacity-35"
           data-tina-field={stripTextureField}
-          style={{ backgroundImage: `url(${stripTexture})` }}
+          src={stripTexture}
+          variant="full"
         />
         <div className="cp-container relative px-4 py-[33px] md:px-8">
           <p className="mx-auto max-w-[1376px] text-center font-[var(--font-red-hat-display)] text-[20px] font-medium leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]" data-tina-field={stripTextField}>
@@ -126,10 +129,10 @@ export default function TrustBar({
               <div className="w-[172px]">
                 <div className="relative h-[140px] w-[172px] opacity-80">
                   {mobileTopMembershipLogo ? (
-                    <img alt="Spokane Home Builders Association" className="absolute left-0 top-0 h-[52.826px] w-[172px] object-contain" data-tina-field={membershipMobileTopLogoField || membershipLogoField} src={mobileTopMembershipLogo} />
+                    <FallbackImg alt="Spokane Home Builders Association" className="absolute left-0 top-0 h-[52.826px] w-[172px] object-contain" data-tina-field={membershipMobileTopLogoField || membershipLogoField} src={mobileTopMembershipLogo} variant="thumb" />
                   ) : null}
                   {mobileBottomMembershipLogo ? (
-                    <img alt="TPM" className="absolute left-0 top-[65.83px] h-[70.174px] w-[49.299px] object-contain" data-tina-field={membershipMobileBottomLogoField} src={mobileBottomMembershipLogo} />
+                    <FallbackImg alt="TPM" className="absolute left-0 top-[65.83px] h-[70.174px] w-[49.299px] object-contain" data-tina-field={membershipMobileBottomLogoField} src={mobileBottomMembershipLogo} variant="thumb" />
                   ) : null}
                 </div>
                 <p className="mt-[6px] text-base font-semibold capitalize leading-[1.2] text-white" data-tina-field={membershipLabelField}>{membershipLabel}</p>
@@ -143,12 +146,12 @@ export default function TrustBar({
             </div>
 
             <div className="mt-[44px] relative h-[100px] w-full max-w-[361px]">
-              {logo1 ? <img alt={logo1.alt} className="absolute left-0 top-[3.66px] h-[44.96px] w-[123.903px] object-contain opacity-40" data-tina-field={logo1.logoField || logo1.tinaField} src={logo1.src} /> : null}
-              {logo2 ? <img alt={logo2.alt} className="absolute left-[157.88px] top-0 h-[52.28px] w-[39.923px] object-contain opacity-40" data-tina-field={logo2.logoField || logo2.tinaField} src={logo2.src} /> : null}
-              {logo3 ? <img alt={logo3.alt} className="absolute left-[231.6px] top-[12.02px] h-[28.231px] w-[129.401px] object-contain opacity-40" data-tina-field={logo3.logoField || logo3.tinaField} src={logo3.src} /> : null}
-              {logo4 ? <img alt={logo4.alt} className="absolute left-0 top-[74.08px] h-[22.57px] w-[126.249px] object-contain opacity-40" data-tina-field={logo4.logoField || logo4.tinaField} src={logo4.src} /> : null}
-              {logo5 ? <img alt={logo5.alt} className="absolute left-[152.45px] top-[73.65px] h-[23.821px] w-[57.169px] object-contain opacity-40" data-tina-field={logo5.logoField || logo5.tinaField} src={logo5.src} /> : null}
-              {logo6 ? <img alt={logo6.alt} className="absolute left-[242.97px] top-[71px] h-[28.74px] w-[117.951px] object-contain opacity-40" data-tina-field={logo6.logoField || logo6.tinaField} src={logo6.src} /> : null}
+              {logo1 ? <FallbackImg alt={logo1.alt} className="absolute left-0 top-[3.66px] h-[44.96px] w-[123.903px] object-contain opacity-40" data-tina-field={logo1.logoField || logo1.tinaField} src={logo1.src} variant="thumb" /> : null}
+              {logo2 ? <FallbackImg alt={logo2.alt} className="absolute left-[157.88px] top-0 h-[52.28px] w-[39.923px] object-contain opacity-40" data-tina-field={logo2.logoField || logo2.tinaField} src={logo2.src} variant="thumb" /> : null}
+              {logo3 ? <FallbackImg alt={logo3.alt} className="absolute left-[231.6px] top-[12.02px] h-[28.231px] w-[129.401px] object-contain opacity-40" data-tina-field={logo3.logoField || logo3.tinaField} src={logo3.src} variant="thumb" /> : null}
+              {logo4 ? <FallbackImg alt={logo4.alt} className="absolute left-0 top-[74.08px] h-[22.57px] w-[126.249px] object-contain opacity-40" data-tina-field={logo4.logoField || logo4.tinaField} src={logo4.src} variant="thumb" /> : null}
+              {logo5 ? <FallbackImg alt={logo5.alt} className="absolute left-[152.45px] top-[73.65px] h-[23.821px] w-[57.169px] object-contain opacity-40" data-tina-field={logo5.logoField || logo5.tinaField} src={logo5.src} variant="thumb" /> : null}
+              {logo6 ? <FallbackImg alt={logo6.alt} className="absolute left-[242.97px] top-[71px] h-[28.74px] w-[117.951px] object-contain opacity-40" data-tina-field={logo6.logoField || logo6.tinaField} src={logo6.src} variant="thumb" /> : null}
             </div>
           </div>
 
@@ -167,12 +170,12 @@ export default function TrustBar({
               <div className="w-[413px]">
                 <div className="relative h-[96px] w-[413px] opacity-80">
                   {mobileBottomMembershipLogo ? (
-                    <img alt="TPM" className="absolute left-0 top-0 h-[96px] w-[67.443px] object-contain" data-tina-field={membershipMobileBottomLogoField} src={mobileBottomMembershipLogo} />
+                    <FallbackImg alt="TPM" className="absolute left-0 top-0 h-[96px] w-[67.443px] object-contain" data-tina-field={membershipMobileBottomLogoField} src={mobileBottomMembershipLogo} variant="thumb" />
                   ) : null}
                   {mobileTopMembershipLogo ? (
-                    <img alt="Spokane Home Builders Association" className="absolute left-[100.443px] top-0 h-[96px] w-[312.572px] object-contain" data-tina-field={membershipMobileTopLogoField || membershipLogoField} src={mobileTopMembershipLogo} />
+                    <FallbackImg alt="Spokane Home Builders Association" className="absolute left-[100.443px] top-0 h-[96px] w-[312.572px] object-contain" data-tina-field={membershipMobileTopLogoField || membershipLogoField} src={mobileTopMembershipLogo} variant="thumb" />
                   ) : membershipLogo ? (
-                    <img alt="Spokane Home Builders Association" className="absolute left-[100.443px] top-0 h-[96px] w-[312.572px] object-contain" data-tina-field={membershipLogoField} src={membershipLogo} />
+                    <FallbackImg alt="Spokane Home Builders Association" className="absolute left-[100.443px] top-0 h-[96px] w-[312.572px] object-contain" data-tina-field={membershipLogoField} src={membershipLogo} variant="thumb" />
                   ) : null}
                 </div>
                 <p className="mt-[21px] text-[20px] font-semibold capitalize leading-[1.2] text-white" data-tina-field={membershipLabelField}>{membershipLabel}</p>
@@ -199,11 +202,12 @@ export default function TrustBar({
                       width: `${size.width}px`,
                     }}
                   >
-                    <img
+                    <FallbackImg
                       alt={logo.alt}
                       className="block h-full w-full object-contain opacity-40"
                       data-tina-field={logo.logoField || logo.tinaField}
                       src={logo.src}
+                      variant="thumb"
                     />
                   </div>
                 );

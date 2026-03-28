@@ -60,7 +60,10 @@ media:
 sourceId: 287
 sourceUpdatedAt: '2025-07-25T22:53:56.034Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/soft-tan-arched-kitchen-brass-accents.md
+  - project: content/projects/modern-oak-and-black-kitchen-with-blush-laundry.md
+  - project: content/projects/warm-brown-shaker-kitchen-white-quartz.md
 relatedProducts:
   - product: content/cabinets/arm.md
   - product: content/cabinets/atb.md

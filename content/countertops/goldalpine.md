@@ -6,44 +6,52 @@ countertopType: Quartz
 inStock: true
 storeCollection: in-stock
 description: >-
-  Gold Alpine quartz presents a soft white to light cream background traced with delicate, branching veining in warm
-  gold and subtle taupe. The lines drift diagonally with graceful, organic movement, creating gentle contrast rather
-  than bold drama. Its overall character feels airy, refined, and understated, with a polished, elegant visual rhythm.
+  Gold Alpine quartz presents a soft white to light cream background traced with delicate, branching
+  veining in warm gold and subtle taupe. The lines drift diagonally with graceful, organic movement,
+  creating gentle contrast rather than bold drama. Its overall character feels airy, refined, and
+  understated, with a polished, elegant visual rhythm.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3278-gold-alpine.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3278-gold-alpine.jpg
+relatedProjects:
+  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/modern-oak-and-black-kitchen-with-blush-laundry.md
 technicalDetails:
   - key: Type
     value: Quartz
-    unit: ""
+    unit: ''
     order: 2
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3278-gold-alpine.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3278-gold-alpine.jpg
     kind: image
     mimeType: image/jpeg
     isPrimary: true
     label: Gold Alpine.jpg
     altText: Gold Alpine
-    description: ""
+    description: ''
     sourceId: 3278
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3552-alpine-gold.mp4
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3552-alpine-gold.mp4
     kind: video
     mimeType: video/mp4
     isPrimary: false
     label: Alpine Gold .mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3552
 sourceId: 1698
-sourceUpdatedAt: "2025-09-18T18:25:11.291Z"
+sourceUpdatedAt: '2025-09-18T18:25:11.291Z'
 ---

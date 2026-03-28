@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { getImageVariantUrl } from "@/lib/image-variants";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import type { ProductGalleryItemViewModel } from "./types";
 
 interface ProductMediaGalleryProps {
   items: ProductGalleryItemViewModel[];
   productName: string;
   expandLabel?: string;
+  thumbImageSizeChoice?: string | null;
+  mainImageSizeChoice?: string | null;
+  lightboxImageSizeChoice?: string | null;
 }
 
 function ExpandIcon() {
@@ -42,6 +47,9 @@ export default function ProductMediaGallery({
   items,
   productName,
   expandLabel = "Click to expand",
+  thumbImageSizeChoice,
+  mainImageSizeChoice,
+  lightboxImageSizeChoice,
 }: ProductMediaGalleryProps) {
   const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -52,6 +60,9 @@ export default function ProductMediaGallery({
     () => items.find((item) => item.id === activeId) || items[0] || null,
     [activeId, items],
   );
+  const thumbImageVariant = resolveConfiguredImageVariant(thumbImageSizeChoice, "thumb");
+  const mainImageVariant = resolveConfiguredImageVariant(mainImageSizeChoice, "feature");
+  const lightboxImageVariant = resolveConfiguredImageVariant(lightboxImageSizeChoice, "full");
 
   useEffect(() => {
     if (!lightboxOpen) return undefined;
@@ -83,7 +94,7 @@ export default function ProductMediaGallery({
 
     pendingImages.forEach((item) => {
       const image = new window.Image();
-      image.src = item.previewFile;
+      image.src = getImageVariantUrl(item.previewFile, mainImageVariant);
       image.onload = () => {
         if (cancelled || !image.naturalWidth || !image.naturalHeight) return;
 
@@ -161,7 +172,7 @@ export default function ProductMediaGallery({
                 onClick={() => setActiveId(item.id)}
                 type="button"
               >
-                <FillImage alt="" aria-hidden className="object-cover" sizes="90px" src={item.previewFile} />
+                <FillImage alt="" aria-hidden className="object-cover" sizes="90px" src={item.previewFile} variant={thumbImageVariant} />
                 {item.kind === "video" ? (
                   <>
                     <div className="absolute inset-0 bg-black/20" />
@@ -189,7 +200,7 @@ export default function ProductMediaGallery({
                   className="h-full w-full object-cover"
                   muted
                   playsInline
-                  poster={activeItem.previewFile}
+                  poster={getImageVariantUrl(activeItem.previewFile, mainImageVariant)}
                   preload="metadata"
                   src={activeItem.file}
                 />
@@ -214,6 +225,7 @@ export default function ProductMediaGallery({
                       data-tina-field={activeItem.tinaField}
                       sizes="(min-width: 1024px) 557px, 100vw"
                       src={activeItem.previewFile}
+                      variant={mainImageVariant}
                     />
                   </div>
                 </div>
@@ -260,12 +272,12 @@ export default function ProductMediaGallery({
                 className="max-h-[85vh] w-full max-w-[min(95vw,1100px)] rounded-[4px] bg-black object-contain"
                 controls
                 playsInline
-                poster={activeItem.previewFile}
+                poster={getImageVariantUrl(activeItem.previewFile, mainImageVariant)}
                 src={activeItem.file}
               />
             ) : (
               <div className="relative h-[min(85vh,900px)] w-[min(95vw,1100px)]">
-                <FillImage alt={activeItem.alt} className="rounded-[4px] object-contain" sizes="95vw" src={activeItem.file} />
+                <FillImage alt={activeItem.alt} className="rounded-[4px] object-contain" sizes="95vw" src={activeItem.file} variant={lightboxImageVariant} />
               </div>
             )}
           </div>

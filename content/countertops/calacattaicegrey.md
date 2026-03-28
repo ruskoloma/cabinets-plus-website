@@ -6,27 +6,32 @@ countertopType: Quartz
 inStock: true
 storeCollection: in-stock
 description: >-
-  Calacatta Ice Grey quartz features a soft white background traced with elongated, flowing veins in pale to medium
-  grey. The veining moves diagonally with gentle organic variation, creating graceful movement across the surface.
-  Low-to-moderate contrast and delicate feathered detailing give the slab an airy, refined, and quietly contemporary
-  character.
+  Calacatta Ice Grey quartz features a soft white background traced with elongated, flowing veins in
+  pale to medium grey. The veining moves diagonally with gentle organic variation, creating graceful
+  movement across the surface. Low-to-moderate contrast and delicate feathered detailing give the
+  slab an airy, refined, and quietly contemporary character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
-  selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaicegrey/3273-calacatta-ice-grey.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
+  making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaicegrey/3273-calacatta-ice-grey.jpg
+relatedProjects:
+  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
+  - project: content/projects/bright-white-shaker-kitchen-remodel.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
 technicalDetails:
   - key: Type
     value: Quartz
-    unit: ""
+    unit: ''
     order: 2
   - key: Thickness
     value: 3CM
-    unit: ""
+    unit: ''
     order: 3
   - key: Store Collection
     value: in-stock
-    unit: ""
+    unit: ''
     order: 6
 media:
   - file: >-
@@ -36,7 +41,7 @@ media:
     isPrimary: true
     label: Calacatta Ice Grey.jpg
     altText: Calacatta Ice Grey
-    description: ""
+    description: ''
     sourceId: 3273
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaicegrey/3544-calacatta-ice-grey.mp4
@@ -44,9 +49,9 @@ media:
     mimeType: video/mp4
     isPrimary: false
     label: Calacatta Ice Grey.mp4
-    altText: ""
-    description: ""
+    altText: ''
+    description: ''
     sourceId: 3544
 sourceId: 1703
-sourceUpdatedAt: "2025-09-18T18:25:10.924Z"
+sourceUpdatedAt: '2025-09-18T18:25:10.924Z'
 ---

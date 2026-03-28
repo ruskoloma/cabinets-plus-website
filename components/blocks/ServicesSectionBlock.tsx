@@ -2,6 +2,7 @@ import { tinaField } from "tinacms/dist/react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
 const SERVICE_GRADIENTS = [
@@ -11,6 +12,7 @@ const SERVICE_GRADIENTS = [
 
 export default function ServicesSectionBlock({ block }: { block: BlockRecord }) {
   const services = asBlockArray(block.services);
+  const imageVariant = resolveConfiguredImageVariant(block.imageSize, "feature");
 
   return (
     <section className="py-20 bg-white">
@@ -24,7 +26,7 @@ export default function ServicesSectionBlock({ block }: { block: BlockRecord }) 
             >
               {asText(service.image) ? (
                 <div className="relative h-56">
-                  <FillImage alt={asText(service.title, "Service")} className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" src={asText(service.image)} />
+                  <FillImage alt={asText(service.title, "Service")} className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" src={asText(service.image)} variant={imageVariant} />
                 </div>
               ) : (
                 <div className={`h-56 bg-gradient-to-br ${SERVICE_GRADIENTS[i % SERVICE_GRADIENTS.length]} flex items-center justify-center`}>

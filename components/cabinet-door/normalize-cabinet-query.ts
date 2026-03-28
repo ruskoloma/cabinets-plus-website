@@ -23,6 +23,24 @@ function asBoolean(value: unknown): boolean | undefined {
   return typeof value === "boolean" ? value : undefined;
 }
 
+function normalizeProjectReference(value: unknown): string | null {
+  if (typeof value === "string") return value;
+
+  const record = asRecord(value);
+  if (!record) return null;
+
+  if ("project" in record) {
+    return normalizeProjectReference(record.project);
+  }
+
+  return (
+    asString(record.slug) ||
+    asString(asRecord(record._sys)?.relativePath) ||
+    asString(asRecord(record._sys)?.filename) ||
+    null
+  );
+}
+
 function asStringList(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
   return value.filter((item): item is string => typeof item === "string");
@@ -179,11 +197,11 @@ function normalizeCabinetData(value: unknown, fallbackFilename?: string): Cabine
   }
 
   const typedRelatedProjects = Array.isArray(record.relatedProjects)
-    ? record.relatedProjects.map((item) => (typeof item === "string" ? item : null))
+    ? record.relatedProjects.map((item) => normalizeProjectReference(item))
     : [];
 
   const rawRelatedProjects = Array.isArray(rawValues?.relatedProjects)
-    ? rawValues.relatedProjects.map((item) => (typeof item === "string" ? item : null))
+    ? rawValues.relatedProjects.map((item) => normalizeProjectReference(item))
     : [];
 
   const relatedProjects = typedRelatedProjects.length > 0 ? typedRelatedProjects : rawRelatedProjects;

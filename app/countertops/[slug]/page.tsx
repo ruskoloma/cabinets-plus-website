@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CountertopDetailClient from "./countertop-client";
 import { getCountertopDataSafe, getCountertopIndexSafe } from "@/app/get-countertop-data-safe";
-import { getCabinetPageSettingsSafe } from "@/app/get-cabinet-page-settings-safe";
+import { getCountertopPageSettingsSafe } from "@/app/get-countertop-page-settings-safe";
 import { getGalleryOverviewDataSafe } from "@/app/get-gallery-overview-data-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 
@@ -35,11 +35,11 @@ export default async function CountertopDetailRoute(
 ) {
   const { slug } = await params;
 
-  const [result, countertopIndex, homePageData, pageSettings, galleryOverviewData] = await Promise.all([
+  const [result, countertopIndex, homePageData, pageSettingsData, galleryOverviewData] = await Promise.all([
     getCountertopDataSafe(slug),
     getCountertopIndexSafe(),
     getPageDataSafe("home.md"),
-    getCabinetPageSettingsSafe(),
+    getCountertopPageSettingsSafe(),
     getGalleryOverviewDataSafe(),
   ]);
 
@@ -54,7 +54,7 @@ export default async function CountertopDetailRoute(
       data={result.data}
       galleryOverviewData={galleryOverviewData}
       homePageData={homePageData}
-      pageSettings={pageSettings}
+      pageSettingsData={pageSettingsData}
       query={result.query}
       variables={result.variables}
     />

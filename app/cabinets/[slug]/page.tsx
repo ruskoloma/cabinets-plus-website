@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import CabinetDetailClient from "./cabinet-client";
 import { getCabinetDataSafe, getCabinetIndexSafe } from "@/app/get-cabinet-data-safe";
 import { getCabinetPageSettingsSafe } from "@/app/get-cabinet-page-settings-safe";
+import { getGalleryOverviewDataSafe } from "@/app/get-gallery-overview-data-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 
 export async function generateStaticParams() {
@@ -34,11 +35,12 @@ export default async function CabinetDetailPage(
 ) {
   const { slug } = await params;
 
-  const [result, cabinetIndex, homePageData, pageSettings] = await Promise.all([
+  const [result, cabinetIndex, homePageData, pageSettingsData, galleryOverviewData] = await Promise.all([
     getCabinetDataSafe(slug),
     getCabinetIndexSafe(),
     getPageDataSafe("home.md"),
     getCabinetPageSettingsSafe(),
+    getGalleryOverviewDataSafe(),
   ]);
 
   if (!result.data.cabinet) {
@@ -50,8 +52,9 @@ export default async function CabinetDetailPage(
       cabinetIndex={cabinetIndex}
       currentSlug={slug}
       data={result.data}
+      galleryOverviewData={galleryOverviewData}
       homePageData={homePageData}
-      pageSettings={pageSettings}
+      pageSettingsData={pageSettingsData}
       query={result.query}
       variables={result.variables}
     />

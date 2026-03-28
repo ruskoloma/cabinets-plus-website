@@ -2,6 +2,7 @@ import { tinaField } from "tinacms/dist/react";
 import Link from "next/link";
 import SectionTitle from "@/components/ui/SectionTitle";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
 const GRADIENTS = [
@@ -12,6 +13,7 @@ const GRADIENTS = [
 
 export default function ProductsSectionBlock({ block }: { block: BlockRecord }) {
   const products = asBlockArray(block.products);
+  const imageVariant = resolveConfiguredImageVariant(block.imageSize, "card");
 
   return (
     <section className="py-20 bg-slate-50">
@@ -31,6 +33,7 @@ export default function ProductsSectionBlock({ block }: { block: BlockRecord }) 
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(min-width: 640px) 33vw, 100vw"
                     src={asText(product.image)}
+                    variant={imageVariant}
                   />
                 </div>
               ) : (

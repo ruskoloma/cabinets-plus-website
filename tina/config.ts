@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import React from "react";
 import { defineConfig } from "tinacms";
+import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
+import { HOMEPAGE_SECTION_IMAGE_SIZE_OPTIONS } from "../lib/homepage-image-controls";
 import { cabinetReferenceLabelsByValue, cabinetReferenceSelectOptions } from "./cabinet-reference-options";
 import { seoFields } from "./seo-fields";
 
@@ -102,6 +104,114 @@ function resolveCabinetReferenceLabel(value: unknown) {
   );
 }
 
+function resolveProjectReferenceLabel(value: unknown) {
+  const ref = String(value || "").trim();
+  if (!ref) return "Select project";
+
+  const cleaned = ref.replace(/^\/+/, "");
+  const file = cleaned.split("/").pop() || cleaned;
+  const slug = file.replace(/\.md$/, "");
+
+  return slug
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function normalizeSearchText(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object") return null;
+  return value as Record<string, unknown>;
+}
+
+function readProjectReferenceData(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const record = asRecord(values);
+
+  return {
+    title: typeof record?.title === "string" ? record.title.trim() : "",
+    slug: typeof record?.slug === "string" ? record.slug.trim() : "",
+    primaryPicture: typeof record?.primaryPicture === "string" ? record.primaryPicture.trim() : "",
+    filename: internalSys?.filename?.trim() || "",
+    path: internalSys?.path?.trim() || "",
+  };
+}
+
+function renderProjectReferenceOption(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const project = readProjectReferenceData(values, internalSys);
+  const title = project.title || resolveProjectReferenceLabel(project.filename || project.path);
+  const meta = project.slug || project.filename || "";
+
+  return React.createElement(
+    "div",
+    { className: "flex min-w-0 items-center gap-3" },
+    project.primaryPicture
+      ? React.createElement("img", {
+          src: project.primaryPicture,
+          alt: title,
+          className: "h-12 w-16 shrink-0 rounded border border-gray-200 object-cover bg-gray-50",
+        })
+      : React.createElement("div", {
+          className: "h-12 w-16 shrink-0 rounded border border-gray-200 bg-gray-50",
+        }),
+    React.createElement(
+      "div",
+      { className: "min-w-0" },
+      React.createElement("div", { className: "truncate text-sm font-medium text-gray-900" }, title),
+      meta
+        ? React.createElement("div", { className: "truncate text-xs text-gray-500" }, meta)
+        : null,
+    ),
+  );
+}
+
+function filterProjectReferenceOptions(list: Array<unknown>, searchQuery?: string) {
+  const query = normalizeSearchText(searchQuery || "");
+  if (!query) return list;
+
+  return list
+    .map((group) => {
+      const groupRecord = asRecord(group);
+      const edges = Array.isArray(groupRecord?.edges) ? groupRecord.edges : [];
+      const filteredEdges = edges.filter((edge) => {
+        const edgeRecord = asRecord(edge);
+        const node = asRecord(edgeRecord?.node);
+        const internalSys = asRecord(node?._internalSys);
+        const project = readProjectReferenceData(node?._values, {
+          filename: typeof internalSys?.filename === "string" ? internalSys.filename : undefined,
+          path: typeof internalSys?.path === "string" ? internalSys.path : undefined,
+        });
+        const haystack = normalizeSearchText([
+          project.title,
+          project.slug,
+          project.filename,
+          project.path,
+        ].join(" "));
+
+        return haystack.includes(query);
+      });
+
+      return {
+        ...(groupRecord || {}),
+        edges: filteredEdges,
+      };
+    })
+    .filter((group) => Array.isArray(group?.edges) && group.edges.length > 0);
+}
+
 function resolveDocumentRouteSegment(document: { _sys: { filename: string } } & Record<string, unknown>) {
   const slug = typeof document.slug === "string" ? document.slug.trim() : "";
   return slug || document._sys.filename;
@@ -147,6 +257,30 @@ function mediaItemLabel(item?: string | { file?: string; mimeType?: string; kind
   );
 }
 
+function homepageSectionImageFields() {
+  return [
+    {
+      type: "string" as const,
+      name: "imageSize",
+      label: "Section Image Size",
+      description: "Auto keeps the current per-image sizing logic. Choose a size only if you want to override the whole section.",
+      options: HOMEPAGE_SECTION_IMAGE_SIZE_OPTIONS as unknown as string[],
+      ui: { component: "select" as const },
+    },
+  ];
+}
+
+function imageSizeSettingField(name: string, label: string, description: string) {
+  return {
+    type: "string" as const,
+    name,
+    label,
+    description,
+    options: IMAGE_SIZE_SELECT_OPTIONS as unknown as string[],
+    ui: { component: "select" as const },
+  };
+}
+
 export default defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
@@ -170,6 +304,7 @@ export default defineConfig({
           include: "@(header|footer|general)",
         },
         ui: {
+          global: true,
           allowedActions: { create: false, delete: false },
         },
         fields: [
@@ -322,39 +457,191 @@ export default defineConfig({
         ],
       },
       {
-        name: "cabinetPageSettings",
-        label: "Cabinet Page Settings",
+        name: "pageSettings",
+        label: "Page Settings",
         path: "content/global",
         format: "json",
         match: {
-          include: "cabinet-page-settings",
+          include:
+            "@(cabinets-overview-page-settings|countertops-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings)",
         },
         ui: {
           global: true,
           allowedActions: { create: false, delete: false },
         },
-        fields: [
-          { type: "string", name: "breadcrumbLabel", label: "Breadcrumb Label" },
-          { type: "string", name: "technicalDetailsTitle", label: "Technical Details Title" },
-          { type: "string", name: "contactButtonLabel", label: "Contact Button Label" },
-          { type: "string", name: "descriptionLabel", label: "Description Label" },
-          { type: "string", name: "relatedProductsTitle", label: "Related Products Title" },
-          { type: "string", name: "projectsSectionTitle", label: "Projects Section Title" },
+        templates: [
           {
-            type: "string",
-            name: "projectsSectionDescription",
-            label: "Projects Section Description",
-            ui: { component: "textarea" },
-          },
-          { type: "string", name: "projectFallbackTitle", label: "Project Card Fallback Title" },
-          {
-            type: "object",
-            name: "mockProjects",
-            label: "Mock Projects (fallback)",
-            list: true,
+            name: "cabinetsOverview",
+            label: "Cabinets Overview",
             fields: [
-              { type: "image", name: "file", label: "Image" },
-              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "pageTitle", label: "Page Title" },
+              imageSizeSettingField(
+                "cabinetsOverviewCardImageSize",
+                "Card Images",
+                "Controls the main product grid card images on /cabinets.",
+              ),
+              imageSizeSettingField(
+                "cabinetsOverviewFilterImageSize",
+                "Filter Images",
+                "Controls the visual filter cards on /cabinets.",
+              ),
+            ],
+          },
+          {
+            name: "countertopsOverview",
+            label: "Countertops Overview",
+            fields: [
+              { type: "string", name: "pageTitle", label: "Page Title" },
+              imageSizeSettingField(
+                "countertopsOverviewCardImageSize",
+                "Card Images",
+                "Controls the main product grid card images on /countertops.",
+              ),
+              imageSizeSettingField(
+                "countertopsOverviewFilterImageSize",
+                "Filter Images",
+                "Controls the visual filter cards on /countertops.",
+              ),
+            ],
+          },
+          {
+            name: "gallery",
+            label: "Gallery",
+            fields: [
+              { type: "string", name: "pageTitle", label: "Page Title" },
+              imageSizeSettingField(
+                "galleryOverviewProjectCardImageSize",
+                "Project Card Images",
+                "Controls the main project grid images on /gallery.",
+              ),
+              imageSizeSettingField(
+                "galleryOverviewFilterImageSize",
+                "Filter Images",
+                "Controls the visual filter cards on /gallery.",
+              ),
+            ],
+          },
+          {
+            name: "project",
+            label: "Project",
+            fields: [
+              imageSizeSettingField(
+                "projectDetailMaterialCardImageSize",
+                "Finish & Materials Images",
+                "Controls the cabinet, countertop, and flooring cards on project detail pages.",
+              ),
+              imageSizeSettingField(
+                "projectDetailGalleryImageSize",
+                "Gallery Grid Images",
+                "Controls the project gallery grid images on project detail pages.",
+              ),
+              imageSizeSettingField(
+                "projectDetailLightboxImageSize",
+                "Lightbox Images",
+                "Controls the expanded lightbox image on project detail pages.",
+              ),
+              imageSizeSettingField(
+                "projectDetailRelatedProjectsImageSize",
+                "Related Projects Images",
+                "Controls the related-project card images on project detail pages.",
+              ),
+            ],
+          },
+          {
+            name: "post",
+            label: "Post",
+            fields: [
+              imageSizeSettingField(
+                "postDetailThumbnailImageSize",
+                "Featured Image",
+                "Controls the featured image on /post/[slug] pages.",
+              ),
+            ],
+          },
+          {
+            name: "cabinet",
+            label: "Cabinet",
+            fields: [
+              { type: "string", name: "breadcrumbLabel", label: "Breadcrumb Label" },
+              { type: "string", name: "technicalDetailsTitle", label: "Technical Details Title" },
+              { type: "string", name: "contactButtonLabel", label: "Contact Button Label" },
+              { type: "string", name: "descriptionLabel", label: "Description Label" },
+              imageSizeSettingField(
+                "galleryThumbImageSize",
+                "Gallery Thumbnail Images",
+                "Controls the thumbnail rail on cabinet detail pages.",
+              ),
+              imageSizeSettingField(
+                "galleryMainImageSize",
+                "Gallery Main Image",
+                "Controls the main gallery image on cabinet detail pages.",
+              ),
+              imageSizeSettingField(
+                "galleryLightboxImageSize",
+                "Gallery Lightbox Image",
+                "Controls the expanded lightbox image on cabinet detail pages.",
+              ),
+              { type: "string", name: "projectsSectionTitle", label: "Projects Section Title" },
+              {
+                type: "string",
+                name: "projectsSectionDescription",
+                label: "Projects Section Description",
+                ui: { component: "textarea" },
+              },
+              imageSizeSettingField(
+                "projectsSectionImageSize",
+                "Material In Real Projects Images",
+                "Controls the images in the Material in Real Projects section on cabinet and countertop detail pages.",
+              ),
+              { type: "string", name: "relatedProductsTitle", label: "Related Products Title" },
+              imageSizeSettingField(
+                "relatedProductsImageSize",
+                "Related Products Images",
+                "Controls the related-product card images on cabinet detail pages.",
+              ),
+            ],
+          },
+          {
+            name: "countertop",
+            label: "Countertop",
+            fields: [
+              { type: "string", name: "breadcrumbLabel", label: "Breadcrumb Label" },
+              { type: "string", name: "technicalDetailsTitle", label: "Technical Details Title" },
+              { type: "string", name: "contactButtonLabel", label: "Contact Button Label" },
+              { type: "string", name: "descriptionLabel", label: "Description Label" },
+              imageSizeSettingField(
+                "galleryThumbImageSize",
+                "Gallery Thumbnail Images",
+                "Controls the thumbnail rail on countertop detail pages.",
+              ),
+              imageSizeSettingField(
+                "galleryMainImageSize",
+                "Gallery Main Image",
+                "Controls the main gallery image on countertop detail pages.",
+              ),
+              imageSizeSettingField(
+                "galleryLightboxImageSize",
+                "Gallery Lightbox Image",
+                "Controls the expanded lightbox image on countertop detail pages.",
+              ),
+              { type: "string", name: "projectsSectionTitle", label: "Projects Section Title" },
+              {
+                type: "string",
+                name: "projectsSectionDescription",
+                label: "Projects Section Description",
+                ui: { component: "textarea" },
+              },
+              imageSizeSettingField(
+                "projectsSectionImageSize",
+                "Material In Real Projects Images",
+                "Controls the images in the Material in Real Projects section on countertop detail pages.",
+              ),
+              { type: "string", name: "relatedProductsTitle", label: "Related Products Title" },
+              imageSizeSettingField(
+                "relatedProductsImageSize",
+                "Related Products Images",
+                "Controls the related-product card images on countertop detail pages.",
+              ),
             ],
           },
         ],
@@ -387,12 +674,14 @@ export default defineConfig({
                   { type: "string", name: "ctaLabel", label: "CTA Text" },
                   { type: "string", name: "ctaLink", label: "CTA Link" },
                   { type: "image", name: "backgroundImage", label: "Background Image" },
+                  ...homepageSectionImageFields(),
                 ],
               },
               {
                 name: "productsSection", label: "Products Section",
                 fields: [
                   { type: "string", name: "title", label: "Section Title" },
+                  ...homepageSectionImageFields(),
                   {
                     type: "object", name: "products", label: "Products", list: true,
                     ui: { itemProps: (item: any) => ({ label: item.name }) },
@@ -408,6 +697,7 @@ export default defineConfig({
                 name: "servicesSection", label: "Services Section",
                 fields: [
                   { type: "string", name: "title", label: "Section Title" },
+                  ...homepageSectionImageFields(),
                   {
                     type: "object", name: "services", label: "Services", list: true,
                     ui: { itemProps: (item: any) => ({ label: item.title }) },
@@ -427,6 +717,7 @@ export default defineConfig({
                   { type: "string", name: "ctaLabel", label: "CTA Text" },
                   { type: "string", name: "ctaLink", label: "CTA Link" },
                   { type: "image", name: "images", label: "Project Images", list: true },
+                  ...homepageSectionImageFields(),
                 ],
               },
               {
@@ -436,6 +727,7 @@ export default defineConfig({
                   { type: "string", name: "subtitle", label: "Subtitle" },
                   { type: "string", name: "introText", label: "Intro Text (line 1)", ui: { component: "textarea" } },
                   { type: "string", name: "introText2", label: "Intro Text (line 2)", ui: { component: "textarea" } },
+                  ...homepageSectionImageFields(),
                   {
                     type: "object", name: "features", label: "Features", list: true,
                     ui: { itemProps: (item: any) => ({ label: item.title }) },
@@ -487,6 +779,7 @@ export default defineConfig({
                   { type: "string", name: "ctaLabel", label: "CTA Text" },
                   { type: "string", name: "ctaLink", label: "CTA Link" },
                   { type: "image", name: "image", label: "Main Image" },
+                  ...homepageSectionImageFields(),
                 ],
               },
               {
@@ -532,6 +825,7 @@ export default defineConfig({
                 fields: [
                   { type: "string", name: "title", label: "Section Title" },
                   { type: "image", name: "image", label: "Section Image" },
+                  ...homepageSectionImageFields(),
                   { type: "string", name: "nameLabel", label: "Name Field Label" },
                   { type: "string", name: "namePlaceholder", label: "Name Placeholder" },
                   { type: "string", name: "emailLabel", label: "Email Field Label" },
@@ -652,11 +946,28 @@ export default defineConfig({
           { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
           { type: "image", name: "picture", label: "Primary Picture" },
           {
-            type: "string",
+            type: "object",
             name: "relatedProjects",
             label: "Related Projects",
             list: true,
-            description: "Project slugs or IDs related to this cabinet door.",
+            description: "Search and select project entries related to this cabinet door.",
+            ui: {
+              itemProps: (item: any) => ({
+                label: resolveProjectReferenceLabel(item?.project),
+              }),
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "project",
+                label: "Project",
+                collections: ["project"],
+                ui: {
+                  optionComponent: renderProjectReferenceOption,
+                  experimental___filter: filterProjectReferenceOptions,
+                },
+              },
+            ],
           },
           {
             type: "object",
@@ -743,6 +1054,30 @@ export default defineConfig({
           { type: "string", name: "storeCollection", label: "Store Collection" },
           { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
           { type: "image", name: "picture", label: "Primary Picture" },
+          {
+            type: "object",
+            name: "relatedProjects",
+            label: "Related Projects",
+            list: true,
+            description: "Search and select project entries related to this countertop.",
+            ui: {
+              itemProps: (item: any) => ({
+                label: resolveProjectReferenceLabel(item?.project),
+              }),
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "project",
+                label: "Project",
+                collections: ["project"],
+                ui: {
+                  optionComponent: renderProjectReferenceOption,
+                  experimental___filter: filterProjectReferenceOptions,
+                },
+              },
+            ],
+          },
           {
             type: "object",
             name: "technicalDetails",

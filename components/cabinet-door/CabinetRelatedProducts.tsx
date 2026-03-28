@@ -7,11 +7,20 @@ import type { CabinetRelatedItem } from "./types";
 interface CabinetRelatedProductsProps {
   items: CabinetRelatedItem[];
   title: string;
+  imageSizeChoice?: string | null;
+  titleTinaField?: string;
 }
 
-export default function CabinetRelatedProducts({ items, title }: CabinetRelatedProductsProps) {
+export default function CabinetRelatedProducts({
+  items,
+  title,
+  imageSizeChoice,
+  titleTinaField,
+}: CabinetRelatedProductsProps) {
   return (
     <ProductRelatedProducts
+      imageSizeChoice={imageSizeChoice}
+      titleTinaField={titleTinaField}
       items={items.map((item) => {
         const relationRecord = item.relation as unknown as Record<string, unknown> | undefined;
 

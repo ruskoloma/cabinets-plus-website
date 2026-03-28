@@ -2,6 +2,7 @@
 
 import { tinaField } from "tinacms/dist/react";
 import FillImage from "@/components/ui/FillImage";
+import { resolveConfiguredImageVariant, type ImageSizeChoice } from "@/lib/image-size-controls";
 import type { CatalogVisualOption } from "./types";
 
 function OverlayOptionState({ selected }: { selected: boolean }) {
@@ -23,15 +24,18 @@ function OverlayOptionState({ selected }: { selected: boolean }) {
 }
 
 export function DoorStyleOptionCard({
+  imageSizeChoice,
   option,
   selected,
   onClick,
 }: {
+  imageSizeChoice?: ImageSizeChoice;
   option: CatalogVisualOption;
   selected: boolean;
   onClick: () => void;
 }) {
   const record = option as unknown as Record<string, unknown>;
+  const imageVariant = resolveConfiguredImageVariant(imageSizeChoice, "thumb");
 
   return (
     <button className="group flex flex-col items-center gap-2" onClick={onClick} type="button">
@@ -43,6 +47,7 @@ export function DoorStyleOptionCard({
             data-tina-field={tinaField(record, "image")}
             sizes="173px"
             src={option.image}
+            variant={imageVariant}
           />
         ) : null}
 
@@ -59,10 +64,12 @@ export function DoorStyleOptionCard({
 }
 
 export function FinishOptionCard({
+  imageSizeChoice,
   option,
   selected,
   onClick,
 }: {
+  imageSizeChoice?: ImageSizeChoice;
   option: CatalogVisualOption;
   selected: boolean;
   onClick: () => void;
@@ -70,6 +77,7 @@ export function FinishOptionCard({
   const record = option as unknown as Record<string, unknown>;
   const swatchColor = option.swatchColor?.trim();
   const hasImage = Boolean(option.image);
+  const imageVariant = resolveConfiguredImageVariant(imageSizeChoice, "thumb");
   const swatchStyle = !hasImage && swatchColor ? { backgroundColor: swatchColor } : undefined;
   const needsBorder = !hasImage && (!swatchColor || ["#ffffff", "#faf9f6"].includes(swatchColor.toLowerCase()));
 
@@ -80,7 +88,7 @@ export function FinishOptionCard({
         data-tina-field={hasImage ? tinaField(record, "image") : tinaField(record, "swatchColor")}
         style={swatchStyle}
       >
-        {hasImage ? <FillImage alt={option.label} className="object-contain" sizes="112px" src={option.image || ""} /> : null}
+        {hasImage ? <FillImage alt={option.label} className="object-contain" sizes="112px" src={option.image || ""} variant={imageVariant} /> : null}
 
         <OverlayOptionState selected={selected} />
       </span>

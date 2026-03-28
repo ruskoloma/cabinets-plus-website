@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { tinaField } from "tinacms/dist/react";
+import { tinaField, useEditState, useTina } from "tinacms/dist/react";
+import { COUNTERTOP_LIVE_QUERY } from "@/app/countertop-live-query";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import FillImage from "@/components/ui/FillImage";
@@ -11,6 +12,8 @@ import Button from "@/components/ui/Button";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
+import { resolveConfiguredImageVariant, type ImageSizeChoice } from "@/lib/image-size-controls";
+import type { ImageVariantPreset } from "@/lib/image-variants";
 import CatalogMobileFilterOverlay from "@/components/cabinets-overview/CatalogMobileFilterOverlay";
 import {
   getOverviewCountertopItems,
@@ -47,10 +50,23 @@ interface FaqTab {
   faqs: FaqItem[];
 }
 
+interface CountertopCardItem {
+  raw: Record<string, unknown>;
+  slug: string;
+  name: string;
+  code: string;
+  picture: string;
+  relativePath: string;
+}
+
 interface CountertopsOverviewPageProps {
   data: CountertopsOverviewDataShape;
   faqBlock?: Record<string, unknown> | null;
   contactBlock?: Record<string, unknown> | null;
+  cardImageSizeChoice?: ImageSizeChoice | null;
+  filterImageSizeChoice?: ImageSizeChoice | null;
+  pageSettingsRecord?: Record<string, unknown> | null;
+  pageTitle?: string | null;
 }
 
 function toDict(value: unknown): Record<string, unknown> {
@@ -167,10 +183,12 @@ function CountertopOptionState({ selected }: { selected: boolean }) {
 }
 
 function CountertopOptionCard({
+  imageVariant,
   option,
   selected,
   onClick,
 }: {
+  imageVariant?: ImageVariantPreset;
   option: { value: string; label: string; image?: string | null };
   selected: boolean;
   onClick: () => void;
@@ -182,7 +200,7 @@ function CountertopOptionCard({
       <span className="relative flex h-[173px] w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2]">
         {option.image ? (
           <span className="relative block h-[116px] w-[116px]" data-tina-field={tinaField(record, "image")}>
-            <FillImage alt={option.label} className="object-cover object-center" sizes="116px" src={option.image} />
+            <FillImage alt={option.label} className="object-cover object-center" sizes="116px" src={option.image} variant={imageVariant} />
           </span>
         ) : null}
         <CountertopOptionState selected={selected} />
@@ -226,11 +244,113 @@ function PaginationButton({
   );
 }
 
+function StaticCountertopCard({
+  item,
+  imageVariant,
+}: {
+  item: CountertopCardItem;
+  imageVariant?: ImageVariantPreset;
+}) {
+  return (
+    <Link className="group block" href={`/countertops/${item.slug}`}>
+      <span className="block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
+        {item.picture ? (
+          <div className="relative h-full w-full">
+            <FillImage
+              alt={item.name}
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              data-tina-field={tinaField(item.raw, "picture")}
+              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              src={item.picture}
+              variant={imageVariant}
+            />
+          </div>
+        ) : null}
+      </span>
+      <span
+        className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
+        data-tina-field={tinaField(item.raw, "name")}
+      >
+        {item.name}
+      </span>
+      {item.code ? (
+        <span
+          className="block text-[16px] leading-none text-[var(--cp-primary-300)]"
+          data-tina-field={tinaField(item.raw, "code")}
+        >
+          {formatProductCode(item.code)}
+        </span>
+      ) : null}
+    </Link>
+  );
+}
+
+function TinaCountertopCard({
+  item,
+  imageVariant,
+}: {
+  item: CountertopCardItem;
+  imageVariant?: ImageVariantPreset;
+}) {
+  const initialData = useMemo(() => ({ countertop: item.raw }), [item.relativePath]);
+  const variables = useMemo(() => ({ relativePath: item.relativePath }), [item.relativePath]);
+
+  const { data } = useTina({
+    data: initialData,
+    query: COUNTERTOP_LIVE_QUERY,
+    variables,
+  });
+
+  const liveCountertop = data.countertop as Record<string, unknown> | null | undefined;
+  const liveName = typeof liveCountertop?.name === "string" ? liveCountertop.name : item.name;
+  const liveCode = typeof liveCountertop?.code === "string" ? liveCountertop.code : item.code;
+  const livePicture = typeof liveCountertop?.picture === "string" ? liveCountertop.picture : item.picture;
+  const liveSlug =
+    typeof liveCountertop?.slug === "string" && liveCountertop.slug.trim().length > 0
+      ? liveCountertop.slug
+      : item.slug;
+
+  return (
+    <Link
+      className="group block"
+      data-tina-field={liveCountertop ? tinaField(liveCountertop, "name") || undefined : undefined}
+      href={`/countertops/${liveSlug}`}
+    >
+      <span className="block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
+        {livePicture ? (
+          <div className="relative h-full w-full">
+            <FillImage
+              alt={liveName}
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              src={livePicture}
+              variant={imageVariant}
+            />
+          </div>
+        ) : null}
+      </span>
+      <span className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
+        {liveName}
+      </span>
+      {liveCode ? (
+        <span className="block text-[16px] leading-none text-[var(--cp-primary-300)]">
+          {formatProductCode(liveCode)}
+        </span>
+      ) : null}
+    </Link>
+  );
+}
+
 export default function CountertopsOverviewPage({
   data,
   faqBlock,
   contactBlock,
+  cardImageSizeChoice,
+  filterImageSizeChoice,
+  pageSettingsRecord,
+  pageTitle,
 }: CountertopsOverviewPageProps) {
+  const { edit } = useEditState();
   const router = useRouter();
   const pathname = usePathname();
   const currentPathname = pathname || "/countertops";
@@ -246,6 +366,8 @@ export default function CountertopsOverviewPage({
   const catalogSettings = data.catalogSettings;
   const countertopOptions = useMemo(() => catalogSettings?.countertopTypes || [], [catalogSettings?.countertopTypes]);
   const faqTabs = useMemo(() => mapFaqTabs(faqBlock), [faqBlock]);
+  const countertopCardImageVariant = resolveConfiguredImageVariant(cardImageSizeChoice, "card");
+  const countertopFilterImageVariant = resolveConfiguredImageVariant(filterImageSizeChoice, "thumb");
 
   const countertopMap = useMemo(
     () => new Map(countertopOptions.map((option) => [normalizeOptionValue(option.value), option])),
@@ -267,6 +389,7 @@ export default function CountertopsOverviewPage({
           name,
           code,
           picture: (item.picture || "").trim(),
+          relativePath: (item._sys?.relativePath || "").trim(),
           searchable,
           countertopType: normalizeOptionValue(item.countertopType || ""),
           updatedAt: Number.isFinite(updatedAt) ? updatedAt : 0,
@@ -390,8 +513,11 @@ export default function CountertopsOverviewPage({
     <div className="bg-white" suppressHydrationWarning>
       <section className="bg-white">
         <div className="cp-container px-4 pb-14 pt-8 md:px-10 md:pb-16 md:pt-12">
-          <h1 className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]">
-            Countertops
+          <h1
+            className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]"
+            data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "pageTitle") || undefined : undefined}
+          >
+            {pageTitle || "Countertops"}
           </h1>
 
           <div ref={filtersRef}>
@@ -517,6 +643,7 @@ export default function CountertopsOverviewPage({
                           return (
                             <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                               <CountertopOptionCard
+                                imageVariant={countertopFilterImageVariant}
                                 onClick={() => setPendingCountertop((current) => (current === value ? null : value))}
                                 option={option}
                                 selected={selected}
@@ -572,6 +699,7 @@ export default function CountertopsOverviewPage({
                   return (
                     <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-countertop-${option.value}-${index}`}>
                       <CountertopOptionCard
+                        imageVariant={countertopFilterImageVariant}
                         onClick={() => setPendingCountertop((current) => (current === value ? null : value))}
                         option={option}
                         selected={selected}
@@ -596,39 +724,13 @@ export default function CountertopsOverviewPage({
             <>
               <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
                 {paginatedItems.map((item) => (
-                  <Link
-                    className="group block"
-                    href={`/countertops/${item.slug}`}
-                    key={item.slug}
-                  >
-                    <span className="block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
-                      {item.picture ? (
-                        <div className="relative h-full w-full">
-                          <FillImage
-                            alt={item.name}
-                            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                            data-tina-field={tinaField(item.raw, "picture")}
-                            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                            src={item.picture}
-                          />
-                        </div>
-                      ) : null}
-                    </span>
-                    <span
-                      className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
-                      data-tina-field={tinaField(item.raw, "name")}
-                    >
-                      {item.name}
-                    </span>
-                    {item.code ? (
-                      <span
-                        className="block text-[16px] leading-none text-[var(--cp-primary-300)]"
-                        data-tina-field={tinaField(item.raw, "code")}
-                      >
-                        {formatProductCode(item.code)}
-                      </span>
-                    ) : null}
-                  </Link>
+                  <div key={item.slug}>
+                    {edit && item.relativePath ? (
+                      <TinaCountertopCard imageVariant={countertopCardImageVariant} item={item as CountertopCardItem} />
+                    ) : (
+                      <StaticCountertopCard imageVariant={countertopCardImageVariant} item={item as CountertopCardItem} />
+                    )}
+                  </div>
                 ))}
               </div>
 

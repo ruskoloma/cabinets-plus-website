@@ -172,6 +172,24 @@ function pickPreviewImage(
   };
 }
 
+export function pickProjectPreviewForFilters(
+  project: GalleryProjectItemData,
+  filters: GalleryFilterState,
+): { previewImage: string; previewMedia: GalleryProjectMediaData | null } {
+  const effectiveFilters: GalleryFilterState = filters.flooringOnly
+    ? {
+        ...filters,
+        doorStyles: [],
+        finishes: [],
+        countertops: [],
+      }
+    : filters;
+
+  const scopedMedia = getScopedMedia(project, effectiveFilters);
+  const previewScope = scopedMedia.length ? scopedMedia : project.media;
+  return pickPreviewImage(project, filters, previewScope);
+}
+
 export function parseGalleryQueryState(params: URLSearchParams): GalleryQueryState {
   const rawPage = Number(params.get("page") || "1");
 

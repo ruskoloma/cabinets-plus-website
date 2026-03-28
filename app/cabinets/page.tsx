@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import CabinetsOverviewClient from "./cabinets-overview-client";
 import { getCabinetsOverviewDataSafe } from "@/app/get-cabinets-overview-data-safe";
+import { getCabinetsOverviewPageSettingsSafe } from "@/app/get-cabinets-overview-page-settings-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 
 export const metadata: Metadata = {
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default async function CabinetsOverviewPage() {
-  const [overviewData, homePageData] = await Promise.all([
+  const [overviewData, homePageData, pageSettingsData] = await Promise.all([
     getCabinetsOverviewDataSafe(),
     getPageDataSafe("home.md"),
+    getCabinetsOverviewPageSettingsSafe(),
   ]);
 
   return (
@@ -20,6 +22,7 @@ export default async function CabinetsOverviewPage() {
       <CabinetsOverviewClient
         homePageData={homePageData}
         overviewData={overviewData}
+        pageSettingsData={pageSettingsData}
       />
     </Suspense>
   );

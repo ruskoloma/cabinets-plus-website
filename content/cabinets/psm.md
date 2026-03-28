@@ -59,7 +59,10 @@ media:
 sourceId: 271
 sourceUpdatedAt: '2025-07-25T22:53:54.159Z'
 stainType: mocha stain
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/warm-brown-shaker-kitchen-white-quartz.md
+  - project: content/projects/warm-wood-contemporary-kitchen-and-built-in-office.md
+  - project: content/projects/warm-walnut-kitchen-waterfall-island.md
 relatedProducts:
   - product: content/cabinets/rhc.md
   - product: content/cabinets/sbu.md

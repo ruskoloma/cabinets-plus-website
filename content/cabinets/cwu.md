@@ -17,7 +17,10 @@ description: >-
   making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/CWU/3160-cwu-antique-white.jpg
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/soft-tan-arched-kitchen-brass-accents.md
+  - project: content/projects/warm-wood-kitchen-and-bath-cabinetry.md
+  - project: content/projects/modern-two-tone-kitchen-and-bath-cabinetry.md
 relatedProducts:
   - product: content/cabinets/bmk.md
   - product: content/cabinets/esgn.md

@@ -1,7 +1,7 @@
 import { resolveCabinetPageText } from "@/components/cabinet-door/helpers";
+import { buildCountertopProjectMatches } from "@/components/catalog-product/project-matching";
 import { normalizeOptionValue } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
-import { getOverviewProjectItems } from "@/components/gallery-overview/normalize-gallery-overview-query";
-import type { GalleryOverviewDataShape, ProjectMediaItem, ProjectOverviewItem } from "@/components/gallery-overview/types";
+import type { GalleryOverviewDataShape } from "@/components/gallery-overview/types";
 import type {
   CabinetPageSettings,
   CountertopData,
@@ -35,6 +35,8 @@ function isTruthyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+const DEFAULT_PROJECT_CARD_TITLE = "Project";
+
 function getPrimaryImage(countertop: CountertopData): string {
   const directPicture = isTruthyString(countertop.picture) ? countertop.picture.trim() : "";
   if (directPicture) return directPicture;
@@ -66,9 +68,14 @@ export function sortTechnicalDetails(details: Array<CountertopTechnicalDetail | 
 }
 
 export function resolveCountertopPageText(settings?: CabinetPageSettings | null) {
+  const breadcrumbLabel =
+    typeof settings?.breadcrumbLabel === "string" && settings.breadcrumbLabel.trim().length
+      ? settings.breadcrumbLabel.trim()
+      : "Countertops";
+
   return {
     ...resolveCabinetPageText(settings),
-    breadcrumbLabel: "Countertops",
+    breadcrumbLabel,
   };
 }
 
@@ -109,139 +116,40 @@ export function buildCountertopGalleryItems(countertop: CountertopData): Product
   return items;
 }
 
-function getProjectMediaMatch(project: ProjectOverviewItem, normalizedType: string): ProjectMediaItem | undefined {
-  const mediaItems = (project.media || []).filter((item): item is ProjectMediaItem => Boolean(item && item.file));
-
-  if (!mediaItems.length) return undefined;
-
-  if (normalizedType) {
-    const exactPriority = mediaItems.find(
-      (item) =>
-        normalizeOptionValue(item.countertop || "") === normalizedType
-        && Boolean(item.countertopPriority),
-    );
-    if (exactPriority) return exactPriority;
-
-    const exactMatch = mediaItems.find((item) => normalizeOptionValue(item.countertop || "") === normalizedType);
-    if (exactMatch) return exactMatch;
-  }
-
-  return mediaItems.find((item) => Boolean(item.countertopPriority) && normalizeOptionValue(item.countertop || ""))
-    || mediaItems.find((item) => Boolean(normalizeOptionValue(item.countertop || "")))
-    || mediaItems[0];
-}
-
-function scoreProject(project: ProjectOverviewItem, matchedMedia: ProjectMediaItem | undefined, normalizedType: string): number {
-  let score = 0;
-
-  if (!matchedMedia?.file) return score;
-  const matchedCountertop = normalizeOptionValue(matchedMedia.countertop || "");
-
-  if (matchedCountertop) {
-    score += normalizedType && matchedCountertop === normalizedType ? 5 : 2;
-  }
-  if (matchedMedia.countertopPriority) score += 3;
-  if (score > 0 && project.primaryPicture?.trim()) score += 1;
-  if (score > 0 && project.address?.trim()) score += 1;
-
-  return score;
-}
-
-function buildProjectEntry(
-  project: ProjectOverviewItem,
-  matchedMedia: ProjectMediaItem | undefined,
-  fallbackTitle: string,
-): CountertopProjectItem | null {
-  const mediaFile = matchedMedia?.file?.trim() || "";
-  const image = mediaFile || project.primaryPicture?.trim() || "";
-  if (!image) return null;
-
-  return {
-    file: image,
-    title: project.title?.trim() || fallbackTitle,
-    project,
-    media: mediaFile ? matchedMedia : undefined,
-  };
-}
-
 export function buildCountertopProjectItems(
   countertop: CountertopData,
   overviewData: GalleryOverviewDataShape,
   options?: {
     maxItems?: number;
-    fallbackTitle?: string;
   },
 ): CountertopProjectItem[] {
-  const maxItems = options?.maxItems ?? 4;
-  const fallbackTitle = options?.fallbackTitle?.trim() || "Project Name";
-  const normalizedType = normalizeOptionValue(countertop.countertopType || "");
-  const projects = getOverviewProjectItems(overviewData);
-
-  const ranked = projects
-    .map((project) => {
-      const matchedMedia = getProjectMediaMatch(project, normalizedType);
-      return {
-        project,
-        matchedMedia,
-        score: scoreProject(project, matchedMedia, normalizedType),
-      };
-    })
-    .filter((entry) => Boolean(entry.matchedMedia?.file))
-    .sort((left, right) => {
-      if (right.score !== left.score) return right.score - left.score;
-      return (left.project.title || "").localeCompare(right.project.title || "");
-    });
-
-  const fallbackPool = ranked.filter((entry) => entry.score > 0);
-  const source = fallbackPool.length ? fallbackPool : ranked;
-  const seen = new Set<string>();
-  const results: CountertopProjectItem[] = [];
-
-  for (const entry of source) {
-    if (results.length >= maxItems) break;
-
-    const candidate = buildProjectEntry(entry.project, entry.matchedMedia, fallbackTitle);
-    if (!candidate || seen.has(candidate.file)) continue;
-    seen.add(candidate.file);
-    results.push(candidate);
-  }
-
-  return results;
-}
-
-export function buildMockProjectItems(
-  countertop: CountertopData,
-  settings?: CabinetPageSettings | null,
-  maxItems = 4,
-): CountertopProjectItem[] {
-  const text = resolveCountertopPageText(settings);
-
-  const configuredMocks = (settings?.mockProjects || [])
-    .map((item) => {
-      const file = typeof item?.file === "string" ? item.file.trim() : "";
-      const title = typeof item?.title === "string" ? item.title.trim() : "";
-      if (!file) return null;
-      return {
-        file,
-        title: title || text.projectFallbackTitle,
-      };
-    })
-    .filter((item): item is { file: string; title: string } => Boolean(item));
-
-  if (configuredMocks.length) {
-    return configuredMocks.slice(0, maxItems).map((item) => ({
-      file: item.file,
-      title: item.title,
-    }));
-  }
-
-  const fallbackImage = getPrimaryImage(countertop);
-  if (!fallbackImage) return [];
-
-  return Array.from({ length: maxItems }, () => ({
-    file: fallbackImage,
-    title: text.projectFallbackTitle,
+  const maxItems = options?.maxItems ?? 3;
+  const matchedProjects = buildCountertopProjectMatches(countertop, overviewData, maxItems).map((item) => ({
+    file: item.file,
+    title: item.title || DEFAULT_PROJECT_CARD_TITLE,
+    href: item.href,
+    projectSource: item.projectSource,
+    mediaSource: item.mediaSource,
   }));
+
+  if (matchedProjects.length) {
+    return matchedProjects;
+  }
+
+  const primaryImage = getPrimaryImage(countertop);
+  const mediaItems = (countertop.media || []).filter(
+    (item): item is CountertopMediaItem =>
+      Boolean(item && isTruthyString(item.file) && normalizeOptionValue(item.kind || "") !== "video"),
+  );
+
+  return mediaItems
+    .filter((item) => item.file!.trim() !== primaryImage)
+    .slice(0, maxItems)
+    .map((item) => ({
+      file: item.file!.trim(),
+      title: item.label?.trim() || item.altText?.trim() || DEFAULT_PROJECT_CARD_TITLE,
+      media: item,
+    }));
 }
 
 function scoreRelatedCountertop(

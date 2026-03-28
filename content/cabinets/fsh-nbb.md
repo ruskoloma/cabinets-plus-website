@@ -60,7 +60,10 @@ media:
 sourceId: 234
 sourceUpdatedAt: '2025-07-25T22:53:53.950Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/modern-two-tone-kitchen-with-waterfall-island.md
+  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
+  - project: content/projects/white-shaker-kitchen-with-navy-island.md
 relatedProducts:
   - product: content/cabinets/fsl-dgb.md
   - product: content/cabinets/fsl-iwb.md

@@ -78,6 +78,12 @@ export default function CountertopDetailPage({
   relatedItems,
   pageText,
   contactBlock,
+  pageSettingsRecord,
+  galleryThumbImageSize,
+  galleryMainImageSize,
+  galleryLightboxImageSize,
+  projectsSectionImageSize,
+  relatedProductsImageSize,
 }: CountertopDetailPageProps) {
   const [descriptionOpen, setDescriptionOpen] = useState(false);
 
@@ -101,7 +107,9 @@ export default function CountertopDetailPage({
           <div className="flex items-start justify-between gap-4 md:items-center">
             <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[14px] leading-[1.2] text-[var(--cp-primary-300)]">
               <Link className="transition-colors hover:text-[var(--cp-primary-500)]" href="/countertops">
-                {pageText.breadcrumbLabel}
+                <span data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "breadcrumbLabel") || undefined : undefined}>
+                  {pageText.breadcrumbLabel}
+                </span>
               </Link>
               <span>/</span>
               <span data-tina-field={tinaField(countertop as unknown as Record<string, unknown>, "name") || undefined}>
@@ -116,7 +124,13 @@ export default function CountertopDetailPage({
           </div>
 
           <div className="mt-7 grid gap-8 lg:grid-cols-[675px_minmax(0,674px)] lg:items-start lg:gap-7">
-            <ProductMediaGallery items={galleryItemsWithFields} productName={displayName} />
+            <ProductMediaGallery
+              items={galleryItemsWithFields}
+              lightboxImageSizeChoice={galleryLightboxImageSize}
+              mainImageSizeChoice={galleryMainImageSize}
+              productName={displayName}
+              thumbImageSizeChoice={galleryThumbImageSize}
+            />
 
             <div>
               {code ? (
@@ -141,7 +155,10 @@ export default function CountertopDetailPage({
                 </Button>
 
                 <div className="order-2 md:order-1">
-                  <h2 className="text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]">
+                  <h2
+                    className="text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]"
+                    data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "technicalDetailsTitle") || undefined : undefined}
+                  >
                     {pageText.technicalDetailsTitle}
                   </h2>
                   <ProductTechnicalDetailsTable details={technicalDetails} />
@@ -181,21 +198,32 @@ export default function CountertopDetailPage({
 
       <ProductProjectStrip
         description={pageText.projectsSectionDescription}
+        descriptionTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionDescription") || undefined : undefined}
+        imageSizeChoice={projectsSectionImageSize}
         items={projectItems.map((project) => ({
           file: project.file,
           title: project.title,
-          imageTinaField: project.media
-            ? tinaField((project.media.raw || project.media) as Record<string, unknown>, "file") || undefined
+          href: project.href,
+          imageTinaField: project.mediaSource
+            ? tinaField(project.mediaSource, "file") || undefined
+            : project.media
+              ? tinaField(project.media as unknown as Record<string, unknown>, "file") || undefined
             : project.project
               ? tinaField(project.project as unknown as Record<string, unknown>, "primaryPicture") || undefined
               : undefined,
-          titleTinaField: project.project
-            ? tinaField(project.project as unknown as Record<string, unknown>, "title") || undefined
-            : undefined,
+          titleTinaField: project.projectSource
+            ? tinaField(project.projectSource, "title") || undefined
+            : project.media
+              ? tinaField(project.media as unknown as Record<string, unknown>, "label") || tinaField(project.media as unknown as Record<string, unknown>, "altText") || undefined
+            : project.project
+              ? tinaField(project.project as unknown as Record<string, unknown>, "title") || undefined
+              : undefined,
         }))}
         title={pageText.projectsSectionTitle}
+        titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionTitle") || undefined : undefined}
       />
       <ProductRelatedProducts
+        imageSizeChoice={relatedProductsImageSize}
         items={relatedItems.map((item) => ({
           href: `/countertops/${item.slug}`,
           name: item.name,
@@ -203,6 +231,7 @@ export default function CountertopDetailPage({
           image: item.image,
         }))}
         title={pageText.relatedProductsTitle}
+        titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "relatedProductsTitle") || undefined : undefined}
       />
       {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
 

@@ -8,43 +8,46 @@ blocks:
     subtext: 'Professional design, expert installation, and guaranteed results. From semi-custom cabinetry to stone countertops — we handle everything.'
     ctaLabel: free design Consultation
     ctaLink: /contact-us
-    backgroundImage: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/hero.jpg
+    backgroundImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/hero.jpg'
+    imageSize: full
     _template: hero
   - title: Products
+    imageSize: full
     products:
       - name: cabinets
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg'
         link: /cabinets
       - name: Countertops
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-countertops.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-countertops.jpg'
         link: /countertops
       - name: Flooring
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-flooring.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-flooring.jpg'
         link: /flooring
       - name: Glass & Enclosures
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-glass-enclosures.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-glass-enclosures.jpg'
         link: /contact-us
     _template: productsSection
   - title: Services
+    imageSize: full
     services:
       - title: Bathroom remodel
         description: 'Cabinets Plus is a trusted bathroom remodeling company in Spokane, WA, specializing in transforming bathrooms into stylish, functional spaces. From complete renovations to simple updates, our experienced team delivers thoughtful design, quality craftsmanship, and attention to every detail.'
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-bathroom.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-bathroom.jpg'
         link: /bathroom-remodel
       - title: Kitchen remodel
         description: 'Cabinets Plus provides professional bathroom remodeling services in Spokane, WA. We design and renovate bathrooms with a focus on functionality, clean design, and quality craftsmanship — from full remodels to targeted upgrades.'
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-kitchen.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-kitchen.jpg'
         link: /kitchen-remodel
     _template: servicesSection
   - title: Our projects
     ctaLabel: View All projects
     ctaLink: /gallery
     images:
-      - https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg
-      - https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg
-      - https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg
-      - https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg
-      - https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg
+      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg'
+      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg'
+      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg'
+      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg'
+      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg'
     _template: projectsSection
   - title: 'The difference is real:'
     subtitle: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'
@@ -53,17 +56,17 @@ blocks:
     features:
       - title: 'More Design Freedom, Better Value'
         description: 'Big Box Stores limit you to pre-made stock cabinets with minimal customization. Our semi-custom cabinets give you design flexibility without custom pricing—choose your dimensions, door styles, finishes, and hardware to fit your exact space and vision.'
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-1.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-1.jpg'
       - title: 'Expert Design, Personalized for Your Home'
         description: 'Expert design included. Big box stores hand you a catalog. We start with a free 3D design consultation in our Spokane showroom, where you can touch materials, see real cabinet samples, and work one-on-one with experienced designers who understand local building codes and Spokane home styles.'
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-2.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-2.jpg'
       - title: 'One Trusted Team, From Start to Finish'
         description: 'Big box stores can leave you managing multiple contractors and delayed timelines. At Cabinets Plus, we handle everything under one roof—from design and material selection to in-house countertop fabrication and professional installation.'
-        image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-3.jpg
+        image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-3.jpg'
     _template: whyUsSection
   - trustStripText: 'You''re buying from people you can call directly if anything needs attention, not a 1-800 number three states away.'
     trustStripHighlight: you can call directly
-    trustStripTexture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-strip-texture.jpg
+    trustStripTexture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-strip-texture.jpg'
     stats:
       - value: 10+
         label: years experience
@@ -72,14 +75,14 @@ blocks:
       - value: 200+
         label: New designs
     membershipDesktopLogo: /library/trust/trust-membership.svg
-    membershipMobileTopLogo: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-shba.png
-    membershipMobileBottomLogo: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-membership-mobile-bottom.png
+    membershipMobileTopLogo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-shba.png'
+    membershipMobileBottomLogo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-membership-mobile-bottom.png'
     membershipLabel: Membership
     partnershipLabel: Exclusive Partnership
     partnerLogos:
-      - logo: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png
+      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png'
         alt: Lions Floor
-      - logo: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png
+      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png'
         alt: Lyrus Collection
       - logo: /library/trust/trust-cambria.svg
         alt: Cambria
@@ -87,7 +90,7 @@ blocks:
         alt: Bedrosians
       - logo: /library/trust/trust-msi.svg
         alt: MSI
-      - logo: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png
+      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png'
         alt: Easy Stones
     ctaLabel: About Us
     ctaLink: /about-us
@@ -96,7 +99,7 @@ blocks:
     subtext: 'Factory-direct semi-custom cabinets, granite & quartz countertops, and flooring. Experience quality before you buy.'
     ctaLabel: Visit Our Showroom
     ctaLink: /contact-us
-    image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg
+    image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg'
     _template: showroomBanner
   - title: Our Process
     steps:
@@ -153,7 +156,7 @@ blocks:
             answer: 'We offer hardwood, LVP, tile, and other flooring options for a range of performance and style goals.'
     _template: faqSection
   - title: Contact us
-    image: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg
+    image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg'
     nameLabel: Name
     namePlaceholder: Enter your name
     emailLabel: Email

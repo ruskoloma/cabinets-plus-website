@@ -59,7 +59,10 @@ media:
 sourceId: 313
 sourceUpdatedAt: '2025-07-25T22:53:56.398Z'
 stainType: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/modern-two-tone-kitchen-with-waterfall-island.md
+  - project: content/projects/white-shaker-kitchen-with-navy-island.md
+  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
 relatedProducts:
   - product: content/cabinets/ssgh.md
   - product: content/cabinets/sskp.md

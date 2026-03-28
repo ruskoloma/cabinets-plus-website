@@ -1,5 +1,6 @@
 import type {
   CabinetPageSettings,
+  CabinetPageSettingsQueryLikeResult,
   CabinetPageTextConfig,
 } from "@/components/cabinet-door/types";
 import type {
@@ -12,12 +13,21 @@ import type { ProjectMediaItem, ProjectOverviewItem } from "@/components/gallery
 
 export type {
   CabinetPageSettings,
+  CabinetPageSettingsQueryLikeResult,
   CabinetPageTextConfig,
   ProductGalleryItemViewModel,
   ProductProjectCardItem,
   ProductRelatedCardItem,
   ProductTechnicalDetailViewModel,
 };
+
+export type CountertopPageSettings = CabinetPageSettings;
+
+export interface CountertopPageSettingsQueryLikeResult {
+  data: { countertopPageSettings?: CountertopPageSettings | null };
+  query?: string;
+  variables?: Record<string, unknown>;
+}
 
 export interface CountertopSystemInfo {
   filename?: string;
@@ -59,6 +69,7 @@ export interface CountertopData {
   storeCollection?: string | null;
   description?: string | null;
   picture?: string | null;
+  relatedProjects?: Array<string | null> | null;
   technicalDetails?: Array<CountertopTechnicalDetail | null> | null;
   media?: Array<CountertopMediaItem | null> | null;
   sourceId?: number | null;
@@ -87,6 +98,9 @@ export interface CountertopListItem {
 export interface CountertopProjectItem {
   file: string;
   title: string;
+  href?: string;
+  projectSource?: Record<string, unknown>;
+  mediaSource?: Record<string, unknown>;
   project?: ProjectOverviewItem;
   media?: ProjectMediaItem;
 }
@@ -109,4 +123,10 @@ export interface CountertopDetailPageProps {
   relatedItems: CountertopRelatedItem[];
   pageText: CabinetPageTextConfig;
   contactBlock?: Record<string, unknown> | null;
+  pageSettingsRecord?: Record<string, unknown> | null;
+  galleryThumbImageSize?: string | null;
+  galleryMainImageSize?: string | null;
+  galleryLightboxImageSize?: string | null;
+  projectsSectionImageSize?: string | null;
+  relatedProductsImageSize?: string | null;
 }

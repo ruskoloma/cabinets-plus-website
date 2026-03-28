@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { tinaField, useEditState } from "tinacms/dist/react";
+import FallbackImg from "@/components/ui/FallbackImg";
 
 interface NavChild {
   label: string;
@@ -370,7 +371,7 @@ export default function Header({
             href="/"
           >
             {data.logo ? (
-              <img alt={logoLabel} className="h-[37px] w-auto" data-tina-field={tinaField(headerRaw, "logo")} src={data.logo} />
+              <FallbackImg alt={logoLabel} className="h-[37px] w-auto" data-tina-field={tinaField(headerRaw, "logo")} src={data.logo} variant="thumb" />
             ) : (
               <span className="font-[var(--font-red-hat-display)] text-2xl font-semibold uppercase tracking-wide text-[var(--cp-primary-500)]">{logoLabel}</span>
             )}
@@ -559,7 +560,7 @@ export default function Header({
                     >
                       <span className="relative block h-10 w-10 overflow-hidden">
                         {item.imageFrame ? (
-                          <img
+                          <FallbackImg
                             alt=""
                             aria-hidden
                             className="absolute left-0 top-0 max-w-none object-cover"
@@ -568,13 +569,15 @@ export default function Header({
                               height: item.imageFrame.height ? `${item.imageFrame.height}px` : undefined,
                               width: item.imageFrame.width ? `${item.imageFrame.width}px` : undefined,
                             }}
+                            variant="thumb"
                           />
                         ) : (
-                          <img
+                          <FallbackImg
                             alt=""
                             aria-hidden
                             className="h-10 w-10 object-cover"
                             src={item.image}
+                            variant="thumb"
                           />
                         )}
                       </span>

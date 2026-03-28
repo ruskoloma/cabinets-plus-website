@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FillImage from "@/components/ui/FillImage";
+import type { ImageVariantPreset } from "@/lib/image-variants";
 
 interface PreviewCardProps {
   title: string;
@@ -14,6 +15,7 @@ interface PreviewCardProps {
   tinaImageField?: string;
   tinaTitleField?: string;
   tinaDescriptionField?: string;
+  imageVariant?: ImageVariantPreset | null;
 }
 
 export default function PreviewCard({
@@ -29,6 +31,7 @@ export default function PreviewCard({
   tinaImageField,
   tinaTitleField,
   tinaDescriptionField,
+  imageVariant,
 }: PreviewCardProps) {
   const imageClasses = [
     "h-full w-full object-cover",
@@ -40,7 +43,7 @@ export default function PreviewCard({
   const content = (
     <>
       <div className={`relative overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] ${imageClassName}`} data-tina-field={tinaImageField}>
-        {image ? <FillImage alt={title} className={imageClasses} sizes="(min-width: 768px) 25vw, 100vw" src={image} /> : null}
+        {image ? <FillImage alt={title} className={imageClasses} sizes="(min-width: 768px) 25vw, 100vw" src={image} variant={imageVariant === null ? undefined : (imageVariant ?? "card")} /> : null}
       </div>
       <h3 className={titleClassName} data-tina-field={tinaTitleField}>
         {title}

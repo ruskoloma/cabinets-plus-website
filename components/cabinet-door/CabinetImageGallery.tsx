@@ -7,6 +7,9 @@ import type { CabinetData, CabinetGalleryItem } from "./types";
 interface CabinetImageGalleryProps {
   cabinet: CabinetData;
   items: CabinetGalleryItem[];
+  thumbImageSizeChoice?: string | null;
+  mainImageSizeChoice?: string | null;
+  lightboxImageSizeChoice?: string | null;
 }
 
 function getTinaFieldValue(cabinet: CabinetData, item: CabinetGalleryItem): string | undefined {
@@ -21,7 +24,13 @@ function getTinaFieldValue(cabinet: CabinetData, item: CabinetGalleryItem): stri
   return undefined;
 }
 
-export default function CabinetImageGallery({ cabinet, items }: CabinetImageGalleryProps) {
+export default function CabinetImageGallery({
+  cabinet,
+  items,
+  thumbImageSizeChoice,
+  mainImageSizeChoice,
+  lightboxImageSizeChoice,
+}: CabinetImageGalleryProps) {
   return (
     <ProductMediaGallery
       items={items.map((item, index) => ({
@@ -32,7 +41,10 @@ export default function CabinetImageGallery({ cabinet, items }: CabinetImageGall
         alt: cabinet.name || "Cabinet door",
         tinaField: getTinaFieldValue(cabinet, item),
       }))}
+      lightboxImageSizeChoice={lightboxImageSizeChoice}
+      mainImageSizeChoice={mainImageSizeChoice}
       productName={cabinet.name || "Cabinet door"}
+      thumbImageSizeChoice={thumbImageSizeChoice}
     />
   );
 }

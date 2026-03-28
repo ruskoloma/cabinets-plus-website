@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import ProjectClient from "./project-client";
 import { getLegacyProjectRedirect, getProjectDataSafe, getProjectIndexSafe } from "@/app/get-project-data-safe";
 import { getGalleryOverviewDataSafe } from "@/app/get-gallery-overview-data-safe";
+import { getProjectPageSettingsSafe } from "@/app/get-project-page-settings-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 import { getCabinetIndexSafe } from "@/app/get-cabinet-data-safe";
 
@@ -46,11 +47,12 @@ export default async function ProjectDetailRoute(
     redirect(legacyRedirect);
   }
 
-  const [projectData, overviewData, homePageData, cabinetIndex] = await Promise.all([
+  const [projectData, overviewData, homePageData, cabinetIndex, pageSettingsData] = await Promise.all([
     getProjectDataSafe(slug),
     getGalleryOverviewDataSafe(),
     getPageDataSafe("home.md"),
     getCabinetIndexSafe(),
+    getProjectPageSettingsSafe(),
   ]);
 
   if (!projectData.data.project) {
@@ -64,6 +66,7 @@ export default async function ProjectDetailRoute(
         currentSlug={slug}
         homePageData={homePageData}
         overviewData={overviewData}
+        pageSettingsData={pageSettingsData}
         projectData={projectData}
       />
     </Suspense>

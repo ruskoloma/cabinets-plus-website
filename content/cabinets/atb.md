@@ -122,7 +122,10 @@ media:
 sourceId: 243
 sourceUpdatedAt: '2025-07-25T22:53:52.983Z'
 stainType: mocha stain
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/warm-wood-contemporary-kitchen-and-built-in-office.md
+  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/light-wood-kitchen-waterfall-island-black-accents.md
 relatedProducts:
   - product: content/cabinets/awb.md
   - product: content/cabinets/axm.md

@@ -12,6 +12,8 @@ import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pag
 import CatalogMobileFilterOverlay from "@/components/cabinets-overview/CatalogMobileFilterOverlay";
 import { DoorStyleOptionCard as SharedDoorStyleOptionCard, FinishOptionCard as SharedFinishOptionCard } from "@/components/cabinets-overview/CatalogFilterOptionCards";
 import { normalizeOptionValue } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
+import { normalizeImageSizeChoice, resolveConfiguredImageVariant, type ImageSizeChoice } from "@/lib/image-size-controls";
+import type { ImageVariantPreset } from "@/lib/image-variants";
 import {
   EMPTY_GALLERY_FILTERS,
   filterGalleryProjects,
@@ -175,11 +177,13 @@ function PanelShell({ children, title }: { children: React.ReactNode; title: str
 }
 
 function RoomOptionCard({
+  imageVariant,
   image,
   label,
   selected,
   onClick,
 }: {
+  imageVariant?: ImageVariantPreset;
   image: string;
   label: string;
   selected: boolean;
@@ -188,7 +192,7 @@ function RoomOptionCard({
   return (
     <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
       <span className="relative block h-[132px] w-[132px] overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
-        <FillImage alt={label} className="object-cover" sizes="177px" src={image} />
+        <FillImage alt={label} className="object-cover" sizes="177px" src={image} variant={imageVariant} />
         <OverlayOptionState selected={selected} />
       </span>
       <span className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
@@ -217,22 +221,26 @@ function OverlayOptionState({ selected }: { selected: boolean }) {
 }
 
 function DoorStyleOptionCard({
+  imageSizeChoice,
   option,
   selected,
   onClick,
 }: {
+  imageSizeChoice?: ImageSizeChoice;
   option: CatalogVisualOption;
   selected: boolean;
   onClick: () => void;
 }) {
-  return <SharedDoorStyleOptionCard onClick={onClick} option={option} selected={selected} />;
+  return <SharedDoorStyleOptionCard imageSizeChoice={imageSizeChoice} onClick={onClick} option={option} selected={selected} />;
 }
 
 function CountertopOptionCard({
+  imageVariant,
   option,
   selected,
   onClick,
 }: {
+  imageVariant?: ImageVariantPreset;
   option: CatalogVisualOption;
   selected: boolean;
   onClick: () => void;
@@ -244,7 +252,7 @@ function CountertopOptionCard({
       <span className="relative flex h-[132px] w-[132px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
         {hasImage ? (
           <span className="relative block h-[90px] w-[90px] overflow-hidden md:h-[120px] md:w-[120px]">
-            <FillImage alt={option.label} className="object-cover" sizes="120px" src={option.image || ""} />
+            <FillImage alt={option.label} className="object-cover" sizes="120px" src={option.image || ""} variant={imageVariant} />
           </span>
         ) : (
           <span className="px-4 text-center font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.25] text-[var(--cp-primary-500)]/70">
@@ -261,23 +269,33 @@ function CountertopOptionCard({
 }
 
 function FinishOptionCard({
+  imageSizeChoice,
   option,
   selected,
   onClick,
 }: {
+  imageSizeChoice?: ImageSizeChoice;
   option: CatalogVisualOption;
   selected: boolean;
   onClick: () => void;
 }) {
-  return <SharedFinishOptionCard onClick={onClick} option={option} selected={selected} />;
+  return <SharedFinishOptionCard imageSizeChoice={imageSizeChoice} onClick={onClick} option={option} selected={selected} />;
 }
 
 export default function GalleryOverviewPage({
   contactBlock,
   data,
+  filterImageSizeChoice,
+  pageSettingsRecord,
+  pageTitle,
+  projectCardImageSizeChoice,
 }: {
   contactBlock?: Record<string, unknown> | null;
   data: GalleryOverviewDataShape;
+  filterImageSizeChoice?: string | null;
+  pageSettingsRecord?: Record<string, unknown> | null;
+  pageTitle?: string | null;
+  projectCardImageSizeChoice?: string | null;
 }) {
   const router = useRouter();
   const pathname = usePathname() || "/gallery";
@@ -313,6 +331,9 @@ export default function GalleryOverviewPage({
         : baseSelectedFilters,
     [baseSelectedFilters],
   );
+  const normalizedFilterImageSizeChoice = normalizeImageSizeChoice(filterImageSizeChoice, "thumb");
+  const galleryProjectCardImageVariant = resolveConfiguredImageVariant(projectCardImageSizeChoice, "card");
+  const galleryFilterImageVariant = resolveConfiguredImageVariant(filterImageSizeChoice, "thumb");
   const projects = useMemo(() => buildGalleryProjects(data), [data]);
   const sortLabel = useMemo(
     () => SORT_OPTIONS.find((option) => option.value === sortValue)?.label || "New",
@@ -568,8 +589,11 @@ export default function GalleryOverviewPage({
     <div className="bg-white" suppressHydrationWarning>
       <section className="bg-white">
         <div className="cp-container px-4 pb-16 pt-14 md:px-8 md:pb-[88px] md:pt-[88px]">
-          <h1 className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]">
-            Gallery
+          <h1
+            className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]"
+            data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "pageTitle") || undefined : undefined}
+          >
+            {pageTitle || "Gallery"}
           </h1>
 
           <div className="mt-4 flex flex-col gap-5 md:mt-12 md:gap-8">
@@ -744,6 +768,7 @@ export default function GalleryOverviewPage({
 
                     return (
                       <RoomOptionCard
+                        imageVariant={galleryFilterImageVariant}
                         image={image}
                         key={option.value}
                         label={option.label}
@@ -771,6 +796,7 @@ export default function GalleryOverviewPage({
                     return (
                       <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                         <DoorStyleOptionCard
+                          imageSizeChoice={normalizedFilterImageSizeChoice}
                           onClick={() =>
                             setPendingFilters((current) => ({
                               ...current,
@@ -824,6 +850,7 @@ export default function GalleryOverviewPage({
                     return (
                       <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                         <FinishOptionCard
+                          imageSizeChoice={normalizedFilterImageSizeChoice}
                           onClick={() =>
                             setPendingFilters((current) => ({
                               ...current,
@@ -855,6 +882,7 @@ export default function GalleryOverviewPage({
                     return (
                       <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
                         <CountertopOptionCard
+                          imageVariant={galleryFilterImageVariant}
                           onClick={() =>
                             setPendingFilters((current) => ({
                               ...current,
@@ -885,6 +913,7 @@ export default function GalleryOverviewPage({
 
                   return (
                     <RoomOptionCard
+                      imageVariant={galleryFilterImageVariant}
                       image={image}
                       key={`mobile-room-${option.value}`}
                       label={option.label}
@@ -905,6 +934,7 @@ export default function GalleryOverviewPage({
                   return (
                     <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-door-style-${option.value}-${index}`}>
                       <DoorStyleOptionCard
+                        imageSizeChoice={normalizedFilterImageSizeChoice}
                         onClick={() =>
                           setPendingFilters((current) => ({
                             ...current,
@@ -947,6 +977,7 @@ export default function GalleryOverviewPage({
                     return (
                       <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-paint-${option.value}-${index}`}>
                         <FinishOptionCard
+                          imageSizeChoice={normalizedFilterImageSizeChoice}
                           onClick={() =>
                             setPendingFilters((current) => ({
                               ...current,
@@ -969,6 +1000,7 @@ export default function GalleryOverviewPage({
                     return (
                       <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-stain-${option.value}-${index}`}>
                         <SharedDoorStyleOptionCard
+                          imageSizeChoice={normalizedFilterImageSizeChoice}
                           onClick={() =>
                             setPendingFilters((current) => ({
                               ...current,
@@ -994,6 +1026,7 @@ export default function GalleryOverviewPage({
                   return (
                     <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-countertop-${option.value}-${index}`}>
                       <CountertopOptionCard
+                        imageVariant={galleryFilterImageVariant}
                         onClick={() =>
                           setPendingFilters((current) => ({
                             ...current,
@@ -1072,15 +1105,11 @@ export default function GalleryOverviewPage({
               {visibleProjects.map((project, index) => (
                 <Link
                   className="relative aspect-square overflow-hidden bg-[#f2f2f2] md:aspect-[4/3]"
-                  data-tina-field={
-                    project.previewMedia && Object.keys(project.previewMedia.rawMedia).length > 0
-                      ? tinaField(project.previewMedia.rawMedia, "file")
-                      : tinaField(project.rawProject, "primaryPicture")
-                  }
+                  data-tina-field={tinaField(project.rawProject, "title") || undefined}
                   href={`/projects/${project.projectSlug}`}
                   key={`${project.projectSlug}-${index}`}
                 >
-                  <FillImage alt={project.projectTitle} className="object-cover" sizes="(min-width: 768px) 33vw, 33vw" src={project.previewImage} />
+                  <FillImage alt={project.projectTitle} className="object-cover" sizes="(min-width: 768px) 33vw, 33vw" src={project.previewImage} variant={galleryProjectCardImageVariant} />
                 </Link>
               ))}
             </div>
