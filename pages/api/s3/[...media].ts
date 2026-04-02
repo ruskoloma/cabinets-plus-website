@@ -1,7 +1,7 @@
 import { isAuthorized } from "@tinacms/auth";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { createMediaHandler } from "next-tinacms-s3/dist/handlers";
 import presets from "@/lib/image-variant-presets.json";
+import { createTinaS3MediaHandler } from "@/lib/tina-s3-media-handler";
 
 export const config = {
   api: {
@@ -18,7 +18,7 @@ const GENERATED_VARIANT_PATTERN = new RegExp(
   "i",
 );
 
-const baseHandler = createMediaHandler(
+const baseHandler = createTinaS3MediaHandler(
   {
     config: {
       credentials: {
@@ -45,36 +45,12 @@ const baseHandler = createMediaHandler(
       }
     },
   },
-  cdnUrl ? { cdnUrl } : undefined
+  {
+    ...(cdnUrl ? { cdnUrl } : {}),
+    filterItem: (item) => item.type !== "file" || !GENERATED_VARIANT_PATTERN.test(item.filename),
+  }
 );
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const isMediaListingRequest = req.method === "GET" && !req.query.key;
-
-  if (isMediaListingRequest) {
-    const originalJson = res.json.bind(res);
-
-    res.json = ((body: unknown) => {
-      if (
-        body &&
-        typeof body === "object" &&
-        "items" in body &&
-        Array.isArray((body as { items?: unknown[] }).items)
-      ) {
-        const response = body as { items: Array<{ type?: string; filename?: string }> };
-
-        return originalJson({
-          ...response,
-          items: response.items.filter((item) => {
-            if (item?.type !== "file" || !item.filename) return true;
-            return !GENERATED_VARIANT_PATTERN.test(item.filename);
-          }),
-        });
-      }
-
-      return originalJson(body);
-    }) as NextApiResponse["json"];
-  }
-
   return baseHandler(req, res);
 }
