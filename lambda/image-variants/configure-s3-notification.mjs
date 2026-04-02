@@ -32,7 +32,7 @@ const nextConfig = {
 
 const lambdaConfig = {
   Id: id,
-  Events: ["s3:ObjectCreated:*"],
+  Events: ["s3:ObjectCreated:*", "s3:ObjectRemoved:*"],
   LambdaFunctionArn: functionArn,
 };
 

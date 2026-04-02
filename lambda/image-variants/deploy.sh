@@ -73,7 +73,8 @@ cat > "${TMP_DIR}/permissions-policy.json" <<JSON
       "Effect": "Allow",
       "Action": [
         "s3:GetObject",
-        "s3:PutObject"
+        "s3:PutObject",
+        "s3:DeleteObject"
       ],
       "Resource": "arn:aws:s3:::${BUCKET_NAME}/*"
     }

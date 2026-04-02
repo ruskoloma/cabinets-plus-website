@@ -58,3 +58,4 @@ The app can run with local content only, but these variables are used in differe
 - Route loaders first try Tina queries and then fall back to local files in `content/`.
 - Import and migration utilities live in `scripts/`.
 - Shared layout configuration is stored in `content/global/header.json`, `content/global/footer.json`, and `content/global/general.json`.
+- The Tina S3 media route prefers explicit `S3_BUCKET` and `S3_REGION`, but can also derive them from `S3_CDN_URL` when the CDN URL uses the standard virtual-host S3 form like `https://bucket.s3.us-west-2.amazonaws.com`.
