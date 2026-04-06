@@ -12,7 +12,7 @@ export default function ProjectMosaic({ images, imageFields = [], imageVariant }
   const secondaryImages = rest.slice(0, 4);
 
   return (
-    <div className="mt-4 flex flex-col gap-[15px] md:mt-7 md:grid md:grid-cols-[674px_323px_323px] md:grid-rows-[243px_243px] md:gap-[28px]">
+    <div className="mt-8 flex flex-col gap-[15px] md:mt-4 md:grid md:grid-cols-[674px_323px_323px] md:grid-rows-[243px_243px] md:gap-[28px]">
       <div className="relative h-[275px] overflow-hidden rounded-[1px] bg-[var(--cp-primary-100)] md:row-span-2 md:h-[514px] md:rounded-[2px]" data-tina-field={imageFields[0]}>
         {first ? <FillImage alt="Project main" className="object-cover" priority sizes="(min-width: 768px) 48vw, 100vw" src={first} variant={imageVariant === null ? undefined : (imageVariant ?? "feature")} /> : null}
       </div>

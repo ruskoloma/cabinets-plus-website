@@ -1,11 +1,22 @@
 import type {
   CatalogSettingsData,
+  ProjectCabinetProductLink,
+  ProjectCountertopProductLink,
   ProjectMediaItem,
   ProjectOverviewItem,
 } from "@/components/gallery-overview/types";
 import type { CabinetListItem } from "@/components/cabinet-door/types";
+import type { CountertopListItem } from "@/components/countertop/types";
 
-export type { CatalogSettingsData, ProjectMediaItem, ProjectOverviewItem, CabinetListItem };
+export type {
+  CatalogSettingsData,
+  ProjectCabinetProductLink,
+  ProjectCountertopProductLink,
+  ProjectMediaItem,
+  ProjectOverviewItem,
+  CabinetListItem,
+  CountertopListItem,
+};
 
 export interface ProjectDetailQueryLikeResult {
   data: {
@@ -54,6 +65,9 @@ export interface ProjectDetailPageProps {
   materialCards: ProjectMaterialCardData[];
   relatedProjects: ProjectRelatedCardData[];
   pageSettingsRecord?: Record<string, unknown> | null;
+  materialsTitle?: string | null;
+  relatedProjectsTitle?: string | null;
+  relatedProjectsCtaLabel?: string | null;
   contactBlock?: Record<string, unknown> | null;
   materialCardImageSizeChoice?: string | null;
   galleryImageSizeChoice?: string | null;

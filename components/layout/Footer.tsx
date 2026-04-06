@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import FallbackImg from "@/components/ui/FallbackImg";
+import TextLink from "@/components/ui/TextLink";
 
 interface FooterLink {
   label: string;
@@ -26,9 +27,9 @@ const FOOTER_SHBA_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/li
 
 function FooterLinkItem({ href, children, field }: { href: string; children: React.ReactNode; field?: string }) {
   return (
-    <Link className="block text-[16px] leading-6 text-white transition-colors hover:text-[var(--cp-brand-neutral-300)]" data-tina-field={field} href={href}>
+    <TextLink className="block" dataTinaField={field} href={href} size="large" tone="white">
       {children}
-    </Link>
+    </TextLink>
   );
 }
 
@@ -62,6 +63,15 @@ function FooterMembershipLogo() {
   );
 }
 
+function FooterContactRow({ iconSrc, value, field }: { iconSrc: string; value: string; field?: string }) {
+  return (
+    <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={field}>
+      <img alt="" aria-hidden className="h-5 w-5" src={iconSrc} />
+      <span>{value}</span>
+    </p>
+  );
+}
+
 export default function Footer({
   data,
   footerRaw,
@@ -87,6 +97,16 @@ export default function Footer({
   const pinterestUrl = data.pinterestUrl || PINTEREST_URL;
   const instagramUrl = data.instagramUrl || "https://instagram.com";
   const facebookUrl = data.facebookUrl || "https://facebook.com";
+  const desktopContactRows = [
+    { iconSrc: "/library/footer/footer-icon-location.svg", value: primaryAddress, field: tinaField(generalRaw, "address") },
+    { iconSrc: "/library/footer/footer-icon-phone.svg", value: phone, field: tinaField(generalRaw, "phone") },
+    { iconSrc: "/library/footer/footer-icon-mail.svg", value: email, field: tinaField(generalRaw, "email") },
+  ];
+  const mobileContactRows = [
+    { iconSrc: "/library/footer/footer-icon-location.svg", value: primaryAddress, field: tinaField(generalRaw, "address") },
+    { iconSrc: "/library/footer/footer-icon-mail.svg", value: email, field: tinaField(generalRaw, "email") },
+    { iconSrc: "/library/footer/footer-icon-phone.svg", value: phone, field: tinaField(generalRaw, "phone") },
+  ];
 
   return (
     <footer className="bg-[var(--cp-brand-neutral-800)] text-white">
@@ -124,18 +144,9 @@ export default function Footer({
 
         <div className="mt-[30px] flex items-start justify-between">
           <div className="w-[262px] space-y-4">
-            <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(generalRaw, "address")}>
-              <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-location.svg" />
-              <span>{primaryAddress}</span>
-            </p>
-            <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(generalRaw, "phone")}>
-              <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-mail.svg" />
-              <span>{phone}</span>
-            </p>
-            <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(generalRaw, "email")}>
-              <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-phone.svg" />
-              <span>{email}</span>
-            </p>
+            {desktopContactRows.map((row) => (
+              <FooterContactRow field={row.field} iconSrc={row.iconSrc} key={`${row.iconSrc}-${row.value}`} value={row.value} />
+            ))}
           </div>
 
           <div className="flex w-[506px] justify-between" data-tina-field={tinaField(footerRaw, "footerLinks")}>
@@ -184,18 +195,9 @@ export default function Footer({
         </Link>
 
         <div className="mt-[17px] w-[262px] space-y-4">
-          <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(generalRaw, "address")}>
-            <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-location.svg" />
-            <span>{primaryAddress}</span>
-          </p>
-          <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(generalRaw, "phone")}>
-            <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-mail.svg" />
-            <span>{phone}</span>
-          </p>
-          <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={tinaField(generalRaw, "email")}>
-            <img alt="" aria-hidden className="h-5 w-5" src="/library/footer/footer-icon-phone.svg" />
-            <span>{email}</span>
-          </p>
+          {mobileContactRows.map((row) => (
+            <FooterContactRow field={row.field} iconSrc={row.iconSrc} key={`${row.iconSrc}-${row.value}`} value={row.value} />
+          ))}
         </div>
 
         <div className="mt-[53px] w-[361px] text-[16px] leading-6 text-white" data-tina-field={tinaField(footerRaw, "footerLinks")}>
@@ -213,7 +215,7 @@ export default function Footer({
           </p>
         </div>
 
-        <div className="mt-[41px]">
+        <div className="mt-[65px]">
           <FooterMembershipLogo />
         </div>
 

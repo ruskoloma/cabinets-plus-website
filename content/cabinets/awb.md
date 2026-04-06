@@ -1,48 +1,37 @@
 ---
+published: true
 name: Artisanal White
 code: AWB
 slug: awb
 description: >-
-  Artisanal White sample door from Buy Wholesale Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency in material
-  selection, construction methods, and finishing techniques. The style, recessed panel, stile and
-  rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a
-  precise representation of the quality you can expect in your completed cabinets.
+  Artisanal White sample door from Buy Wholesale Collection is produced using
+  the exact same manufacturing process as our full cabinet line, ensuring
+  absolute consistency in material selection, construction methods, and
+  finishing techniques. The style, recessed panel, stile and rail dimensions,
+  and solid birchwood are aligned with our true cabinet products, offering a
+  precise representation of the quality you can expect in your completed
+  cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3087-awb-artisanal-white.jpg
 technicalDetails:
   - key: Manufacturer
     value: Buy Wholesale Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3087-awb-artisanal-white.jpg
@@ -57,7 +46,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3247-dsc06703.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3247-dsc06703.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +59,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3244-dsc07909.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3244-dsc07909.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -81,7 +72,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3243-dsc07928.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3243-dsc07928.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -93,7 +85,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3245-dsc06790.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3245-dsc06790.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -105,7 +98,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3246-dsc06815.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3246-dsc06815.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -117,7 +111,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3242-dsc07912.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AWB/3242-dsc07912.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -133,9 +128,7 @@ sourceId: 244
 sourceUpdatedAt: '2025-07-25T22:53:53.115Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-with-glass-uppers.md
-  - project: content/projects/modern-white-kitchen-and-compact-vanity.md
-  - project: content/projects/bright-shaker-cabinetry-with-black-accents.md
+  - project: content/projects/residence-on-bolan-avenue.md
 relatedProducts:
   - product: content/cabinets/axm.md
   - product: content/cabinets/bfk.md
@@ -144,3 +137,4 @@ relatedProducts:
 doorStyle: flat panel
 paint: white
 ---
+

@@ -8,13 +8,14 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = await params;
   const result = await client.queries.post({ relativePath: `${slug}.md` });
-  const { title, seo, excerpt } = result.data.post;
+  const { title, seo, excerpt, subtitle } = result.data.post;
+  const description = seo?.description || excerpt || subtitle || undefined;
   return {
     title: seo?.title || title,
-    description: seo?.description || excerpt || undefined,
+    description,
     openGraph: {
       title: seo?.title || title,
-      description: seo?.description || excerpt || undefined,
+      description,
       ...(seo?.ogImage ? { images: [{ url: seo.ogImage }] } : {}),
     },
   };
@@ -22,9 +23,10 @@ export async function generateMetadata(
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [result, pageSettingsData] = await Promise.all([
+  const [result, postsData, pageSettingsData] = await Promise.all([
     client.queries.post({ relativePath: `${slug}.md` }),
+    client.queries.postConnection({ first: 100 }),
     getPostPageSettingsSafe(),
   ]);
-  return <PostClient {...result} pageSettingsData={pageSettingsData} />;
+  return <PostClient {...result} pageSettingsData={pageSettingsData} postsData={postsData} />;
 }

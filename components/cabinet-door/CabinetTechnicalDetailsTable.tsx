@@ -14,7 +14,6 @@ export default function CabinetTechnicalDetailsTable({ details }: CabinetTechnic
       details={details.map((detail) => ({
         key: detail.key,
         value: detail.value,
-        unit: detail.unit,
         keyTinaField: tinaField(detail as unknown as Record<string, unknown>, "key"),
         valueTinaField: tinaField(detail as unknown as Record<string, unknown>, "value"),
       }))}

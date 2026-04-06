@@ -1,67 +1,30 @@
 "use client";
-import { useState } from "react";
+
 import { tinaField } from "tinacms/dist/react";
-import SectionTitle from "@/components/ui/SectionTitle";
+import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
 export default function FAQSectionBlock({ block }: { block: BlockRecord }) {
-  const [activeTab, setActiveTab] = useState(0);
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const tabs = asBlockArray(block.tabs);
-  const currentTab = tabs[activeTab];
-  const faqs = currentTab ? asBlockArray(currentTab.faqs) : [];
+  const tabs = asBlockArray(block.tabs).map((tab) => ({
+    raw: tab,
+    label: asText(tab.label),
+    faqs: asBlockArray(tab.faqs).map((faq) => ({
+      raw: faq,
+      question: asText(faq.question),
+      answer: asText(faq.answer),
+    })),
+  }));
 
   return (
-    <section className="py-20 bg-white" id="faq">
-      <div className="max-w-4xl mx-auto px-6">
-        <SectionTitle title={asText(block.title)} tinaField={tinaField(block, "title")} centered />
-
-        {/* Tab Bar */}
-        <div className="flex flex-wrap gap-2 justify-center mt-8 mb-10">
-          {tabs.map((tab, i) => (
-            <button
-              key={i}
-              onClick={() => { setActiveTab(i); setOpenIndex(null); }}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeTab === i
-                  ? "bg-amber-600 text-white shadow-md"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-              }`}
-            >
-              {asText(tab.label)}
-            </button>
-          ))}
-        </div>
-
-        {/* FAQ Accordion */}
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="border border-slate-200 rounded-xl overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-4 text-left bg-white hover:bg-slate-50 transition-colors"
-              >
-                <span
-                  data-tina-field={tinaField(faq, "question")}
-                  className="font-semibold text-slate-800 text-sm pr-4"
-                >
-                  {asText(faq.question)}
-                </span>
-                <span className={`text-amber-600 text-xl flex-shrink-0 transition-transform duration-200 ${openIndex === i ? "rotate-45" : ""}`}>
-                  +
-                </span>
-              </button>
-              {openIndex === i && (
-                <div className="px-6 pb-5 text-slate-500 text-sm leading-relaxed border-t border-slate-100 pt-4 bg-slate-50">
-                  <span data-tina-field={tinaField(faq, "answer")}>{asText(faq.answer)}</span>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+    <section className="bg-[#edebe5] py-8 md:py-16" id="faq">
+      <div className="mx-auto max-w-[1280px] px-4 md:px-8">
+        <h2
+          className="text-center font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]"
+          data-tina-field={tinaField(block, "title")}
+        >
+          {asText(block.title)}
+        </h2>
+        <FaqTabsAccordion tabs={tabs} />
       </div>
     </section>
   );

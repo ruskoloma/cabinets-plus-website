@@ -16,6 +16,7 @@ interface PreviewCardProps {
   tinaTitleField?: string;
   tinaDescriptionField?: string;
   imageVariant?: ImageVariantPreset | null;
+  showMobileChevron?: boolean;
 }
 
 export default function PreviewCard({
@@ -32,6 +33,7 @@ export default function PreviewCard({
   tinaTitleField,
   tinaDescriptionField,
   imageVariant,
+  showMobileChevron = false,
 }: PreviewCardProps) {
   const imageClasses = [
     "h-full w-full object-cover",
@@ -45,9 +47,28 @@ export default function PreviewCard({
       <div className={`relative overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] ${imageClassName}`} data-tina-field={tinaImageField}>
         {image ? <FillImage alt={title} className={imageClasses} sizes="(min-width: 768px) 25vw, 100vw" src={image} variant={imageVariant === null ? undefined : (imageVariant ?? "card")} /> : null}
       </div>
-      <h3 className={titleClassName} data-tina-field={tinaTitleField}>
-        {title}
-      </h3>
+      {showMobileChevron && href ? (
+        <>
+          <div className="mt-2 flex items-center gap-1.5 md:hidden" data-tina-field={tinaTitleField}>
+            <h3 className="min-w-0 flex-1 font-[var(--font-red-hat-display)] text-[16px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
+              {title}
+            </h3>
+            <img
+              alt=""
+              aria-hidden="true"
+              className="h-4 w-4 shrink-0"
+              src="/library/header/nav-chevron-right.svg"
+            />
+          </div>
+          <h3 className={`hidden md:block ${titleClassName}`} data-tina-field={tinaTitleField}>
+            {title}
+          </h3>
+        </>
+      ) : (
+        <h3 className={titleClassName} data-tina-field={tinaTitleField}>
+          {title}
+        </h3>
+      )}
       {description ? (
         <p className={descriptionClassName} data-tina-field={tinaDescriptionField}>
           {description}

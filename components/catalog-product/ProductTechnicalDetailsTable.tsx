@@ -14,7 +14,7 @@ export default function ProductTechnicalDetailsTable({ details }: ProductTechnic
   if (!details.length) return null;
 
   return (
-    <div className="mt-4 border-t border-[var(--cp-primary-100)]">
+    <div className="mt-4">
       {details.map((detail, index) => (
         <div
           className="grid h-10 grid-cols-[189px_minmax(0,1fr)] items-center border-b border-[var(--cp-primary-100)] md:grid-cols-2"

@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Simple Grey
 code: CalacattaSimpleGrey
 slug: calacattasimplegrey
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Simple Grey presents a soft white to pale cool-gray background with extremely subtle,
-  thin gray veining drifting diagonally across the surface. The movement is delicate and
-  understated, creating a light, airy flow rather than bold drama. Low contrast and sparse
-  patterning give the slab a quiet, refined, minimalist design character.
+  Calacatta Simple Grey presents a soft white to pale cool-gray background with
+  extremely subtle, thin gray veining drifting diagonally across the surface.
+  The movement is delicate and understated, creating a light, airy flow rather
+  than bold drama. Low contrast and sparse patterning give the slab a quiet,
+  refined, minimalist design character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasimplegrey/3649-calacatta-simple-grey-1.jpg
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/black-island-project-at-the-art-house.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1725
 sourceUpdatedAt: '2025-09-18T18:25:09.351Z'
 ---
+

@@ -1,25 +1,25 @@
 ---
+published: true
 name: Taj Light
 code: TajLight
 slug: tajlight
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Taj Light presents a soft, pale greige and warm ivory palette with delicate tonal variation
-  throughout the quartz surface. Fine, feathery veining drifts gently across the slab in subtle
-  diagonal movement, creating a calm sense of flow. Low contrast and understated patterning give it
-  an airy, refined, and quietly elegant design character.
+  Taj Light presents a soft, pale greige and warm ivory palette with delicate
+  tonal variation throughout the quartz surface. Fine, feathery veining drifts
+  gently across the slab in subtle diagonal movement, creating a calm sense of
+  flow. Low contrast and understated patterning give it an airy, refined, and
+  quietly elegant design character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/tajlight/3271-taj-light.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
-  - project: content/projects/soft-tan-arched-kitchen-brass-accents.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-22nd-avenue.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1705
 sourceUpdatedAt: '2025-09-18T18:25:10.792Z'
 ---
+

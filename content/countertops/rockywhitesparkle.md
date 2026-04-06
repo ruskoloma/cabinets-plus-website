@@ -1,25 +1,25 @@
 ---
+published: true
 name: Rocky White Sparkle
 code: RockyWhiteSparkle
 slug: rockywhitesparkle
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Rocky White Sparkle presents a soft white to very pale gray palette with delicate, evenly
-  dispersed speckling that creates a subtle shimmering effect. Veining is essentially absent, giving
-  the surface minimal movement and very low contrast. The overall design character feels clean,
-  quiet, refined, and consistent with a smooth, understated visual presence.
+  Rocky White Sparkle presents a soft white to very pale gray palette with
+  delicate, evenly dispersed speckling that creates a subtle shimmering effect.
+  Veining is essentially absent, giving the surface minimal movement and very
+  low contrast. The overall design character feels clean, quiet, refined, and
+  consistent with a smooth, understated visual presence.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockywhitesparkle/3665-rocky-white-sparkle-1.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
-  - project: content/projects/bright-open-concept-kitchen-and-bath-cabinetry.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-may-ella-loop.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1709
 sourceUpdatedAt: '2025-09-18T18:25:10.528Z'
 ---
+

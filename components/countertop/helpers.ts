@@ -8,7 +8,9 @@ import type {
   CountertopListItem,
   CountertopMediaItem,
   CountertopProjectItem,
+  CountertopReferenceProduct,
   CountertopRelatedItem,
+  CountertopRelatedProduct,
   CountertopTechnicalDetail,
   ProductGalleryItemViewModel,
 } from "./types";
@@ -31,11 +33,40 @@ function humanizeSlug(slug: string): string {
     .join(" ");
 }
 
+function normalizeReferenceToSlug(reference: string): string {
+  const normalized = reference.trim().replace(/^\//, "");
+  const lastSegment = normalized.split("/").pop() || normalized;
+  return toSlug(lastSegment);
+}
+
 function isTruthyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
 const DEFAULT_PROJECT_CARD_TITLE = "Project";
+
+function referenceProductToCard(
+  product: CountertopReferenceProduct,
+  indexBySlug: Map<string, CountertopListItem>,
+  currentSlug: string,
+  relation?: CountertopRelatedProduct,
+): CountertopRelatedItem | null {
+  const productSlug =
+    (isTruthyString(product.slug) ? toSlug(product.slug) : "") ||
+    (isTruthyString(product._sys?.filename) ? toSlug(product._sys.filename) : "") ||
+    (isTruthyString(product._sys?.relativePath) ? normalizeReferenceToSlug(product._sys.relativePath) : "");
+
+  if (!productSlug || productSlug === currentSlug) return null;
+
+  const matched = indexBySlug.get(productSlug);
+  return {
+    slug: productSlug,
+    name: (isTruthyString(product.name) ? product.name.trim() : matched?.name) || humanizeSlug(productSlug),
+    code: (isTruthyString(product.code) ? product.code.trim() : matched?.code) || undefined,
+    image: (isTruthyString(product.picture) ? product.picture.trim() : matched?.picture) || undefined,
+    relation,
+  };
+}
 
 function getPrimaryImage(countertop: CountertopData): string {
   const directPicture = isTruthyString(countertop.picture) ? countertop.picture.trim() : "";
@@ -128,6 +159,7 @@ export function buildCountertopProjectItems(
     file: item.file,
     title: item.title || DEFAULT_PROJECT_CARD_TITLE,
     href: item.href,
+    selectionIndex: item.selectionIndex,
     projectSource: item.projectSource,
     mediaSource: item.mediaSource,
   }));
@@ -164,8 +196,6 @@ function scoreRelatedCountertop(
   const currentWords = currentName.split(" ").filter((word) => word.length > 3);
 
   if (normalizedType && itemType === normalizedType) score += 6;
-  if (countertop.inStock === item.inStock) score += 2;
-  if (countertop.storeCollection?.trim() && countertop.storeCollection === item.storeCollection) score += 1;
   if (item.picture) score += 1;
 
   for (const word of currentWords) {
@@ -181,9 +211,47 @@ export function buildRelatedCountertopItems(
   currentSlug: string,
   maxItems = 4,
 ): CountertopRelatedItem[] {
+  const indexBySlug = new Map<string, CountertopListItem>(countertopIndex.map((item) => [item.slug, item]));
   const normalizedType = normalizeOptionValue(countertop.countertopType || "");
+  const results: CountertopRelatedItem[] = [];
+  const seen = new Set<string>();
 
-  return countertopIndex
+  const pushResult = (item: CountertopRelatedItem | null) => {
+    if (!item || !item.slug || seen.has(item.slug) || item.slug === currentSlug) return;
+    seen.add(item.slug);
+    results.push(item);
+  };
+
+  for (const relation of countertop.relatedProducts || []) {
+    if (!relation) continue;
+
+    const product = relation.product;
+
+    if (typeof product === "string") {
+      const slug = normalizeReferenceToSlug(product);
+      const matched = indexBySlug.get(slug);
+      if (!matched) continue;
+
+      pushResult({
+        slug,
+        name: matched.name,
+        code: matched.code || undefined,
+        image: matched.picture || undefined,
+        relation,
+      });
+      continue;
+    }
+
+    if (product && typeof product === "object") {
+      pushResult(referenceProductToCard(product, indexBySlug, currentSlug, relation));
+    }
+  }
+
+  if (results.length >= maxItems) {
+    return results.slice(0, maxItems);
+  }
+
+  const fallbackItems = countertopIndex
     .filter((item) => item.slug !== currentSlug)
     .map((item) => ({
       item,
@@ -192,14 +260,20 @@ export function buildRelatedCountertopItems(
     .sort((left, right) => {
       if (right.score !== left.score) return right.score - left.score;
       return left.item.name.localeCompare(right.item.name);
-    })
-    .slice(0, maxItems)
-    .map(({ item }) => ({
+    });
+
+  for (const { item } of fallbackItems) {
+    if (results.length >= maxItems) break;
+
+    pushResult({
       slug: item.slug,
       name: item.name,
       code: item.code || undefined,
       image: item.picture || undefined,
-    }));
+    });
+  }
+
+  return results.slice(0, maxItems);
 }
 
 export function getAdjacentCountertops(

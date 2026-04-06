@@ -1,48 +1,36 @@
 ---
+published: true
 name: Liberty Shaker Gray
 code: LSG
 slug: lsg
 description: >-
-  Liberty Shaker Gray sample door from Pro Collection is produced using the exact same manufacturing
-  process as our full cabinet line, ensuring absolute consistency in material selection,
-  construction methods, and finishing techniques. The style, recessed panel, stile and rail
-  dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise
+  Liberty Shaker Gray sample door from Pro Collection is produced using the
+  exact same manufacturing process as our full cabinet line, ensuring absolute
+  consistency in material selection, construction methods, and finishing
+  techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise
   representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3135-lsg-liberty-shaker-gray.jpg
 technicalDetails:
   - key: Manufacturer
     value: Pro Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3135-lsg-liberty-shaker-gray.jpg
@@ -57,7 +45,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3187-dsc00192.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3187-dsc00192.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +58,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3188-dsc04899.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3188-dsc04899.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -81,7 +71,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3189-dsc00167.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3189-dsc00167.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -93,7 +84,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3190-dsc00206.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3190-dsc00206.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -105,7 +97,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3191-dsc00228.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3191-dsc00228.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -117,7 +110,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3192-dsc00271.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3192-dsc00271.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -129,7 +123,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3193-dsc04913.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3193-dsc04913.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -141,7 +136,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3194-dsc00165.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSG/3194-dsc00165.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -157,9 +153,8 @@ sourceId: 293
 sourceUpdatedAt: '2025-07-25T22:53:52.276Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/modern-gray-shaker-kitchen-and-bath-cabinetry.md
-  - project: content/projects/modern-classic-galley-kitchen-soft-gray.md
-  - project: content/projects/modern-white-kitchen-and-compact-vanity.md
+  - project: content/projects/residence-on-sipple-road.md
+  - project: content/projects/residence-on-20th-avenue.md
 relatedProducts:
   - product: content/cabinets/lskp.md
   - product: content/cabinets/lsw.md
@@ -168,3 +163,4 @@ relatedProducts:
 doorStyle: shaker
 paint: gray
 ---
+

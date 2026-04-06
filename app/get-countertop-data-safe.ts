@@ -1,5 +1,4 @@
 import {
-  asBoolean,
   asRecord,
   asString,
   createStaticQueryResult,
@@ -79,8 +78,6 @@ export async function getCountertopIndexSafe(): Promise<CountertopListItem[]> {
           code: asString(data.code)?.trim() || "",
           picture: asString(data.picture)?.trim() || "",
           countertopType: asString(data.countertopType)?.trim() || undefined,
-          inStock: asBoolean(data.inStock),
-          storeCollection: asString(data.storeCollection)?.trim() || undefined,
         } satisfies CountertopListItem;
       }),
     );

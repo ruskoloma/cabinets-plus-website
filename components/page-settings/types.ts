@@ -30,6 +30,9 @@ export interface GalleryPageSettings extends BaseSettingsDocument {
 }
 
 export interface ProjectPageSettings extends BaseSettingsDocument {
+  projectDetailMaterialsTitle?: string | null;
+  projectDetailRelatedProjectsTitle?: string | null;
+  projectDetailRelatedProjectsCtaLabel?: string | null;
   projectDetailMaterialCardImageSize?: string | null;
   projectDetailGalleryImageSize?: string | null;
   projectDetailLightboxImageSize?: string | null;
@@ -37,7 +40,10 @@ export interface ProjectPageSettings extends BaseSettingsDocument {
 }
 
 export interface PostPageSettings extends BaseSettingsDocument {
+  postBreadcrumbLabel?: string | null;
+  postRelatedArticlesTitle?: string | null;
   postDetailThumbnailImageSize?: string | null;
+  postDetailRelatedArticlesImageSize?: string | null;
 }
 
 export interface CabinetsOverviewPageSettingsQueryLikeResult {
@@ -89,6 +95,9 @@ export const FALLBACK_GALLERY_PAGE_SETTINGS: GalleryPageSettings = {
 };
 
 export const FALLBACK_PROJECT_PAGE_SETTINGS: ProjectPageSettings = {
+  projectDetailMaterialsTitle: "Finish & Materials",
+  projectDetailRelatedProjectsTitle: "Projects You Might Like",
+  projectDetailRelatedProjectsCtaLabel: "View all",
   projectDetailMaterialCardImageSize: "thumb",
   projectDetailGalleryImageSize: "card",
   projectDetailLightboxImageSize: "full",
@@ -96,5 +105,8 @@ export const FALLBACK_PROJECT_PAGE_SETTINGS: ProjectPageSettings = {
 };
 
 export const FALLBACK_POST_PAGE_SETTINGS: PostPageSettings = {
+  postBreadcrumbLabel: "Articles",
+  postRelatedArticlesTitle: "Related articles",
   postDetailThumbnailImageSize: "feature",
+  postDetailRelatedArticlesImageSize: "card",
 };

@@ -10,6 +10,7 @@ interface TextLinkProps {
   size?: Size;
   disabled?: boolean;
   className?: string;
+  dataTinaField?: string;
 }
 
 export default function TextLink({
@@ -19,25 +20,25 @@ export default function TextLink({
   size = "medium",
   disabled = false,
   className = "",
+  dataTinaField,
 }: TextLinkProps) {
-  const toneClass =
-    tone === "white"
-      ? "text-white hover:text-[var(--cp-brand-neutral-300)]"
+  const disabledClass = !disabled
+    ? ""
+    : tone === "white"
+      ? "cp-text-link--disabled cp-text-link--disabled-white"
       : tone === "neutral"
-        ? "text-[var(--cp-primary-500)] hover:text-[var(--cp-brand-neutral-300)]"
-        : "text-[var(--cp-brand-neutral-300)] hover:text-[#af8e6b]";
+        ? "cp-text-link--disabled cp-text-link--disabled-neutral"
+        : "cp-text-link--disabled cp-text-link--disabled-primary";
 
-  const sizeClass =
-    size === "title"
-      ? "text-xl font-medium leading-[1.2]"
-      : size === "large"
-        ? "text-lg leading-[1.5]"
-        : size === "small"
-          ? "text-sm leading-[1.2]"
-          : "text-base leading-[1.2]";
-
-  const disabledClass = disabled ? "pointer-events-none text-[var(--cp-primary-100)]" : "";
-  const base = `${toneClass} ${sizeClass} transition-colors duration-200 ${disabledClass} ${className}`;
+  const base = [
+    "cp-text-link",
+    `cp-text-link--${size}`,
+    `cp-text-link--tone-${tone}`,
+    disabledClass,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   if (disabled) {
     return (
@@ -48,7 +49,7 @@ export default function TextLink({
   }
 
   return (
-    <Link className={base} href={href}>
+    <Link className={base} data-tina-field={dataTinaField} href={href}>
       {children}
     </Link>
   );

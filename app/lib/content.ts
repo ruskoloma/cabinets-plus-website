@@ -34,6 +34,16 @@ export async function readMarkdownFrontmatter(...segments: string[]): Promise<Co
   return (matter(raw).data as ContentRecord) || {};
 }
 
+export async function readMarkdownDocument(...segments: string[]): Promise<{ data: ContentRecord; content: string }> {
+  const raw = await fs.readFile(contentPath(...segments), "utf8");
+  const parsed = matter(raw);
+
+  return {
+    data: (parsed.data as ContentRecord) || {},
+    content: parsed.content || "",
+  };
+}
+
 export async function listMarkdownFiles(...segments: string[]): Promise<string[]> {
   const files = await fs.readdir(contentPath(...segments));
   return files.filter((file) => MARKDOWN_EXTENSION_PATTERN.test(file));

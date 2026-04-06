@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Elite Gold
 code: CalacattaEliteGold
 slug: calacattaelitegold
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Elite Gold quartz features a soft white background traced with delicate, elongated
-  veining in pale gray with subtle warm golden undertones. The movement is gentle and diagonal,
-  creating an airy, flowing pattern with low-to-moderate contrast. Its overall design character
-  feels refined, elegant, and understated, with a clean, luminous marble-inspired aesthetic.
+  Calacatta Elite Gold quartz features a soft white background traced with
+  delicate, elongated veining in pale gray with subtle warm golden undertones.
+  The movement is gentle and diagonal, creating an airy, flowing pattern with
+  low-to-moderate contrast. Its overall design character feels refined, elegant,
+  and understated, with a clean, luminous marble-inspired aesthetic.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaelitegold/3274-calacatta-elite-gold.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-whitetail-lane.md
+  - project: content/projects/black-island-project-at-the-art-house.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1702
 sourceUpdatedAt: '2025-09-18T18:25:10.994Z'
 ---
+

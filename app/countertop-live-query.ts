@@ -11,14 +11,30 @@ export const COUNTERTOP_LIVE_QUERY = `
       }
       ... on Countertop {
         __typename
+        published
         name
         code
         slug
         countertopType
-        inStock
-        storeCollection
         description
         picture
+        relatedProjects {
+          __typename
+          project {
+            ... on Project {
+              title
+              slug
+              _sys {
+                filename
+                relativePath
+              }
+            }
+          }
+        }
+        relatedProducts {
+          __typename
+          product
+        }
         technicalDetails {
           __typename
           key

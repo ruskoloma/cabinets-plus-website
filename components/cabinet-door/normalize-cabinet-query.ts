@@ -66,8 +66,6 @@ function normalizeTechnicalDetail(value: unknown): CabinetTechnicalDetail | null
     __typename: asString(record.__typename),
     key: asString(record.key) ?? null,
     value: asString(record.value) ?? null,
-    unit: asString(record.unit) ?? null,
-    order: asNumber(record.order) ?? null,
     _content_source: record._content_source as unknown,
   };
 }
@@ -210,6 +208,7 @@ function normalizeCabinetData(value: unknown, fallbackFilename?: string): Cabine
     __typename: asString(record.__typename),
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
+    published: asBoolean(record.published) ?? null,
     name: asString(record.name) ?? null,
     code: asString(record.code) ?? null,
     slug: asString(record.slug) ?? null,

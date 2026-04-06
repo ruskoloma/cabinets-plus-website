@@ -1,6 +1,7 @@
 import type {
   CountertopData,
   CountertopMediaItem,
+  CountertopRelatedProduct,
   CountertopSystemInfo,
   CountertopTechnicalDetail,
 } from "./types";
@@ -84,10 +85,97 @@ function normalizeMediaItem(value: unknown): CountertopMediaItem | null {
   };
 }
 
+function normalizeRelatedProduct(value: unknown): CountertopRelatedProduct | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  const product = record.product;
+  if (typeof product === "string") {
+    return {
+      __typename: asString(record.__typename),
+      product,
+      _content_source: record._content_source as unknown,
+    };
+  }
+
+  const productRecord = asRecord(product);
+  if (!productRecord) {
+    return {
+      __typename: asString(record.__typename),
+      product: null,
+      _content_source: record._content_source as unknown,
+    };
+  }
+
+  return {
+    __typename: asString(record.__typename),
+    product: {
+      __typename: asString(productRecord.__typename),
+      _sys: normalizeSystemInfo(productRecord._sys),
+      id: asString(productRecord.id),
+      name: asString(productRecord.name) ?? null,
+      code: asString(productRecord.code) ?? null,
+      slug: asString(productRecord.slug) ?? null,
+      countertopType: asString(productRecord.countertopType) ?? null,
+      description: asString(productRecord.description) ?? null,
+      picture: asString(productRecord.picture) ?? null,
+      _content_source: productRecord._content_source as unknown,
+    },
+    _content_source: record._content_source as unknown,
+  };
+}
+
+function normalizeRawRelatedProduct(value: unknown): CountertopRelatedProduct | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    __typename: asString(record.__typename),
+    product: asString(record.product) ?? null,
+    _content_source: record._content_source as unknown,
+  };
+}
+
 function normalizeCountertopData(value: unknown, fallbackFilename?: string): CountertopData | null {
   const record = asRecord(value);
   if (!record) return null;
   const rawValues = asRecord(record._values);
+
+  const typedRelatedProducts = Array.isArray(record.relatedProducts)
+    ? record.relatedProducts
+        .map((item) => normalizeRelatedProduct(item))
+        .filter((item): item is CountertopRelatedProduct => Boolean(item))
+    : [];
+
+  const rawRelatedProducts = Array.isArray(rawValues?.relatedProducts)
+    ? rawValues.relatedProducts
+        .map((item) => normalizeRawRelatedProduct(item))
+        .filter((item): item is CountertopRelatedProduct => Boolean(item))
+    : [];
+
+  const mergedRelatedProducts: CountertopRelatedProduct[] = [];
+  const relatedProductsLength = Math.max(typedRelatedProducts.length, rawRelatedProducts.length);
+
+  for (let index = 0; index < relatedProductsLength; index += 1) {
+    const typedValue = typedRelatedProducts[index];
+    const rawValue = rawRelatedProducts[index];
+    const rawProduct = typeof rawValue?.product === "string" ? rawValue.product : null;
+
+    if (!typedValue && !rawValue) continue;
+
+    if (typedValue) {
+      mergedRelatedProducts.push({
+        ...(typedValue as Record<string, unknown>),
+        product: typedValue.product || rawProduct,
+      } as CountertopRelatedProduct);
+      continue;
+    }
+
+    mergedRelatedProducts.push({
+      ...(rawValue as Record<string, unknown>),
+      product: rawProduct,
+    } as CountertopRelatedProduct);
+  }
 
   const typedRelatedProjects = Array.isArray(record.relatedProjects)
     ? record.relatedProjects.map((item) => normalizeProjectReference(item))
@@ -103,15 +191,15 @@ function normalizeCountertopData(value: unknown, fallbackFilename?: string): Cou
     __typename: asString(record.__typename),
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
+    published: asBoolean(record.published) ?? null,
     name: asString(record.name) ?? null,
     code: asString(record.code) ?? null,
     slug: asString(record.slug) ?? null,
     countertopType: asString(record.countertopType) ?? null,
-    inStock: asBoolean(record.inStock) ?? null,
-    storeCollection: asString(record.storeCollection) ?? null,
     description: asString(record.description) ?? null,
     picture: asString(record.picture) ?? null,
     relatedProjects,
+    relatedProducts: mergedRelatedProducts,
     technicalDetails: Array.isArray(record.technicalDetails)
       ? record.technicalDetails
           .map((item) => normalizeTechnicalDetail(item))

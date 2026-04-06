@@ -1,25 +1,25 @@
 ---
+published: true
 name: Gold Alpine
 code: GoldAlpine
 slug: goldalpine
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Gold Alpine quartz presents a soft white to light cream background traced with delicate, branching
-  veining in warm gold and subtle taupe. The lines drift diagonally with graceful, organic movement,
-  creating gentle contrast rather than bold drama. Its overall character feels airy, refined, and
-  understated, with a polished, elegant visual rhythm.
+  Gold Alpine quartz presents a soft white to light cream background traced with
+  delicate, branching veining in warm gold and subtle taupe. The lines drift
+  diagonally with graceful, organic movement, creating gentle contrast rather
+  than bold drama. Its overall character feels airy, refined, and understated,
+  with a polished, elegant visual rhythm.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3278-gold-alpine.jpg
 relatedProjects:
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/modern-oak-and-black-kitchen-with-blush-laundry.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-villier-road.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1698
 sourceUpdatedAt: '2025-09-18T18:25:11.291Z'
 ---
+

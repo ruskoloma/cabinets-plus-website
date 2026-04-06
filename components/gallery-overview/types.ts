@@ -22,10 +22,30 @@ export interface ProjectMediaItem {
   raw?: Record<string, unknown>;
 }
 
+export interface ProjectReferencedProduct {
+  _sys?: CatalogSystemInfo | null;
+  id?: string;
+  name?: string | null;
+  code?: string | null;
+  slug?: string | null;
+  picture?: string | null;
+}
+
+export interface ProjectCabinetProductLink {
+  cabinet?: ProjectReferencedProduct | string | null;
+  _content_source?: unknown;
+}
+
+export interface ProjectCountertopProductLink {
+  countertop?: ProjectReferencedProduct | string | null;
+  _content_source?: unknown;
+}
+
 export interface ProjectOverviewItem {
   __typename?: string;
   _sys?: CatalogSystemInfo | null;
   id?: string;
+  published?: boolean | null;
   title?: string | null;
   slug?: string | null;
   address?: string | null;
@@ -33,6 +53,8 @@ export interface ProjectOverviewItem {
   notes?: string | null;
   primaryPicture?: string | null;
   relatedProjects?: Array<string | null> | null;
+  cabinetProducts?: Array<ProjectCabinetProductLink | null> | null;
+  countertopProducts?: Array<ProjectCountertopProductLink | null> | null;
   sourceUpdatedAt?: string | null;
   media?: Array<ProjectMediaItem | null> | null;
   _content_source?: unknown;

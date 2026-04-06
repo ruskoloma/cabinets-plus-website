@@ -57,7 +57,7 @@ export interface CountertopMediaItem {
   _content_source?: unknown;
 }
 
-export interface CountertopData {
+export interface CountertopReferenceProduct {
   __typename?: string;
   _sys?: CountertopSystemInfo | null;
   id?: string;
@@ -65,11 +65,30 @@ export interface CountertopData {
   code?: string | null;
   slug?: string | null;
   countertopType?: string | null;
-  inStock?: boolean | null;
-  storeCollection?: string | null;
+  description?: string | null;
+  picture?: string | null;
+  _content_source?: unknown;
+}
+
+export interface CountertopRelatedProduct {
+  __typename?: string;
+  product?: CountertopReferenceProduct | string | null;
+  _content_source?: unknown;
+}
+
+export interface CountertopData {
+  __typename?: string;
+  _sys?: CountertopSystemInfo | null;
+  id?: string;
+  published?: boolean | null;
+  name?: string | null;
+  code?: string | null;
+  slug?: string | null;
+  countertopType?: string | null;
   description?: string | null;
   picture?: string | null;
   relatedProjects?: Array<string | null> | null;
+  relatedProducts?: Array<CountertopRelatedProduct | null> | null;
   technicalDetails?: Array<CountertopTechnicalDetail | null> | null;
   media?: Array<CountertopMediaItem | null> | null;
   sourceId?: number | null;
@@ -91,14 +110,13 @@ export interface CountertopListItem {
   code: string;
   picture: string;
   countertopType?: string;
-  inStock?: boolean;
-  storeCollection?: string;
 }
 
 export interface CountertopProjectItem {
   file: string;
   title: string;
   href?: string;
+  selectionIndex?: number;
   projectSource?: Record<string, unknown>;
   mediaSource?: Record<string, unknown>;
   project?: ProjectOverviewItem;
@@ -110,6 +128,7 @@ export interface CountertopRelatedItem {
   name: string;
   code?: string;
   image?: string;
+  relation?: CountertopRelatedProduct;
 }
 
 export interface CountertopDetailPageProps {

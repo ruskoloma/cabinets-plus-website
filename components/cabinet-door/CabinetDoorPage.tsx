@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
+import ArrowNavButton from "@/components/ui/ArrowNavButton";
 import { formatProductCode } from "./helpers";
 import CabinetImageGallery from "./CabinetImageGallery";
 import CabinetProjectStrip from "./CabinetProjectStrip";
@@ -39,46 +40,6 @@ interface CabinetDoorPageProps {
   relatedProductsImageSize?: string | null;
 }
 
-function ArrowNavButton({
-  href,
-  direction,
-}: {
-  href?: string;
-  direction: "previous" | "next";
-}) {
-  const iconClass = direction === "previous" ? "rotate-180" : "";
-  const ariaLabel = direction === "previous" ? "Previous product" : "Next product";
-
-  const content = (
-    <span className="flex h-full w-full items-center justify-center">
-      <img alt="" aria-hidden className={`h-6 w-6 ${iconClass}`} src="/library/header/nav-chevron-right.svg" />
-    </span>
-  );
-
-  if (!href) {
-    return (
-      <button
-        aria-label={ariaLabel}
-        className="h-10 w-10 border border-[var(--cp-primary-100)] opacity-40 md:h-14 md:w-14"
-        disabled
-        type="button"
-      >
-        {content}
-      </button>
-    );
-  }
-
-  return (
-    <Link
-      aria-label={ariaLabel}
-      className="h-10 w-10 border border-[var(--cp-primary-100)] transition-colors hover:border-[var(--cp-primary-500)] md:h-14 md:w-14"
-      href={href}
-    >
-      {content}
-    </Link>
-  );
-}
-
 export default function CabinetDoorPage({
   cabinet,
   currentSlug,
@@ -99,30 +60,31 @@ export default function CabinetDoorPage({
 }: CabinetDoorPageProps) {
   const [descriptionOpen, setDescriptionOpen] = useState(false);
 
+  const cabinetRecord = cabinet as unknown as Record<string, unknown>;
   const displayName = cabinet.name?.trim() || "Cabinet Door";
   const description = cabinet.description?.trim() || "";
   const code = formatProductCode(cabinet.code);
 
   return (
     <div className="bg-white">
-      <section className="bg-white">
+      <section className="bg-white" data-tina-field={tinaField(cabinetRecord) || undefined}>
         <div className="cp-container px-4 pb-12 pt-[34px] md:px-8 md:pb-16 md:pt-7">
           <div className="flex items-start justify-between gap-4 md:items-center">
-            <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[14px] leading-[1.2] text-[var(--cp-primary-300)]">
-              <Link className="transition-colors hover:text-[var(--cp-primary-500)]" href="/cabinets">
+            <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:text-[14px]">
+              <Link className="transition-colors hover:text-[var(--cp-primary-350)]" href="/cabinets">
                 <span data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "breadcrumbLabel") || undefined : undefined}>
                   {pageText.breadcrumbLabel}
                 </span>
               </Link>
               <span>/</span>
-              <span data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name") || undefined}>
+              <span data-tina-field={tinaField(cabinetRecord, "name") || undefined}>
                 {displayName}
               </span>
             </nav>
 
             <div className="flex shrink-0 gap-2 md:gap-4">
-              <ArrowNavButton href={previousProduct ? `/cabinets/${previousProduct.slug}` : undefined} direction="previous" />
-              <ArrowNavButton href={nextProduct ? `/cabinets/${nextProduct.slug}` : undefined} direction="next" />
+              <ArrowNavButton ariaLabel="Previous product" direction="previous" href={previousProduct ? `/cabinets/${previousProduct.slug}` : undefined} size="detail" />
+              <ArrowNavButton ariaLabel="Next product" direction="next" href={nextProduct ? `/cabinets/${nextProduct.slug}` : undefined} size="detail" />
             </div>
           </div>
 
@@ -139,21 +101,21 @@ export default function CabinetDoorPage({
               {code ? (
                 <p
                   className="text-[18px] uppercase leading-normal text-[var(--cp-primary-300)]"
-                  data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "code") || undefined}
+                  data-tina-field={tinaField(cabinetRecord, "code") || undefined}
                 >
                   {code}
                 </p>
               ) : null}
 
               <h1
-                className="mt-2 max-w-[361px] font-[var(--font-red-hat-display)] text-[28px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)] md:max-w-none md:text-[42px]"
-                data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "name") || undefined}
+                className="mt-2 max-w-[361px] font-[var(--font-red-hat-display)] text-[28px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)] md:max-w-[457px] md:text-[32px]"
+                data-tina-field={tinaField(cabinetRecord, "name") || undefined}
               >
                 {displayName}
               </h1>
 
               <div className="mt-6 flex flex-col gap-8">
-                <Button className="order-1 !min-h-12 !px-8 !text-[20px] md:order-2 md:w-fit" href="/contact-us" size="small" variant="secondary">
+                <Button className="order-1 !min-h-12 !px-8 !text-[20px] md:order-2 md:w-fit" href="/contact-us" size="small" variant="primary">
                   {pageText.contactButtonLabel}
                 </Button>
 
@@ -186,7 +148,7 @@ export default function CabinetDoorPage({
                     {descriptionOpen ? (
                       <p
                         className="mt-4 whitespace-pre-line text-[16px] leading-[1.4] text-[var(--cp-primary-500)]"
-                        data-tina-field={tinaField(cabinet as unknown as Record<string, unknown>, "description") || undefined}
+                        data-tina-field={tinaField(cabinetRecord, "description") || undefined}
                       >
                         {description}
                       </p>
@@ -204,12 +166,16 @@ export default function CabinetDoorPage({
         descriptionTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionDescription") || undefined : undefined}
         imageSizeChoice={projectsSectionImageSize}
         items={projectItems}
+        sectionTinaField={tinaField(cabinetRecord) || undefined}
+        selectionListTinaField={tinaField(cabinetRecord, "relatedProjects") || undefined}
+        selectionSourceRecord={cabinetRecord}
         title={pageText.projectsSectionTitle}
         titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionTitle") || undefined : undefined}
       />
       <CabinetRelatedProducts
         imageSizeChoice={relatedProductsImageSize}
         items={relatedItems}
+        sectionTinaField={tinaField(cabinetRecord) || undefined}
         title={pageText.relatedProductsTitle}
         titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "relatedProductsTitle") || undefined : undefined}
       />

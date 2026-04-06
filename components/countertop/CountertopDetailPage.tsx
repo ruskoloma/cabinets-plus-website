@@ -5,10 +5,11 @@ import { useMemo, useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import ProductMediaGallery from "@/components/catalog-product/ProductMediaGallery";
 import ProductProjectStrip from "@/components/catalog-product/ProductProjectStrip";
-import ProductRelatedProducts from "@/components/catalog-product/ProductRelatedProducts";
 import ProductTechnicalDetailsTable from "@/components/catalog-product/ProductTechnicalDetailsTable";
 import ContactUsSection from "@/components/home/ContactUsSection";
+import ArrowNavButton from "@/components/ui/ArrowNavButton";
 import Button from "@/components/ui/Button";
+import CountertopRelatedProducts from "./CountertopRelatedProducts";
 import type { CountertopData, CountertopDetailPageProps, ProductGalleryItemViewModel } from "./types";
 
 function formatProductCode(code?: string | null): string {
@@ -25,46 +26,6 @@ function getGalleryTinaField(countertop: CountertopData, item: ProductGalleryIte
   if (!matchedMedia) return undefined;
 
   return tinaField(matchedMedia as unknown as Record<string, unknown>, "file") || undefined;
-}
-
-function ArrowNavButton({
-  href,
-  direction,
-}: {
-  href?: string;
-  direction: "previous" | "next";
-}) {
-  const iconClass = direction === "previous" ? "rotate-180" : "";
-  const ariaLabel = direction === "previous" ? "Previous product" : "Next product";
-
-  const content = (
-    <span className="flex h-full w-full items-center justify-center">
-      <img alt="" aria-hidden className={`h-6 w-6 ${iconClass}`} src="/library/header/nav-chevron-right.svg" />
-    </span>
-  );
-
-  if (!href) {
-    return (
-      <button
-        aria-label={ariaLabel}
-        className="h-10 w-10 border border-[var(--cp-primary-100)] opacity-40 md:h-14 md:w-14"
-        disabled
-        type="button"
-      >
-        {content}
-      </button>
-    );
-  }
-
-  return (
-    <Link
-      aria-label={ariaLabel}
-      className="h-10 w-10 border border-[var(--cp-primary-100)] transition-colors hover:border-[var(--cp-primary-500)] md:h-14 md:w-14"
-      href={href}
-    >
-      {content}
-    </Link>
-  );
 }
 
 export default function CountertopDetailPage({
@@ -87,6 +48,7 @@ export default function CountertopDetailPage({
 }: CountertopDetailPageProps) {
   const [descriptionOpen, setDescriptionOpen] = useState(false);
 
+  const countertopRecord = countertop as unknown as Record<string, unknown>;
   const displayName = countertop.name?.trim() || "Countertop";
   const description = countertop.description?.trim() || "";
   const code = formatProductCode(countertop.code);
@@ -102,24 +64,24 @@ export default function CountertopDetailPage({
 
   return (
     <div className="bg-white">
-      <section className="bg-white">
+      <section className="bg-white" data-tina-field={tinaField(countertopRecord) || undefined}>
         <div className="cp-container px-4 pb-12 pt-[34px] md:px-8 md:pb-16 md:pt-7">
           <div className="flex items-start justify-between gap-4 md:items-center">
-            <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[14px] leading-[1.2] text-[var(--cp-primary-300)]">
-              <Link className="transition-colors hover:text-[var(--cp-primary-500)]" href="/countertops">
+            <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:text-[14px]">
+              <Link className="transition-colors hover:text-[var(--cp-primary-350)]" href="/countertops">
                 <span data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "breadcrumbLabel") || undefined : undefined}>
                   {pageText.breadcrumbLabel}
                 </span>
               </Link>
               <span>/</span>
-              <span data-tina-field={tinaField(countertop as unknown as Record<string, unknown>, "name") || undefined}>
+              <span data-tina-field={tinaField(countertopRecord, "name") || undefined}>
                 {displayName}
               </span>
             </nav>
 
             <div className="flex shrink-0 gap-2 md:gap-4">
-              <ArrowNavButton href={previousProduct ? `/countertops/${previousProduct.slug}` : undefined} direction="previous" />
-              <ArrowNavButton href={nextProduct ? `/countertops/${nextProduct.slug}` : undefined} direction="next" />
+              <ArrowNavButton ariaLabel="Previous product" direction="previous" href={previousProduct ? `/countertops/${previousProduct.slug}` : undefined} size="detail" />
+              <ArrowNavButton ariaLabel="Next product" direction="next" href={nextProduct ? `/countertops/${nextProduct.slug}` : undefined} size="detail" />
             </div>
           </div>
 
@@ -136,7 +98,7 @@ export default function CountertopDetailPage({
               {code ? (
                 <p
                   className="text-[18px] uppercase leading-normal text-[var(--cp-primary-300)]"
-                  data-tina-field={tinaField(countertop as unknown as Record<string, unknown>, "code") || undefined}
+                  data-tina-field={tinaField(countertopRecord, "code") || undefined}
                 >
                   {code}
                 </p>
@@ -144,13 +106,13 @@ export default function CountertopDetailPage({
 
               <h1
                 className="mt-2 max-w-[361px] font-[var(--font-red-hat-display)] text-[28px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)] md:max-w-[457px] md:text-[32px]"
-                data-tina-field={tinaField(countertop as unknown as Record<string, unknown>, "name") || undefined}
+                data-tina-field={tinaField(countertopRecord, "name") || undefined}
               >
                 {displayName}
               </h1>
 
               <div className="mt-6 flex flex-col gap-8">
-                <Button className="order-1 !min-h-12 !px-8 !text-[20px] md:order-2 md:w-fit" href="/contact-us" size="small" variant="secondary">
+                <Button className="order-1 !min-h-12 !px-8 !text-[20px] md:order-2 md:w-fit" href="/contact-us" size="small" variant="primary">
                   {pageText.contactButtonLabel}
                 </Button>
 
@@ -183,7 +145,7 @@ export default function CountertopDetailPage({
                     {descriptionOpen ? (
                       <p
                         className="mt-4 whitespace-pre-line text-[16px] leading-[1.4] text-[var(--cp-primary-500)]"
-                        data-tina-field={tinaField(countertop as unknown as Record<string, unknown>, "description") || undefined}
+                        data-tina-field={tinaField(countertopRecord, "description") || undefined}
                       >
                         {description}
                       </p>
@@ -204,6 +166,10 @@ export default function CountertopDetailPage({
           file: project.file,
           title: project.title,
           href: project.href,
+          selectionTinaField:
+            typeof project.selectionIndex === "number"
+              ? tinaField(countertopRecord, `relatedProjects.${project.selectionIndex}.project`) || undefined
+              : tinaField(countertopRecord, "relatedProjects") || undefined,
           imageTinaField: project.mediaSource
             ? tinaField(project.mediaSource, "file") || undefined
             : project.media
@@ -219,17 +185,14 @@ export default function CountertopDetailPage({
               ? tinaField(project.project as unknown as Record<string, unknown>, "title") || undefined
               : undefined,
         }))}
+        sectionTinaField={tinaField(countertopRecord) || undefined}
         title={pageText.projectsSectionTitle}
         titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionTitle") || undefined : undefined}
       />
-      <ProductRelatedProducts
+      <CountertopRelatedProducts
         imageSizeChoice={relatedProductsImageSize}
-        items={relatedItems.map((item) => ({
-          href: `/countertops/${item.slug}`,
-          name: item.name,
-          code: item.code,
-          image: item.image,
-        }))}
+        items={relatedItems}
+        sectionTinaField={tinaField(countertopRecord, "relatedProducts") || undefined}
         title={pageText.relatedProductsTitle}
         titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "relatedProductsTitle") || undefined : undefined}
       />

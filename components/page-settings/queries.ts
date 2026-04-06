@@ -70,6 +70,9 @@ export const PROJECT_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsProject {
+        projectDetailMaterialsTitle
+        projectDetailRelatedProjectsTitle
+        projectDetailRelatedProjectsCtaLabel
         projectDetailMaterialCardImageSize
         projectDetailGalleryImageSize
         projectDetailLightboxImageSize
@@ -91,7 +94,10 @@ export const POST_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsPost {
+        postBreadcrumbLabel
+        postRelatedArticlesTitle
         postDetailThumbnailImageSize
+        postDetailRelatedArticlesImageSize
       }
     }
   }

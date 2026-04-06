@@ -1,40 +1,29 @@
 ---
+published: true
 name: Slim Shaker White
 code: OWK
 slug: owk
-description: NEW, update code, Oslo White
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg
+description: 'NEW, update code, Oslo White'
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -50,9 +39,8 @@ sourceId: 261
 sourceUpdatedAt: '2025-07-25T22:53:53.480Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-with-glass-uppers.md
-  - project: content/projects/bright-shaker-cabinetry-with-black-accents.md
-  - project: content/projects/bright-white-shaker-kitchen-and-bath-2.md
+  - project: content/projects/residence-on-bolan-avenue.md
+  - project: content/projects/residence-on-hawthorne-road.md
 relatedProducts:
   - product: content/cabinets/owu.md
   - product: content/cabinets/pdm.md
@@ -61,3 +49,4 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
+

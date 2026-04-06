@@ -1,48 +1,36 @@
 ---
+published: true
 name: Brooklyn Bright White
 code: BWK
 slug: bwk
 description: >-
-  Brooklyn Bright White sample door from KCD Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency in material
-  selection, construction methods, and finishing techniques. The style, recessed panel, stile and
-  rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a
-  precise representation of the quality you can expect in your completed cabinets.
+  Brooklyn Bright White sample door from KCD Collection is produced using the
+  exact same manufacturing process as our full cabinet line, ensuring absolute
+  consistency in material selection, construction methods, and finishing
+  techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise
+  representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/3098-bwk-brooklyn-bright-white.jpg
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/3098-bwk-brooklyn-bright-white.jpg
@@ -57,7 +45,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1747-bwk.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1747-bwk.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +58,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1748-bwk.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1748-bwk.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -81,7 +71,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1749-bwk.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1749-bwk.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -93,7 +84,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1752-bwk.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1752-bwk.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -105,7 +97,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1753-bwk.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1753-bwk.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -121,9 +114,8 @@ sourceId: 256
 sourceUpdatedAt: '2025-07-25T22:53:52.437Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-with-glass-uppers.md
-  - project: content/projects/bright-shaker-cabinetry-with-black-accents.md
-  - project: content/projects/bright-white-shaker-kitchen-and-bath-2.md
+  - project: content/projects/residence-on-bolan-avenue.md
+  - project: content/projects/residence-on-hawthorne-road.md
 relatedProducts:
   - product: content/cabinets/csu.md
   - product: content/cabinets/cwu.md
@@ -132,3 +124,4 @@ relatedProducts:
 doorStyle: flat panel
 paint: white
 ---
+

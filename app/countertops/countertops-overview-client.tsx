@@ -57,19 +57,14 @@ function CountertopsOverviewRenderer({
   pageSettingsData?: CountertopsOverviewPageSettingsQueryLikeResult["data"];
 }) {
   const normalized = normalizeCountertopsOverviewQueryData(overviewData);
-  const faqBlock = extractHomeBlock(homePageData, { typename: "PageBlocksFaqSection", template: "faqSection" });
-  const contactBlock = extractHomeBlock(homePageData, {
-    typename: "PageBlocksContactSection",
-    template: "contactSection",
-  });
+  const aboutBlock = extractHomeBlock(homePageData, { typename: "PageBlocksAboutSection", template: "aboutSection" });
   const pageSettings = pageSettingsData?.countertopsOverviewPageSettings || null;
 
   return (
     <CountertopsOverviewPage
+      aboutBlock={aboutBlock}
       cardImageSizeChoice={normalizeImageSizeChoice(pageSettings?.countertopsOverviewCardImageSize, "card")}
-      contactBlock={contactBlock}
       data={normalized}
-      faqBlock={faqBlock}
       filterImageSizeChoice={normalizeImageSizeChoice(pageSettings?.countertopsOverviewFilterImageSize, "thumb")}
       pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
       pageTitle={pageSettings?.pageTitle || "Countertops"}

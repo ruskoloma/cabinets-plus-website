@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Silver
 code: CalacattaSilver
 slug: calacattasilver
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Silver quartz features a soft white background traced with elegant silver-gray veining,
-  ranging from hairline threads to slightly thicker linear bands. The pattern moves diagonally with
-  airy, organic flow, creating gentle contrast rather than bold drama. Its overall design character
-  feels refined, light, contemporary, and subtly luxurious.
+  Calacatta Silver quartz features a soft white background traced with elegant
+  silver-gray veining, ranging from hairline threads to slightly thicker linear
+  bands. The pattern moves diagonally with airy, organic flow, creating gentle
+  contrast rather than bold drama. Its overall design character feels refined,
+  light, contemporary, and subtly luxurious.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasilver/3283-calacatta-silver.jpg
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/modern-dental-reception-and-operatory-interiors.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/dental-clinic-project.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1693
 sourceUpdatedAt: '2025-09-18T18:25:11.656Z'
 ---
+

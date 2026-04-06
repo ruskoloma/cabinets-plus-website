@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Elite Gray
 code: CalacattaEliteGray
 slug: calacattaelitegray
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Elite Gray quartz features a soft white to pale gray background crossed by long,
-  delicate gray veining. The lines flow diagonally with gentle, natural-looking movement, creating
-  an airy sense of direction rather than bold drama. Low to moderate contrast and refined patterning
-  give the surface an elegant, understated, contemporary character.
+  Calacatta Elite Gray quartz features a soft white to pale gray background
+  crossed by long, delicate gray veining. The lines flow diagonally with gentle,
+  natural-looking movement, creating an airy sense of direction rather than bold
+  drama. Low to moderate contrast and refined patterning give the surface an
+  elegant, understated, contemporary character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaelitegray/3280-calacatta-elite-gray.jpg
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/modern-dental-reception-and-operatory-interiors.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/dental-clinic-project.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1696
 sourceUpdatedAt: '2025-09-18T18:25:11.432Z'
 ---
+

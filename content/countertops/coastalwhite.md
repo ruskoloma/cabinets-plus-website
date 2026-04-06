@@ -1,25 +1,25 @@
 ---
+published: true
 name: Coastal White
 code: CoastalWhite
 slug: coastalwhite
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Coastal White quartz features a soft white to light gray palette with subtle warm undertones and
-  delicate cloudy mottling throughout. Veining is minimal to nearly absent, replaced by gentle tonal
-  variation that creates quiet movement across the surface. The low contrast and airy pattern give
-  it a calm, refined, and understated design character.
+  Coastal White quartz features a soft white to light gray palette with subtle
+  warm undertones and delicate cloudy mottling throughout. Veining is minimal to
+  nearly absent, replaced by gentle tonal variation that creates quiet movement
+  across the surface. The low contrast and airy pattern give it a calm, refined,
+  and understated design character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/coastalwhite/3276-coastal-white.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
-  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-whitetail-lane.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1700
 sourceUpdatedAt: '2025-09-18T18:25:11.139Z'
 ---
+

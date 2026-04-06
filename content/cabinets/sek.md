@@ -1,48 +1,36 @@
 ---
+published: true
 name: Shaker Espresso
 code: SEK
 slug: sek
 description: >-
-  Shaker Espresso sample door from KCD Collection is produced using the exact same manufacturing
-  process as our full cabinet line, ensuring absolute consistency in material selection,
-  construction methods, and finishing techniques. The style, recessed panel, stile and rail
-  dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise
+  Shaker Espresso sample door from KCD Collection is produced using the exact
+  same manufacturing process as our full cabinet line, ensuring absolute
+  consistency in material selection, construction methods, and finishing
+  techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise
   representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/3104-sek-shaker-espresso.jpg
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/3104-sek-shaker-espresso.jpg
@@ -57,7 +45,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1771-sek.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1771-sek.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +58,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1773-sek.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1773-sek.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -81,7 +71,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1770-sek.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1770-sek.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -97,9 +88,9 @@ sourceId: 262
 sourceUpdatedAt: '2025-07-25T22:53:54.669Z'
 stainType: mocha stain
 relatedProjects:
-  - project: content/projects/warm-brown-shaker-kitchen-white-quartz.md
-  - project: content/projects/warm-walnut-kitchen-waterfall-island.md
-  - project: content/projects/warm-wood-contemporary-kitchen-and-built-in-office.md
+  - project: content/projects/duplex-kitchen-project.md
+  - project: content/projects/residence-on-chattaroy.md
+  - project: content/projects/residence-on-dishman-road.md
 relatedProducts:
   - product: content/cabinets/sfb.md
   - product: content/cabinets/sgu.md
@@ -108,3 +99,4 @@ relatedProducts:
 doorStyle: shaker
 paint: brown
 ---
+

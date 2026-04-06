@@ -7,6 +7,7 @@ import { getGalleryOverviewDataSafe } from "@/app/get-gallery-overview-data-safe
 import { getProjectPageSettingsSafe } from "@/app/get-project-page-settings-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 import { getCabinetIndexSafe } from "@/app/get-cabinet-data-safe";
+import { getCountertopIndexSafe } from "@/app/get-countertop-data-safe";
 
 export async function generateStaticParams() {
   const projectIndex = await getProjectIndexSafe();
@@ -47,11 +48,12 @@ export default async function ProjectDetailRoute(
     redirect(legacyRedirect);
   }
 
-  const [projectData, overviewData, homePageData, cabinetIndex, pageSettingsData] = await Promise.all([
+  const [projectData, overviewData, homePageData, cabinetIndex, countertopIndex, pageSettingsData] = await Promise.all([
     getProjectDataSafe(slug),
     getGalleryOverviewDataSafe(),
     getPageDataSafe("home.md"),
     getCabinetIndexSafe(),
+    getCountertopIndexSafe(),
     getProjectPageSettingsSafe(),
   ]);
 
@@ -68,6 +70,7 @@ export default async function ProjectDetailRoute(
         overviewData={overviewData}
         pageSettingsData={pageSettingsData}
         projectData={projectData}
+        countertopIndex={countertopIndex}
       />
     </Suspense>
   );

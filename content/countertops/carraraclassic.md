@@ -1,25 +1,25 @@
 ---
+published: true
 name: Carrara Classic
 code: CarraraClassic
 slug: carraraclassic
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Carrara Classic presents a soft white to pale gray palette with very subtle, diffuse gray veining
-  and faint speckling dispersed across the surface. Movement is minimal and airy, creating a calm,
-  understated look with low contrast. The overall design character feels refined, gentle, and
-  classic, favoring quiet elegance over dramatic patterning.
+  Carrara Classic presents a soft white to pale gray palette with very subtle,
+  diffuse gray veining and faint speckling dispersed across the surface.
+  Movement is minimal and airy, creating a calm, understated look with low
+  contrast. The overall design character feels refined, gentle, and classic,
+  favoring quiet elegance over dramatic patterning.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraraclassic/3656-carrara-classic-1.jpg
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/black-island-project-at-the-art-house.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1718
 sourceUpdatedAt: '2025-09-18T18:25:09.910Z'
 ---
+

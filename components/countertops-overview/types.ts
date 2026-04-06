@@ -10,6 +10,7 @@ export interface CountertopOverviewItem {
   __typename?: string;
   _sys?: CatalogSystemInfo | null;
   id?: string;
+  published?: boolean | null;
   name?: string | null;
   code?: string | null;
   slug?: string | null;

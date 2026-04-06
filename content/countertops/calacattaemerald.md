@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Emerald
 code: CalacattaEmerald
 slug: calacattaemerald
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Emerald quartz presents a soft white background with delicate, wispy veining in pale
-  gray and faint warm taupe. The linear veins flow diagonally with gentle, understated movement,
-  creating a light sense of depth without heavy drama. Low to moderate contrast gives the slab an
-  airy, refined, and quietly elegant design character.
+  Calacatta Emerald quartz presents a soft white background with delicate, wispy
+  veining in pale gray and faint warm taupe. The linear veins flow diagonally
+  with gentle, understated movement, creating a light sense of depth without
+  heavy drama. Low to moderate contrast gives the slab an airy, refined, and
+  quietly elegant design character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaemerald/3277-calacatta-emerald.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
-  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-whitetail-lane.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1699
 sourceUpdatedAt: '2025-09-18T18:25:11.217Z'
 ---
+

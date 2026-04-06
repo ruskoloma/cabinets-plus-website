@@ -27,7 +27,7 @@ export default function CatalogSortDropdown({
       <button
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        className="inline-flex items-center gap-2 font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]"
+        className="cp-inline-trigger cp-inline-trigger--display"
         onClick={onOpen}
         type="button"
       >
@@ -37,7 +37,7 @@ export default function CatalogSortDropdown({
         <img
           alt=""
           aria-hidden
-          className={`h-4 w-4 transition-transform ${isOpen ? "-rotate-90" : "rotate-90"}`}
+          className={`cp-inline-trigger__icon transition-transform ${isOpen ? "-rotate-90" : "rotate-90"}`}
           src="/library/header/nav-chevron-right.svg"
         />
       </button>
@@ -55,8 +55,8 @@ export default function CatalogSortDropdown({
               return (
                 <button
                   aria-checked={selected}
-                  className={`text-left font-[var(--font-red-hat-display)] text-[18px] leading-[1.5] text-[var(--cp-primary-500)] transition-colors ${
-                    selected ? "font-semibold" : "hover:text-[var(--cp-brand-neutral-300)]"
+                  className={`text-left font-[var(--font-jost)] text-[16px] leading-[1.2] text-[var(--cp-gray-1)] transition-colors ${
+                    selected ? "font-semibold text-[var(--cp-primary-500)]" : "hover:text-[var(--cp-primary-350)]"
                   }`}
                   key={option.value}
                   onClick={() => onSelect(option.value)}

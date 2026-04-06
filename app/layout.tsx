@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Red_Hat_Display, Red_Hat_Text } from "next/font/google";
+import { Jost, Open_Sans, Red_Hat_Display, Red_Hat_Text } from "next/font/google";
 import "./globals.css";
 import { getGlobalDocumentSafe } from "@/app/get-global-document-safe";
 import LayoutClient from "@/components/layout/LayoutClient";
@@ -12,6 +12,8 @@ import {
 
 const redHatDisplay = Red_Hat_Display({ variable: "--font-red-hat-display", subsets: ["latin"] });
 const redHatText = Red_Hat_Text({ variable: "--font-red-hat-text", subsets: ["latin"] });
+const jost = Jost({ variable: "--font-jost", subsets: ["latin"] });
+const openSans = Open_Sans({ variable: "--font-open-sans", subsets: ["latin"] });
 
 // Site-wide fallback metadata — individual pages override title & description via generateMetadata
 export const metadata: Metadata = {
@@ -50,7 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <InjectedScripts placement="head" snippet={headScripts} />
       </head>
-      <body className={`${redHatDisplay.variable} ${redHatText.variable} antialiased`}>
+      <body className={`${redHatDisplay.variable} ${redHatText.variable} ${jost.variable} ${openSans.variable} antialiased`}>
         <LayoutClient footerData={footerData} generalData={generalData} headerData={headerData}>
           {children}
         </LayoutClient>

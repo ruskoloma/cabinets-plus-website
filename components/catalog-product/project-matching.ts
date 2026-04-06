@@ -9,8 +9,14 @@ export interface MatchedProjectCard {
   file: string;
   title: string;
   href: string;
+  selectionIndex?: number;
   projectSource?: Record<string, unknown>;
   mediaSource?: Record<string, unknown>;
+}
+
+interface ExplicitProjectEntry {
+  project: GalleryProjectItemData;
+  selectionIndex: number;
 }
 
 interface RankedProjectEntry {
@@ -178,7 +184,11 @@ function inferCountertopType(countertop: CountertopData, productText: string): s
   return matched?.value || "";
 }
 
-function buildProjectCard(project: GalleryProjectItemData, matchedMedia: GalleryProjectMediaData | undefined): MatchedProjectCard | null {
+function buildProjectCard(
+  project: GalleryProjectItemData,
+  matchedMedia: GalleryProjectMediaData | undefined,
+  selectionIndex?: number,
+): MatchedProjectCard | null {
   const file = matchedMedia?.file?.trim() || project.coverImage?.trim() || "";
   if (!file || !project.projectSlug) return null;
 
@@ -186,6 +196,7 @@ function buildProjectCard(project: GalleryProjectItemData, matchedMedia: Gallery
     file,
     title: project.projectTitle || "Project",
     href: `/projects/${project.projectSlug}`,
+    selectionIndex,
     projectSource: project.rawProject,
     mediaSource: matchedMedia?.rawMedia,
   };
@@ -286,15 +297,15 @@ function buildCountertopPreviewFilters(countertop: CountertopData): GalleryFilte
 }
 
 function buildExplicitProjectCards(
-  projects: GalleryProjectItemData[],
+  entries: ExplicitProjectEntry[],
   filters: GalleryFilterState,
   maxItems: number,
 ): MatchedProjectCard[] {
-  return projects
+  return entries
     .slice(0, maxItems)
-    .map((project) => {
+    .map(({ project, selectionIndex }) => {
       const preview = pickProjectPreviewForFilters(project, filters);
-      return buildProjectCard(project, preview.previewMedia || undefined);
+      return buildProjectCard(project, preview.previewMedia || undefined, selectionIndex);
     })
     .filter((item): item is MatchedProjectCard => Boolean(item));
 }
@@ -340,7 +351,7 @@ function resolveProjectReference(reference: string): string {
 function resolveExplicitProjectEntries(
   references: Array<string | null> | null | undefined,
   projects: GalleryProjectItemData[],
-): GalleryProjectItemData[] {
+): ExplicitProjectEntry[] {
   if (!Array.isArray(references) || references.length === 0) return [];
 
   const bySlug = new Map(projects.map((project) => [project.projectSlug, project]));
@@ -356,12 +367,16 @@ function resolveExplicitProjectEntries(
   );
 
   return references
-    .map((value) => {
+    .map((value, index) => {
       if (!isTruthyString(value)) return null;
       const normalizedReference = resolveProjectReference(value);
-      return bySlug.get(normalizedReference) || byId.get(value.trim()) || null;
+      const project = bySlug.get(normalizedReference) || byId.get(value.trim()) || null;
+      return project ? { project, selectionIndex: index } : null;
     })
-    .filter((project, index, list): project is GalleryProjectItemData => Boolean(project) && list.indexOf(project) === index);
+    .filter((entry, index, list): entry is ExplicitProjectEntry => {
+      if (!entry) return false;
+      return list.findIndex((candidate) => candidate?.project === entry.project) === index;
+    });
 }
 
 function scoreCabinetMedia(

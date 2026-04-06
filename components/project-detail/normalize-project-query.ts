@@ -1,4 +1,6 @@
 import type {
+  ProjectCabinetProductLink,
+  ProjectCountertopProductLink,
   ProjectDetailQueryLikeResult,
   ProjectMediaItem,
   ProjectOverviewItem,
@@ -15,6 +17,24 @@ function asString(value: unknown): string | undefined {
 
 function asBoolean(value: unknown): boolean | undefined {
   return typeof value === "boolean" ? value : undefined;
+}
+
+function normalizeProjectReference(value: unknown): string | null {
+  if (typeof value === "string") return value;
+
+  const record = asRecord(value);
+  if (!record) return null;
+
+  if ("project" in record) {
+    return normalizeProjectReference(record.project);
+  }
+
+  return (
+    asString(record.slug) ||
+    asString(asRecord(record._sys)?.relativePath) ||
+    asString(asRecord(record._sys)?.filename) ||
+    null
+  );
 }
 
 function normalizeSystemInfo(value: unknown, fallbackFilename?: string) {
@@ -63,6 +83,46 @@ function normalizeProjectMedia(value: unknown): ProjectMediaItem | null {
   };
 }
 
+function normalizeReferencedProduct(value: unknown) {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    _sys: normalizeSystemInfo(record._sys),
+    id: asString(record.id),
+    name: asString(record.name) ?? null,
+    code: asString(record.code) ?? null,
+    slug: asString(record.slug) ?? null,
+    picture: asString(record.picture) ?? null,
+  };
+}
+
+function normalizeProjectCabinetProduct(value: unknown): ProjectCabinetProductLink | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    cabinet:
+      typeof record.cabinet === "string"
+        ? record.cabinet
+        : normalizeReferencedProduct(record.cabinet),
+    _content_source: record._content_source as unknown,
+  };
+}
+
+function normalizeProjectCountertopProduct(value: unknown): ProjectCountertopProductLink | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    countertop:
+      typeof record.countertop === "string"
+        ? record.countertop
+        : normalizeReferencedProduct(record.countertop),
+    _content_source: record._content_source as unknown,
+  };
+}
+
 function normalizeProject(value: unknown, fallbackFilename?: string): ProjectOverviewItem | null {
   const record = asRecord(value);
   if (!record) return null;
@@ -87,8 +147,25 @@ function normalizeProject(value: unknown, fallbackFilename?: string): ProjectOve
     description: asString(record.description) ?? null,
     notes: asString(record.notes) ?? null,
     primaryPicture: asString(record.primaryPicture) ?? null,
-    relatedProjects: Array.isArray(record.relatedProjects)
-      ? record.relatedProjects.map((item) => (typeof item === "string" ? item : null))
+    relatedProjects: (() => {
+      const typedRelatedProjects = Array.isArray(record.relatedProjects)
+        ? record.relatedProjects.map((item) => normalizeProjectReference(item))
+        : [];
+      const rawRelatedProjects = Array.isArray(asRecord(record._values)?.relatedProjects)
+        ? (asRecord(record._values)?.relatedProjects as unknown[]).map((item) => normalizeProjectReference(item))
+        : [];
+
+      return typedRelatedProjects.length > 0 ? typedRelatedProjects : rawRelatedProjects;
+    })(),
+    cabinetProducts: Array.isArray(record.cabinetProducts)
+      ? record.cabinetProducts
+          .map((item) => normalizeProjectCabinetProduct(item))
+          .filter((item): item is ProjectCabinetProductLink => Boolean(item))
+      : [],
+    countertopProducts: Array.isArray(record.countertopProducts)
+      ? record.countertopProducts
+          .map((item) => normalizeProjectCountertopProduct(item))
+          .filter((item): item is ProjectCountertopProductLink => Boolean(item))
       : [],
     media,
     sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,

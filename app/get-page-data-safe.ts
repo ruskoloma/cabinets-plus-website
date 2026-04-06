@@ -33,6 +33,8 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   processSection: "PageBlocksProcessSection",
   faqSection: "PageBlocksFaqSection",
   contactSection: "PageBlocksContactSection",
+  trustStrip: "PageBlocksTrustStrip",
+  aboutStorySection: "PageBlocksAboutStorySection",
   richContent: "PageBlocksRichContent",
 };
 

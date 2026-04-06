@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Ibiza Gold
 code: CalacattaIbizaGold
 slug: calacattaibizagold
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Ibiza Gold quartz features a soft white background crossed by flowing diagonal veining
-  in warm gold, beige, and light taupe tones. The veins appear airy and granular, with delicate
-  wisps and branching lines that create graceful movement. Subtle contrast and an elegant, refined
-  pattern give the surface a luminous, upscale character.
+  Calacatta Ibiza Gold quartz features a soft white background crossed by
+  flowing diagonal veining in warm gold, beige, and light taupe tones. The veins
+  appear airy and granular, with delicate wisps and branching lines that create
+  graceful movement. Subtle contrast and an elegant, refined pattern give the
+  surface a luminous, upscale character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaibizagold/3275-calacatta-ibiza-gold.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
-  - project: content/projects/modern-oak-and-black-kitchen-with-blush-laundry.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-villier-road.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1701
 sourceUpdatedAt: '2025-09-18T18:25:11.065Z'
 ---
+

@@ -1,47 +1,36 @@
 ---
+published: true
 name: Shaker White
 code: SWU
 slug: swu
 description: >-
-  Shaker White sample door from US Collection is produced using the exact same manufacturing process
-  as our full cabinet line, ensuring absolute consistency in material selection, construction
-  methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise representation of the
-  quality you can expect in your completed cabinets.
+  Shaker White sample door from US Collection is produced using the exact same
+  manufacturing process as our full cabinet line, ensuring absolute consistency
+  in material selection, construction methods, and finishing techniques. The
+  style, recessed panel, stile and rail dimensions, and solid birchwood are
+  aligned with our true cabinet products, offering a precise representation of
+  the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SWU/3158-swu-shaker-white.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SWU/3158-swu-shaker-white.jpg
 technicalDetails:
   - key: Manufacturer
     value: US Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SWU/3158-swu-shaker-white.jpg
@@ -60,9 +49,8 @@ sourceId: 314
 sourceUpdatedAt: '2025-07-25T22:53:52.202Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-with-glass-uppers.md
-  - project: content/projects/bright-shaker-cabinetry-with-black-accents.md
-  - project: content/projects/bright-white-shaker-kitchen-and-bath-2.md
+  - project: content/projects/residence-on-bolan-avenue.md
+  - project: content/projects/residence-on-hawthorne-road.md
 relatedProducts:
   - product: content/cabinets/tgb.md
   - product: content/cabinets/tgm.md
@@ -71,3 +59,4 @@ relatedProducts:
 doorStyle: shaker
 paint: white
 ---
+

@@ -207,6 +207,7 @@ function normalizeProject(value: unknown): ProjectOverviewItem | null {
   return {
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
+    published: asBoolean(record.published) ?? null,
     title: asString(record.title) ?? null,
     slug: toSlug(asString(record.slug) || fallbackFilename || ""),
     address: asString(record.address) ?? null,

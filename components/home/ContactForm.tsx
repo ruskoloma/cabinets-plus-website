@@ -44,13 +44,14 @@ export default function ContactForm({
   };
 
   return (
-    <form className="space-y-[17px] md:space-y-8" onSubmit={onSubmit}>
+    <form className="cp-contact-form space-y-8" onSubmit={onSubmit}>
       <div>
-        <label className="mb-1 block text-base font-medium leading-[1.2] text-[var(--cp-primary-500)]" data-tina-field={nameLabelField}>
-          {nameLabel} <span className="opacity-80">*</span>
+        <label className="cp-field-label" data-tina-field={nameLabelField}>
+          <span>{nameLabel}</span>
+          <span className="cp-field-label__required">*</span>
         </label>
         <input
-          className="h-[33px] w-full rounded-[2px] border border-[var(--cp-primary-100)] bg-[var(--cp-brand-neutral-50)] px-4 text-base text-[var(--cp-primary-500)] outline-none transition-colors focus:border-[var(--cp-brand-neutral-300)] md:h-[60px]"
+          className="cp-field-control"
           data-tina-field={namePlaceholderField}
           onChange={(event) => setForm({ ...form, name: event.target.value })}
           placeholder={namePlaceholder}
@@ -61,11 +62,12 @@ export default function ContactForm({
       </div>
 
       <div>
-        <label className="mb-1 block text-base font-medium leading-[1.2] text-[var(--cp-primary-500)]" data-tina-field={emailLabelField}>
-          {emailLabel} <span className="opacity-80">*</span>
+        <label className="cp-field-label" data-tina-field={emailLabelField}>
+          <span>{emailLabel}</span>
+          <span className="cp-field-label__required">*</span>
         </label>
         <input
-          className="h-[33px] w-full rounded-[2px] border border-[var(--cp-primary-100)] bg-[var(--cp-brand-neutral-50)] px-4 text-base text-[var(--cp-primary-500)] outline-none transition-colors focus:border-[var(--cp-brand-neutral-300)] md:h-[60px]"
+          className="cp-field-control"
           data-tina-field={emailPlaceholderField}
           onChange={(event) => setForm({ ...form, email: event.target.value })}
           placeholder={emailPlaceholder}
@@ -76,11 +78,11 @@ export default function ContactForm({
       </div>
 
       <div>
-        <label className="mb-1 block text-base font-medium leading-[1.2] text-[var(--cp-primary-500)]" data-tina-field={messageLabelField}>
+        <label className="cp-field-label" data-tina-field={messageLabelField}>
           {messageLabel}
         </label>
         <textarea
-          className="h-[87px] w-full resize-none rounded-[2px] border border-[var(--cp-primary-100)] bg-[var(--cp-brand-neutral-50)] px-4 py-3 text-base text-[var(--cp-primary-500)] outline-none transition-colors focus:border-[var(--cp-brand-neutral-300)] md:h-[160px]"
+          className="cp-field-control cp-field-control--textarea"
           data-tina-field={messagePlaceholderField}
           onChange={(event) => setForm({ ...form, message: event.target.value })}
           placeholder={messagePlaceholder}

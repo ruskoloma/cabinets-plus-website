@@ -4,6 +4,7 @@ import type { GalleryOverviewDataShape } from "@/components/gallery-overview/typ
 import type {
   CabinetListItem,
   CatalogSettingsData,
+  CountertopListItem,
   ProjectFeatureSummary,
   ProjectGalleryItem,
   ProjectMaterialCardData,
@@ -34,33 +35,6 @@ function cleanList(values: Array<string | null | undefined>): string[] {
     .map((value) => normalizeOptionValue(value || ""))
     .filter(Boolean)
     .filter((value, index, list) => list.indexOf(value) === index);
-}
-
-function countValues(values: Array<string | null | undefined>): Map<string, number> {
-  const counts = new Map<string, number>();
-
-  for (const rawValue of values) {
-    const value = normalizeOptionValue(rawValue || "");
-    if (!value) continue;
-    counts.set(value, (counts.get(value) || 0) + 1);
-  }
-
-  return counts;
-}
-
-function pickMostCommon(values: Array<string | null | undefined>): string {
-  const counts = countValues(values);
-  let winner = "";
-  let winnerCount = -1;
-
-  for (const [value, count] of counts.entries()) {
-    if (count > winnerCount) {
-      winner = value;
-      winnerCount = count;
-    }
-  }
-
-  return winner;
 }
 
 function humanizeFileName(file: string): string {
@@ -115,88 +89,69 @@ function getFeatureSummary(project: ProjectOverviewItem, catalogSettings?: Catal
   };
 }
 
-function getRawMediaField(
-  media: NonNullable<ProjectOverviewItem["media"]>[number] | undefined,
-  field: string,
-  tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
-): string | undefined {
-  if (!media?.raw) return undefined;
-  return tinaFieldFn(media.raw as Record<string, unknown>, field) || undefined;
+function toCollectionSlug(value: string, collectionName: "cabinets" | "countertops"): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/\.md$/i, "")
+    .replace(/^content\//i, "")
+    .replace(new RegExp(`^${collectionName}/`, "i"), "")
+    .replace(/^\/+/, "")
+    .split("/")
+    .pop()
+    ?.replace(/\s+/g, "-") || "";
 }
 
-function findFeaturedMedia(
-  project: ProjectOverviewItem,
-  predicate: (item: NonNullable<ProjectOverviewItem["media"]>[number]) => boolean,
-  priority: (item: NonNullable<ProjectOverviewItem["media"]>[number]) => boolean,
-) {
-  const mediaItems = (project.media || []).filter((item) => Boolean(item && item.file));
-  return mediaItems.find((item) => priority(item)) || mediaItems.find((item) => predicate(item));
+function formatProductCode(code?: string | null): string | undefined {
+  if (!code?.trim()) return undefined;
+  return `#${code.replace(/^#+/, "").trim()}`;
 }
 
-function getDoorStyleOption(doorStyle: string, catalogSettings?: CatalogSettingsData | null) {
-  return (catalogSettings?.doorStyles || []).find(
-    (option) => normalizeOptionValue(option.value) === normalizeOptionValue(doorStyle),
+function resolveReferencedProductSlug(
+  value: string | { slug?: string | null; _sys?: { filename?: string; relativePath?: string } | null } | null | undefined,
+  collectionName: "cabinets" | "countertops",
+): string {
+  if (!value) return "";
+  if (typeof value === "string") return toCollectionSlug(value, collectionName);
+
+  return toCollectionSlug(
+    value.slug || value._sys?.relativePath || value._sys?.filename || "",
+    collectionName,
   );
 }
 
-function getCountertopOption(countertop: string, catalogSettings?: CatalogSettingsData | null) {
-  return (catalogSettings?.countertopTypes || []).find(
-    (option) => normalizeOptionValue(option.value) === normalizeOptionValue(countertop),
-  );
-}
+function resolveReferencedProductCard<
+  T extends { slug: string; name: string; code: string; picture: string }
+>(
+  value:
+    | string
+    | {
+        slug?: string | null;
+        _sys?: { filename?: string; relativePath?: string } | null;
+        name?: string | null;
+        code?: string | null;
+        picture?: string | null;
+      }
+    | null
+    | undefined,
+  collectionName: "cabinets" | "countertops",
+  indexBySlug: Map<string, T>,
+): { slug: string; title: string; subtitle?: string; image?: string } | null {
+  const slug = resolveReferencedProductSlug(value, collectionName);
+  if (!slug) return null;
 
-function scoreCabinetMatch(item: CabinetListItem, options: { doorStyle: string; paint: string; stain: string }) {
-  let score = 0;
+  const fallback = indexBySlug.get(slug);
+  const objectValue = value && typeof value === "object" ? value : null;
+  const title = objectValue?.name?.trim() || fallback?.name || titleCase(slug);
+  const subtitle = formatProductCode(objectValue?.code || fallback?.code);
+  const image = objectValue?.picture?.trim() || fallback?.picture || undefined;
 
-  if (options.doorStyle && normalizeOptionValue(item.doorStyle || "") === options.doorStyle) score += 5;
-  if (options.paint && normalizeOptionValue(item.paint || "") === options.paint) score += 3;
-  if (options.stain && normalizeOptionValue(item.stainType || "") === options.stain) score += 3;
-  if (item.picture) score += 1;
-
-  return score;
-}
-
-function pickCabinetMatch(project: ProjectOverviewItem, catalogSettings: CatalogSettingsData | null | undefined, cabinetIndex: CabinetListItem[]) {
-  const summary = getFeatureSummary(project, catalogSettings);
-  const dominantPaint = pickMostCommon(summary.paints);
-  const dominantStain = pickMostCommon(summary.stains);
-
-  let best: CabinetListItem | undefined;
-  let bestScore = 0;
-
-  for (const item of cabinetIndex) {
-    const score = scoreCabinetMatch(item, {
-      doorStyle: summary.doorStyle,
-      paint: dominantPaint,
-      stain: dominantStain,
-    });
-
-    if (score > bestScore) {
-      best = item;
-      bestScore = score;
-    }
-  }
-
-  return bestScore > 0 ? best : undefined;
-}
-
-function buildCabinetSubtitle(project: ProjectOverviewItem, summary: ProjectFeatureSummary): string {
-  const dominantPaint = pickMostCommon(summary.paints);
-  const dominantStain = pickMostCommon(summary.stains);
-
-  if (dominantPaint) return `${titleCase(dominantPaint)} finish`;
-  if (dominantStain) return `${titleCase(dominantStain)} finish`;
-
-  return project.address?.trim() || "Derived from project details";
-}
-
-function buildCountertopSubtitle(project: ProjectOverviewItem, summary: ProjectFeatureSummary): string {
-  if (summary.rooms.length > 0) return `Featured across ${summary.rooms[0].toLowerCase()} spaces`;
-  return project.address?.trim() || "Selected from project media";
-}
-
-function buildFlooringSubtitle(project: ProjectOverviewItem): string {
-  return project.address?.trim() || "Shown in project media";
+  return {
+    slug,
+    title,
+    subtitle,
+    image,
+  };
 }
 
 export function buildProjectGallery(project: ProjectOverviewItem): ProjectGalleryItem[] {
@@ -232,69 +187,44 @@ export function buildProjectGallery(project: ProjectOverviewItem): ProjectGaller
 
 export function buildMaterialCards(
   project: ProjectOverviewItem,
-  catalogSettings: CatalogSettingsData | null | undefined,
   cabinetIndex: CabinetListItem[],
+  countertopIndex: CountertopListItem[],
   tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
 ): ProjectMaterialCardData[] {
-  const summary = getFeatureSummary(project, catalogSettings);
   const cards: ProjectMaterialCardData[] = [];
+  const rawProject = project as unknown as Record<string, unknown>;
+  const cabinetIndexBySlug = new Map(cabinetIndex.map((item) => [item.slug, item]));
+  const countertopIndexBySlug = new Map(countertopIndex.map((item) => [item.slug, item]));
 
-  const featuredCabinetMedia = findFeaturedMedia(
-    project,
-    (item) => Boolean(item?.cabinetPaints?.length || item?.cabinetStains?.length),
-    (item) => Boolean(item?.paintPriority || item?.stainPriority),
-  );
-  const cabinetMatch = pickCabinetMatch(project, catalogSettings, cabinetIndex);
-  const doorStyleOption = getDoorStyleOption(summary.doorStyle, catalogSettings);
+  (project.cabinetProducts || []).forEach((item, index) => {
+    const linked = resolveReferencedProductCard(item?.cabinet, "cabinets", cabinetIndexBySlug);
+    if (!linked) return;
 
-  if (cabinetMatch || doorStyleOption) {
     cards.push({
       kind: "cabinet",
       label: "Cabinet door",
-      title: cabinetMatch?.name || doorStyleOption?.label || titleCase(summary.doorStyle || "Cabinet door"),
-      subtitle: cabinetMatch?.code ? `#${cabinetMatch.code.replace(/^#+/, "")}` : buildCabinetSubtitle(project, summary),
-      image: cabinetMatch?.picture || doorStyleOption?.image || featuredCabinetMedia?.file || project.primaryPicture || undefined,
-      href: cabinetMatch ? `/cabinets/${cabinetMatch.slug}` : undefined,
-      tinaField: getRawMediaField(featuredCabinetMedia, "cabinetPaints.0", tinaFieldFn)
-        || getRawMediaField(featuredCabinetMedia, "cabinetStains.0", tinaFieldFn),
+      title: linked.title,
+      subtitle: linked.subtitle,
+      image: linked.image,
+      href: `/cabinets/${linked.slug}`,
+      tinaField: tinaFieldFn(rawProject, `cabinetProducts.${index}.cabinet`) || undefined,
     });
-  }
+  });
 
-  const dominantCountertop = pickMostCommon(summary.countertops);
-  const countertopOption = getCountertopOption(dominantCountertop, catalogSettings);
-  const featuredCountertopMedia = findFeaturedMedia(
-    project,
-    (item) => Boolean(normalizeOptionValue(item?.countertop || "")),
-    (item) => Boolean(item?.countertopPriority),
-  );
+  (project.countertopProducts || []).forEach((item, index) => {
+    const linked = resolveReferencedProductCard(item?.countertop, "countertops", countertopIndexBySlug);
+    if (!linked) return;
 
-  if (countertopOption || featuredCountertopMedia) {
     cards.push({
       kind: "countertop",
       label: "Countertop",
-      title: countertopOption?.label || titleCase(dominantCountertop || "Countertop"),
-      subtitle: buildCountertopSubtitle(project, summary),
-      image: countertopOption?.image || featuredCountertopMedia?.file || project.primaryPicture || undefined,
-      tinaField: getRawMediaField(featuredCountertopMedia, "countertop", tinaFieldFn),
+      title: linked.title,
+      subtitle: linked.subtitle,
+      image: linked.image,
+      href: `/countertops/${linked.slug}`,
+      tinaField: tinaFieldFn(rawProject, `countertopProducts.${index}.countertop`) || undefined,
     });
-  }
-
-  const featuredFlooringMedia = findFeaturedMedia(
-    project,
-    (item) => Boolean(item?.flooring),
-    (item) => Boolean(item?.flooring),
-  );
-
-  if (summary.flooring && featuredFlooringMedia?.file) {
-    cards.push({
-      kind: "flooring",
-      label: "Flooring",
-      title: featuredFlooringMedia.label?.trim() || "Project flooring",
-      subtitle: buildFlooringSubtitle(project),
-      image: featuredFlooringMedia.file,
-      tinaField: getRawMediaField(featuredFlooringMedia, "flooring", tinaFieldFn),
-    });
-  }
+  });
 
   return cards;
 }
@@ -344,7 +274,7 @@ export function buildRelatedProjectCards(
       slug,
       title: match.projectTitle,
       image: match.coverImage,
-      tinaField: tinaFieldFn(rawProject, `relatedProjects.${index}`) || undefined,
+      tinaField: tinaFieldFn(rawProject, `relatedProjects.${index}.project`) || undefined,
     });
   });
 

@@ -469,7 +469,6 @@ function buildTechnicalDetails(item) {
     ["Thickness", item.thickness],
     ["Size", item.size],
     ["Finish", item.finish],
-    ["Store Collection", item.storeCollection],
   ];
 
   return entries
@@ -580,7 +579,6 @@ async function main() {
       thickness: normalizeLabel(attributes?.Thickness),
       size: normalizeLabel(attributes?.Size),
       finish: normalizeLabel(attributes?.Finish),
-      storeCollection: normalizeLabel(attributes?.StoreCollection) || "in-stock",
       mediaFiles,
       primaryImage,
     };
@@ -649,8 +647,6 @@ async function main() {
       code: item.code,
       slug: item.slug,
       countertopType: item.countertopType,
-      inStock: true,
-      storeCollection: item.storeCollection,
       description: descriptions[index],
       picture: pictureUrl,
       technicalDetails: buildTechnicalDetails(item),

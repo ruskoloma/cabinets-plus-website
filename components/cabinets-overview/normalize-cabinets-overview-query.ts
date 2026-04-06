@@ -15,6 +15,10 @@ function asString(value: unknown): string | undefined {
   return typeof value === "string" ? value : undefined;
 }
 
+function asBoolean(value: unknown): boolean | undefined {
+  return typeof value === "boolean" ? value : undefined;
+}
+
 function toSlug(value: string): string {
   return value
     .trim()
@@ -131,6 +135,7 @@ function normalizeCabinet(value: unknown): CabinetOverviewItem | null {
     __typename: asString(record.__typename),
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
+    published: asBoolean(record.published) ?? null,
     name: asString(record.name) ?? null,
     code: asString(record.code) ?? null,
     slug: toSlug(asString(record.slug) || fallbackSlug || "") || null,
@@ -176,7 +181,7 @@ export function normalizeCabinetsOverviewQueryData(value: unknown): CabinetsOver
     .map((edge) => {
       const edgeRecord = asRecord(edge);
       const node = normalizeCabinet(edgeRecord?.node);
-      if (!node) return null;
+      if (!node || node.published !== true) return null;
       return { node };
     })
     .filter((edge): edge is { node: CabinetOverviewItem } => Boolean(edge));

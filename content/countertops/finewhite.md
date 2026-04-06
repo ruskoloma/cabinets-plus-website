@@ -1,25 +1,25 @@
 ---
+published: true
 name: Fine White
 code: FineWhite
 slug: finewhite
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Fine White presents a soft, nearly uniform white palette with faint cool gray undertones and
-  extremely subtle tonal variation. Veining is virtually absent, replaced by gentle cloudy movement
-  and a delicate, misty wash across the surface. Contrast is very low, giving the slab a quiet,
-  clean, minimal, and understated design character.
+  Fine White presents a soft, nearly uniform white palette with faint cool gray
+  undertones and extremely subtle tonal variation. Veining is virtually absent,
+  replaced by gentle cloudy movement and a delicate, misty wash across the
+  surface. Contrast is very low, giving the slab a quiet, clean, minimal, and
+  understated design character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/finewhite/3657-fine-white-1.jpg
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1717
 sourceUpdatedAt: '2025-09-18T18:25:09.971Z'
 ---
+

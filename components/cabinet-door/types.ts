@@ -8,8 +8,6 @@ export interface CabinetTechnicalDetail {
   __typename?: string;
   key?: string | null;
   value?: string | null;
-  unit?: string | null;
-  order?: number | null;
   _content_source?: unknown;
 }
 
@@ -55,6 +53,7 @@ export interface CabinetData {
   __typename?: string;
   _sys?: CabinetSystemInfo | null;
   id?: string;
+  published?: boolean | null;
   name?: string | null;
   code?: string | null;
   slug?: string | null;
@@ -100,6 +99,7 @@ export interface CabinetProjectItem {
   file: string;
   title: string;
   href?: string;
+  selectionIndex?: number;
   source?: CabinetMediaItem;
   projectSource?: Record<string, unknown>;
   mediaSource?: Record<string, unknown>;

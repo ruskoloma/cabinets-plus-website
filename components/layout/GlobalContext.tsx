@@ -23,6 +23,8 @@ export interface GlobalSettings {
     children?: Array<{
       label: string;
       href: string;
+      buttonLabel?: string;
+      buttonLink?: string;
       catalogItems?: Array<{
         name: string;
         code: string;

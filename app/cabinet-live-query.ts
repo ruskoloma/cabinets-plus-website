@@ -11,6 +11,7 @@ export const CABINET_LIVE_QUERY = `
       }
       ... on Cabinet {
         __typename
+        published
         name
         code
         slug
@@ -19,6 +20,19 @@ export const CABINET_LIVE_QUERY = `
         stainType
         description
         picture
+        relatedProjects {
+          __typename
+          project {
+            ... on Project {
+              title
+              slug
+              _sys {
+                filename
+                relativePath
+              }
+            }
+          }
+        }
         relatedProducts {
           __typename
           product
@@ -27,8 +41,6 @@ export const CABINET_LIVE_QUERY = `
           __typename
           key
           value
-          unit
-          order
         }
         media {
           __typename

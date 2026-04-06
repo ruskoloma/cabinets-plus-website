@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Slim Gold
 code: CalacattaSlimGold
 slug: calacattaslimgold
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  A soft white background is traced with very fine, elongated veining in pale gold and light gray,
-  creating an airy, understated pattern. The movement is gentle and linear, with delicate diagonal
-  lines that drift across the surface. Low contrast and restrained detailing give the slab a
-  refined, minimalist, and elegant overall character.
+  A soft white background is traced with very fine, elongated veining in pale
+  gold and light gray, creating an airy, understated pattern. The movement is
+  gentle and linear, with delicate diagonal lines that drift across the surface.
+  Low contrast and restrained detailing give the slab a refined, minimalist, and
+  elegant overall character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgold/3650-calacatta-slim-gold-1.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
-  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-whitetail-lane.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1724
 sourceUpdatedAt: '2025-09-18T18:25:09.454Z'
 ---
+

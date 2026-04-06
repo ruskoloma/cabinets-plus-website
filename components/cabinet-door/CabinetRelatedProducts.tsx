@@ -9,6 +9,7 @@ interface CabinetRelatedProductsProps {
   title: string;
   imageSizeChoice?: string | null;
   titleTinaField?: string;
+  sectionTinaField?: string;
 }
 
 export default function CabinetRelatedProducts({
@@ -16,10 +17,12 @@ export default function CabinetRelatedProducts({
   title,
   imageSizeChoice,
   titleTinaField,
+  sectionTinaField,
 }: CabinetRelatedProductsProps) {
   return (
     <ProductRelatedProducts
       imageSizeChoice={imageSizeChoice}
+      sectionTinaField={sectionTinaField}
       titleTinaField={titleTinaField}
       items={items.map((item) => {
         const relationRecord = item.relation as unknown as Record<string, unknown> | undefined;

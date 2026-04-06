@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Ice Grey
 code: CalacattaIceGrey
 slug: calacattaicegrey
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Ice Grey quartz features a soft white background traced with elongated, flowing veins in
-  pale to medium grey. The veining moves diagonally with gentle organic variation, creating graceful
-  movement across the surface. Low-to-moderate contrast and delicate feathered detailing give the
-  slab an airy, refined, and quietly contemporary character.
+  Calacatta Ice Grey quartz features a soft white background traced with
+  elongated, flowing veins in pale to medium grey. The veining moves diagonally
+  with gentle organic variation, creating graceful movement across the surface.
+  Low-to-moderate contrast and delicate feathered detailing give the slab an
+  airy, refined, and quietly contemporary character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaicegrey/3273-calacatta-ice-grey.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-honeycomb.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1703
 sourceUpdatedAt: '2025-09-18T18:25:10.924Z'
 ---
+

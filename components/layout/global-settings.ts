@@ -19,6 +19,8 @@ export interface GlobalDocumentInput {
     children?: Array<{
       label?: string | null;
       href?: string | null;
+      buttonLabel?: string | null;
+      buttonLink?: string | null;
       catalogItems?: Array<{
         name?: string | null;
         code?: string | null;
@@ -240,6 +242,8 @@ function normalizeNavLinks(global?: GlobalDocumentInput | null): GlobalSettings[
                 {
                   label: child.label,
                   href: child.href,
+                  buttonLabel: child.buttonLabel?.trim() || undefined,
+                  buttonLink: child.buttonLink?.trim() || undefined,
                   catalogItems: normalizeCatalogItems(child.catalogItems, fallbackCatalogItems),
                 },
               ];

@@ -1,25 +1,25 @@
 ---
+published: true
 name: Simple White
 code: SimpleWhite
 slug: simplewhite
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Simple White presents a soft, uniform white field with faint cool gray undertones and extremely
-  subtle tonal variation. Veining is essentially absent, giving the surface very little movement and
-  a quiet, restrained appearance. The low contrast and clean visual consistency create a minimal,
+  Simple White presents a soft, uniform white field with faint cool gray
+  undertones and extremely subtle tonal variation. Veining is essentially
+  absent, giving the surface very little movement and a quiet, restrained
+  appearance. The low contrast and clean visual consistency create a minimal,
   understated design character that feels calm, smooth, and refined.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplewhite/3663-simple-white-1.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
-  - project: content/projects/bright-open-concept-kitchen-and-bath-cabinetry.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-may-ella-loop.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1711
 sourceUpdatedAt: '2025-09-18T18:25:10.385Z'
 ---
+

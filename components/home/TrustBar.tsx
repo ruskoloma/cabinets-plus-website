@@ -17,12 +17,6 @@ interface TrustPartnerLogo {
 }
 
 interface TrustBarProps {
-  stripText: string;
-  stripHighlight: string;
-  stripTexture: string;
-  stripTextField?: string;
-  stripHighlightField?: string;
-  stripTextureField?: string;
   stats: TrustStat[];
   membershipLogo?: string;
   membershipLogoField?: string;
@@ -40,26 +34,7 @@ interface TrustBarProps {
   ctaLink: string;
 }
 
-function splitWithHighlight(content: string, highlight: string) {
-  if (!highlight || !content.includes(highlight)) {
-    return { before: content, marked: "", after: "" };
-  }
-
-  const start = content.indexOf(highlight);
-  const before = content.slice(0, start);
-  const marked = content.slice(start, start + highlight.length);
-  const after = content.slice(start + highlight.length);
-
-  return { before, marked, after };
-}
-
 export default function TrustBar({
-  stripText,
-  stripHighlight,
-  stripTexture,
-  stripTextField,
-  stripHighlightField,
-  stripTextureField,
   stats,
   membershipLogo,
   membershipLogoField,
@@ -76,6 +51,7 @@ export default function TrustBar({
   ctaLabelField,
   ctaLink,
 }: TrustBarProps) {
+  const hasCta = ctaLabel.trim().length > 0 && ctaLink.trim().length > 0;
   const normalizedStats = stats.slice(0, 3);
   const desktopLogoSizes = [
     { width: 212, height: 77, topOffset: 6 },
@@ -85,33 +61,13 @@ export default function TrustBar({
     { width: 116, height: 48, topOffset: 21 },
     { width: 198, height: 48, topOffset: 21 },
   ] as const;
-  const { before, marked, after } = splitWithHighlight(stripText, stripHighlight);
   const [logo1, logo2, logo3, logo4, logo5, logo6] = partnerLogos;
   const mobileTopMembershipLogo = membershipMobileTopLogo || membershipLogo;
   const mobileBottomMembershipLogo = membershipMobileBottomLogo;
 
   return (
-    <>
-      <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-100)]">
-        <FallbackImg
-          alt=""
-          aria-hidden
-          className="absolute inset-0 h-full w-full object-cover opacity-35"
-          data-tina-field={stripTextureField}
-          src={stripTexture}
-          variant="full"
-        />
-        <div className="cp-container relative px-4 py-[33px] md:px-8">
-          <p className="mx-auto max-w-[1376px] text-center font-[var(--font-red-hat-display)] text-[20px] font-medium leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]" data-tina-field={stripTextField}>
-            {before}
-            {marked ? <strong className="font-black" data-tina-field={stripHighlightField}>{marked}</strong> : null}
-            {after}
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-[#262623] text-white">
-        <div className="cp-container px-4 pb-10 pt-10 md:px-8 md:pb-[64px] md:pt-16">
+    <section className="bg-[#262623] text-white">
+      <div className="cp-container px-4 pb-10 pt-10 md:px-8 md:pb-[64px] md:pt-16">
           <div className="md:hidden">
             <div className="flex items-start justify-between">
               <div className="flex flex-col gap-[30px]">
@@ -214,14 +170,21 @@ export default function TrustBar({
               })}
             </div>
 
-            <div className="mt-[57px] text-center">
-              <Button className="!border-white !text-white hover:!border-white hover:!bg-white/10 hover:!text-white" dataTinaField={ctaLabelField} href={ctaLink} variant="outline">
-                {ctaLabel}
-              </Button>
-            </div>
+            {hasCta ? (
+              <div className="mt-[57px] text-center">
+                <Button
+                  className="!min-h-12 !w-[117px] !rounded-[2px] !border-white !bg-transparent !px-0 !text-[20px] !font-medium !text-white hover:!border-white hover:!bg-white/10 hover:!text-white"
+                  dataTinaField={ctaLabelField}
+                  href={ctaLink}
+                  size="small"
+                  variant="outline"
+                >
+                  {ctaLabel}
+                </Button>
+              </div>
+            ) : null}
           </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

@@ -16,6 +16,18 @@ interface GalleryOverviewClientProps {
   pageSettingsData: GalleryPageSettingsQueryLikeResult;
 }
 
+function filterPublishedProjects(overviewData: ReturnType<typeof normalizeGalleryOverviewQueryData>) {
+  const edges = Array.isArray(overviewData.projectConnection?.edges) ? overviewData.projectConnection.edges : [];
+
+  return {
+    ...overviewData,
+    projectConnection: {
+      ...overviewData.projectConnection,
+      edges: edges.filter((edge) => edge?.node?.published === true),
+    },
+  };
+}
+
 function extractHomeBlock(
   pageData: unknown,
   options: { typename: string; template: string },
@@ -43,7 +55,7 @@ function GalleryOverviewRenderer({
   overviewData: unknown;
   pageSettingsData?: GalleryPageSettingsQueryLikeResult["data"];
 }) {
-  const normalized = normalizeGalleryOverviewQueryData(overviewData);
+  const normalized = filterPublishedProjects(normalizeGalleryOverviewQueryData(overviewData));
   const contactBlock = extractHomeBlock(homePageData, {
     typename: "PageBlocksContactSection",
     template: "contactSection",

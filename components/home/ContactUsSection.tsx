@@ -24,12 +24,12 @@ export default function ContactUsSection({ block, imageVariant }: ContactUsSecti
   return (
     <section className="bg-[var(--cp-brand-neutral-100)]" data-tina-field={tinaField(block)}>
       <div className="mx-auto w-full max-w-[1440px] md:grid md:grid-cols-[720px_720px]">
-        <div className="px-[43px] pb-12 pt-[35px] md:pl-[79px] md:pr-[91px] md:pb-[82px] md:pt-16">
+        <div className="px-[17px] pb-12 pt-12 md:pl-[79px] md:pr-[91px] md:pb-[82px] md:pt-[64px]">
           <h2 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(block, "title")}>
             {text(block.title, "Contact us")}
           </h2>
 
-          <div className="mt-[54px] w-full max-w-[550px] md:mt-[39px]">
+          <div className="mt-8 w-full md:mt-[39px] md:max-w-[550px]">
             <ContactForm
               emailLabel={text(block.emailLabel, "Email")}
               emailLabelField={tinaField(block, "emailLabel")}

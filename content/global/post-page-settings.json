@@ -1,4 +1,7 @@
 {
   "_template": "post",
-  "postDetailThumbnailImageSize": "feature"
+  "postBreadcrumbLabel": "Articles",
+  "postRelatedArticlesTitle": "Related articles",
+  "postDetailThumbnailImageSize": "feature",
+  "postDetailRelatedArticlesImageSize": "card"
 }

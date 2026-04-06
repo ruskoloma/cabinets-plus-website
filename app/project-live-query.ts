@@ -17,7 +17,56 @@ export const PROJECT_LIVE_QUERY = `
         description
         notes
         primaryPicture
-        relatedProjects
+        relatedProjects {
+          __typename
+          project {
+            ... on Project {
+              id
+              title
+              slug
+              primaryPicture
+              _sys {
+                filename
+                basename
+                relativePath
+              }
+            }
+          }
+        }
+        cabinetProducts {
+          __typename
+          cabinet {
+            ... on Cabinet {
+              id
+              name
+              code
+              slug
+              picture
+              _sys {
+                filename
+                basename
+                relativePath
+              }
+            }
+          }
+        }
+        countertopProducts {
+          __typename
+          countertop {
+            ... on Countertop {
+              id
+              name
+              code
+              slug
+              picture
+              _sys {
+                filename
+                basename
+                relativePath
+              }
+            }
+          }
+        }
         media {
           __typename
           file

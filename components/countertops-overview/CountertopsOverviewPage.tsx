@@ -5,10 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { tinaField, useEditState, useTina } from "tinacms/dist/react";
 import { COUNTERTOP_LIVE_QUERY } from "@/app/countertop-live-query";
-import ContactUsSection from "@/components/home/ContactUsSection";
-import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
+import OurPartnersSection from "@/components/catalog-overview/OurPartnersSection";
 import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
+import ClearFiltersButton from "@/components/ui/ClearFiltersButton";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
@@ -38,18 +38,6 @@ interface QueryState {
   countertop: string;
 }
 
-interface FaqItem {
-  raw?: Record<string, unknown>;
-  question: string;
-  answer: string;
-}
-
-interface FaqTab {
-  raw?: Record<string, unknown>;
-  label: string;
-  faqs: FaqItem[];
-}
-
 interface CountertopCardItem {
   raw: Record<string, unknown>;
   slug: string;
@@ -61,20 +49,11 @@ interface CountertopCardItem {
 
 interface CountertopsOverviewPageProps {
   data: CountertopsOverviewDataShape;
-  faqBlock?: Record<string, unknown> | null;
-  contactBlock?: Record<string, unknown> | null;
+  aboutBlock?: Record<string, unknown> | null;
   cardImageSizeChoice?: ImageSizeChoice | null;
   filterImageSizeChoice?: ImageSizeChoice | null;
   pageSettingsRecord?: Record<string, unknown> | null;
   pageTitle?: string | null;
-}
-
-function toDict(value: unknown): Record<string, unknown> {
-  return value && typeof value === "object" ? (value as Record<string, unknown>) : {};
-}
-
-function readText(value: unknown, fallback = ""): string {
-  return typeof value === "string" ? value : fallback;
 }
 
 function slugify(value: string): string {
@@ -126,36 +105,17 @@ function getVisiblePages(totalPages: number, page: number): number[] {
   return Array.from({ length: end - start + 1 }, (_, index) => start + index);
 }
 
-function mapFaqTabs(block?: Record<string, unknown> | null): FaqTab[] {
-  if (!block) return [];
-  const tabs = Array.isArray(block.tabs) ? block.tabs : [];
-
-  return tabs
-    .map((tab) => {
-      const rawTab = toDict(tab);
-      const faqs = Array.isArray(rawTab.faqs) ? rawTab.faqs : [];
-
-      return {
-        raw: rawTab,
-        label: readText(rawTab.label),
-        faqs: faqs
-          .map((faq) => {
-            const rawFaq = toDict(faq);
-            return {
-              raw: rawFaq,
-              question: readText(rawFaq.question),
-              answer: readText(rawFaq.answer),
-            };
-          })
-          .filter((faq) => faq.question.length > 0),
-      };
-    })
-    .filter((tab) => tab.label.length > 0 && tab.faqs.length > 0);
-}
-
-function PanelShell({ children, title }: { children: ReactNode; title: string }) {
+function PanelShell({
+  children,
+  className = "",
+  title,
+}: {
+  children: ReactNode;
+  className?: string;
+  title: string;
+}) {
   return (
-    <div className="mt-5 border border-[var(--cp-primary-100)] bg-white p-5 shadow-[0_8px_12px_6px_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)] md:absolute md:left-0 md:right-0 md:top-full md:z-30 md:mt-3 md:p-8">
+    <div className={`border border-[var(--cp-primary-100)] bg-white p-5 shadow-[0_8px_12px_6px_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)] md:p-8 ${className}`.trim()}>
       <h2 className="text-center font-[var(--font-red-hat-display)] text-[24px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]">
         {title}
       </h2>
@@ -228,13 +188,7 @@ function PaginationButton({
 }) {
   return (
     <button
-      className={`flex h-8 w-8 items-center justify-center border text-[14px] font-semibold leading-[1.4] transition-colors ${
-        active
-          ? "border-2 border-[var(--cp-primary-500)] bg-[var(--cp-primary-500)] text-white"
-          : disabled
-            ? "border-[var(--cp-primary-100)] text-[var(--cp-primary-300)]"
-            : "border-[var(--cp-primary-500)] text-[var(--cp-primary-500)] hover:bg-[var(--cp-brand-neutral-50)]"
-      }`}
+      className={`cp-pagination-button ${active ? "cp-pagination-button--active" : ""}`}
       disabled={disabled}
       onClick={onClick}
       type="button"
@@ -260,27 +214,29 @@ function StaticCountertopCard({
               alt={item.name}
               className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
               data-tina-field={tinaField(item.raw, "picture")}
-              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
               src={item.picture}
               variant={imageVariant}
             />
           </div>
         ) : null}
       </span>
-      <span
-        className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
-        data-tina-field={tinaField(item.raw, "name")}
-      >
-        {item.name}
-      </span>
-      {item.code ? (
+      <span className="mt-3 block max-w-[270px]">
         <span
-          className="block text-[16px] leading-none text-[var(--cp-primary-300)]"
-          data-tina-field={tinaField(item.raw, "code")}
+          className="block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
+          data-tina-field={tinaField(item.raw, "name")}
         >
-          {formatProductCode(item.code)}
+          {item.name}
         </span>
-      ) : null}
+        {item.code ? (
+          <span
+            className="mt-2 block text-[16px] leading-none text-[var(--cp-primary-300)]"
+            data-tina-field={tinaField(item.raw, "code")}
+          >
+            {formatProductCode(item.code)}
+          </span>
+        ) : null}
+      </span>
     </Link>
   );
 }
@@ -292,7 +248,7 @@ function TinaCountertopCard({
   item: CountertopCardItem;
   imageVariant?: ImageVariantPreset;
 }) {
-  const initialData = useMemo(() => ({ countertop: item.raw }), [item.relativePath]);
+  const initialData = useMemo(() => ({ countertop: item.raw }), [item.raw]);
   const variables = useMemo(() => ({ relativePath: item.relativePath }), [item.relativePath]);
 
   const { data } = useTina({
@@ -322,29 +278,30 @@ function TinaCountertopCard({
             <FillImage
               alt={liveName}
               className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
               src={livePicture}
               variant={imageVariant}
             />
           </div>
         ) : null}
       </span>
-      <span className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
-        {liveName}
-      </span>
-      {liveCode ? (
-        <span className="block text-[16px] leading-none text-[var(--cp-primary-300)]">
-          {formatProductCode(liveCode)}
+      <span className="mt-3 block max-w-[270px]">
+        <span className="block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
+          {liveName}
         </span>
-      ) : null}
+        {liveCode ? (
+          <span className="mt-2 block text-[16px] leading-none text-[var(--cp-primary-300)]">
+            {formatProductCode(liveCode)}
+          </span>
+        ) : null}
+      </span>
     </Link>
   );
 }
 
 export default function CountertopsOverviewPage({
   data,
-  faqBlock,
-  contactBlock,
+  aboutBlock,
   cardImageSizeChoice,
   filterImageSizeChoice,
   pageSettingsRecord,
@@ -365,7 +322,6 @@ export default function CountertopsOverviewPage({
 
   const catalogSettings = data.catalogSettings;
   const countertopOptions = useMemo(() => catalogSettings?.countertopTypes || [], [catalogSettings?.countertopTypes]);
-  const faqTabs = useMemo(() => mapFaqTabs(faqBlock), [faqBlock]);
   const countertopCardImageVariant = resolveConfiguredImageVariant(cardImageSizeChoice, "card");
   const countertopFilterImageVariant = resolveConfiguredImageVariant(filterImageSizeChoice, "thumb");
 
@@ -433,7 +389,6 @@ export default function CountertopsOverviewPage({
   const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
   const [pendingCountertop, setPendingCountertop] = useState<string | null>(queryState.countertop || null);
   const filtersRef = useRef<HTMLDivElement | null>(null);
-  const searchDebounceRef = useRef<number | null>(null);
   const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const sortLabel = SORT_OPTIONS.find((option) => option.value === queryState.sort)?.label || "New";
@@ -464,14 +419,6 @@ export default function CountertopsOverviewPage({
     if (queryState.page === currentPage) return;
     updateQuery({ page: String(currentPage) });
   }, [currentPage, queryState.page, updateQuery]);
-
-  useEffect(() => {
-    return () => {
-      if (searchDebounceRef.current) {
-        window.clearTimeout(searchDebounceRef.current);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     if (!openPanel) return;
@@ -512,7 +459,7 @@ export default function CountertopsOverviewPage({
   return (
     <div className="bg-white" suppressHydrationWarning>
       <section className="bg-white">
-        <div className="cp-container px-4 pb-14 pt-8 md:px-10 md:pb-16 md:pt-12">
+        <div className="cp-container px-4 pb-14 pt-8 md:px-10 md:pb-[72px] md:pt-[88px]">
           <h1
             className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]"
             data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "pageTitle") || undefined : undefined}
@@ -529,14 +476,14 @@ export default function CountertopsOverviewPage({
 
               <div className="relative">
                 <button
-                  className="inline-flex items-center gap-2 font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]"
+                  className="cp-inline-trigger cp-inline-trigger--display"
                   onClick={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
                   type="button"
                 >
                   <span>
                     Sort by <span className="font-bold">{sortLabel}</span>
                   </span>
-                  <img alt="" aria-hidden className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`} src="/library/header/nav-chevron-right.svg" />
+                  <img alt="" aria-hidden className={`cp-inline-trigger__icon transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`} src="/library/header/nav-chevron-right.svg" />
                 </button>
 
                 {openPanel === "sort" ? (
@@ -544,7 +491,7 @@ export default function CountertopsOverviewPage({
                     <div className="flex flex-col gap-3">
                       {SORT_OPTIONS.map((option) => (
                         <button
-                          className={`text-left font-[var(--font-red-hat-display)] text-[16px] leading-[1.5] text-[var(--cp-primary-500)] ${queryState.sort === option.value ? "font-semibold" : ""}`}
+                          className={`text-left font-[var(--font-jost)] text-[16px] leading-[1.2] text-[var(--cp-gray-1)] transition-colors ${queryState.sort === option.value ? "font-semibold text-[var(--cp-primary-500)]" : "hover:text-[var(--cp-primary-350)]"}`}
                           key={`countertops-mobile-sort-${option.value}`}
                           onClick={() => {
                             updateQuery({ sort: option.value }, true);
@@ -561,53 +508,10 @@ export default function CountertopsOverviewPage({
               </div>
             </div>
 
-            <div className="relative mt-4 hidden flex-col gap-4 md:flex md:flex-row md:items-center md:justify-between">
-              <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)] md:text-[18px]">
-                <span>Showing </span>
-                <span className="font-bold">{totalResults} results</span>
-              </p>
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <label className="flex h-10 w-full items-center gap-2 rounded-[2px] border border-[var(--cp-primary-100)] px-3 sm:w-[268px]">
-                  <img alt="" aria-hidden className="h-5 w-5" src="/library/header/nav-search.svg" />
-                  <input
-                    className="h-full w-full border-0 bg-transparent text-[14px] leading-[1.5] text-[var(--cp-primary-500)] outline-none placeholder:text-[var(--cp-primary-300)]"
-                    defaultValue={queryState.q}
-                    key={queryState.q}
-                    onChange={(event) => {
-                      const value = event.target.value.trim();
-                      if (searchDebounceRef.current) {
-                        window.clearTimeout(searchDebounceRef.current);
-                      }
-
-                      searchDebounceRef.current = window.setTimeout(() => {
-                        if (value === queryState.q) return;
-                        updateQuery({ q: value || null }, true);
-                      }, 350);
-                    }}
-                    placeholder="Search by name or code"
-                    type="search"
-                  />
-                </label>
-
-                <CatalogSortDropdown
-                  isOpen={openPanel === "sort"}
-                  onOpen={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
-                  onSelect={(value) => {
-                    updateQuery({ sort: value }, true);
-                    setOpenPanel(null);
-                  }}
-                  options={SORT_OPTIONS}
-                  selectedLabel={sortLabel}
-                  selectedValue={queryState.sort}
-                />
-              </div>
-            </div>
-
-            <div className="mt-5 flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4 md:mt-12">
               <div className="flex items-center gap-10 md:hidden">
                 <button
-                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
                   onClick={() => {
                     setPendingCountertop(queryState.countertop || null);
                     setOpenPanel("countertop");
@@ -615,14 +519,15 @@ export default function CountertopsOverviewPage({
                   type="button"
                 >
                   <span>Select Countertop</span>
-                  <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+                  <img alt="" aria-hidden className="cp-inline-trigger__icon rotate-90" src="/library/header/nav-chevron-right.svg" />
                 </button>
               </div>
 
-              <div className="relative hidden flex-wrap items-center gap-6 md:flex md:gap-10">
-                <div className="pb-3">
+              <div className="relative hidden md:block">
+                <div className="flex items-start justify-between gap-8">
+                  <div className="flex flex-wrap items-center gap-10 pb-3">
                   <button
-                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
                   onClick={() => {
                     setPendingCountertop(queryState.countertop || null);
                     setOpenPanel((current) => (current === "countertop" ? null : "countertop"));
@@ -630,43 +535,63 @@ export default function CountertopsOverviewPage({
                   type="button"
                 >
                     <span>Select Countertop</span>
-                    <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+                    <img alt="" aria-hidden className="cp-inline-trigger__icon rotate-90" src="/library/header/nav-chevron-right.svg" />
                   </button>
+                  </div>
 
-                  {openPanel === "countertop" ? (
-                    <PanelShell title="Select Countertop">
-                      <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:mt-[52px] md:gap-10">
-                        {countertopOptions.map((option, index) => {
-                          const value = normalizeOptionValue(option.value);
-                          const selected = pendingCountertop === value;
+                  <div className="flex items-center gap-10 pb-3">
+                  <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)] md:text-[18px]">
+                    <span>Showing </span>
+                    <span className="font-bold">{totalResults} results</span>
+                  </p>
 
-                          return (
-                            <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
-                              <CountertopOptionCard
-                                imageVariant={countertopFilterImageVariant}
-                                onClick={() => setPendingCountertop((current) => (current === value ? null : value))}
-                                option={option}
-                                selected={selected}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      <div className="mt-8 flex justify-center">
-                        <Button className="!h-12 !px-8 !text-[20px]" onClick={applyCountertop} size="small" variant="outline">
-                          Apply
-                        </Button>
-                      </div>
-                    </PanelShell>
-                  ) : null}
+                  <CatalogSortDropdown
+                    isOpen={openPanel === "sort"}
+                    onOpen={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
+                    onSelect={(value) => {
+                      updateQuery({ sort: value }, true);
+                      setOpenPanel(null);
+                    }}
+                    options={SORT_OPTIONS}
+                    selectedLabel={sortLabel}
+                    selectedValue={queryState.sort}
+                  />
                 </div>
+              </div>
+
+                {openPanel === "countertop" ? (
+                  <PanelShell className="absolute left-0 right-0 top-full z-30 mt-3" title="Select Countertop">
+                    <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:mt-[52px] md:gap-10">
+                      {countertopOptions.map((option, index) => {
+                        const value = normalizeOptionValue(option.value);
+                        const selected = pendingCountertop === value;
+
+                        return (
+                          <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
+                            <CountertopOptionCard
+                              imageVariant={countertopFilterImageVariant}
+                              onClick={() => setPendingCountertop((current) => (current === value ? null : value))}
+                              option={option}
+                              selected={selected}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-8 flex justify-center">
+                      <Button className="!h-12 !px-8 !text-[20px]" onClick={applyCountertop} size="small" variant="outline">
+                        Apply
+                      </Button>
+                    </div>
+                  </PanelShell>
+                ) : null}
               </div>
 
               {queryState.countertop ? (
                 <div className="flex flex-wrap items-center gap-4">
                   <button
-                    className="inline-flex h-8 items-center gap-[6px] border border-[var(--cp-primary-500)] px-3 text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
+                    className="cp-filter-chip"
                     onClick={() => updateQuery({ countertop: null }, true)}
                     type="button"
                   >
@@ -674,13 +599,9 @@ export default function CountertopsOverviewPage({
                     <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
                   </button>
 
-                  <button
-                    className="text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
-                    onClick={() => updateQuery({ countertop: null }, true)}
-                    type="button"
-                  >
+                  <ClearFiltersButton onClick={() => updateQuery({ countertop: null }, true)}>
                     Clear filters
-                  </button>
+                  </ClearFiltersButton>
                 </div>
               ) : null}
             </div>
@@ -717,12 +638,12 @@ export default function CountertopsOverviewPage({
                 No countertops match your current filters.
               </p>
               <p className="mt-2 text-[16px] leading-[1.5] text-[var(--cp-primary-500)]/80">
-                Try adjusting filters or search terms.
+                Try adjusting your filters.
               </p>
             </div>
           ) : (
             <>
-              <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
+              <div className="mt-7 grid grid-cols-2 gap-x-[15px] gap-y-8 md:mt-10 md:grid-cols-3 md:gap-x-6 md:gap-y-10 lg:grid-cols-4 lg:gap-x-7">
                 {paginatedItems.map((item) => (
                   <div key={item.slug}>
                     {edit && item.relativePath ? (
@@ -766,18 +687,7 @@ export default function CountertopsOverviewPage({
         </div>
       </section>
 
-      {faqTabs.length ? (
-        <section className="bg-[var(--cp-brand-neutral-50)]">
-          <div className="cp-container px-4 py-14 md:px-10 md:py-16" data-tina-field={faqBlock ? tinaField(faqBlock) : undefined}>
-            <h2 className="text-center font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]">
-              F.A.Q.
-            </h2>
-            <FaqTabsAccordion tabs={faqTabs} />
-          </div>
-        </section>
-      ) : null}
-
-      {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
+      {aboutBlock ? <OurPartnersSection block={aboutBlock} /> : null}
     </div>
   );
 }

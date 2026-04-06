@@ -1,40 +1,29 @@
 ---
+published: true
 name: Slim Shaker White Oak
 code: OOK
 slug: ook
-description: NEW, update code, Oslo Oak
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
+description: 'NEW, update code, Oslo Oak'
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OOK/3101-oslo-oak.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -50,9 +39,9 @@ sourceId: 260
 sourceUpdatedAt: '2025-07-25T22:53:53.386Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
-  - project: content/projects/bright-modern-white-oak-interior.md
-  - project: content/projects/light-wood-kitchen-waterfall-island-black-accents.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-harmony-road.md
+  - project: content/projects/art-house-on-27th-avenue.md
 relatedProducts:
   - product: content/cabinets/osn.md
   - product: content/cabinets/osu.md
@@ -61,3 +50,4 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
+

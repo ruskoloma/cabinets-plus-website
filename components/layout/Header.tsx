@@ -2,12 +2,15 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { tinaField, useEditState } from "tinacms/dist/react";
 import FallbackImg from "@/components/ui/FallbackImg";
 
 interface NavChild {
   label: string;
   href: string;
+  buttonLabel?: string;
+  buttonLink?: string;
   catalogItems?: CatalogItem[];
 }
 
@@ -39,6 +42,8 @@ interface CatalogItem {
 }
 
 interface RawNavChild extends Record<string, unknown> {
+  buttonLabel?: string;
+  buttonLink?: string;
   children?: RawNavChild[];
   href?: string;
   label?: string;
@@ -182,17 +187,23 @@ export default function Header({
   generalRaw: Record<string, unknown>;
   headerRaw: Record<string, unknown>;
 }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const isSearchRoute = pathname === "/search";
+  const currentSearchQuery = (searchParams?.get("q") || "").trim();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const [desktopSearchOpen, setDesktopSearchOpen] = useState(false);
-  const [desktopSearchValue, setDesktopSearchValue] = useState("");
+  const [desktopSearchValue, setDesktopSearchValue] = useState(currentSearchQuery);
   const [activeProductCatalogKey, setActiveProductCatalogKey] = useState<ProductCatalogKey>("cabinets");
   const [productsPanelLeft, setProductsPanelLeft] = useState<number | null>(null);
   const [servicesPanelLeft, setServicesPanelLeft] = useState<number | null>(null);
   const desktopHeaderRef = useRef<HTMLDivElement | null>(null);
   const productsTriggerRef = useRef<HTMLButtonElement | null>(null);
   const servicesTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const desktopCloseTimerRef = useRef<number | null>(null);
   const { edit } = useEditState();
   const logoLabel = useMemo(() => data.siteName || "Cabinets Plus", [data.siteName]);
   const topBarAddress = useMemo(() => data.address.split(",")[0].trim(), [data.address]);
@@ -234,6 +245,7 @@ export default function Header({
 
   const productsPanelOpen = desktopProductsOpen && !desktopSearchOpen;
   const servicesPanelOpen = desktopServicesOpen && !desktopSearchOpen;
+  const desktopSearchVisible = desktopSearchOpen || isSearchRoute;
   const activeProductItemIndex = useMemo(() => {
     const index = productsItems.findIndex((item) => getProductCatalogKey(item.label, item.href) === activeProductCatalogKey);
     return index >= 0 ? index : 0;
@@ -241,7 +253,9 @@ export default function Header({
   const activeProductItem = productsItems[activeProductItemIndex];
   const activeCatalogItems = activeProductItem?.catalogItems || [];
   const activeCatalogColumnWidth = PRODUCT_CATALOG_COLUMN_WIDTH_BY_KEY[activeProductCatalogKey];
-  const desktopProductsPanelLink = activeProductItem?.href || productsItems[0]?.href || "/cabinets";
+  const desktopProductsPanelLink = activeProductItem?.buttonLink || activeProductItem?.href || productsItems[0]?.href || "/cabinets";
+  const desktopProductsPanelLabel = activeProductItem?.buttonLabel?.trim() || "View All Catalog";
+  const activeProductRawItem = rawProductsItems[activeProductItemIndex];
 
   const getDropdownLeft = useCallback((triggerElement: HTMLButtonElement, panelWidth: number): number => {
     if (!desktopHeaderRef.current) return 0;
@@ -269,6 +283,14 @@ export default function Header({
   }, [mobileOpen]);
 
   useEffect(() => {
+    return () => {
+      if (desktopCloseTimerRef.current !== null) {
+        window.clearTimeout(desktopCloseTimerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     setActiveProductCatalogKey(defaultProductCatalogKey);
   }, [defaultProductCatalogKey]);
 
@@ -293,7 +315,9 @@ export default function Header({
       if (event.key === "Escape") {
         setDesktopProductsOpen(false);
         setDesktopServicesOpen(false);
-        setDesktopSearchOpen(false);
+        if (!isSearchRoute) {
+          setDesktopSearchOpen(false);
+        }
       }
     };
 
@@ -301,7 +325,11 @@ export default function Header({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [isSearchRoute]);
+
+  useEffect(() => {
+    setDesktopSearchValue(currentSearchQuery);
+  }, [currentSearchQuery]);
 
   useEffect(() => {
     if (!productsPanelOpen && !servicesPanelOpen) return;
@@ -322,6 +350,10 @@ export default function Header({
   }, [productsPanelOpen, servicesPanelOpen, updateProductsPanelPosition, updateServicesPanelPosition]);
 
   const openProductsPanel = () => {
+    if (desktopCloseTimerRef.current !== null) {
+      window.clearTimeout(desktopCloseTimerRef.current);
+      desktopCloseTimerRef.current = null;
+    }
     setDesktopProductsOpen(true);
     setDesktopServicesOpen(false);
     setDesktopSearchOpen(false);
@@ -330,6 +362,10 @@ export default function Header({
   };
 
   const openServicesPanel = () => {
+    if (desktopCloseTimerRef.current !== null) {
+      window.clearTimeout(desktopCloseTimerRef.current);
+      desktopCloseTimerRef.current = null;
+    }
     setDesktopServicesOpen(true);
     setDesktopProductsOpen(false);
     setDesktopSearchOpen(false);
@@ -337,9 +373,36 @@ export default function Header({
   };
 
   const closeDesktopDropdowns = () => {
+    if (desktopCloseTimerRef.current !== null) {
+      window.clearTimeout(desktopCloseTimerRef.current);
+      desktopCloseTimerRef.current = null;
+    }
     setDesktopProductsOpen(false);
     setDesktopServicesOpen(false);
   };
+
+  const scheduleDesktopDropdownClose = () => {
+    if (edit) return;
+    if (desktopCloseTimerRef.current !== null) {
+      window.clearTimeout(desktopCloseTimerRef.current);
+    }
+
+    desktopCloseTimerRef.current = window.setTimeout(() => {
+      setDesktopProductsOpen(false);
+      setDesktopServicesOpen(false);
+      desktopCloseTimerRef.current = null;
+    }, 140);
+  };
+
+  const submitSearch = useCallback(() => {
+    const query = desktopSearchValue.trim();
+    router.push(query ? `/search?q=${encodeURIComponent(query)}` : "/search");
+    setDesktopProductsOpen(false);
+    setDesktopServicesOpen(false);
+    if (!isSearchRoute) {
+      setDesktopSearchOpen(false);
+    }
+  }, [desktopSearchValue, isSearchRoute, router]);
 
   return (
     <header className="sticky top-0 z-50 bg-white">
@@ -362,7 +425,13 @@ export default function Header({
       <div className="h-[90px] border-b border-[var(--cp-primary-100)] px-4 md:px-8">
         <div
           className="cp-container relative flex h-full items-center justify-between gap-4"
-          onMouseLeave={edit ? undefined : closeDesktopDropdowns}
+          onMouseEnter={() => {
+            if (desktopCloseTimerRef.current !== null) {
+              window.clearTimeout(desktopCloseTimerRef.current);
+              desktopCloseTimerRef.current = null;
+            }
+          }}
+          onMouseLeave={scheduleDesktopDropdownClose}
           ref={desktopHeaderRef}
         >
           <Link
@@ -378,22 +447,35 @@ export default function Header({
           </Link>
 
           <div className="hidden items-center md:flex">
-            {desktopSearchOpen ? (
-              <div className="flex h-12 w-[600px] items-center gap-2 rounded-[2px] border border-[rgba(0,16,32,0.2)] bg-white pl-6 pr-4">
-                <SearchIcon />
+            {desktopSearchVisible ? (
+              <div className="cp-input-shell h-12 w-[600px] bg-[var(--cp-brand-neutral-50)]">
+                <div className="cp-input-shell__icon">
+                  <SearchIcon />
+                </div>
                 <input
                   aria-label={data.navSearchLabel || "Search"}
-                  className="h-full flex-1 border-0 bg-transparent text-sm leading-6 text-[var(--cp-primary-500)] outline-none placeholder:text-[var(--cp-primary-300)]"
+                  className="cp-input-shell__input"
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      event.preventDefault();
+                      submitSearch();
+                    }
+                  }}
                   onChange={(event) => setDesktopSearchValue(event.target.value)}
                   placeholder="Enter name of a product or its code."
+                  type="search"
                   value={desktopSearchValue}
                 />
                 <button
-                  aria-label="Close search"
-                  className="text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                  aria-label={isSearchRoute ? "Clear search" : "Close search"}
+                  className="text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
                   onClick={() => {
-                    setDesktopSearchOpen(false);
                     setDesktopSearchValue("");
+                    if (isSearchRoute) {
+                      router.push("/search");
+                      return;
+                    }
+                    setDesktopSearchOpen(false);
                   }}
                   type="button"
                 >
@@ -411,17 +493,11 @@ export default function Header({
                   if (isProductsDropdown) {
                     return (
                       <button
-                        className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                        className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
                         data-tina-field={navItemField}
                         key={key}
                         ref={productsTriggerRef}
-                        onClick={() => {
-                          if (desktopProductsOpen) {
-                            setDesktopProductsOpen(false);
-                          } else {
-                            openProductsPanel();
-                          }
-                        }}
+                        onFocus={openProductsPanel}
                         onMouseEnter={openProductsPanel}
                         type="button"
                       >
@@ -434,17 +510,11 @@ export default function Header({
                   if (isServicesDropdown) {
                     return (
                       <button
-                        className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                        className="flex items-center gap-1 text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
                         data-tina-field={navItemField}
                         key={key}
                         ref={servicesTriggerRef}
-                        onClick={() => {
-                          if (desktopServicesOpen) {
-                            setDesktopServicesOpen(false);
-                          } else {
-                            openServicesPanel();
-                          }
-                        }}
+                        onFocus={openServicesPanel}
                         onMouseEnter={openServicesPanel}
                         type="button"
                       >
@@ -456,7 +526,7 @@ export default function Header({
 
                   return (
                     <Link
-                      className="text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                      className="text-sm leading-6 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
                       data-tina-field={navItemField}
                       href={getTopLevelLinkHref(link)}
                       key={key}
@@ -469,10 +539,11 @@ export default function Header({
 
                 <button
                   aria-label={data.navSearchLabel || "Search"}
-                  className="text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-brand-neutral-300)]"
+                  className="text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
                   onClick={() => {
                     closeDesktopDropdowns();
                     setDesktopSearchOpen(true);
+                    setDesktopSearchValue(currentSearchQuery);
                   }}
                   onMouseEnter={edit ? undefined : closeDesktopDropdowns}
                   type="button"
@@ -484,7 +555,7 @@ export default function Header({
           </div>
 
           <div className="flex items-center gap-5 md:hidden">
-            <Link aria-label={data.navSearchLabel || "Search"} className="text-[var(--cp-primary-500)]" href={data.navSearchLink || "/"}>
+            <Link aria-label={data.navSearchLabel || "Search"} className="text-[var(--cp-primary-500)]" href="/search">
               <SearchIcon />
             </Link>
             <button aria-expanded={mobileOpen} aria-label={mobileOpen ? "Close navigation" : "Open navigation"} onClick={() => setMobileOpen((v) => !v)} type="button">
@@ -496,9 +567,14 @@ export default function Header({
             <div
               className="absolute z-50 hidden overflow-hidden bg-white shadow-[0_8px_32px_rgba(0,0,0,0.05)] md:block"
               onMouseEnter={() => {
+                if (desktopCloseTimerRef.current !== null) {
+                  window.clearTimeout(desktopCloseTimerRef.current);
+                  desktopCloseTimerRef.current = null;
+                }
                 setDesktopProductsOpen(true);
                 setDesktopServicesOpen(false);
               }}
+              onMouseLeave={scheduleDesktopDropdownClose}
               style={{
                 left: `${productsPanelLeft ?? 0}px`,
                 top: `${DESKTOP_DROPDOWN_TOP}px`,
@@ -582,7 +658,7 @@ export default function Header({
                         )}
                       </span>
                       <div className="text-base leading-[1.2]">
-                        <p className="text-[var(--cp-primary-500)] group-hover:text-[var(--cp-brand-neutral-300)]">{item.name}</p>
+                        <p className="text-[var(--cp-primary-500)] group-hover:text-[var(--cp-primary-350)]">{item.name}</p>
                         <p className="text-[var(--cp-primary-300)]">{item.code}</p>
                       </div>
                     </Link>
@@ -591,11 +667,12 @@ export default function Header({
               </div>
 
               <Link
-                className="absolute left-[286px] top-[478px] inline-flex h-10 items-center justify-center bg-[var(--cp-primary-500)] px-5 text-base font-medium leading-none text-white transition-colors hover:bg-[#3a3a3a]"
+                className="cp-btn cp-btn--secondary cp-btn--small absolute left-[286px] top-[478px] !min-h-10 !px-5 !text-base"
+                data-tina-field={activeProductRawItem ? tinaField(activeProductRawItem, "buttonLabel") || undefined : undefined}
                 href={desktopProductsPanelLink}
                 onClick={() => setDesktopProductsOpen(false)}
               >
-                View All Catalog
+                {desktopProductsPanelLabel}
               </Link>
             </div>
           ) : null}
@@ -604,9 +681,14 @@ export default function Header({
             <div
               className="absolute z-50 hidden overflow-hidden bg-white shadow-[0_8px_32px_rgba(0,0,0,0.05)] md:block"
               onMouseEnter={() => {
+                if (desktopCloseTimerRef.current !== null) {
+                  window.clearTimeout(desktopCloseTimerRef.current);
+                  desktopCloseTimerRef.current = null;
+                }
                 setDesktopServicesOpen(true);
                 setDesktopProductsOpen(false);
               }}
+              onMouseLeave={scheduleDesktopDropdownClose}
               style={{
                 left: `${servicesPanelLeft ?? 0}px`,
                 top: `${DESKTOP_DROPDOWN_TOP}px`,

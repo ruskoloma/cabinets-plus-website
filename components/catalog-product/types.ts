@@ -19,6 +19,7 @@ export interface ProductProjectCardItem {
   file: string;
   title: string;
   href?: string;
+  selectionTinaField?: string;
   imageTinaField?: string;
   titleTinaField?: string;
 }

@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Slim Grey
 code: CalacattaSlimGrey
 slug: calacattaslimgrey
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  A soft white to very light gray background is traced with long, slim gray veining that drifts
-  diagonally across the slab. The lines are delicate and airy, creating gentle movement rather than
-  bold drama. Low contrast and restrained patterning give the surface a clean, refined, and quietly
-  elegant design character.
+  A soft white to very light gray background is traced with long, slim gray
+  veining that drifts diagonally across the slab. The lines are delicate and
+  airy, creating gentle movement rather than bold drama. Low contrast and
+  restrained patterning give the surface a clean, refined, and quietly elegant
+  design character.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgrey/3653-calacatta-slim-grey-1.jpg
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/modern-oak-and-black-kitchen-with-blush-laundry.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-villier-road.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1721
 sourceUpdatedAt: '2025-09-18T18:25:09.704Z'
 ---
+

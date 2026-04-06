@@ -15,6 +15,7 @@ import {
 } from "@/components/project-detail/helpers";
 import type {
   CabinetListItem,
+  CountertopListItem,
   ProjectDetailQueryLikeResult,
 } from "@/components/project-detail/types";
 import { PROJECT_LIVE_QUERY } from "@/app/project-live-query";
@@ -34,6 +35,7 @@ interface HomePageQueryLikeResult {
 interface ProjectDetailClientProps {
   currentSlug: string;
   cabinetIndex: CabinetListItem[];
+  countertopIndex: CountertopListItem[];
   projectData: ProjectDetailQueryLikeResult;
   overviewData: GalleryOverviewQueryLikeResult;
   homePageData: HomePageQueryLikeResult;
@@ -57,6 +59,7 @@ function extractContactBlock(pageData: unknown): Record<string, unknown> | null 
 
 function ProjectDetailRenderer({
   cabinetIndex,
+  countertopIndex,
   projectData,
   overviewData,
   homePageData,
@@ -68,7 +71,7 @@ function ProjectDetailRenderer({
   const normalizedOverview = normalizeGalleryOverviewQueryData(overviewData.data);
   const contactBlock = extractContactBlock(homePageData.data);
   const galleryItems = buildProjectGallery(project);
-  const materialCards = buildMaterialCards(project, normalizedOverview.catalogSettings, cabinetIndex, tinaField);
+  const materialCards = buildMaterialCards(project, cabinetIndex, countertopIndex, tinaField);
   const relatedProjects = buildRelatedProjectCards(project, normalizedOverview, tinaField);
   const pageSettings = pageSettingsData.data.projectPageSettings || null;
 
@@ -80,10 +83,13 @@ function ProjectDetailRenderer({
       lightboxImageSizeChoice={pageSettings?.projectDetailLightboxImageSize}
       materialCardImageSizeChoice={pageSettings?.projectDetailMaterialCardImageSize}
       materialCards={materialCards}
+      materialsTitle={pageSettings?.projectDetailMaterialsTitle}
       pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
       project={project}
+      relatedProjectsCtaLabel={pageSettings?.projectDetailRelatedProjectsCtaLabel}
       relatedProjects={relatedProjects}
       relatedProjectsImageSizeChoice={pageSettings?.projectDetailRelatedProjectsImageSize}
+      relatedProjectsTitle={pageSettings?.projectDetailRelatedProjectsTitle}
     />
   );
 }
@@ -124,6 +130,7 @@ function TinaProjectDetailClient(props: ProjectDetailClientProps) {
     <ProjectDetailRenderer
       cabinetIndex={props.cabinetIndex}
       currentSlug={props.currentSlug}
+      countertopIndex={props.countertopIndex}
       homePageData={{
         ...props.homePageData,
         data: homeQuery ? homePageData : props.homePageData.data,

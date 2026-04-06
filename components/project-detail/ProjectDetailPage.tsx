@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { tinaField } from "tinacms/dist/react";
+import { tinaField, useEditState } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FillImage from "@/components/ui/FillImage";
@@ -26,7 +26,6 @@ function CloseIcon() {
 }
 
 function MaterialCard({
-  label,
   title,
   subtitle,
   image,
@@ -34,7 +33,6 @@ function MaterialCard({
   href,
   tinaField,
 }: {
-  label: string;
   title: string;
   subtitle?: string;
   image?: string;
@@ -42,15 +40,19 @@ function MaterialCard({
   href?: string;
   tinaField?: string;
 }) {
+  const { edit } = useEditState();
   const content = (
     <>
-      <div className="relative h-20 w-20 overflow-hidden bg-[var(--cp-primary-100)]" data-tina-field={tinaField}>
+      <div className="relative h-20 w-20 overflow-hidden bg-[var(--cp-primary-100)]">
         {image ? <FillImage alt={title} className="object-cover" sizes="80px" src={image} variant={imageVariant} /> : null}
       </div>
       <div className="min-w-0">
-        <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
-          {title}
-        </p>
+        <div className="flex items-start gap-2">
+          <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
+            {title}
+          </p>
+          {href ? <img alt="" aria-hidden className="mt-[2px] h-4 w-4 shrink-0 md:hidden" src="/library/header/nav-chevron-right.svg" /> : null}
+        </div>
         {subtitle ? (
           <p className="mt-1 break-words text-[14px] leading-[1.2] text-[var(--cp-primary-300)] md:text-[16px]">
             {subtitle}
@@ -61,19 +63,59 @@ function MaterialCard({
   );
 
   return (
-    <div className="flex flex-col gap-6 md:grid md:grid-cols-[180px_282px] md:items-center md:gap-x-[210px] md:gap-y-0">
-      <p className="font-[var(--font-red-hat-display)] text-[24px] leading-none text-[var(--cp-primary-500)] md:w-[180px]">
+    href ? (
+      <Link
+        className="grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6 transition-opacity hover:opacity-80"
+        data-tina-field={tinaField}
+        href={href}
+        onClick={(event) => {
+          if (edit) {
+            event.preventDefault();
+          }
+        }}
+      >
+        {content}
+      </Link>
+    ) : (
+      <div className="grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6" data-tina-field={tinaField}>
+        {content}
+      </div>
+    )
+  );
+}
+
+function MaterialGroup({
+  label,
+  items,
+  imageVariant,
+}: {
+  label: string;
+  items: ProjectDetailPageProps["materialCards"];
+  imageVariant?: ImageVariantPreset;
+}) {
+  return (
+    <div className="flex flex-col gap-6 md:grid md:grid-cols-[180px_282px] md:items-stretch md:gap-x-[210px] md:gap-y-0">
+      <p className="font-[var(--font-red-hat-display)] text-[24px] leading-none text-[var(--cp-primary-500)] md:hidden">
         {label}
       </p>
-      {href ? (
-        <Link className="grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6 transition-opacity hover:opacity-80" href={href}>
-          {content}
-        </Link>
-      ) : (
-        <div className="grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6">
-          {content}
-        </div>
-      )}
+      <div className="hidden md:flex md:w-[180px] md:items-center">
+        <p className="font-[var(--font-red-hat-display)] text-[24px] leading-none text-[var(--cp-primary-500)]">
+          {label}
+        </p>
+      </div>
+      <div className="flex flex-col gap-6">
+        {items.map((card, index) => (
+          <MaterialCard
+            href={card.href}
+            image={card.image}
+            imageVariant={imageVariant}
+            key={`${card.kind}-${card.title}-${index}`}
+            subtitle={card.subtitle}
+            tinaField={card.tinaField}
+            title={card.title}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -84,6 +126,9 @@ export default function ProjectDetailPage({
   materialCards,
   relatedProjects,
   pageSettingsRecord,
+  materialsTitle,
+  relatedProjectsTitle,
+  relatedProjectsCtaLabel,
   contactBlock,
   materialCardImageSizeChoice,
   galleryImageSizeChoice,
@@ -94,6 +139,9 @@ export default function ProjectDetailPage({
   const heading = getProjectHeading(project, currentSlug);
   const description = getProjectDescription(project);
   const rawProject = project as unknown as Record<string, unknown>;
+  const finishMaterialsTitleText = (materialsTitle || "").trim() || "Finish & Materials";
+  const relatedProjectsTitleText = (relatedProjectsTitle || "").trim() || "Projects You Might Like";
+  const relatedProjectsCtaText = (relatedProjectsCtaLabel || "").trim() || "View all";
   const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(null);
   const materialCardImageVariant = resolveConfiguredImageVariant(materialCardImageSizeChoice, "thumb");
   const galleryGridImageVariant = resolveConfiguredImageVariant(galleryImageSizeChoice, "card");
@@ -103,6 +151,25 @@ export default function ProjectDetailPage({
     () => (activeGalleryIndex === null ? null : galleryItems[activeGalleryIndex] || null),
     [activeGalleryIndex, galleryItems],
   );
+  const materialGroups = useMemo(() => {
+    const groups: Array<{ kind: string; label: string; items: typeof materialCards }> = [];
+
+    materialCards.forEach((card) => {
+      const existing = groups.find((group) => group.kind === card.kind);
+      if (existing) {
+        existing.items.push(card);
+        return;
+      }
+
+      groups.push({
+        kind: card.kind,
+        label: card.label,
+        items: [card],
+      });
+    });
+
+    return groups;
+  }, [materialCards]);
 
   useEffect(() => {
     if (activeGalleryIndex === null) return undefined;
@@ -126,9 +193,17 @@ export default function ProjectDetailPage({
 
   return (
     <div className="bg-white">
-      <section className="bg-white">
+      <section className="bg-white" data-tina-field={tinaField(rawProject) || undefined}>
         <div className="cp-container px-4 pb-12 pt-[35px] md:px-8 md:pb-[88px] md:pt-[88px]">
           <div className="max-w-[1376px]">
+            <nav aria-label="Breadcrumb" className="mb-6 flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:mb-7 md:text-[14px]">
+              <Link className="transition-colors hover:text-[var(--cp-primary-350)]" href="/gallery">
+                Gallery
+              </Link>
+              <span>/</span>
+              <span data-tina-field={tinaField(rawProject, "title") || undefined}>{heading}</span>
+            </nav>
+
             <div className="flex max-w-[1376px] flex-col gap-4 text-[var(--cp-primary-500)] md:gap-7">
               <h1
                 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]"
@@ -164,26 +239,25 @@ export default function ProjectDetailPage({
         </div>
       </section>
 
-      {materialCards.length > 0 ? (
-        <section className="bg-[var(--cp-brand-neutral-50)]">
+      {materialGroups.length > 0 ? (
+        <section className="bg-[var(--cp-brand-neutral-50)]" data-tina-field={tinaField(rawProject) || undefined}>
           <div className="cp-container px-4 py-[72px] md:px-[149px] md:pb-[63px] md:pt-16">
             <div className="md:flex md:items-start md:gap-[175px]">
-              <h2 className="text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:w-[177px] md:text-[32px]">
-                Finish & Materials
+              <h2
+                className="text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:w-[177px] md:text-[32px]"
+                data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectDetailMaterialsTitle") || undefined : undefined}
+              >
+                {finishMaterialsTitleText}
               </h2>
 
               <div className="mt-10 md:mt-0 md:w-[790px] md:border-l md:border-[var(--cp-primary-500)] md:pl-[117px]">
                 <div className="flex flex-col gap-10 md:gap-6">
-                  {materialCards.map((card) => (
-                    <MaterialCard
-                      href={card.href}
-                      image={card.image}
+                  {materialGroups.map((group) => (
+                    <MaterialGroup
                       imageVariant={materialCardImageVariant}
-                      key={`${card.kind}-${card.title}`}
-                      label={card.label}
-                      subtitle={card.subtitle}
-                      tinaField={card.tinaField}
-                      title={card.title}
+                      items={group.items}
+                      key={group.kind}
+                      label={group.label}
                     />
                   ))}
                 </div>
@@ -193,31 +267,45 @@ export default function ProjectDetailPage({
         </section>
       ) : null}
 
-      <section className="bg-white">
+      <section className="bg-white" data-tina-field={tinaField(rawProject) || undefined}>
         <div className="cp-container px-4 py-[72px] md:px-8 md:py-16">
-          <h2 className="text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]">
-            Projects You Might Like
+          <h2
+            className="text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]"
+            data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectDetailRelatedProjectsTitle") || undefined : undefined}
+          >
+            {relatedProjectsTitleText}
           </h2>
 
           <div className="cp-hide-scrollbar mt-10 flex snap-x gap-5 overflow-x-auto md:mt-8 md:grid md:grid-cols-3 md:gap-7 md:overflow-visible">
             {relatedProjects.map((item) => (
               <Link
-                className="block w-[294px] shrink-0 snap-start overflow-hidden bg-[var(--cp-primary-100)] transition-opacity hover:opacity-90 md:w-auto"
+                className="group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto"
                 data-tina-field={item.tinaField}
                 href={`/projects/${item.slug}`}
                 key={item.slug}
               >
-                <div className="relative h-[215px] w-full md:h-[330px]">
-                  <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 294px" src={item.image} variant={relatedProjectsImageVariant} />
+                <div className="relative h-[173px] w-full overflow-hidden bg-[var(--cp-primary-100)] md:h-[330px]">
+                  <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 173px" src={item.image} variant={relatedProjectsImageVariant} />
                 </div>
-                <span className="sr-only">{item.title}</span>
+                <div className="mt-2 flex items-start justify-between gap-2 md:mt-3 md:block">
+                  <p className="min-w-0 font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
+                    {item.title}
+                  </p>
+                  <img alt="" aria-hidden className="mt-[1px] h-4 w-4 shrink-0 md:hidden" src="/library/header/nav-chevron-right.svg" />
+                </div>
               </Link>
             ))}
           </div>
 
           <div className="mt-10 flex justify-center md:mt-8">
-            <Button className="!h-12 !px-8 !text-[20px]" href="/gallery" size="small" variant="outline">
-              View all
+            <Button
+              className="!h-12 !px-8 !text-[20px]"
+              dataTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectDetailRelatedProjectsCtaLabel") || undefined : undefined}
+              href="/gallery"
+              size="small"
+              variant="secondary"
+            >
+              {relatedProjectsCtaText}
             </Button>
           </div>
         </div>

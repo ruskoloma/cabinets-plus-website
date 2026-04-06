@@ -3,9 +3,9 @@
   "imageClassificationVersion": "image-classification-v2-per-image-arrays",
   "projectMeta": {
     "2": {
-      "title": "Bright White Shaker Kitchen and Vanity",
+      "title": "Residence on Walnut Street",
       "description": "Clean-lined white shaker cabinetry defines this bright open kitchen and bath vanity project. A waterfall-look quartz island, matching quartz counters, light subway tile backsplash, and stainless steel appliances create a fresh modern palette. Black hardware, a dark faucet, and clear glass pendants add contrast, while warm wood-look flooring softens the crisp finishes. The bathroom vanity echoes the kitchen with white cabinetry, veined quartz, and matte black fixtures.",
-      "slug": "bright-white-shaker-kitchen-and-vanity",
+      "slug": "residence-on-walnut-street",
       "summaryTags": [
         "white shaker cabinets",
         "open kitchen",
@@ -22,50 +22,10 @@
         "wood-look flooring"
       ]
     },
-    "3": {
-      "title": "Modern Rift-Cut Wood Kitchen and Bath Cabinetry",
-      "description": "Clean-lined cabinetry in a soft gray-brown wood tone creates a cohesive modern look across the kitchen, bathroom, and laundry areas. Flat-panel doors, matte black pulls, and bright white quartz surfaces add crisp contrast, while light tile and open shelving keep the spaces airy. The kitchen features a waterfall island and full-height storage, paired with matching bath vanities and a streamlined utility sink cabinet.",
-      "slug": "modern-rift-cut-wood-kitchen-bath-cabinetry",
-      "summaryTags": [
-        "modern cabinetry",
-        "flat-panel cabinets",
-        "rift-cut wood look",
-        "gray-brown wood tone",
-        "white quartz countertops",
-        "waterfall island",
-        "matte black hardware",
-        "subway tile backsplash",
-        "bathroom vanity",
-        "double vanity",
-        "laundry room cabinets",
-        "full-height storage"
-      ]
-    },
-    "4": {
-      "title": "Bright White Kitchen and Bathroom Cabinetry",
-      "description": "Clean-lined white cabinetry anchors this airy kitchen and bathroom project with a crisp, modern transitional feel. The kitchen features shaker cabinets, a large island, quartz surfaces, black hardware, stainless appliances, and a glossy white backsplash. Bathrooms continue the palette with white vanities, integrated counters, black faucets, oversized mirrors, and marble-look shower and tub surrounds, creating a cohesive all-white design softened by warm wood flooring and simple lighting.",
-      "slug": "bright-white-kitchen-and-bathroom-cabinetry",
-      "summaryTags": [
-        "white shaker cabinetry",
-        "kitchen and bathrooms",
-        "large kitchen island",
-        "quartz countertops",
-        "black hardware",
-        "black plumbing fixtures",
-        "stainless steel appliances",
-        "white tile backsplash",
-        "double vanity",
-        "marble-look shower tile",
-        "glass shower enclosure",
-        "light wood flooring",
-        "modern transitional style",
-        "all-white palette"
-      ]
-    },
     "5": {
-      "title": "Warm Wood Contemporary Kitchen and Built-In Office",
+      "title": "Residence on Dishman Road",
       "description": "Contemporary open-plan interior featuring warm wood cabinetry, a large white waterfall island, and integrated storage throughout. The kitchen pairs flat-panel wood cabinets with black hardware, white countertops, and a clean backsplash for a refined modern look. A matching built-in office wall and dark open shelving extend the millwork into the living area, while light wood flooring and expansive windows keep the spaces bright, cohesive, and inviting.",
-      "slug": "warm-wood-contemporary-kitchen-and-built-in-office",
+      "slug": "residence-on-dishman-road",
       "summaryTags": [
         "contemporary interior",
         "open-plan kitchen",
@@ -82,9 +42,9 @@
       ]
     },
     "7": {
-      "title": "Bright White Shaker Kitchen Remodel",
+      "title": "Residence on Helena Street",
       "description": "A clean, contemporary kitchen featuring white shaker cabinetry, a waterfall-style peninsula, and expansive white quartz countertops with subtle gray veining. The design pairs a farmhouse apron-front sink and high-arc spring faucet with stainless steel appliances, slim bar pulls, and a soft white tile backsplash. Pendant lighting and full-height upper cabinets enhance brightness, storage, and a polished modern-transitional feel in this compact U-shaped layout.",
-      "slug": "bright-white-shaker-kitchen-remodel",
+      "slug": "residence-on-helena-street",
       "summaryTags": [
         "kitchen remodel",
         "white shaker cabinets",
@@ -103,9 +63,9 @@
       ]
     },
     "12": {
-      "title": "Modern White Shaker Kitchen and Bath",
+      "title": "Residence on Montgomery Avenue",
       "description": "Bright, budget-conscious cabinetry project featuring white shaker cabinets, clean quartz-look countertops, and brushed nickel hardware. The compact L-shaped kitchen pairs full-height uppers with stainless steel appliances for a crisp, functional layout. In the bathroom, a matching shaker vanity and light solid-surface top continue the streamlined look. Neutral wall tones and wood-look flooring add warmth while keeping the overall style simple, fresh, and contemporary.",
-      "slug": "modern-white-shaker-kitchen-and-bath",
+      "slug": "residence-on-montgomery-avenue",
       "summaryTags": [
         "kitchen cabinetry",
         "bathroom vanity",
@@ -119,29 +79,10 @@
         "full-overlay doors"
       ]
     },
-    "13": {
-      "title": "Bright White Shaker Kitchen",
-      "description": "Clean-lined shaker cabinetry creates a bright, efficient kitchen with an L-shaped layout and peninsula seating. White cabinets, white solid-surface countertops, and a glossy white subway tile backsplash deliver a crisp contemporary look, while stainless steel appliances and slim bar pulls add contrast. Full-height upper cabinets maximize storage, and the large window over the sink brings in natural light that enhances the airy, minimalist design.",
-      "slug": "bright-white-shaker-kitchen",
-      "summaryTags": [
-        "kitchen cabinetry",
-        "white shaker cabinets",
-        "L-shaped layout",
-        "peninsula counter",
-        "white countertops",
-        "white subway tile backsplash",
-        "stainless steel appliances",
-        "brushed nickel bar pulls",
-        "double-bowl undermount sink",
-        "minimal contemporary style",
-        "full-height upper cabinets",
-        "dark floor contrast"
-      ]
-    },
     "14": {
-      "title": "Bright White Shaker Kitchen with Waterfall Island",
+      "title": "Residence on Jacobs Road",
       "description": "A clean, contemporary kitchen featuring white shaker cabinetry, a large quartz waterfall island, and a light wood island base for warm contrast. Matte black hardware and faucet add definition, while floating wood shelves and a slim range hood create an airy focal wall. Stainless appliances, subtle veining, and simple glass pendants complete the fresh transitional design.",
-      "slug": "bright-white-shaker-kitchen-waterfall-island",
+      "slug": "residence-on-jacobs-road",
       "summaryTags": [
         "kitchen",
         "white shaker cabinets",
@@ -156,9 +97,9 @@
       ]
     },
     "15": {
-      "title": "Warm Walnut Kitchen with Waterfall Island",
+      "title": "Residence on Chattaroy",
       "description": "Contemporary kitchen featuring flat-panel walnut cabinetry, a large white waterfall island with seating for six, and clean slab-style surfaces. Brass dome pendants, a matching brass faucet, and integrated open shelving add warmth and contrast. The layout pairs tall pantry storage with stainless appliances, a sleek backsplash, and light wood flooring for a refined modern organic look. A separate prep pantry includes white shaker cabinetry and streamlined counters.",
-      "slug": "warm-walnut-kitchen-waterfall-island",
+      "slug": "residence-on-chattaroy",
       "summaryTags": [
         "kitchen",
         "prep pantry",
@@ -174,48 +115,10 @@
         "modern organic style"
       ]
     },
-    "16": {
-      "title": "Black and White Shaker Kitchen Island Design",
-      "description": "Bright modern kitchen featuring crisp white shaker perimeter cabinetry paired with a bold black island, black range hood, and matte black hardware. A large white quartz waterfall-style island surface with integrated sink creates a clean focal point, while subtle veining in the backsplash adds softness. Stainless appliances, warm wood-look flooring, and globe pendant lighting complete the high-contrast, contemporary cabinetry composition.",
-      "slug": "black-and-white-shaker-kitchen-island-design",
-      "summaryTags": [
-        "kitchen",
-        "shaker cabinets",
-        "white perimeter cabinets",
-        "black island",
-        "matte black hardware",
-        "black range hood",
-        "white quartz countertops",
-        "quartz backsplash",
-        "stainless appliances",
-        "large island",
-        "undermount sink",
-        "modern style"
-      ]
-    },
-    "17": {
-      "title": "Modern White Kitchen and Compact Vanity",
-      "description": "Bright, space-efficient interior featuring a clean-lined L-shaped kitchen with flat-panel white cabinetry, white solid-surface countertops, black hardware, and stainless steel appliances. Warm wood-look flooring softens the crisp palette, while a compact bathroom vanity echoes the same minimalist style with gray cabinetry and dark pulls. The overall design feels contemporary, practical, and easy to maintain, with simple finishes that maximize light and usable storage.",
-      "slug": "modern-white-kitchen-and-compact-vanity",
-      "summaryTags": [
-        "modern style",
-        "L-shaped kitchen",
-        "white flat-panel cabinets",
-        "white countertops",
-        "black hardware",
-        "stainless steel appliances",
-        "double-bowl sink",
-        "wood-look flooring",
-        "compact layout",
-        "bathroom vanity",
-        "gray vanity cabinet",
-        "minimalist interior"
-      ]
-    },
     "18": {
-      "title": "Warm Brown Shaker Kitchen with White Quartz",
+      "title": "Duplex Kitchen Project",
       "description": "A clean, contemporary kitchen featuring warm brown shaker cabinets, bright white quartz countertops, and a full-height peninsula with integrated sink. Stainless steel appliances add contrast, while simple bar pulls and recessed lighting keep the look streamlined. The L-shaped layout maximizes storage and prep space, complemented by light wood-look flooring and crisp white walls for a balanced, modern finish.",
-      "slug": "warm-brown-shaker-kitchen-white-quartz",
+      "slug": "duplex-kitchen-project",
       "summaryTags": [
         "kitchen",
         "brown shaker cabinets",
@@ -230,9 +133,9 @@
       ]
     },
     "19": {
-      "title": "Warm Wood Contemporary Kitchen and Living Built-Ins",
+      "title": "Residence on Gerard Street",
       "description": "Contemporary interior featuring light wood cabinetry, integrated living room built-ins, and a bright open kitchen with a waterfall island. White quartz surfaces, a farmhouse sink, matte black fixtures, and floating shelves create a clean, warm contrast. The design carries through to a coordinated pantry and bathroom vanity, blending minimalist lines with natural texture for a cohesive, modern residential finish.",
-      "slug": "warm-wood-contemporary-kitchen-and-living-built-ins",
+      "slug": "residence-on-gerard-street",
       "summaryTags": [
         "contemporary interior",
         "open concept kitchen",
@@ -249,9 +152,9 @@
       ]
     },
     "20": {
-      "title": "Warm Wood Kitchen and Bath Cabinetry",
+      "title": "Residence on Madison Road",
       "description": "A cohesive interior featuring warm natural wood cabinetry across the kitchen and bathrooms. The design pairs shaker-style fronts with white quartz surfaces, glossy white tile, and mixed black and brushed brass fixtures for a clean transitional look. Highlights include a large kitchen island, farmhouse sink, floating shelves, dual bath vanities, a freestanding tub, and a compact powder room vanity with open storage.",
-      "slug": "warm-wood-kitchen-and-bath-cabinetry",
+      "slug": "residence-on-madison-road",
       "summaryTags": [
         "kitchen cabinetry",
         "bathroom vanity",
@@ -270,27 +173,10 @@
         "transitional style"
       ]
     },
-    "21": {
-      "title": "Bright White Shaker Kitchen and Bath",
-      "description": "Clean-lined shaker cabinetry in a bright white finish creates a fresh, modern look across the kitchen and bath. White solid-surface counters, matte black hardware and faucets, stainless appliances, and warm wood-look flooring balance crisp contrast with inviting texture. Full-height upper cabinets maximize storage, while the simple backsplash and streamlined vanity keep the spaces functional, airy, and easy to maintain.",
-      "slug": "bright-white-shaker-kitchen-and-bath",
-      "summaryTags": [
-        "white shaker cabinets",
-        "kitchen cabinetry",
-        "bathroom vanity",
-        "white countertops",
-        "matte black hardware",
-        "black faucet",
-        "stainless steel appliances",
-        "wood-look flooring",
-        "full-height uppers",
-        "modern transitional style"
-      ]
-    },
     "22": {
-      "title": "Bright Shaker Kitchen and Bath Remodel",
+      "title": "Residence on Redemption Rock Road",
       "description": "This project features a bright, transitional kitchen and bathroom with crisp white shaker cabinetry, brushed nickel hardware, and marble-look quartz surfaces. The kitchen pairs a waterfall island, farmhouse sink, stainless appliances, and a warm stained wood range hood for contrast. Matching white built-ins extend into the dining nook, while the bathroom vanity continues the clean-lined cabinetry and countertop palette for a cohesive whole-home look.",
-      "slug": "bright-shaker-kitchen-and-bath-remodel",
+      "slug": "residence-on-redemption-rock-road",
       "summaryTags": [
         "white shaker cabinets",
         "transitional style",
@@ -307,9 +193,9 @@
       ]
     },
     "23": {
-      "title": "Bright White Shaker Kitchen with Glass Uppers",
+      "title": "Residence on Bolan Avenue",
       "description": "Open-concept kitchen featuring crisp white shaker cabinetry, tall pantry storage, and glass-front upper cabinets for a light, airy look. A large island with integrated sink anchors the space, paired with white solid-surface counters, a glossy white backsplash, and stainless appliances. Warm wood-accent pendant lights and pale wood-look flooring soften the clean palette, creating a modern transitional design with generous storage and streamlined detailing.",
-      "slug": "bright-white-shaker-kitchen-with-glass-uppers",
+      "slug": "residence-on-bolan-avenue",
       "summaryTags": [
         "kitchen",
         "white shaker cabinetry",
@@ -328,9 +214,9 @@
       ]
     },
     "24": {
-      "title": "Black and White Shaker Kitchen and Bath",
+      "title": "Residence on Shiva Lane",
       "description": "A crisp black-and-white cabinetry palette gives this project a clean, modern look across the kitchen and bathroom. White shaker uppers pair with dark lower cabinets and a matching island, topped with bright white counters and a glossy light backsplash. Stainless appliances, matte black hardware, rounded-edge mirrors, and streamlined bath vanities create a cohesive, high-contrast design with practical storage and a fresh contemporary feel.",
-      "slug": "black-and-white-shaker-kitchen-and-bath",
+      "slug": "residence-on-shiva-lane",
       "summaryTags": [
         "kitchen",
         "bathroom",
@@ -349,9 +235,9 @@
       ]
     },
     "25": {
-      "title": "Warm Wood Kitchen with Black Island",
+      "title": "Black Island Project at the Art House",
       "description": "Custom kitchen cabinetry pairs warm natural wood tones with a bold black island for a refined modern look. Glass-front towers frame the range wall, while open shelves and a full-height white tile backsplash keep the space airy. Quartz countertops, stainless appliances, a farmhouse sink, and black hardware add clean contrast and practical function throughout the open dining-connected layout.",
-      "slug": "warm-wood-kitchen-with-black-island",
+      "slug": "black-island-project-at-the-art-house",
       "summaryTags": [
         "kitchen",
         "custom cabinetry",
@@ -367,27 +253,10 @@
         "modern transitional"
       ]
     },
-    "26": {
-      "title": "Bright White Shaker Kitchen and Bath Cabinetry",
-      "description": "Clean-lined white shaker cabinetry defines this bright interior, featuring a spacious kitchen with a waterfall-edge island, quartz countertops, white subway tile backsplash, and contrasting black hardware. Stainless steel appliances and lantern-style pendants add a crisp modern touch, while light wood flooring softens the palette. The coordinating bathroom vanity continues the look with white cabinetry, quartz surfaces, matte black faucets, and simple contemporary lighting.",
-      "slug": "bright-white-shaker-kitchen-and-bath-cabinetry",
-      "summaryTags": [
-        "white shaker cabinets",
-        "modern kitchen",
-        "bathroom vanity",
-        "quartz countertops",
-        "waterfall island",
-        "black hardware",
-        "stainless steel appliances",
-        "white subway tile backsplash",
-        "light wood flooring",
-        "matte black fixtures"
-      ]
-    },
     "27": {
-      "title": "Warm Wood and White Cabinetry Collection",
+      "title": "Residence on Whitetail Lane",
       "description": "A clean, modern cabinetry project featuring a bright kitchen with white upper cabinets, warm wood base cabinets, open wood shelving, and a large waterfall island. Complementary bathrooms showcase deep charcoal and natural wood vanities with sleek black mirrors, mixed metal accents, and crisp stone tops. The collection also includes a built-in mudroom bench with open cubbies, creating a cohesive, functional look across key living spaces.",
-      "slug": "warm-wood-and-white-cabinetry-collection",
+      "slug": "residence-on-whitetail-lane",
       "summaryTags": [
         "kitchen cabinetry",
         "bathroom vanities",
@@ -404,9 +273,9 @@
       ]
     },
     "28": {
-      "title": "Bright White Shaker Kitchen with Island",
+      "title": "Residence on Locust Road",
       "description": "A clean, light-filled kitchen featuring crisp white shaker cabinetry, white solid-surface countertops, and bold black bar pulls. Stainless steel appliances, a centered island with seating, and a glossy white subway tile backsplash create a fresh transitional look. Pale wood flooring and simple glass pendants soften the space, while full-height upper cabinets and practical drawer storage support an efficient U-shaped layout.",
-      "slug": "bright-white-shaker-kitchen-with-island",
+      "slug": "residence-on-locust-road",
       "summaryTags": [
         "kitchen",
         "white shaker cabinets",
@@ -423,9 +292,9 @@
       ]
     },
     "30": {
-      "title": "Modern Oak and Black Kitchen with Blush Laundry",
+      "title": "Residence on Villier Road",
       "description": "A clean-lined interior centered on a contemporary kitchen with warm oak cabinetry, a matte black island base, and a dramatic black range hood. Waterfall white countertops and a full-height marble-look backsplash brighten the space, while brass hardware adds polish. The project also includes a soft blush laundry room with streamlined upper cabinets, white surfaces, and warm metal fixtures for a playful yet refined contrast.",
-      "slug": "modern-oak-and-black-kitchen-with-blush-laundry",
+      "slug": "residence-on-villier-road",
       "summaryTags": [
         "modern kitchen",
         "oak cabinetry",
@@ -442,9 +311,9 @@
       ]
     },
     "31": {
-      "title": "Bright Open-Concept Kitchen and Bath Cabinetry",
+      "title": "Residence on May Ella Loop",
       "description": "Clean-lined white shaker cabinetry defines this bright open-concept interior, spanning a spacious kitchen, utility area, living built-ins, and a double-vanity bath. A dark wood island adds contrast against light quartz surfaces, while matte black fixtures, warm brass accents, and oak-toned flooring create a modern transitional palette. Vaulted ceilings, large windows, and floating shelves reinforce the airy, functional design.",
-      "slug": "bright-open-concept-kitchen-and-bath-cabinetry",
+      "slug": "residence-on-may-ella-loop",
       "summaryTags": [
         "open-concept interior",
         "white shaker cabinets",
@@ -458,29 +327,10 @@
         "modern transitional style"
       ]
     },
-    "32": {
-      "title": "Modern White and Natural Wood Kitchen",
-      "description": "Bright, modern cabinetry pairs crisp white uppers with warm natural wood lowers for a balanced, inviting look. The kitchen features a large waterfall island, open corner shelving, a white tile backsplash, and matte black hardware and fixtures. Supporting spaces continue the clean style with white utility cabinetry, a compact beverage station, and bathrooms with shaker vanities, integrated sinks, and framed mirrors.",
-      "slug": "modern-white-and-natural-wood-kitchen",
-      "summaryTags": [
-        "modern kitchen",
-        "white upper cabinets",
-        "natural wood lower cabinets",
-        "large waterfall island",
-        "open shelves",
-        "white tile backsplash",
-        "matte black hardware",
-        "shaker cabinetry",
-        "bathroom vanity",
-        "double sink vanity",
-        "utility room cabinets",
-        "beverage station"
-      ]
-    },
     "34": {
-      "title": "Modern Classic Galley Kitchen in Soft Gray",
+      "title": "Residence on 20th Avenue",
       "description": "A bright galley kitchen with soft gray shaker cabinetry, charcoal countertops, and a dramatic dark full-height backsplash. White subway tile at the hood wall and sink area adds contrast, while stainless steel appliances, warm wood floors, and simple brushed metal hardware keep the look clean and timeless. The long, efficient layout opens to adjacent living and dining spaces, blending practical storage with a polished modern-classic style.",
-      "slug": "modern-classic-galley-kitchen-soft-gray",
+      "slug": "residence-on-20th-avenue",
       "summaryTags": [
         "galley kitchen",
         "soft gray shaker cabinets",
@@ -495,9 +345,9 @@
       ]
     },
     "35": {
-      "title": "Modern Black and White Kitchen with Custom Closet Suite",
+      "title": "Residence on Bruce Road",
       "description": "A sleek contemporary interior featuring matte black slab kitchen cabinetry, a dramatic white waterfall island, warm wood slat detailing, and integrated pantry-style storage. The project also includes a bright secondary prep kitchen, a custom walk-in closet with center island, and multiple modern bathrooms with floating wood vanities, bold black tile, gray large-format surfaces, and streamlined black or brushed brass fixtures for a cohesive, high-contrast finish.",
-      "slug": "modern-black-and-white-kitchen-custom-closet-suite",
+      "slug": "residence-on-bruce-road",
       "summaryTags": [
         "modern kitchen",
         "matte black cabinetry",
@@ -514,9 +364,9 @@
       ]
     },
     "36": {
-      "title": "White Shaker Kitchen with Navy Island",
+      "title": "Residence on Kate Drive",
       "description": "Bright transitional interiors featuring white shaker cabinetry, a deep navy island, and warm brass hardware. The kitchen pairs tall crowned cabinets with quartz counters, full-height marble-look backsplash, stainless appliances, and globe pendants for a clean, upscale contrast. A coordinating bath includes a white double vanity, integrated sinks, matte black faucets, and a large framed mirror, continuing the crisp modern palette.",
-      "slug": "white-shaker-kitchen-with-navy-island",
+      "slug": "residence-on-kate-drive",
       "summaryTags": [
         "kitchen",
         "bathroom",
@@ -533,9 +383,9 @@
       ]
     },
     "37": {
-      "title": "Soft Tan Arched Kitchen with Brass Accents",
+      "title": "Residence on 22nd Avenue",
       "description": "This kitchen blends classic character with a clean, updated layout through soft tan shaker cabinetry, bright white countertops, and stainless steel appliances. Repeating arched openings create a distinctive architectural rhythm, while a built-in niche with warm wood shelves adds display storage. White square tile backsplash, dark wood flooring, and brushed brass hardware bring contrast and warmth to the space, giving the room a timeless transitional feel.",
-      "slug": "soft-tan-arched-kitchen-brass-accents",
+      "slug": "residence-on-22nd-avenue",
       "summaryTags": [
         "kitchen",
         "soft tan cabinetry",
@@ -552,9 +402,9 @@
       ]
     },
     "38": {
-      "title": "Teal and White Two-Tone Shaker Kitchen",
+      "title": "Residence on 7th Street",
       "description": "Bright galley kitchen featuring two-tone shaker cabinetry with teal lower cabinets and crisp white uppers. Clean quartz-style countertops and backsplash create a seamless look, while black hardware and a black sink faucet add contrast. A tall pantry cabinet, built-in desk niche, and efficient layout maximize storage and function. Light wood flooring and simple finishes give the space a fresh, modern farmhouse feel.",
-      "slug": "teal-and-white-two-tone-shaker-kitchen",
+      "slug": "residence-on-7th-street",
       "summaryTags": [
         "galley kitchen",
         "two-tone cabinets",
@@ -572,29 +422,10 @@
         "built-in desk niche"
       ]
     },
-    "39": {
-      "title": "Bright White Shaker Kitchen and Bath",
-      "description": "Clean-lined shaker cabinetry brings a fresh, minimalist feel to this apartment kitchen and bathroom set. The kitchen features a spacious peninsula, white solid-surface counters, stainless steel appliances, and simple brushed metal hardware. Matching white vanities continue the look in the baths, paired with integrated counters, framed mirrors, and warm wood-look flooring for subtle contrast and everyday durability.",
-      "slug": "bright-white-shaker-kitchen-and-bath",
-      "summaryTags": [
-        "apartment interior",
-        "kitchen and bathroom",
-        "white shaker cabinets",
-        "minimalist style",
-        "bright white palette",
-        "stainless steel appliances",
-        "peninsula kitchen",
-        "solid-surface countertops",
-        "brushed metal hardware",
-        "double sink vanity",
-        "single sink vanity",
-        "wood-look flooring"
-      ]
-    },
     "40": {
-      "title": "Modern Two-Tone Kitchen with Waterfall Island",
+      "title": "Residence on Handy Road",
       "description": "Bright contemporary kitchen featuring warm natural wood base cabinets, crisp white upper cabinetry, and dramatic dark vertical-texture wall panels. A large waterfall island in white quartz creates generous prep and seating space, paired with black hardware, black fixtures, and stainless appliances. The fluted wood vent hood adds a custom focal point, while expansive windows and pale flooring keep the room airy and streamlined.",
-      "slug": "modern-two-tone-kitchen-with-waterfall-island",
+      "slug": "residence-on-handy-road",
       "summaryTags": [
         "kitchen",
         "two-tone cabinetry",
@@ -611,9 +442,9 @@
       ]
     },
     "41": {
-      "title": "Modern Two-Tone Kitchen and Bath Cabinetry",
+      "title": "Residence on Peone Road",
       "description": "Bright, contemporary cabinetry with a clean two-tone palette pairs white shaker uppers with warm natural wood lowers for a balanced modern look. The kitchen features a large waterfall island, tall pantry storage, integrated pantry workspace, quartz counters, black hardware, and a wood-wrapped hood. Matching wood vanity cabinetry, under-cabinet glow, and minimalist lighting extend the design into the bath and utility areas with cohesive, functional style.",
-      "slug": "modern-two-tone-kitchen-and-bath-cabinetry",
+      "slug": "residence-on-peone-road",
       "summaryTags": [
         "modern style",
         "two-tone cabinetry",
@@ -631,29 +462,10 @@
         "built-in desk"
       ]
     },
-    "42": {
-      "title": "Bright Shaker Cabinetry with Black Accents",
-      "description": "Fresh, bright cabinetry defines this modern interior with white shaker fronts, quartz surfaces, and crisp black hardware throughout. The kitchen features a large island, gray subway tile backsplash, and streamlined pendant lighting, while the bathroom adds a double vanity with black framed mirrors. A built-in mudroom bench and utility sink cabinetry extend the cohesive design, pairing warm wood flooring and marble-look tile with clean transitional styling.",
-      "slug": "bright-shaker-cabinetry-with-black-accents",
-      "summaryTags": [
-        "white shaker cabinets",
-        "quartz countertops",
-        "black hardware",
-        "kitchen island",
-        "gray subway tile backsplash",
-        "double vanity",
-        "black framed mirrors",
-        "mudroom built-in bench",
-        "laundry room cabinets",
-        "utility sink",
-        "marble-look floor tile",
-        "transitional style"
-      ]
-    },
     "43": {
-      "title": "Natural Wood Modern Rustic Kitchen",
+      "title": "Residence on Priest View Lane",
       "description": "Bright kitchen cabinetry features natural wood fronts with visible grain, matte black pulls, and a clean shaker-inspired profile. White walls and dark-framed windows keep the room crisp, while gray solid-surface countertops and a large waterfall-style island add a contemporary edge. Stainless appliances, warm wood flooring, and statement pendant lighting balance rustic character with streamlined modern function in an open, highly usable layout.",
-      "slug": "natural-wood-modern-rustic-kitchen",
+      "slug": "residence-on-priest-view-lane",
       "summaryTags": [
         "kitchen",
         "natural wood cabinetry",
@@ -669,31 +481,10 @@
         "pendant lighting"
       ]
     },
-    "44": {
-      "title": "Modern Two-Tone Kitchen and Bath",
-      "description": "Bright, streamlined interiors featuring a contemporary two-tone kitchen with white upper cabinets, warm wood-tone lower cabinetry, a long quartz island, and matte black hardware. Stainless steel appliances and a dark backsplash add contrast, while light wood flooring keeps the space airy. The bathroom vanity echoes the clean look with white shaker-style cabinetry, a quartz top, integrated sink, black faucet, and framed mirror.",
-      "slug": "modern-two-tone-kitchen-and-bath",
-      "summaryTags": [
-        "kitchen",
-        "bathroom vanity",
-        "two-tone cabinetry",
-        "white upper cabinets",
-        "wood-tone base cabinets",
-        "shaker-style doors",
-        "quartz countertops",
-        "waterfall-style island",
-        "matte black hardware",
-        "stainless steel appliances",
-        "dark backsplash",
-        "light wood flooring",
-        "open-plan layout",
-        "modern style"
-      ]
-    },
     "45": {
-      "title": "Two-Tone Shaker Kitchen and Bath Cabinetry",
+      "title": "Two-Tone Residence on Locust Road",
       "description": "Bright, modern cabinetry pairs crisp white shaker uppers with warm wood-tone base cabinets and a matching waterfall-style island. Clean quartz surfaces, a white tile backsplash, matte black plumbing fixtures, and stainless appliances create a fresh, high-contrast look. The project also carries the same warm wood cabinetry into the bath with a double vanity, black-framed mirrors, and streamlined hardware for a cohesive contemporary finish.",
-      "slug": "two-tone-shaker-kitchen-and-bath-cabinetry",
+      "slug": "two-tone-residence-on-locust-road",
       "summaryTags": [
         "two-tone cabinetry",
         "shaker cabinets",
@@ -710,9 +501,9 @@
       ]
     },
     "46": {
-      "title": "Bright Two-Tone Kitchen and Double Vanity",
+      "title": "Residence on Bush Drive",
       "description": "A clean, contemporary interior featuring white shaker cabinetry, a warm wood island base, and expansive white countertops. The kitchen pairs stainless steel appliances, a light textured backsplash, and black dome pendants for crisp contrast. Complementing the palette, the bathroom vanity uses matching white cabinetry, round black mirrors, matte black faucets, and woven pendant lighting for a polished modern finish.",
-      "slug": "bright-two-tone-kitchen-and-double-vanity",
+      "slug": "residence-on-bush-drive",
       "summaryTags": [
         "kitchen cabinetry",
         "bathroom vanity",
@@ -729,9 +520,9 @@
       ]
     },
     "47": {
-      "title": "Warm Wood Kitchen and Spa-Inspired Bath",
+      "title": "Residence on Dahl Road",
       "description": "A bright contemporary interior pairing natural wood cabinetry with crisp white surfaces and bold black accents. The kitchen features tall shaker-style cabinets, glass-front upper details, a waterfall-edge island in black and white, dark tile backsplash, and globe pendants. The bathroom continues the clean palette with a double vanity, integrated illuminated mirror, freestanding soaking tub, matte black fixtures, white wall tile, and graphic dark floor tile for a refined, modern finish.",
-      "slug": "warm-wood-kitchen-and-spa-inspired-bath",
+      "slug": "residence-on-dahl-road",
       "summaryTags": [
         "contemporary kitchen",
         "modern bathroom",
@@ -751,9 +542,9 @@
       ]
     },
     "48": {
-      "title": "Rustic Stone Primary Bathroom",
+      "title": "Stone Bathroom Project",
       "description": "Warm wood vanities and ceiling planks bring natural texture to this spacious primary bathroom, balanced by white quartz counters, oversized mirrors, and brass hardware. Stone walls frame a freestanding soaking tub beneath large windows, while a glass shower and charcoal floor tile add clean contrast. The cabinetry features classic recessed fronts, generous drawer storage, and a built-in seated makeup area for a refined rustic look.",
-      "slug": "rustic-stone-primary-bathroom",
+      "slug": "stone-bathroom-project",
       "summaryTags": [
         "primary bathroom",
         "custom wood vanity",
@@ -770,9 +561,9 @@
       ]
     },
     "49": {
-      "title": "Light Wood Kitchen with Waterfall Island",
+      "title": "Art House on 27th Avenue",
       "description": "A bright contemporary interior centered on a spacious kitchen with light wood shaker cabinetry, crisp white countertops, and a dramatic waterfall island. Matte black hardware, faucet, stools, and linear pendant create clean contrast, while stainless steel appliances and glossy white backsplash tile keep the palette fresh. The project also carries the same cabinetry language into a double vanity, giving the home a cohesive modern look.",
-      "slug": "light-wood-kitchen-waterfall-island-black-accents",
+      "slug": "art-house-on-27th-avenue",
       "summaryTags": [
         "kitchen cabinetry",
         "bathroom vanity",
@@ -791,9 +582,9 @@
       ]
     },
     "50": {
-      "title": "Modern Cafe with Wood and White Counter Design",
+      "title": "Restaurant Project",
       "description": "Bright, contemporary cafe interior featuring streamlined service counters, black fluted millwork, warm vertical wood cladding, and crisp white solid-surface tops. The open dining area uses large windows, polished concrete floors, and simple black seating for a clean, airy feel. Behind the counter, light wood cabinetry and open shelving support a practical beverage station, while a green feature wall adds contrast and visual identity.",
-      "slug": "modern-cafe-wood-white-counter-design",
+      "slug": "restaurant-project",
       "summaryTags": [
         "cafe interior",
         "commercial dining area",
@@ -810,9 +601,9 @@
       ]
     },
     "51": {
-      "title": "Modern Slatted Wood Coffee Bar",
+      "title": "Coffee Bar Project",
       "description": "A contemporary coffee shop interior centered on a long custom service counter with vertical slatted wood cladding, rounded corners, and a bright solid-surface top. White grid tile, open metal shelving, integrated display cases, and layered plants create a clean yet welcoming bar backdrop. Black ceilings, warm wall tones, terrazzo-style flooring, and lounge seating reinforce the modern, casual hospitality aesthetic.",
-      "slug": "modern-slatted-wood-coffee-bar",
+      "slug": "coffee-bar-project",
       "summaryTags": [
         "coffee shop interior",
         "service counter",
@@ -829,9 +620,9 @@
       ]
     },
     "52": {
-      "title": "Modern Dental Reception and Operatory Interiors",
+      "title": "Dental Clinic Project",
       "description": "Clean-lined clinical interiors feature custom white cabinetry, waterfall-look counters, and a striking wood slat reception desk and ceiling detail with halo lighting. The front desk pairs soft gray walls with patterned carpet for a polished contemporary feel. Private rooms continue the bright palette with efficient built-ins, floating shelves, stone-look worktops, and integrated storage designed for streamlined workflow, durability, and a calm patient-facing environment.",
-      "slug": "modern-dental-reception-and-operatory-interiors",
+      "slug": "dental-clinic-project",
       "summaryTags": [
         "dental interior",
         "reception desk",
@@ -851,9 +642,9 @@
       ]
     },
     "53": {
-      "title": "Bright Open-Concept Interior with Light Wood Accents",
+      "title": "Residence on Honeycomb",
       "description": "A clean, airy interior defined by white cabinetry, light oak flooring, and exposed ceiling beams. The open-concept living, dining, and kitchen areas create a seamless flow, while black metal lighting adds modern contrast. Soft neutral furnishings and simple millwork reinforce a warm contemporary aesthetic. The overall design feels spacious, calm, and highly livable, balancing crisp finishes with natural wood tones for a refined everyday setting.",
-      "slug": "bright-open-concept-interior-light-wood-accents",
+      "slug": "residence-on-honeycomb",
       "summaryTags": [
         "open-concept interior",
         "white cabinetry",
@@ -868,9 +659,9 @@
       ]
     },
     "54": {
-      "title": "Bright Modern Kitchen with Warm Wood Island",
+      "title": "Residence on Geiger",
       "description": "Airy open-concept interiors showcase a refined modern kitchen with a large waterfall island, white upper cabinetry, warm wood lower cabinets, and subtle stone surfaces. Oversized windows, double-height ceilings, and integrated lighting create a luminous backdrop, while sculptural pendants, open shelving, and clean hardware add tailored contemporary detail. The connected dining and living areas reinforce a calm, natural palette with crisp contrast and inviting functionality.",
-      "slug": "bright-modern-kitchen-warm-wood-island",
+      "slug": "residence-on-geiger",
       "summaryTags": [
         "modern kitchen",
         "open-concept interior",
@@ -887,9 +678,9 @@
       ]
     },
     "55": {
-      "title": "Bright Modern White Oak Interior",
+      "title": "Residence on Harmony Road",
       "description": "Open-concept living, kitchen, and bath cabinetry pair crisp white surfaces with warm white oak tones for a clean modern look. The kitchen features shaker-style white perimeter cabinets, a waterfall island with oak base, veined slab backsplash, and matte black plumbing fixtures. In the living room, floating wood shelves and base cabinets frame a dramatic black fireplace wall. The bathroom continues the palette with oak vanity cabinetry, white counters, and black hardware.",
-      "slug": "bright-modern-white-oak-interior",
+      "slug": "residence-on-harmony-road",
       "summaryTags": [
         "open-concept interior",
         "modern cabinetry",
@@ -906,9 +697,9 @@
       ]
     },
     "56": {
-      "title": "Modern Gray Shaker Kitchen and Bath Cabinetry",
+      "title": "Residence on Sipple Road",
       "description": "A bright contemporary interior featuring full-height gray shaker cabinetry with warm brass pulls, crisp white countertops, and a glossy light gray tile backsplash. The kitchen centers on a large island with an undermount sink and matte black faucet, paired with stainless steel appliances and clear glass pendants. Coordinated bathroom vanities carry the same cabinet finish and hardware, creating a clean, cohesive look with soft wood-look flooring throughout.",
-      "slug": "modern-gray-shaker-kitchen-and-bath-cabinetry",
+      "slug": "residence-on-sipple-road",
       "summaryTags": [
         "kitchen cabinetry",
         "bathroom vanity",

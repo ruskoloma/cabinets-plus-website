@@ -1,25 +1,25 @@
 ---
+published: true
 name: Simple Pure White
 code: SimplePureWhite
 slug: simplepurewhite
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  This quartz slab presents a clean, uniform white palette with very subtle soft gray undertones. No
-  visible veining or patterning interrupts the surface, creating an exceptionally quiet sense of
-  movement. Contrast is minimal and gentle, giving the slab a sleek, understated, and modern design
-  character with a calm, seamless visual presence.
+  This quartz slab presents a clean, uniform white palette with very subtle soft
+  gray undertones. No visible veining or patterning interrupts the surface,
+  creating an exceptionally quiet sense of movement. Contrast is minimal and
+  gentle, giving the slab a sleek, understated, and modern design character with
+  a calm, seamless visual presence.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3268-simple-pure-white.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
-  - project: content/projects/bright-open-concept-kitchen-and-bath-cabinetry.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-may-ella-loop.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1706
 sourceUpdatedAt: '2025-09-18T18:25:10.722Z'
 ---
+

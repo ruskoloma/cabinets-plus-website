@@ -1,25 +1,25 @@
 ---
+published: true
 name: Carrara Original
 code: CarraraOriginal
 slug: carraraoriginal
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Carrara Original presents a soft white to very light gray background with delicate, misty gray
-  veining dispersed across the surface. The movement is gentle and cloudlike, with feathery,
-  low-contrast patterns that drift diagonally and create a calm, airy effect. Its overall design
-  character feels refined, understated, and classically elegant.
+  Carrara Original presents a soft white to very light gray background with
+  delicate, misty gray veining dispersed across the surface. The movement is
+  gentle and cloudlike, with feathery, low-contrast patterns that drift
+  diagonally and create a calm, airy effect. Its overall design character feels
+  refined, understated, and classically elegant.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraraoriginal/3655-carrara-original-1.jpg
 relatedProjects:
-  - project: content/projects/bright-white-shaker-kitchen-remodel.md
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1719
 sourceUpdatedAt: '2025-09-18T18:25:09.841Z'
 ---
+

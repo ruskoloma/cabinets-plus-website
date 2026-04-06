@@ -98,18 +98,7 @@ export function formatProductCode(code?: string | null): string {
 }
 
 export function sortTechnicalDetails(details: Array<CabinetTechnicalDetail | null> | null | undefined): CabinetTechnicalDetail[] {
-  const list = (details || []).filter((item): item is CabinetTechnicalDetail => Boolean(item));
-
-  return list.sort((left, right) => {
-    const leftOrder = typeof left.order === "number" ? left.order : Number.POSITIVE_INFINITY;
-    const rightOrder = typeof right.order === "number" ? right.order : Number.POSITIVE_INFINITY;
-
-    if (leftOrder !== rightOrder) return leftOrder - rightOrder;
-
-    const leftKey = left.key || "";
-    const rightKey = right.key || "";
-    return leftKey.localeCompare(rightKey);
-  });
+  return (details || []).filter((item): item is CabinetTechnicalDetail => Boolean(item));
 }
 
 export function buildGalleryItems(cabinet: CabinetData): CabinetGalleryItem[] {
@@ -150,6 +139,7 @@ export function buildProjectItems(
       file: item.file,
       title: item.title || DEFAULT_PROJECT_CARD_TITLE,
       href: item.href,
+      selectionIndex: item.selectionIndex,
       projectSource: item.projectSource,
       mediaSource: item.mediaSource,
     }));

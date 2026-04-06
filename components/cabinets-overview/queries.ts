@@ -52,6 +52,7 @@ export const CABINETS_OVERVIEW_QUERY = `
             relativePath
           }
           id
+          published
           name
           code
           slug

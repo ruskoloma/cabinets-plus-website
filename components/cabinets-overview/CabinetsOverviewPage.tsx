@@ -7,8 +7,10 @@ import { tinaField, useEditState, useTina } from "tinacms/dist/react";
 import { CABINET_LIVE_QUERY } from "@/app/cabinet-live-query";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
+import OurShowroomSection from "@/components/home/OurShowroomSection";
 import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
+import ClearFiltersButton from "@/components/ui/ClearFiltersButton";
 import { formatProductCode } from "@/components/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
@@ -205,13 +207,7 @@ function PaginationButton({
 }) {
   return (
     <button
-      className={`flex h-8 w-8 items-center justify-center border text-[14px] font-semibold leading-[1.4] transition-colors ${
-        active
-          ? "border-2 border-[var(--cp-primary-500)] bg-[var(--cp-primary-500)] text-white"
-          : disabled
-            ? "border-[var(--cp-primary-100)] text-[var(--cp-primary-300)]"
-            : "border-[var(--cp-primary-500)] text-[var(--cp-primary-500)] hover:bg-[var(--cp-brand-neutral-50)]"
-      }`}
+      className={`cp-pagination-button ${active ? "cp-pagination-button--active" : ""}`}
       disabled={disabled}
       onClick={onClick}
       type="button"
@@ -231,7 +227,7 @@ function StaticCabinetCard({
   return (
     <div className="group block">
       <Link
-        className="block"
+        className="flex flex-col gap-3"
         data-tina-field={tinaField(item.raw, "name") || undefined}
         href={`/cabinets/${item.slug}`}
       >
@@ -240,20 +236,22 @@ function StaticCabinetCard({
             <FillImage
               alt={item.name}
               className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
               src={item.picture}
               variant={imageVariant}
             />
           ) : null}
         </span>
-        <span className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
-          {item.name}
-        </span>
-        {item.code ? (
-          <span className="block text-[16px] leading-none text-[var(--cp-primary-300)]">
-            {formatProductCode(item.code)}
+        <span className="block max-w-[270px]">
+          <span className="block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
+            {item.name}
           </span>
-        ) : null}
+          {item.code ? (
+            <span className="mt-2 block text-[16px] leading-none text-[var(--cp-primary-300)]">
+              {formatProductCode(item.code)}
+            </span>
+          ) : null}
+        </span>
       </Link>
     </div>
   );
@@ -266,7 +264,7 @@ function TinaCabinetCard({
   item: CabinetCardItem;
   imageVariant?: ReturnType<typeof resolveConfiguredImageVariant>;
 }) {
-  const initialData = useMemo(() => ({ cabinet: item.raw }), [item.relativePath]);
+  const initialData = useMemo(() => ({ cabinet: item.raw }), [item.raw]);
   const variables = useMemo(() => ({ relativePath: item.relativePath }), [item.relativePath]);
 
   const { data } = useTina({
@@ -284,7 +282,7 @@ function TinaCabinetCard({
   return (
     <div className="group block">
       <Link
-        className="block"
+        className="flex flex-col gap-3"
         data-tina-field={liveCabinet ? tinaField(liveCabinet, "name") || undefined : undefined}
         href={`/cabinets/${liveSlug}`}
       >
@@ -293,20 +291,22 @@ function TinaCabinetCard({
             <FillImage
               alt={liveName}
               className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
               src={livePicture}
               variant={imageVariant}
             />
           ) : null}
         </span>
-        <span className="mt-2.5 block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
-          {liveName}
-        </span>
-        {liveCode ? (
-          <span className="block text-[16px] leading-none text-[var(--cp-primary-300)]">
-            {formatProductCode(liveCode)}
+        <span className="block max-w-[270px]">
+          <span className="block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
+            {liveName}
           </span>
-        ) : null}
+          {liveCode ? (
+            <span className="mt-2 block text-[16px] leading-none text-[var(--cp-primary-300)]">
+              {formatProductCode(liveCode)}
+            </span>
+          ) : null}
+        </span>
       </Link>
     </div>
   );
@@ -438,7 +438,6 @@ export default function CabinetsOverviewPage({
   const [pendingDoorStyles, setPendingDoorStyles] = useState<string[]>(queryState.styles);
   const [pendingFinishes, setPendingFinishes] = useState<string[]>(queryState.finishes);
   const filtersRef = useRef<HTMLDivElement | null>(null);
-  const searchDebounceRef = useRef<number | null>(null);
   const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
 
   const sortLabel = SORT_OPTIONS.find((option) => option.value === queryState.sort)?.label || "New";
@@ -474,14 +473,6 @@ export default function CabinetsOverviewPage({
     if (queryState.page === currentPage) return;
     updateQuery({ page: String(currentPage) });
   }, [currentPage, queryState.page, updateQuery]);
-
-  useEffect(() => {
-    return () => {
-      if (searchDebounceRef.current) {
-        window.clearTimeout(searchDebounceRef.current);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     if (!openPanel) return;
@@ -527,7 +518,7 @@ export default function CabinetsOverviewPage({
   return (
     <div className="bg-white" suppressHydrationWarning>
       <section className="bg-white">
-        <div className="cp-container px-4 pb-14 pt-8 md:px-10 md:pb-16 md:pt-12">
+        <div className="cp-container px-4 pb-14 pt-8 md:px-10 md:pb-[72px] md:pt-[88px]">
           <h1
             className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]"
             data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "pageTitle") || undefined : undefined}
@@ -544,7 +535,7 @@ export default function CabinetsOverviewPage({
 
               <div className="relative">
                 <button
-                  className="inline-flex items-center gap-2 font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]"
+                  className="cp-inline-trigger cp-inline-trigger--display"
                   onClick={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
                   type="button"
                 >
@@ -554,7 +545,7 @@ export default function CabinetsOverviewPage({
                   <img
                     alt=""
                     aria-hidden
-                    className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
+                    className={`cp-inline-trigger__icon transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
                     src="/library/header/nav-chevron-right.svg"
                   />
                 </button>
@@ -567,8 +558,8 @@ export default function CabinetsOverviewPage({
 
                         return (
                           <button
-                            className={`text-left font-[var(--font-red-hat-display)] text-[16px] leading-[1.5] text-[var(--cp-primary-500)] ${
-                              selected ? "font-semibold" : ""
+                            className={`text-left font-[var(--font-jost)] text-[16px] leading-[1.2] text-[var(--cp-gray-1)] transition-colors ${
+                              selected ? "font-semibold text-[var(--cp-primary-500)]" : "hover:text-[var(--cp-primary-350)]"
                             }`}
                             key={`mobile-sort-${option.value}`}
                             onClick={() => {
@@ -587,53 +578,10 @@ export default function CabinetsOverviewPage({
               </div>
             </div>
 
-            <div className="relative mt-4 hidden flex-col gap-4 md:flex md:flex-row md:items-center md:justify-between">
-              <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)] md:text-[18px]">
-                <span>Showing </span>
-                <span className="font-bold">{totalResults} results</span>
-              </p>
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <label className="flex h-10 w-full items-center gap-2 rounded-[2px] border border-[var(--cp-primary-100)] px-3 sm:w-[268px]">
-                  <img alt="" aria-hidden className="h-5 w-5" src="/library/header/nav-search.svg" />
-                  <input
-                    className="h-full w-full border-0 bg-transparent text-[14px] leading-[1.5] text-[var(--cp-primary-500)] outline-none placeholder:text-[var(--cp-primary-300)]"
-                    defaultValue={queryState.q}
-                    key={queryState.q}
-                    onChange={(event) => {
-                      const value = event.target.value.trim();
-                      if (searchDebounceRef.current) {
-                        window.clearTimeout(searchDebounceRef.current);
-                      }
-
-                      searchDebounceRef.current = window.setTimeout(() => {
-                        if (value === queryState.q) return;
-                        updateQuery({ q: value || null }, true);
-                      }, 350);
-                    }}
-                    placeholder="Search by name or code"
-                    type="search"
-                  />
-                </label>
-
-                <CatalogSortDropdown
-                  isOpen={openPanel === "sort"}
-                  onOpen={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
-                  onSelect={(value) => {
-                    updateQuery({ sort: value }, true);
-                    setOpenPanel(null);
-                  }}
-                  options={SORT_OPTIONS}
-                  selectedLabel={sortLabel}
-                  selectedValue={queryState.sort}
-                />
-              </div>
-            </div>
-
-            <div className="mt-5 flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4 md:mt-12">
               <div className="flex items-center gap-10 md:hidden">
                 <button
-                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
                   onClick={() => {
                     setPendingDoorStyles(queryState.styles);
                     setOpenPanel("doorStyle");
@@ -641,11 +589,11 @@ export default function CabinetsOverviewPage({
                   type="button"
                 >
                   <span>Door style</span>
-                  <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+                  <img alt="" aria-hidden className="cp-inline-trigger__icon rotate-90" src="/library/header/nav-chevron-right.svg" />
                 </button>
 
                 <button
-                  className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                  className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
                   onClick={() => {
                     setPendingFinishes(queryState.finishes);
                     setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
@@ -654,60 +602,27 @@ export default function CabinetsOverviewPage({
                   type="button"
                 >
                   <span>Finish</span>
-                  <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+                  <img alt="" aria-hidden className="cp-inline-trigger__icon rotate-90" src="/library/header/nav-chevron-right.svg" />
                 </button>
               </div>
 
-              <div className="relative hidden flex-wrap items-center gap-6 md:flex md:gap-10">
-                <div className="pb-3">
+              <div className="relative hidden md:block">
+                <div className="flex items-start justify-between gap-8">
+                  <div className="flex flex-wrap items-center gap-10 pb-3">
                   <button
-                    className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                    className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
                     onClick={() => {
                       setPendingDoorStyles(queryState.styles);
                       setOpenPanel((current) => (current === "doorStyle" ? null : "doorStyle"));
                     }}
                     type="button"
                   >
-                      <span>Door style</span>
-                      <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
-                    </button>
+                    <span>Door style</span>
+                    <img alt="" aria-hidden className="cp-inline-trigger__icon rotate-90" src="/library/header/nav-chevron-right.svg" />
+                  </button>
 
-                  {openPanel === "doorStyle" ? (
-                      <div className="absolute left-0 right-0 top-full z-30 w-full bg-white p-6 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
-                        <h2 className="text-center font-[var(--font-red-hat-display)] text-[28px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
-                          Select door style
-                        </h2>
-
-                        <div className="mt-8 flex flex-wrap items-start justify-center gap-8">
-                          {doorStyles.map((option, index) => {
-                            const value = normalizeOptionValue(option.value);
-                            const selected = pendingDoorStyles.includes(value);
-
-                            return (
-                              <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
-                                <DoorStyleOptionCard
-                                  imageSizeChoice={filterImageSizeChoice || undefined}
-                                  onClick={() => setPendingDoorStyles((current) => toggleMultiValue(current, value))}
-                                  option={option}
-                                  selected={selected}
-                                />
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        <div className="mt-10 flex justify-center">
-                          <Button className="!h-12 !px-8 !text-[20px]" onClick={applyDoorStyle} size="small" variant="outline">
-                            Apply
-                          </Button>
-                        </div>
-                  </div>
-                ) : null}
-              </div>
-
-                <div className="pb-3">
                   <button
-                    className="inline-flex items-center gap-[9px] text-[20px] leading-none text-[var(--cp-primary-500)]"
+                    className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
                     onClick={() => {
                       setPendingFinishes(queryState.finishes);
                       setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");
@@ -715,112 +630,155 @@ export default function CabinetsOverviewPage({
                     }}
                     type="button"
                   >
-                      <span>Finish</span>
-                      <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
-                    </button>
-
-                    {openPanel === "finish" ? (
-                      <div className="absolute left-0 right-0 top-full z-30 w-full bg-white p-6 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
-                        <h2 className="text-center font-[var(--font-red-hat-display)] text-[28px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
-                          Select Finish
-                        </h2>
-
-                        <div className="mt-6 flex items-start justify-center gap-8">
-                          <button
-                            className={`flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[20px] font-semibold uppercase tracking-[0.01em] ${
-                              finishTab === "paint" ? "text-[var(--cp-primary-500)]" : "text-[var(--cp-primary-500)]/85"
-                            }`}
-                            onClick={() => setFinishTab("paint")}
-                            type="button"
-                          >
-                            <span>Paint</span>
-                            <span className={`h-0.5 w-full ${finishTab === "paint" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
-                          </button>
-                          <button
-                            className={`flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[20px] font-semibold uppercase tracking-[0.01em] ${
-                              finishTab === "stain" ? "text-[var(--cp-primary-500)]" : "text-[var(--cp-primary-500)]/85"
-                            }`}
-                            onClick={() => setFinishTab("stain")}
-                            type="button"
-                          >
-                            <span>Stain</span>
-                            <span className={`h-0.5 w-full ${finishTab === "stain" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
-                          </button>
-                        </div>
-
-                        <div className="mt-9 flex flex-wrap items-start justify-center gap-6">
-                          {(finishTab === "paint" ? paintOptions : stainTypes).map((option, index) => {
-                            const value = normalizeOptionValue(option.value);
-                            const selected = pendingFinishes.includes(value);
-
-                            return (
-                              <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
-                                <FinishOptionCard
-                                  imageSizeChoice={filterImageSizeChoice || undefined}
-                                  onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
-                                  option={option}
-                                  selected={selected}
-                                />
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        <div className="mt-10 flex justify-center">
-                          <Button className="!h-12 !px-8 !text-[20px]" onClick={applyFinish} size="small" variant="outline">
-                            Apply
-                          </Button>
-                        </div>
-                      </div>
-                    ) : null}
+                    <span>Finish</span>
+                    <img alt="" aria-hidden className="cp-inline-trigger__icon rotate-90" src="/library/header/nav-chevron-right.svg" />
+                  </button>
                   </div>
+
+                  <div className="flex items-center gap-10 pb-3">
+                  <p className="font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)] md:text-[18px]">
+                    <span>Showing </span>
+                    <span className="font-bold">{totalResults} results</span>
+                  </p>
+
+                  <CatalogSortDropdown
+                    isOpen={openPanel === "sort"}
+                    onOpen={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
+                    onSelect={(value) => {
+                      updateQuery({ sort: value }, true);
+                      setOpenPanel(null);
+                    }}
+                    options={SORT_OPTIONS}
+                    selectedLabel={sortLabel}
+                    selectedValue={queryState.sort}
+                  />
                 </div>
-
-            {(queryState.styles.length > 0 || queryState.finishes.length > 0) ? (
-              <div className="flex flex-wrap items-center gap-4 md:gap-6">
-                {queryState.styles.map((value, index) => (
-                  <button
-                    className="inline-flex h-8 items-center gap-[6px] border border-[var(--cp-primary-500)] px-3 text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
-                    key={`style-chip-${value}-${index}`}
-                    onClick={() =>
-                      updateQuery(
-                        { style: serializeMultiValue(queryState.styles.filter((item) => item !== value)) },
-                        true,
-                      )
-                    }
-                    type="button"
-                  >
-                    <span>{selectedStyleLabels[index] || toReadableLabel(value)}</span>
-                    <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
-                  </button>
-                ))}
-
-                {queryState.finishes.map((value, index) => (
-                  <button
-                    className="inline-flex h-8 items-center gap-[6px] border border-[var(--cp-primary-500)] px-3 text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
-                    key={`finish-chip-${value}-${index}`}
-                    onClick={() =>
-                      updateQuery(
-                        { finish: serializeMultiValue(queryState.finishes.filter((item) => item !== value)) },
-                        true,
-                      )
-                    }
-                    type="button"
-                  >
-                    <span>{selectedFinishLabels[index] || toReadableLabel(value)}</span>
-                    <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
-                  </button>
-                ))}
-
-                <button
-                  className="text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
-                  onClick={() => updateQuery({ style: null, finish: null }, true)}
-                  type="button"
-                >
-                  Clear filters
-                </button>
               </div>
-            ) : null}
+
+                {openPanel === "doorStyle" ? (
+                  <div className="absolute left-0 right-0 top-full z-30 mt-3 bg-white p-8 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
+                    <h2 className="text-center font-[var(--font-red-hat-display)] text-[28px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
+                      Select door style
+                    </h2>
+
+                    <div className="mt-8 flex flex-wrap items-start justify-center gap-8">
+                      {doorStyles.map((option, index) => {
+                        const value = normalizeOptionValue(option.value);
+                        const selected = pendingDoorStyles.includes(value);
+
+                        return (
+                          <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
+                            <DoorStyleOptionCard
+                              imageSizeChoice={filterImageSizeChoice || undefined}
+                              onClick={() => setPendingDoorStyles((current) => toggleMultiValue(current, value))}
+                              option={option}
+                              selected={selected}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-10 flex justify-center">
+                      <Button className="!h-12 !px-8 !text-[20px]" onClick={applyDoorStyle} size="small" variant="outline">
+                        Apply
+                      </Button>
+                    </div>
+                  </div>
+                ) : null}
+
+                {openPanel === "finish" ? (
+                  <div className="absolute left-0 right-0 top-full z-30 mt-3 bg-white p-8 shadow-[0_8px_12px_0_rgba(0,0,0,0.15),0_4px_4px_0_rgba(0,0,0,0.3)]">
+                    <h2 className="text-center font-[var(--font-red-hat-display)] text-[28px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
+                      Select Finish
+                    </h2>
+
+                    <div className="mt-6 flex items-start justify-center gap-8">
+                      <button
+                        className={`cp-tab-button text-[20px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
+                        onClick={() => setFinishTab("paint")}
+                        type="button"
+                      >
+                        <span>Paint</span>
+                      </button>
+                      <button
+                        className={`cp-tab-button text-[20px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
+                        onClick={() => setFinishTab("stain")}
+                        type="button"
+                      >
+                        <span>Stain</span>
+                      </button>
+                    </div>
+
+                    <div className="mt-9 flex flex-wrap items-start justify-center gap-6">
+                      {(finishTab === "paint" ? paintOptions : stainTypes).map((option, index) => {
+                        const value = normalizeOptionValue(option.value);
+                        const selected = pendingFinishes.includes(value);
+
+                        return (
+                          <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`${option.value}-${index}`}>
+                            <FinishOptionCard
+                              imageSizeChoice={filterImageSizeChoice || undefined}
+                              onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
+                              option={option}
+                              selected={selected}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-10 flex justify-center">
+                      <Button className="!h-12 !px-8 !text-[20px]" onClick={applyFinish} size="small" variant="outline">
+                        Apply
+                      </Button>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+
+              {(queryState.styles.length > 0 || queryState.finishes.length > 0) ? (
+                <div className="flex flex-wrap items-center gap-4 md:gap-6">
+                  {queryState.styles.map((value, index) => (
+                    <button
+                      className="cp-filter-chip"
+                      key={`style-chip-${value}-${index}`}
+                      onClick={() =>
+                        updateQuery(
+                          { style: serializeMultiValue(queryState.styles.filter((item) => item !== value)) },
+                          true,
+                        )
+                      }
+                      type="button"
+                    >
+                      <span>{selectedStyleLabels[index] || toReadableLabel(value)}</span>
+                      <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
+                    </button>
+                  ))}
+
+                  {queryState.finishes.map((value, index) => (
+                    <button
+                      className="cp-filter-chip"
+                      key={`finish-chip-${value}-${index}`}
+                      onClick={() =>
+                        updateQuery(
+                          { finish: serializeMultiValue(queryState.finishes.filter((item) => item !== value)) },
+                          true,
+                        )
+                      }
+                      type="button"
+                    >
+                      <span>{selectedFinishLabels[index] || toReadableLabel(value)}</span>
+                      <img alt="" aria-hidden className="h-4 w-4" src="/library/header/nav-close.svg" />
+                    </button>
+                  ))}
+
+                  <ClearFiltersButton onClick={() => updateQuery({ style: null, finish: null }, true)}>
+                    Clear filters
+                  </ClearFiltersButton>
+                </div>
+              ) : null}
+            </div>
 
             <CatalogMobileFilterOverlay
               onApply={applyDoorStyle}
@@ -854,20 +812,18 @@ export default function CabinetsOverviewPage({
               tabs={
                 <div className="flex items-start gap-8">
                   <button
-                    className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]"
+                    className={`cp-tab-button text-[18px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
                     onClick={() => setFinishTab("paint")}
                     type="button"
                   >
                     <span>Paint</span>
-                    <span className={`h-0.5 w-full ${finishTab === "paint" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
                   </button>
                   <button
-                    className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]"
+                    className={`cp-tab-button text-[18px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
                     onClick={() => setFinishTab("stain")}
                     type="button"
                   >
                     <span>Stain</span>
-                    <span className={`h-0.5 w-full ${finishTab === "stain" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
                   </button>
                 </div>
               }
@@ -913,20 +869,18 @@ export default function CabinetsOverviewPage({
             </CatalogMobileFilterOverlay>
           </div>
 
-          </div>
-
           {totalResults === 0 ? (
             <div className="mt-10 border border-[var(--cp-primary-100)] bg-[var(--cp-brand-neutral-50)] p-8 text-center">
               <p className="font-[var(--font-red-hat-display)] text-[24px] leading-[1.35] text-[var(--cp-primary-500)]">
                 No cabinets match your current filters.
               </p>
               <p className="mt-2 text-[16px] leading-[1.5] text-[var(--cp-primary-500)]/80">
-                Try adjusting filters or search terms.
+                Try adjusting your filters.
               </p>
             </div>
           ) : (
             <>
-              <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
+              <div className="mt-7 grid grid-cols-2 gap-x-[15px] gap-y-8 md:mt-10 md:grid-cols-3 md:gap-x-6 md:gap-y-10 lg:grid-cols-4 lg:gap-x-7">
                 {paginatedItems.map((item) => (
                   <div key={item.slug}>
                     {edit && item.relativePath ? (
@@ -982,6 +936,7 @@ export default function CabinetsOverviewPage({
       ) : null}
 
       {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
+      {contactBlock ? <OurShowroomSection block={contactBlock} /> : null}
     </div>
   );
 }

@@ -1,25 +1,25 @@
 ---
+published: true
 name: Simple White Laza
 code: SimpleWhiteLaza
 slug: simplewhitelaza
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Simple White Laza features a crisp white background traced with soft to medium gray veining that
-  flows diagonally in elongated, branching lines. The movement is graceful and airy, with delicate
-  secondary threads adding subtle depth. Contrast remains gentle and refined, giving the surface a
-  clean, elegant, marble-inspired character with understated drama.
+  Simple White Laza features a crisp white background traced with soft to medium
+  gray veining that flows diagonally in elongated, branching lines. The movement
+  is graceful and airy, with delicate secondary threads adding subtle depth.
+  Contrast remains gentle and refined, giving the surface a clean, elegant,
+  marble-inspired character with understated drama.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplewhitelaza/3661-simple-white-laza-1.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/black-island-project-at-the-art-house.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1713
 sourceUpdatedAt: '2025-09-18T18:25:10.258Z'
 ---
+

@@ -8,7 +8,6 @@ import AboutSectionBlock from "./AboutSectionBlock";
 import ShowroomBannerBlock from "./ShowroomBannerBlock";
 import ProcessSectionBlock from "./ProcessSectionBlock";
 import FAQSectionBlock from "./FAQSectionBlock";
-import ContactSectionBlock from "./ContactSectionBlock";
 import RichContentBlock from "./RichContentBlock";
 import type { BlockRecord } from "./block-types";
 
@@ -25,7 +24,6 @@ const BLOCK_MAP: Record<string, ComponentType<{ block: BlockRecord }>> = {
   PageBlocksShowroomBanner: ShowroomBannerBlock,
   PageBlocksProcessSection: ProcessSectionBlock,
   PageBlocksFaqSection: FAQSectionBlock,
-  PageBlocksContactSection: ContactSectionBlock,
   PageBlocksRichContent: RichContentBlock,
 
   // Service collection blocks

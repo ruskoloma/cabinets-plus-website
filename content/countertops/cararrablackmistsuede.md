@@ -1,25 +1,25 @@
 ---
+published: true
 name: Cararra Black Mist Suede
 code: CararraBlackMistSuede
 slug: cararrablackmistsuede
 countertopType: Quartz
-inStock: true
-storeCollection: in-stock
 description: >-
-  Cararra Black Mist Suede quartz presents a deep charcoal to near-black palette with subtle soft
-  gray undertones. Fine, wispy veining drifts gently across the surface in low-contrast patterns,
-  creating restrained movement rather than bold drama. The overall character is moody, refined, and
-  contemporary, with an understated elegance and softly textured visual depth.
+  Cararra Black Mist Suede quartz presents a deep charcoal to near-black palette
+  with subtle soft gray undertones. Fine, wispy veining drifts gently across the
+  surface in low-contrast patterns, creating restrained movement rather than
+  bold drama. The overall character is moody, refined, and contemporary, with an
+  understated elegance and softly textured visual depth.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/cararrablackmistsuede/3281-cararra-black-mist-suede.jpg
 relatedProjects:
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
-  - project: content/projects/bright-open-concept-interior-light-wood-accents.md
-  - project: content/projects/modern-classic-galley-kitchen-soft-gray.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-20th-avenue.md
 technicalDetails:
   - key: Type
     value: Quartz
@@ -55,3 +55,4 @@ media:
 sourceId: 1695
 sourceUpdatedAt: '2025-09-18T18:25:11.504Z'
 ---
+

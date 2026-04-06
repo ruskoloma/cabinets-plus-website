@@ -1,25 +1,25 @@
 ---
+published: true
 name: Calacatta Simple Gold
 code: CalacattaSimpleGold
 slug: calacattasimplegold
 countertopType: ''
-inStock: true
-storeCollection: in-stock
 description: >-
-  Calacatta Simple Gold presents a soft white background with extremely delicate, pale warm-gray to
-  faint gold veining that traces thin, meandering lines across the surface. The movement is gentle
-  and understated, creating low contrast and an airy, refined look. Its overall design character
-  feels minimalist, subtle, elegant, and quietly sophisticated.
+  Calacatta Simple Gold presents a soft white background with extremely
+  delicate, pale warm-gray to faint gold veining that traces thin, meandering
+  lines across the surface. The movement is gentle and understated, creating low
+  contrast and an airy, refined look. Its overall design character feels
+  minimalist, subtle, elegant, and quietly sophisticated.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasimplegold/3651-calacatta-simple-gold-1.jpg
 relatedProjects:
-  - project: content/projects/bright-modern-kitchen-warm-wood-island.md
-  - project: content/projects/warm-wood-and-white-cabinetry-collection.md
-  - project: content/projects/warm-wood-kitchen-with-black-island.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-whitetail-lane.md
+  - project: content/projects/black-island-project-at-the-art-house.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -51,3 +51,4 @@ media:
 sourceId: 1723
 sourceUpdatedAt: '2025-09-18T18:25:09.527Z'
 ---
+

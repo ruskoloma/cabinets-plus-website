@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+import matter from "gray-matter";
 import React from "react";
-import { defineConfig } from "tinacms";
+import { defineConfig, ImageField } from "tinacms";
 import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
 import { HOMEPAGE_SECTION_IMAGE_SIZE_OPTIONS } from "../lib/homepage-image-controls";
-import { cabinetReferenceLabelsByValue, cabinetReferenceSelectOptions } from "./cabinet-reference-options";
+import { cabinetReferenceLabelsByValue } from "./cabinet-reference-options";
 import { seoFields } from "./seo-fields";
 
 const branch =
@@ -86,17 +87,15 @@ function readCatalogSettingsOptions() {
 const catalogSettingsOptions = readCatalogSettingsOptions();
 
 function resolveCabinetReferenceLabel(value: unknown) {
-  const ref = String(value || "").trim();
-  if (!ref) return "Select cabinet door";
+  const normalized = normalizeReferenceValue(String(value || ""), "cabinets");
+  if (!normalized) return "Select cabinet door";
 
-  const cleaned = ref.replace(/^\/+/, "");
-  const file = cleaned.split("/").pop() || cleaned;
+  const file = normalized.split("/").pop() || normalized;
   const slug = file.replace(/\.md$/, "");
   const normalizedWithExt = file.endsWith(".md") ? file : `${file}.md`;
 
   return (
-    cabinetReferenceLabelsByValue[cleaned] ||
-    cabinetReferenceLabelsByValue[`content/${cleaned}`] ||
+    cabinetReferenceLabelsByValue[normalized] ||
     cabinetReferenceLabelsByValue[`content/cabinets/${normalizedWithExt}`] ||
     cabinetReferenceLabelsByValue[normalizedWithExt] ||
     cabinetReferenceLabelsByValue[`content/cabinets/${slug}.md`] ||
@@ -104,12 +103,66 @@ function resolveCabinetReferenceLabel(value: unknown) {
   );
 }
 
-function resolveProjectReferenceLabel(value: unknown) {
-  const ref = String(value || "").trim();
-  if (!ref) return "Select project";
+function resolveCabinetDocumentReferenceLabel(value: unknown) {
+  const record = asRecord(value);
+  if (record) {
+    const name = typeof record.name === "string" ? record.name.trim() : "";
+    const code = typeof record.code === "string" ? record.code.trim().replace(/^#+/, "") : "";
+    const sys = asRecord(record._sys);
+    const fallback = resolveCabinetReferenceLabel(
+      typeof record.slug === "string" && record.slug.trim()
+        ? `content/cabinets/${record.slug.trim()}.md`
+        : typeof sys?.relativePath === "string"
+          ? sys.relativePath
+          : typeof sys?.filename === "string"
+            ? `content/cabinets/${sys.filename}`
+            : "",
+    );
 
-  const cleaned = ref.replace(/^\/+/, "");
-  const file = cleaned.split("/").pop() || cleaned;
+    if (code && name) return `${code} - ${name}`;
+    return name || fallback;
+  }
+
+  return resolveCabinetReferenceLabel(value);
+}
+
+function resolveCountertopReferenceLabel(value: unknown) {
+  const normalized = normalizeReferenceValue(String(value || ""), "countertops");
+  if (!normalized) return "Select countertop";
+
+  const file = normalized.split("/").pop() || normalized;
+  const slug = file.replace(/\.md$/i, "");
+  return humanizeSlug(slug);
+}
+
+function resolveCountertopDocumentReferenceLabel(value: unknown) {
+  const record = asRecord(value);
+  if (record) {
+    const name = typeof record.name === "string" ? record.name.trim() : "";
+    const code = typeof record.code === "string" ? record.code.trim().replace(/^#+/, "") : "";
+    const sys = asRecord(record._sys);
+    const fallback = resolveCountertopReferenceLabel(
+      typeof record.slug === "string" && record.slug.trim()
+        ? `content/countertops/${record.slug.trim()}.md`
+        : typeof sys?.relativePath === "string"
+          ? sys.relativePath
+          : typeof sys?.filename === "string"
+            ? `content/countertops/${sys.filename}`
+            : "",
+    );
+
+    if (code && name) return `${code} - ${name}`;
+    return name || fallback;
+  }
+
+  return resolveCountertopReferenceLabel(value);
+}
+
+function resolveProjectReferenceLabel(value: unknown) {
+  const normalized = normalizeReferenceValue(String(value || ""), "projects");
+  if (!normalized) return "Select project";
+
+  const file = normalized.split("/").pop() || normalized;
   const slug = file.replace(/\.md$/, "");
 
   return slug
@@ -117,6 +170,120 @@ function resolveProjectReferenceLabel(value: unknown) {
     .filter(Boolean)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
+}
+
+function humanizeSlug(value: string) {
+  return value
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function readPostReferenceOptions() {
+  try {
+    const postsDir = path.join(process.cwd(), "content", "posts");
+    const entries = fs
+      .readdirSync(postsDir, { withFileTypes: true })
+      .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
+      .map((entry) => {
+        const fullPath = path.join(postsDir, entry.name);
+        const raw = fs.readFileSync(fullPath, "utf8");
+        const parsed = matter(raw);
+        const slug = entry.name.replace(/\.md$/i, "");
+        const title = typeof parsed.data.title === "string" ? parsed.data.title.trim() : "";
+
+        return {
+          label: title || humanizeSlug(slug),
+          value: `content/posts/${entry.name}`,
+        };
+      })
+      .sort((left, right) => left.label.localeCompare(right.label));
+
+    const labelsByValue = Object.fromEntries(entries.map((entry) => [entry.value, entry.label]));
+
+    return {
+      options: entries,
+      labelsByValue,
+    };
+  } catch {
+    return {
+      options: [] as Array<{ label: string; value: string }>,
+      labelsByValue: {} as Record<string, string>,
+    };
+  }
+}
+
+function collectionNameFromDirectory(directory: string) {
+  return directory.endsWith("s") ? directory.slice(0, -1) : directory;
+}
+
+function normalizeReferenceFilePath(value: string, directory: string) {
+  const trimmed = value.trim().replace(/^\/+/, "");
+  if (!trimmed) return "";
+
+  const collectionName = collectionNameFromDirectory(directory);
+  const nodeIdMatch = trimmed.match(/^([a-z0-9_-]+):(.*)$/i);
+  if (nodeIdMatch) {
+    const [, collection, relativePath] = nodeIdMatch;
+    const cleanedRelativePath = relativePath.trim().replace(/^\/+/, "");
+
+    if (cleanedRelativePath && (collection === collectionName || collection === directory)) {
+      if (cleanedRelativePath.startsWith(`content/${directory}/`)) return cleanedRelativePath;
+      if (cleanedRelativePath.startsWith(`${directory}/`)) return `content/${cleanedRelativePath}`;
+      return `content/${directory}/${cleanedRelativePath}`;
+    }
+  }
+
+  return trimmed;
+}
+
+function getReferenceMediaFallback(value: unknown) {
+  if (!Array.isArray(value)) return "";
+
+  const items = value
+    .map((entry) => asRecord(entry))
+    .filter((entry): entry is Record<string, unknown> => Boolean(entry));
+
+  const primaryItem = items.find((entry) => entry.isPrimary === true);
+  const primaryFile = typeof primaryItem?.file === "string" ? primaryItem.file.trim() : "";
+  if (primaryFile) return primaryFile;
+
+  const firstFile = items
+    .map((entry) => (typeof entry.file === "string" ? entry.file.trim() : ""))
+    .find(Boolean);
+
+  return firstFile || "";
+}
+
+function normalizeReferenceValue(value: string, directory: string) {
+  const trimmed = normalizeReferenceFilePath(value, directory).replace(/^\/+/, "");
+  if (!trimmed) return "";
+  if (trimmed.startsWith(`content/${directory}/`)) return trimmed;
+  if (trimmed.startsWith(`${directory}/`)) return `content/${trimmed}`;
+  if (trimmed.startsWith("content/")) return trimmed;
+  const filename = trimmed.endsWith(".md") ? trimmed : `${trimmed}.md`;
+  return `content/${directory}/${filename.split("/").pop() || filename}`;
+}
+
+const { options: postReferenceSelectOptions, labelsByValue: postReferenceLabelsByValue } = readPostReferenceOptions();
+
+function resolvePostReferenceLabel(value: unknown) {
+  const ref = String(value || "").trim();
+  if (!ref) return "Select article";
+
+  const cleaned = ref.replace(/^\/+/, "");
+  const file = cleaned.split("/").pop() || cleaned;
+  const slug = file.replace(/\.md$/i, "");
+  const normalizedWithExt = file.endsWith(".md") ? file : `${file}.md`;
+
+  return (
+    postReferenceLabelsByValue[cleaned] ||
+    postReferenceLabelsByValue[`content/${cleaned}`] ||
+    postReferenceLabelsByValue[`content/posts/${normalizedWithExt}`] ||
+    postReferenceLabelsByValue[normalizedWithExt] ||
+    humanizeSlug(slug)
+  );
 }
 
 function normalizeSearchText(value: string) {
@@ -137,11 +304,49 @@ function readProjectReferenceData(
   internalSys?: { filename?: string; path?: string },
 ) {
   const record = asRecord(values);
+  const primaryPicture = typeof record?.primaryPicture === "string" ? record.primaryPicture.trim() : "";
+  const fallbackImage = getReferenceMediaFallback(record?.media);
 
   return {
     title: typeof record?.title === "string" ? record.title.trim() : "",
     slug: typeof record?.slug === "string" ? record.slug.trim() : "",
-    primaryPicture: typeof record?.primaryPicture === "string" ? record.primaryPicture.trim() : "",
+    primaryPicture: primaryPicture || fallbackImage,
+    filename: internalSys?.filename?.trim() || "",
+    path: internalSys?.path?.trim() || "",
+  };
+}
+
+function readCabinetReferenceData(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const record = asRecord(values);
+  const picture = typeof record?.picture === "string" ? record.picture.trim() : "";
+  const fallbackImage = getReferenceMediaFallback(record?.media);
+
+  return {
+    name: typeof record?.name === "string" ? record.name.trim() : "",
+    code: typeof record?.code === "string" ? record.code.trim().replace(/^#+/, "") : "",
+    slug: typeof record?.slug === "string" ? record.slug.trim() : "",
+    picture: picture || fallbackImage,
+    filename: internalSys?.filename?.trim() || "",
+    path: internalSys?.path?.trim() || "",
+  };
+}
+
+function readCountertopReferenceData(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const record = asRecord(values);
+  const picture = typeof record?.picture === "string" ? record.picture.trim() : "";
+  const fallbackImage = getReferenceMediaFallback(record?.media);
+
+  return {
+    name: typeof record?.name === "string" ? record.name.trim() : "",
+    code: typeof record?.code === "string" ? record.code.trim().replace(/^#+/, "") : "",
+    slug: typeof record?.slug === "string" ? record.slug.trim() : "",
+    picture: picture || fallbackImage,
     filename: internalSys?.filename?.trim() || "",
     path: internalSys?.path?.trim() || "",
   };
@@ -157,24 +362,205 @@ function renderProjectReferenceOption(
 
   return React.createElement(
     "div",
-    { className: "flex min-w-0 items-center gap-3" },
+    {
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "14px",
+        minWidth: 0,
+        padding: "6px 0",
+      },
+    },
     project.primaryPicture
       ? React.createElement("img", {
           src: project.primaryPicture,
           alt: title,
-          className: "h-12 w-16 shrink-0 rounded border border-gray-200 object-cover bg-gray-50",
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            objectFit: "cover",
+            backgroundColor: "#f9fafb",
+            display: "block",
+          },
         })
       : React.createElement("div", {
-          className: "h-12 w-16 shrink-0 rounded border border-gray-200 bg-gray-50",
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            backgroundColor: "#f9fafb",
+          },
         }),
     React.createElement(
       "div",
-      { className: "min-w-0" },
-      React.createElement("div", { className: "truncate text-sm font-medium text-gray-900" }, title),
+      { style: { minWidth: 0, flex: 1 } },
+      React.createElement("div", { style: { fontSize: "14px", lineHeight: 1.3, fontWeight: 600, color: "#111827" } }, title),
       meta
-        ? React.createElement("div", { className: "truncate text-xs text-gray-500" }, meta)
+        ? React.createElement("div", { style: { marginTop: "4px", fontSize: "12px", lineHeight: 1.3, color: "#6b7280" } }, meta)
         : null,
     ),
+  );
+}
+
+function renderCabinetReferenceOption(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const cabinet = readCabinetReferenceData(values, internalSys);
+  const title =
+    cabinet.code && cabinet.name
+      ? `${cabinet.code} - ${cabinet.name}`
+      : cabinet.name || resolveCabinetReferenceLabel(cabinet.filename || cabinet.path);
+  const meta = cabinet.slug || cabinet.filename || "";
+
+  return React.createElement(
+    "div",
+    {
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "14px",
+        minWidth: 0,
+        padding: "6px 0",
+      },
+    },
+    cabinet.picture
+      ? React.createElement("img", {
+          src: cabinet.picture,
+          alt: title,
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            objectFit: "cover",
+            backgroundColor: "#f9fafb",
+            display: "block",
+          },
+        })
+      : React.createElement("div", {
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            backgroundColor: "#f9fafb",
+          },
+        }),
+    React.createElement(
+      "div",
+      { style: { minWidth: 0, flex: 1 } },
+      React.createElement("div", { style: { fontSize: "14px", lineHeight: 1.3, fontWeight: 600, color: "#111827" } }, title),
+      meta
+        ? React.createElement("div", { style: { marginTop: "4px", fontSize: "12px", lineHeight: 1.3, color: "#6b7280" } }, meta)
+        : null,
+    ),
+  );
+}
+
+function renderCountertopReferenceOption(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const countertop = readCountertopReferenceData(values, internalSys);
+  const title =
+    countertop.code && countertop.name
+      ? `${countertop.code} - ${countertop.name}`
+      : countertop.name || resolveCountertopReferenceLabel(countertop.filename || countertop.path);
+  const meta = countertop.slug || countertop.filename || "";
+
+  return React.createElement(
+    "div",
+    {
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "14px",
+        minWidth: 0,
+        padding: "6px 0",
+      },
+    },
+    countertop.picture
+      ? React.createElement("img", {
+          src: countertop.picture,
+          alt: title,
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            objectFit: "cover",
+            backgroundColor: "#f9fafb",
+            display: "block",
+          },
+        })
+      : React.createElement("div", {
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            backgroundColor: "#f9fafb",
+          },
+        }),
+    React.createElement(
+      "div",
+      { style: { minWidth: 0, flex: 1 } },
+      React.createElement("div", { style: { fontSize: "14px", lineHeight: 1.3, fontWeight: 600, color: "#111827" } }, title),
+      meta
+        ? React.createElement("div", { style: { marginTop: "4px", fontSize: "12px", lineHeight: 1.3, color: "#6b7280" } }, meta)
+        : null,
+    ),
+  );
+}
+
+function renderLargeMediaPreviewField(props: any) {
+  const src = typeof props?.input?.value === "string" ? props.input.value.trim() : "";
+
+  return React.createElement(
+    "div",
+    {
+      style: {
+        display: "grid",
+        gap: "12px",
+      },
+    },
+    src
+      ? React.createElement(
+          "div",
+          {
+            style: {
+              border: "1px solid #e5e7eb",
+              borderRadius: "8px",
+              backgroundColor: "#ffffff",
+              padding: "10px",
+            },
+          },
+          React.createElement("img", {
+            src,
+            alt: props?.field?.label || "Media preview",
+            style: {
+              display: "block",
+              width: "100%",
+              maxWidth: "560px",
+              maxHeight: "360px",
+              objectFit: "contain",
+              borderRadius: "6px",
+              backgroundColor: "#f9fafb",
+            },
+          }),
+        )
+      : null,
+    React.createElement(ImageField as any, props),
   );
 }
 
@@ -212,14 +598,89 @@ function filterProjectReferenceOptions(list: Array<unknown>, searchQuery?: strin
     .filter((group) => Array.isArray(group?.edges) && group.edges.length > 0);
 }
 
+function filterCabinetReferenceOptions(list: Array<unknown>, searchQuery?: string) {
+  const query = normalizeSearchText(searchQuery || "");
+  if (!query) return list;
+
+  return list
+    .map((group) => {
+      const groupRecord = asRecord(group);
+      const edges = Array.isArray(groupRecord?.edges) ? groupRecord.edges : [];
+      const filteredEdges = edges.filter((edge) => {
+        const edgeRecord = asRecord(edge);
+        const node = asRecord(edgeRecord?.node);
+        const internalSys = asRecord(node?._internalSys);
+        const cabinet = readCabinetReferenceData(node?._values, {
+          filename: typeof internalSys?.filename === "string" ? internalSys.filename : undefined,
+          path: typeof internalSys?.path === "string" ? internalSys.path : undefined,
+        });
+        const haystack = normalizeSearchText([
+          cabinet.code,
+          cabinet.name,
+          cabinet.slug,
+          cabinet.filename,
+          cabinet.path,
+        ].join(" "));
+
+        return haystack.includes(query);
+      });
+
+      return {
+        ...(groupRecord || {}),
+        edges: filteredEdges,
+      };
+    })
+    .filter((group) => Array.isArray(group?.edges) && group.edges.length > 0);
+}
+
+function filterCountertopReferenceOptions(list: Array<unknown>, searchQuery?: string) {
+  const query = normalizeSearchText(searchQuery || "");
+  if (!query) return list;
+
+  return list
+    .map((group) => {
+      const groupRecord = asRecord(group);
+      const edges = Array.isArray(groupRecord?.edges) ? groupRecord.edges : [];
+      const filteredEdges = edges.filter((edge) => {
+        const edgeRecord = asRecord(edge);
+        const node = asRecord(edgeRecord?.node);
+        const internalSys = asRecord(node?._internalSys);
+        const countertop = readCountertopReferenceData(node?._values, {
+          filename: typeof internalSys?.filename === "string" ? internalSys.filename : undefined,
+          path: typeof internalSys?.path === "string" ? internalSys.path : undefined,
+        });
+        const haystack = normalizeSearchText([
+          countertop.code,
+          countertop.name,
+          countertop.slug,
+          countertop.filename,
+          countertop.path,
+        ].join(" "));
+
+        return haystack.includes(query);
+      });
+
+      return {
+        ...(groupRecord || {}),
+        edges: filteredEdges,
+      };
+    })
+    .filter((group) => Array.isArray(group?.edges) && group.edges.length > 0);
+}
+
 function resolveDocumentRouteSegment(document: { _sys: { filename: string } } & Record<string, unknown>) {
   const slug = typeof document.slug === "string" ? document.slug.trim() : "";
   return slug || document._sys.filename;
 }
 
-function mediaItemLabel(item?: string | { file?: string; mimeType?: string; kind?: string }) {
+function projectMediaItemProps(item?: string | { file?: string; mimeType?: string; kind?: string }) {
   const file = typeof item === "string" ? item : item?.file;
-  if (!file) return "Media item";
+  if (!file) {
+    return {
+      label: "Media item",
+      style: { minHeight: "176px" },
+    };
+  }
 
   const mimeType = typeof item === "string" ? "" : String(item?.mimeType || item?.kind || "");
   const name = file.split("?")[0].split("/").pop() || file;
@@ -228,33 +689,74 @@ function mediaItemLabel(item?: string | { file?: string; mimeType?: string; kind
     mimeType.toLowerCase().startsWith("video/") ||
     [".mp4", ".mov", ".webm", ".m4v", ".avi"].some((ext) => cleaned.endsWith(ext));
 
-  if (isVideo) {
-    return React.createElement(
+  const preview = isVideo
+    ? React.createElement(
+        "span",
+        {
+          style: {
+            width: "240px",
+            height: "160px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            backgroundColor: "#f9fafb",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "12px",
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+            textTransform: "uppercase",
+            color: "#6b7280",
+          },
+        },
+        "Video",
+      )
+    : React.createElement("img", {
+        src: file,
+        alt: name,
+        loading: "lazy",
+        style: {
+          width: "240px",
+          height: "160px",
+          flexShrink: 0,
+          borderRadius: "6px",
+          objectFit: "cover",
+          border: "1px solid #e5e7eb",
+          backgroundColor: "#f9fafb",
+          display: "block",
+        },
+      });
+
+  return {
+    label: React.createElement(
       "span",
-      { className: "inline-flex items-center gap-2" },
+      {
+        style: {
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "16px",
+          minWidth: 0,
+        },
+      },
+      preview,
       React.createElement(
         "span",
         {
-          className:
-            "inline-flex h-8 w-8 items-center justify-center rounded border border-gray-200 bg-gray-50 text-[10px] font-semibold uppercase text-gray-500",
+          style: {
+            minWidth: 0,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            fontSize: "18px",
+            lineHeight: "1.35",
+          },
         },
-        "video"
+        name,
       ),
-      React.createElement("span", { className: "truncate" }, name)
-    );
-  }
-
-  return React.createElement(
-    "span",
-    { className: "inline-flex items-center gap-2" },
-    React.createElement("img", {
-      src: file,
-      alt: name,
-      className: "h-8 w-8 rounded object-cover border border-gray-200",
-      loading: "lazy",
-    }),
-    React.createElement("span", { className: "truncate" }, name)
-  );
+    ),
+    style: { minHeight: "176px" },
+  };
 }
 
 function homepageSectionImageFields() {
@@ -334,6 +836,8 @@ export default defineConfig({
                 fields: [
                   { type: "string", name: "label", label: "Label" },
                   { type: "string", name: "href", label: "Link" },
+                  { type: "string", name: "buttonLabel", label: "Button Label" },
+                  { type: "string", name: "buttonLink", label: "Button Link" },
                   {
                     type: "object",
                     name: "catalogItems",
@@ -525,6 +1029,9 @@ export default defineConfig({
             name: "project",
             label: "Project",
             fields: [
+              { type: "string", name: "projectDetailMaterialsTitle", label: "Finish & Materials Title" },
+              { type: "string", name: "projectDetailRelatedProjectsTitle", label: "Related Projects Title" },
+              { type: "string", name: "projectDetailRelatedProjectsCtaLabel", label: "Related Projects CTA Label" },
               imageSizeSettingField(
                 "projectDetailMaterialCardImageSize",
                 "Finish & Materials Images",
@@ -551,10 +1058,17 @@ export default defineConfig({
             name: "post",
             label: "Post",
             fields: [
+              { type: "string", name: "postBreadcrumbLabel", label: "Breadcrumb Label" },
+              { type: "string", name: "postRelatedArticlesTitle", label: "Related Articles Title" },
               imageSizeSettingField(
                 "postDetailThumbnailImageSize",
-                "Featured Image",
-                "Controls the featured image on /post/[slug] pages.",
+                "Hero Image",
+                "Controls the hero image on /post/[slug] pages.",
+              ),
+              imageSizeSettingField(
+                "postDetailRelatedArticlesImageSize",
+                "Related Article Images",
+                "Controls the related-article card images on /post/[slug] pages.",
               ),
             ],
           },
@@ -741,11 +1255,16 @@ export default defineConfig({
                 ],
               },
               {
+                name: "trustStrip", label: "Trust Message Strip",
+                fields: [
+                  { type: "string", name: "trustStripText", label: "Message", ui: { component: "textarea" } },
+                  { type: "string", name: "trustStripHighlight", label: "Highlight Text" },
+                  { type: "image", name: "trustStripTexture", label: "Background Texture" },
+                ],
+              },
+              {
                 name: "aboutSection", label: "About Section",
                 fields: [
-                  { type: "string", name: "trustStripText", label: "Top Trust Message", ui: { component: "textarea" } },
-                  { type: "string", name: "trustStripHighlight", label: "Top Trust Message Highlight" },
-                  { type: "image", name: "trustStripTexture", label: "Top Trust Background Texture" },
                   {
                     type: "object", name: "stats", label: "Stats", list: true,
                     ui: { itemProps: (item: any) => ({ label: item.label }) },
@@ -839,6 +1358,39 @@ export default defineConfig({
                 ],
               },
               {
+                name: "aboutStorySection", label: "About Story Section",
+                fields: [
+                  { type: "string", name: "title", label: "Section Title" },
+                  {
+                    type: "rich-text",
+                    name: "body",
+                    label: "Story Content",
+                    templates: [
+                      {
+                        name: "ArticleImage",
+                        label: "Article Image",
+                        fields: [
+                          { type: "image", name: "image", label: "Image" },
+                          { type: "string", name: "alt", label: "Alt Text" },
+                          { type: "string", name: "caption", label: "Caption" },
+                          {
+                            type: "string",
+                            name: "aspectRatio",
+                            label: "Aspect Ratio",
+                            options: [
+                              { label: "16:9", value: "landscape" },
+                              { label: "1:1", value: "square" },
+                              { label: "3:4", value: "portrait" },
+                            ],
+                            ui: { component: "select" },
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
                 name: "richContent", label: "Rich Text Content",
                 fields: [
                   { type: "string", name: "title", label: "Title" },
@@ -919,9 +1471,14 @@ export default defineConfig({
           router: ({ document }) => `/cabinets/${document._sys.filename}`,
         },
         fields: [
+          {
+            type: "boolean",
+            name: "published",
+            label: "Published",
+            description: "Only published cabinet doors are shown in the catalog.",
+          },
           { type: "string", name: "name", label: "Name", isTitle: true, required: true },
           { type: "string", name: "code", label: "Code", required: true },
-          { type: "string", name: "slug", label: "Slug", required: true },
           {
             type: "string",
             name: "doorStyle",
@@ -943,8 +1500,44 @@ export default defineConfig({
             options: catalogSettingsOptions.stainTypes,
             description: "Optional. Fill this or Paint.",
           },
+          {
+            type: "object",
+            name: "technicalDetails",
+            label: "Technical Details",
+            list: true,
+            ui: { itemProps: (item?: { key?: string }) => ({ label: item?.key || "Detail" }) },
+            fields: [
+              { type: "string", name: "key", label: "Key" },
+              { type: "string", name: "value", label: "Value" },
+            ],
+          },
           { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
           { type: "image", name: "picture", label: "Primary Picture" },
+          {
+            type: "object",
+            name: "media",
+            label: "Media",
+            list: true,
+            ui: {
+              itemProps: (item?: string | { file?: string; mimeType?: string; kind?: string }) => ({
+                ...projectMediaItemProps(item),
+              }),
+            },
+            fields: [
+              { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
+              { type: "boolean", name: "roomPriority", label: "Room Priority" },
+              { type: "boolean", name: "paintPriority", label: "Paint Priority" },
+              { type: "boolean", name: "stainPriority", label: "Stain Priority" },
+              { type: "boolean", name: "countertopPriority", label: "Countertop Priority" },
+              { type: "boolean", name: "flooring", label: "Flooring" },
+              { type: "string", name: "room", label: "Room", options: catalogSettingsOptions.rooms },
+              { type: "string", name: "cabinetPaints", label: "Cabinet Paints", list: true, options: catalogSettingsOptions.paintOptions },
+              { type: "string", name: "cabinetStains", label: "Cabinet Stains", list: true, options: catalogSettingsOptions.stainTypes },
+              { type: "string", name: "countertop", label: "Countertop", options: catalogSettingsOptions.countertopTypes },
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+            ],
+          },
           {
             type: "object",
             name: "relatedProjects",
@@ -952,7 +1545,7 @@ export default defineConfig({
             list: true,
             description: "Search and select project entries related to this cabinet door.",
             ui: {
-              itemProps: (item: any) => ({
+              itemProps: (item?: { project?: unknown }) => ({
                 label: resolveProjectReferenceLabel(item?.project),
               }),
             },
@@ -976,19 +1569,50 @@ export default defineConfig({
             list: true,
             description: "Select other cabinet door entries from this collection.",
             ui: {
-              itemProps: (item: any) => ({
-                label: resolveCabinetReferenceLabel(item?.product),
+              itemProps: (item?: { product?: unknown }) => ({
+                label: resolveCabinetDocumentReferenceLabel(item?.product),
               }),
             },
             fields: [
               {
-                type: "string",
+                type: "reference",
                 name: "product",
                 label: "Cabinet Door",
-                options: cabinetReferenceSelectOptions,
-                ui: { component: "select" },
+                collections: ["cabinet"],
+                ui: {
+                  optionComponent: renderCabinetReferenceOption,
+                  experimental___filter: filterCabinetReferenceOptions,
+                },
               },
             ],
+          },
+          { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
+          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
+          { type: "string", name: "slug", label: "Slug", required: true },
+        ],
+      },
+      {
+        name: "countertop",
+        label: "Countertops",
+        path: "content/countertops",
+        format: "md",
+        ui: {
+          router: ({ document }) => `/countertops/${resolveDocumentRouteSegment(document as { _sys: { filename: string } } & Record<string, unknown>)}`,
+        },
+        fields: [
+          {
+            type: "boolean",
+            name: "published",
+            label: "Published",
+            description: "Only published countertop slabs are shown in the catalog.",
+          },
+          { type: "string", name: "name", label: "Name", isTitle: true, required: true },
+          { type: "string", name: "code", label: "Code", required: true },
+          {
+            type: "string",
+            name: "countertopType",
+            label: "Countertop Type",
+            options: catalogSettingsOptions.countertopTypes,
           },
           {
             type: "object",
@@ -1003,57 +1627,27 @@ export default defineConfig({
               { type: "number", name: "order", label: "Order" },
             ],
           },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          { type: "image", name: "picture", label: "Primary Picture" },
           {
             type: "object",
             name: "media",
             label: "Media",
             list: true,
             ui: {
-              itemProps: (item: any) => ({
-                label: mediaItemLabel(item) as any,
-              }),
+              itemProps: (item: any) => projectMediaItemProps(item) as any,
             },
             fields: [
-              { type: "image", name: "file", label: "File" },
-              { type: "boolean", name: "roomPriority", label: "Room Priority" },
-              { type: "boolean", name: "paintPriority", label: "Paint Priority" },
-              { type: "boolean", name: "stainPriority", label: "Stain Priority" },
-              { type: "boolean", name: "countertopPriority", label: "Countertop Priority" },
-              { type: "boolean", name: "flooring", label: "Flooring" },
-              { type: "string", name: "room", label: "Room", options: catalogSettingsOptions.rooms },
-              { type: "string", name: "cabinetPaints", label: "Cabinet Paints", list: true, options: catalogSettingsOptions.paintOptions },
-              { type: "string", name: "cabinetStains", label: "Cabinet Stains", list: true, options: catalogSettingsOptions.stainTypes },
-              { type: "string", name: "countertop", label: "Countertop", options: catalogSettingsOptions.countertopTypes },
+              { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
+              { type: "string", name: "kind", label: "Kind", options: ["image", "video", "other"] },
+              { type: "string", name: "mimeType", label: "MIME Type" },
+              { type: "boolean", name: "isPrimary", label: "Primary" },
               { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "altText", label: "Alt Text" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "number", name: "sourceId", label: "Source Media ID (Strapi)" },
             ],
           },
-          { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
-          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
-        ],
-      },
-      {
-        name: "countertop",
-        label: "Countertops",
-        path: "content/countertops",
-        format: "md",
-        ui: {
-          router: ({ document }) => `/countertops/${resolveDocumentRouteSegment(document as { _sys: { filename: string } } & Record<string, unknown>)}`,
-        },
-        fields: [
-          { type: "string", name: "name", label: "Name", isTitle: true, required: true },
-          { type: "string", name: "code", label: "Code", required: true },
-          { type: "string", name: "slug", label: "Slug", required: true },
-          {
-            type: "string",
-            name: "countertopType",
-            label: "Countertop Type",
-            options: catalogSettingsOptions.countertopTypes,
-          },
-          { type: "boolean", name: "inStock", label: "In Stock" },
-          { type: "string", name: "storeCollection", label: "Store Collection" },
-          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-          { type: "image", name: "picture", label: "Primary Picture" },
           {
             type: "object",
             name: "relatedProjects",
@@ -1080,40 +1674,31 @@ export default defineConfig({
           },
           {
             type: "object",
-            name: "technicalDetails",
-            label: "Technical Details",
+            name: "relatedProducts",
+            label: "Related Products",
             list: true,
-            ui: { itemProps: (item: any) => ({ label: item.key || "Detail" }) },
-            fields: [
-              { type: "string", name: "key", label: "Key" },
-              { type: "string", name: "value", label: "Value" },
-              { type: "string", name: "unit", label: "Unit" },
-              { type: "number", name: "order", label: "Order" },
-            ],
-          },
-          {
-            type: "object",
-            name: "media",
-            label: "Media",
-            list: true,
+            description: "Select other countertop entries from this collection.",
             ui: {
               itemProps: (item: any) => ({
-                label: mediaItemLabel(item) as any,
+                label: resolveCountertopDocumentReferenceLabel(item?.product),
               }),
             },
             fields: [
-              { type: "image", name: "file", label: "File" },
-              { type: "string", name: "kind", label: "Kind", options: ["image", "video", "other"] },
-              { type: "string", name: "mimeType", label: "MIME Type" },
-              { type: "boolean", name: "isPrimary", label: "Primary" },
-              { type: "string", name: "label", label: "Label" },
-              { type: "string", name: "altText", label: "Alt Text" },
-              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-              { type: "number", name: "sourceId", label: "Source Media ID (Strapi)" },
+              {
+                type: "reference",
+                name: "product",
+                label: "Countertop",
+                collections: ["countertop"],
+                ui: {
+                  optionComponent: renderCountertopReferenceOption,
+                  experimental___filter: filterCountertopReferenceOptions,
+                },
+              },
             ],
           },
           { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
           { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
+          { type: "string", name: "slug", label: "Slug", required: true },
         ],
       },
       {
@@ -1125,28 +1710,22 @@ export default defineConfig({
           router: ({ document }) => `/projects/${document._sys.filename}`,
         },
         fields: [
-          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
-          { type: "string", name: "slug", label: "Slug", required: true },
-          { type: "string", name: "address", label: "Address" },
-          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-          { type: "string", name: "notes", label: "Notes", ui: { component: "textarea" } },
-          { type: "image", name: "primaryPicture", label: "Primary Picture" },
           {
-            type: "string",
-            name: "relatedProjects",
-            label: "Related Projects",
-            list: true,
-            description: "Related project slugs.",
+            type: "boolean",
+            name: "published",
+            label: "Published",
+            description: "Only published projects are shown on the gallery page.",
           },
+          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          { type: "image", name: "primaryPicture", label: "Primary Picture" },
           {
             type: "object",
             name: "media",
             label: "Media",
             list: true,
             ui: {
-              itemProps: (item: any) => ({
-                label: mediaItemLabel(item) as any,
-              }),
+              itemProps: (item: any) => projectMediaItemProps(item) as any,
             },
             fields: [
               { type: "image", name: "file", label: "File" },
@@ -1163,6 +1742,77 @@ export default defineConfig({
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
             ],
           },
+          {
+            type: "object",
+            name: "cabinetProducts",
+            label: "Cabinet Doors",
+            list: true,
+            description: "Select cabinet door products used in this project.",
+            ui: {
+              itemProps: (item: any) => ({
+                label: resolveCabinetDocumentReferenceLabel(item?.cabinet),
+              }),
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "cabinet",
+                label: "Cabinet Door",
+                collections: ["cabinet"],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "countertopProducts",
+            label: "Countertop Slabs",
+            list: true,
+            description: "Select countertop slab products used in this project.",
+            ui: {
+              itemProps: (item: any) => ({
+                label: resolveCountertopDocumentReferenceLabel(item?.countertop),
+              }),
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "countertop",
+                label: "Countertop Slab",
+                collections: ["countertop"],
+                ui: {
+                  optionComponent: renderCountertopReferenceOption,
+                  experimental___filter: filterCountertopReferenceOptions,
+                },
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "relatedProjects",
+            label: "Related Projects",
+            list: true,
+            description: "Search and select other project entries related to this project.",
+            ui: {
+              itemProps: (item: any) => ({
+                label: resolveProjectReferenceLabel(item?.project),
+              }),
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "project",
+                label: "Project",
+                collections: ["project"],
+                ui: {
+                  optionComponent: renderProjectReferenceOption,
+                  experimental___filter: filterProjectReferenceOptions,
+                },
+              },
+            ],
+          },
+          { type: "string", name: "slug", label: "Slug", required: true },
+          { type: "string", name: "address", label: "Address" },
+          { type: "string", name: "notes", label: "Notes", ui: { component: "textarea" } },
           { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
           { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
         ],
@@ -1180,9 +1830,74 @@ export default defineConfig({
           { type: "string", name: "title", label: "Title", isTitle: true, required: true },
           seoFields(),
           { type: "datetime", name: "date", label: "Published Date" },
-          { type: "image", name: "thumbnail", label: "Thumbnail" },
-          { type: "string", name: "excerpt", label: "Excerpt", ui: { component: "textarea" } },
-          { type: "rich-text", name: "body", label: "Body", isBody: true },
+          {
+            type: "image",
+            name: "thumbnail",
+            label: "Hero Image",
+            description: "Displayed as the large hero image and used for related-article cards.",
+          },
+          {
+            type: "string",
+            name: "subtitle",
+            label: "Hero Subtitle",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "string",
+            name: "excerpt",
+            label: "Lead Paragraph",
+            description: "Large intro paragraph shown directly below the hero image.",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "object",
+            name: "relatedArticles",
+            label: "Related Articles",
+            list: true,
+            description: "Select other articles to feature at the bottom of this page.",
+            ui: {
+              itemProps: (item: any) => ({
+                label: resolvePostReferenceLabel(item?.post),
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "post",
+                label: "Article",
+                options: postReferenceSelectOptions,
+                ui: { component: "select" },
+              },
+            ],
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+            templates: [
+              {
+                name: "ArticleImage",
+                label: "Article Image",
+                fields: [
+                  { type: "image", name: "image", label: "Image" },
+                  { type: "string", name: "alt", label: "Alt Text" },
+                  { type: "string", name: "caption", label: "Caption" },
+                  {
+                    type: "string",
+                    name: "aspectRatio",
+                    label: "Aspect Ratio",
+                    options: [
+                      { label: "16:9", value: "landscape" },
+                      { label: "1:1", value: "square" },
+                      { label: "3:4", value: "portrait" },
+                    ],
+                    ui: { component: "select" },
+                  },
+                ],
+              },
+            ],
+          },
         ],
       },
     ],

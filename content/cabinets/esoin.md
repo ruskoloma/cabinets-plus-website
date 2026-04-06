@@ -1,47 +1,36 @@
 ---
+published: true
 name: Ivory
 code: ESOIN
 slug: esoin
 description: >-
-  Ivory sample door from NGY Collection is produced using the exact same manufacturing process as
-  our full cabinet line, ensuring absolute consistency in material selection, construction methods,
-  and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise representation of the
-  quality you can expect in your completed cabinets.
+  Ivory sample door from NGY Collection is produced using the exact same
+  manufacturing process as our full cabinet line, ensuring absolute consistency
+  in material selection, construction methods, and finishing techniques. The
+  style, recessed panel, stile and rail dimensions, and solid birchwood are
+  aligned with our true cabinet products, offering a precise representation of
+  the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3119-esoin-ivory.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3119-esoin-ivory.jpg
 technicalDetails:
   - key: Manufacturer
     value: NGY Collection
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3119-esoin-ivory.jpg
@@ -56,7 +45,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3213-dsc04075.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3213-dsc04075.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -68,7 +58,8 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3212-dsc04186.jpg
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3212-dsc04186.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -84,9 +75,9 @@ sourceId: 277
 sourceUpdatedAt: '2025-07-25T22:53:51.657Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/soft-tan-arched-kitchen-brass-accents.md
-  - project: content/projects/warm-wood-kitchen-and-bath-cabinetry.md
-  - project: content/projects/modern-two-tone-kitchen-and-bath-cabinetry.md
+  - project: content/projects/residence-on-22nd-avenue.md
+  - project: content/projects/residence-on-madison-road.md
+  - project: content/projects/residence-on-peone-road.md
 relatedProducts:
   - product: content/cabinets/esomn.md
   - product: content/cabinets/eson.md
@@ -95,3 +86,4 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: off white
 ---
+

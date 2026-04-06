@@ -1,5 +1,8 @@
 {
   "_template": "project",
+  "projectDetailMaterialsTitle": "Finish & Materials",
+  "projectDetailRelatedProjectsTitle": "Projects You Might Like",
+  "projectDetailRelatedProjectsCtaLabel": "View all",
   "projectDetailMaterialCardImageSize": "thumb",
   "projectDetailGalleryImageSize": "card",
   "projectDetailLightboxImageSize": "full",

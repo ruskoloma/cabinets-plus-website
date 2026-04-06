@@ -1,47 +1,36 @@
 ---
+published: true
 name: New Grey Shaker
 code: ARM
 slug: arm
 description: >-
-  New Grey Shaker sample door from MAX (Forevermark) is produced using the exact same manufacturing
-  process as our full cabinet line, ensuring absolute consistency in material selection,
-  construction methods, and finishing techniques. The style, recessed panel, stile and rail
-  dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise
+  New Grey Shaker sample door from MAX (Forevermark) is produced using the exact
+  same manufacturing process as our full cabinet line, ensuring absolute
+  consistency in material selection, construction methods, and finishing
+  techniques. The style, recessed panel, stile and rail dimensions, and solid
+  birchwood are aligned with our true cabinet products, offering a precise
   representation of the quality you can expect in your completed cabinets.
 
 
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before
-  making your final selection.
-picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ARM/3114-arm-wood-brown.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and
+  finish before making your final selection.
+picture: >-
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ARM/3114-arm-wood-brown.jpg
 technicalDetails:
   - key: Manufacturer
     value: MAX (Forevermark)
-    unit: ''
-    order: 1
   - key: Doors
     value: Birch
-    unit: ''
-    order: 2
   - key: Hinges
     value: 6-way adjustable
-    unit: ''
-    order: 3
   - key: Drawers
     value: Dovetail; Soft Close
-    unit: ''
-    order: 4
   - key: Shelves
     value: Made of Plywood
-    unit: ''
-    order: 5
   - key: Face Frame
     value: Made of wood
-    unit: ''
-    order: 6
   - key: Box Construction
     value: Plywood
-    unit: ''
-    order: 7
 media:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ARM/3114-arm-wood-brown.jpg
@@ -60,9 +49,8 @@ sourceId: 267
 sourceUpdatedAt: '2025-07-25T22:53:52.853Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/modern-gray-shaker-kitchen-and-bath-cabinetry.md
-  - project: content/projects/modern-classic-galley-kitchen-soft-gray.md
-  - project: content/projects/modern-white-kitchen-and-compact-vanity.md
+  - project: content/projects/residence-on-sipple-road.md
+  - project: content/projects/residence-on-20th-avenue.md
 relatedProducts:
   - product: content/cabinets/atb.md
   - product: content/cabinets/awb.md
@@ -71,3 +59,4 @@ relatedProducts:
 doorStyle: shaker
 paint: gray
 ---
+

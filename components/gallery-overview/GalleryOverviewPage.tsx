@@ -7,6 +7,7 @@ import { tinaField } from "tinacms/dist/react";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
+import ClearFiltersButton from "@/components/ui/ClearFiltersButton";
 import CatalogSortDropdown from "@/components/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/catalog-overview/use-pagination-scroll";
 import CatalogMobileFilterOverlay from "@/components/cabinets-overview/CatalogMobileFilterOverlay";
@@ -77,13 +78,7 @@ function PaginationButton({
 }) {
   return (
     <button
-      className={`flex h-8 w-8 items-center justify-center border text-[14px] font-semibold leading-[1.4] transition-colors ${
-        active
-          ? "border-2 border-[var(--cp-primary-500)] bg-[var(--cp-primary-500)] text-white"
-          : disabled
-            ? "border-[var(--cp-primary-100)] text-[var(--cp-primary-300)]"
-            : "border-[var(--cp-primary-500)] text-[var(--cp-primary-500)] hover:bg-[var(--cp-brand-neutral-50)]"
-      }`}
+      className={`cp-pagination-button ${active ? "cp-pagination-button--active" : ""}`}
       disabled={disabled}
       onClick={onClick}
       type="button"
@@ -108,17 +103,13 @@ function FilterTrigger({
 }) {
   return (
     <button
-      className={`inline-flex shrink-0 items-center gap-[9px] leading-none text-[var(--cp-primary-500)] transition-opacity md:text-[24px] ${
-        className || "text-[20px]"
-      } ${
-        active ? "opacity-100" : disabled ? "cursor-not-allowed opacity-40" : "opacity-95 hover:opacity-70"
-      }`}
+      className={`cp-inline-trigger cp-inline-trigger--display ${className || "cp-inline-trigger--large"} ${active ? "text-[var(--cp-primary-500)]" : ""}`}
       disabled={disabled}
       onClick={onClick}
       type="button"
     >
       <span>{label}</span>
-      <img alt="" aria-hidden className="h-4 w-4 rotate-90" src="/library/header/nav-chevron-right.svg" />
+      <img alt="" aria-hidden className="cp-inline-trigger__icon rotate-90" src="/library/header/nav-chevron-right.svg" />
     </button>
   );
 }
@@ -132,7 +123,7 @@ function FilterChip({
 }) {
   return (
     <button
-      className="inline-flex h-8 items-center gap-[6px] border border-[var(--cp-primary-500)] pl-3 pr-2 text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
+      className="cp-filter-chip"
       onClick={onRemove}
       type="button"
     >
@@ -280,6 +271,45 @@ function FinishOptionCard({
   onClick: () => void;
 }) {
   return <SharedFinishOptionCard imageSizeChoice={imageSizeChoice} onClick={onClick} option={option} selected={selected} />;
+}
+
+function GalleryProjectCard({
+  href,
+  image,
+  imageVariant,
+  tinaFieldValue,
+  title,
+}: {
+  href: string;
+  image: string;
+  imageVariant?: ImageVariantPreset;
+  tinaFieldValue?: string;
+  title: string;
+}) {
+  return (
+    <Link className="group flex flex-col items-start" data-tina-field={tinaFieldValue} href={href}>
+      <span className="relative block h-[173px] w-full overflow-hidden bg-[#f2f2f2] md:h-[330px]">
+        <FillImage
+          alt={title}
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+          sizes="(min-width: 768px) 33vw, calc((100vw - 47px) / 2)"
+          src={image}
+          variant={imageVariant}
+        />
+      </span>
+      <span className="mt-2 flex w-full items-start justify-between gap-2 md:mt-[14px]">
+        <span className="min-w-0 font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
+          {title}
+        </span>
+        <img
+          alt=""
+          aria-hidden
+          className="mt-[1px] h-4 w-4 shrink-0 md:hidden"
+          src="/library/header/nav-chevron-right.svg"
+        />
+      </span>
+    </Link>
+  );
 }
 
 export default function GalleryOverviewPage({
@@ -696,7 +726,7 @@ export default function GalleryOverviewPage({
                   </p>
                   <div className="relative">
                     <button
-                      className="inline-flex items-center gap-2 font-[var(--font-red-hat-display)] text-[16px] leading-none text-[var(--cp-primary-500)]"
+                      className="cp-inline-trigger cp-inline-trigger--display"
                       onClick={() => setOpenPanel((current) => (current === "sort" ? null : "sort"))}
                       type="button"
                     >
@@ -706,7 +736,7 @@ export default function GalleryOverviewPage({
                       <img
                         alt=""
                         aria-hidden
-                        className={`h-4 w-4 transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
+                        className={`cp-inline-trigger__icon transition-transform ${openPanel === "sort" ? "-rotate-90" : "rotate-90"}`}
                         src="/library/header/nav-chevron-right.svg"
                       />
                     </button>
@@ -719,8 +749,8 @@ export default function GalleryOverviewPage({
 
                             return (
                               <button
-                                className={`text-left font-[var(--font-red-hat-display)] text-[16px] leading-[1.5] text-[var(--cp-primary-500)] ${
-                                  selected ? "font-semibold" : ""
+                                className={`text-left font-[var(--font-jost)] text-[16px] leading-[1.2] text-[var(--cp-gray-1)] transition-colors ${
+                                  selected ? "font-semibold text-[var(--cp-primary-500)]" : "hover:text-[var(--cp-primary-350)]"
                                 }`}
                                 key={`gallery-mobile-sort-${option.value}`}
                                 onClick={() => {
@@ -822,24 +852,18 @@ export default function GalleryOverviewPage({
               <PanelShell title="Select finish">
                 <div className="mt-6 flex items-start justify-center gap-8">
                   <button
-                    className={`flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[20px] font-semibold uppercase tracking-[0.01em] ${
-                      finishTab === "paint" ? "text-[var(--cp-primary-500)]" : "text-[var(--cp-primary-500)]/80"
-                    }`}
+                    className={`cp-tab-button text-[20px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
                     onClick={() => setFinishTab("paint")}
                     type="button"
                   >
                     <span>Paint</span>
-                    <span className={`h-0.5 w-full ${finishTab === "paint" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
                   </button>
                   <button
-                    className={`flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[20px] font-semibold uppercase tracking-[0.01em] ${
-                      finishTab === "stain" ? "text-[var(--cp-primary-500)]" : "text-[var(--cp-primary-500)]/80"
-                    }`}
+                    className={`cp-tab-button text-[20px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
                     onClick={() => setFinishTab("stain")}
                     type="button"
                   >
                     <span>Stain</span>
-                    <span className={`h-0.5 w-full ${finishTab === "stain" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
                   </button>
                 </div>
                 <div className="mt-8 flex flex-wrap items-start justify-center gap-4 md:gap-6">
@@ -956,13 +980,11 @@ export default function GalleryOverviewPage({
               open={openPanel === "finish"}
               tabs={
                 <div className="flex items-start gap-8">
-                  <button className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]" onClick={() => setFinishTab("paint")} type="button">
+                  <button className={`cp-tab-button text-[18px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`} onClick={() => setFinishTab("paint")} type="button">
                     <span>Paint</span>
-                    <span className={`h-0.5 w-full ${finishTab === "paint" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
                   </button>
-                  <button className="flex flex-col items-center gap-0.5 font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase tracking-[0.01em] text-[var(--cp-primary-500)]" onClick={() => setFinishTab("stain")} type="button">
+                  <button className={`cp-tab-button text-[18px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`} onClick={() => setFinishTab("stain")} type="button">
                     <span>Stain</span>
-                    <span className={`h-0.5 w-full ${finishTab === "stain" ? "bg-[var(--cp-primary-500)]" : "bg-transparent"}`} />
                   </button>
                 </div>
               }
@@ -1086,31 +1108,29 @@ export default function GalleryOverviewPage({
                     }}
                   />
                 ))}
-                <button
-                  className="text-[14px] font-medium uppercase tracking-[0.02em] text-[var(--cp-primary-500)]"
+                <ClearFiltersButton
                   onClick={() => {
                     setPendingFilters(EMPTY_GALLERY_FILTERS);
                     updateFilters(EMPTY_GALLERY_FILTERS);
                   }}
-                  type="button"
                 >
                   Clear filters
-                </button>
+                </ClearFiltersButton>
               </div>
             ) : null}
           </div>
 
           {visibleProjects.length ? (
-            <div className="mt-5 grid grid-cols-3 gap-3 md:mt-7 md:gap-7">
+            <div className="mt-[23px] grid grid-cols-2 gap-x-[15px] gap-y-8 md:mt-8 md:grid-cols-3 md:gap-x-7 md:gap-y-7">
               {visibleProjects.map((project, index) => (
-                <Link
-                  className="relative aspect-square overflow-hidden bg-[#f2f2f2] md:aspect-[4/3]"
-                  data-tina-field={tinaField(project.rawProject, "title") || undefined}
+                <GalleryProjectCard
                   href={`/projects/${project.projectSlug}`}
+                  image={project.previewImage}
+                  imageVariant={galleryProjectCardImageVariant}
                   key={`${project.projectSlug}-${index}`}
-                >
-                  <FillImage alt={project.projectTitle} className="object-cover" sizes="(min-width: 768px) 33vw, 33vw" src={project.previewImage} variant={galleryProjectCardImageVariant} />
-                </Link>
+                  tinaFieldValue={tinaField(project.rawProject, "title") || undefined}
+                  title={project.projectTitle}
+                />
               ))}
             </div>
           ) : (
