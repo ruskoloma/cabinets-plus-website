@@ -1,30 +1,8 @@
 ---
 published: true
-name: Calaxatta Basel
-code: CalaxattaBasel
-slug: calaxattabasel
+name: Calacatta Basel
+code: CalacattaBasel
 countertopType: ''
-description: >-
-  Calaxatta Basel presents a soft white to very light gray palette with
-  delicate, wispy gray veining that drifts diagonally across the surface. The
-  movement is gentle and fluid, creating a low-contrast, airy appearance. Its
-  overall design character feels understated, refined, and serene, with subtle
-  patterning that adds quiet visual texture.
-
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3654-calaxatta-basel-1.jpg
-relatedProjects:
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-may-ella-loop.md
-relatedProducts:
-  - product: content/countertops/calacattabellagio.md
-  - product: content/countertops/calacattabrezze.md
-  - product: content/countertops/calacattadays.md
-  - product: content/countertops/calacattadolce.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -34,9 +12,13 @@ technicalDetails:
     value: in-stock
     unit: ''
     order: 6
+description: |-
+  Calaxatta Basel presents a soft white to very light gray palette with delicate, wispy gray veining that drifts diagonally across the surface. The movement is gentle and fluid, creating a low-contrast, airy appearance. Its overall design character feels understated, refined, and serene, with subtle patterning that adds quiet visual texture.
+
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3654-calaxatta-basel-1.jpg'
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3654-calaxatta-basel-1.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3654-calaxatta-basel-1.jpg'
     kind: image
     mimeType: image/jpeg
     isPrimary: true
@@ -44,8 +26,7 @@ media:
     altText: Calaxatta Basel
     description: ''
     sourceId: 3654
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3678-calaxatta-basel.mp4
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3678-calaxatta-basel.mp4'
     kind: video
     mimeType: video/mp4
     isPrimary: false
@@ -53,7 +34,17 @@ media:
     altText: ''
     description: ''
     sourceId: 3678
+relatedProjects:
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-may-ella-loop.md
+relatedProducts:
+  - product: content/countertops/calacattabellagio.md
+  - product: content/countertops/calacattabrezze.md
+  - product: content/countertops/calacattadays.md
+  - product: content/countertops/calacattadolce.md
 sourceId: 1720
-sourceUpdatedAt: '2025-09-18T18:25:09.781Z'
+sourceUpdatedAt: 2025-09-18T18:25:09.781Z
+slug: calaxattabasel
 ---
 
