@@ -24,7 +24,6 @@ export const CABINET_LIVE_QUERY = `
           __typename
           project {
             ... on Project {
-              title
               slug
               _sys {
                 filename

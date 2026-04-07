@@ -141,12 +141,12 @@ function normalizeProject(value: unknown, fallbackFilename?: string): ProjectOve
     __typename: asString(record.__typename),
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
-    title: asString(record.title) ?? null,
+    title: null,
     slug: normalizedSlug || null,
     address: asString(record.address) ?? null,
     description: asString(record.description) ?? null,
     notes: asString(record.notes) ?? null,
-    primaryPicture: asString(record.primaryPicture) ?? null,
+    primaryPicture: null,
     relatedProjects: (() => {
       const typedRelatedProjects = Array.isArray(record.relatedProjects)
         ? record.relatedProjects.map((item) => normalizeProjectReference(item))

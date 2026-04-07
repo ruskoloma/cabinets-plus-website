@@ -194,14 +194,14 @@ export default function CountertopDetailPage({
             : project.media
               ? tinaField(project.media as unknown as Record<string, unknown>, "file") || undefined
             : project.project
-              ? tinaField(project.project as unknown as Record<string, unknown>, "primaryPicture") || undefined
+              ? tinaField(project.project as unknown as Record<string, unknown>, "media.0.file") || undefined
               : undefined,
           titleTinaField: project.projectSource
-            ? tinaField(project.projectSource, "title") || undefined
+            ? tinaField(project.projectSource, "slug") || undefined
             : project.media
               ? tinaField(project.media as unknown as Record<string, unknown>, "label") || tinaField(project.media as unknown as Record<string, unknown>, "altText") || undefined
             : project.project
-              ? tinaField(project.project as unknown as Record<string, unknown>, "title") || undefined
+              ? tinaField(project.project as unknown as Record<string, unknown>, "slug") || undefined
               : undefined,
         }))}
         focusListKey={TINA_LIST_KEY_COUNTERTOP_RELATED_PROJECTS}

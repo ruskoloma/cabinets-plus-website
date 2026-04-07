@@ -29,7 +29,7 @@ export interface ProjectDetailQueryLikeResult {
 export interface ProjectGalleryItem {
   file: string;
   alt: string;
-  sourceType: "primaryPicture" | "media";
+  sourceType: "media";
   source?: ProjectMediaItem;
 }
 

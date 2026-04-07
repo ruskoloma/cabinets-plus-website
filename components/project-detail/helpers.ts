@@ -72,9 +72,10 @@ function inferDoorStyleFromText(content: string, availableValues: string[]): str
 
 function getProjectSearchableText(project: ProjectOverviewItem): string {
   const media = Array.isArray(project.media) ? project.media : [];
+  const projectTitle = getProjectDisplayTitle(project);
 
   return [
-    project.title || "",
+    projectTitle,
     project.description || "",
     project.notes || "",
     ...media.map((item) => item?.label || ""),
@@ -176,17 +177,7 @@ function resolveReferencedProductCard<
 export function buildProjectGallery(project: ProjectOverviewItem): ProjectGalleryItem[] {
   const items: ProjectGalleryItem[] = [];
   const seen = new Set<string>();
-  const title = project.title?.trim() || "Project";
-
-  const primaryPicture = (project.primaryPicture || "").trim();
-  if (primaryPicture && !seen.has(primaryPicture)) {
-    seen.add(primaryPicture);
-    items.push({
-      file: primaryPicture,
-      alt: title,
-      sourceType: "primaryPicture",
-    });
-  }
+  const title = getProjectDisplayTitle(project);
 
   for (const media of project.media || []) {
     const file = (media?.file || "").trim();
@@ -279,7 +270,7 @@ export function buildRelatedProjectCards(
   tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
   limit = 3,
 ): ProjectRelatedCardData[] {
-  const currentSlug = toSlug(project.slug || project._sys?.filename || project.title || "");
+  const currentSlug = toSlug(project.slug || project._sys?.filename || "");
   const projectCards = buildGalleryProjects(overviewData);
   const projectMap = new Map(projectCards.map((item) => [item.projectSlug, item]));
   const results: ProjectRelatedCardData[] = [];
@@ -342,7 +333,7 @@ export function getProjectSlug(project: ProjectOverviewItem, fallbackSlug: strin
 }
 
 export function getProjectHeading(project: ProjectOverviewItem, fallbackSlug: string): string {
-  return project.title?.trim() || titleCase(getProjectSlug(project, fallbackSlug));
+  return getProjectDisplayTitle(project, fallbackSlug);
 }
 
 export function getProjectDescription(project: ProjectOverviewItem): string {
@@ -354,7 +345,7 @@ export function getProjectPrimaryField(
   tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
 ): string | undefined {
   const rawProject = project as unknown as Record<string, unknown>;
-  return tinaFieldFn(rawProject, "primaryPicture") || undefined;
+  return tinaFieldFn(rawProject, "media.0.file") || undefined;
 }
 
 export function getProjectGalleryField(
@@ -362,7 +353,6 @@ export function getProjectGalleryField(
   item: ProjectGalleryItem,
   tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
 ): string | undefined {
-  if (item.sourceType === "primaryPicture") return getProjectPrimaryField(project, tinaFieldFn);
   if (!item.source?.raw) return undefined;
   return tinaFieldFn(item.source.raw as Record<string, unknown>, "file") || undefined;
 }
@@ -372,7 +362,6 @@ export function getProjectGalleryFocusField(
   item: ProjectGalleryItem,
   tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
 ): string | undefined {
-  if (item.sourceType === "primaryPicture") return getProjectPrimaryField(project, tinaFieldFn);
   if (!item.source?.raw) return undefined;
   return tinaFieldFn(item.source.raw as Record<string, unknown>) || undefined;
 }
@@ -380,4 +369,9 @@ export function getProjectGalleryFocusField(
 export function getProjectGalleryAlt(project: ProjectOverviewItem, item: ProjectGalleryItem): string {
   if (item.alt.trim()) return item.alt.trim();
   return humanizeFileName(item.file);
+}
+
+function getProjectDisplayTitle(project: ProjectOverviewItem, fallbackSlug = "project"): string {
+  const projectSlug = getProjectSlug(project, fallbackSlug);
+  return projectSlug ? titleCase(projectSlug) : "Project";
 }

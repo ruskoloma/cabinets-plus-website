@@ -324,13 +324,11 @@ function readProjectReferenceData(
   internalSys?: { filename?: string; path?: string },
 ) {
   const record = asRecord(values);
-  const primaryPicture = typeof record?.primaryPicture === "string" ? record.primaryPicture.trim() : "";
   const fallbackImage = getReferenceMediaFallback(record?.media);
 
   return {
-    title: typeof record?.title === "string" ? record.title.trim() : "",
     slug: typeof record?.slug === "string" ? record.slug.trim() : "",
-    primaryPicture: primaryPicture || fallbackImage,
+    previewImage: fallbackImage,
     filename: internalSys?.filename?.trim() || "",
     path: internalSys?.path?.trim() || "",
   };
@@ -377,7 +375,7 @@ function renderProjectReferenceOption(
   internalSys?: { filename?: string; path?: string },
 ) {
   const project = readProjectReferenceData(values, internalSys);
-  const title = project.title || resolveProjectReferenceLabel(project.filename || project.path);
+  const title = resolveProjectReferenceLabel(project.slug || project.filename || project.path);
   const meta = project.slug || project.filename || "";
 
   return React.createElement(
@@ -391,9 +389,9 @@ function renderProjectReferenceOption(
         padding: "6px 0",
       },
     },
-    project.primaryPicture
+    project.previewImage
       ? React.createElement("img", {
-          src: project.primaryPicture,
+          src: project.previewImage,
           alt: title,
           style: {
             width: "252px",
@@ -952,7 +950,7 @@ function filterProjectReferenceOptions(list: Array<unknown>, searchQuery?: strin
           path: typeof internalSys?.path === "string" ? internalSys.path : undefined,
         });
         const haystack = normalizeSearchText([
-          project.title,
+          resolveProjectReferenceLabel(project.slug || project.filename || project.path),
           project.slug,
           project.filename,
           project.path,
@@ -2037,9 +2035,7 @@ export default defineConfig({
             label: "Published",
             description: "Only published projects are shown on the gallery page.",
           },
-          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
           { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-          { type: "image", name: "primaryPicture", label: "Primary Picture" },
           {
             type: "object",
             name: "media",

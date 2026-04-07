@@ -208,12 +208,12 @@ function normalizeProject(value: unknown): ProjectOverviewItem | null {
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
     published: asBoolean(record.published) ?? null,
-    title: asString(record.title) ?? null,
+    title: null,
     slug: toSlug(asString(record.slug) || fallbackFilename || ""),
     address: asString(record.address) ?? null,
     description: asString(record.description) ?? null,
     notes: asString(record.notes) ?? null,
-    primaryPicture: asString(record.primaryPicture) ?? null,
+    primaryPicture: null,
     sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
     media,
     _content_source: record._content_source as unknown,
@@ -283,8 +283,8 @@ export function buildGalleryProjects(data: GalleryOverviewDataShape): GalleryPro
   return getOverviewProjectItems(data)
     .map((project) => {
       const rawProject = project as unknown as Record<string, unknown>;
-      const projectTitle = (project.title || "Project").trim();
-      const projectSlug = toSlug(project.slug || project._sys?.filename || projectTitle);
+      const projectSlug = toSlug(project.slug || project._sys?.filename || "");
+      const projectTitle = projectSlug ? toLabel(projectSlug) : "Project";
       const updatedAt = project.sourceUpdatedAt ? Date.parse(project.sourceUpdatedAt) : Number.NaN;
       const mediaItems = (project.media || []).filter((item): item is ProjectMediaItem => Boolean(item && item.file));
       const normalizedMedia: GalleryProjectMediaData[] = mediaItems.map((media, index) => ({
@@ -304,7 +304,7 @@ export function buildGalleryProjects(data: GalleryOverviewDataShape): GalleryPro
         description: (media.description || "").trim(),
         order: index,
       }));
-      const coverImage = (project.primaryPicture || "").trim() || (mediaItems[0]?.file || "").trim();
+      const coverImage = (mediaItems[0]?.file || "").trim();
       const searchableText = [
         projectTitle,
         project.description || "",

@@ -51,7 +51,7 @@ export default function CabinetProjectStrip({
             : undefined,
         focusItemId: project.projectSource ? getProjectReferenceFocusItemId(project.projectSource) : undefined,
         titleTinaField: project.projectSource
-          ? tinaField(project.projectSource, "title") || undefined
+          ? tinaField(project.projectSource, "slug") || undefined
           : project.source
             ? tinaField(project.source as unknown as Record<string, unknown>, "label") || undefined
             : undefined,

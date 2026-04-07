@@ -273,13 +273,13 @@ export default function ProjectDetailPage({
                 Gallery
               </Link>
               <span>/</span>
-              <span data-tina-field={tinaField(rawProject, "title") || undefined}>{heading}</span>
+              <span data-tina-field={tinaField(rawProject, "slug") || undefined}>{heading}</span>
             </nav>
 
             <div className="flex max-w-[1376px] flex-col gap-4 text-[var(--cp-primary-500)] md:gap-7">
               <h1
                 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]"
-                data-tina-field={tinaField(rawProject, "title") || undefined}
+                data-tina-field={tinaField(rawProject, "slug") || undefined}
               >
                 {heading}
               </h1>

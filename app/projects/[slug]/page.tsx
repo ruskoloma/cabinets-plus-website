@@ -8,6 +8,7 @@ import { getProjectPageSettingsSafe } from "@/app/get-project-page-settings-safe
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 import { getCabinetIndexSafe } from "@/app/get-cabinet-data-safe";
 import { getCountertopIndexSafe } from "@/app/get-countertop-data-safe";
+import { buildProjectGallery, getProjectHeading } from "@/components/project-detail/helpers";
 
 export async function generateStaticParams() {
   const projectIndex = await getProjectIndexSafe();
@@ -31,10 +32,12 @@ export async function generateMetadata(
 
   if (!project) return {};
 
+  const defaultImage = buildProjectGallery(project)[0]?.file;
+
   return {
-    title: project.title || slug,
+    title: getProjectHeading(project, slug),
     description: project.description || undefined,
-    openGraph: project.primaryPicture ? { images: [{ url: project.primaryPicture }] } : undefined,
+    openGraph: defaultImage ? { images: [{ url: defaultImage }] } : undefined,
   };
 }
 

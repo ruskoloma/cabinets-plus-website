@@ -159,15 +159,14 @@ export async function getSearchResultsSafe(rawQuery: string): Promise<SearchResu
           const { data, content } = await readMarkdownDocument("projects", filename);
           const record = asRecord(data) || {};
           const slug = toSlug(asString(record.slug) || filename);
-          const title = asString(record.title)?.trim() || humanizeSlug(slug);
-          const primaryPicture = asString(record.primaryPicture)?.trim() || "";
+          const title = humanizeSlug(slug);
           const media = Array.isArray(record.media) ? record.media : [];
           const firstMedia = media.find((item) => {
             const mediaRecord = asRecord(item);
             return Boolean(asString(mediaRecord?.file)?.trim());
           });
           const firstMediaFile = asString(asRecord(firstMedia)?.file)?.trim() || "";
-          const image = primaryPicture || firstMediaFile;
+          const image = firstMediaFile;
           const score = buildScore(query, [
             title,
             asString(record.address) || "",
