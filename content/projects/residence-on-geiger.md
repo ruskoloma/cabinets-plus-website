@@ -395,6 +395,12 @@ address: 1455 S Geiger
 notes: |-
   Old Strapi slug: luxury-modern-home-interior
   Old project title: Bright Modern Kitchen with Warm Wood Island
+
+  Countertops:
+  Kitchen and Pantry - Mont Blanc quartzite
+  Bathroom  and Laundry - Cambria Everleigh
+  Media room - Titanium Gold granite
+  Flooring - Laminate by Lyons
 sourceId: 54
 sourceUpdatedAt: 2025-09-18T21:10:07.268Z
 ---
