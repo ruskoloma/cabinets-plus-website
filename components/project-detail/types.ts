@@ -41,6 +41,8 @@ export interface ProjectMaterialCardData {
   image?: string;
   href?: string;
   tinaField?: string;
+  focusItemId?: string;
+  focusListKey?: string;
 }
 
 export interface ProjectRelatedCardData {
@@ -48,6 +50,8 @@ export interface ProjectRelatedCardData {
   title: string;
   image: string;
   tinaField?: string;
+  focusItemId?: string;
+  focusListKey?: string;
 }
 
 export interface ProjectFeatureSummary {

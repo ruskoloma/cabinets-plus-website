@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-20th-avenue.md
   - project: content/projects/residence-on-honeycomb.md
+relatedProducts:
+  - product: content/countertops/rockywhitesparkle.md
+  - product: content/countertops/calacattaelitegray.md
+  - product: content/countertops/rockywhite.md
+  - product: content/countertops/simpledarkgray.md
 technicalDetails:
   - key: Thickness
     value: 3CM

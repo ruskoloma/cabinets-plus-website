@@ -2,6 +2,7 @@
 
 import { tinaField } from "tinacms/dist/react";
 import ProductMediaGallery from "@/components/catalog-product/ProductMediaGallery";
+import { getTinaSidebarMediaItemId } from "@/lib/tina-media-focus";
 import type { CabinetData, CabinetGalleryItem } from "./types";
 
 interface CabinetImageGalleryProps {
@@ -10,6 +11,7 @@ interface CabinetImageGalleryProps {
   thumbImageSizeChoice?: string | null;
   mainImageSizeChoice?: string | null;
   lightboxImageSizeChoice?: string | null;
+  focusRootFieldName?: string;
 }
 
 function getTinaFieldValue(cabinet: CabinetData, item: CabinetGalleryItem): string | undefined {
@@ -30,6 +32,7 @@ export default function CabinetImageGallery({
   thumbImageSizeChoice,
   mainImageSizeChoice,
   lightboxImageSizeChoice,
+  focusRootFieldName,
 }: CabinetImageGalleryProps) {
   return (
     <ProductMediaGallery
@@ -39,8 +42,10 @@ export default function CabinetImageGallery({
         file: item.file,
         previewFile: item.file,
         alt: cabinet.name || "Cabinet door",
+        focusMediaItemId: item.sourceType === "media" ? getTinaSidebarMediaItemId(item.file) : undefined,
         tinaField: getTinaFieldValue(cabinet, item),
       }))}
+      focusRootFieldName={focusRootFieldName}
       lightboxImageSizeChoice={lightboxImageSizeChoice}
       mainImageSizeChoice={mainImageSizeChoice}
       productName={cabinet.name || "Cabinet door"}

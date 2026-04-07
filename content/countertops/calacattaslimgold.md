@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-whitetail-lane.md
+relatedProducts:
+  - product: content/countertops/calacattaelitegold.md
+  - product: content/countertops/calacattaibizagold.md
+  - product: content/countertops/calacattasimplegold.md
+  - product: content/countertops/calacattaslimgrey.md
 technicalDetails:
   - key: Thickness
     value: 3CM

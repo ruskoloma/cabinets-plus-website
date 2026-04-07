@@ -19,6 +19,11 @@ picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpleblacklaza/3662-simple-black-laza-1.jpg
 relatedProjects:
   - project: content/projects/black-island-project-at-the-art-house.md
+relatedProducts:
+  - product: content/countertops/simplewhitelaza.md
+  - product: content/countertops/calacattasimplegold.md
+  - product: content/countertops/calacattasimplegrey.md
+  - product: content/countertops/cararrablackmistsuede.md
 technicalDetails:
   - key: Thickness
     value: 3CM

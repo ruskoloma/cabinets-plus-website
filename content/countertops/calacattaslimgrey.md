@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-helena-street.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-villier-road.md
+relatedProducts:
+  - product: content/countertops/calacattagreyalpine.md
+  - product: content/countertops/calacattaicegrey.md
+  - product: content/countertops/calacattasimplegrey.md
+  - product: content/countertops/calacattaslimgold.md
 technicalDetails:
   - key: Thickness
     value: 3CM

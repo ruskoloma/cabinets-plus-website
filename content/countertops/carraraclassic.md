@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-helena-street.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/black-island-project-at-the-art-house.md
+relatedProducts:
+  - product: content/countertops/carraramist.md
+  - product: content/countertops/carraraoriginal.md
+  - product: content/countertops/calacattabellagio.md
+  - product: content/countertops/calacattabrezze.md
 technicalDetails:
   - key: Thickness
     value: 3CM

@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-helena-street.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-villier-road.md
+relatedProducts:
+  - product: content/countertops/calacattaicegrey.md
+  - product: content/countertops/calacattabellagio.md
+  - product: content/countertops/calacattabrezze.md
+  - product: content/countertops/calacattadays.md
 technicalDetails:
   - key: Type
     value: Quartz

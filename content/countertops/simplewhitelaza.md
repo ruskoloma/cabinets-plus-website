@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/black-island-project-at-the-art-house.md
+relatedProducts:
+  - product: content/countertops/simpleblacklaza.md
+  - product: content/countertops/simplepurewhite.md
+  - product: content/countertops/simplewhite.md
+  - product: content/countertops/calacattasimplegold.md
 technicalDetails:
   - key: Thickness
     value: 3CM

@@ -1,6 +1,14 @@
 import { normalizeOptionValue } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
 import { buildGalleryProjects } from "@/components/gallery-overview/normalize-gallery-overview-query";
 import type { GalleryOverviewDataShape } from "@/components/gallery-overview/types";
+import {
+  getCabinetReferenceFocusItemId,
+  getCountertopReferenceFocusItemId,
+  getProjectReferenceFocusItemId,
+  TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
+  TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+  TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
+} from "@/lib/tina-list-focus";
 import type {
   CabinetListItem,
   CatalogSettingsData,
@@ -120,6 +128,17 @@ function resolveReferencedProductSlug(
   );
 }
 
+function resolveReferencedProjectSlug(
+  value: string | { slug?: string | null; _sys?: { filename?: string; relativePath?: string } | null } | null | undefined,
+): string {
+  if (!value) return "";
+  if (typeof value === "string") return toSlug(value);
+
+  return toSlug(
+    value.slug || value._sys?.relativePath || value._sys?.filename || "",
+  );
+}
+
 function resolveReferencedProductCard<
   T extends { slug: string; name: string; code: string; picture: string }
 >(
@@ -207,6 +226,8 @@ export function buildMaterialCards(
       subtitle: linked.subtitle,
       image: linked.image,
       href: `/cabinets/${linked.slug}`,
+      focusItemId: getCabinetReferenceFocusItemId(item?.cabinet),
+      focusListKey: TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
       tinaField: tinaFieldFn(rawProject, `cabinetProducts.${index}.cabinet`) || undefined,
     });
   });
@@ -222,6 +243,8 @@ export function buildMaterialCards(
       subtitle: linked.subtitle,
       image: linked.image,
       href: `/countertops/${linked.slug}`,
+      focusItemId: getCountertopReferenceFocusItemId(item?.countertop),
+      focusListKey: TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
       tinaField: tinaFieldFn(rawProject, `countertopProducts.${index}.countertop`) || undefined,
     });
   });
@@ -265,7 +288,7 @@ export function buildRelatedProjectCards(
   const currentSummary = getFeatureSummary(project, overviewData.catalogSettings);
 
   (project.relatedProjects || []).forEach((value, index) => {
-    const slug = toSlug(value || "");
+    const slug = resolveReferencedProjectSlug(value);
     const match = projectMap.get(slug);
     if (!slug || !match || used.has(slug) || slug === currentSlug) return;
 
@@ -274,6 +297,8 @@ export function buildRelatedProjectCards(
       slug,
       title: match.projectTitle,
       image: match.coverImage,
+      focusItemId: getProjectReferenceFocusItemId(value),
+      focusListKey: TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
       tinaField: tinaFieldFn(rawProject, `relatedProjects.${index}.project`) || undefined,
     });
   });
@@ -340,6 +365,16 @@ export function getProjectGalleryField(
   if (item.sourceType === "primaryPicture") return getProjectPrimaryField(project, tinaFieldFn);
   if (!item.source?.raw) return undefined;
   return tinaFieldFn(item.source.raw as Record<string, unknown>, "file") || undefined;
+}
+
+export function getProjectGalleryFocusField(
+  project: ProjectOverviewItem,
+  item: ProjectGalleryItem,
+  tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
+): string | undefined {
+  if (item.sourceType === "primaryPicture") return getProjectPrimaryField(project, tinaFieldFn);
+  if (!item.source?.raw) return undefined;
+  return tinaFieldFn(item.source.raw as Record<string, unknown>) || undefined;
 }
 
 export function getProjectGalleryAlt(project: ProjectOverviewItem, item: ProjectGalleryItem): string {

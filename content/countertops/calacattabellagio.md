@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-helena-street.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/dental-clinic-project.md
+relatedProducts:
+  - product: content/countertops/calacattabrezze.md
+  - product: content/countertops/calacattadays.md
+  - product: content/countertops/calacattaelitegold.md
+  - product: content/countertops/calacattaelitegray.md
 technicalDetails:
   - key: Type
     value: Quartz

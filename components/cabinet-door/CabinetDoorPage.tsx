@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { tinaField } from "tinacms/dist/react";
+import { tinaField, useEditState } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
 import ArrowNavButton from "@/components/ui/ArrowNavButton";
 import { formatProductCode } from "./helpers";
@@ -58,16 +58,18 @@ export default function CabinetDoorPage({
   projectsSectionImageSize,
   relatedProductsImageSize,
 }: CabinetDoorPageProps) {
+  const { edit } = useEditState();
   const [descriptionOpen, setDescriptionOpen] = useState(false);
 
   const cabinetRecord = cabinet as unknown as Record<string, unknown>;
+  const cabinetFieldName = tinaField(cabinetRecord) || undefined;
   const displayName = cabinet.name?.trim() || "Cabinet Door";
   const description = cabinet.description?.trim() || "";
   const code = formatProductCode(cabinet.code);
 
   return (
     <div className="bg-white">
-      <section className="bg-white" data-tina-field={tinaField(cabinetRecord) || undefined}>
+      <section className="bg-white" data-tina-field={edit ? undefined : cabinetFieldName}>
         <div className="cp-container px-4 pb-12 pt-[34px] md:px-8 md:pb-16 md:pt-7">
           <div className="flex items-start justify-between gap-4 md:items-center">
             <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:text-[14px]">
@@ -91,6 +93,7 @@ export default function CabinetDoorPage({
           <div className="mt-7 grid gap-8 lg:grid-cols-[675px_minmax(0,674px)] lg:items-start lg:gap-7">
             <CabinetImageGallery
               cabinet={cabinet}
+              focusRootFieldName={cabinetFieldName}
               items={galleryItems}
               lightboxImageSizeChoice={galleryLightboxImageSize}
               mainImageSizeChoice={galleryMainImageSize}
@@ -166,7 +169,7 @@ export default function CabinetDoorPage({
         descriptionTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionDescription") || undefined : undefined}
         imageSizeChoice={projectsSectionImageSize}
         items={projectItems}
-        sectionTinaField={tinaField(cabinetRecord) || undefined}
+        sectionTinaField={cabinetFieldName}
         selectionListTinaField={tinaField(cabinetRecord, "relatedProjects") || undefined}
         selectionSourceRecord={cabinetRecord}
         title={pageText.projectsSectionTitle}
@@ -175,7 +178,7 @@ export default function CabinetDoorPage({
       <CabinetRelatedProducts
         imageSizeChoice={relatedProductsImageSize}
         items={relatedItems}
-        sectionTinaField={tinaField(cabinetRecord) || undefined}
+        sectionTinaField={cabinetFieldName}
         title={pageText.relatedProductsTitle}
         titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "relatedProductsTitle") || undefined : undefined}
       />

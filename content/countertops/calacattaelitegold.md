@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-whitetail-lane.md
   - project: content/projects/black-island-project-at-the-art-house.md
+relatedProducts:
+  - product: content/countertops/calacattaelitegray.md
+  - product: content/countertops/calacattaibizagold.md
+  - product: content/countertops/calacattabellagio.md
+  - product: content/countertops/calacattabrezze.md
 technicalDetails:
   - key: Type
     value: Quartz

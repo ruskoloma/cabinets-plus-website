@@ -2,6 +2,10 @@
 
 import { tinaField } from "tinacms/dist/react";
 import ProductRelatedProducts from "@/components/catalog-product/ProductRelatedProducts";
+import {
+  getCabinetReferenceFocusItemId,
+  TINA_LIST_KEY_CABINET_RELATED_PRODUCTS,
+} from "@/lib/tina-list-focus";
 import type { CabinetRelatedItem } from "./types";
 
 interface CabinetRelatedProductsProps {
@@ -32,9 +36,12 @@ export default function CabinetRelatedProducts({
           name: item.name,
           code: item.code,
           image: item.image,
+          focusItemId: getCabinetReferenceFocusItemId(item.relation?.product),
           tinaField: relationRecord ? tinaField(relationRecord, "product") || undefined : undefined,
         };
       })}
+      focusListKey={TINA_LIST_KEY_CABINET_RELATED_PRODUCTS}
+      focusRootFieldName={sectionTinaField}
       title={title}
     />
   );

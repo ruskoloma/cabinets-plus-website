@@ -4,8 +4,27 @@ import matter from "gray-matter";
 import React from "react";
 import { defineConfig, ImageField } from "tinacms";
 import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
+import {
+  getCabinetReferenceFocusItemId,
+  getCountertopReferenceFocusItemId,
+  getProjectReferenceFocusItemId,
+  TINA_FOCUS_LIST_ITEM_MESSAGE,
+  TINA_LIST_KEY_CABINET_RELATED_PRODUCTS,
+  TINA_LIST_KEY_CABINET_RELATED_PROJECTS,
+  TINA_LIST_KEY_COUNTERTOP_RELATED_PRODUCTS,
+  TINA_LIST_KEY_COUNTERTOP_RELATED_PROJECTS,
+  TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
+  TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+  TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
+  TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE,
+  TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE,
+} from "../lib/tina-list-focus";
 import { getImageVariantUrl } from "../lib/image-variants";
 import { HOMEPAGE_SECTION_IMAGE_SIZE_OPTIONS } from "../lib/homepage-image-controls";
+import {
+  getTinaSidebarMediaItemId,
+  TINA_FOCUS_PROJECT_MEDIA_MESSAGE,
+} from "../lib/tina-media-focus";
 import { cabinetReferenceLabelsByValue } from "./cabinet-reference-options";
 import { seoFields } from "./seo-fields";
 
@@ -534,6 +553,28 @@ type MediaFieldRendererProps = {
 } & Record<string, unknown>;
 
 const TypedImageField = ImageField as React.ComponentType<Record<string, unknown>>;
+const TINA_MEDIA_ITEM_HIGHLIGHT_DURATION_MS = 2200;
+const TINA_SIDEBAR_MEDIA_ITEM_ROW_ATTRIBUTE = "data-cp-tina-media-item-row";
+
+function clearTinaMediaItemHighlight(target: HTMLElement) {
+  target.style.backgroundColor = "";
+  target.style.borderColor = "";
+  target.style.boxShadow = "";
+}
+
+function applyTinaMediaItemHighlight(target: HTMLElement) {
+  target.style.backgroundColor = "#fff7ed";
+  target.style.borderColor = "#c25e20";
+  target.style.boxShadow = "0 0 0 2px rgba(194, 94, 32, 0.28), 0 12px 30px rgba(194, 94, 32, 0.12)";
+}
+
+function clearTinaSidebarListItemHighlight(target: HTMLElement) {
+  clearTinaMediaItemHighlight(target);
+}
+
+function applyTinaSidebarListItemHighlight(target: HTMLElement) {
+  applyTinaMediaItemHighlight(target);
+}
 
 function TinaVariantPreviewImage({
   alt,
@@ -570,6 +611,284 @@ function TinaVariantPreviewImage({
     },
   });
 }
+
+function TinaMediaListItemLabel({
+  file,
+  isVideo,
+  name,
+}: {
+  file: string;
+  isVideo: boolean;
+  name: string;
+}) {
+  const itemId = getTinaSidebarMediaItemId(file);
+  const focusTimeoutRef = React.useRef<number | null>(null);
+
+  React.useEffect(() => {
+    if (!itemId || typeof window === "undefined") return undefined;
+
+    const handleMessage = (event: MessageEvent) => {
+      const payload = event.data && typeof event.data === "object" ? (event.data as Record<string, unknown>) : null;
+      if (!payload || payload.type !== TINA_FOCUS_PROJECT_MEDIA_MESSAGE || payload.itemId !== itemId) {
+        return;
+      }
+
+      const target = window.document.querySelector<HTMLElement>(`[${TINA_SIDEBAR_MEDIA_ITEM_ROW_ATTRIBUTE}="${itemId}"]`);
+      if (!target) return;
+
+      target.ownerDocument
+        .querySelectorAll<HTMLElement>(`[${TINA_SIDEBAR_MEDIA_ITEM_ROW_ATTRIBUTE}]`)
+        .forEach((row) => {
+          if (row !== target) {
+            clearTinaMediaItemHighlight(row);
+          }
+        });
+
+      target.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+      applyTinaMediaItemHighlight(target);
+
+      if (focusTimeoutRef.current !== null) {
+        window.clearTimeout(focusTimeoutRef.current);
+      }
+
+      focusTimeoutRef.current = window.setTimeout(() => {
+        clearTinaMediaItemHighlight(target);
+        focusTimeoutRef.current = null;
+      }, TINA_MEDIA_ITEM_HIGHLIGHT_DURATION_MS);
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      if (focusTimeoutRef.current !== null) {
+        window.clearTimeout(focusTimeoutRef.current);
+      }
+    };
+  }, [itemId]);
+
+  return React.createElement(
+    "div",
+    {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: "16px",
+        minWidth: 0,
+        width: "100%",
+      },
+    },
+    React.createElement(
+      "div",
+      {
+        style: {
+          width: "180px",
+          height: "120px",
+          flexShrink: 0,
+          borderRadius: "6px",
+          overflow: "hidden",
+          border: "1px solid #e5e7eb",
+          backgroundColor: "#f9fafb",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+      },
+      isVideo
+        ? React.createElement(
+            "span",
+            {
+              style: {
+                fontSize: "12px",
+                fontWeight: 600,
+                color: "#6b7280",
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+              },
+            },
+            "Video",
+          )
+        : React.createElement(TinaVariantPreviewImage, {
+            src: file,
+            alt: name,
+            fit: "cover",
+          }),
+    ),
+    React.createElement(
+      "div",
+      {
+        style: {
+          minWidth: 0,
+          flex: 1,
+        },
+      },
+      React.createElement(
+        "div",
+        {
+          style: {
+            fontSize: "14px",
+            lineHeight: 1.3,
+            fontWeight: 600,
+            color: "#374151",
+            wordBreak: "break-word",
+          },
+        },
+        isVideo ? `Video: ${name}` : name,
+      ),
+    ),
+  );
+}
+
+function TinaFocusableListItemLabel({
+  itemId,
+  label,
+  listKey,
+}: {
+  itemId?: string;
+  label: string;
+  listKey: string;
+}) {
+  const focusTimeoutRef = React.useRef<number | null>(null);
+
+  React.useEffect(() => {
+    if (!itemId || typeof window === "undefined") return undefined;
+
+    const handleMessage = (event: MessageEvent) => {
+      const payload = event.data && typeof event.data === "object" ? (event.data as Record<string, unknown>) : null;
+      if (!payload || payload.type !== TINA_FOCUS_LIST_ITEM_MESSAGE) return;
+      if (payload.listKey !== listKey || payload.itemId !== itemId) return;
+
+      const target = window.document.querySelector<HTMLElement>(
+        `[${TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE}="${listKey}"][${TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE}="${itemId}"]`,
+      );
+      if (!target) return;
+
+      target.ownerDocument
+        .querySelectorAll<HTMLElement>(`[${TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE}]`)
+        .forEach((row) => {
+          if (row !== target) {
+            clearTinaSidebarListItemHighlight(row);
+          }
+        });
+
+      target.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+      applyTinaSidebarListItemHighlight(target);
+
+      if (focusTimeoutRef.current !== null) {
+        window.clearTimeout(focusTimeoutRef.current);
+      }
+
+      focusTimeoutRef.current = window.setTimeout(() => {
+        clearTinaSidebarListItemHighlight(target);
+        focusTimeoutRef.current = null;
+      }, TINA_MEDIA_ITEM_HIGHLIGHT_DURATION_MS);
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      if (focusTimeoutRef.current !== null) {
+        window.clearTimeout(focusTimeoutRef.current);
+      }
+    };
+  }, [itemId, listKey]);
+
+  return React.createElement("span", null, label);
+}
+
+type TinaItemPropsResult = {
+  key?: string;
+  label?: React.ReactNode;
+  style?: React.CSSProperties;
+  [key: `data-${string}`]: string | undefined;
+};
+
+function buildFocusableTinaItemProps({
+  itemId,
+  label,
+  listKey,
+}: {
+  itemId?: string;
+  label: string;
+  listKey: string;
+}): TinaItemPropsResult {
+  return {
+    label: React.createElement(TinaFocusableListItemLabel, {
+      itemId,
+      label,
+      listKey,
+    }),
+    ...(itemId
+      ? {
+          [TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE]: listKey,
+          [TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE]: itemId,
+        }
+      : {}),
+    style: {
+      transition: "background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
+      ...(itemId ? { borderRadius: "8px" } : {}),
+    },
+  };
+}
+
+function createFocusableObjectListItemProps<Item>(
+  listKey: string,
+  getLabel: (item?: Item) => string,
+  getItemId: (item?: Item) => string | undefined,
+) {
+  return ((item: object) =>
+    buildFocusableTinaItemProps({
+      listKey,
+      label: getLabel(item as Item),
+      itemId: getItemId(item as Item),
+    })) as unknown as (item: object) => {
+    key?: string;
+    label?: string;
+  };
+}
+
+const cabinetRelatedProjectsItemProps = createFocusableObjectListItemProps<{ project?: unknown }>(
+  TINA_LIST_KEY_CABINET_RELATED_PROJECTS,
+  (item) => resolveProjectReferenceLabel(item?.project),
+  (item) => getProjectReferenceFocusItemId(item?.project),
+);
+
+const cabinetRelatedProductsItemProps = createFocusableObjectListItemProps<{ product?: unknown }>(
+  TINA_LIST_KEY_CABINET_RELATED_PRODUCTS,
+  (item) => resolveCabinetDocumentReferenceLabel(item?.product),
+  (item) => getCabinetReferenceFocusItemId(item?.product),
+);
+
+const countertopRelatedProjectsItemProps = createFocusableObjectListItemProps<{ project?: unknown }>(
+  TINA_LIST_KEY_COUNTERTOP_RELATED_PROJECTS,
+  (item) => resolveProjectReferenceLabel(item?.project),
+  (item) => getProjectReferenceFocusItemId(item?.project),
+);
+
+const countertopRelatedProductsItemProps = createFocusableObjectListItemProps<{ product?: unknown }>(
+  TINA_LIST_KEY_COUNTERTOP_RELATED_PRODUCTS,
+  (item) => resolveCountertopDocumentReferenceLabel(item?.product),
+  (item) => getCountertopReferenceFocusItemId(item?.product),
+);
+
+const projectCabinetProductsItemProps = createFocusableObjectListItemProps<{ cabinet?: unknown }>(
+  TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
+  (item) => resolveCabinetDocumentReferenceLabel(item?.cabinet),
+  (item) => getCabinetReferenceFocusItemId(item?.cabinet),
+);
+
+const projectCountertopProductsItemProps = createFocusableObjectListItemProps<{ countertop?: unknown }>(
+  TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+  (item) => resolveCountertopDocumentReferenceLabel(item?.countertop),
+  (item) => getCountertopReferenceFocusItemId(item?.countertop),
+);
+
+const projectRelatedProjectsItemProps = createFocusableObjectListItemProps<{ project?: unknown }>(
+  TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
+  (item) => resolveProjectReferenceLabel(item?.project),
+  (item) => getProjectReferenceFocusItemId(item?.project),
+);
 
 function renderLargeMediaPreviewField(props: MediaFieldRendererProps) {
   const src = typeof props?.input?.value === "string" ? props.input.value.trim() : "";
@@ -740,79 +1059,24 @@ function mediaItemProps(item?: string | { file?: string; mimeType?: string; kind
   const isVideo =
     mimeType.toLowerCase().startsWith("video/") ||
     [".mp4", ".mov", ".webm", ".m4v", ".avi"].some((ext) => cleaned.endsWith(ext));
+  const itemId = getTinaSidebarMediaItemId(file);
 
   return {
-    label: React.createElement(
-      "div",
-      {
-        style: {
-          display: "flex",
-          alignItems: "center",
-          gap: "16px",
-          minWidth: 0,
-          width: "100%",
-        },
-      },
-      React.createElement(
-        "div",
-        {
-          style: {
-            width: "180px",
-            height: "120px",
-            flexShrink: 0,
-            borderRadius: "6px",
-            overflow: "hidden",
-            border: "1px solid #e5e7eb",
-            backgroundColor: "#f9fafb",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          },
-        },
-        isVideo
-          ? React.createElement(
-              "span",
-              {
-                style: {
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  color: "#6b7280",
-                  letterSpacing: "0.04em",
-                  textTransform: "uppercase",
-                },
-              },
-              "Video",
-            )
-          : React.createElement(TinaVariantPreviewImage, {
-              src: file,
-              alt: name,
-              fit: "cover",
-            }),
-      ),
-      React.createElement(
-        "div",
-        {
-          style: {
-            minWidth: 0,
-            flex: 1,
-          },
-        },
-        React.createElement(
-          "div",
-          {
-            style: {
-              fontSize: "14px",
-              lineHeight: 1.3,
-              fontWeight: 600,
-              color: "#374151",
-              wordBreak: "break-word",
-            },
-          },
-          isVideo ? `Video: ${name}` : name,
-        ),
-      ),
-    ),
-    style: { minHeight: "148px" },
+    label: React.createElement(TinaMediaListItemLabel, {
+      file,
+      isVideo,
+      name,
+    }),
+    ...(itemId ? { [TINA_SIDEBAR_MEDIA_ITEM_ROW_ATTRIBUTE]: itemId } : {}),
+    style: {
+      minHeight: "148px",
+      transition: "background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
+      ...(itemId
+        ? {
+            borderRadius: "8px",
+          }
+        : {}),
+    },
   };
 }
 
@@ -822,6 +1086,8 @@ const mediaGroupItemProps = ((item: Record<string, unknown>) =>
 ) => {
   key?: string;
   label?: string;
+  style?: React.CSSProperties;
+  [key: `data-${string}`]: string | undefined;
 };
 
 function homepageSectionImageFields() {
@@ -1608,9 +1874,7 @@ export default defineConfig({
             list: true,
             description: "Search and select project entries related to this cabinet door.",
             ui: {
-              itemProps: (item?: { project?: unknown }) => ({
-                label: resolveProjectReferenceLabel(item?.project),
-              }),
+              itemProps: cabinetRelatedProjectsItemProps,
             },
             fields: [
               {
@@ -1632,9 +1896,7 @@ export default defineConfig({
             list: true,
             description: "Select other cabinet door entries from this collection.",
             ui: {
-              itemProps: (item?: { product?: unknown }) => ({
-                label: resolveCabinetDocumentReferenceLabel(item?.product),
-              }),
+              itemProps: cabinetRelatedProductsItemProps,
             },
             fields: [
               {
@@ -1718,9 +1980,7 @@ export default defineConfig({
             list: true,
             description: "Search and select project entries related to this countertop.",
             ui: {
-              itemProps: (item: any) => ({
-                label: resolveProjectReferenceLabel(item?.project),
-              }),
+              itemProps: countertopRelatedProjectsItemProps,
             },
             fields: [
               {
@@ -1742,9 +2002,7 @@ export default defineConfig({
             list: true,
             description: "Select other countertop entries from this collection.",
             ui: {
-              itemProps: (item: any) => ({
-                label: resolveCountertopDocumentReferenceLabel(item?.product),
-              }),
+              itemProps: countertopRelatedProductsItemProps,
             },
             fields: [
               {
@@ -1812,9 +2070,7 @@ export default defineConfig({
             list: true,
             description: "Select cabinet door products used in this project.",
             ui: {
-              itemProps: (item: any) => ({
-                label: resolveCabinetDocumentReferenceLabel(item?.cabinet),
-              }),
+              itemProps: projectCabinetProductsItemProps,
             },
             fields: [
               {
@@ -1832,9 +2088,7 @@ export default defineConfig({
             list: true,
             description: "Select countertop slab products used in this project.",
             ui: {
-              itemProps: (item: any) => ({
-                label: resolveCountertopDocumentReferenceLabel(item?.countertop),
-              }),
+              itemProps: projectCountertopProductsItemProps,
             },
             fields: [
               {
@@ -1856,9 +2110,7 @@ export default defineConfig({
             list: true,
             description: "Search and select other project entries related to this project.",
             ui: {
-              itemProps: (item: any) => ({
-                label: resolveProjectReferenceLabel(item?.project),
-              }),
+              itemProps: projectRelatedProjectsItemProps,
             },
             fields: [
               {

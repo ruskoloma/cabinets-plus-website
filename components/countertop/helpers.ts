@@ -184,27 +184,6 @@ export function buildCountertopProjectItems(
     }));
 }
 
-function scoreRelatedCountertop(
-  item: CountertopListItem,
-  countertop: CountertopData,
-  normalizedType: string,
-): number {
-  let score = 0;
-  const itemType = normalizeOptionValue(item.countertopType || "");
-  const currentName = normalizeOptionValue(countertop.name || "");
-  const itemName = normalizeOptionValue(item.name || "");
-  const currentWords = currentName.split(" ").filter((word) => word.length > 3);
-
-  if (normalizedType && itemType === normalizedType) score += 6;
-  if (item.picture) score += 1;
-
-  for (const word of currentWords) {
-    if (word && itemName.includes(word)) score += 1;
-  }
-
-  return score;
-}
-
 export function buildRelatedCountertopItems(
   countertop: CountertopData,
   countertopIndex: CountertopListItem[],
@@ -212,7 +191,6 @@ export function buildRelatedCountertopItems(
   maxItems = 4,
 ): CountertopRelatedItem[] {
   const indexBySlug = new Map<string, CountertopListItem>(countertopIndex.map((item) => [item.slug, item]));
-  const normalizedType = normalizeOptionValue(countertop.countertopType || "");
   const results: CountertopRelatedItem[] = [];
   const seen = new Set<string>();
 
@@ -245,32 +223,6 @@ export function buildRelatedCountertopItems(
     if (product && typeof product === "object") {
       pushResult(referenceProductToCard(product, indexBySlug, currentSlug, relation));
     }
-  }
-
-  if (results.length >= maxItems) {
-    return results.slice(0, maxItems);
-  }
-
-  const fallbackItems = countertopIndex
-    .filter((item) => item.slug !== currentSlug)
-    .map((item) => ({
-      item,
-      score: scoreRelatedCountertop(item, countertop, normalizedType),
-    }))
-    .sort((left, right) => {
-      if (right.score !== left.score) return right.score - left.score;
-      return left.item.name.localeCompare(right.item.name);
-    });
-
-  for (const { item } of fallbackItems) {
-    if (results.length >= maxItems) break;
-
-    pushResult({
-      slug: item.slug,
-      name: item.name,
-      code: item.code || undefined,
-      image: item.picture || undefined,
-    });
   }
 
   return results.slice(0, maxItems);

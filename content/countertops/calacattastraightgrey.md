@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-bruce-road.md
+relatedProducts:
+  - product: content/countertops/calacattagreyalpine.md
+  - product: content/countertops/calacattaicegrey.md
+  - product: content/countertops/calacattasimplegrey.md
+  - product: content/countertops/calacattaslimgrey.md
 technicalDetails:
   - key: Thickness
     value: 3CM

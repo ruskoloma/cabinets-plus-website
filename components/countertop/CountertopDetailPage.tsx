@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { tinaField } from "tinacms/dist/react";
+import { tinaField, useEditState } from "tinacms/dist/react";
 import ProductMediaGallery from "@/components/catalog-product/ProductMediaGallery";
 import ProductProjectStrip from "@/components/catalog-product/ProductProjectStrip";
 import ProductTechnicalDetailsTable from "@/components/catalog-product/ProductTechnicalDetailsTable";
 import ContactUsSection from "@/components/home/ContactUsSection";
 import ArrowNavButton from "@/components/ui/ArrowNavButton";
 import Button from "@/components/ui/Button";
+import {
+  getProjectReferenceFocusItemId,
+  TINA_LIST_KEY_COUNTERTOP_RELATED_PROJECTS,
+} from "@/lib/tina-list-focus";
+import { getTinaSidebarMediaItemId } from "@/lib/tina-media-focus";
 import CountertopRelatedProducts from "./CountertopRelatedProducts";
 import type { CountertopData, CountertopDetailPageProps, ProductGalleryItemViewModel } from "./types";
 
@@ -26,6 +31,15 @@ function getGalleryTinaField(countertop: CountertopData, item: ProductGalleryIte
   if (!matchedMedia) return undefined;
 
   return tinaField(matchedMedia as unknown as Record<string, unknown>, "file") || undefined;
+}
+
+function getGalleryFocusMediaItemId(countertop: CountertopData, item: ProductGalleryItemViewModel): string | undefined {
+  if (item.kind === "image" && countertop.picture?.trim() === item.file) {
+    return undefined;
+  }
+
+  const matchedMedia = (countertop.media || []).find((media) => media?.file?.trim() === item.file);
+  return matchedMedia ? getTinaSidebarMediaItemId(item.file) : undefined;
 }
 
 export default function CountertopDetailPage({
@@ -46,6 +60,7 @@ export default function CountertopDetailPage({
   projectsSectionImageSize,
   relatedProductsImageSize,
 }: CountertopDetailPageProps) {
+  const { edit } = useEditState();
   const [descriptionOpen, setDescriptionOpen] = useState(false);
 
   const countertopRecord = countertop as unknown as Record<string, unknown>;
@@ -57,14 +72,16 @@ export default function CountertopDetailPage({
     () =>
       galleryItems.map((item) => ({
         ...item,
+        focusMediaItemId: getGalleryFocusMediaItemId(countertop, item),
         tinaField: getGalleryTinaField(countertop, item),
       })),
     [countertop, galleryItems],
   );
+  const countertopFieldName = tinaField(countertopRecord) || undefined;
 
   return (
     <div className="bg-white">
-      <section className="bg-white" data-tina-field={tinaField(countertopRecord) || undefined}>
+      <section className="bg-white" data-tina-field={edit ? undefined : countertopFieldName}>
         <div className="cp-container px-4 pb-12 pt-[34px] md:px-8 md:pb-16 md:pt-7">
           <div className="flex items-start justify-between gap-4 md:items-center">
             <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:text-[14px]">
@@ -87,6 +104,7 @@ export default function CountertopDetailPage({
 
           <div className="mt-7 grid gap-8 lg:grid-cols-[675px_minmax(0,674px)] lg:items-start lg:gap-7">
             <ProductMediaGallery
+              focusRootFieldName={countertopFieldName}
               items={galleryItemsWithFields}
               lightboxImageSizeChoice={galleryLightboxImageSize}
               mainImageSizeChoice={galleryMainImageSize}
@@ -166,6 +184,7 @@ export default function CountertopDetailPage({
           file: project.file,
           title: project.title,
           href: project.href,
+          focusItemId: project.projectSource ? getProjectReferenceFocusItemId(project.projectSource) : undefined,
           selectionTinaField:
             typeof project.selectionIndex === "number"
               ? tinaField(countertopRecord, `relatedProjects.${project.selectionIndex}.project`) || undefined
@@ -185,14 +204,16 @@ export default function CountertopDetailPage({
               ? tinaField(project.project as unknown as Record<string, unknown>, "title") || undefined
               : undefined,
         }))}
-        sectionTinaField={tinaField(countertopRecord) || undefined}
+        focusListKey={TINA_LIST_KEY_COUNTERTOP_RELATED_PROJECTS}
+        focusRootFieldName={countertopFieldName}
+        sectionTinaField={countertopFieldName}
         title={pageText.projectsSectionTitle}
         titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionTitle") || undefined : undefined}
       />
       <CountertopRelatedProducts
         imageSizeChoice={relatedProductsImageSize}
         items={relatedItems}
-        sectionTinaField={tinaField(countertopRecord, "relatedProducts") || undefined}
+        sectionTinaField={countertopFieldName}
         title={pageText.relatedProductsTitle}
         titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "relatedProductsTitle") || undefined : undefined}
       />

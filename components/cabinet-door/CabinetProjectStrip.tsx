@@ -2,6 +2,10 @@
 
 import { tinaField } from "tinacms/dist/react";
 import ProductProjectStrip from "@/components/catalog-product/ProductProjectStrip";
+import {
+  getProjectReferenceFocusItemId,
+  TINA_LIST_KEY_CABINET_RELATED_PROJECTS,
+} from "@/lib/tina-list-focus";
 import type { CabinetProjectItem } from "./types";
 
 interface CabinetProjectStripProps {
@@ -45,12 +49,15 @@ export default function CabinetProjectStrip({
           : project.source
             ? tinaField(project.source as unknown as Record<string, unknown>, "file") || undefined
             : undefined,
+        focusItemId: project.projectSource ? getProjectReferenceFocusItemId(project.projectSource) : undefined,
         titleTinaField: project.projectSource
           ? tinaField(project.projectSource, "title") || undefined
           : project.source
             ? tinaField(project.source as unknown as Record<string, unknown>, "label") || undefined
             : undefined,
       }))}
+      focusListKey={TINA_LIST_KEY_CABINET_RELATED_PROJECTS}
+      focusRootFieldName={sectionTinaField}
       sectionTinaField={sectionTinaField}
       title={title}
       titleTinaField={titleTinaField}

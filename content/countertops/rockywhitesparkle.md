@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-may-ella-loop.md
+relatedProducts:
+  - product: content/countertops/rockygraysparkle.md
+  - product: content/countertops/rockywhite.md
+  - product: content/countertops/coastalwhite.md
+  - product: content/countertops/finewhite.md
 technicalDetails:
   - key: Thickness
     value: 3CM

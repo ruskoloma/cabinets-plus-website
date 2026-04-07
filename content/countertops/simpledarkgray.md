@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
   - project: content/projects/black-island-project-at-the-art-house.md
   - project: content/projects/residence-on-geiger.md
+relatedProducts:
+  - product: content/countertops/calacattaelitegray.md
+  - product: content/countertops/calacattasimplegold.md
+  - product: content/countertops/calacattasimplegrey.md
+  - product: content/countertops/rockygraysparkle.md
 technicalDetails:
   - key: Thickness
     value: 3CM

@@ -9,13 +9,21 @@ import FillImage from "@/components/ui/FillImage";
 import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import type { ImageVariantPreset } from "@/lib/image-variants";
 import {
+  focusTinaSidebarListItem,
+  TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME,
+} from "@/lib/tina-list-focus";
+import { getTinaSidebarMediaItemId, TINA_FOCUS_PROJECT_MEDIA_MESSAGE } from "@/lib/tina-media-focus";
+import {
   getProjectDescription,
   getProjectGalleryAlt,
   getProjectGalleryField,
+  getProjectGalleryFocusField,
   getProjectHeading,
   getProjectSlug,
 } from "./helpers";
 import type { ProjectDetailPageProps } from "./types";
+
+const TINA_MEDIA_FOCUS_RETRY_DELAYS_MS = [0, 120, 260, 480, 760, 1120];
 
 function CloseIcon() {
   return (
@@ -25,6 +33,30 @@ function CloseIcon() {
   );
 }
 
+function postMessageToTinaParent(message: Record<string, unknown>) {
+  if (typeof window === "undefined" || !window.parent || window.parent === window) return;
+  window.parent.postMessage(message, "*");
+}
+
+function focusProjectMediaItemInSidebar(rootFieldName: string | undefined, mediaFile: string) {
+  const itemId = getTinaSidebarMediaItemId(mediaFile);
+
+  if (rootFieldName) {
+    postMessageToTinaParent({ type: "field:selected", fieldName: rootFieldName });
+  }
+
+  if (!itemId) return;
+
+  TINA_MEDIA_FOCUS_RETRY_DELAYS_MS.forEach((delay) => {
+    window.setTimeout(() => {
+      postMessageToTinaParent({
+        type: TINA_FOCUS_PROJECT_MEDIA_MESSAGE,
+        itemId,
+      });
+    }, delay);
+  });
+}
+
 function MaterialCard({
   title,
   subtitle,
@@ -32,6 +64,9 @@ function MaterialCard({
   imageVariant,
   href,
   tinaField,
+  focusItemId,
+  focusListKey,
+  focusRootFieldName,
 }: {
   title: string;
   subtitle?: string;
@@ -39,8 +74,15 @@ function MaterialCard({
   imageVariant?: ImageVariantPreset;
   href?: string;
   tinaField?: string;
+  focusItemId?: string;
+  focusListKey?: string;
+  focusRootFieldName?: string;
 }) {
   const { edit } = useEditState();
+  const useCustomFocus = Boolean(edit && focusListKey && focusItemId);
+  const className = useCustomFocus
+    ? `grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6 transition-opacity hover:opacity-80 ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
+    : "grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6 transition-opacity hover:opacity-80";
   const content = (
     <>
       <div className="relative h-20 w-20 overflow-hidden bg-[var(--cp-primary-100)]">
@@ -65,19 +107,40 @@ function MaterialCard({
   return (
     href ? (
       <Link
-        className="grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6 transition-opacity hover:opacity-80"
-        data-tina-field={tinaField}
+        className={className}
+        data-tina-field={useCustomFocus ? undefined : tinaField}
         href={href}
         onClick={(event) => {
-          if (edit) {
-            event.preventDefault();
-          }
+          if (!edit) return;
+
+          event.preventDefault();
+
+          if (!useCustomFocus || !focusListKey) return;
+
+          focusTinaSidebarListItem({
+            rootFieldName: focusRootFieldName,
+            listKey: focusListKey,
+            itemId: focusItemId,
+          });
         }}
       >
         {content}
       </Link>
     ) : (
-      <div className="grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6" data-tina-field={tinaField}>
+      <div
+        className={useCustomFocus ? `${className}` : "grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6"}
+        data-tina-field={useCustomFocus ? undefined : tinaField}
+        onClick={
+          useCustomFocus && focusListKey
+            ? () =>
+                focusTinaSidebarListItem({
+                  rootFieldName: focusRootFieldName,
+                  listKey: focusListKey,
+                  itemId: focusItemId,
+                })
+            : undefined
+        }
+      >
         {content}
       </div>
     )
@@ -88,10 +151,12 @@ function MaterialGroup({
   label,
   items,
   imageVariant,
+  focusRootFieldName,
 }: {
   label: string;
   items: ProjectDetailPageProps["materialCards"];
   imageVariant?: ImageVariantPreset;
+  focusRootFieldName?: string;
 }) {
   return (
     <div className="flex flex-col gap-6 md:grid md:grid-cols-[180px_282px] md:items-stretch md:gap-x-[210px] md:gap-y-0">
@@ -106,6 +171,9 @@ function MaterialGroup({
       <div className="flex flex-col gap-6">
         {items.map((card, index) => (
           <MaterialCard
+            focusItemId={card.focusItemId}
+            focusListKey={card.focusListKey}
+            focusRootFieldName={focusRootFieldName}
             href={card.href}
             image={card.image}
             imageVariant={imageVariant}
@@ -135,10 +203,12 @@ export default function ProjectDetailPage({
   lightboxImageSizeChoice,
   relatedProjectsImageSizeChoice,
 }: ProjectDetailPageProps) {
+  const { edit } = useEditState();
   const currentSlug = getProjectSlug(project, "project");
   const heading = getProjectHeading(project, currentSlug);
   const description = getProjectDescription(project);
   const rawProject = project as unknown as Record<string, unknown>;
+  const projectFieldName = tinaField(rawProject) || undefined;
   const finishMaterialsTitleText = (materialsTitle || "").trim() || "Finish & Materials";
   const relatedProjectsTitleText = (relatedProjectsTitle || "").trim() || "Projects You Might Like";
   const relatedProjectsCtaText = (relatedProjectsCtaLabel || "").trim() || "View all";
@@ -170,6 +240,8 @@ export default function ProjectDetailPage({
 
     return groups;
   }, [materialCards]);
+  const suppressMaterialsSectionQuickEdit = edit && materialCards.some((card) => Boolean(card.focusItemId && card.focusListKey));
+  const suppressRelatedProjectsSectionQuickEdit = edit && relatedProjects.some((item) => Boolean(item.focusItemId && item.focusListKey));
 
   useEffect(() => {
     if (activeGalleryIndex === null) return undefined;
@@ -193,7 +265,7 @@ export default function ProjectDetailPage({
 
   return (
     <div className="bg-white">
-      <section className="bg-white" data-tina-field={tinaField(rawProject) || undefined}>
+      <section className="bg-white" data-tina-field={edit ? undefined : projectFieldName}>
         <div className="cp-container px-4 pb-12 pt-[35px] md:px-8 md:pb-[88px] md:pt-[88px]">
           <div className="max-w-[1376px]">
             <nav aria-label="Breadcrumb" className="mb-6 flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:mb-7 md:text-[14px]">
@@ -223,24 +295,41 @@ export default function ProjectDetailPage({
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4 md:mt-8 md:grid-cols-4 md:gap-7">
-              {galleryItems.map((item, index) => (
-                <button
-                  className="relative aspect-square overflow-hidden bg-[var(--cp-primary-100)]"
-                  data-tina-field={getProjectGalleryField(project, item, tinaField)}
-                  key={`${item.file}-${index}`}
-                onClick={() => setActiveGalleryIndex(index)}
-                type="button"
-              >
+              {galleryItems.map((item, index) => {
+                const galleryField = getProjectGalleryField(project, item, tinaField);
+                const galleryFocusField = getProjectGalleryFocusField(project, item, tinaField);
+                const useCustomMediaFocus = edit && item.sourceType === "media";
+                const buttonClassName = useCustomMediaFocus
+                  ? "relative aspect-square overflow-hidden bg-[var(--cp-primary-100)] outline outline-2 outline-dashed outline-[rgba(34,150,254,0.45)] transition-[outline-color,box-shadow] duration-150 hover:outline-[rgba(34,150,254,1)] hover:shadow-[inset_0_0_0_9999px_rgba(34,150,254,0.28)]"
+                  : "relative aspect-square overflow-hidden bg-[var(--cp-primary-100)]";
+
+                return (
+                  <button
+                    className={buttonClassName}
+                    data-tina-field={useCustomMediaFocus ? undefined : galleryField}
+                    data-tinafield={galleryFocusField}
+                    key={`${item.file}-${index}`}
+                    onClick={() => {
+                      if (useCustomMediaFocus) {
+                        focusProjectMediaItemInSidebar(projectFieldName, item.file);
+                        return;
+                      }
+
+                      setActiveGalleryIndex(index);
+                    }}
+                    type="button"
+                  >
                   <FillImage alt={getProjectGalleryAlt(project, item)} className="object-cover" sizes="(min-width: 768px) 25vw, 50vw" src={item.file} variant={galleryGridImageVariant} />
-                </button>
-              ))}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {materialGroups.length > 0 ? (
-        <section className="bg-[var(--cp-brand-neutral-50)]" data-tina-field={tinaField(rawProject) || undefined}>
+        <section className="bg-[var(--cp-brand-neutral-50)]" data-tina-field={suppressMaterialsSectionQuickEdit ? undefined : tinaField(rawProject) || undefined}>
           <div className="cp-container px-4 py-[72px] md:px-[149px] md:pb-[63px] md:pt-16">
             <div className="md:flex md:items-start md:gap-[175px]">
               <h2
@@ -254,6 +343,7 @@ export default function ProjectDetailPage({
                 <div className="flex flex-col gap-10 md:gap-6">
                   {materialGroups.map((group) => (
                     <MaterialGroup
+                      focusRootFieldName={projectFieldName}
                       imageVariant={materialCardImageVariant}
                       items={group.items}
                       key={group.kind}
@@ -267,7 +357,7 @@ export default function ProjectDetailPage({
         </section>
       ) : null}
 
-      <section className="bg-white" data-tina-field={tinaField(rawProject) || undefined}>
+      <section className="bg-white" data-tina-field={suppressRelatedProjectsSectionQuickEdit ? undefined : tinaField(rawProject) || undefined}>
         <div className="cp-container px-4 py-[72px] md:px-8 md:py-16">
           <h2
             className="text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]"
@@ -277,24 +367,44 @@ export default function ProjectDetailPage({
           </h2>
 
           <div className="cp-hide-scrollbar mt-10 flex snap-x gap-5 overflow-x-auto md:mt-8 md:grid md:grid-cols-3 md:gap-7 md:overflow-visible">
-            {relatedProjects.map((item) => (
-              <Link
-                className="group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto"
-                data-tina-field={item.tinaField}
-                href={`/projects/${item.slug}`}
-                key={item.slug}
-              >
-                <div className="relative h-[173px] w-full overflow-hidden bg-[var(--cp-primary-100)] md:h-[330px]">
-                  <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 173px" src={item.image} variant={relatedProjectsImageVariant} />
-                </div>
-                <div className="mt-2 flex items-start justify-between gap-2 md:mt-3 md:block">
-                  <p className="min-w-0 font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
-                    {item.title}
-                  </p>
-                  <img alt="" aria-hidden className="mt-[1px] h-4 w-4 shrink-0 md:hidden" src="/library/header/nav-chevron-right.svg" />
-                </div>
-              </Link>
-            ))}
+            {relatedProjects.map((item) => {
+              const useCustomFocus = Boolean(edit && item.focusItemId && item.focusListKey);
+              const className = useCustomFocus
+                ? `group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
+                : "group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto";
+
+              return (
+                <Link
+                  className={className}
+                  data-tina-field={useCustomFocus ? undefined : item.tinaField}
+                  href={`/projects/${item.slug}`}
+                  key={item.slug}
+                  onClick={(event) => {
+                    if (!edit) return;
+
+                    event.preventDefault();
+
+                    if (!useCustomFocus || !item.focusListKey) return;
+
+                    focusTinaSidebarListItem({
+                      rootFieldName: projectFieldName,
+                      listKey: item.focusListKey,
+                      itemId: item.focusItemId,
+                    });
+                  }}
+                >
+                  <div className="relative h-[173px] w-full overflow-hidden bg-[var(--cp-primary-100)] md:h-[330px]">
+                    <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 173px" src={item.image} variant={relatedProjectsImageVariant} />
+                  </div>
+                  <div className="mt-2 flex items-start justify-between gap-2 md:mt-3 md:block">
+                    <p className="min-w-0 font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
+                      {item.title}
+                    </p>
+                    <img alt="" aria-hidden className="mt-[1px] h-4 w-4 shrink-0 md:hidden" src="/library/header/nav-chevron-right.svg" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
 
           <div className="mt-10 flex justify-center md:mt-8">

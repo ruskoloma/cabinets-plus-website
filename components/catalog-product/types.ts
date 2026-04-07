@@ -5,6 +5,7 @@ export interface ProductGalleryItemViewModel {
   previewFile: string;
   alt: string;
   tinaField?: string;
+  focusMediaItemId?: string;
 }
 
 export interface ProductTechnicalDetailViewModel {
@@ -22,6 +23,7 @@ export interface ProductProjectCardItem {
   selectionTinaField?: string;
   imageTinaField?: string;
   titleTinaField?: string;
+  focusItemId?: string;
 }
 
 export interface ProductRelatedCardItem {
@@ -30,4 +32,5 @@ export interface ProductRelatedCardItem {
   code?: string;
   image?: string;
   tinaField?: string;
+  focusItemId?: string;
 }

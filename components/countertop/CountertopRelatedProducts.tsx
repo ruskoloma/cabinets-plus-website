@@ -2,6 +2,10 @@
 
 import { tinaField } from "tinacms/dist/react";
 import ProductRelatedProducts from "@/components/catalog-product/ProductRelatedProducts";
+import {
+  getCountertopReferenceFocusItemId,
+  TINA_LIST_KEY_COUNTERTOP_RELATED_PRODUCTS,
+} from "@/lib/tina-list-focus";
 import type { CountertopRelatedItem } from "./types";
 
 interface CountertopRelatedProductsProps {
@@ -30,10 +34,13 @@ export default function CountertopRelatedProducts({
           name: item.name,
           code: item.code,
           image: item.image,
+          focusItemId: getCountertopReferenceFocusItemId(item.relation?.product),
           tinaField: relationRecord ? tinaField(relationRecord, "product") || undefined : undefined,
         };
       })}
-      sectionTinaField={sectionTinaField}
+      focusListKey={TINA_LIST_KEY_COUNTERTOP_RELATED_PRODUCTS}
+      focusRootFieldName={sectionTinaField}
+      sectionTinaField={undefined}
       title={title}
       titleTinaField={titleTinaField}
     />

@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useEditState } from "tinacms/dist/react";
 import { getImageVariantUrl } from "@/lib/image-variants";
 import FillImage from "@/components/ui/FillImage";
 import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
+import { TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME } from "@/lib/tina-list-focus";
+import { focusTinaSidebarMediaItem } from "@/lib/tina-media-focus";
 import type { ProductGalleryItemViewModel } from "./types";
 
 interface ProductMediaGalleryProps {
@@ -13,6 +16,7 @@ interface ProductMediaGalleryProps {
   thumbImageSizeChoice?: string | null;
   mainImageSizeChoice?: string | null;
   lightboxImageSizeChoice?: string | null;
+  focusRootFieldName?: string;
 }
 
 function ExpandIcon() {
@@ -50,7 +54,9 @@ export default function ProductMediaGallery({
   thumbImageSizeChoice,
   mainImageSizeChoice,
   lightboxImageSizeChoice,
+  focusRootFieldName,
 }: ProductMediaGalleryProps) {
+  const { edit } = useEditState();
   const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [frameSize, setFrameSize] = useState(0);
@@ -154,7 +160,18 @@ export default function ProductMediaGallery({
 
   if (!activeItem) return null;
 
-  const openLightbox = () => setLightboxOpen(true);
+  const activeItemUsesCustomFocus = Boolean(edit && activeItem.focusMediaItemId);
+  const openLightbox = () => {
+    if (activeItemUsesCustomFocus) {
+      focusTinaSidebarMediaItem({
+        rootFieldName: focusRootFieldName,
+        mediaFile: activeItem.file,
+      });
+      return;
+    }
+
+    setLightboxOpen(true);
+  };
 
   return (
     <>
@@ -162,14 +179,27 @@ export default function ProductMediaGallery({
         <div className="cp-hide-scrollbar hidden flex-shrink-0 gap-4 overflow-x-auto pb-1 lg:flex lg:h-[557px] lg:w-fit lg:flex-col lg:items-start lg:gap-[29px] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0">
           {items.map((item, index) => {
             const isActive = activeItem.id === item.id;
+            const useCustomFocus = Boolean(edit && item.focusMediaItemId);
+            const buttonClassName = useCustomFocus
+              ? `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"} ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
+              : `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"}`;
 
             return (
               <button
                 aria-label={`Show ${item.kind === "video" ? "video" : "image"} ${index + 1}`}
-                className={`relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"}`}
-                data-tina-field={item.tinaField}
+                className={buttonClassName}
+                data-tina-field={useCustomFocus ? undefined : item.tinaField}
                 key={item.id}
-                onClick={() => setActiveId(item.id)}
+                onClick={() => {
+                  setActiveId(item.id);
+
+                  if (!useCustomFocus) return;
+
+                  focusTinaSidebarMediaItem({
+                    rootFieldName: focusRootFieldName,
+                    mediaFile: item.file,
+                  });
+                }}
                 type="button"
               >
                 <FillImage alt="" aria-hidden className="object-cover" sizes="90px" src={item.previewFile} variant={thumbImageVariant} />
@@ -188,7 +218,11 @@ export default function ProductMediaGallery({
 
         <button
           aria-label={activeItem.kind === "video" ? `Open video for ${productName}` : `Expand image for ${productName}`}
-          className="group relative block h-auto w-full max-w-[557px] overflow-hidden bg-[#fafafa] text-left lg:h-[557px] lg:w-[557px] lg:max-w-none lg:shrink-0"
+          className={
+            activeItemUsesCustomFocus
+              ? `group relative block h-auto w-full max-w-[557px] overflow-hidden bg-[#fafafa] text-left lg:h-[557px] lg:w-[557px] lg:max-w-none lg:shrink-0 ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
+              : "group relative block h-auto w-full max-w-[557px] overflow-hidden bg-[#fafafa] text-left lg:h-[557px] lg:w-[557px] lg:max-w-none lg:shrink-0"
+          }
           onClick={openLightbox}
           type="button"
         >
@@ -222,7 +256,7 @@ export default function ProductMediaGallery({
                     <FillImage
                       alt={activeItem.alt}
                       className="object-contain object-center"
-                      data-tina-field={activeItem.tinaField}
+                      data-tina-field={activeItemUsesCustomFocus ? undefined : activeItem.tinaField}
                       sizes="(min-width: 1024px) 557px, 100vw"
                       src={activeItem.previewFile}
                       variant={mainImageVariant}

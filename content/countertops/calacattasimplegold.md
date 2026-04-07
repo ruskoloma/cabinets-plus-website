@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-whitetail-lane.md
   - project: content/projects/black-island-project-at-the-art-house.md
+relatedProducts:
+  - product: content/countertops/calacattaelitegold.md
+  - product: content/countertops/calacattaibizagold.md
+  - product: content/countertops/calacattasimplegrey.md
+  - product: content/countertops/calacattaslimgold.md
 technicalDetails:
   - key: Thickness
     value: 3CM

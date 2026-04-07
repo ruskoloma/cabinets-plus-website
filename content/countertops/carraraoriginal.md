@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-helena-street.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
+relatedProducts:
+  - product: content/countertops/carraraclassic.md
+  - product: content/countertops/carraramist.md
+  - product: content/countertops/calacattabellagio.md
+  - product: content/countertops/calacattabrezze.md
 technicalDetails:
   - key: Thickness
     value: 3CM

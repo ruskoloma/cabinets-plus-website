@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-may-ella-loop.md
+relatedProducts:
+  - product: content/countertops/simplepurewhite.md
+  - product: content/countertops/simplewhitelaza.md
+  - product: content/countertops/calacattasimplegold.md
+  - product: content/countertops/calacattasimplegrey.md
 technicalDetails:
   - key: Thickness
     value: 3CM

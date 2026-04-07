@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/black-island-project-at-the-art-house.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
+relatedProducts:
+  - product: content/countertops/coastalwhite.md
+  - product: content/countertops/calacattabellagio.md
+  - product: content/countertops/calacattabrezze.md
+  - product: content/countertops/calacattadays.md
 technicalDetails:
   - key: Thickness
     value: 3CM

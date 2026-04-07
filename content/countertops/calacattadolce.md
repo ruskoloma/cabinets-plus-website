@@ -2,24 +2,7 @@
 published: true
 name: Calacatta Dolce
 code: CalacattaDolce
-slug: calacattadolce
 countertopType: ''
-description: >-
-  Calacatta Dolce presents a soft white background with delicate light gray
-  veining and subtle warm taupe shading dispersed across the surface. Broad,
-  organic vein patterns create gentle flowing movement, while the low-contrast
-  interplay keeps the look airy and refined. The overall design character feels
-  elegant, understated, and quietly contemporary with a serene visual rhythm.
-
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/3648-calacatta-dolce-1.jpg
-relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-whitetail-lane.md
-  - project: content/projects/black-island-project-at-the-art-house.md
 technicalDetails:
   - key: Thickness
     value: 3CM
@@ -29,9 +12,13 @@ technicalDetails:
     value: in-stock
     unit: ''
     order: 6
+description: |-
+  Calacatta Dolce presents a soft white background with delicate light gray veining and subtle warm taupe shading dispersed across the surface. Broad, organic vein patterns create gentle flowing movement, while the low-contrast interplay keeps the look airy and refined. The overall design character feels elegant, understated, and quietly contemporary with a serene visual rhythm.
+
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/3648-calacatta-dolce-1.jpg'
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/3648-calacatta-dolce-1.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/3648-calacatta-dolce-1.jpg'
     kind: image
     mimeType: image/jpeg
     isPrimary: true
@@ -39,8 +26,7 @@ media:
     altText: Calacatta Dolce
     description: ''
     sourceId: 3648
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/3667-calacatta-dolce.mp4
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/3667-calacatta-dolce.mp4'
     kind: video
     mimeType: video/mp4
     isPrimary: false
@@ -48,7 +34,17 @@ media:
     altText: ''
     description: ''
     sourceId: 3667
+relatedProjects:
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-whitetail-lane.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+relatedProducts:
+  - product: content/countertops/calacattabellagio.md
+  - product: content/countertops/calacattabrezze.md
+  - product: content/countertops/calacattadays.md
+  - product: content/countertops/calacattaelitegold.md
 sourceId: 1726
-sourceUpdatedAt: '2025-09-18T18:25:09.275Z'
+sourceUpdatedAt: 2025-09-18T18:25:09.275Z
+slug: calacattadolce
 ---
 

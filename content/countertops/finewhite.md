@@ -20,6 +20,11 @@ relatedProjects:
   - project: content/projects/residence-on-helena-street.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
+relatedProducts:
+  - product: content/countertops/coastalwhite.md
+  - product: content/countertops/rockywhite.md
+  - product: content/countertops/rockywhitesparkle.md
+  - product: content/countertops/simplepurewhite.md
 technicalDetails:
   - key: Thickness
     value: 3CM
