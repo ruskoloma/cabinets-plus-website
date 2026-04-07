@@ -112,7 +112,7 @@ countertopProducts:
   - countertop: content/countertops/simplepurewhite.md
 relatedProjects:
   - project: content/projects/residence-on-mercy.md
-  - project: content/projects/residence-on-vera-crest-drive.md
+  - project: content/projects/black-island-project-at-the-art-house.md
   - project: content/projects/residence-on-madison-road.md
 slug: stone-bathroom-project
 address: Brittany Johnson
