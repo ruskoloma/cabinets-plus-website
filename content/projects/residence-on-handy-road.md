@@ -134,8 +134,8 @@ cabinetProducts:
 countertopProducts:
   - countertop: content/countertops/calacattabrezze.md
 relatedProjects:
-  - project: content/projects/residence-on-toni-rae.md
-  - project: content/projects/residence-on-addison-street.md
+  - project: content/projects/residence-on-whitetail-lane.md
+  - project: content/projects/residence-on-jacobs-road.md
   - project: content/projects/residence-on-villier-road.md
 slug: residence-on-handy-road
 address: '5010 E Handy Rd Colbert, WA 99005, USA'
