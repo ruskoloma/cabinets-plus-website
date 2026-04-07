@@ -161,7 +161,7 @@ media:
     label: Laundry with timber cabinets
     description: 'Residence on Harmony Road featuring laundry with timber cabinets, laundry, timber cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/swu.md
+  - cabinet: content/cabinets/lsw.md
   - cabinet: content/cabinets/eson.md
 countertopProducts:
   - countertop: content/countertops/calacattabrezze.md
