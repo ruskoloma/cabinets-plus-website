@@ -235,7 +235,7 @@ countertopProducts:
   - countertop: content/countertops/carraraoriginal.md
   - countertop: ''
 relatedProjects:
-  - project: content/projects/two-tone-residence-on-locust-road.md
+  - project: content/projects/residence-on-harmony-road.md
   - project: content/projects/residence-on-vera-crest-drive.md
   - project: content/projects/residence-on-redemption-rock-road.md
 slug: residence-on-peone-road
@@ -244,6 +244,9 @@ notes: |-
   Old Strapi slug: modern-natural-light-home
   Imported labels: modern design, natural wood, large island, ambient lighting
   Old project title: Modern Two-Tone Kitchen and Bath Cabinetry
+
+  Flooring - Lions Comfort Height, Country Aura
+  Countertop - Black Pearl Granite
 sourceId: 41
 sourceUpdatedAt: 2025-07-29T21:33:42.465Z
 ---
