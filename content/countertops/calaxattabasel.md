@@ -13,7 +13,7 @@ technicalDetails:
     unit: ''
     order: 6
 description: |-
-  Calaxatta Basel presents a soft white to very light gray palette with delicate, wispy gray veining that drifts diagonally across the surface. The movement is gentle and fluid, creating a low-contrast, airy appearance. Its overall design character feels understated, refined, and serene, with subtle patterning that adds quiet visual texture.
+  Calacatta Basel presents a soft white to very light gray palette with delicate, wispy gray veining that drifts diagonally across the surface. The movement is gentle and fluid, creating a low-contrast, airy appearance. Its overall design character feels understated, refined, and serene, with subtle patterning that adds quiet visual texture.
 
   This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
 picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3654-calaxatta-basel-1.jpg'
