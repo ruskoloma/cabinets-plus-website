@@ -1,5 +1,4 @@
 ---
-title: Two-Tone Residence on Locust Road
 primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3592-dsc09755.jpg'
 published: true
 description: 'Bright, modern cabinetry pairs crisp white shaker uppers with warm wood-tone base cabinets and a matching waterfall-style island. Clean quartz surfaces, a white tile backsplash, matte black plumbing fixtures, and stainless appliances create a fresh, high-contrast look. The project also carries the same warm wood cabinetry into the bath with a double vanity, black-framed mirrors, and streamlined hardware for a cohesive contemporary finish.'
@@ -32,19 +31,6 @@ media:
     countertop: Quartz
     label: Two-tone shaker kitchen
     description: 'Two-Tone Residence on Locust Road featuring two-tone shaker kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3596-dsc09752.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-    cabinetStains: []
-    countertop: Quartz
-    label: Two-tone shaker kitchen
-    description: 'Two-Tone Residence on Locust Road featuring two-tone shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3595-dsc09773.jpg'
     roomPriority: false
     paintPriority: false
@@ -86,20 +72,6 @@ media:
     countertop: Quartz
     label: Two-tone shaker kitchen
     description: 'Two-Tone Residence on Locust Road featuring two-tone shaker kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3591-dsc09746.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Two-tone shaker kitchen
-    description: 'Two-Tone Residence on Locust Road featuring two-tone shaker kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3590-dsc09749.jpg'
     roomPriority: false
     paintPriority: false
@@ -126,7 +98,7 @@ media:
     label: Tall stained cabinet
     description: 'Two-Tone Residence on Locust Road featuring tall stained cabinet, laundry.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3588-dsc09875.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
