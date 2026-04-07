@@ -194,8 +194,8 @@ media:
     label: Two-tone laundry cabinetry
     description: 'Two-Tone Residence on Locust Road featuring two-tone laundry cabinetry, laundry, white + timber cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/swu.md
-  - cabinet: content/cabinets/osn.md
+  - cabinet: content/cabinets/awb.md
+  - cabinet: content/cabinets/atb.md
 countertopProducts:
   - countertop: content/countertops/calacattasimplegold.md
 relatedProjects:
