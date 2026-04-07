@@ -738,17 +738,21 @@ media:
     description: 'Residence on Honeycomb featuring light wood vanity, bathroom, timber cabinetry, quartz surfaces.'
 cabinetProducts:
   - cabinet: content/cabinets/swoa.md
-  - {}
-  - {}
+  - cabinet: content/cabinets/sdwh.md
+  - cabinet: content/cabinets/ssgh.md
+  - cabinet: content/cabinets/mbs.md
 relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-may-ella-loop.md
-  - project: content/projects/restaurant-project.md
+  - project: content/projects/residence-on-villier-road.md
 slug: residence-on-honeycomb
 address: 11604 E Honeycomb
 notes: |-
   Old Strapi slug: modern-home-interior-light-wood
   Old project title: Bright Open-Concept Interior with Light Wood Accents
+
+  Flooring - Prima Floor (royal oak)
+  Countertop - Calacatta Mia
 sourceId: 53
 sourceUpdatedAt: 2025-09-18T20:57:28.714Z
 ---
