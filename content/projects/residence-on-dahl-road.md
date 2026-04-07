@@ -32,7 +32,7 @@ media:
     label: Blue and wood kitchen
     description: 'Residence on Dahl Road featuring blue and wood kitchen, kitchen, blue + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3629-dsc00389.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
@@ -40,8 +40,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - black
-    cabinetStains:
-      - mocha stain
+      - timber
+    cabinetStains: []
     countertop: Quartz
     label: Wood kitchen with island
     description: 'Residence on Dahl Road featuring wood kitchen with island, kitchen, black cabinetry, mocha stain, quartz surfaces.'
@@ -112,7 +112,7 @@ media:
     label: Bathroom vanity and tub
     description: 'Residence on Dahl Road featuring bathroom vanity and tub, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3628-dsc00377.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
