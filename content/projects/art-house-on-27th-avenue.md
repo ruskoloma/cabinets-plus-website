@@ -1,7 +1,7 @@
 ---
-title: Art House on 27th Avenue
 primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3686-dsc00067.jpg'
 published: true
+title: Residence on 27th Avenue
 description: 'A bright contemporary interior centered on a spacious kitchen with light wood shaker cabinetry, crisp white countertops, and a dramatic waterfall island. Matte black hardware, faucet, stools, and linear pendant create clean contrast, while stainless steel appliances and glossy white backsplash tile keep the palette fresh. The project also carries the same cabinetry language into a double vanity, giving the home a cohesive modern look.'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg'
