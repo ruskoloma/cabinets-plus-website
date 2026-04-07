@@ -1,9 +1,23 @@
 ---
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-modern-kitchen-warm-wood-island/3957-dsc05668.jpg'
 published: true
 title: Residence on Geiger
 description: 'Airy open-concept interiors showcase a refined modern kitchen with a large waterfall island, white upper cabinetry, warm wood lower cabinets, and subtle stone surfaces. Oversized windows, double-height ceilings, and integrated lighting create a luminous backdrop, while sculptural pendants, open shelving, and clean hardware add tailored contemporary detail. The connected dining and living areas reinforce a calm, natural palette with crisp contrast and inviting functionality.'
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-modern-kitchen-warm-wood-island/3957-dsc05668.jpg'
 media:
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-modern-kitchen-warm-wood-island/3909-dsc05319.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - white
+      - timber
+    cabinetStains: []
+    countertop: Quartz
+    label: White kitchen wood island
+    description: 'Residence on Geiger featuring white kitchen wood island, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-modern-kitchen-warm-wood-island/3957-dsc05668.jpg'
     roomPriority: false
     paintPriority: false
@@ -30,20 +44,6 @@ media:
     countertop: Quartz
     label: Bright kitchen with island
     description: 'Residence on Geiger featuring bright kitchen with island, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-modern-kitchen-warm-wood-island/3909-dsc05319.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: White kitchen wood island
-    description: 'Residence on Geiger featuring white kitchen wood island, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-modern-kitchen-warm-wood-island/3912-dsc05326.jpg'
     roomPriority: false
     paintPriority: false
