@@ -529,7 +529,7 @@ type MediaFieldRendererProps = {
     value?: unknown;
   };
   field?: {
-    label?: string;
+    label?: string | boolean;
   };
 } & Record<string, unknown>;
 
@@ -573,7 +573,7 @@ function TinaVariantPreviewImage({
 
 function renderLargeMediaPreviewField(props: MediaFieldRendererProps) {
   const src = typeof props?.input?.value === "string" ? props.input.value.trim() : "";
-  const alt = props?.field?.label || "Media preview";
+  const alt = typeof props?.field?.label === "string" ? props.field.label : "Media preview";
 
   return React.createElement(
     "div",
@@ -815,6 +815,14 @@ function mediaItemProps(item?: string | { file?: string; mimeType?: string; kind
     style: { minHeight: "148px" },
   };
 }
+
+const mediaGroupItemProps = ((item: Record<string, unknown>) =>
+  mediaItemProps(item as { file?: string; mimeType?: string; kind?: string })) as unknown as (
+  item: object,
+) => {
+  key?: string;
+  label?: string;
+};
 
 function homepageSectionImageFields() {
   return [
@@ -1576,9 +1584,7 @@ export default defineConfig({
             label: "Media",
             list: true,
             ui: {
-              itemProps: (item?: string | { file?: string; mimeType?: string; kind?: string }) => ({
-                ...mediaItemProps(item),
-              }),
+              itemProps: mediaGroupItemProps,
             },
             fields: [
               { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
@@ -1692,7 +1698,7 @@ export default defineConfig({
             label: "Media",
             list: true,
             ui: {
-              itemProps: (item: any) => mediaItemProps(item) as any,
+              itemProps: mediaGroupItemProps,
             },
             fields: [
               { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
@@ -1782,7 +1788,7 @@ export default defineConfig({
             label: "Media",
             list: true,
             ui: {
-              itemProps: (item: any) => mediaItemProps(item) as any,
+              itemProps: mediaGroupItemProps,
             },
             fields: [
               { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
