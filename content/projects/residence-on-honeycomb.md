@@ -43,7 +43,7 @@ media:
     label: Bathroom timber vanity
     description: 'Residence on Honeycomb featuring bathroom timber vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3772-4r9a4099.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
@@ -737,7 +737,9 @@ media:
     label: Light wood vanity
     description: 'Residence on Honeycomb featuring light wood vanity, bathroom, timber cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/swu.md
+  - cabinet: content/cabinets/swoa.md
+  - {}
+  - {}
 relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-may-ella-loop.md
