@@ -112,8 +112,8 @@ media:
     label: White double vanity
     description: 'Residence on Bush Drive featuring white double vanity, bathroom, white cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/swu.md
-  - cabinet: content/cabinets/osn.md
+  - cabinet: content/cabinets/awb.md
+  - cabinet: content/cabinets/atb.md
 countertopProducts:
   - countertop: content/countertops/calaxattabasel.md
 relatedProjects:
