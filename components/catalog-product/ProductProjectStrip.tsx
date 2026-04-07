@@ -9,6 +9,7 @@ import {
   focusTinaSidebarListItem,
   TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME,
 } from "@/lib/tina-list-focus";
+import { useTinaQuickEditEnabled } from "@/lib/use-tina-quick-edit-enabled";
 import type { ProductProjectCardItem } from "./types";
 
 interface ProductProjectStripProps {
@@ -35,8 +36,9 @@ export default function ProductProjectStrip({
   focusRootFieldName,
 }: ProductProjectStripProps) {
   const { edit } = useEditState();
+  const quickEditEnabled = useTinaQuickEditEnabled();
   const projectImageVariant = resolveConfiguredImageVariant(imageSizeChoice, "card");
-  const canUseCustomFocus = Boolean(edit && focusListKey);
+  const canUseCustomFocus = Boolean(edit && quickEditEnabled && focusListKey);
   const suppressSectionQuickEdit = canUseCustomFocus && items.some((item) => Boolean(item.focusItemId));
   if (!items.length) return null;
 

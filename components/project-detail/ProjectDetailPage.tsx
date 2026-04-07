@@ -13,6 +13,7 @@ import {
   TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME,
 } from "@/lib/tina-list-focus";
 import { getTinaSidebarMediaItemId, TINA_FOCUS_PROJECT_MEDIA_MESSAGE } from "@/lib/tina-media-focus";
+import { useTinaQuickEditEnabled } from "@/lib/use-tina-quick-edit-enabled";
 import {
   getProjectDescription,
   getProjectGalleryAlt,
@@ -67,6 +68,7 @@ function MaterialCard({
   focusItemId,
   focusListKey,
   focusRootFieldName,
+  quickEditEnabled,
 }: {
   title: string;
   subtitle?: string;
@@ -77,9 +79,10 @@ function MaterialCard({
   focusItemId?: string;
   focusListKey?: string;
   focusRootFieldName?: string;
+  quickEditEnabled: boolean;
 }) {
   const { edit } = useEditState();
-  const useCustomFocus = Boolean(edit && focusListKey && focusItemId);
+  const useCustomFocus = Boolean(edit && quickEditEnabled && focusListKey && focusItemId);
   const className = useCustomFocus
     ? `grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6 transition-opacity hover:opacity-80 ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
     : "grid grid-cols-[80px_minmax(0,1fr)] items-center gap-6 transition-opacity hover:opacity-80";
@@ -152,11 +155,13 @@ function MaterialGroup({
   items,
   imageVariant,
   focusRootFieldName,
+  quickEditEnabled,
 }: {
   label: string;
   items: ProjectDetailPageProps["materialCards"];
   imageVariant?: ImageVariantPreset;
   focusRootFieldName?: string;
+  quickEditEnabled: boolean;
 }) {
   return (
     <div className="flex flex-col gap-6 md:grid md:grid-cols-[180px_282px] md:items-stretch md:gap-x-[210px] md:gap-y-0">
@@ -178,6 +183,7 @@ function MaterialGroup({
             image={card.image}
             imageVariant={imageVariant}
             key={`${card.kind}-${card.title}-${index}`}
+            quickEditEnabled={quickEditEnabled}
             subtitle={card.subtitle}
             tinaField={card.tinaField}
             title={card.title}
@@ -204,6 +210,7 @@ export default function ProjectDetailPage({
   relatedProjectsImageSizeChoice,
 }: ProjectDetailPageProps) {
   const { edit } = useEditState();
+  const quickEditEnabled = useTinaQuickEditEnabled();
   const currentSlug = getProjectSlug(project, "project");
   const heading = getProjectHeading(project, currentSlug);
   const description = getProjectDescription(project);
@@ -240,8 +247,8 @@ export default function ProjectDetailPage({
 
     return groups;
   }, [materialCards]);
-  const suppressMaterialsSectionQuickEdit = edit && materialCards.some((card) => Boolean(card.focusItemId && card.focusListKey));
-  const suppressRelatedProjectsSectionQuickEdit = edit && relatedProjects.some((item) => Boolean(item.focusItemId && item.focusListKey));
+  const suppressMaterialsSectionQuickEdit = quickEditEnabled && materialCards.some((card) => Boolean(card.focusItemId && card.focusListKey));
+  const suppressRelatedProjectsSectionQuickEdit = quickEditEnabled && relatedProjects.some((item) => Boolean(item.focusItemId && item.focusListKey));
 
   useEffect(() => {
     if (activeGalleryIndex === null) return undefined;
@@ -298,7 +305,7 @@ export default function ProjectDetailPage({
               {galleryItems.map((item, index) => {
                 const galleryField = getProjectGalleryField(project, item, tinaField);
                 const galleryFocusField = getProjectGalleryFocusField(project, item, tinaField);
-                const useCustomMediaFocus = edit && item.sourceType === "media";
+                const useCustomMediaFocus = edit && quickEditEnabled && item.sourceType === "media";
                 const buttonClassName = useCustomMediaFocus
                   ? "relative aspect-square overflow-hidden bg-[var(--cp-primary-100)] outline outline-2 outline-dashed outline-[rgba(34,150,254,0.45)] transition-[outline-color,box-shadow] duration-150 hover:outline-[rgba(34,150,254,1)] hover:shadow-[inset_0_0_0_9999px_rgba(34,150,254,0.28)]"
                   : "relative aspect-square overflow-hidden bg-[var(--cp-primary-100)]";
@@ -348,6 +355,7 @@ export default function ProjectDetailPage({
                       items={group.items}
                       key={group.kind}
                       label={group.label}
+                      quickEditEnabled={quickEditEnabled}
                     />
                   ))}
                 </div>
@@ -368,7 +376,7 @@ export default function ProjectDetailPage({
 
           <div className="cp-hide-scrollbar mt-10 flex snap-x gap-5 overflow-x-auto md:mt-8 md:grid md:grid-cols-3 md:gap-7 md:overflow-visible">
             {relatedProjects.map((item) => {
-              const useCustomFocus = Boolean(edit && item.focusItemId && item.focusListKey);
+              const useCustomFocus = Boolean(edit && quickEditEnabled && item.focusItemId && item.focusListKey);
               const className = useCustomFocus
                 ? `group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
                 : "group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto";

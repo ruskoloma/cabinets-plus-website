@@ -8,6 +8,7 @@ import {
   focusTinaSidebarListItem,
   TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME,
 } from "@/lib/tina-list-focus";
+import { useTinaQuickEditEnabled } from "@/lib/use-tina-quick-edit-enabled";
 import type { ProductRelatedCardItem } from "./types";
 
 interface ProductRelatedProductsProps {
@@ -35,8 +36,9 @@ export default function ProductRelatedProducts({
   focusRootFieldName,
 }: ProductRelatedProductsProps) {
   const { edit } = useEditState();
+  const quickEditEnabled = useTinaQuickEditEnabled();
   const relatedImageVariant = resolveConfiguredImageVariant(imageSizeChoice, "card");
-  const canUseCustomFocus = Boolean(edit && focusListKey);
+  const canUseCustomFocus = Boolean(edit && quickEditEnabled && focusListKey);
   const suppressSectionQuickEdit = canUseCustomFocus && items.some((item) => Boolean(item.focusItemId));
   if (!items.length) return null;
 

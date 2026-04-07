@@ -7,6 +7,7 @@ import FillImage from "@/components/ui/FillImage";
 import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import { TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME } from "@/lib/tina-list-focus";
 import { focusTinaSidebarMediaItem } from "@/lib/tina-media-focus";
+import { useTinaQuickEditEnabled } from "@/lib/use-tina-quick-edit-enabled";
 import type { ProductGalleryItemViewModel } from "./types";
 
 interface ProductMediaGalleryProps {
@@ -57,6 +58,7 @@ export default function ProductMediaGallery({
   focusRootFieldName,
 }: ProductMediaGalleryProps) {
   const { edit } = useEditState();
+  const quickEditEnabled = useTinaQuickEditEnabled();
   const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [frameSize, setFrameSize] = useState(0);
@@ -160,7 +162,7 @@ export default function ProductMediaGallery({
 
   if (!activeItem) return null;
 
-  const activeItemUsesCustomFocus = Boolean(edit && activeItem.focusMediaItemId);
+  const activeItemUsesCustomFocus = Boolean(edit && quickEditEnabled && activeItem.focusMediaItemId);
   const openLightbox = () => {
     if (activeItemUsesCustomFocus) {
       focusTinaSidebarMediaItem({
@@ -179,7 +181,7 @@ export default function ProductMediaGallery({
         <div className="cp-hide-scrollbar hidden flex-shrink-0 gap-4 overflow-x-auto pb-1 lg:flex lg:h-[557px] lg:w-fit lg:flex-col lg:items-start lg:gap-[29px] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0">
           {items.map((item, index) => {
             const isActive = activeItem.id === item.id;
-            const useCustomFocus = Boolean(edit && item.focusMediaItemId);
+            const useCustomFocus = Boolean(edit && quickEditEnabled && item.focusMediaItemId);
             const buttonClassName = useCustomFocus
               ? `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"} ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
               : `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"}`;
