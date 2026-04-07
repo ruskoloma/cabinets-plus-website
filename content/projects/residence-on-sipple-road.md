@@ -30,19 +30,6 @@ media:
     countertop: Quartz
     label: Gray shaker kitchen
     description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3991-dsc00206.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Kitchen
-    cabinetPaints:
-      - gray
-    cabinetStains: []
-    countertop: Quartz
-    label: Gray shaker kitchen
-    description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3993-dsc00236.jpg'
     roomPriority: false
     paintPriority: false
