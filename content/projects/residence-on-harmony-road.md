@@ -174,6 +174,8 @@ address: 26910 S HARMONY RD
 notes: |-
   Old Strapi slug: modern-residential-white-wood-interior
   Old project title: Bright Modern White Oak Interior
+
+  Countertop - Calacatta Lincoln quartz
 sourceId: 55
 sourceUpdatedAt: 2025-09-18T21:14:50.632Z
 ---
