@@ -379,9 +379,11 @@ media:
     label: Modern kitchen island
     description: 'Residence on Geiger featuring modern kitchen island, kitchen, off white + timber cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/awb.md
-  - cabinet: content/cabinets/atb.md
-  - {}
+  - cabinet: content/cabinets/sdwh.md
+  - cabinet: content/cabinets/swoa.md
+  - cabinet: content/cabinets/ssgh.md
+  - cabinet: content/cabinets/mbs.md
+  - cabinet: content/cabinets/aeb.md
 countertopProducts:
   - countertop: content/countertops/carraramist.md
 relatedProjects:
