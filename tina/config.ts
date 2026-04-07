@@ -2078,6 +2078,10 @@ export default defineConfig({
                 name: "cabinet",
                 label: "Cabinet Door",
                 collections: ["cabinet"],
+                ui: {
+                  optionComponent: renderCabinetReferenceOption,
+                  experimental___filter: filterCabinetReferenceOptions,
+                },
               },
             ],
           },
