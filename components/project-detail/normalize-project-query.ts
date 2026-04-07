@@ -141,7 +141,7 @@ function normalizeProject(value: unknown, fallbackFilename?: string): ProjectOve
     __typename: asString(record.__typename),
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
-    title: null,
+    title: asString(record.title) ?? null,
     slug: normalizedSlug || null,
     address: asString(record.address) ?? null,
     description: asString(record.description) ?? null,

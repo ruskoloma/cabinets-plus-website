@@ -11,6 +11,7 @@ export const PROJECT_LIVE_QUERY = `
       }
       ... on Project {
         __typename
+        title
         slug
         address
         description

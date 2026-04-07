@@ -327,6 +327,7 @@ function readProjectReferenceData(
   const fallbackImage = getReferenceMediaFallback(record?.media);
 
   return {
+    title: typeof record?.title === "string" ? record.title.trim() : "",
     slug: typeof record?.slug === "string" ? record.slug.trim() : "",
     previewImage: fallbackImage,
     filename: internalSys?.filename?.trim() || "",
@@ -375,7 +376,7 @@ function renderProjectReferenceOption(
   internalSys?: { filename?: string; path?: string },
 ) {
   const project = readProjectReferenceData(values, internalSys);
-  const title = resolveProjectReferenceLabel(project.slug || project.filename || project.path);
+  const title = project.title || resolveProjectReferenceLabel(project.slug || project.filename || project.path);
   const meta = project.slug || project.filename || "";
 
   return React.createElement(
@@ -950,7 +951,7 @@ function filterProjectReferenceOptions(list: Array<unknown>, searchQuery?: strin
           path: typeof internalSys?.path === "string" ? internalSys.path : undefined,
         });
         const haystack = normalizeSearchText([
-          resolveProjectReferenceLabel(project.slug || project.filename || project.path),
+          project.title,
           project.slug,
           project.filename,
           project.path,
@@ -2035,6 +2036,7 @@ export default defineConfig({
             label: "Published",
             description: "Only published projects are shown on the gallery page.",
           },
+          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
           { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
           {
             type: "object",

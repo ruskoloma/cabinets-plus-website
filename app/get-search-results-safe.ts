@@ -159,7 +159,7 @@ export async function getSearchResultsSafe(rawQuery: string): Promise<SearchResu
           const { data, content } = await readMarkdownDocument("projects", filename);
           const record = asRecord(data) || {};
           const slug = toSlug(asString(record.slug) || filename);
-          const title = humanizeSlug(slug);
+          const title = asString(record.title)?.trim() || humanizeSlug(slug);
           const media = Array.isArray(record.media) ? record.media : [];
           const firstMedia = media.find((item) => {
             const mediaRecord = asRecord(item);

@@ -43,6 +43,7 @@ export const GALLERY_OVERVIEW_QUERY = `
           }
           ... on Project {
             published
+            title
             slug
             address
             description

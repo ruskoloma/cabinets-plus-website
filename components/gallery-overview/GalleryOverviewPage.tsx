@@ -1128,7 +1128,7 @@ export default function GalleryOverviewPage({
                   image={project.previewImage}
                   imageVariant={galleryProjectCardImageVariant}
                   key={`${project.projectSlug}-${index}`}
-                  tinaFieldValue={tinaField(project.rawProject, "slug") || undefined}
+                  tinaFieldValue={tinaField(project.rawProject, "title") || undefined}
                   title={project.projectTitle}
                 />
               ))}

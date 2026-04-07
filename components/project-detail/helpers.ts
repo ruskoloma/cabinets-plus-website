@@ -72,10 +72,9 @@ function inferDoorStyleFromText(content: string, availableValues: string[]): str
 
 function getProjectSearchableText(project: ProjectOverviewItem): string {
   const media = Array.isArray(project.media) ? project.media : [];
-  const projectTitle = getProjectDisplayTitle(project);
 
   return [
-    projectTitle,
+    project.title || "",
     project.description || "",
     project.notes || "",
     ...media.map((item) => item?.label || ""),
@@ -333,7 +332,7 @@ export function getProjectSlug(project: ProjectOverviewItem, fallbackSlug: strin
 }
 
 export function getProjectHeading(project: ProjectOverviewItem, fallbackSlug: string): string {
-  return getProjectDisplayTitle(project, fallbackSlug);
+  return project.title?.trim() || getProjectDisplayTitle(project, fallbackSlug);
 }
 
 export function getProjectDescription(project: ProjectOverviewItem): string {

@@ -35,7 +35,7 @@ export async function generateMetadata(
   const defaultImage = buildProjectGallery(project)[0]?.file;
 
   return {
-    title: getProjectHeading(project, slug),
+    title: project.title || getProjectHeading(project, slug),
     description: project.description || undefined,
     openGraph: defaultImage ? { images: [{ url: defaultImage }] } : undefined,
   };

@@ -208,7 +208,7 @@ function normalizeProject(value: unknown): ProjectOverviewItem | null {
     _sys: normalizeSystemInfo(record._sys, fallbackFilename),
     id: asString(record.id),
     published: asBoolean(record.published) ?? null,
-    title: null,
+    title: asString(record.title) ?? null,
     slug: toSlug(asString(record.slug) || fallbackFilename || ""),
     address: asString(record.address) ?? null,
     description: asString(record.description) ?? null,
@@ -284,7 +284,7 @@ export function buildGalleryProjects(data: GalleryOverviewDataShape): GalleryPro
     .map((project) => {
       const rawProject = project as unknown as Record<string, unknown>;
       const projectSlug = toSlug(project.slug || project._sys?.filename || "");
-      const projectTitle = projectSlug ? toLabel(projectSlug) : "Project";
+      const projectTitle = (project.title || (projectSlug ? toLabel(projectSlug) : "Project")).trim();
       const updatedAt = project.sourceUpdatedAt ? Date.parse(project.sourceUpdatedAt) : Number.NaN;
       const mediaItems = (project.media || []).filter((item): item is ProjectMediaItem => Boolean(item && item.file));
       const normalizedMedia: GalleryProjectMediaData[] = mediaItems.map((media, index) => ({
