@@ -4,18 +4,19 @@ title: Residence on Honeycomb
 description: 'A clean, airy interior defined by white cabinetry, light oak flooring, and exposed ceiling beams. The open-concept living, dining, and kitchen areas create a seamless flow, while black metal lighting adds modern contrast. Soft neutral furnishings and simple millwork reinforce a warm contemporary aesthetic. The overall design feels spacious, calm, and highly livable, balancing crisp finishes with natural wood tones for a refined everyday setting.'
 primaryPicture: ''
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3738-4r9a2348.jpg'
-    roomPriority: true
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3819-4r9a4689.jpg'
+    roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
-    room: Other
-    cabinetPaints: []
+    flooring: false
+    room: Kitchen
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: Granite
-    label: Outdoor kitchen area
-    description: 'Residence on Honeycomb featuring outdoor kitchen area, other, granite surfaces.'
+    countertop: Quartz
+    label: Black kitchen cabinets
+    description: 'Residence on Honeycomb featuring black kitchen cabinets, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3767-4r9a4174.jpg'
     roomPriority: false
     paintPriority: false
@@ -29,6 +30,18 @@ media:
     countertop: Quartz
     label: Light wood bathroom vanity
     description: 'Residence on Honeycomb featuring light wood bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3738-4r9a2348.jpg'
+    roomPriority: true
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Other
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: Granite
+    label: Outdoor kitchen area
+    description: 'Residence on Honeycomb featuring outdoor kitchen area, other, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3772-4r9a4099.jpg'
     roomPriority: true
     paintPriority: false
@@ -225,19 +238,6 @@ media:
     countertop: Quartz
     label: White and timber kitchen
     description: 'Residence on Honeycomb featuring white and timber kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3819-4r9a4689.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Kitchen
-    cabinetPaints:
-      - black
-    cabinetStains: []
-    countertop: Quartz
-    label: Black kitchen cabinets
-    description: 'Residence on Honeycomb featuring black kitchen cabinets, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-open-concept-interior-light-wood-accents/3822-4r9a4724.jpg'
     roomPriority: false
     paintPriority: false
