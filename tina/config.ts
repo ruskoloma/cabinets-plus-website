@@ -2036,7 +2036,7 @@ export default defineConfig({
             label: "Published",
             description: "Only published projects are shown on the gallery page.",
           },
-          { type: "string", name: "title", label: "Title" },
+          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
           { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
           {
             type: "object",

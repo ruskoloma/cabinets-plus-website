@@ -1,6 +1,7 @@
 ---
 primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3592-dsc09755.jpg'
 published: true
+title: Two-Tone Shaker Kitchen and Bath Cabinetry
 description: 'Bright, modern cabinetry pairs crisp white shaker uppers with warm wood-tone base cabinets and a matching waterfall-style island. Clean quartz surfaces, a white tile backsplash, matte black plumbing fixtures, and stainless appliances create a fresh, high-contrast look. The project also carries the same warm wood cabinetry into the bath with a double vanity, black-framed mirrors, and streamlined hardware for a cohesive contemporary finish.'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/two-tone-shaker-kitchen-and-bath-cabinetry/3592-dsc09755.jpg'
@@ -184,4 +185,3 @@ notes: |
 sourceId: 45
 sourceUpdatedAt: 2025-09-12T19:33:39.023Z
 ---
-
