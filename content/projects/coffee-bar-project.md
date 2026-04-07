@@ -5,14 +5,13 @@ description: 'A contemporary coffee shop interior centered on a long custom serv
 primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-slatted-wood-coffee-bar/3707-dsc08146.jpg'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-slatted-wood-coffee-bar/3707-dsc08146.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Other
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
     countertop: Other
     label: Slatted wood coffee bar
