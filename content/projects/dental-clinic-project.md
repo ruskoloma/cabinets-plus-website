@@ -148,8 +148,8 @@ media:
 countertopProducts:
   - countertop: content/countertops/carraramist.md
 relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-peone-road.md
+  - project: content/projects/coffee-bar-project.md
+  - project: content/projects/restaurant-project.md
   - project: content/projects/residence-on-harmony-road.md
 slug: dental-clinic-project
 address: Dental Clinic
