@@ -35,7 +35,25 @@ export const CABINET_LIVE_QUERY = `
         }
         relatedProducts {
           __typename
-          product
+          product {
+            ... on Cabinet {
+              __typename
+              id
+              name
+              code
+              slug
+              doorStyle
+              paint
+              stainType
+              description
+              picture
+              _sys {
+                filename
+                basename
+                relativePath
+              }
+            }
+          }
         }
         technicalDetails {
           __typename

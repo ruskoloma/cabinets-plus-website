@@ -17,22 +17,6 @@ export const PROJECT_LIVE_QUERY = `
         description
         notes
         primaryPicture
-        relatedProjects {
-          __typename
-          project {
-            ... on Project {
-              id
-              title
-              slug
-              primaryPicture
-              _sys {
-                filename
-                basename
-                relativePath
-              }
-            }
-          }
-        }
         cabinetProducts {
           __typename
           cabinet {
@@ -84,6 +68,7 @@ export const PROJECT_LIVE_QUERY = `
         }
         sourceId
         sourceUpdatedAt
+        _values
       }
     }
   }

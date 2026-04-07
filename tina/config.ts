@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import React from "react";
 import { defineConfig, ImageField } from "tinacms";
 import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
+import { getImageVariantUrl } from "../lib/image-variants";
 import { HOMEPAGE_SECTION_IMAGE_SIZE_OPTIONS } from "../lib/homepage-image-controls";
 import { cabinetReferenceLabelsByValue } from "./cabinet-reference-options";
 import { seoFields } from "./seo-fields";
@@ -523,8 +524,56 @@ function renderCountertopReferenceOption(
   );
 }
 
-function renderLargeMediaPreviewField(props: any) {
+type MediaFieldRendererProps = {
+  input?: {
+    value?: unknown;
+  };
+  field?: {
+    label?: string;
+  };
+} & Record<string, unknown>;
+
+const TypedImageField = ImageField as React.ComponentType<Record<string, unknown>>;
+
+function TinaVariantPreviewImage({
+  alt,
+  fit,
+  src,
+}: {
+  alt: string;
+  fit: "contain" | "cover";
+  src: string;
+}) {
+  const preferredSrc = getImageVariantUrl(src, "thumb");
+  const [activeSrc, setActiveSrc] = React.useState(preferredSrc);
+
+  React.useEffect(() => {
+    setActiveSrc(preferredSrc);
+  }, [preferredSrc]);
+
+  return React.createElement("img", {
+    src: activeSrc,
+    alt,
+    onError:
+      activeSrc !== src
+        ? () => {
+            setActiveSrc(src);
+          }
+        : undefined,
+    style: {
+      display: "block",
+      width: "100%",
+      height: "100%",
+      objectFit: fit,
+      borderRadius: "6px",
+      backgroundColor: "#f9fafb",
+    },
+  });
+}
+
+function renderLargeMediaPreviewField(props: MediaFieldRendererProps) {
   const src = typeof props?.input?.value === "string" ? props.input.value.trim() : "";
+  const alt = props?.field?.label || "Media preview";
 
   return React.createElement(
     "div",
@@ -543,24 +592,27 @@ function renderLargeMediaPreviewField(props: any) {
               borderRadius: "8px",
               backgroundColor: "#ffffff",
               padding: "10px",
+              maxWidth: "560px",
             },
           },
-          React.createElement("img", {
-            src,
-            alt: props?.field?.label || "Media preview",
-            style: {
-              display: "block",
-              width: "100%",
-              maxWidth: "560px",
-              maxHeight: "360px",
-              objectFit: "contain",
-              borderRadius: "6px",
-              backgroundColor: "#f9fafb",
+          React.createElement(
+            "div",
+            {
+              style: {
+                width: "100%",
+                maxWidth: "560px",
+                height: "360px",
+              },
             },
-          }),
+            React.createElement(TinaVariantPreviewImage, {
+              src,
+              alt,
+              fit: "contain",
+            }),
+          ),
         )
       : null,
-    React.createElement(ImageField as any, props),
+    React.createElement(TypedImageField, props),
   );
 }
 
@@ -673,12 +725,12 @@ function resolveDocumentRouteSegment(document: { _sys: { filename: string } } & 
   return slug || document._sys.filename;
 }
 
-function projectMediaItemProps(item?: string | { file?: string; mimeType?: string; kind?: string }) {
+function mediaItemProps(item?: string | { file?: string; mimeType?: string; kind?: string }) {
   const file = typeof item === "string" ? item : item?.file;
   if (!file) {
     return {
       label: "Media item",
-      style: { minHeight: "176px" },
+      style: { minHeight: "148px" },
     };
   }
 
@@ -690,8 +742,77 @@ function projectMediaItemProps(item?: string | { file?: string; mimeType?: strin
     [".mp4", ".mov", ".webm", ".m4v", ".avi"].some((ext) => cleaned.endsWith(ext));
 
   return {
-    label: isVideo ? `Video: ${name}` : name,
-    style: { minHeight: "176px" },
+    label: React.createElement(
+      "div",
+      {
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: "16px",
+          minWidth: 0,
+          width: "100%",
+        },
+      },
+      React.createElement(
+        "div",
+        {
+          style: {
+            width: "180px",
+            height: "120px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            overflow: "hidden",
+            border: "1px solid #e5e7eb",
+            backgroundColor: "#f9fafb",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        },
+        isVideo
+          ? React.createElement(
+              "span",
+              {
+                style: {
+                  fontSize: "12px",
+                  fontWeight: 600,
+                  color: "#6b7280",
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
+                },
+              },
+              "Video",
+            )
+          : React.createElement(TinaVariantPreviewImage, {
+              src: file,
+              alt: name,
+              fit: "cover",
+            }),
+      ),
+      React.createElement(
+        "div",
+        {
+          style: {
+            minWidth: 0,
+            flex: 1,
+          },
+        },
+        React.createElement(
+          "div",
+          {
+            style: {
+              fontSize: "14px",
+              lineHeight: 1.3,
+              fontWeight: 600,
+              color: "#374151",
+              wordBreak: "break-word",
+            },
+          },
+          isVideo ? `Video: ${name}` : name,
+        ),
+      ),
+    ),
+    style: { minHeight: "148px" },
   };
 }
 
@@ -1456,7 +1577,7 @@ export default defineConfig({
             list: true,
             ui: {
               itemProps: (item?: string | { file?: string; mimeType?: string; kind?: string }) => ({
-                ...projectMediaItemProps(item),
+                ...mediaItemProps(item),
               }),
             },
             fields: [
@@ -1571,7 +1692,7 @@ export default defineConfig({
             label: "Media",
             list: true,
             ui: {
-              itemProps: (item: any) => projectMediaItemProps(item) as any,
+              itemProps: (item: any) => mediaItemProps(item) as any,
             },
             fields: [
               { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
@@ -1661,10 +1782,10 @@ export default defineConfig({
             label: "Media",
             list: true,
             ui: {
-              itemProps: (item: any) => projectMediaItemProps(item) as any,
+              itemProps: (item: any) => mediaItemProps(item) as any,
             },
             fields: [
-              { type: "image", name: "file", label: "File" },
+              { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
               { type: "boolean", name: "roomPriority", label: "Room Priority" },
               { type: "boolean", name: "paintPriority", label: "Paint Priority" },
               { type: "boolean", name: "stainPriority", label: "Stain Priority" },

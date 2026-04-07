@@ -33,7 +33,23 @@ export const COUNTERTOP_LIVE_QUERY = `
         }
         relatedProducts {
           __typename
-          product
+          product {
+            ... on Countertop {
+              __typename
+              id
+              name
+              code
+              slug
+              countertopType
+              description
+              picture
+              _sys {
+                filename
+                basename
+                relativePath
+              }
+            }
+          }
         }
         technicalDetails {
           __typename
