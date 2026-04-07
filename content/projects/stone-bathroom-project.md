@@ -1,7 +1,7 @@
 ---
 primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3644-dsc08329.jpg'
 published: true
-title: Rustic Stone Primary Bathroom
+title: Residence on Sassin Station Rd
 description: 'Warm wood vanities and ceiling planks bring natural texture to this spacious primary bathroom, balanced by white quartz counters, oversized mirrors, and brass hardware. Stone walls frame a freestanding soaking tub beneath large windows, while a glass shower and charcoal floor tile add clean contrast. The cabinetry features classic recessed fronts, generous drawer storage, and a built-in seated makeup area for a refined rustic look.'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3647-dsc08296.jpg'
@@ -120,7 +120,8 @@ notes: |-
   Old Strapi slug: rustic-bathroom-with-stone-wall
   Old project title: Rustic Stone Primary Bathroom
 
-  Countertop - Statuary laza
+  Countertop - Statuario Lasa
 sourceId: 48
 sourceUpdatedAt: 2025-09-12T19:32:37.746Z
 ---
+
