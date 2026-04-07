@@ -152,8 +152,8 @@ countertopProducts:
   - countertop: content/countertops/simplewhite.md
 relatedProjects:
   - project: content/projects/two-tone-residence-on-locust-road.md
-  - project: content/projects/residence-on-walnut-street.md
-  - project: content/projects/residence-on-sipple-road.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-bush-drive.md
 slug: art-house-on-27th-avenue
 address: 3828 E 27th Ave (Art house)
 notes: |-
