@@ -689,72 +689,8 @@ function projectMediaItemProps(item?: string | { file?: string; mimeType?: strin
     mimeType.toLowerCase().startsWith("video/") ||
     [".mp4", ".mov", ".webm", ".m4v", ".avi"].some((ext) => cleaned.endsWith(ext));
 
-  const preview = isVideo
-    ? React.createElement(
-        "span",
-        {
-          style: {
-            width: "240px",
-            height: "160px",
-            flexShrink: 0,
-            borderRadius: "6px",
-            border: "1px solid #e5e7eb",
-            backgroundColor: "#f9fafb",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "12px",
-            fontWeight: 700,
-            letterSpacing: "0.04em",
-            textTransform: "uppercase",
-            color: "#6b7280",
-          },
-        },
-        "Video",
-      )
-    : React.createElement("img", {
-        src: file,
-        alt: name,
-        loading: "lazy",
-        style: {
-          width: "240px",
-          height: "160px",
-          flexShrink: 0,
-          borderRadius: "6px",
-          objectFit: "cover",
-          border: "1px solid #e5e7eb",
-          backgroundColor: "#f9fafb",
-          display: "block",
-        },
-      });
-
   return {
-    label: React.createElement(
-      "span",
-      {
-        style: {
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "16px",
-          minWidth: 0,
-        },
-      },
-      preview,
-      React.createElement(
-        "span",
-        {
-          style: {
-            minWidth: 0,
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-            fontSize: "18px",
-            lineHeight: "1.35",
-          },
-        },
-        name,
-      ),
-    ),
+    label: isVideo ? `Video: ${name}` : name,
     style: { minHeight: "176px" },
   };
 }

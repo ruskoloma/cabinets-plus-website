@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { tinaField, useEditState } from "tinacms/dist/react";
@@ -178,6 +178,21 @@ function isKitchenServiceItem(item: NavChild): boolean {
   return getNavItemLookupValue(item.label, item.href).includes("kitchen");
 }
 
+function SearchParamsSync({
+  onChange,
+}: {
+  onChange: (value: string) => void;
+}) {
+  const searchParams = useSearchParams();
+  const query = (searchParams?.get("q") || "").trim();
+
+  useEffect(() => {
+    onChange(query);
+  }, [onChange, query]);
+
+  return null;
+}
+
 export default function Header({
   data,
   generalRaw,
@@ -189,9 +204,8 @@ export default function Header({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const isSearchRoute = pathname === "/search";
-  const currentSearchQuery = (searchParams?.get("q") || "").trim();
+  const [currentSearchQuery, setCurrentSearchQuery] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
@@ -406,6 +420,10 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-50 bg-white">
+      <Suspense fallback={null}>
+        <SearchParamsSync onChange={setCurrentSearchQuery} />
+      </Suspense>
+
       <div className="bg-[var(--cp-brand-neutral-100)] px-4 py-2 md:px-10">
         <div className="cp-container flex items-center justify-center gap-8 text-[14px] leading-6 text-[var(--cp-primary-500)] md:justify-end md:gap-16">
           <span className="inline-flex items-center gap-2 whitespace-nowrap" data-tina-field={tinaField(generalRaw, "phone")}>
