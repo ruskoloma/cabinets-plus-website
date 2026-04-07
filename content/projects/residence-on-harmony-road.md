@@ -176,6 +176,7 @@ notes: |-
   Old project title: Bright Modern White Oak Interior
 
   Countertop - Calacatta Lincoln quartz
+  Flooring - Lions 
 sourceId: 55
 sourceUpdatedAt: 2025-09-18T21:14:50.632Z
 ---
