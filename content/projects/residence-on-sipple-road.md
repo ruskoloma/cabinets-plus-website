@@ -202,7 +202,7 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/lsg.md
 countertopProducts:
-  - countertop: content/countertops/simplepurewhite.md
+  - countertop: content/countertops/calacattasimplegrey.md
 relatedProjects:
   - project: content/projects/residence-on-mercy.md
   - project: content/projects/residence-on-walnut-street.md
