@@ -30,6 +30,19 @@ media:
     countertop: Quartz
     label: Gray shaker kitchen
     description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3988-dsc00179.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - gray
+    cabinetStains: []
+    countertop: Quartz
+    label: Gray shaker kitchen
+    description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3989-dsc00213.jpg'
     roomPriority: false
     paintPriority: false
@@ -44,6 +57,19 @@ media:
     label: Gray shaker kitchen
     description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3990-dsc00228.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Kitchen
+    cabinetPaints:
+      - gray
+    cabinetStains: []
+    countertop: Quartz
+    label: Gray shaker kitchen
+    description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3991-dsc00206.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -82,7 +108,59 @@ media:
     countertop: Quartz
     label: Gray bathroom vanity
     description: 'Residence on Sipple Road featuring gray bathroom vanity, bathroom, gray cabinetry, quartz surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3994-dsc00231.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - gray
+    cabinetStains: []
+    countertop: Quartz
+    label: Gray shaker kitchen
+    description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3995-dsc00264.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Bathroom
+    cabinetPaints:
+      - gray
+    cabinetStains: []
+    countertop: Quartz
+    label: Gray bathroom vanity
+    description: 'Residence on Sipple Road featuring gray bathroom vanity, bathroom, gray cabinetry, quartz surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3996-dsc00150.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Kitchen
+    cabinetPaints:
+      - gray
+    cabinetStains: []
+    countertop: Quartz
+    label: Gray shaker kitchen
+    description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3997-dsc00276.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Bathroom
+    cabinetPaints:
+      - gray
+    cabinetStains: []
+    countertop: Other
+    label: Gray bathroom vanity
+    description: 'Residence on Sipple Road featuring gray bathroom vanity, bathroom, gray cabinetry, other surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/3998-dsc00298.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -108,8 +186,21 @@ media:
     countertop: Quartz
     label: Gray shaker vanity
     description: 'Residence on Sipple Road featuring gray shaker vanity, bathroom, gray cabinetry, quartz surfaces.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-gray-shaker-kitchen-and-bath-cabinetry/4001-dsc00167.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Kitchen
+    cabinetPaints:
+      - gray
+    cabinetStains: []
+    countertop: Quartz
+    label: Gray shaker kitchen
+    description: 'Residence on Sipple Road featuring gray shaker kitchen, kitchen, gray cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/sgu.md
+  - cabinet: content/cabinets/lsg.md
 countertopProducts:
   - countertop: content/countertops/simplepurewhite.md
 relatedProjects:
