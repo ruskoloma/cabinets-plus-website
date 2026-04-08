@@ -195,6 +195,10 @@ cabinetProducts:
   - cabinet: content/cabinets/awb.md
 countertopProducts:
   - countertop: content/countertops/calacattaelitegold.md
+relatedProjects:
+  - project: content/projects/residence-on-bush-drive.md
+  - project: content/projects/residence-on-dahl-road.md
+  - project: content/projects/residence-on-harmony-road.md
 slug: residence-on-beverly-drive
 address: '6926 E Beverly Dr Spokane, WA 99212, USA'
 sourceUpdatedAt: 2026-04-08T00:00:23.000Z
