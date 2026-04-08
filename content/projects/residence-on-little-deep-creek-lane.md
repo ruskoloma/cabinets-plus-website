@@ -207,7 +207,7 @@ media:
     label: double vanity bathroom
     description: 'Residence on Little Deep Creek Lane featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/21-dsc05610.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
