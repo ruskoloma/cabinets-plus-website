@@ -1,4 +1,3 @@
-import { normalizeOptionValue } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
 import { buildGalleryProjects } from "@/components/gallery-overview/normalize-gallery-overview-query";
 import type { GalleryOverviewDataShape } from "@/components/gallery-overview/types";
 import {
@@ -11,9 +10,7 @@ import {
 } from "@/lib/tina-list-focus";
 import type {
   CabinetListItem,
-  CatalogSettingsData,
   CountertopListItem,
-  ProjectFeatureSummary,
   ProjectGalleryItem,
   ProjectMaterialCardData,
   ProjectOverviewItem,
@@ -38,63 +35,9 @@ function titleCase(value: string): string {
     .join(" ");
 }
 
-function cleanList(values: Array<string | null | undefined>): string[] {
-  return values
-    .map((value) => normalizeOptionValue(value || ""))
-    .filter(Boolean)
-    .filter((value, index, list) => list.indexOf(value) === index);
-}
-
 function humanizeFileName(file: string): string {
   const trimmed = file.split("?")[0].split("/").pop() || file;
   return titleCase(trimmed.replace(/\.[a-z0-9]+$/i, "").replace(/[-_]+/g, " "));
-}
-
-function inferDoorStyleFromText(content: string, availableValues: string[]): string {
-  const normalized = normalizeOptionValue(content);
-  if (!normalized) return "";
-
-  const preferredMatches = [...availableValues].sort((left, right) => right.length - left.length);
-  for (const value of preferredMatches) {
-    if (value && normalized.includes(value)) return value;
-  }
-
-  if (normalized.includes("slab")) return "flat panel";
-  if (normalized.includes("flat panel") || normalized.includes("flat-front") || normalized.includes("flat front")) {
-    return "flat panel";
-  }
-  if (normalized.includes("slim shaker")) return "slim shaker";
-  if (normalized.includes("elegant shaker")) return "elegant shaker";
-  if (normalized.includes("shaker")) return "shaker";
-
-  return "";
-}
-
-function getProjectSearchableText(project: ProjectOverviewItem): string {
-  const media = Array.isArray(project.media) ? project.media : [];
-
-  return [
-    project.title || "",
-    project.description || "",
-    project.notes || "",
-    ...media.map((item) => item?.label || ""),
-    ...media.map((item) => item?.description || ""),
-  ].join(" ");
-}
-
-function getFeatureSummary(project: ProjectOverviewItem, catalogSettings?: CatalogSettingsData | null): ProjectFeatureSummary {
-  const mediaItems = (project.media || []).filter((item) => Boolean(item && item.file));
-  const searchableText = getProjectSearchableText(project);
-  const doorStyleValues = (catalogSettings?.doorStyles || []).map((option) => normalizeOptionValue(option.value));
-
-  return {
-    rooms: cleanList(mediaItems.map((item) => item?.room)),
-    paints: cleanList(mediaItems.flatMap((item) => item?.cabinetPaints || [])),
-    stains: cleanList(mediaItems.flatMap((item) => item?.cabinetStains || [])),
-    countertops: cleanList(mediaItems.map((item) => item?.countertop)),
-    flooring: mediaItems.some((item) => Boolean(item?.flooring)),
-    doorStyle: inferDoorStyleFromText(searchableText, doorStyleValues),
-  };
 }
 
 function toCollectionSlug(value: string, collectionName: "cabinets" | "countertops"): string {
@@ -242,27 +185,6 @@ export function buildMaterialCards(
   return cards;
 }
 
-function buildSimilarityScore(current: ProjectFeatureSummary, candidate: ProjectFeatureSummary): number {
-  let score = 0;
-
-  for (const room of candidate.rooms) {
-    if (current.rooms.includes(room)) score += 2;
-  }
-  for (const paint of candidate.paints) {
-    if (current.paints.includes(paint)) score += 2;
-  }
-  for (const stain of candidate.stains) {
-    if (current.stains.includes(stain)) score += 2;
-  }
-  for (const countertop of candidate.countertops) {
-    if (current.countertops.includes(countertop)) score += 2;
-  }
-  if (candidate.flooring && current.flooring) score += 1;
-  if (candidate.doorStyle && candidate.doorStyle === current.doorStyle) score += 2;
-
-  return score;
-}
-
 export function buildRelatedProjectCards(
   project: ProjectOverviewItem,
   overviewData: GalleryOverviewDataShape,
@@ -273,16 +195,13 @@ export function buildRelatedProjectCards(
   const projectCards = buildGalleryProjects(overviewData);
   const projectMap = new Map(projectCards.map((item) => [item.projectSlug, item]));
   const results: ProjectRelatedCardData[] = [];
-  const used = new Set<string>();
   const rawProject = project as unknown as Record<string, unknown>;
-  const currentSummary = getFeatureSummary(project, overviewData.catalogSettings);
 
   (project.relatedProjects || []).forEach((value, index) => {
     const slug = resolveReferencedProjectSlug(value);
     const match = projectMap.get(slug);
-    if (!slug || !match || used.has(slug) || slug === currentSlug) return;
+    if (!slug || !match || results.some((item) => item.slug === slug) || slug === currentSlug) return;
 
-    used.add(slug);
     results.push({
       slug,
       title: match.projectTitle,
@@ -292,37 +211,6 @@ export function buildRelatedProjectCards(
       tinaField: tinaFieldFn(rawProject, `relatedProjects.${index}.project`) || undefined,
     });
   });
-
-  if (results.length >= limit) return results.slice(0, limit);
-
-  const candidates = projectCards
-    .filter((item) => item.projectSlug !== currentSlug && !used.has(item.projectSlug))
-    .map((item) => ({
-      item,
-      score: buildSimilarityScore(currentSummary, {
-        rooms: item.rooms,
-        paints: item.paints,
-        stains: item.stains,
-        countertops: item.countertops,
-        flooring: item.flooring,
-        doorStyle: item.doorStyle,
-      }),
-    }))
-    .filter((entry) => entry.score > 0)
-    .sort((left, right) => {
-      if (right.score !== left.score) return right.score - left.score;
-      return left.item.projectTitle.localeCompare(right.item.projectTitle);
-    });
-
-  for (const { item } of candidates) {
-    if (results.length >= limit) break;
-    used.add(item.projectSlug);
-    results.push({
-      slug: item.projectSlug,
-      title: item.projectTitle,
-      image: item.coverImage,
-    });
-  }
 
   return results.slice(0, limit);
 }

@@ -365,69 +365,71 @@ export default function ProjectDetailPage({
         </section>
       ) : null}
 
-      <section className="bg-white" data-tina-field={suppressRelatedProjectsSectionQuickEdit ? undefined : tinaField(rawProject) || undefined}>
-        <div className="cp-container px-4 py-[72px] md:px-8 md:py-16">
-          <h2
-            className="text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]"
-            data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectDetailRelatedProjectsTitle") || undefined : undefined}
-          >
-            {relatedProjectsTitleText}
-          </h2>
-
-          <div className="cp-hide-scrollbar mt-10 flex snap-x gap-5 overflow-x-auto md:mt-8 md:grid md:grid-cols-3 md:gap-7 md:overflow-visible">
-            {relatedProjects.map((item) => {
-              const useCustomFocus = Boolean(edit && quickEditEnabled && item.focusItemId && item.focusListKey);
-              const className = useCustomFocus
-                ? `group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
-                : "group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto";
-
-              return (
-                <Link
-                  className={className}
-                  data-tina-field={useCustomFocus ? undefined : item.tinaField}
-                  href={`/projects/${item.slug}`}
-                  key={item.slug}
-                  onClick={(event) => {
-                    if (!edit) return;
-
-                    event.preventDefault();
-
-                    if (!useCustomFocus || !item.focusListKey) return;
-
-                    focusTinaSidebarListItem({
-                      rootFieldName: projectFieldName,
-                      listKey: item.focusListKey,
-                      itemId: item.focusItemId,
-                    });
-                  }}
-                >
-                  <div className="relative h-[173px] w-full overflow-hidden bg-[var(--cp-primary-100)] md:h-[330px]">
-                    <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 173px" src={item.image} variant={relatedProjectsImageVariant} />
-                  </div>
-                  <div className="mt-2 flex items-start justify-between gap-2 md:mt-3 md:block">
-                    <p className="min-w-0 font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
-                      {item.title}
-                    </p>
-                    <img alt="" aria-hidden className="mt-[1px] h-4 w-4 shrink-0 md:hidden" src="/library/header/nav-chevron-right.svg" />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="mt-10 flex justify-center md:mt-8">
-            <Button
-              className="!h-12 !px-8 !text-[20px]"
-              dataTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectDetailRelatedProjectsCtaLabel") || undefined : undefined}
-              href="/gallery"
-              size="small"
-              variant="secondary"
+      {relatedProjects.length > 0 ? (
+        <section className="bg-white" data-tina-field={suppressRelatedProjectsSectionQuickEdit ? undefined : tinaField(rawProject) || undefined}>
+          <div className="cp-container px-4 py-[72px] md:px-8 md:py-16">
+            <h2
+              className="text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]"
+              data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectDetailRelatedProjectsTitle") || undefined : undefined}
             >
-              {relatedProjectsCtaText}
-            </Button>
+              {relatedProjectsTitleText}
+            </h2>
+
+            <div className="cp-hide-scrollbar mt-10 flex snap-x gap-5 overflow-x-auto md:mt-8 md:grid md:grid-cols-3 md:gap-7 md:overflow-visible">
+              {relatedProjects.map((item) => {
+                const useCustomFocus = Boolean(edit && quickEditEnabled && item.focusItemId && item.focusListKey);
+                const className = useCustomFocus
+                  ? `group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
+                  : "group block w-[173px] shrink-0 snap-start transition-opacity hover:opacity-90 md:w-auto";
+
+                return (
+                  <Link
+                    className={className}
+                    data-tina-field={useCustomFocus ? undefined : item.tinaField}
+                    href={`/projects/${item.slug}`}
+                    key={item.slug}
+                    onClick={(event) => {
+                      if (!edit) return;
+
+                      event.preventDefault();
+
+                      if (!useCustomFocus || !item.focusListKey) return;
+
+                      focusTinaSidebarListItem({
+                        rootFieldName: projectFieldName,
+                        listKey: item.focusListKey,
+                        itemId: item.focusItemId,
+                      });
+                    }}
+                  >
+                    <div className="relative h-[173px] w-full overflow-hidden bg-[var(--cp-primary-100)] md:h-[330px]">
+                      <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 33vw, 173px" src={item.image} variant={relatedProjectsImageVariant} />
+                    </div>
+                    <div className="mt-2 flex items-start justify-between gap-2 md:mt-3 md:block">
+                      <p className="min-w-0 font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
+                        {item.title}
+                      </p>
+                      <img alt="" aria-hidden className="mt-[1px] h-4 w-4 shrink-0 md:hidden" src="/library/header/nav-chevron-right.svg" />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="mt-10 flex justify-center md:mt-8">
+              <Button
+                className="!h-12 !px-8 !text-[20px]"
+                dataTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectDetailRelatedProjectsCtaLabel") || undefined : undefined}
+                href="/gallery"
+                size="small"
+                variant="secondary"
+              >
+                {relatedProjectsCtaText}
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
 
