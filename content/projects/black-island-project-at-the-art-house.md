@@ -396,6 +396,7 @@ cabinetProducts:
   - cabinet: content/cabinets/eson.md
   - cabinet: content/cabinets/esobn.md
   - cabinet: content/cabinets/esoin.md
+  - cabinet: content/cabinets/ssgh.md
 relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
   - project: content/projects/residence-on-madison-road.md
