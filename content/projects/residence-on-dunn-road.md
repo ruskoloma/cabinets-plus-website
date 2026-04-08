@@ -108,6 +108,10 @@ media:
     countertop: Other
     label: Blue kitchen island
     description: 'Residence on Dunn Road featuring blue kitchen island, kitchen, blue cabinetry, other surfaces.'
+relatedProjects:
+  - project: content/projects/residence-on-whitetail-lane.md
+  - project: content/projects/stone-bathroom-project.md
+  - project: content/projects/residence-on-long-road.md
 slug: residence-on-dunn-road
 address: 17415 N Dunn Rd Colbert WA
 notes: |-
