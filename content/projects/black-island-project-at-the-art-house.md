@@ -46,7 +46,7 @@ media:
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black cabinetry, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2948-dsc03999.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
@@ -55,7 +55,8 @@ media:
     cabinetPaints:
       - black
       - gray
-    cabinetStains: []
+    cabinetStains:
+      - mocha stain
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black + gray cabinetry, quartz surfaces.'
@@ -133,7 +134,8 @@ media:
     flooring: false
     room: Other
     cabinetPaints: []
-    cabinetStains: []
+    cabinetStains:
+      - white glaze stain
     countertop: Quartz
     label: Wood cabinetry nook
     description: 'Black Island Project at the Art House featuring wood cabinetry nook, other, quartz surfaces.'
@@ -250,7 +252,7 @@ media:
     label: Timber built-in cabinets
     description: 'Black Island Project at the Art House featuring timber built-in cabinets, other.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2976-dsc04243.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
@@ -340,7 +342,7 @@ media:
     label: Timber bathroom vanity
     description: 'Black Island Project at the Art House featuring timber bathroom vanity, bathroom, timber cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2988-dsc04301.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
@@ -396,8 +398,8 @@ cabinetProducts:
   - cabinet: content/cabinets/esoin.md
 relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
-  - project: content/projects/residence-on-addison-street.md
-  - project: content/projects/residence-on-walnut-street.md
+  - project: content/projects/residence-on-madison-road.md
+  - project: content/projects/stone-bathroom-project.md
 slug: black-island-project-at-the-art-house
 address: Art house
 notes: |-
