@@ -218,7 +218,18 @@ media:
     countertop: ''
     label: Built-in storage bench
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring built-in storage bench, other, mocha stain.'
+cabinetProducts:
+  - cabinet: content/cabinets/sdwa.md
+  - cabinet: content/cabinets/esomn.md
+  - cabinet: content/cabinets/sk.md
+  - cabinet: content/cabinets/lsg.md
+countertopProducts:
+  - countertop: content/countertops/cararrablackmistsuede.md
 slug: modern-transitional-kitchen-and-bath-cabinetry
+address: '6472 Shennen Ct, Nine Mile Falls, WA 99026'
+notes: |-
+  Countertops - Wisconsin White quartz, Luxo Oro quartz. 
+  Flooring - Waterwise Laminate by Mozaik
 sourceUpdatedAt: 2026-04-08T00:00:23.000Z
 ---
 
