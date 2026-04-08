@@ -225,6 +225,10 @@ cabinetProducts:
   - cabinet: content/cabinets/lsg.md
 countertopProducts:
   - countertop: content/countertops/cararrablackmistsuede.md
+relatedProjects:
+  - project: content/projects/residence-on-20th-avenue.md
+  - project: content/projects/residence-on-22nd-avenue.md
+  - project: content/projects/residence-on-ezra-avenue.md
 slug: modern-transitional-kitchen-and-bath-cabinetry
 address: '6472 Shennen Ct, Nine Mile Falls, WA 99026'
 notes: |-
