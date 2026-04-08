@@ -201,6 +201,7 @@ relatedProjects:
   - project: content/projects/residence-on-harmony-road.md
 slug: residence-on-beverly-drive
 address: '6926 E Beverly Dr Spokane, WA 99212, USA'
+notes: Flooring - Lions "forest Timber"
 sourceUpdatedAt: 2026-04-08T00:00:23.000Z
 ---
 
