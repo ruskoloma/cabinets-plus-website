@@ -255,7 +255,7 @@ media:
     description: 'Residence on Bruce Road featuring laundry room cabinets, laundry, white + black cabinetry, quartz surfaces.'
 relatedProjects:
   - project: content/projects/two-tone-residence-on-locust-road.md
-  - project: content/projects/residence-on-gerard-street.md
+  - project: content/projects/residence-on-chattaroy.md
   - project: content/projects/residence-on-villier-road.md
 slug: residence-on-bruce-road
 address: '27603 N Bruce Rd, Chattaroy, WA, 99003'
