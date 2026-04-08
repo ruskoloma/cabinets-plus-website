@@ -1,7 +1,7 @@
 ---
 primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2952-dsc04056.jpg'
 published: true
-title: Black Island Project at the Art House
+title: Residence on Honeycomb Ln
 description: 'Custom kitchen cabinetry pairs warm natural wood tones with a bold black island for a refined modern look. Glass-front towers frame the range wall, while open shelves and a full-height white tile backsplash keep the space airy. Quartz countertops, stainless appliances, a farmhouse sink, and black hardware add clean contrast and practical function throughout the open dining-connected layout.'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2954-dsc04075.jpg'
