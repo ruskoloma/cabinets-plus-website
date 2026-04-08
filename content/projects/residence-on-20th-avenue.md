@@ -57,14 +57,14 @@ media:
     label: Gray kitchen cabinets
     description: 'Residence on 20th Avenue featuring gray kitchen cabinets, kitchen, gray cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-classic-galley-kitchen-soft-gray/3370-dsc06563.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
     room: Kitchen
     cabinetPaints:
-      - gray
+      - off white
     cabinetStains: []
     countertop: Other
     label: Gray galley kitchen
@@ -159,7 +159,7 @@ media:
     label: Bathroom vanity
     description: 'Residence on 20th Avenue featuring bathroom vanity, bathroom, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-classic-galley-kitchen-soft-gray/3384-dsc06654.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
