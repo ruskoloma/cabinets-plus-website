@@ -1,0 +1,15 @@
+{
+  "breadcrumbLabel": "Flooring",
+  "technicalDetailsTitle": "Technical Details",
+  "contactButtonLabel": "Contact us",
+  "descriptionLabel": "Description",
+  "galleryThumbImageSize": "thumb",
+  "galleryMainImageSize": "feature",
+  "galleryLightboxImageSize": "full",
+  "projectsSectionTitle": "Flooring in Real Projects",
+  "projectsSectionDescription": "Explore real installations showcasing this flooring in completed spaces to see how the texture, tone, and finish work in everyday rooms.",
+  "projectsSectionImageSize": "card",
+  "relatedProductsTitle": "Related products",
+  "relatedProductsImageSize": "card",
+  "_template": "flooring"
+}

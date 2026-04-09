@@ -107,5 +107,27 @@
       "label": "Quartzite",
       "image": "/library/catalog/countertop-quartzite.png"
     }
+  ],
+  "flooringTypes": [
+    {
+      "value": "LVP",
+      "label": "LVP",
+      "image": "/library/flooring/mozaik/waterwise-premium-portneuf-k2240rc.jpg"
+    },
+    {
+      "value": "Laminate",
+      "label": "Laminate",
+      "image": "/library/flooring/lionsfloor/comfort-heights-city-pointe-li-ch08.jpg"
+    },
+    {
+      "value": "Carpet",
+      "label": "Carpet",
+      "image": "/library/flooring/flooring2/natures-touch-fleece-nt-5.avif"
+    },
+    {
+      "value": "Hardwood",
+      "label": "Hardwood",
+      "image": "/library/flooring/primafloors/engineered-hardwood-cesare-gw336.jpg"
+    }
   ]
 }

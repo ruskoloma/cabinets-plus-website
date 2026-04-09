@@ -41,6 +41,7 @@ export interface PartnerLogoItem {
   raw?: Dict;
   src: string;
   alt: string;
+  href?: string;
 }
 
 export interface ProcessItem {
@@ -204,6 +205,7 @@ export function mapPartnerLogos(value: unknown): PartnerLogoItem[] {
         raw,
         src: text(raw.logo),
         alt: text(raw.alt, "Partner logo"),
+        href: text(raw.href) || undefined,
       };
     })
     .filter((item) => item.src.length > 0);

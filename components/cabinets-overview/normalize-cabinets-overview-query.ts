@@ -167,6 +167,7 @@ function normalizeCatalogSettings(value: unknown): CatalogSettingsData {
       ? record.rooms.map((entry) => String(entry).trim()).filter(Boolean)
       : DEFAULT_ROOMS,
     countertopTypes: normalizeCatalogOptionList(record?.countertopTypes, DEFAULT_COUNTERTOP_OPTIONS),
+    flooringTypes: normalizeCatalogOptionList(record?.flooringTypes, []),
     _content_source: record?._content_source as unknown,
     _values: record?._values as unknown,
   };

@@ -1,0 +1,48 @@
+---
+published: true
+name: Waterwise Premium Columbia
+code: K2738EC
+slug: waterwise-premium-columbia-k2738ec
+flooringType: LVP
+description: >-
+  Columbia in Mozaik's Waterwise Premium collection is a waterproof resilient
+  flooring option built for practical performance and clean, adaptable wood-look
+  styling. It works especially well for projects that need low-maintenance
+  durability while still keeping a polished residential finish.
+picture: /library/flooring/mozaik/waterwise-premium-columbia-k2738ec.jpg
+relatedProjects: []
+relatedProducts:
+  - product: content/flooring/waterwise-premium-chehalis-k5574ri.md
+  - product: content/flooring/waterwise-premium-gallatin-k2242rc.md
+  - product: content/flooring/waterwise-premium-animas-34073sq.md
+  - product: content/flooring/waterwise-premium-humboldt-k4421ri.md
+technicalDetails:
+  - key: Brand
+    value: Mozaik
+    unit: ''
+    order: 1
+  - key: Collection
+    value: Waterwise Premium
+    unit: ''
+    order: 2
+  - key: Flooring Type
+    value: LVP
+    unit: ''
+    order: 3
+  - key: Construction
+    value: Waterproof resilient flooring
+    unit: ''
+    order: 4
+  - key: Boxes Per Pallet
+    value: '56'
+    unit: ''
+    order: 5
+media:
+  - file: /library/flooring/mozaik/waterwise-premium-columbia-k2738ec.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: true
+    label: "[K2738EC] \uFEFFWaterwise Premium\uFEFF (Columbia).jpg"
+    altText: Waterwise Premium Columbia
+    description: ''
+---

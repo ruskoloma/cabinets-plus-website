@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3457-dsc06105.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3457-dsc06105.jpg'
 published: true
 title: Residence on Hawthorne Road
 description: 'Clean-lined shaker cabinetry brings a fresh, minimalist feel to this apartment kitchen and bathroom set. The kitchen features a spacious peninsula, white solid-surface counters, stainless steel appliances, and simple brushed metal hardware. Matching white vanities continue the look in the baths, paired with integrated counters, framed mirrors, and warm wood-look flooring for subtle contrast and everyday durability.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3447-dsc06093.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3447-dsc06093.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3457-dsc06105.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3457-dsc06105.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -30,7 +30,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3450-dsc06091.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3450-dsc06091.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3451-dsc06078.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3451-dsc06078.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -56,7 +56,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3456-dsc06113.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3456-dsc06113.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +69,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3458-dsc06063.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3458-dsc06063.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -82,7 +82,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3459-dsc06088.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3459-dsc06088.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -95,7 +95,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3460-dsc06067.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3460-dsc06067.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -108,7 +108,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3463-dsc06116.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3463-dsc06116.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -121,7 +121,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Hawthorne Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3449-dsc06096.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3449-dsc06096.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -134,7 +134,7 @@ media:
     countertop: ''
     label: DSC06096.jpg
     description: ''
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-bath-2/3446-dsc06137.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-hawthorne-road/3446-dsc06137.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false

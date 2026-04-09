@@ -38,6 +38,26 @@ export const COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   }
 `;
 
+export const FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY = `
+  query FlooringOverviewPageSettingsDocument($relativePath: String!) {
+    flooringOverviewPageSettings: pageSettings(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+      ... on PageSettingsFlooringOverview {
+        pageTitle
+        flooringOverviewCardImageSize
+        flooringOverviewFilterImageSize
+      }
+    }
+  }
+`;
+
 export const GALLERY_PAGE_SETTINGS_QUERY = `
   query GalleryPageSettingsDocument($relativePath: String!) {
     galleryPageSettings: pageSettings(relativePath: $relativePath) {
@@ -144,6 +164,35 @@ export const COUNTERTOP_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsCountertop {
+        breadcrumbLabel
+        technicalDetailsTitle
+        contactButtonLabel
+        descriptionLabel
+        galleryThumbImageSize
+        galleryMainImageSize
+        galleryLightboxImageSize
+        relatedProductsTitle
+        relatedProductsImageSize
+        projectsSectionTitle
+        projectsSectionDescription
+        projectsSectionImageSize
+      }
+    }
+  }
+`;
+
+export const FLOORING_PAGE_SETTINGS_QUERY = `
+  query FlooringPageSettingsDocument($relativePath: String!) {
+    flooringPageSettings: pageSettings(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+      ... on PageSettingsFlooring {
         breadcrumbLabel
         technicalDetailsTitle
         contactButtonLabel

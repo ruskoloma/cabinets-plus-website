@@ -4,6 +4,7 @@ import { buildGalleryProjects } from "@/components/gallery-overview/normalize-ga
 import type { GalleryOverviewDataShape, GalleryProjectItemData, GalleryProjectMediaData } from "@/components/gallery-overview/types";
 import type { CabinetData } from "@/components/cabinet-door/types";
 import type { CountertopData } from "@/components/countertop/types";
+import type { FlooringData } from "@/components/flooring/types";
 
 export interface MatchedProjectCard {
   file: string;
@@ -293,6 +294,16 @@ function buildCountertopPreviewFilters(countertop: CountertopData): GalleryFilte
     finishes: [],
     countertops,
     flooringOnly: false,
+  };
+}
+
+function buildFlooringPreviewFilters(): GalleryFilterState {
+  return {
+    room: "",
+    doorStyles: [],
+    finishes: [],
+    countertops: [],
+    flooringOnly: true,
   };
 }
 
@@ -670,4 +681,21 @@ export function buildCountertopProjectMatches(
   );
 
   return pickTopProjectCards(ranked, maxItems);
+}
+
+export function buildFlooringProjectMatches(
+  flooring: FlooringData,
+  overviewData: GalleryOverviewDataShape,
+  maxItems = 3,
+): MatchedProjectCard[] {
+  const projects = buildGalleryProjects(overviewData);
+  if (!projects.length) return [];
+
+  if (!Array.isArray(flooring.relatedProjects) || flooring.relatedProjects.length === 0) {
+    return [];
+  }
+
+  const explicitProjects = resolveExplicitProjectEntries(flooring.relatedProjects, projects);
+  const previewFilters = buildFlooringPreviewFilters();
+  return buildExplicitProjectCards(explicitProjects, previewFilters, maxItems);
 }

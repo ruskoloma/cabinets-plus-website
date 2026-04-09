@@ -23,6 +23,12 @@ export interface CountertopsOverviewPageSettings extends BaseSettingsDocument {
   countertopsOverviewFilterImageSize?: string | null;
 }
 
+export interface FlooringOverviewPageSettings extends BaseSettingsDocument {
+  pageTitle?: string | null;
+  flooringOverviewCardImageSize?: string | null;
+  flooringOverviewFilterImageSize?: string | null;
+}
+
 export interface GalleryPageSettings extends BaseSettingsDocument {
   pageTitle?: string | null;
   galleryOverviewProjectCardImageSize?: string | null;
@@ -58,6 +64,12 @@ export interface CountertopsOverviewPageSettingsQueryLikeResult {
   variables?: Record<string, unknown>;
 }
 
+export interface FlooringOverviewPageSettingsQueryLikeResult {
+  data: { flooringOverviewPageSettings?: FlooringOverviewPageSettings | null };
+  query?: string;
+  variables?: Record<string, unknown>;
+}
+
 export interface GalleryPageSettingsQueryLikeResult {
   data: { galleryPageSettings?: GalleryPageSettings | null };
   query?: string;
@@ -86,6 +98,12 @@ export const FALLBACK_COUNTERTOPS_OVERVIEW_PAGE_SETTINGS: CountertopsOverviewPag
   pageTitle: "Countertops",
   countertopsOverviewCardImageSize: "card",
   countertopsOverviewFilterImageSize: "thumb",
+};
+
+export const FALLBACK_FLOORING_OVERVIEW_PAGE_SETTINGS: FlooringOverviewPageSettings = {
+  pageTitle: "Flooring Catalog",
+  flooringOverviewCardImageSize: "card",
+  flooringOverviewFilterImageSize: "thumb",
 };
 
 export const FALLBACK_GALLERY_PAGE_SETTINGS: GalleryPageSettings = {

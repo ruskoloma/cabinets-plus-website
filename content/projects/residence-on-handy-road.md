@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3482-dsc08349.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3482-dsc08349.jpg'
 published: true
 title: Residence on Handy Road
 description: 'Bright contemporary kitchen featuring warm natural wood base cabinets, crisp white upper cabinetry, and dramatic dark vertical-texture wall panels. A large waterfall island in white quartz creates generous prep and seating space, paired with black hardware, black fixtures, and stainless appliances. The fluted wood vent hood adds a custom focal point, while expansive windows and pale flooring keep the room airy and streamlined.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3466-dsc08452.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3466-dsc08452.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -18,7 +18,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3482-dsc08349.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3482-dsc08349.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -32,7 +32,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen island
     description: 'Residence on Handy Road featuring two-tone kitchen island, kitchen, white + timber cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3470-dsc08464.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3470-dsc08464.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -46,7 +46,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3471-dsc08459.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3471-dsc08459.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -60,7 +60,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3472-dsc08385.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3472-dsc08385.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -73,7 +73,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3474-dsc08366.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3474-dsc08366.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -87,7 +87,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3475-dsc08437.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3475-dsc08437.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -100,7 +100,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3476-dsc08406.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3476-dsc08406.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -114,7 +114,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-two-tone-kitchen-with-waterfall-island/3479-dsc08430.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3479-dsc08430.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false

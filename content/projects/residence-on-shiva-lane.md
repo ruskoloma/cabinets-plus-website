@@ -18,7 +18,7 @@ notes: >-
 
   Old project title: Black and White Shaker Kitchen and Bath
 primaryPicture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2921-dsc01549-edit.jpg
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2921-dsc01549-edit.jpg
 relatedProjects:
   - project: content/projects/two-tone-residence-on-locust-road.md
   - project: content/projects/residence-on-walnut-street.md
@@ -30,7 +30,7 @@ countertopProducts:
   - countertop: content/countertops/simplepurewhite.md
 media:
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2921-dsc01549-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2921-dsc01549-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -47,7 +47,7 @@ media:
       Residence on Shiva Lane featuring black and white kitchen, kitchen, white
       + black cabinetry, quartz surfaces, primary project view.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2905-project-example-72.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2905-project-example-72.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -64,7 +64,7 @@ media:
       Residence on Shiva Lane featuring black and white kitchen, kitchen, white
       + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2904-project-example-75.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2904-project-example-75.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -80,7 +80,7 @@ media:
       Residence on Shiva Lane featuring black vanity quartz top, bathroom, black
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2903-project-example-71.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2903-project-example-71.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -97,7 +97,7 @@ media:
       Residence on Shiva Lane featuring black and white kitchen, kitchen, white
       + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2902-project-example-76.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2902-project-example-76.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -113,7 +113,7 @@ media:
       Residence on Shiva Lane featuring black vanity quartz top, bathroom, black
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2901-project-example-73.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2901-project-example-73.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -130,7 +130,7 @@ media:
       Residence on Shiva Lane featuring black and white cabinets, kitchen, white
       + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2900-project-example-69.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2900-project-example-69.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -147,7 +147,7 @@ media:
       Residence on Shiva Lane featuring black and white kitchen, kitchen, white
       + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2899-project-example-70.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2899-project-example-70.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -164,7 +164,7 @@ media:
       Residence on Shiva Lane featuring black and white kitchen, kitchen, white
       + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2898-project-example-79.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2898-project-example-79.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -180,7 +180,7 @@ media:
       Residence on Shiva Lane featuring black vanity bathroom, bathroom, black
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2897-project-example-77.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2897-project-example-77.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -196,7 +196,7 @@ media:
       Residence on Shiva Lane featuring black bathroom vanity, bathroom, black
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2896-project-example-78.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2896-project-example-78.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -212,7 +212,7 @@ media:
       Residence on Shiva Lane featuring black bathroom vanity, bathroom, black
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/black-and-white-shaker-kitchen-and-bath/2895-project-example-74.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-shiva-lane/2895-project-example-74.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false

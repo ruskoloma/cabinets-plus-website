@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3432-dsc05618.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3432-dsc05618.jpg'
 published: true
 title: Residence on 22nd Avenue
 description: 'This kitchen blends classic character with a clean, updated layout through soft tan shaker cabinetry, bright white countertops, and stainless steel appliances. Repeating arched openings create a distinctive architectural rhythm, while a built-in niche with warm wood shelves adds display storage. White square tile backsplash, dark wood flooring, and brushed brass hardware bring contrast and warmth to the space, giving the room a timeless transitional feel.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3432-dsc05618.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3432-dsc05618.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: Off-white kitchen cabinets
     description: 'Residence on 22nd Avenue featuring off-white kitchen cabinets, kitchen, off white cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3424-dsc05611.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3424-dsc05611.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -30,7 +30,7 @@ media:
     countertop: Quartz
     label: Soft tan kitchen
     description: 'Residence on 22nd Avenue featuring soft tan kitchen, kitchen, custom paint cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3425-dsc05594.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3425-dsc05594.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
     countertop: Quartz
     label: Soft tan kitchen
     description: 'Residence on 22nd Avenue featuring soft tan kitchen, kitchen, custom paint cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3426-dsc05624.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3426-dsc05624.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -56,7 +56,7 @@ media:
     countertop: Quartz
     label: Soft tan kitchen cabinets
     description: 'Residence on 22nd Avenue featuring soft tan kitchen cabinets, kitchen, off white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3427-dsc05623.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3427-dsc05623.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +69,7 @@ media:
     countertop: Quartz
     label: Soft tan kitchen cabinets
     description: 'Residence on 22nd Avenue featuring soft tan kitchen cabinets, kitchen, off white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3428-dsc05620.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3428-dsc05620.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -82,7 +82,7 @@ media:
     countertop: Quartz
     label: Soft tan kitchen
     description: 'Residence on 22nd Avenue featuring soft tan kitchen, kitchen, off white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3429-dsc05630.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3429-dsc05630.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -95,7 +95,7 @@ media:
     countertop: Quartz
     label: Off-white kitchen cabinets
     description: 'Residence on 22nd Avenue featuring off-white kitchen cabinets, kitchen, off white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3430-dsc05647.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3430-dsc05647.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -107,7 +107,7 @@ media:
     countertop: ''
     label: DSC05647.jpg
     description: ''
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3431-dsc05603.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3431-dsc05603.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -120,7 +120,7 @@ media:
     countertop: Quartz
     label: Soft tan kitchen
     description: 'Residence on 22nd Avenue featuring soft tan kitchen, kitchen, off white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/soft-tan-arched-kitchen-brass-accents/3433-dsc05646.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-22nd-avenue/3433-dsc05646.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
