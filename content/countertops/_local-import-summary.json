@@ -1,0 +1,19 @@
+{
+  "importedAt": "2026-04-09T17:39:23.305Z",
+  "slabs": [
+    "blackpearlgranitepolished",
+    "blackpearlgraniteleathered",
+    "calacattagold",
+    "calacattagreat",
+    "calacattaroyal",
+    "calacattasand",
+    "tajmahalreal"
+  ],
+  "uploadPrefix": "uploads/countertops",
+  "descriptionModel": "openai/gpt-5.4",
+  "media": {
+    "uploaded": 13,
+    "skippedExisting": 11
+  },
+  "contentPath": "content/countertops"
+}

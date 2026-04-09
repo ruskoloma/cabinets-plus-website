@@ -15,6 +15,14 @@ function asString(value: unknown): string | undefined {
   return typeof value === "string" ? value : undefined;
 }
 
+function asDateTimeString(value: unknown): string | undefined {
+  if (typeof value === "string") return value;
+  if (value instanceof Date && Number.isFinite(value.getTime())) {
+    return value.toISOString();
+  }
+  return undefined;
+}
+
 function asNumber(value: unknown): number | undefined {
   return typeof value === "number" ? value : undefined;
 }
@@ -209,7 +217,7 @@ function normalizeCountertopData(value: unknown, fallbackFilename?: string): Cou
       ? record.media.map((item) => normalizeMediaItem(item)).filter((item): item is CountertopMediaItem => Boolean(item))
       : [],
     sourceId: asNumber(record.sourceId) ?? null,
-    sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
+    sourceUpdatedAt: asDateTimeString(record.sourceUpdatedAt) ?? null,
     _content_source: record._content_source as unknown,
     _values: record._values as unknown,
   };

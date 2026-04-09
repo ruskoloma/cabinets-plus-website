@@ -15,6 +15,14 @@ function asString(value: unknown): string | undefined {
   return typeof value === "string" ? value : undefined;
 }
 
+function asDateTimeString(value: unknown): string | undefined {
+  if (typeof value === "string") return value;
+  if (value instanceof Date && Number.isFinite(value.getTime())) {
+    return value.toISOString();
+  }
+  return undefined;
+}
+
 function asBoolean(value: unknown): boolean | undefined {
   return typeof value === "boolean" ? value : undefined;
 }
@@ -165,7 +173,7 @@ function normalizeCountertop(value: unknown): CountertopOverviewItem | null {
     countertopType: asString(record.countertopType) ?? null,
     description: asString(record.description) ?? null,
     picture: asString(record.picture) ?? null,
-    sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
+    sourceUpdatedAt: asDateTimeString(record.sourceUpdatedAt) ?? null,
     _content_source: record._content_source as unknown,
     _values: record._values as unknown,
   };

@@ -694,7 +694,7 @@ function scoreMediaForCover(item) {
   return roomScore + finishScore + countertopScore + flooringScore + confidenceScore;
 }
 
-function createProjectDocument({ title, slug, description, address, media }) {
+function createProjectDocument({ title, slug, description, address, media, sourceUpdatedAt }) {
   const coverMedia = media[0];
   const document = {
     published: true,
@@ -702,6 +702,7 @@ function createProjectDocument({ title, slug, description, address, media }) {
     slug,
     description: takeWords(description || fallbackProjectDescription(title), 90),
     ...(address ? { address } : {}),
+    ...(sourceUpdatedAt ? { sourceUpdatedAt } : {}),
     primaryPicture: coverMedia?.file || "",
     media,
   };
@@ -776,6 +777,7 @@ async function main() {
 
   const createdFiles = [];
   let uploadedImages = 0;
+  const importTimestamp = new Date().toISOString();
 
   for (const zipName of zipEntries) {
     const zipPath = path.join(sourceDir, zipName);
@@ -895,6 +897,7 @@ async function main() {
       description: projectMeta.description,
       address: identity.address,
       media: orderedMedia,
+      sourceUpdatedAt: importTimestamp,
     });
 
     const outputPath = path.join(CONTENT_DIR, `${resolvedSlug}.md`);
