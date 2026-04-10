@@ -1,43 +1,58 @@
+"use client";
+
 import { tinaField } from "tinacms/dist/react";
 import Button from "@/components/ui/Button";
+import FillImage from "@/components/ui/FillImage";
+import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import { asText, type BlockRecord } from "./block-types";
 
+const FALLBACK_HERO_IMAGE =
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/hero.jpg";
+
 export default function HeroBlock({ block }: { block: BlockRecord }) {
-  const heading = asText(block.heading);
-  const subtext = asText(block.subtext);
-  const ctaLabel = asText(block.ctaLabel);
-  const ctaLink = asText(block.ctaLink, "#");
+  const record = block as Record<string, unknown>;
+  const imageOptions = resolveHomepageSectionImageOptions(record);
+  const heroImage = asText(block.backgroundImage, FALLBACK_HERO_IMAGE);
+  const variant = imageOptions.useOriginal ? undefined : (imageOptions.variant ?? "full");
 
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-slate-800 overflow-hidden">
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700" />
-      {/* Decorative accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-amber-600/10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/5 rounded-full blur-3xl" />
+    <section className="h-[697px]" data-tina-field={tinaField(record)}>
+      <div className="relative h-full">
+        <div className="absolute inset-0 overflow-hidden">
+          <FillImage
+            alt="Kitchen renovation"
+            className="object-cover"
+            data-tina-field={tinaField(record, "backgroundImage")}
+            priority
+            sizes="100vw"
+            src={heroImage}
+            variant={variant}
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(38,36,35,0.8)]" />
+        </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-32">
-        <div className="max-w-2xl">
-          <span className="inline-block text-amber-400 text-sm font-semibold tracking-widest uppercase mb-4">
-            Spokane, WA
-          </span>
-          <h1
-            data-tina-field={tinaField(block, "heading")}
-            className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6"
-          >
-            {heading}
-          </h1>
-          <p
-            data-tina-field={tinaField(block, "subtext")}
-            className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10"
-          >
-            {subtext}
-          </p>
-          {ctaLabel && (
-            <Button href={ctaLink} className="px-8 py-4 text-base">
-              {ctaLabel}
-            </Button>
-          )}
+        <div className="cp-container relative h-full px-4 md:px-8">
+          <div className="absolute left-4 top-[295px] w-[345px] max-w-[calc(100%-32px)] md:left-8 md:top-auto md:w-auto md:max-w-[806px] md:bottom-8">
+            <h1
+              className="text-[40px] font-semibold uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[56px]"
+              data-tina-field={tinaField(record, "heading")}
+            >
+              {asText(block.heading)}
+            </h1>
+            <p
+              className="mt-4 max-w-[560px] text-base font-medium leading-[1.5] text-white md:mt-6 md:text-[18px]"
+              data-tina-field={tinaField(record, "subtext")}
+            >
+              {asText(block.subtext)}
+            </p>
+            {asText(block.ctaLabel) ? (
+              <div className="mt-8">
+                <Button dataTinaField={tinaField(record, "ctaLabel")} href={asText(block.ctaLink, "/contact-us")} variant="primary">
+                  {asText(block.ctaLabel)}
+                </Button>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </section>

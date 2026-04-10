@@ -1726,20 +1726,23 @@ export default defineConfig({
         ],
       },
 
-      // ─── PAGES: home, about-us, contact-us (blocks-based) ─────
+      // ─── PAGES: blocks-based content pages ─────
       {
         name: "page",
         label: "Pages",
         path: "content/pages",
         ui: {
           router: ({ document }) => {
-            if (document._sys.filename === "home") return "/";
-            return `/${document._sys.filename}`;
+            const doc = document as Record<string, unknown> & { _sys: { filename: string } };
+            const slug = typeof doc.slug === "string" && doc.slug.trim() ? doc.slug.trim() : doc._sys.filename;
+            if (slug === "home") return "/";
+            return `/${slug}`;
           },
-          allowedActions: { create: false, delete: false },
+          allowedActions: { create: true, delete: true },
         },
         fields: [
           { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
+          { type: "string", name: "slug", label: "URL Slug", required: true, description: "Controls the page URL. E.g. 'about-us' → /about-us" },
           seoFields(),
           {
             type: "object", name: "blocks", label: "Page Sections", list: true,
@@ -1963,65 +1966,101 @@ export default defineConfig({
                   { type: "rich-text", name: "body", label: "Content" },
                 ],
               },
-            ],
-          },
-        ],
-      },
-
-      // ─── SERVICES: /cabinets, /countertops, etc. ───────────────
-      {
-        name: "service",
-        label: "Services",
-        path: "content/services",
-        ui: {
-          router: ({ document }) => `/${document._sys.filename}`,
-        },
-        fields: [
-          { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
-          seoFields(),
-          {
-            type: "object", name: "blocks", label: "Page Sections", list: true,
-            templates: [
               {
-                name: "hero", label: "Hero Section",
+                name: "ctaBanner", label: "CTA Banner",
                 fields: [
                   { type: "string", name: "heading", label: "Heading" },
                   { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
                   { type: "string", name: "ctaLabel", label: "CTA Text" },
                   { type: "string", name: "ctaLink", label: "CTA Link" },
-                  { type: "image", name: "backgroundImage", label: "Background Image" },
+                  { type: "image", name: "image", label: "Image" },
+                  ...homepageSectionImageFields(),
                 ],
+              },
+              // Singleton block placeholders — data comes from sharedSections
+              {
+                name: "sharedContactSection", label: "Contact Us (Shared)",
+                fields: [{ type: "string", name: "sectionId", label: "Section ID", ui: { component: "hidden" } }],
               },
               {
-                name: "features", label: "Features Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  {
-                    type: "object", name: "items", label: "Feature Items", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.title }) },
-                    fields: [
-                      { type: "string", name: "icon", label: "Icon" },
-                      { type: "string", name: "title", label: "Title" },
-                      { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-                    ],
-                  },
-                ],
+                name: "sharedShowroomBanner", label: "Our Showroom (Shared)",
+                fields: [{ type: "string", name: "sectionId", label: "Section ID", ui: { component: "hidden" } }],
               },
               {
-                name: "gallery", label: "Gallery Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  { type: "image", name: "images", label: "Images", list: true },
-                ],
+                name: "sharedAboutSection", label: "Trust Bar (Shared)",
+                fields: [{ type: "string", name: "sectionId", label: "Section ID", ui: { component: "hidden" } }],
               },
+            ],
+          },
+        ],
+      },
+
+      // ─── SHARED SECTIONS: singleton blocks (Contact Us, Showroom, Trust Bar) ─────
+      {
+        name: "sharedSections",
+        label: "Shared Sections",
+        path: "content/global",
+        format: "json",
+        match: { include: "shared-sections" },
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: "object", name: "contactSection", label: "Contact Us Section",
+            fields: [
+              { type: "string", name: "title", label: "Section Title" },
+              { type: "image", name: "image", label: "Section Image" },
+              { type: "string", name: "nameLabel", label: "Name Field Label" },
+              { type: "string", name: "namePlaceholder", label: "Name Placeholder" },
+              { type: "string", name: "emailLabel", label: "Email Field Label" },
+              { type: "string", name: "emailPlaceholder", label: "Email Placeholder" },
+              { type: "string", name: "messageLabel", label: "Message Field Label" },
+              { type: "string", name: "messagePlaceholder", label: "Message Placeholder" },
+              { type: "string", name: "submitLabel", label: "Submit Button Label" },
+              { type: "string", name: "showroomTitle", label: "Showroom Title" },
+              { type: "string", name: "followUsLabel", label: "Follow Label" },
+              { type: "string", name: "mapEmbedUrl", label: "Google Maps Embed URL", ui: { component: "textarea" } },
+            ],
+          },
+          {
+            type: "object", name: "showroomBanner", label: "Our Showroom Banner",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
+              { type: "string", name: "ctaLabel", label: "CTA Text" },
+              { type: "string", name: "ctaLink", label: "CTA Link" },
+              { type: "image", name: "image", label: "Main Image" },
+            ],
+          },
+          {
+            type: "object", name: "aboutSection", label: "Trust Bar Section",
+            fields: [
               {
-                name: "ctaBanner", label: "CTA Banner",
+                type: "object", name: "stats", label: "Stats", list: true,
+                ui: { itemProps: (item: any) => ({ label: item.label }) },
                 fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  { type: "string", name: "buttonText", label: "Button Text" },
-                  { type: "string", name: "buttonLink", label: "Button Link" },
+                  { type: "string", name: "value", label: "Value" },
+                  { type: "string", name: "label", label: "Label" },
                 ],
               },
+              { type: "image", name: "membershipDesktopLogo", label: "Membership Logo (Desktop)" },
+              { type: "image", name: "membershipMobileTopLogo", label: "Membership Logo Top (Mobile)" },
+              { type: "image", name: "membershipMobileBottomLogo", label: "Membership Logo Bottom (Mobile)" },
+              { type: "string", name: "membershipLabel", label: "Membership Label" },
+              { type: "string", name: "partnershipLabel", label: "Partnership Label" },
+              {
+                type: "object", name: "partnerLogos", label: "Partner Logos", list: true,
+                ui: { itemProps: (item: any) => ({ label: item.alt || "Partner logo" }) },
+                fields: [
+                  { type: "image", name: "logo", label: "Logo" },
+                  { type: "string", name: "alt", label: "Alt Text" },
+                  { type: "string", name: "href", label: "Partner Website" },
+                ],
+              },
+              { type: "string", name: "ctaLabel", label: "Button Text" },
+              { type: "string", name: "ctaLink", label: "Button Link" },
             ],
           },
         ],

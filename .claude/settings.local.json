@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx tsc:*)",
+      "Bash(kill 5735)",
+      "Bash(grep -n \"transition\\\\|hover:\" components/blocks/*.tsx)",
+      "Bash(grep -n \"group-hover\\\\|hover:\" components/home/*.tsx)",
+      "Bash(git add:*)"
+    ]
+  }
+}

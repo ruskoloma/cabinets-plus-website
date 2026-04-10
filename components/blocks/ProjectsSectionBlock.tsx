@@ -1,66 +1,52 @@
+"use client";
+
 import { tinaField } from "tinacms/dist/react";
-import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
-import FillImage from "@/components/ui/FillImage";
-import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
+import ProjectMosaic from "@/components/home/ProjectMosaic";
+import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import { asText, type BlockRecord } from "./block-types";
 
-const PROJECT_COLORS = [
-  "from-amber-800 to-amber-600",
-  "from-slate-700 to-slate-500",
-  "from-stone-800 to-stone-600",
-  "from-amber-700 to-amber-500",
-  "from-zinc-700 to-zinc-500",
-  "from-stone-700 to-amber-600",
-];
-
-const PROJECT_LABELS = [
-  "Modern Kitchen", "Bathroom Remodel", "Quartz Countertops",
-  "Custom Cabinets", "Flooring Install", "Full Kitchen Renovation",
+const FALLBACK_PROJECT_IMAGES = [
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg",
 ];
 
 export default function ProjectsSectionBlock({ block }: { block: BlockRecord }) {
-  const images = Array.isArray(block.images) && block.images.length > 0
-    ? block.images
-    : Array<string | null>(6).fill(null);
-  const imageVariant = resolveConfiguredImageVariant(block.imageSize, "card");
+  const record = block as Record<string, unknown>;
+  const imageOptions = resolveHomepageSectionImageOptions(record);
+  const gallery = (Array.isArray(block.images) ? (block.images as unknown[]) : [])
+    .map((item) => asText(item))
+    .filter(Boolean);
+  const projectImages = gallery.length > 0 ? gallery : FALLBACK_PROJECT_IMAGES;
+  const imageFields = gallery.map((_, index) => tinaField(record, `images.${index}`));
 
   return (
-    <section className="py-20 bg-slate-900" id="projects">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionTitle
-          title={asText(block.title)}
-          tinaField={tinaField(block, "title")}
-          light
+    <section className="bg-[var(--cp-brand-neutral-50)] px-0 py-12 md:py-16" data-tina-field={tinaField(record)} id="projects">
+      <div className="cp-container px-4 md:px-8">
+        <h2
+          className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]"
+          data-tina-field={tinaField(record, "title")}
+        >
+          {asText(block.title, "Our projects")}
+        </h2>
+        <ProjectMosaic
+          imageFields={imageFields}
+          imageVariant={imageOptions.useOriginal ? null : imageOptions.variant}
+          images={projectImages}
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-          {images.slice(0, 6).map((image, i) => {
-            const img = typeof image === "string" ? image : null;
-
-            return (
-            <div
-              key={i}
-              className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-2xl"
-            >
-              {img ? (
-                <FillImage alt={PROJECT_LABELS[i]} className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(min-width: 768px) 33vw, 50vw" src={img} variant={imageVariant} />
-              ) : (
-                <div className={`w-full h-full bg-gradient-to-br ${PROJECT_COLORS[i]} group-hover:scale-110 transition-transform duration-500`} />
-              )}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className="text-white font-semibold text-sm">{PROJECT_LABELS[i]}</span>
-              </div>
-            </div>
-            );
-          })}
+        <div className="mt-12 text-center md:mt-7">
+          <Button
+            className="!min-h-12 md:!min-h-14"
+            dataTinaField={tinaField(record, "ctaLabel")}
+            href={asText(block.ctaLink, "/gallery")}
+            variant="outline"
+          >
+            {asText(block.ctaLabel, "View All projects")}
+          </Button>
         </div>
-        {asText(block.ctaLabel) && (
-          <div className="mt-10 text-center">
-            <Button href={asText(block.ctaLink, "#")} variant="outline" className="border-amber-500 text-amber-400 hover:bg-amber-600 hover:text-white">
-              {asText(block.ctaLabel)}
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );

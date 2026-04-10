@@ -5,24 +5,29 @@ import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
 export default function FAQSectionBlock({ block }: { block: BlockRecord }) {
-  const tabs = asBlockArray(block.tabs).map((tab) => ({
-    raw: tab,
-    label: asText(tab.label),
-    faqs: asBlockArray(tab.faqs).map((faq) => ({
-      raw: faq,
-      question: asText(faq.question),
-      answer: asText(faq.answer),
-    })),
-  }));
+  const record = block as Record<string, unknown>;
+  const tabs = asBlockArray(block.tabs)
+    .map((tab) => ({
+      raw: tab as Record<string, unknown>,
+      label: asText(tab.label),
+      faqs: asBlockArray(tab.faqs)
+        .map((faq) => ({
+          raw: faq as Record<string, unknown>,
+          question: asText(faq.question),
+          answer: asText(faq.answer),
+        }))
+        .filter((faq) => faq.question.length > 0),
+    }))
+    .filter((tab) => tab.label.length > 0);
 
   return (
-    <section className="bg-[#edebe5] py-8 md:py-16" id="faq">
-      <div className="mx-auto max-w-[1280px] px-4 md:px-8">
+    <section className="bg-[#edebe5] py-8 md:py-16" data-tina-field={tinaField(record)} id="faq">
+      <div className="cp-container px-4 md:px-8">
         <h2
-          className="text-center font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]"
-          data-tina-field={tinaField(block, "title")}
+          className="text-center text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]"
+          data-tina-field={tinaField(record, "title")}
         >
-          {asText(block.title)}
+          {asText(block.title, "F.A.Q.")}
         </h2>
         <FaqTabsAccordion tabs={tabs} />
       </div>

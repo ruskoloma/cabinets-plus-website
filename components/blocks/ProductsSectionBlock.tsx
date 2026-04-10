@@ -1,58 +1,47 @@
+"use client";
+
 import { tinaField } from "tinacms/dist/react";
-import Link from "next/link";
-import SectionTitle from "@/components/ui/SectionTitle";
-import FillImage from "@/components/ui/FillImage";
-import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
+import PreviewCard from "@/components/home/PreviewCard";
+import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
 
-const GRADIENTS = [
-  "from-amber-700 to-amber-500",
-  "from-slate-700 to-slate-500",
-  "from-stone-700 to-stone-500",
-];
-
 export default function ProductsSectionBlock({ block }: { block: BlockRecord }) {
-  const products = asBlockArray(block.products);
-  const imageVariant = resolveConfiguredImageVariant(block.imageSize, "card");
+  const record = block as Record<string, unknown>;
+  const imageOptions = resolveHomepageSectionImageOptions(record);
+  const products = asBlockArray(block.products)
+    .map((item) => ({
+      raw: item as Record<string, unknown>,
+      name: asText(item.name),
+      link: asText(item.link),
+      image: asText(item.image) || undefined,
+    }))
+    .filter((item) => item.name.length > 0)
+    .slice(0, 4);
 
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionTitle title={asText(block.title)} tinaField={tinaField(block, "title")} />
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
-          {products.map((product, i) => (
-            <Link
-              key={i}
-              href={asText(product.link, "#")}
-              className="group block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              {asText(product.image) ? (
-                <div className="relative h-64">
-                  <FillImage
-                    alt={asText(product.name, "Product")}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(min-width: 640px) 33vw, 100vw"
-                    src={asText(product.image)}
-                    variant={imageVariant}
-                  />
-                </div>
-              ) : (
-                <div className={`h-64 bg-gradient-to-br ${GRADIENTS[i % GRADIENTS.length]} flex items-center justify-center group-hover:scale-105 transition-transform duration-500`}>
-                  <span className="text-5xl">🏠</span>
-                </div>
-              )}
-              <div className="bg-white p-5 flex items-center justify-between">
-                <span
-                  data-tina-field={tinaField(product, "name")}
-                  className="text-lg font-bold text-slate-800"
-                >
-                  {asText(product.name)}
-                </span>
-                <span className="text-amber-600 text-xl">→</span>
-              </div>
-            </Link>
-          ))}
-        </div>
+    <section className="cp-container px-[15px] pb-6 pt-12 md:px-[31px] md:pb-6 md:pt-16" data-tina-field={tinaField(record)}>
+      <h2
+        className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]"
+        data-tina-field={tinaField(record, "title")}
+      >
+        {asText(block.title, "Products")}
+      </h2>
+      <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-4 md:grid-cols-4 md:gap-x-7 md:gap-y-0">
+        {products.map((item, index) => (
+          <PreviewCard
+            href={item.link || "#"}
+            image={item.image}
+            imageClassName="h-[173px] md:h-[440px]"
+            imageVariant={imageOptions.useOriginal ? null : imageOptions.variant}
+            key={`${item.name}-${index}`}
+            showMobileChevron
+            tinaCardField={tinaField(item.raw)}
+            tinaImageField={tinaField(item.raw, "image")}
+            tinaTitleField={tinaField(item.raw, "name")}
+            title={item.name}
+            titleClassName="mt-3 text-[24px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]"
+          />
+        ))}
       </div>
     </section>
   );

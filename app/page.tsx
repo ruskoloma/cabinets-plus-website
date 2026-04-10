@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { buildDocumentMetadata } from "@/app/lib/metadata";
-import HomeClient from "./home-client";
+import PageClient from "./page-client";
 import { getPageDataSafe } from "./get-page-data-safe";
+import { getSharedSectionsSafe } from "./get-shared-sections-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
   const result = await getPageDataSafe("home.md");
@@ -9,6 +10,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const result = await getPageDataSafe("home.md");
-  return <HomeClient {...result} />;
+  const [result, sharedSections] = await Promise.all([
+    getPageDataSafe("home.md"),
+    getSharedSectionsSafe(),
+  ]);
+
+  return <PageClient {...result} sharedSections={sharedSections} />;
 }

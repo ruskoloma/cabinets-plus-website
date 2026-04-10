@@ -47,18 +47,19 @@ export default function OurShowroomSection({ block }: OurShowroomSectionProps) {
   const pinterestUrl = global.pinterestUrl || "https://www.pinterest.com/";
 
   return (
-    <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-50)] py-12 md:py-16" data-tina-field={tinaField(block)}>
-      <div className="absolute inset-0 bg-[#f2f2f2]" />
-      <FillImage
-        alt=""
-        aria-hidden
-        className="object-cover"
-        sizes="100vw"
-        src={SHOWROOM_TEXTURE}
-        variant="full"
-      />
+    <section className="bg-[var(--cp-brand-neutral-50)]" data-tina-field={tinaField(block)}>
+      <div className="relative overflow-hidden py-12 md:py-16">
+        <div className="absolute inset-0 bg-[#f2f2f2]" />
+        <FillImage
+          alt=""
+          aria-hidden
+          className="object-cover"
+          sizes="100vw"
+          src={SHOWROOM_TEXTURE}
+          variant="full"
+        />
 
-      <div className="cp-container relative px-4 md:px-0">
+        <div className="cp-container relative px-4 md:px-0">
         <div className="mx-auto grid max-w-[1248px] gap-12 md:grid-cols-[412px_623px] md:justify-between md:gap-10">
           <div className="w-full">
             <h2
@@ -154,6 +155,7 @@ export default function OurShowroomSection({ block }: OurShowroomSectionProps) {
             />
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

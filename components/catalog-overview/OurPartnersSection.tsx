@@ -1,8 +1,34 @@
 "use client";
 
 import { tinaField } from "tinacms/dist/react";
-import { mapPartnerLogos, type PartnerLogoItem } from "@/app/figma-home.helpers";
 import FallbackImg from "@/components/ui/FallbackImg";
+
+interface PartnerLogoItem {
+  raw?: Record<string, unknown>;
+  src: string;
+  alt: string;
+  href?: string;
+}
+
+function text(value: unknown, fallback = ""): string {
+  return typeof value === "string" ? value : fallback;
+}
+
+function mapPartnerLogos(value: unknown): PartnerLogoItem[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => {
+      if (typeof item === "string") return { src: item, alt: "Partner logo" };
+      const raw = item && typeof item === "object" ? (item as Record<string, unknown>) : {};
+      return {
+        raw,
+        src: text(raw.logo),
+        alt: text(raw.alt, "Partner logo"),
+        href: text(raw.href) || undefined,
+      };
+    })
+    .filter((item) => item.src.length > 0);
+}
 
 interface OurPartnersSectionProps {
   block: Record<string, unknown>;

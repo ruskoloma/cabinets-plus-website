@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import CabinetsOverviewClient from "./cabinets-overview-client";
+import CabinetsOverviewClient from "../cabinets-overview-client";
 import { getCabinetsOverviewDataSafe } from "@/app/get-cabinets-overview-data-safe";
 import { getCabinetsOverviewPageSettingsSafe } from "@/app/get-cabinets-overview-page-settings-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";

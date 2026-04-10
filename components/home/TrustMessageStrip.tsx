@@ -37,28 +37,30 @@ export default function TrustMessageStrip({ block }: TrustMessageStripProps) {
   const { before, marked, after } = splitWithHighlight(stripText, stripHighlight);
 
   return (
-    <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-100)]" data-tina-field={tinaField(block)}>
-      <FallbackImg
-        alt=""
-        aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-35"
-        data-tina-field={tinaField(block, "trustStripTexture")}
-        src={stripTexture}
-        variant="full"
-      />
-      <div className="cp-container relative px-4 py-[33px] md:px-8">
-        <p
-          className="mx-auto max-w-[1376px] text-center font-[var(--font-red-hat-display)] text-[20px] font-medium leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]"
-          data-tina-field={tinaField(block, "trustStripText")}
-        >
-          {before}
-          {marked ? (
-            <strong className="font-black" data-tina-field={tinaField(block, "trustStripHighlight")}>
-              {marked}
-            </strong>
-          ) : null}
-          {after}
-        </p>
+    <section className="bg-[var(--cp-brand-neutral-100)]" data-tina-field={tinaField(block)}>
+      <div className="relative overflow-hidden">
+        <FallbackImg
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
+          data-tina-field={tinaField(block, "trustStripTexture")}
+          src={stripTexture}
+          variant="full"
+        />
+        <div className="cp-container relative px-4 py-[33px] md:px-8">
+          <p
+            className="mx-auto max-w-[1376px] text-center font-[var(--font-red-hat-display)] text-[20px] font-medium leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]"
+            data-tina-field={tinaField(block, "trustStripText")}
+          >
+            {before}
+            {marked ? (
+              <strong className="font-black" data-tina-field={tinaField(block, "trustStripHighlight")}>
+                {marked}
+              </strong>
+            ) : null}
+            {after}
+          </p>
+        </div>
       </div>
     </section>
   );
