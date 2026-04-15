@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3628-dsc00377.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3628-dsc00377.jpg'
 published: true
 title: Residence on Dahl Road
 description: 'A bright contemporary interior pairing natural wood cabinetry with crisp white surfaces and bold black accents. The kitchen features tall shaker-style cabinets, glass-front upper details, a waterfall-edge island in black and white, dark tile backsplash, and globe pendants. The bathroom continues the clean palette with a double vanity, integrated illuminated mirror, freestanding soaking tub, matte black fixtures, white wall tile, and graphic dark floor tile for a refined, modern finish.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3617-dsc00423.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3617-dsc00423.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Residence on Dahl Road featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3624-dsc00450.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3624-dsc00450.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -31,7 +31,7 @@ media:
     countertop: Quartz
     label: Blue and wood kitchen
     description: 'Residence on Dahl Road featuring blue and wood kitchen, kitchen, blue + timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3629-dsc00389.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3629-dsc00389.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -45,7 +45,7 @@ media:
     countertop: Quartz
     label: Wood kitchen with island
     description: 'Residence on Dahl Road featuring wood kitchen with island, kitchen, black cabinetry, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3619-dsc00432.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3619-dsc00432.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -59,7 +59,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Residence on Dahl Road featuring warm wood kitchen, kitchen, timber + black cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3616-dsc00406.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3616-dsc00406.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -71,7 +71,7 @@ media:
     countertop: Quartz
     label: Wood kitchen cabinets
     description: 'Residence on Dahl Road featuring wood kitchen cabinets, kitchen, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3613-dsc00414.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3613-dsc00414.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -85,7 +85,7 @@ media:
     countertop: Quartz
     label: Kitchen with wood cabinets
     description: 'Residence on Dahl Road featuring kitchen with wood cabinets, kitchen, black cabinetry, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3611-dsc00431.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3611-dsc00431.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -98,7 +98,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Residence on Dahl Road featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3626-dsc00381.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3626-dsc00381.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -111,7 +111,7 @@ media:
     countertop: Quartz
     label: Bathroom vanity and tub
     description: 'Residence on Dahl Road featuring bathroom vanity and tub, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-and-spa-inspired-bath/3628-dsc00377.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3628-dsc00377.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false

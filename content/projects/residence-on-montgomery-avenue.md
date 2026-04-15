@@ -16,7 +16,7 @@ notes: |-
   Imported labels: Apartments, Modern design, Good value, White cabinets
   Old project title: Modern White Shaker Kitchen and Bath
 primaryPicture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2374-dsc03605.jpg
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2374-dsc03605.jpg
 relatedProjects:
   - project: content/projects/residence-on-regal-street.md
   - project: content/projects/residence-on-hatch-street.md
@@ -27,7 +27,7 @@ countertopProducts:
   - countertop: content/countertops/simplepurewhite.md
 media:
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2374-dsc03605.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2374-dsc03605.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
       Residence on Montgomery Avenue featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces, primary project view.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2424-project-example-17.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2424-project-example-17.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -59,7 +59,7 @@ media:
       Residence on Montgomery Avenue featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2423-project-example-18.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2423-project-example-18.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -75,7 +75,7 @@ media:
       Residence on Montgomery Avenue featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2422-project-example-16.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2422-project-example-16.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -91,7 +91,7 @@ media:
       Residence on Montgomery Avenue featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2421-project-example-15.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2421-project-example-15.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -107,7 +107,7 @@ media:
       Residence on Montgomery Avenue featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2420-project-example-14.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2420-project-example-14.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -123,7 +123,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2419-project-example-13.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2419-project-example-13.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -139,7 +139,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2418-project-example-10.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2418-project-example-10.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -155,7 +155,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2417-project-example-12.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2417-project-example-12.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -171,7 +171,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2416-project-example-11.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2416-project-example-11.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -187,7 +187,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2415-project-example-8.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2415-project-example-8.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -203,7 +203,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2414-project-example-9.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2414-project-example-9.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -219,7 +219,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2413-project-example-7.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2413-project-example-7.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -235,7 +235,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2412-project-example-5.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2412-project-example-5.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -251,7 +251,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2411-project-example-3.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2411-project-example-3.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -267,7 +267,7 @@ media:
       Residence on Montgomery Avenue featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2410-project-example-6.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2410-project-example-6.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -283,7 +283,7 @@ media:
       Residence on Montgomery Avenue featuring white bathroom vanity, bathroom,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2409-project-example-1.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2409-project-example-1.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -296,7 +296,7 @@ media:
     label: Apartment exterior
     description: 'Residence on Montgomery Avenue featuring apartment exterior, other.'
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2408-project-example-4.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2408-project-example-4.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -312,7 +312,7 @@ media:
       Residence on Montgomery Avenue featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/modern-white-shaker-kitchen-and-bath/2407-project-example-2.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-montgomery-avenue/2407-project-example-2.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false

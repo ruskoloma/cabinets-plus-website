@@ -18,7 +18,7 @@ notes: >-
 
   Old project title: Warm Wood Contemporary Kitchen and Living Built-Ins
 primaryPicture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-01-dsc07361-edit.jpg
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-01-dsc07361-edit.jpg
 relatedProjects:
   - project: content/projects/residence-on-may-ella-loop.md
   - project: content/projects/residence-on-harmony-road.md
@@ -29,7 +29,7 @@ countertopProducts:
   - countertop: content/countertops/calacattabrezze.md
 media:
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-01-dsc07361-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-01-dsc07361-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -44,7 +44,7 @@ media:
       Residence on Gerard Street featuring living room built-ins, other, primary
       project view.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-02-dsc07371-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-02-dsc07371-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -61,7 +61,7 @@ media:
       Residence on Gerard Street featuring contemporary wood kitchen, kitchen,
       black + timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-03-dsc07418-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-03-dsc07418-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -77,7 +77,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-04-dsc07345-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-04-dsc07345-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -93,7 +93,7 @@ media:
       Residence on Gerard Street featuring living room built-ins, other, timber
       cabinetry.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-05-dsc07351-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-05-dsc07351-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -109,7 +109,7 @@ media:
       Residence on Gerard Street featuring wood living built-ins, other, timber
       cabinetry.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-06-dsc07297-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-06-dsc07297-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -125,7 +125,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, mocha
       stain, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-07-dsc07262-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-07-dsc07262-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -141,7 +141,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-08-dsc07279-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-08-dsc07279-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -156,7 +156,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, quartz
       surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-09-dsc07281-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-09-dsc07281-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -171,7 +171,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, quartz
       surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-10-dsc07248-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-10-dsc07248-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -187,7 +187,7 @@ media:
       Residence on Gerard Street featuring bathroom vanity detail, bathroom,
       timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-11-dsc07218-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-11-dsc07218-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -203,7 +203,7 @@ media:
       Residence on Gerard Street featuring bathroom vanity, bathroom, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-12-dsc07223-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-12-dsc07223-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -219,7 +219,7 @@ media:
       Residence on Gerard Street featuring wood vanity bathroom, bathroom,
       timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-13-dsc07205-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-13-dsc07205-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -235,7 +235,7 @@ media:
       Residence on Gerard Street featuring wood vanity bathroom, bathroom,
       timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-14-dsc07198-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-14-dsc07198-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -251,7 +251,7 @@ media:
       Residence on Gerard Street featuring wood vanity bathroom, bathroom,
       timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-15-dsc07188-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-15-dsc07188-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -267,7 +267,7 @@ media:
       Residence on Gerard Street featuring bathroom timber vanity, bathroom,
       timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-16-dsc07045-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-16-dsc07045-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -284,7 +284,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen cabinetry,
       kitchen, timber + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-17-dsc07177-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-17-dsc07177-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -300,7 +300,7 @@ media:
       Residence on Gerard Street featuring double vanity bathroom, bathroom,
       timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-18-dsc07149.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-18-dsc07149.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -316,7 +316,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen island, kitchen,
       black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-19-dsc07115-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-19-dsc07115-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -333,7 +333,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen cabinetry,
       kitchen, black + timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-20-dsc07162-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-20-dsc07162-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -349,7 +349,7 @@ media:
       Residence on Gerard Street featuring contemporary wood kitchen, kitchen,
       black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-21-dsc07160-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-21-dsc07160-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -366,7 +366,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen island, kitchen,
       black + timber cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-22-dsc07043-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-22-dsc07043-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -383,7 +383,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen cabinetry,
       kitchen, timber + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-23-dsc07142-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-23-dsc07142-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -399,7 +399,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen cabinets,
       kitchen, black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-24-dsc07131-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-24-dsc07131-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -415,7 +415,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-25-dsc07079-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-25-dsc07079-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -431,7 +431,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-26-dsc07073-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-26-dsc07073-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -448,7 +448,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen island, kitchen,
       timber + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-27-dsc07127-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-27-dsc07127-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -464,7 +464,7 @@ media:
       Residence on Gerard Street featuring warm wood kitchen, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-28-dsc07070-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-28-dsc07070-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -480,7 +480,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen cabinetry,
       kitchen, black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-29-dsc07092-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-29-dsc07092-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -497,7 +497,7 @@ media:
       Residence on Gerard Street featuring contemporary kitchen cabinetry,
       kitchen, timber + black cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-contemporary-kitchen-and-living-built-ins/clean-20260326-r2-30-dsc07074-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-30-dsc07074-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false

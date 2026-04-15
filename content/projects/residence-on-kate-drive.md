@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/white-shaker-kitchen-with-navy-island/3423-dsc05655.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-kate-drive/3423-dsc05655.jpg'
 published: true
 title: Residence on Kate Drive
 description: 'Bright transitional interiors featuring white shaker cabinetry, a deep navy island, and warm brass hardware. The kitchen pairs tall crowned cabinets with quartz counters, full-height marble-look backsplash, stainless appliances, and globe pendants for a clean, upscale contrast. A coordinating bath includes a white double vanity, integrated sinks, matte black faucets, and a large framed mirror, continuing the crisp modern palette.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/white-shaker-kitchen-with-navy-island/3423-dsc05655.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-kate-drive/3423-dsc05655.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -18,7 +18,7 @@ media:
     countertop: Quartz
     label: White kitchen blue island
     description: 'Residence on Kate Drive featuring white kitchen blue island, kitchen, white + blue cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/white-shaker-kitchen-with-navy-island/3418-dsc05672.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-kate-drive/3418-dsc05672.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -31,7 +31,7 @@ media:
     countertop: Quartz
     label: White kitchen cabinets
     description: 'Residence on Kate Drive featuring white kitchen cabinets, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/white-shaker-kitchen-with-navy-island/3419-dsc05664.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-kate-drive/3419-dsc05664.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,7 +45,7 @@ media:
     countertop: Quartz
     label: White kitchen cabinets
     description: 'Residence on Kate Drive featuring white kitchen cabinets, kitchen, white + blue cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/white-shaker-kitchen-with-navy-island/3420-dsc05650.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-kate-drive/3420-dsc05650.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -59,7 +59,7 @@ media:
     countertop: Quartz
     label: White kitchen cabinets
     description: 'Residence on Kate Drive featuring white kitchen cabinets, kitchen, white + blue cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/white-shaker-kitchen-with-navy-island/3421-dsc05658.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-kate-drive/3421-dsc05658.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -73,7 +73,7 @@ media:
     countertop: Quartz
     label: White kitchen blue island
     description: 'Residence on Kate Drive featuring white kitchen blue island, kitchen, white + blue cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/white-shaker-kitchen-with-navy-island/3422-dsc05683.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-kate-drive/3422-dsc05683.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false

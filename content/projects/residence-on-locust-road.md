@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3044-dsc00088-edit.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3044-dsc00088-edit.jpg'
 published: true
 title: Residence on Locust Road
 description: 'A clean, light-filled kitchen featuring crisp white shaker cabinetry, white solid-surface countertops, and bold black bar pulls. Stainless steel appliances, a centered island with seating, and a glossy white subway tile backsplash create a fresh transitional look. Pale wood flooring and simple glass pendants soften the space, while full-height upper cabinets and practical drawer storage support an efficient U-shaped layout.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3044-dsc00088-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3044-dsc00088-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Locust Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3035-dsc00091-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3035-dsc00091-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -30,7 +30,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Locust Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3036-dsc00117-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3036-dsc00117-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
     countertop: Quartz
     label: White shaker cabinets
     description: 'Residence on Locust Road featuring white shaker cabinets, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3038-dsc00115-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3038-dsc00115-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -56,7 +56,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Locust Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3039-dsc00066-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3039-dsc00066-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +69,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Locust Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3040-dsc00134-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3040-dsc00134-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -82,7 +82,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Locust Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3041-dsc00127-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3041-dsc00127-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -95,7 +95,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Locust Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-island/3042-dsc00064-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-locust-road/3042-dsc00064-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false

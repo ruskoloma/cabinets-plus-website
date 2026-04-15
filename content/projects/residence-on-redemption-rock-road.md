@@ -18,7 +18,7 @@ notes: >-
 
   Old project title: Bright Shaker Kitchen and Bath Remodel
 primaryPicture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-01-dsc09997-edit.jpg
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-01-dsc09997-edit.jpg
 relatedProjects:
   - project: content/projects/residence-on-peone-road.md
   - project: content/projects/two-tone-residence-on-locust-road.md
@@ -29,7 +29,7 @@ countertopProducts:
   - countertop: content/countertops/calacattaelitegray.md
 media:
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-01-dsc09997-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-01-dsc09997-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -46,7 +46,7 @@ media:
       Residence on Redemption Rock Road featuring bright shaker kitchen,
       kitchen, white + gray cabinetry, quartz surfaces, primary project view.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-02-dsc00039-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-02-dsc00039-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -63,7 +63,7 @@ media:
       Residence on Redemption Rock Road featuring bright shaker kitchen,
       kitchen, white + gray cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-03-dsc00160-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-03-dsc00160-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -79,7 +79,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-04-dsc00031-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-04-dsc00031-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -96,7 +96,7 @@ media:
       Residence on Redemption Rock Road featuring white kitchen cabinets,
       kitchen, white + off white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-05-dsc00048-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-05-dsc00048-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -112,7 +112,7 @@ media:
       Residence on Redemption Rock Road featuring white built-in cabinets,
       other, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-06-dsc00126-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-06-dsc00126-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -128,7 +128,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-07-dsc00014-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-07-dsc00014-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -144,7 +144,7 @@ media:
       Residence on Redemption Rock Road featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-08-dsc00008-edit-2.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-08-dsc00008-edit-2.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -160,7 +160,7 @@ media:
       Residence on Redemption Rock Road featuring white shaker kitchen, kitchen,
       white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-09-dsc00002-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-09-dsc00002-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -176,7 +176,7 @@ media:
       Residence on Redemption Rock Road featuring white kitchen cabinets,
       kitchen, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-10-dsc00161-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-10-dsc00161-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -192,7 +192,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-11-dsc00064-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-11-dsc00064-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -208,7 +208,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-12-dsc00132-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-12-dsc00132-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -224,7 +224,7 @@ media:
       Residence on Redemption Rock Road featuring white laundry cabinets,
       laundry, white cabinetry.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-13-dsc00052-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-13-dsc00052-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -239,7 +239,7 @@ media:
       Residence on Redemption Rock Road featuring white dining cabinets, other,
       other surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-14-dsc00121-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-14-dsc00121-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -255,7 +255,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-15-dsc00080-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-15-dsc00080-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -271,7 +271,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, marble surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-16-dsc00112-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-16-dsc00112-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -287,7 +287,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-17-dsc00108-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-17-dsc00108-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -303,7 +303,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-18-dsc00088-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-18-dsc00088-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -319,7 +319,7 @@ media:
       Residence on Redemption Rock Road featuring white bathroom vanity,
       bathroom, white cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-shaker-kitchen-and-bath-remodel/clean-20260326-r2-19-dsc00041-edit.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-19-dsc00041-edit.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false

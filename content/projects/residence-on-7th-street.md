@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3436-dsc05586.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3436-dsc05586.jpg'
 published: true
 title: Residence on 7th Street
 description: 'Bright galley kitchen featuring two-tone shaker cabinetry with teal lower cabinets and crisp white uppers. Clean quartz-style countertops and backsplash create a seamless look, while black hardware and a black sink faucet add contrast. A tall pantry cabinet, built-in desk niche, and efficient layout maximize storage and function. Light wood flooring and simple finishes give the space a fresh, modern farmhouse feel.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3436-dsc05586.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3436-dsc05586.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -18,7 +18,7 @@ media:
     countertop: Quartz
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + blue cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3437-dsc05592.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3437-dsc05592.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -32,7 +32,7 @@ media:
     countertop: Quartz
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + green cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3439-dsc05553.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3439-dsc05553.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,7 +45,7 @@ media:
     countertop: Other
     label: White laundry cabinets
     description: 'Residence on 7th Street featuring white laundry cabinets, laundry, white cabinetry, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3440-dsc05567.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3440-dsc05567.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -59,7 +59,7 @@ media:
     countertop: Other
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, off white + green cabinetry, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3442-dsc05577.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3442-dsc05577.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -73,7 +73,7 @@ media:
     countertop: Quartz
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + green cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3443-dsc05547.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3443-dsc05547.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -87,7 +87,7 @@ media:
     countertop: Quartz
     label: Two-tone kitchen cabinets
     description: 'Residence on 7th Street featuring two-tone kitchen cabinets, kitchen, off white + blue cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3444-dsc05575.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3444-dsc05575.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -101,7 +101,7 @@ media:
     countertop: Quartz
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, off white + blue cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3445-dsc05581.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3445-dsc05581.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -115,7 +115,7 @@ media:
     countertop: Quartz
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + blue cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/teal-and-white-two-tone-shaker-kitchen/3435-dsc05565.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3435-dsc05565.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
