@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3644-dsc08329.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3644-dsc08329.jpg'
 published: true
 title: Residence on Sassin Station Rd
 description: 'Warm wood vanities and ceiling planks bring natural texture to this spacious primary bathroom, balanced by white quartz counters, oversized mirrors, and brass hardware. Stone walls frame a freestanding soaking tub beneath large windows, while a glass shower and charcoal floor tile add clean contrast. The cabinetry features classic recessed fronts, generous drawer storage, and a built-in seated makeup area for a refined rustic look.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3647-dsc08296.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3647-dsc08296.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: Primary bath vanity
     description: 'Stone Bathroom Project featuring primary bath vanity, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3644-dsc08329.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3644-dsc08329.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -29,7 +29,7 @@ media:
     countertop: Quartz
     label: Rustic bathroom vanity
     description: 'Stone Bathroom Project featuring rustic bathroom vanity, bathroom, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3641-dsc08262.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3641-dsc08262.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -42,7 +42,7 @@ media:
     countertop: Quartz
     label: Primary bath vanity
     description: 'Stone Bathroom Project featuring primary bath vanity, bathroom, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3640-dsc08333.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3640-dsc08333.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -55,7 +55,7 @@ media:
     countertop: Quartz
     label: Stone bathroom vanity
     description: 'Stone Bathroom Project featuring stone bathroom vanity, bathroom, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3638-dsc08277-copy1.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3638-dsc08277-copy1.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -68,7 +68,7 @@ media:
     countertop: Quartz
     label: Double vanity bathroom
     description: 'Stone Bathroom Project featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3636-dsc08307.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3636-dsc08307.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -81,7 +81,7 @@ media:
     countertop: Quartz
     label: Wood vanity bathroom
     description: 'Stone Bathroom Project featuring wood vanity bathroom, bathroom, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3635-dsc08320.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3635-dsc08320.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -94,7 +94,7 @@ media:
     countertop: Quartz
     label: Rustic bathroom vanity
     description: 'Stone Bathroom Project featuring rustic bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/rustic-stone-primary-bathroom/3632-dsc08308.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3632-dsc08308.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false

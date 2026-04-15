@@ -19,7 +19,7 @@ notes: >-
 
   Old project title: Warm Walnut Kitchen with Waterfall Island
 primaryPicture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2637-kitchen-cover.jpg
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2637-kitchen-cover.jpg
 relatedProjects:
   - project: content/projects/residence-on-bolan-avenue.md
   - project: content/projects/residence-on-bush-drive.md
@@ -30,7 +30,7 @@ countertopProducts:
   - countertop: content/countertops/simplepurewhite.md
 media:
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2637-kitchen-cover.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2637-kitchen-cover.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -46,7 +46,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, timber
       cabinetry, quartz surfaces, primary project view.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2616-project-example-7.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2616-project-example-7.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -62,7 +62,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen island, kitchen, mocha
       stain, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2617-project-example-13.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2617-project-example-13.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -78,7 +78,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, mocha
       stain.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2618-project-example-10.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2618-project-example-10.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -91,7 +91,7 @@ media:
     label: Project-Example-10.jpg
     description: ''
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2619-project-example-6.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2619-project-example-6.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -107,7 +107,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen island, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2620-project-example-11.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2620-project-example-11.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -123,7 +123,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, brown
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2621-project-example-5.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2621-project-example-5.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -139,7 +139,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, mocha
       stain, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2622-project-example-16.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2622-project-example-16.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -155,7 +155,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2623-project-example-14.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2623-project-example-14.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -171,7 +171,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, mocha
       stain, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2624-project-example-20.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2624-project-example-20.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -186,7 +186,7 @@ media:
       Residence on Chattaroy featuring white laundry cabinets, laundry, quartz
       surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2625-project-example-17.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2625-project-example-17.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -202,7 +202,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, timber
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2626-project-example-22.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2626-project-example-22.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -218,7 +218,7 @@ media:
       Residence on Chattaroy featuring white built-in cabinets, other, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2627-project-example-18.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2627-project-example-18.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -234,7 +234,7 @@ media:
       Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, mocha
       stain, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2628-project-example-24.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2628-project-example-24.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -250,7 +250,7 @@ media:
       Residence on Chattaroy featuring white kitchen cabinets, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2629-project-example-23.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2629-project-example-23.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -265,7 +265,7 @@ media:
       Residence on Chattaroy featuring white laundry sink, laundry, quartz
       surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2630-project-example-26.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2630-project-example-26.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -281,7 +281,7 @@ media:
       Residence on Chattaroy featuring white bathroom vanity, bathroom, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2631-project-example-29.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2631-project-example-29.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -294,7 +294,7 @@ media:
     label: Timber media cabinets
     description: 'Residence on Chattaroy featuring timber media cabinets, other.'
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2632-project-example-31.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2632-project-example-31.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -310,7 +310,7 @@ media:
       Residence on Chattaroy featuring white bathroom vanity, bathroom, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2633-project-example-33.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2633-project-example-33.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -326,7 +326,7 @@ media:
       Residence on Chattaroy featuring white bathroom vanity, bathroom, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2634-project-example-34.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2634-project-example-34.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -342,7 +342,7 @@ media:
       Residence on Chattaroy featuring white bathroom vanity, bathroom, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2635-project-example-38.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2635-project-example-38.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -358,7 +358,7 @@ media:
       Residence on Chattaroy featuring white laundry cabinets, laundry, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-walnut-kitchen-waterfall-island/2636-project-example-39.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2636-project-example-39.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false

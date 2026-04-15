@@ -16,7 +16,7 @@ notes: |-
   Imported labels: Medium kitchen, White big countertop, White cabinets
   Old project title: Bright White Shaker Kitchen Remodel
 primaryPicture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2360-dsc03794.jpg
+  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2360-dsc03794.jpg
 relatedProjects:
   - project: content/projects/residence-on-conklin-street.md
   - project: content/projects/residence-on-locust-road.md
@@ -27,7 +27,7 @@ countertopProducts:
   - countertop: content/countertops/carraramist.md
 media:
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2360-dsc03794.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2360-dsc03794.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces, primary project view.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2573-project-example-14.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2573-project-example-14.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -59,7 +59,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2572-project-example-15.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2572-project-example-15.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -74,7 +74,7 @@ media:
       Residence on Helena Street featuring white quartz sink area, kitchen,
       quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2571-project-example-16.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2571-project-example-16.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -91,7 +91,7 @@ media:
       Residence on Helena Street featuring white and gray kitchen, kitchen,
       white + gray cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2570-project-example-13.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2570-project-example-13.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -108,7 +108,7 @@ media:
       Residence on Helena Street featuring white and gray kitchen, kitchen,
       white + gray cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2569-project-example-9.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2569-project-example-9.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -124,7 +124,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2568-project-example-11.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2568-project-example-11.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -140,7 +140,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2567-project-example-7.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2567-project-example-7.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -156,7 +156,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2566-project-example-8.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2566-project-example-8.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -172,7 +172,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2565-project-example-12.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2565-project-example-12.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -188,7 +188,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2564-project-example-10.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2564-project-example-10.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -205,7 +205,7 @@ media:
       Residence on Helena Street featuring white and gray kitchen, kitchen,
       white + gray cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2563-project-example-3.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2563-project-example-3.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -221,7 +221,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2562-project-example-6.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2562-project-example-6.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -237,7 +237,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2561-project-example-4.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2561-project-example-4.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -253,7 +253,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2560-project-example-2.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2560-project-example-2.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -269,7 +269,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2559-project-example-1.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2559-project-example-1.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -285,7 +285,7 @@ media:
       Residence on Helena Street featuring white shaker kitchen, kitchen, white
       cabinetry, quartz surfaces.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-remodel/2558-project-example-5.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2558-project-example-5.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false

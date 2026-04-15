@@ -2,9 +2,9 @@
 published: true
 title: Residence on Walnut Street
 description: 'Clean-lined white shaker cabinetry defines this bright open kitchen and bath vanity project. A waterfall-look quartz island, matching quartz counters, light subway tile backsplash, and stainless steel appliances create a fresh modern palette. Black hardware, a dark faucet, and clear glass pendants add contrast, while warm wood-look flooring softens the crisp finishes. The bathroom vanity echoes the kitchen with white cabinetry, veined quartz, and matte black fixtures.'
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/1230-copy-of-03-inside-spokane-walnut-12.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/1230-copy-of-03-inside-spokane-walnut-12.jpg'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/1230-copy-of-03-inside-spokane-walnut-12.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/1230-copy-of-03-inside-spokane-walnut-12.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2527-project-example-16.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2527-project-example-16.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -30,7 +30,7 @@ media:
     countertop: Quartz
     label: White kitchen island
     description: 'Residence on Walnut Street featuring white kitchen island, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2526-project-example-15.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2526-project-example-15.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2525-project-example-17.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2525-project-example-17.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -56,7 +56,7 @@ media:
     countertop: Quartz
     label: White bathroom vanity
     description: 'Residence on Walnut Street featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2524-project-example-14.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2524-project-example-14.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +69,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2523-project-example-13.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2523-project-example-13.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -82,7 +82,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2522-project-example-11.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2522-project-example-11.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -95,7 +95,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2520-project-example-9.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2520-project-example-9.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -108,7 +108,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2519-project-example-10.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2519-project-example-10.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -121,7 +121,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2518-project-example-7.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2518-project-example-7.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -134,7 +134,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2517-project-example-8.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2517-project-example-8.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -147,7 +147,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Walnut Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2516-project-example-5.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2516-project-example-5.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -160,7 +160,7 @@ media:
     countertop: Quartz
     label: White bathroom vanity
     description: 'Residence on Walnut Street featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2515-project-example-6.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2515-project-example-6.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -172,7 +172,7 @@ media:
     countertop: Quartz
     label: White bathroom vanity
     description: 'Residence on Walnut Street featuring white bathroom vanity, bathroom, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2514-project-example-1.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2514-project-example-1.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -185,7 +185,7 @@ media:
     countertop: Quartz
     label: White bathroom vanity
     description: 'Residence on Walnut Street featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2513-project-example-3.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2513-project-example-3.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -198,7 +198,7 @@ media:
     countertop: Quartz
     label: White bathroom vanity
     description: 'Residence on Walnut Street featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2512-project-example-2.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2512-project-example-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -211,7 +211,7 @@ media:
     countertop: Quartz
     label: White bathroom vanity
     description: 'Residence on Walnut Street featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-and-vanity/2511-project-example-4.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/2511-project-example-4.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
