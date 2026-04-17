@@ -67,31 +67,31 @@ blocks:
     description: 'In addition to the countertop options shown in our catalog, you may also order countertops from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.'
     footnote: Click on a partner logo to view their products on the official website.
     partnerLogos:
-      - logo: /library/trust/trust-cambria.svg
+      - logo: /library/partners/countertops/cambria.svg
         alt: Cambria
         url: 'https://www.cambriausa.com/'
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png'
+      - logo: /library/partners/countertops/caesarstone.svg
         alt: Caesarstone
         url: 'https://www.caesarstoneus.com/'
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png'
+      - logo: /library/partners/countertops/moda-surfaces.svg
         alt: Moda Surfaces
         url: 'https://modasurfaces.com/'
-      - logo: /library/trust/trust-msi.svg
+      - logo: /library/partners/countertops/msi.svg
         alt: MSI
         url: 'https://www.msisurfaces.com/'
-      - logo: /library/trust/trust-bedrosians.svg
+      - logo: /library/partners/countertops/bedrosians.svg
         alt: Bedrosians
         url: 'https://www.bedrosians.com/'
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png'
+      - logo: /library/partners/countertops/daltile.svg
         alt: Daltile
         url: 'https://www.daltile.com/'
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png'
+      - logo: /library/partners/countertops/pental-quartz.svg
         alt: PentalQuartz
         url: 'https://www.pentalquartz.com/'
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png'
+      - logo: /library/partners/countertops/stratus-quartz.svg
         alt: Stratus Quartz
         url: 'https://www.stratusquartz.com/'
-      - logo: /library/trust/trust-msi.svg
+      - logo: /library/partners/countertops/hanstone.svg
         alt: HanStone
         url: 'https://www.hanstone.com/'
     _template: partnersSection

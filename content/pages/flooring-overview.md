@@ -70,7 +70,7 @@ blocks:
       - logo: /library/partners/flooring/mozaik.svg
         alt: Mozaik
         url: 'https://mozaikcollection.com/'
-      - logo: /library/partners/flooring/lions-floor.svg
+      - logo: /library/partners/flooring/lions-floor.png
         alt: Lions Floor
         url: 'https://lionsfloor.com/'
       - logo: /library/partners/flooring/prima-floors.png

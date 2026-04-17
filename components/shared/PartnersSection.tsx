@@ -51,7 +51,6 @@ function PartnerTile({
           className="max-h-[40px] max-w-full object-contain md:max-h-[48px]"
           data-tina-field={logoField || tinaFieldValue}
           src={logo.src}
-          variant="thumb"
         />
       </span>
       <img
