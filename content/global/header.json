@@ -109,7 +109,59 @@
           "label": "Flooring",
           "href": "/flooring",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/flooring/catalog"
+          "buttonLink": "/flooring/catalog",
+          "catalogItems": [
+            {
+              "name": "Bora Bora Pewter",
+              "code": "#BB-6",
+              "image": "/library/flooring/flooring2/bora-bora-pewter-bb-6.avif",
+              "link": "/flooring/catalog/bora-bora-pewter-bb-6",
+              "imageFrame": {
+                "width": 162,
+                "height": 80
+              }
+            },
+            {
+              "name": "Homage Alabaster",
+              "code": "#HM-2",
+              "image": "/library/flooring/flooring2/homage-alabaster-hm-2.avif",
+              "link": "/flooring/catalog/homage-alabaster-hm-2",
+              "imageFrame": {
+                "width": 162,
+                "height": 80
+              }
+            },
+            {
+              "name": "Indoor Delight Charm",
+              "code": "#LI-ID13",
+              "image": "/library/flooring/lionsfloor/indoor-delight-charm-li-id13.jpg",
+              "link": "/flooring/catalog/indoor-delight-charm-li-id13",
+              "imageFrame": {
+                "width": 162,
+                "height": 80
+              }
+            },
+            {
+              "name": "Engineered Hardwood Mona Lisa",
+              "code": "#GW331",
+              "image": "/library/flooring/primafloors/engineered-hardwood-mona-lisa-gw331.jpg",
+              "link": "/flooring/catalog/engineered-hardwood-mona-lisa-gw331",
+              "imageFrame": {
+                "width": 162,
+                "height": 80
+              }
+            },
+            {
+              "name": "Lyrus Stone Composite Elite Mammoth",
+              "code": "#MO-EL01",
+              "image": "/library/flooring/mozaik/lyrus-stone-composite-elite-mammoth-mo-el01.jpg",
+              "link": "/flooring/catalog/lyrus-stone-composite-elite-mammoth-mo-el01",
+              "imageFrame": {
+                "width": 162,
+                "height": 80
+              }
+            }
+          ]
         }
       ]
     },
