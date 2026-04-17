@@ -64,24 +64,42 @@ blocks:
       - Timeless Tile
     _template: projectsSection
   - title: Our partners
-    description: 'We work with trusted flooring brands to bring Spokane homeowners a wide range of styles and performance levels. Ask our team about specific product lines and availability during your visit.'
+    description: 'In addition to the flooring options shown in our catalog, you may also order flooring from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.'
     footnote: Click on a partner logo to view their products on the official website.
     partnerLogos:
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png'
+      - logo: /library/partners/flooring/mozaik.svg
+        alt: Mozaik
+        url: 'https://mozaikcollection.com/'
+      - logo: /library/partners/flooring/lions-floor.svg
         alt: Lions Floor
         url: 'https://lionsfloor.com/'
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png'
-        alt: Lyrus Collection
-        url: 'https://lyrus.com/'
-      - logo: /library/trust/trust-msi.svg
+      - logo: /library/partners/flooring/prima-floors.png
+        alt: Prima Floors
+        url: 'https://primafloors.com/'
+      - logo: /library/partners/flooring/flooring2.png
+        alt: flooring²
+        url: 'https://flooring2.com/'
+      - logo: /library/partners/flooring/wanke-cascade-part-1.svg
+        alt: Wanke Cascade
+        url: 'https://wankecascade.com/'
+      - logo: /library/partners/flooring/msi.svg
         alt: MSI
         url: 'https://www.msisurfaces.com/'
-      - logo: /library/trust/trust-bedrosians.svg
-        alt: Bedrosians
-        url: 'https://www.bedrosians.com/'
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png'
-        alt: Easy Stones
-        url: 'https://easystones.com/'
+      - logo: /library/partners/flooring/pacmat.png
+        alt: Pacmat
+        url: 'https://pacmat.com/'
+      - logo: /library/partners/flooring/mohawk.svg
+        alt: Mohawk
+        url: 'https://www.mohawkflooring.com/'
+      - logo: /library/partners/flooring/stonewood.png
+        alt: Stonewood
+        url: 'https://stonewoodproducts.com/'
+      - logo: /library/partners/flooring/opus.png
+        alt: Opus
+        url: 'https://opusflooring.com/'
+      - logo: /library/partners/flooring/engineered-floors.svg
+        alt: Engineered Floors
+        url: 'https://www.engineeredfloors.com/'
     _template: partnersSection
   - title: How We Help You Pick Flooring
     steps:

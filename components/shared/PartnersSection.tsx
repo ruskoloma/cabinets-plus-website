@@ -94,7 +94,7 @@ export default function PartnersSection({
   defaultFootnote = "Click on a partner logo to view their products on the official website.",
 }: PartnersSectionProps) {
   const partnerLogos = mapPartnerLogos(block.partnerLogos);
-  const resolvedLogos = (partnerLogos.length > 0 ? partnerLogos : (fallbackLogos || DEFAULT_FALLBACK_LOGOS)).slice(0, 9);
+  const resolvedLogos = partnerLogos.length > 0 ? partnerLogos : (fallbackLogos || DEFAULT_FALLBACK_LOGOS);
   const heading = text(block.title, defaultTitle);
   const body = text(block.description, defaultBody);
   const footnote = text(block.footnote, defaultFootnote);
