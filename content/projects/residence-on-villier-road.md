@@ -248,7 +248,7 @@ countertopProducts:
 relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/modern-transitional-kitchen-and-bath-cabinetry.md
+  - project: content/projects/residence-on-sheneen-ct.md
 slug: residence-on-villier-road
 address: '6460 N Villier Rd Nine Mile Falls, WA 99026, USA'
 notes: |-
