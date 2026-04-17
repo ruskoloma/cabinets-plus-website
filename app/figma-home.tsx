@@ -27,6 +27,7 @@ import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import TrustBar from "@/components/home/TrustBar";
 import TrustMessageStrip from "@/components/home/TrustMessageStrip";
+import PartnersSection from "@/components/shared/PartnersSection";
 import FillImage from "@/components/ui/FillImage";
 import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import type { ImageVariantPreset } from "@/lib/image-variants";
@@ -89,6 +90,7 @@ export default function FigmaHome({ page }: Props) {
   const faq = getBlock(parsedBlocks, "faqSection");
   const contact = getBlock(parsedBlocks, "contactSection");
   const trustStrip = getBlock(parsedBlocks, "trustStrip");
+  const partnersBlock = getBlock(parsedBlocks, "partnersSection");
 
   const heroRecord = hero as Record<string, unknown>;
   const productsRecord = products as Record<string, unknown>;
@@ -101,6 +103,7 @@ export default function FigmaHome({ page }: Props) {
   const faqRecord = faq as Record<string, unknown>;
   const contactRecord = contact as Record<string, unknown>;
   const trustStripRecord = trustStrip as Record<string, unknown>;
+  const partnersRecord = partnersBlock as Record<string, unknown>;
   const heroImageOptions = resolveHomepageSectionImageOptions(heroRecord);
   const productsImageOptions = resolveHomepageSectionImageOptions(productsRecord);
   const servicesImageOptions = resolveHomepageSectionImageOptions(servicesRecord);
@@ -136,6 +139,7 @@ export default function FigmaHome({ page }: Props) {
   const projectGallery = (Array.isArray(projects.images) ? (projects.images as unknown[]) : []).map((item) => text(item)).filter(Boolean);
   const projectImages = projectGallery.length > 0 ? projectGallery : FALLBACK_PROJECT_IMAGES;
   const projectImageFields = projectGallery.map((_, index) => tinaField(projectsRecord, `images.${index}`));
+  const projectTitles = (Array.isArray(projects.titles) ? (projects.titles as unknown[]) : []).map((item) => text(item));
   const partnerLogos = mapPartnerLogos(about.partnerLogos);
   const fallbackTrustPartnerLogos: PartnerLogoItem[] = [
     { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png", alt: "Lions Floor" },
@@ -194,10 +198,10 @@ export default function FigmaHome({ page }: Props) {
             <h1 className="text-[40px] font-semibold uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[56px]" data-tina-field={tinaField(heroRecord, "heading")}>
               {text(hero.heading, "Complete Kitchen & Bath Renovations in Spokane")}
             </h1>
-            <p className="mt-4 max-w-[560px] text-base font-medium leading-[1.5] text-white md:mt-6 md:text-[18px]" data-tina-field={tinaField(heroRecord, "subtext")}>
+            <p className="mt-0 max-w-[314px] text-base font-medium leading-[1.5] text-white md:mt-6 md:max-w-[560px] md:text-[18px]" data-tina-field={tinaField(heroRecord, "subtext")}>
               {text(hero.subtext, "Professional design, expert installation, and guaranteed results. From semi-custom cabinetry to stone countertops — we handle everything.")}
             </p>
-            <div className="mt-8">
+            <div className="mt-[18px] md:mt-8">
               <Button dataTinaField={tinaField(heroRecord, "ctaLabel")} href={text(hero.ctaLink, "/contact-us")} variant="primary">
                 {text(hero.ctaLabel, "free design Consultation")}
               </Button>
@@ -223,7 +227,7 @@ export default function FigmaHome({ page }: Props) {
               tinaImageField={tinaField(item.raw as Record<string, unknown>, "image")}
               tinaTitleField={tinaField(item.raw as Record<string, unknown>, "name")}
               title={item.name}
-              titleClassName="mt-3 text-[24px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]"
+              titleClassName="mt-3 text-[24px] font-normal capitalize leading-[1.25] text-[var(--cp-primary-500)]"
             />
           ))}
         </div>
@@ -249,7 +253,7 @@ export default function FigmaHome({ page }: Props) {
               tinaImageField={tinaField(item.raw as Record<string, unknown>, "image")}
               tinaTitleField={tinaField(item.raw as Record<string, unknown>, "title")}
               title={item.title}
-              titleClassName="mt-3 text-[20px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]"
+              titleClassName="mt-3 text-[20px] font-normal capitalize leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]"
             />
           ))}
         </div>
@@ -264,6 +268,7 @@ export default function FigmaHome({ page }: Props) {
             imageFields={projectImageFields}
             imageVariant={projectsImageOptions.useOriginal ? null : projectsImageOptions.variant}
             images={projectImages}
+            titles={projectTitles}
           />
           <div className="mt-12 text-center md:mt-7">
             <Button className="!min-h-12 md:!min-h-14" dataTinaField={tinaField(projectsRecord, "ctaLabel")} href={text(projects.ctaLink, "/gallery")} variant="outline">
@@ -279,14 +284,14 @@ export default function FigmaHome({ page }: Props) {
         </h2>
 
         {text(whyUs.introText).length > 0 || text(whyUs.introText2).length > 0 ? (
-          <div className="mt-8 grid gap-4 text-[20px] leading-[1.45] text-[var(--cp-primary-500)] md:mt-4 md:grid-cols-[559px_minmax(0,1fr)] md:gap-20 md:py-8 md:text-[24px]">
+          <div className="mt-8 grid gap-4 text-[18px] leading-[1.5] text-[var(--cp-primary-500)] md:mt-4 md:grid-cols-[559px_minmax(0,1fr)] md:gap-20 md:py-8 md:text-[24px] md:leading-[1.45]">
             {text(whyUs.introText).length > 0 ? (
-              <p className="max-w-[22ch] md:max-w-none" data-tina-field={tinaField(whyUsRecord, "introText")}>
+              <p data-tina-field={tinaField(whyUsRecord, "introText")}>
                 {text(whyUs.introText)}
               </p>
             ) : null}
             {text(whyUs.introText2).length > 0 ? (
-              <p className="max-w-[24ch] md:max-w-none" data-tina-field={tinaField(whyUsRecord, "introText2")}>
+              <p data-tina-field={tinaField(whyUsRecord, "introText2")}>
                 {renderHighlightedText(text(whyUs.introText2), [introHighlight], "font-black")}
               </p>
             ) : null}
@@ -300,7 +305,7 @@ export default function FigmaHome({ page }: Props) {
                 {item.image ? <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 31vw, 100vw" src={item.image} variant={resolveSectionVariant(whyUsImageOptions, "card")} /> : null}
               </div>
               <h3
-                className="mt-3 text-[20px] font-semibold leading-[1.15] text-[var(--cp-primary-500)] md:text-[24px] md:leading-[1.25]"
+                className="mt-3 text-[20px] font-normal leading-[1.15] text-[var(--cp-primary-500)] md:text-[24px] md:leading-[1.25]"
                 data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}
               >
                 {item.title}
@@ -355,15 +360,15 @@ export default function FigmaHome({ page }: Props) {
         <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgba(38,38,35,0.6)_0%,rgba(38,38,35,0.45)_50%,rgba(38,38,35,0)_100%)] md:block" />
 
         <div className="cp-container relative h-full px-4 md:px-8">
-          <div className="absolute left-8 top-[208px] w-[314px] md:left-[136px] md:top-[150px] md:w-[549px]">
-            <h2 className="font-[var(--font-red-hat-display)] text-[32px] font-semibold uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px] md:font-normal" data-tina-field={tinaField(showroomRecord, "heading")}>
+          <div className="absolute left-8 top-[208px] w-[345px] max-w-[calc(100%-32px)] md:left-[136px] md:top-[150px] md:w-[549px] md:max-w-none">
+            <h2 className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px] md:font-normal" data-tina-field={tinaField(showroomRecord, "heading")}>
               {text(showroom.heading, "Spokane's Premier Cabinet & Stone Showroom")}
             </h2>
-            <p className="mt-4 text-[16px] font-medium leading-[1.5] text-white md:mt-6 md:text-[24px] md:font-normal" data-tina-field={tinaField(showroomRecord, "subtext")}>
+            <p className="mt-4 max-w-[314px] text-[16px] font-medium leading-[1.5] text-white md:mt-6 md:max-w-none md:text-[24px] md:font-normal" data-tina-field={tinaField(showroomRecord, "subtext")}>
               {text(showroom.subtext, "Factory-direct semi-custom cabinets, granite & quartz countertops, and flooring. Experience quality before you buy.")}
             </p>
             <div className="mt-6 md:mt-8">
-              <Button className="!border-white !text-white hover:!border-white hover:!bg-white/10 hover:!text-white" dataTinaField={tinaField(showroomRecord, "ctaLabel")} href={text(showroom.ctaLink, "/contact-us")} variant="outline">
+              <Button className="!border-white !bg-transparent !text-white hover:!border-white hover:!bg-white/10 hover:!text-white" dataTinaField={tinaField(showroomRecord, "ctaLabel")} href={text(showroom.ctaLink, "/contact-us")} variant="outline">
                 {text(showroom.ctaLabel, "Visit Our Showroom")}
               </Button>
             </div>
@@ -406,7 +411,7 @@ export default function FigmaHome({ page }: Props) {
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-[var(--font-red-hat-display)] text-[20px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}>
+                      <h3 className="font-[var(--font-red-hat-display)] text-[20px] font-normal leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}>
                         {item.title}
                       </h3>
                       <p className="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "description")}>
@@ -432,6 +437,10 @@ export default function FigmaHome({ page }: Props) {
 
       {hasTemplate("contactSection") ? <div style={{ order: getSectionOrder("contactSection", 10, 0) }}>
         <ContactUsSection block={contactRecord} imageVariant={contactImageOptions.useOriginal ? null : contactImageOptions.variant} />
+      </div> : null}
+
+      {hasTemplate("partnersSection") ? <div style={{ order: getSectionOrder("partnersSection", 11) }}>
+        <PartnersSection block={partnersRecord} />
       </div> : null}
 
       {hasTemplate("contactSection") ? <div style={{ order: getSectionOrder("contactSection", 10, 1) }}>

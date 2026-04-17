@@ -75,6 +75,8 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
   PageBlocksContactSection: "contactSection",
   PageBlocksTrustStrip: "trustStrip",
   PageBlocksAboutStorySection: "aboutStorySection",
+  PageBlocksPartnersSection: "partnersSection",
+  PageBlocksTextImageSection: "textImageSection",
 };
 
 const FALLBACK_FAQ_TABS: FaqTab[] = [

@@ -36,6 +36,8 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   trustStrip: "PageBlocksTrustStrip",
   aboutStorySection: "PageBlocksAboutStorySection",
   richContent: "PageBlocksRichContent",
+  partnersSection: "PageBlocksPartnersSection",
+  textImageSection: "PageBlocksTextImageSection",
 };
 
 function normalizePageBlock(value: unknown): Record<string, unknown> | null {

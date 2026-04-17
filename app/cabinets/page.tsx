@@ -1,29 +1,21 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { buildDocumentMetadata } from "@/app/lib/metadata";
 import CabinetsOverviewClient from "./cabinets-overview-client";
-import { getCabinetsOverviewDataSafe } from "@/app/get-cabinets-overview-data-safe";
-import { getCabinetsOverviewPageSettingsSafe } from "@/app/get-cabinets-overview-page-settings-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 
-export const metadata: Metadata = {
-  title: "Cabinets",
-  description: "Browse cabinet door styles, finishes, and product details in our full cabinet catalog.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const result = await getPageDataSafe("cabinets-overview.md");
+  const built = buildDocumentMetadata(result.data.page);
+  return {
+    title: built.title || "Cabinets",
+    description:
+      built.description ||
+      "Browse cabinet styles, finishes, and services at Cabinets Plus in Spokane. Semi-custom cabinetry, in-house design consultation, and professional installation.",
+    openGraph: built.openGraph,
+  };
+}
 
-export default async function CabinetsOverviewPage() {
-  const [overviewData, homePageData, pageSettingsData] = await Promise.all([
-    getCabinetsOverviewDataSafe(),
-    getPageDataSafe("home.md"),
-    getCabinetsOverviewPageSettingsSafe(),
-  ]);
-
-  return (
-    <Suspense fallback={null}>
-      <CabinetsOverviewClient
-        homePageData={homePageData}
-        overviewData={overviewData}
-        pageSettingsData={pageSettingsData}
-      />
-    </Suspense>
-  );
+export default async function CabinetsPage() {
+  const result = await getPageDataSafe("cabinets-overview.md");
+  return <CabinetsOverviewClient {...result} />;
 }

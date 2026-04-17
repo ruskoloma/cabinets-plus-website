@@ -40,6 +40,7 @@ body {
   font-family: var(--font-red-hat-text), sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: clip;
 }
 
 /* Smooth scrolling */
@@ -47,6 +48,7 @@ html {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
+  overflow-x: clip;
 }
 
 /* Prose styles for blog posts (since we don't have @tailwindcss/typography) */
@@ -195,6 +197,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.5;
   text-decoration: none;
+}
+
+.cp-text-link--large:hover:not(.cp-text-link--disabled):not([aria-disabled="true"]) {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.cp-text-link--title:hover:not(.cp-text-link--disabled):not([aria-disabled="true"]) {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
 }
 
 .cp-text-link--medium {

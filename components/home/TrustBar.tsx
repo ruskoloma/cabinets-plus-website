@@ -101,7 +101,7 @@ export default function TrustBar({
               <span className="h-px bg-white/20" />
             </div>
 
-            <div className="mt-[44px] relative h-[100px] w-full max-w-[361px]">
+            <div className="mt-[44px] relative h-[100px] w-full max-w-[361px] overflow-hidden">
               {logo1 ? <FallbackImg alt={logo1.alt} className="absolute left-0 top-[3.66px] h-[44.96px] w-[123.903px] object-contain opacity-40" data-tina-field={logo1.logoField || logo1.tinaField} src={logo1.src} variant="thumb" /> : null}
               {logo2 ? <FallbackImg alt={logo2.alt} className="absolute left-[157.88px] top-0 h-[52.28px] w-[39.923px] object-contain opacity-40" data-tina-field={logo2.logoField || logo2.tinaField} src={logo2.src} variant="thumb" /> : null}
               {logo3 ? <FallbackImg alt={logo3.alt} className="absolute left-[231.6px] top-[12.02px] h-[28.231px] w-[129.401px] object-contain opacity-40" data-tina-field={logo3.logoField || logo3.tinaField} src={logo3.src} variant="thumb" /> : null}
@@ -109,6 +109,19 @@ export default function TrustBar({
               {logo5 ? <FallbackImg alt={logo5.alt} className="absolute left-[152.45px] top-[73.65px] h-[23.821px] w-[57.169px] object-contain opacity-40" data-tina-field={logo5.logoField || logo5.tinaField} src={logo5.src} variant="thumb" /> : null}
               {logo6 ? <FallbackImg alt={logo6.alt} className="absolute left-[242.97px] top-[71px] h-[28.74px] w-[117.951px] object-contain opacity-40" data-tina-field={logo6.logoField || logo6.tinaField} src={logo6.src} variant="thumb" /> : null}
             </div>
+
+            {hasCta ? (
+              <div className="mt-12 text-center">
+                <Button
+                  className="!min-h-12 !rounded-[2px] !border-white !bg-transparent !px-8 !text-[16px] !font-medium !text-white hover:!border-white hover:!bg-white/10 hover:!text-white"
+                  dataTinaField={ctaLabelField}
+                  href={ctaLink}
+                  variant="outline"
+                >
+                  {ctaLabel}
+                </Button>
+              </div>
+            ) : null}
           </div>
 
           <div className="hidden md:block">

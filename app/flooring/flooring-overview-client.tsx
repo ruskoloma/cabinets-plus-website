@@ -1,6 +1,6 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
-import FigmaCountertopsOverviewPage from "@/components/countertops-overview/FigmaCountertopsOverviewPage";
+import FigmaFlooringOverviewPage from "@/components/flooring-overview/FigmaFlooringOverviewPage";
 
 interface Props {
   data: Record<string, unknown>;
@@ -8,7 +8,7 @@ interface Props {
   variables?: Record<string, unknown>;
 }
 
-function TinaCountertopsOverviewClient(props: Props) {
+function TinaFlooringOverviewClient(props: Props) {
   const { data } = useTina({
     data: props.data,
     query: props.query || "",
@@ -17,16 +17,16 @@ function TinaCountertopsOverviewClient(props: Props) {
 
   const page = (data as { page?: Record<string, unknown> }).page;
 
-  return <FigmaCountertopsOverviewPage page={page || {}} />;
+  return <FigmaFlooringOverviewPage page={page || {}} />;
 }
 
-export default function CountertopsOverviewClient(props: Props) {
+export default function FlooringOverviewClient(props: Props) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
     const page = (props.data as { page?: Record<string, unknown> }).page;
-    return <FigmaCountertopsOverviewPage page={page || {}} />;
+    return <FigmaFlooringOverviewPage page={page || {}} />;
   }
 
-  return <TinaCountertopsOverviewClient {...props} />;
+  return <TinaFlooringOverviewClient {...props} />;
 }

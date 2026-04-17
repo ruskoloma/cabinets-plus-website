@@ -17,6 +17,7 @@ interface PreviewCardProps {
   tinaDescriptionField?: string;
   imageVariant?: ImageVariantPreset | null;
   showMobileChevron?: boolean;
+  hoverViewLabel?: string;
 }
 
 export default function PreviewCard({
@@ -26,7 +27,7 @@ export default function PreviewCard({
   description,
   imageClassName = "h-[440px]",
   wrapperClassName = "",
-  titleClassName = "mt-3 text-2xl font-semibold capitalize text-[var(--cp-primary-500)]",
+  titleClassName = "mt-3 text-2xl font-normal capitalize text-[var(--cp-primary-500)]",
   descriptionClassName = "mt-2 text-lg leading-relaxed text-[var(--cp-primary-500)]",
   tinaCardField,
   tinaImageField,
@@ -34,6 +35,7 @@ export default function PreviewCard({
   tinaDescriptionField,
   imageVariant,
   showMobileChevron = false,
+  hoverViewLabel = "View",
 }: PreviewCardProps) {
   const imageClasses = [
     "h-full w-full object-cover",
@@ -46,6 +48,13 @@ export default function PreviewCard({
     <>
       <div className={`relative overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] ${imageClassName}`} data-tina-field={tinaImageField}>
         {image ? <FillImage alt={title} className={imageClasses} sizes="(min-width: 768px) 25vw, 100vw" src={image} variant={imageVariant === null ? undefined : (imageVariant ?? "card")} /> : null}
+        {href ? (
+          <div className="pointer-events-none absolute inset-0 hidden items-center justify-center bg-[rgba(38,38,35,0.4)] opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:flex">
+            <span className="inline-flex min-h-[48px] items-center justify-center rounded-[2px] border border-white bg-transparent px-8 text-[20px] font-medium leading-[1.2] text-white">
+              {hoverViewLabel}
+            </span>
+          </div>
+        ) : null}
       </div>
       {showMobileChevron && href ? (
         <>

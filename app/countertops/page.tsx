@@ -1,29 +1,21 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { buildDocumentMetadata } from "@/app/lib/metadata";
 import CountertopsOverviewClient from "./countertops-overview-client";
-import { getCountertopsOverviewDataSafe } from "@/app/get-countertops-overview-data-safe";
-import { getCountertopsOverviewPageSettingsSafe } from "@/app/get-countertops-overview-page-settings-safe";
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 
-export const metadata: Metadata = {
-  title: "Countertops",
-  description: "Browse quartz, granite, marble, and other countertop materials in our full countertop catalog.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const result = await getPageDataSafe("countertops-overview.md");
+  const built = buildDocumentMetadata(result.data.page);
+  return {
+    title: built.title || "Countertops",
+    description:
+      built.description ||
+      "Explore quartz, granite, marble and quartzite countertops at Cabinets Plus in Spokane. In-house fabrication, free measurements and professional installation.",
+    openGraph: built.openGraph,
+  };
+}
 
 export default async function CountertopsPage() {
-  const [overviewData, homePageData, pageSettingsData] = await Promise.all([
-    getCountertopsOverviewDataSafe(),
-    getPageDataSafe("home.md"),
-    getCountertopsOverviewPageSettingsSafe(),
-  ]);
-
-  return (
-    <Suspense fallback={null}>
-      <CountertopsOverviewClient
-        homePageData={homePageData}
-        overviewData={overviewData}
-        pageSettingsData={pageSettingsData}
-      />
-    </Suspense>
-  );
+  const result = await getPageDataSafe("countertops-overview.md");
+  return <CountertopsOverviewClient {...result} />;
 }

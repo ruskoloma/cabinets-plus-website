@@ -429,13 +429,15 @@ export default function Header({
           <span className="inline-flex items-center gap-2 whitespace-nowrap" data-tina-field={tinaField(generalRaw, "phone")}>
             <img alt="" aria-hidden className="h-4 w-4" src="/library/header/icon-phone.svg" />
             <span className="hidden font-semibold md:inline">Call Us:</span>
-            <span>{data.phone}</span>
+            <a className="hover:underline underline-offset-[0.14em]" href={`tel:${(data.phone || "").replace(/[^0-9+]/g, "")}`}>
+              {data.phone}
+            </a>
           </span>
 
           <span className="inline-flex items-center gap-3 whitespace-nowrap" data-tina-field={tinaField(generalRaw, "address")}>
             <img alt="" aria-hidden className="h-4 w-4" src="/library/header/icon-location.svg" />
             <span className="hidden font-semibold md:inline">Find Us:</span>
-            <span>{topBarAddress}</span>
+            <span className="hover:underline underline-offset-[0.14em] cursor-pointer">{topBarAddress}</span>
           </span>
         </div>
       </div>

@@ -48,6 +48,12 @@ blocks:
       - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg'
       - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg'
       - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg'
+    titles:
+      - Scandinavian Warmth
+      - Modern Heritage
+      - Coastal Calm
+      - Urban Retreat
+      - Timeless Classic
     _template: projectsSection
   - title: 'The difference is real:'
     subtitle: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'

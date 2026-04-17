@@ -1499,6 +1499,9 @@ export default defineConfig({
         ui: {
           router: ({ document }) => {
             if (document._sys.filename === "home") return "/";
+            if (document._sys.filename === "countertops-overview") return "/countertops";
+            if (document._sys.filename === "cabinets-overview") return "/cabinets";
+            if (document._sys.filename === "flooring-overview") return "/flooring";
             return `/${document._sys.filename}`;
           },
           allowedActions: { create: false, delete: false },
@@ -1561,6 +1564,13 @@ export default defineConfig({
                   { type: "string", name: "ctaLabel", label: "CTA Text" },
                   { type: "string", name: "ctaLink", label: "CTA Link" },
                   { type: "image", name: "images", label: "Project Images", list: true },
+                  {
+                    type: "string",
+                    name: "titles",
+                    label: "Project Titles",
+                    list: true,
+                    description: "Optional hover titles for each project image (in the same order as the images above).",
+                  },
                   ...homepageSectionImageFields(),
                 ],
               },
@@ -1667,6 +1677,32 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    type: "object", name: "faqs", label: "FAQs (single list)", list: true,
+                    description: "Alternative: flat FAQ list when tabs are not needed.",
+                    ui: { itemProps: (item: any) => ({ label: item.question }) },
+                    fields: [
+                      { type: "string", name: "question", label: "Question" },
+                      { type: "string", name: "answer", label: "Answer", ui: { component: "textarea" } },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "partnersSection", label: "Partners Section",
+                fields: [
+                  { type: "string", name: "title", label: "Section Title" },
+                  { type: "string", name: "description", label: "Body Text", ui: { component: "textarea" } },
+                  { type: "string", name: "footnote", label: "Footnote" },
+                  {
+                    type: "object", name: "partnerLogos", label: "Partner Logos", list: true,
+                    ui: { itemProps: (item: any) => ({ label: item.alt || "Partner logo" }) },
+                    fields: [
+                      { type: "image", name: "logo", label: "Logo" },
+                      { type: "string", name: "alt", label: "Alt Text" },
+                      { type: "string", name: "url", label: "External URL" },
+                    ],
+                  },
                 ],
               },
               {
@@ -1725,6 +1761,30 @@ export default defineConfig({
                 fields: [
                   { type: "string", name: "title", label: "Title" },
                   { type: "rich-text", name: "body", label: "Content" },
+                ],
+              },
+              {
+                name: "textImageSection", label: "Info Section",
+                fields: [
+                  { type: "string", name: "title", label: "Section Title" },
+                  {
+                    type: "rich-text",
+                    name: "paragraphs",
+                    label: "Body Paragraphs",
+                  },
+                  { type: "image", name: "image", label: "Image" },
+                  {
+                    type: "string",
+                    name: "imagePosition",
+                    label: "Image Position",
+                    options: [
+                      { label: "Left", value: "left" },
+                      { label: "Right", value: "right" },
+                    ],
+                    ui: { component: "select" },
+                  },
+                  { type: "string", name: "ctaLabel", label: "CTA Button Text (optional)" },
+                  { type: "string", name: "ctaLink", label: "CTA Button Link (optional)" },
                 ],
               },
             ],
