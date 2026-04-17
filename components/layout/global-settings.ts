@@ -1,5 +1,29 @@
 import type { GlobalSettings } from "./GlobalContext";
 
+interface ProductReferenceInput {
+  __typename?: string | null;
+  name?: string | null;
+  code?: string | null;
+  picture?: string | null;
+  slug?: string | null;
+  _sys?: { filename?: string | null; breadcrumbs?: Array<string | null> | null } | null;
+}
+
+interface CatalogItemReferenceInput {
+  __typename?: string | null;
+  product?: ProductReferenceInput | Record<string, unknown> | null;
+  imageFrame?: { width?: number | null; height?: number | null } | null;
+}
+
+interface NavLinkChildInput {
+  __typename?: string | null;
+  label?: string | null;
+  href?: string | null;
+  buttonLabel?: string | null;
+  buttonLink?: string | null;
+  catalogItems?: Array<CatalogItemReferenceInput | null> | null;
+}
+
 export interface GlobalDocumentInput {
   siteName?: string | null;
   phone?: string | null;
@@ -16,22 +40,7 @@ export interface GlobalDocumentInput {
   navLinks?: Array<{
     label?: string | null;
     href?: string | null;
-    children?: Array<{
-      label?: string | null;
-      href?: string | null;
-      buttonLabel?: string | null;
-      buttonLink?: string | null;
-      catalogItems?: Array<{
-        name?: string | null;
-        code?: string | null;
-        image?: string | null;
-        link?: string | null;
-        imageFrame?: {
-          width?: number | null;
-          height?: number | null;
-        } | null;
-      } | null> | null;
-    } | null> | null;
+    children?: Array<NavLinkChildInput | null> | null;
   } | null> | null;
   footerLinks?: Array<{ label?: string | null; href?: string | null } | null> | null;
   logo?: string | null;
@@ -47,7 +56,7 @@ export interface GlobalDocumentQueryResult {
   variables?: Record<string, unknown>;
 }
 
-type ProductCatalogKey = "cabinets" | "countertops" | "flooring";
+type NavLinkChildKind = "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "simpleLink";
 type CatalogItemInput = {
   name: string;
   code: string;
@@ -59,111 +68,79 @@ type CatalogItemInput = {
   };
 };
 
-const FALLBACK_PRODUCT_CATALOG_ITEMS: Record<ProductCatalogKey, CatalogItemInput[]> = {
-  cabinets: [
-      { name: "Trenton Fairy", code: "#TGB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-tgb.png", link: "/cabinets/tgb" },
-      { name: "Trenton Swan White", code: "#TWB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-twb.png", link: "/cabinets/twb" },
-      { name: "Designer White", code: "#SWK", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-swk.png", link: "/cabinets/swk" },
-      { name: "Artisanal Blue", code: "#ABB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-abb.png", link: "/cabinets/abb" },
-      { name: "Artisanal Ebony", code: "#AEB", image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-aeb.png", link: "/cabinets/aeb" },
-  ],
-  countertops: [
-      {
-        name: "Calacatta Dolce",
-        code: "#CalacattaDolce",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-dolce.png",
-        link: "/countertops/calacattadolce",
-        imageFrame: { width: 162, height: 80 },
-      },
-      {
-        name: "Calacatta Simple Grey",
-        code: "#CalacattaSimpleGrey",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-grey.png",
-        link: "/countertops/calacattasimplegrey",
-        imageFrame: { width: 162, height: 80 },
-      },
-      {
-        name: "Calacatta Slim Gold",
-        code: "#CalacattaSlimGold",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-slim-gold.png",
-        link: "/countertops/calacattaslimgold",
-        imageFrame: { width: 157, height: 80 },
-      },
-      {
-        name: "Calacatta Simple Gold",
-        code: "#CalacattaSimpleGold",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-gold.png",
-        link: "/countertops/calacattasimplegold",
-        imageFrame: { width: 157, height: 80 },
-      },
-      {
-        name: "Calacatta Straight Grey",
-        code: "#CalacattaStraightGrey",
-        image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-straight-grey.png",
-        link: "/countertops/calacattastraightgrey",
-        imageFrame: { width: 162, height: 80 },
-      },
-  ],
-  flooring: [],
+const NAV_CHILD_TEMPLATE_MAP: Record<string, NavLinkChildKind> = {
+  GlobalNavLinksChildrenCabinetCatalog: "cabinetCatalog",
+  GlobalNavLinksChildrenCountertopCatalog: "countertopCatalog",
+  GlobalNavLinksChildrenFlooringCatalog: "flooringCatalog",
+  GlobalNavLinksChildrenSimpleLink: "simpleLink",
 };
 
-function getNavItemLookupValue(label: string, href?: string | null) {
-  return `${label} ${href || ""}`.trim().toLowerCase();
+const CATALOG_PRODUCT_PREFIX_BY_TYPENAME: Record<string, string> = {
+  Cabinet: "/cabinets",
+  Countertop: "/countertops",
+  Flooring: "/flooring/catalog",
+};
+
+function resolveProductSlug(product: ProductReferenceInput | null | undefined): string | null {
+  if (!product) return null;
+  const slug = typeof product.slug === "string" ? product.slug.trim() : "";
+  if (slug) return slug;
+  const filename = typeof product._sys?.filename === "string" ? product._sys.filename.trim() : "";
+  return filename || null;
 }
 
-function getProductCatalogKey(label: string, href?: string | null): ProductCatalogKey {
-  const normalized = getNavItemLookupValue(label, href);
-  if (normalized.includes("counter")) return "countertops";
-  if (normalized.includes("floor")) return "flooring";
-  return "cabinets";
+function formatCatalogCode(code?: string | null): string {
+  if (!code) return "";
+  const stripped = String(code).replace(/^#+/, "");
+  return stripped ? `#${stripped}` : "";
 }
 
-function isProductCatalogChild(label: string, href?: string | null) {
-  const normalized = getNavItemLookupValue(label, href);
-  return normalized.includes("cabinet") || normalized.includes("counter") || normalized.includes("floor");
+function resolveCatalogItem(
+  item: CatalogItemReferenceInput | null | undefined,
+): CatalogItemInput | null {
+  if (!item) return null;
+
+  const rawProduct = (item.product && typeof item.product === "object"
+    ? (item.product as ProductReferenceInput)
+    : null);
+
+  if (!rawProduct) return null;
+
+  const typename = typeof rawProduct.__typename === "string" ? rawProduct.__typename : "";
+  const prefix = CATALOG_PRODUCT_PREFIX_BY_TYPENAME[typename];
+  if (!prefix) return null;
+
+  const slug = resolveProductSlug(rawProduct);
+  if (!slug) return null;
+
+  const name = typeof rawProduct.name === "string" ? rawProduct.name.trim() : "";
+  const image = typeof rawProduct.picture === "string" ? rawProduct.picture : "";
+  if (!name || !image) return null;
+
+  const width = typeof item.imageFrame?.width === "number" ? item.imageFrame.width : undefined;
+  const height = typeof item.imageFrame?.height === "number" ? item.imageFrame.height : undefined;
+
+  return {
+    name,
+    code: formatCatalogCode(rawProduct.code),
+    image,
+    link: `${prefix}/${slug}`,
+    imageFrame: width || height ? { width, height } : undefined,
+  };
 }
 
-function normalizeCatalogItems(
-  items?: Array<{
-    name?: string | null;
-    code?: string | null;
-    image?: string | null;
-    link?: string | null;
-    imageFrame?: { width?: number | null; height?: number | null } | null;
-  } | null> | null,
-  fallbackItems?: CatalogItemInput[],
-) {
-  const normalizedItems = Array.isArray(items)
-    ? items.flatMap((item) => {
-        if (!item?.name || !item?.code || !item?.image) return [];
-
-        const width = typeof item.imageFrame?.width === "number" ? item.imageFrame.width : undefined;
-        const height = typeof item.imageFrame?.height === "number" ? item.imageFrame.height : undefined;
-
-        return [
-          {
-            name: item.name,
-            code: item.code,
-            image: item.image,
-            link: item.link || undefined,
-            imageFrame: width || height ? { width, height } : undefined,
-          },
-        ];
-      })
-    : fallbackItems?.map((item) => ({
-        name: item.name,
-        code: item.code,
-        image: item.image,
-        link: item.link || undefined,
-        imageFrame: item.imageFrame
-          ? {
-              width: item.imageFrame.width,
-              height: item.imageFrame.height,
-            }
-          : undefined,
-      }));
-
-  return normalizedItems?.length ? normalizedItems : undefined;
+function resolveNavChildKind(child: NavLinkChildInput | null | undefined): NavLinkChildKind | null {
+  if (!child || typeof child !== "object") return null;
+  const typename = typeof child.__typename === "string" ? child.__typename : "";
+  if (typename && NAV_CHILD_TEMPLATE_MAP[typename]) return NAV_CHILD_TEMPLATE_MAP[typename];
+  const template =
+    typeof (child as Record<string, unknown>)._template === "string"
+      ? ((child as Record<string, unknown>)._template as string)
+      : "";
+  if (template === "cabinetCatalog" || template === "countertopCatalog" || template === "flooringCatalog" || template === "simpleLink") {
+    return template;
+  }
+  return null;
 }
 
 export const FALLBACK_HEADER_DOCUMENT: GlobalDocumentInput = {
@@ -176,18 +153,11 @@ export const FALLBACK_HEADER_DOCUMENT: GlobalDocumentInput = {
   navLinks: [
     {
       label: "Products",
-      children: [
-        { label: "Cabinets", href: "/cabinets", catalogItems: FALLBACK_PRODUCT_CATALOG_ITEMS.cabinets },
-        { label: "Countertops", href: "/countertops", catalogItems: FALLBACK_PRODUCT_CATALOG_ITEMS.countertops },
-        { label: "Flooring", href: "/flooring" },
-      ],
+      children: [],
     },
     {
       label: "Services",
-      children: [
-        { label: "Kitchen remodeling", href: "/kitchen-remodel" },
-        { label: "Bathroom remodeling", href: "/bathroom-remodel" },
-      ],
+      children: [],
     },
     { label: "Gallery", href: "/gallery" },
     { label: "About us", href: "/about-us" },
@@ -234,17 +204,24 @@ function normalizeNavLinks(global?: GlobalDocumentInput | null): GlobalSettings[
           ? item.children.flatMap((child) => {
               if (!child?.label || !child?.href) return [];
 
-              const fallbackCatalogItems = isProductCatalogChild(child.label, child.href)
-                ? FALLBACK_PRODUCT_CATALOG_ITEMS[getProductCatalogKey(child.label, child.href)]
+              const kind = resolveNavChildKind(child);
+              if (!kind) return [];
+
+              const catalogItems = Array.isArray(child.catalogItems)
+                ? child.catalogItems.flatMap((rawItem) => {
+                    const resolved = resolveCatalogItem(rawItem);
+                    return resolved ? [resolved] : [];
+                  })
                 : undefined;
 
               return [
                 {
                   label: child.label,
                   href: child.href,
+                  kind,
                   buttonLabel: child.buttonLabel?.trim() || undefined,
                   buttonLink: child.buttonLink?.trim() || undefined,
-                  catalogItems: normalizeCatalogItems(child.catalogItems, fallbackCatalogItems),
+                  catalogItems: catalogItems?.length ? catalogItems : undefined,
                 },
               ];
             })

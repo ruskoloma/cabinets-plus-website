@@ -10,156 +10,74 @@
       "label": "Products",
       "children": [
         {
+          "_template": "cabinetCatalog",
           "label": "Cabinets",
           "href": "/cabinets",
           "buttonLabel": "View All Catalog",
           "buttonLink": "/cabinets",
           "catalogItems": [
-            {
-              "name": "Trenton Fairy",
-              "code": "#TGB",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-tgb.png",
-              "link": "/cabinets/tgb"
-            },
-            {
-              "name": "Trenton Swan White",
-              "code": "#TWB",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-twb.png",
-              "link": "/cabinets/twb"
-            },
-            {
-              "name": "Designer White",
-              "code": "#SWK",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-swk.png",
-              "link": "/cabinets/swk"
-            },
-            {
-              "name": "Artisanal Blue",
-              "code": "#ABB",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-abb.png",
-              "link": "/cabinets/abb"
-            },
-            {
-              "name": "Artisanal Ebony",
-              "code": "#AEB",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-aeb.png",
-              "link": "/cabinets/aeb"
-            }
+            { "product": "content/cabinets/tgb.md" },
+            { "product": "content/cabinets/twb.md" },
+            { "product": "content/cabinets/swk.md" },
+            { "product": "content/cabinets/abb.md" },
+            { "product": "content/cabinets/aeb.md" }
           ]
         },
         {
+          "_template": "countertopCatalog",
           "label": "Countertops",
           "href": "/countertops",
           "buttonLabel": "View All Catalog",
           "buttonLink": "/countertops",
           "catalogItems": [
             {
-              "name": "Calacatta Dolce",
-              "code": "#CalacattaDolce",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-dolce.png",
-              "link": "/countertops/calacattadolce",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/countertops/calacattadolce.md",
+              "imageFrame": { "width": 162, "height": 80 }
             },
             {
-              "name": "Calacatta Simple Grey",
-              "code": "#CalacattaSimpleGrey",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-grey.png",
-              "link": "/countertops/calacattasimplegrey",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/countertops/calacattasimplegrey.md",
+              "imageFrame": { "width": 162, "height": 80 }
             },
             {
-              "name": "Calacatta Slim Gold",
-              "code": "#CalacattaSlimGold",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-slim-gold.png",
-              "link": "/countertops/calacattaslimgold",
-              "imageFrame": {
-                "width": 157,
-                "height": 80
-              }
+              "product": "content/countertops/calacattaslimgold.md",
+              "imageFrame": { "width": 157, "height": 80 }
             },
             {
-              "name": "Calacatta Simple Gold",
-              "code": "#CalacattaSimpleGold",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-simple-gold.png",
-              "link": "/countertops/calacattasimplegold",
-              "imageFrame": {
-                "width": 157,
-                "height": 80
-              }
+              "product": "content/countertops/calacattasimplegold.md",
+              "imageFrame": { "width": 157, "height": 80 }
             },
             {
-              "name": "Calacatta Straight Grey",
-              "code": "#CalacattaStraightGrey",
-              "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/nav-catalog-countertops-calacatta-straight-grey.png",
-              "link": "/countertops/calacattastraightgrey",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/countertops/calacattastraightgrey.md",
+              "imageFrame": { "width": 162, "height": 80 }
             }
           ]
         },
         {
+          "_template": "flooringCatalog",
           "label": "Flooring",
           "href": "/flooring",
           "buttonLabel": "View All Catalog",
           "buttonLink": "/flooring/catalog",
           "catalogItems": [
             {
-              "name": "Bora Bora Pewter",
-              "code": "#BB-6",
-              "image": "/library/flooring/flooring2/bora-bora-pewter-bb-6.avif",
-              "link": "/flooring/catalog/bora-bora-pewter-bb-6",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/flooring/bora-bora-pewter-bb-6.md",
+              "imageFrame": { "width": 162, "height": 80 }
             },
             {
-              "name": "Homage Alabaster",
-              "code": "#HM-2",
-              "image": "/library/flooring/flooring2/homage-alabaster-hm-2.avif",
-              "link": "/flooring/catalog/homage-alabaster-hm-2",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/flooring/homage-alabaster-hm-2.md",
+              "imageFrame": { "width": 162, "height": 80 }
             },
             {
-              "name": "Indoor Delight Charm",
-              "code": "#LI-ID13",
-              "image": "/library/flooring/lionsfloor/indoor-delight-charm-li-id13.jpg",
-              "link": "/flooring/catalog/indoor-delight-charm-li-id13",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/flooring/indoor-delight-charm-li-id13.md",
+              "imageFrame": { "width": 162, "height": 80 }
             },
             {
-              "name": "Engineered Hardwood Mona Lisa",
-              "code": "#GW331",
-              "image": "/library/flooring/primafloors/engineered-hardwood-mona-lisa-gw331.jpg",
-              "link": "/flooring/catalog/engineered-hardwood-mona-lisa-gw331",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/flooring/engineered-hardwood-mona-lisa-gw331.md",
+              "imageFrame": { "width": 162, "height": 80 }
             },
             {
-              "name": "Lyrus Stone Composite Elite Mammoth",
-              "code": "#MO-EL01",
-              "image": "/library/flooring/mozaik/lyrus-stone-composite-elite-mammoth-mo-el01.jpg",
-              "link": "/flooring/catalog/lyrus-stone-composite-elite-mammoth-mo-el01",
-              "imageFrame": {
-                "width": 162,
-                "height": 80
-              }
+              "product": "content/flooring/lyrus-stone-composite-elite-mammoth-mo-el01.md",
+              "imageFrame": { "width": 162, "height": 80 }
             }
           ]
         }
@@ -169,10 +87,12 @@
       "label": "Services",
       "children": [
         {
+          "_template": "simpleLink",
           "label": "Kitchen remodeling",
           "href": "/kitchen-remodel"
         },
         {
+          "_template": "simpleLink",
           "label": "Bathroom remodeling",
           "href": "/bathroom-remodel"
         }

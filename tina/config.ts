@@ -1463,37 +1463,151 @@ export default defineConfig({
               { type: "string", name: "label", label: "Label" },
               { type: "string", name: "href", label: "Link (leave empty for dropdown)" },
               {
-                type: "object", name: "children", label: "Dropdown Items", list: true,
-                ui: { itemProps: (item: any) => ({ label: item.label }) },
-                fields: [
-                  { type: "string", name: "label", label: "Label" },
-                  { type: "string", name: "href", label: "Link" },
-                  { type: "string", name: "buttonLabel", label: "Button Label" },
-                  { type: "string", name: "buttonLink", label: "Button Link" },
+                type: "object",
+                name: "children",
+                label: "Dropdown Items",
+                list: true,
+                templates: [
                   {
-                    type: "object",
-                    name: "catalogItems",
-                    label: "Catalog Items",
-                    list: true,
-                    description: "Shown in the right column of the Products dropdown. Cabinets and Countertops are seeded, Flooring can stay empty for now.",
-                    ui: {
-                      itemProps: (item: any) => ({
-                        label: item?.name || item?.code || "Catalog item",
-                      }),
-                    },
+                    name: "simpleLink",
+                    label: "Simple Link",
+                    ui: { itemProps: (item: any) => ({ label: item?.label || "Simple Link" }) },
                     fields: [
-                      { type: "string", name: "name", label: "Name" },
-                      { type: "string", name: "code", label: "Code" },
-                      { type: "image", name: "image", label: "Image" },
-                      { type: "string", name: "link", label: "Link" },
+                      { type: "string", name: "label", label: "Label" },
+                      { type: "string", name: "href", label: "Link" },
+                    ],
+                  },
+                  {
+                    name: "cabinetCatalog",
+                    label: "Cabinet Catalog",
+                    ui: { itemProps: (item: any) => ({ label: item?.label || "Cabinet Catalog" }) },
+                    fields: [
+                      { type: "string", name: "label", label: "Label" },
+                      { type: "string", name: "href", label: "Link" },
+                      { type: "string", name: "buttonLabel", label: "Button Label" },
+                      { type: "string", name: "buttonLink", label: "Button Link" },
                       {
                         type: "object",
-                        name: "imageFrame",
-                        label: "Image Frame",
-                        description: "Optional render size override for wide swatches like countertops.",
+                        name: "catalogItems",
+                        label: "Catalog Items",
+                        list: true,
+                        description: "Search and select cabinet products to show in the Products dropdown.",
+                        ui: {
+                          itemProps: (item: any) => ({
+                            label: item?.product || "Catalog item",
+                          }),
+                        },
                         fields: [
-                          { type: "number", name: "width", label: "Width" },
-                          { type: "number", name: "height", label: "Height" },
+                          {
+                            type: "reference",
+                            name: "product",
+                            label: "Cabinet",
+                            collections: ["cabinet"],
+                            ui: {
+                              optionComponent: renderCabinetReferenceOption,
+                              experimental___filter: filterCabinetReferenceOptions,
+                            },
+                          },
+                          {
+                            type: "object",
+                            name: "imageFrame",
+                            label: "Image Frame",
+                            description: "Optional render size override for wide swatches.",
+                            fields: [
+                              { type: "number", name: "width", label: "Width" },
+                              { type: "number", name: "height", label: "Height" },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    name: "countertopCatalog",
+                    label: "Countertop Catalog",
+                    ui: { itemProps: (item: any) => ({ label: item?.label || "Countertop Catalog" }) },
+                    fields: [
+                      { type: "string", name: "label", label: "Label" },
+                      { type: "string", name: "href", label: "Link" },
+                      { type: "string", name: "buttonLabel", label: "Button Label" },
+                      { type: "string", name: "buttonLink", label: "Button Link" },
+                      {
+                        type: "object",
+                        name: "catalogItems",
+                        label: "Catalog Items",
+                        list: true,
+                        description: "Search and select countertop products to show in the Products dropdown.",
+                        ui: {
+                          itemProps: (item: any) => ({
+                            label: item?.product || "Catalog item",
+                          }),
+                        },
+                        fields: [
+                          {
+                            type: "reference",
+                            name: "product",
+                            label: "Countertop",
+                            collections: ["countertop"],
+                            ui: {
+                              optionComponent: renderCountertopReferenceOption,
+                              experimental___filter: filterCountertopReferenceOptions,
+                            },
+                          },
+                          {
+                            type: "object",
+                            name: "imageFrame",
+                            label: "Image Frame",
+                            description: "Optional render size override for wide swatches.",
+                            fields: [
+                              { type: "number", name: "width", label: "Width" },
+                              { type: "number", name: "height", label: "Height" },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    name: "flooringCatalog",
+                    label: "Flooring Catalog",
+                    ui: { itemProps: (item: any) => ({ label: item?.label || "Flooring Catalog" }) },
+                    fields: [
+                      { type: "string", name: "label", label: "Label" },
+                      { type: "string", name: "href", label: "Link" },
+                      { type: "string", name: "buttonLabel", label: "Button Label" },
+                      { type: "string", name: "buttonLink", label: "Button Link" },
+                      {
+                        type: "object",
+                        name: "catalogItems",
+                        label: "Catalog Items",
+                        list: true,
+                        description: "Search and select flooring products to show in the Products dropdown.",
+                        ui: {
+                          itemProps: (item: any) => ({
+                            label: item?.product || "Catalog item",
+                          }),
+                        },
+                        fields: [
+                          {
+                            type: "reference",
+                            name: "product",
+                            label: "Flooring",
+                            collections: ["flooring"],
+                            ui: {
+                              optionComponent: renderFlooringReferenceOption,
+                              experimental___filter: filterFlooringReferenceOptions,
+                            },
+                          },
+                          {
+                            type: "object",
+                            name: "imageFrame",
+                            label: "Image Frame",
+                            description: "Optional render size override for wide swatches.",
+                            fields: [
+                              { type: "number", name: "width", label: "Width" },
+                              { type: "number", name: "height", label: "Height" },
+                            ],
+                          },
                         ],
                       },
                     ],

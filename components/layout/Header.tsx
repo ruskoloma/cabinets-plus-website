@@ -6,9 +6,12 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { tinaField, useEditState } from "tinacms/dist/react";
 import FallbackImg from "@/components/ui/FallbackImg";
 
+type NavChildKind = "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "simpleLink";
+
 interface NavChild {
   label: string;
   href: string;
+  kind?: NavChildKind;
   buttonLabel?: string;
   buttonLink?: string;
   catalogItems?: CatalogItem[];
@@ -65,36 +68,37 @@ const PRODUCT_CATALOG_COLUMN_WIDTH_BY_KEY: Record<ProductCatalogKey, number> = {
   countertops: 232,
   flooring: 251,
 };
+const PRODUCT_CATALOG_KINDS: ReadonlySet<NavChildKind> = new Set([
+  "cabinetCatalog",
+  "countertopCatalog",
+  "flooringCatalog",
+]);
+const NAV_CHILD_KIND_TO_CATALOG_KEY: Record<NavChildKind, ProductCatalogKey | null> = {
+  cabinetCatalog: "cabinets",
+  countertopCatalog: "countertops",
+  flooringCatalog: "flooring",
+  simpleLink: null,
+};
 
 function getNavItemLookupValue(label: string, href?: string) {
   return `${label} ${href || ""}`.trim().toLowerCase();
 }
 
-function getProductCatalogKey(label: string, href?: string): ProductCatalogKey {
-  const normalized = getNavItemLookupValue(label, href);
-  if (normalized.includes("counter")) return "countertops";
-  if (normalized.includes("floor")) return "flooring";
-  return "cabinets";
+function getProductCatalogKey(child: NavChild): ProductCatalogKey {
+  const mapped = child.kind ? NAV_CHILD_KIND_TO_CATALOG_KEY[child.kind] : null;
+  return mapped ?? "cabinets";
 }
 
-function getNormalizedNavValue(value?: string) {
-  return (value || "").trim().toLowerCase();
+function isProductCatalogChild(child: NavChild): boolean {
+  return Boolean(child.kind && PRODUCT_CATALOG_KINDS.has(child.kind));
 }
 
 function getNavGroupKind(link: NavLink): "products" | "services" | null {
-  const linkLabel = getNormalizedNavValue(link.label);
-  const childValues = (link.children || []).flatMap((child) => [getNormalizedNavValue(child.label), getNormalizedNavValue(child.href)]);
+  const children = link.children || [];
+  if (!children.length) return null;
 
-  if (linkLabel.includes("product")) return "products";
-  if (linkLabel.includes("service")) return "services";
-
-  if (childValues.some((value) => value.includes("cabinet") || value.includes("counter") || value.includes("floor"))) {
-    return "products";
-  }
-
-  if (childValues.some((value) => value.includes("kitchen") || value.includes("bathroom") || value.includes("remodel"))) {
-    return "services";
-  }
+  if (children.some(isProductCatalogChild)) return "products";
+  if (children.every((child) => child.kind === "simpleLink" || !child.kind)) return "services";
 
   return null;
 }
@@ -160,17 +164,15 @@ function BathroomIcon() {
   );
 }
 
-function getProductIcon(label: string, href?: string): string {
-  const normalized = getNavItemLookupValue(label, href);
-  if (normalized.includes("cabinet")) return "/library/header/nav-product-cabinets.svg";
-  if (normalized.includes("counter")) return "/library/header/nav-product-countertops.svg";
+function getProductIcon(child: NavChild): string {
+  if (child.kind === "cabinetCatalog") return "/library/header/nav-product-cabinets.svg";
+  if (child.kind === "countertopCatalog") return "/library/header/nav-product-countertops.svg";
   return "/library/header/nav-product-flooring.svg";
 }
 
-function getDesktopProductIcon(label: string, href?: string): string {
-  const normalized = getNavItemLookupValue(label, href);
-  if (normalized.includes("cabinet")) return "/library/header/nav-product-cabinets-desktop.svg";
-  if (normalized.includes("counter")) return "/library/header/nav-product-countertops.svg";
+function getDesktopProductIcon(child: NavChild): string {
+  if (child.kind === "cabinetCatalog") return "/library/header/nav-product-cabinets-desktop.svg";
+  if (child.kind === "countertopCatalog") return "/library/header/nav-product-countertops.svg";
   return "/library/header/nav-product-flooring.svg";
 }
 
@@ -254,14 +256,14 @@ export default function Header({
 
   const defaultProductCatalogKey = useMemo<ProductCatalogKey>(() => {
     if (!productsItems.length) return "cabinets";
-    return getProductCatalogKey(productsItems[0].label, productsItems[0].href);
+    return getProductCatalogKey(productsItems[0]);
   }, [productsItems]);
 
   const productsPanelOpen = desktopProductsOpen && !desktopSearchOpen;
   const servicesPanelOpen = desktopServicesOpen && !desktopSearchOpen;
   const desktopSearchVisible = desktopSearchOpen || isSearchRoute;
   const activeProductItemIndex = useMemo(() => {
-    const index = productsItems.findIndex((item) => getProductCatalogKey(item.label, item.href) === activeProductCatalogKey);
+    const index = productsItems.findIndex((item) => getProductCatalogKey(item) === activeProductCatalogKey);
     return index >= 0 ? index : 0;
   }, [productsItems, activeProductCatalogKey]);
   const activeProductItem = productsItems[activeProductItemIndex];
@@ -611,7 +613,7 @@ export default function Header({
                 </p>
                 <div className="mt-10 space-y-8">
                   {productsItems.map((item, index) => {
-                    const catalogKey = getProductCatalogKey(item.label, item.href);
+                    const catalogKey = getProductCatalogKey(item);
                     const isActive = activeProductCatalogKey === catalogKey;
                     return (
                       <Link
@@ -624,7 +626,7 @@ export default function Header({
                       >
                         <span className="flex w-full items-center justify-between">
                           <span className="flex items-center gap-4">
-                            <img alt="" aria-hidden className="h-10 w-10" src={getDesktopProductIcon(item.label, item.href)} />
+                            <img alt="" aria-hidden className="h-10 w-10" src={getDesktopProductIcon(item)} />
                             <span className={`text-base font-medium text-[var(--cp-primary-500)] ${catalogKey === "countertops" ? "leading-none" : "leading-6"}`}>
                               {item.label}
                             </span>
@@ -765,7 +767,7 @@ export default function Header({
                           onClick={() => setMobileOpen(false)}
                         >
                           <span className="flex items-center gap-4">
-                            <img alt="" aria-hidden className="h-10 w-10" src={getProductIcon(item.label, item.href)} />
+                            <img alt="" aria-hidden className="h-10 w-10" src={getProductIcon(item)} />
                             <span className="text-base font-medium text-[var(--cp-primary-500)]">{item.label}</span>
                           </span>
                           <ChevronRightIcon />
