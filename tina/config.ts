@@ -1494,7 +1494,7 @@ export default defineConfig({
                         description: "Search and select cabinet products to show in the Products dropdown.",
                         ui: {
                           itemProps: (item: any) => ({
-                            label: item?.product || "Catalog item",
+                            label: resolveCabinetDocumentReferenceLabel(item?.product) || "Catalog item",
                           }),
                         },
                         fields: [
@@ -1529,7 +1529,7 @@ export default defineConfig({
                         description: "Search and select countertop products to show in the Products dropdown.",
                         ui: {
                           itemProps: (item: any) => ({
-                            label: item?.product || "Catalog item",
+                            label: resolveCountertopDocumentReferenceLabel(item?.product) || "Catalog item",
                           }),
                         },
                         fields: [
@@ -1564,7 +1564,7 @@ export default defineConfig({
                         description: "Search and select flooring products to show in the Products dropdown.",
                         ui: {
                           itemProps: (item: any) => ({
-                            label: item?.product || "Catalog item",
+                            label: resolveFlooringDocumentReferenceLabel(item?.product) || "Catalog item",
                           }),
                         },
                         fields: [

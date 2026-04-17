@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { tinaField, useEditState } from "tinacms/dist/react";
@@ -653,12 +654,14 @@ export default function Header({
                       onClick={() => setDesktopProductsOpen(false)}
                     >
                       <span className="relative block aspect-square h-10 w-10 shrink-0 overflow-hidden">
-                        <FallbackImg
+                        <Image
                           alt=""
                           aria-hidden
                           className="h-full w-full object-cover"
+                          height={80}
+                          sizes="40px"
                           src={item.image}
-                          variant="thumb"
+                          width={80}
                         />
                       </span>
                       <div className="min-w-0 flex-1 text-base leading-[1.2]">
