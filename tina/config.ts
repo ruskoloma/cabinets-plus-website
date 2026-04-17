@@ -1620,53 +1620,119 @@ export default defineConfig({
         templates: [
           {
             name: "cabinetsOverview",
-            label: "Cabinets Overview",
+            label: "Cabinet Catalog",
             fields: [
-              { type: "string", name: "pageTitle", label: "Page Title" },
-              imageSizeSettingField(
-                "cabinetsOverviewCardImageSize",
-                "Card Images",
-                "Controls the main product grid card images on /cabinets.",
-              ),
-              imageSizeSettingField(
-                "cabinetsOverviewFilterImageSize",
-                "Filter Images",
-                "Controls the visual filter cards on /cabinets.",
-              ),
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on the /cabinets/catalog page. The Catalog Grid block (page title, filters, product grid, pagination) is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "cabinetCatalogGrid",
+                    label: "Cabinet Catalog Grid (filters + product grid — required)",
+                    fields: [
+                      { type: "string" as const, name: "pageTitle", label: "Page Title" },
+                      imageSizeSettingField(
+                        "cardImageSize",
+                        "Card Images",
+                        "Controls the main product grid card images on /cabinets/catalog.",
+                      ),
+                      imageSizeSettingField(
+                        "filterImageSize",
+                        "Filter Images",
+                        "Controls the visual filter cards on /cabinets/catalog.",
+                      ),
+                    ],
+                  },
+                  sharedTextImageSectionTemplate(),
+                  sharedFaqSectionTemplate(),
+                  sharedShowroomBannerTemplate(),
+                  sharedPartnersSectionTemplate(),
+                  sharedContactSectionTemplate(),
+                ],
+              },
             ],
           },
           {
             name: "countertopsOverview",
-            label: "Countertops Overview",
+            label: "Countertop Catalog",
             fields: [
-              { type: "string", name: "pageTitle", label: "Page Title" },
-              imageSizeSettingField(
-                "countertopsOverviewCardImageSize",
-                "Card Images",
-                "Controls the main product grid card images on /countertops.",
-              ),
-              imageSizeSettingField(
-                "countertopsOverviewFilterImageSize",
-                "Filter Images",
-                "Controls the visual filter cards on /countertops.",
-              ),
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on the /countertops/catalog page. The Catalog Grid block (page title, filters, product grid, pagination) is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "countertopCatalogGrid",
+                    label: "Countertop Catalog Grid (filters + product grid — required)",
+                    fields: [
+                      { type: "string" as const, name: "pageTitle", label: "Page Title" },
+                      imageSizeSettingField(
+                        "cardImageSize",
+                        "Card Images",
+                        "Controls the main product grid card images on /countertops/catalog.",
+                      ),
+                      imageSizeSettingField(
+                        "filterImageSize",
+                        "Filter Images",
+                        "Controls the visual filter cards on /countertops/catalog.",
+                      ),
+                    ],
+                  },
+                  sharedTextImageSectionTemplate(),
+                  sharedFaqSectionTemplate(),
+                  sharedShowroomBannerTemplate(),
+                  sharedPartnersSectionTemplate(),
+                  sharedContactSectionTemplate(),
+                ],
+              },
             ],
           },
           {
             name: "flooringOverview",
-            label: "Flooring Overview",
+            label: "Flooring Catalog",
             fields: [
-              { type: "string", name: "pageTitle", label: "Page Title" },
-              imageSizeSettingField(
-                "flooringOverviewCardImageSize",
-                "Card Images",
-                "Controls the main product grid card images on /flooring/catalog.",
-              ),
-              imageSizeSettingField(
-                "flooringOverviewFilterImageSize",
-                "Filter Images",
-                "Controls the visual filter cards on /flooring/catalog.",
-              ),
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on the /flooring/catalog page. The Catalog Grid block (page title, filters, product grid, pagination) is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "flooringCatalogGrid",
+                    label: "Flooring Catalog Grid (filters + product grid — required)",
+                    fields: [
+                      { type: "string" as const, name: "pageTitle", label: "Page Title" },
+                      imageSizeSettingField(
+                        "cardImageSize",
+                        "Card Images",
+                        "Controls the main product grid card images on /flooring/catalog.",
+                      ),
+                      imageSizeSettingField(
+                        "filterImageSize",
+                        "Filter Images",
+                        "Controls the visual filter cards on /flooring/catalog.",
+                      ),
+                    ],
+                  },
+                  sharedTextImageSectionTemplate(),
+                  sharedFaqSectionTemplate(),
+                  sharedShowroomBannerTemplate(),
+                  sharedPartnersSectionTemplate(),
+                  sharedContactSectionTemplate(),
+                ],
+              },
             ],
           },
           {

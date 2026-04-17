@@ -105,6 +105,27 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
   PageSettingsFlooringBlocksShowroomBanner: "showroomBanner",
   PageSettingsFlooringBlocksPartnersSection: "partnersSection",
   PageSettingsFlooringBlocksContactSection: "contactSection",
+  // Cabinets-overview catalog page-settings blocks
+  PageSettingsCabinetsOverviewBlocksCabinetCatalogGrid: "cabinetCatalogGrid",
+  PageSettingsCabinetsOverviewBlocksTextImageSection: "textImageSection",
+  PageSettingsCabinetsOverviewBlocksFaqSection: "faqSection",
+  PageSettingsCabinetsOverviewBlocksShowroomBanner: "showroomBanner",
+  PageSettingsCabinetsOverviewBlocksPartnersSection: "partnersSection",
+  PageSettingsCabinetsOverviewBlocksContactSection: "contactSection",
+  // Countertops-overview catalog page-settings blocks
+  PageSettingsCountertopsOverviewBlocksCountertopCatalogGrid: "countertopCatalogGrid",
+  PageSettingsCountertopsOverviewBlocksTextImageSection: "textImageSection",
+  PageSettingsCountertopsOverviewBlocksFaqSection: "faqSection",
+  PageSettingsCountertopsOverviewBlocksShowroomBanner: "showroomBanner",
+  PageSettingsCountertopsOverviewBlocksPartnersSection: "partnersSection",
+  PageSettingsCountertopsOverviewBlocksContactSection: "contactSection",
+  // Flooring-overview catalog page-settings blocks
+  PageSettingsFlooringOverviewBlocksFlooringCatalogGrid: "flooringCatalogGrid",
+  PageSettingsFlooringOverviewBlocksTextImageSection: "textImageSection",
+  PageSettingsFlooringOverviewBlocksFaqSection: "faqSection",
+  PageSettingsFlooringOverviewBlocksShowroomBanner: "showroomBanner",
+  PageSettingsFlooringOverviewBlocksPartnersSection: "partnersSection",
+  PageSettingsFlooringOverviewBlocksContactSection: "contactSection",
 };
 
 const FALLBACK_FAQ_TABS: FaqTab[] = [

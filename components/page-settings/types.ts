@@ -11,22 +11,22 @@ interface BaseSettingsDocument {
   _content_source?: unknown;
 }
 
+export interface CatalogPageSettingsBlock {
+  __typename?: string | null;
+  _template?: string | null;
+  [key: string]: unknown;
+}
+
 export interface CabinetsOverviewPageSettings extends BaseSettingsDocument {
-  pageTitle?: string | null;
-  cabinetsOverviewCardImageSize?: string | null;
-  cabinetsOverviewFilterImageSize?: string | null;
+  blocks?: Array<CatalogPageSettingsBlock | null> | null;
 }
 
 export interface CountertopsOverviewPageSettings extends BaseSettingsDocument {
-  pageTitle?: string | null;
-  countertopsOverviewCardImageSize?: string | null;
-  countertopsOverviewFilterImageSize?: string | null;
+  blocks?: Array<CatalogPageSettingsBlock | null> | null;
 }
 
 export interface FlooringOverviewPageSettings extends BaseSettingsDocument {
-  pageTitle?: string | null;
-  flooringOverviewCardImageSize?: string | null;
-  flooringOverviewFilterImageSize?: string | null;
+  blocks?: Array<CatalogPageSettingsBlock | null> | null;
 }
 
 export interface GalleryPageSettings extends BaseSettingsDocument {
@@ -89,21 +89,21 @@ export interface PostPageSettingsQueryLikeResult {
 }
 
 export const FALLBACK_CABINETS_OVERVIEW_PAGE_SETTINGS: CabinetsOverviewPageSettings = {
-  pageTitle: "Cabinets",
-  cabinetsOverviewCardImageSize: "card",
-  cabinetsOverviewFilterImageSize: "thumb",
+  blocks: [
+    { _template: "cabinetCatalogGrid", pageTitle: "Cabinets", cardImageSize: "card", filterImageSize: "thumb" },
+  ],
 };
 
 export const FALLBACK_COUNTERTOPS_OVERVIEW_PAGE_SETTINGS: CountertopsOverviewPageSettings = {
-  pageTitle: "Countertops",
-  countertopsOverviewCardImageSize: "card",
-  countertopsOverviewFilterImageSize: "thumb",
+  blocks: [
+    { _template: "countertopCatalogGrid", pageTitle: "Countertops", cardImageSize: "card", filterImageSize: "thumb" },
+  ],
 };
 
 export const FALLBACK_FLOORING_OVERVIEW_PAGE_SETTINGS: FlooringOverviewPageSettings = {
-  pageTitle: "Flooring Catalog",
-  flooringOverviewCardImageSize: "card",
-  flooringOverviewFilterImageSize: "thumb",
+  blocks: [
+    { _template: "flooringCatalogGrid", pageTitle: "Flooring Catalog", cardImageSize: "card", filterImageSize: "thumb" },
+  ],
 };
 
 export const FALLBACK_GALLERY_PAGE_SETTINGS: GalleryPageSettings = {

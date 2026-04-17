@@ -10,9 +10,69 @@ export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsCabinetsOverview {
-        pageTitle
-        cabinetsOverviewCardImageSize
-        cabinetsOverviewFilterImageSize
+        blocks {
+          __typename
+          ... on PageSettingsCabinetsOverviewBlocksCabinetCatalogGrid {
+            pageTitle
+            cardImageSize
+            filterImageSize
+          }
+          ... on PageSettingsCabinetsOverviewBlocksTextImageSection {
+            title
+            paragraphs
+            image
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
+          ... on PageSettingsCabinetsOverviewBlocksFaqSection {
+            title
+            tabs {
+              label
+              faqs {
+                question
+                answer
+              }
+            }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on PageSettingsCabinetsOverviewBlocksShowroomBanner {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            image
+            imageSize
+          }
+          ... on PageSettingsCabinetsOverviewBlocksPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on PageSettingsCabinetsOverviewBlocksContactSection {
+            title
+            image
+            imageSize
+            nameLabel
+            namePlaceholder
+            emailLabel
+            emailPlaceholder
+            messageLabel
+            messagePlaceholder
+            submitLabel
+            showroomTitle
+            followUsLabel
+            mapEmbedUrl
+          }
+        }
       }
     }
   }
@@ -30,9 +90,69 @@ export const COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsCountertopsOverview {
-        pageTitle
-        countertopsOverviewCardImageSize
-        countertopsOverviewFilterImageSize
+        blocks {
+          __typename
+          ... on PageSettingsCountertopsOverviewBlocksCountertopCatalogGrid {
+            pageTitle
+            cardImageSize
+            filterImageSize
+          }
+          ... on PageSettingsCountertopsOverviewBlocksTextImageSection {
+            title
+            paragraphs
+            image
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
+          ... on PageSettingsCountertopsOverviewBlocksFaqSection {
+            title
+            tabs {
+              label
+              faqs {
+                question
+                answer
+              }
+            }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on PageSettingsCountertopsOverviewBlocksShowroomBanner {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            image
+            imageSize
+          }
+          ... on PageSettingsCountertopsOverviewBlocksPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on PageSettingsCountertopsOverviewBlocksContactSection {
+            title
+            image
+            imageSize
+            nameLabel
+            namePlaceholder
+            emailLabel
+            emailPlaceholder
+            messageLabel
+            messagePlaceholder
+            submitLabel
+            showroomTitle
+            followUsLabel
+            mapEmbedUrl
+          }
+        }
       }
     }
   }
@@ -50,9 +170,69 @@ export const FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsFlooringOverview {
-        pageTitle
-        flooringOverviewCardImageSize
-        flooringOverviewFilterImageSize
+        blocks {
+          __typename
+          ... on PageSettingsFlooringOverviewBlocksFlooringCatalogGrid {
+            pageTitle
+            cardImageSize
+            filterImageSize
+          }
+          ... on PageSettingsFlooringOverviewBlocksTextImageSection {
+            title
+            paragraphs
+            image
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
+          ... on PageSettingsFlooringOverviewBlocksFaqSection {
+            title
+            tabs {
+              label
+              faqs {
+                question
+                answer
+              }
+            }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on PageSettingsFlooringOverviewBlocksShowroomBanner {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            image
+            imageSize
+          }
+          ... on PageSettingsFlooringOverviewBlocksPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on PageSettingsFlooringOverviewBlocksContactSection {
+            title
+            image
+            imageSize
+            nameLabel
+            namePlaceholder
+            emailLabel
+            emailPlaceholder
+            messageLabel
+            messagePlaceholder
+            submitLabel
+            showroomTitle
+            followUsLabel
+            mapEmbedUrl
+          }
+        }
       }
     }
   }

@@ -1,6 +1,108 @@
 {
   "_template": "cabinetsOverview",
-  "pageTitle": "Cabinets",
-  "cabinetsOverviewCardImageSize": "card",
-  "cabinetsOverviewFilterImageSize": "thumb"
+  "blocks": [
+    {
+      "_template": "cabinetCatalogGrid",
+      "pageTitle": "Cabinets",
+      "cardImageSize": "card",
+      "filterImageSize": "thumb"
+    },
+    {
+      "_template": "faqSection",
+      "title": "F.A.Q.",
+      "tabs": [
+        {
+          "label": "General Questions",
+          "faqs": [
+            {
+              "question": "Can you provide advice on DIY projects?",
+              "answer": "To keep our prices as affordable as possible, our business operates exclusively online, which means we do not have a physical showroom open to the public. However, we offer a Sample Door program for those who want to see and feel the quality of our cabinet door styles and colors in person. This allows you to make informed decisions and choose the perfect cabinet options for your project."
+            },
+            {
+              "question": "Can I order products online and pick them up in-store?",
+              "answer": "Yes, pickup can be arranged at our Spokane location after your order is confirmed."
+            },
+            {
+              "question": "How can I check the availability of a specific product?",
+              "answer": "Call 1-509-218-3349 or email info@spokanecabinetsplus.com and our team will confirm availability."
+            },
+            {
+              "question": "How much do you charge for measurements?",
+              "answer": "Measurements are included as part of our design consultation process."
+            },
+            {
+              "question": "Do you offer a warranty on your products and installation?",
+              "answer": "Yes. Product warranties vary by manufacturer, and installation is backed by our workmanship standards."
+            },
+            {
+              "question": "Do you match prices?",
+              "answer": "Bring us a comparable quote and we will review it with you to provide the best possible value."
+            },
+            {
+              "question": "What is your return policy?",
+              "answer": "Return eligibility depends on product type and condition. Custom orders may be non-returnable."
+            }
+          ]
+        },
+        {
+          "label": "Cabinets",
+          "faqs": [
+            {
+              "question": "What cabinet brands do you carry?",
+              "answer": "We carry a curated range of semi-custom and custom cabinetry options selected for quality and value."
+            },
+            {
+              "question": "How long do cabinets take to arrive?",
+              "answer": "Timelines vary by line and finish, but we provide lead times during your design consultation."
+            }
+          ]
+        },
+        {
+          "label": "Countertops",
+          "faqs": [
+            {
+              "question": "Do you fabricate countertops in-house?",
+              "answer": "Yes. In-house fabrication helps us control quality and improve turnaround."
+            },
+            {
+              "question": "What countertop materials do you offer?",
+              "answer": "We offer quartz, granite, marble, quartzite, and additional surface options depending on project needs."
+            }
+          ]
+        },
+        {
+          "label": "Flooring",
+          "faqs": [
+            {
+              "question": "What flooring types are available?",
+              "answer": "We offer hardwood, LVP, tile, and other flooring options for a range of performance and style goals."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_template": "contactSection",
+      "title": "Contact us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "messageLabel": "Project Idea (optional)",
+      "messagePlaceholder": "Tell us more about your project",
+      "submitLabel": "Send request",
+      "showroomTitle": "Our showroom",
+      "followUsLabel": "Follow us",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus"
+    },
+    {
+      "_template": "showroomBanner",
+      "heading": "Spokane's Premier Cabinet & Stone Showroom",
+      "subtext": "Factory-direct semi-custom cabinets, granite & quartz countertops, and flooring. Experience quality before you buy.",
+      "ctaLabel": "Visit Our Showroom",
+      "ctaLink": "/contact-us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg"
+    }
+  ]
 }
