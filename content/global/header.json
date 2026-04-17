@@ -16,11 +16,21 @@
           "buttonLabel": "View All Catalog",
           "buttonLink": "/cabinets",
           "catalogItems": [
-            { "product": "content/cabinets/tgb.md" },
-            { "product": "content/cabinets/twb.md" },
-            { "product": "content/cabinets/swk.md" },
-            { "product": "content/cabinets/abb.md" },
-            { "product": "content/cabinets/aeb.md" }
+            {
+              "product": "content/cabinets/tgb.md"
+            },
+            {
+              "product": "content/cabinets/twb.md"
+            },
+            {
+              "product": "content/cabinets/swk.md"
+            },
+            {
+              "product": "content/cabinets/abb.md"
+            },
+            {
+              "product": "content/cabinets/aeb.md"
+            }
           ]
         },
         {
@@ -31,24 +41,19 @@
           "buttonLink": "/countertops",
           "catalogItems": [
             {
-              "product": "content/countertops/calacattadolce.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/countertops/calacattadolce.md"
             },
             {
-              "product": "content/countertops/calacattasimplegrey.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/countertops/calacattasimplegrey.md"
             },
             {
-              "product": "content/countertops/calacattaslimgold.md",
-              "imageFrame": { "width": 157, "height": 80 }
+              "product": "content/countertops/calacattaslimgold.md"
             },
             {
-              "product": "content/countertops/calacattasimplegold.md",
-              "imageFrame": { "width": 157, "height": 80 }
+              "product": "content/countertops/calacattasimplegold.md"
             },
             {
-              "product": "content/countertops/calacattastraightgrey.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/countertops/calacattastraightgrey.md"
             }
           ]
         },
@@ -60,24 +65,19 @@
           "buttonLink": "/flooring/catalog",
           "catalogItems": [
             {
-              "product": "content/flooring/bora-bora-pewter-bb-6.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/flooring/bora-bora-pewter-bb-6.md"
             },
             {
-              "product": "content/flooring/homage-alabaster-hm-2.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/flooring/homage-alabaster-hm-2.md"
             },
             {
-              "product": "content/flooring/indoor-delight-charm-li-id13.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/flooring/indoor-delight-charm-li-id13.md"
             },
             {
-              "product": "content/flooring/engineered-hardwood-mona-lisa-gw331.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/flooring/engineered-hardwood-mona-lisa-gw331.md"
             },
             {
-              "product": "content/flooring/lyrus-stone-composite-elite-mammoth-mo-el01.md",
-              "imageFrame": { "width": 162, "height": 80 }
+              "product": "content/flooring/lyrus-stone-composite-elite-mammoth-mo-el01.md"
             }
           ]
         }

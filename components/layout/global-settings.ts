@@ -12,7 +12,6 @@ interface ProductReferenceInput {
 interface CatalogItemReferenceInput {
   __typename?: string | null;
   product?: ProductReferenceInput | Record<string, unknown> | null;
-  imageFrame?: { width?: number | null; height?: number | null } | null;
 }
 
 interface NavLinkChildInput {
@@ -62,10 +61,6 @@ type CatalogItemInput = {
   code: string;
   image: string;
   link?: string;
-  imageFrame?: {
-    width?: number;
-    height?: number;
-  };
 };
 
 const NAV_CHILD_TEMPLATE_MAP: Record<string, NavLinkChildKind> = {
@@ -117,15 +112,11 @@ function resolveCatalogItem(
   const image = typeof rawProduct.picture === "string" ? rawProduct.picture : "";
   if (!name || !image) return null;
 
-  const width = typeof item.imageFrame?.width === "number" ? item.imageFrame.width : undefined;
-  const height = typeof item.imageFrame?.height === "number" ? item.imageFrame.height : undefined;
-
   return {
     name,
     code: formatCatalogCode(rawProduct.code),
     image,
     link: `${prefix}/${slug}`,
-    imageFrame: width || height ? { width, height } : undefined,
   };
 }
 

@@ -38,10 +38,6 @@ interface CatalogItem {
   code: string;
   image: string;
   link?: string;
-  imageFrame?: {
-    width?: number;
-    height?: number;
-  };
 }
 
 interface RawNavChild extends Record<string, unknown> {
@@ -656,32 +652,20 @@ export default function Header({
                       key={`${activeProductCatalogKey}-${item.name}-${item.code}`}
                       onClick={() => setDesktopProductsOpen(false)}
                     >
-                      <span className="relative block h-10 w-10 overflow-hidden">
-                        {item.imageFrame ? (
-                          <FallbackImg
-                            alt=""
-                            aria-hidden
-                            className="absolute left-0 top-0 max-w-none object-cover"
-                            src={item.image}
-                            style={{
-                              height: item.imageFrame.height ? `${item.imageFrame.height}px` : undefined,
-                              width: item.imageFrame.width ? `${item.imageFrame.width}px` : undefined,
-                            }}
-                            variant="thumb"
-                          />
-                        ) : (
-                          <FallbackImg
-                            alt=""
-                            aria-hidden
-                            className="h-10 w-10 object-cover"
-                            src={item.image}
-                            variant="thumb"
-                          />
-                        )}
+                      <span className="relative block aspect-square h-10 w-10 shrink-0 overflow-hidden">
+                        <FallbackImg
+                          alt=""
+                          aria-hidden
+                          className="h-full w-full object-cover"
+                          src={item.image}
+                          variant="thumb"
+                        />
                       </span>
-                      <div className="text-base leading-[1.2]">
-                        <p className="text-[var(--cp-primary-500)] group-hover:text-[var(--cp-primary-350)]">{item.name}</p>
-                        <p className="text-[var(--cp-primary-300)]">{item.code}</p>
+                      <div className="min-w-0 flex-1 text-base leading-[1.2]">
+                        <p className="truncate text-[var(--cp-primary-500)] group-hover:text-[var(--cp-primary-350)]" title={item.name}>
+                          {item.name}
+                        </p>
+                        <p className="truncate text-[var(--cp-primary-300)]">{item.code}</p>
                       </div>
                     </Link>
                   );
