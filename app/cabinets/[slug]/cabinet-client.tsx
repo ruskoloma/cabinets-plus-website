@@ -96,9 +96,6 @@ function CabinetDoorRenderer({
       cabinet={cabinet}
       currentSlug={resolvedSlug}
       galleryItems={galleryItems}
-      galleryLightboxImageSize={pageSettings?.galleryLightboxImageSize ?? null}
-      galleryMainImageSize={pageSettings?.galleryMainImageSize ?? null}
-      galleryThumbImageSize={pageSettings?.galleryThumbImageSize ?? null}
       nextProduct={adjacent.next}
       previousProduct={adjacent.previous}
       projectItems={projectItems}
@@ -107,8 +104,6 @@ function CabinetDoorRenderer({
       pageText={pageText}
       contactBlock={contactBlock || null}
       pageSettingsRecord={pageSettingsRecord}
-      projectsSectionImageSize={pageSettings?.projectsSectionImageSize ?? null}
-      relatedProductsImageSize={pageSettings?.relatedProductsImageSize ?? null}
     />
   );
 }

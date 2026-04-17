@@ -13,7 +13,7 @@
           "label": "Cabinets",
           "href": "/cabinets",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/cabinets",
+          "buttonLink": "/cabinets/catalog",
           "catalogItems": [
             {
               "name": "Trenton Fairy",
@@ -51,7 +51,7 @@
           "label": "Countertops",
           "href": "/countertops",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/countertops",
+          "buttonLink": "/countertops/catalog",
           "catalogItems": [
             {
               "name": "Calacatta Dolce",
@@ -109,7 +109,7 @@
           "label": "Flooring",
           "href": "/flooring",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/flooring"
+          "buttonLink": "/flooring/catalog"
         }
       ]
     },

@@ -104,9 +104,6 @@ function CountertopRenderer({
       countertop={countertop}
       currentSlug={resolvedSlug}
       galleryItems={galleryItems}
-      galleryLightboxImageSize={pageSettings?.galleryLightboxImageSize ?? null}
-      galleryMainImageSize={pageSettings?.galleryMainImageSize ?? null}
-      galleryThumbImageSize={pageSettings?.galleryThumbImageSize ?? null}
       nextProduct={adjacent.next}
       pageText={pageText}
       previousProduct={adjacent.previous}
@@ -114,8 +111,6 @@ function CountertopRenderer({
       relatedItems={relatedItems}
       technicalDetails={technicalDetails}
       pageSettingsRecord={pageSettingsRecord}
-      projectsSectionImageSize={pageSettings?.projectsSectionImageSize ?? null}
-      relatedProductsImageSize={pageSettings?.relatedProductsImageSize ?? null}
     />
   );
 }

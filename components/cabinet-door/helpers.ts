@@ -6,6 +6,7 @@ import {
   type CabinetListItem,
   type CabinetMediaItem,
   type CabinetPageSettings,
+  type CabinetPageSettingsBlock,
   type CabinetPageTextConfig,
   type CabinetProjectItem,
   type CabinetReferenceProduct,
@@ -13,6 +14,37 @@ import {
   type CabinetRelatedProduct,
   type CabinetTechnicalDetail,
 } from "./types";
+
+const TYPENAME_TO_TEMPLATE: Record<string, string> = {
+  PageSettingsCabinetBlocksCabinetProductInfo: "cabinetProductInfo",
+  PageSettingsCabinetBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
+  PageSettingsCabinetBlocksRelatedProducts: "relatedProducts",
+  PageSettingsCabinetBlocksTextImageSection: "textImageSection",
+  PageSettingsCabinetBlocksFaqSection: "faqSection",
+  PageSettingsCabinetBlocksShowroomBanner: "showroomBanner",
+  PageSettingsCabinetBlocksPartnersSection: "partnersSection",
+  PageSettingsCabinetBlocksContactSection: "contactSection",
+};
+
+function resolveBlockTemplate(block: CabinetPageSettingsBlock | null | undefined): string | null {
+  if (!block || typeof block !== "object") return null;
+  const rawTemplate = typeof block._template === "string" ? block._template : null;
+  if (rawTemplate) return rawTemplate;
+  const typename = typeof block.__typename === "string" ? block.__typename : "";
+  return TYPENAME_TO_TEMPLATE[typename] || null;
+}
+
+export function findCabinetBlock(
+  blocks: Array<CabinetPageSettingsBlock | null> | null | undefined,
+  template: string,
+): CabinetPageSettingsBlock | null {
+  if (!Array.isArray(blocks)) return null;
+  for (const block of blocks) {
+    if (!block) continue;
+    if (resolveBlockTemplate(block) === template) return block;
+  }
+  return null;
+}
 
 function toSlug(value: string): string {
   return value
@@ -58,7 +90,7 @@ function readNonEmpty(value: unknown, fallback: string): string {
 
 const DEFAULT_PROJECT_CARD_TITLE = "Project";
 
-const DEFAULT_CABINET_PAGE_TEXT: CabinetPageTextConfig = {
+export const DEFAULT_CABINET_PAGE_TEXT: CabinetPageTextConfig = {
   breadcrumbLabel: "Cabinets",
   technicalDetailsTitle: "Technical Details",
   contactButtonLabel: "Contact us",
@@ -169,15 +201,26 @@ export function buildProjectItems(
 }
 
 export function resolveCabinetPageText(settings?: CabinetPageSettings | null): CabinetPageTextConfig {
+  const blocks = settings?.blocks;
+  const productInfoBlock = findCabinetBlock(blocks, "cabinetProductInfo");
+  const projectsBlock = findCabinetBlock(blocks, "projectsUsingThisProduct");
+  const relatedProductsBlock = findCabinetBlock(blocks, "relatedProducts");
+
   return {
-    breadcrumbLabel: readNonEmpty(settings?.breadcrumbLabel, DEFAULT_CABINET_PAGE_TEXT.breadcrumbLabel),
-    technicalDetailsTitle: readNonEmpty(settings?.technicalDetailsTitle, DEFAULT_CABINET_PAGE_TEXT.technicalDetailsTitle),
-    contactButtonLabel: readNonEmpty(settings?.contactButtonLabel, DEFAULT_CABINET_PAGE_TEXT.contactButtonLabel),
-    descriptionLabel: readNonEmpty(settings?.descriptionLabel, DEFAULT_CABINET_PAGE_TEXT.descriptionLabel),
-    relatedProductsTitle: readNonEmpty(settings?.relatedProductsTitle, DEFAULT_CABINET_PAGE_TEXT.relatedProductsTitle),
-    projectsSectionTitle: readNonEmpty(settings?.projectsSectionTitle, DEFAULT_CABINET_PAGE_TEXT.projectsSectionTitle),
+    breadcrumbLabel: readNonEmpty(productInfoBlock?.breadcrumbLabel, DEFAULT_CABINET_PAGE_TEXT.breadcrumbLabel),
+    technicalDetailsTitle: readNonEmpty(
+      productInfoBlock?.technicalDetailsTitle,
+      DEFAULT_CABINET_PAGE_TEXT.technicalDetailsTitle,
+    ),
+    contactButtonLabel: readNonEmpty(
+      productInfoBlock?.contactButtonLabel,
+      DEFAULT_CABINET_PAGE_TEXT.contactButtonLabel,
+    ),
+    descriptionLabel: readNonEmpty(productInfoBlock?.descriptionLabel, DEFAULT_CABINET_PAGE_TEXT.descriptionLabel),
+    relatedProductsTitle: readNonEmpty(relatedProductsBlock?.title, DEFAULT_CABINET_PAGE_TEXT.relatedProductsTitle),
+    projectsSectionTitle: readNonEmpty(projectsBlock?.title, DEFAULT_CABINET_PAGE_TEXT.projectsSectionTitle),
     projectsSectionDescription: readNonEmpty(
-      settings?.projectsSectionDescription,
+      projectsBlock?.description,
       DEFAULT_CABINET_PAGE_TEXT.projectsSectionDescription,
     ),
   };

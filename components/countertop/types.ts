@@ -2,6 +2,7 @@ import type {
   CabinetPageSettings,
   CabinetPageSettingsQueryLikeResult,
   CabinetPageTextConfig,
+  CabinetSystemInfo,
 } from "@/components/cabinet-door/types";
 import type {
   ProductGalleryItemViewModel,
@@ -21,7 +22,20 @@ export type {
   ProductTechnicalDetailViewModel,
 };
 
-export type CountertopPageSettings = CabinetPageSettings;
+// Countertop page settings are block-driven (matches cabinet shape).
+export interface CountertopPageSettingsBlock {
+  __typename?: string | null;
+  _template?: string | null;
+  [key: string]: unknown;
+}
+
+export interface CountertopPageSettings {
+  __typename?: string;
+  id?: string;
+  _sys?: CabinetSystemInfo | null;
+  _content_source?: unknown;
+  blocks?: Array<CountertopPageSettingsBlock | null> | null;
+}
 
 export interface CountertopPageSettingsQueryLikeResult {
   data: { countertopPageSettings?: CountertopPageSettings | null };
@@ -143,9 +157,4 @@ export interface CountertopDetailPageProps {
   pageText: CabinetPageTextConfig;
   contactBlock?: Record<string, unknown> | null;
   pageSettingsRecord?: Record<string, unknown> | null;
-  galleryThumbImageSize?: string | null;
-  galleryMainImageSize?: string | null;
-  galleryLightboxImageSize?: string | null;
-  projectsSectionImageSize?: string | null;
-  relatedProductsImageSize?: string | null;
 }

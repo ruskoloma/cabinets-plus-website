@@ -1,16 +1,17 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-import { tinaField, useEditState } from "tinacms/dist/react";
-import Button from "@/components/ui/Button";
-import ArrowNavButton from "@/components/ui/ArrowNavButton";
-import { formatProductCode } from "./helpers";
-import CabinetImageGallery from "./CabinetImageGallery";
+import { tinaField } from "tinacms/dist/react";
+import CabinetProductInfoSection from "./CabinetProductInfoSection";
 import CabinetProjectStrip from "./CabinetProjectStrip";
 import CabinetRelatedProducts from "./CabinetRelatedProducts";
-import CabinetTechnicalDetailsTable from "./CabinetTechnicalDetailsTable";
 import ContactUsSection from "@/components/home/ContactUsSection";
+import FAQSectionBlock from "@/components/blocks/FAQSectionBlock";
+import PartnersSection from "@/components/shared/PartnersSection";
+import TextImageSection from "@/components/shared/TextImageSection";
+import Button from "@/components/ui/Button";
+import FillImage from "@/components/ui/FillImage";
+import { resolveTemplateName, text, toBlockArray, type HomeBlock } from "@/app/figma-home.helpers";
+import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import type {
   CabinetData,
   CabinetGalleryItem,
@@ -33,11 +34,24 @@ interface CabinetDoorPageProps {
   pageText: CabinetPageTextConfig;
   contactBlock?: Record<string, unknown> | null;
   pageSettingsRecord?: Record<string, unknown> | null;
-  galleryThumbImageSize?: string | null;
-  galleryMainImageSize?: string | null;
-  galleryLightboxImageSize?: string | null;
-  projectsSectionImageSize?: string | null;
-  relatedProductsImageSize?: string | null;
+}
+
+const CABINET_PRODUCT_INFO_TEMPLATE = "cabinetProductInfo";
+
+function ensureProductInfoBlock(blocks: HomeBlock[]): HomeBlock[] {
+  const hasProductInfo = blocks.some(
+    (block) => resolveTemplateName(block) === CABINET_PRODUCT_INFO_TEMPLATE,
+  );
+
+  if (hasProductInfo) return blocks;
+
+  return [{ _template: CABINET_PRODUCT_INFO_TEMPLATE } as HomeBlock, ...blocks];
+}
+
+function readString(value: unknown, fallback = ""): string {
+  if (typeof value !== "string") return fallback;
+  const trimmed = value.trim();
+  return trimmed.length ? value : fallback;
 }
 
 export default function CabinetDoorPage({
@@ -52,137 +66,183 @@ export default function CabinetDoorPage({
   pageText,
   contactBlock,
   pageSettingsRecord,
-  galleryThumbImageSize,
-  galleryMainImageSize,
-  galleryLightboxImageSize,
-  projectsSectionImageSize,
-  relatedProductsImageSize,
 }: CabinetDoorPageProps) {
-  const { edit } = useEditState();
-  const [descriptionOpen, setDescriptionOpen] = useState(false);
-
-  const cabinetRecord = cabinet as unknown as Record<string, unknown>;
-  const cabinetFieldName = tinaField(cabinetRecord) || undefined;
-  const displayName = cabinet.name?.trim() || "Cabinet Door";
-  const description = cabinet.description?.trim() || "";
-  const code = formatProductCode(cabinet.code);
+  const rawBlocks = toBlockArray(
+    pageSettingsRecord && typeof pageSettingsRecord === "object"
+      ? (pageSettingsRecord as { blocks?: unknown }).blocks
+      : null,
+  );
+  const blocks = ensureProductInfoBlock(rawBlocks);
 
   return (
     <div className="bg-white">
-      <section className="bg-white" data-tina-field={edit ? undefined : cabinetFieldName}>
-        <div className="cp-container px-4 pb-12 pt-[34px] md:px-8 md:pb-16 md:pt-7">
-          <div className="flex items-start justify-between gap-4 md:items-center">
-            <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:text-[14px]">
-              <Link className="transition-colors hover:text-[var(--cp-primary-350)]" href="/cabinets">
-                <span data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "breadcrumbLabel") || undefined : undefined}>
-                  {pageText.breadcrumbLabel}
-                </span>
-              </Link>
-              <span>/</span>
-              <span data-tina-field={tinaField(cabinetRecord, "name") || undefined}>
-                {displayName}
-              </span>
-            </nav>
+      {blocks.map((block, index) => {
+        const template = resolveTemplateName(block);
+        const blockRecord = block as Record<string, unknown>;
+        const blockField = tinaField(blockRecord) || undefined;
+        const key = `${template || "block"}-${index}`;
 
-            <div className="flex shrink-0 gap-2 md:gap-4">
-              <ArrowNavButton ariaLabel="Previous product" direction="previous" href={previousProduct ? `/cabinets/${previousProduct.slug}` : undefined} size="detail" />
-              <ArrowNavButton ariaLabel="Next product" direction="next" href={nextProduct ? `/cabinets/${nextProduct.slug}` : undefined} size="detail" />
-            </div>
-          </div>
+        switch (template) {
+          case "cabinetProductInfo":
+            return (
+              <div data-tina-field={blockField} key={key}>
+                <CabinetProductInfoSection
+                  block={blockRecord}
+                  cabinet={cabinet}
+                  galleryItems={galleryItems}
+                  nextProduct={nextProduct}
+                  pageText={pageText}
+                  previousProduct={previousProduct}
+                  technicalDetails={technicalDetails}
+                />
+              </div>
+            );
 
-          <div className="mt-7 grid gap-8 lg:grid-cols-[675px_minmax(0,674px)] lg:items-start lg:gap-7">
-            <CabinetImageGallery
-              cabinet={cabinet}
-              focusRootFieldName={cabinetFieldName}
-              items={galleryItems}
-              lightboxImageSizeChoice={galleryLightboxImageSize}
-              mainImageSizeChoice={galleryMainImageSize}
-              thumbImageSizeChoice={galleryThumbImageSize}
-            />
-    
-            <div>
-              {code ? (
-                <p
-                  className="text-[18px] uppercase leading-normal text-[var(--cp-primary-300)]"
-                  data-tina-field={tinaField(cabinetRecord, "code") || undefined}
-                >
-                  {code}
-                </p>
-              ) : null}
+          case "projectsUsingThisProduct": {
+            const blockTitle = readString(blockRecord.title, pageText.projectsSectionTitle);
+            const blockDescription = readString(blockRecord.description, pageText.projectsSectionDescription);
+            const titleField = tinaField(blockRecord, "title") || undefined;
+            const descriptionField = tinaField(blockRecord, "description") || undefined;
+            const cabinetRecord = cabinet as unknown as Record<string, unknown>;
+            const cabinetFieldName = tinaField(cabinetRecord) || undefined;
+            const imageSizeChoice =
+              typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
 
-              <h1
-                className="mt-2 max-w-[361px] font-[var(--font-red-hat-display)] text-[28px] font-semibold uppercase leading-[1.15] text-[var(--cp-primary-500)] md:max-w-[457px] md:text-[32px]"
-                data-tina-field={tinaField(cabinetRecord, "name") || undefined}
+            return (
+              <div data-tina-field={blockField} key={key}>
+                <CabinetProjectStrip
+                  description={blockDescription}
+                  descriptionTinaField={descriptionField}
+                  imageSizeChoice={imageSizeChoice}
+                  items={projectItems}
+                  sectionTinaField={cabinetFieldName}
+                  selectionListTinaField={tinaField(cabinetRecord, "relatedProjects") || undefined}
+                  selectionSourceRecord={cabinetRecord}
+                  title={blockTitle}
+                  titleTinaField={titleField}
+                />
+              </div>
+            );
+          }
+
+          case "relatedProducts": {
+            const blockTitle = readString(blockRecord.title, pageText.relatedProductsTitle);
+            const titleField = tinaField(blockRecord, "title") || undefined;
+            const cabinetRecord = cabinet as unknown as Record<string, unknown>;
+            const cabinetFieldName = tinaField(cabinetRecord) || undefined;
+            const imageSizeChoice =
+              typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
+
+            return (
+              <div data-tina-field={blockField} key={key}>
+                <CabinetRelatedProducts
+                  imageSizeChoice={imageSizeChoice}
+                  items={relatedItems}
+                  sectionTinaField={cabinetFieldName}
+                  title={blockTitle}
+                  titleTinaField={titleField}
+                />
+              </div>
+            );
+          }
+
+          case "contactSection":
+            return (
+              <div key={key}>
+                <ContactUsSection block={blockRecord} />
+              </div>
+            );
+
+          case "textImageSection":
+            return (
+              <div key={key}>
+                <TextImageSection block={blockRecord} />
+              </div>
+            );
+
+          case "faqSection":
+            return (
+              <div key={key}>
+                <FAQSectionBlock block={blockRecord} />
+              </div>
+            );
+
+          case "partnersSection":
+            return (
+              <div key={key}>
+                <PartnersSection block={blockRecord} />
+              </div>
+            );
+
+          case "showroomBanner": {
+            const showroomImage = text(
+              blockRecord.image,
+              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg",
+            );
+            const showroomImageOptions = resolveHomepageSectionImageOptions(blockRecord);
+            const heading = text(blockRecord.heading, "Visit Our Showroom");
+            const subtext = text(blockRecord.subtext);
+            const ctaLabel = text(blockRecord.ctaLabel);
+            const ctaLink = text(blockRecord.ctaLink, "/contact-us");
+
+            return (
+              <section
+                className="relative h-[697px] overflow-hidden"
+                data-tina-field={blockField}
+                key={key}
               >
-                {displayName}
-              </h1>
-
-              <div className="mt-6 flex flex-col gap-8">
-                <Button className="order-1 !min-h-12 !px-8 !text-[20px] md:order-2 md:w-fit" href="/contact-us" size="small" variant="primary">
-                  {pageText.contactButtonLabel}
-                </Button>
-
-                <div className="order-2 md:order-1">
-                  <h2
-                    className="text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]"
-                    data-tina-field={pageSettingsRecord ? tinaField(pageSettingsRecord, "technicalDetailsTitle") || undefined : undefined}
-                  >
-                    {pageText.technicalDetailsTitle}
-                  </h2>
-                  <CabinetTechnicalDetailsTable details={technicalDetails} />
-                </div>
-
-                {description ? (
-                  <div className="order-3 max-w-[677px]">
-                    <button
-                      className="inline-flex items-center gap-2 text-[16px] font-semibold leading-[1.4] text-[var(--cp-primary-500)]"
-                      onClick={() => setDescriptionOpen((open) => !open)}
-                      type="button"
+                <FillImage
+                  alt={heading}
+                  className="object-cover object-center"
+                  data-tina-field={tinaField(blockRecord, "image") || undefined}
+                  sizes="100vw"
+                  src={showroomImage}
+                  variant={showroomImageOptions.useOriginal ? undefined : (showroomImageOptions.variant ?? "full")}
+                />
+                <div className="absolute inset-0 bg-[rgba(38,38,35,0.4)] md:hidden" />
+                <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgba(38,38,35,0.6)_0%,rgba(38,38,35,0.45)_50%,rgba(38,38,35,0)_100%)] md:block" />
+                <div className="cp-container relative h-full px-4 md:px-8">
+                  <div className="absolute left-4 top-[247px] w-[345px] max-w-[calc(100%-32px)] md:left-8 md:top-[225px] md:w-auto md:max-w-[806px]">
+                    <h2
+                      className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px] md:font-normal"
+                      data-tina-field={tinaField(blockRecord, "heading") || undefined}
                     >
-                      <img
-                        alt=""
-                        aria-hidden
-                        className={`h-6 w-6 transition-transform ${descriptionOpen ? "rotate-90" : ""}`}
-                        src="/library/header/nav-chevron-right.svg"
-                      />
-                      <span>{pageText.descriptionLabel}</span>
-                    </button>
-
-                    {descriptionOpen ? (
+                      {heading}
+                    </h2>
+                    {subtext ? (
                       <p
-                        className="mt-4 whitespace-pre-line text-[16px] leading-[1.4] text-[var(--cp-primary-500)]"
-                        data-tina-field={tinaField(cabinetRecord, "description") || undefined}
+                        className="mt-4 max-w-[314px] text-[16px] font-medium leading-[1.5] text-white md:mt-6 md:max-w-[493px] md:text-[18px] md:font-normal"
+                        data-tina-field={tinaField(blockRecord, "subtext") || undefined}
                       >
-                        {description}
+                        {subtext}
                       </p>
                     ) : null}
+                    {ctaLabel ? (
+                      <div className="mt-6 md:mt-8">
+                        <Button
+                          className="!border-white !bg-transparent !text-white hover:!border-white hover:!bg-white/10 hover:!text-white"
+                          dataTinaField={tinaField(blockRecord, "ctaLabel") || undefined}
+                          href={ctaLink}
+                          variant="outline"
+                        >
+                          {ctaLabel}
+                        </Button>
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                </div>
+              </section>
+            );
+          }
 
-      <CabinetProjectStrip
-        description={pageText.projectsSectionDescription}
-        descriptionTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionDescription") || undefined : undefined}
-        imageSizeChoice={projectsSectionImageSize}
-        items={projectItems}
-        sectionTinaField={cabinetFieldName}
-        selectionListTinaField={tinaField(cabinetRecord, "relatedProjects") || undefined}
-        selectionSourceRecord={cabinetRecord}
-        title={pageText.projectsSectionTitle}
-        titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "projectsSectionTitle") || undefined : undefined}
-      />
-      <CabinetRelatedProducts
-        imageSizeChoice={relatedProductsImageSize}
-        items={relatedItems}
-        sectionTinaField={cabinetFieldName}
-        title={pageText.relatedProductsTitle}
-        titleTinaField={pageSettingsRecord ? tinaField(pageSettingsRecord, "relatedProductsTitle") || undefined : undefined}
-      />
-      {contactBlock ? <ContactUsSection block={contactBlock} /> : null}
+          default:
+            return null;
+        }
+      })}
+
+      {contactBlock && !blocks.some((block) => resolveTemplateName(block) === "contactSection") ? (
+        <ContactUsSection block={contactBlock} />
+      ) : null}
 
       <div className="sr-only" data-current-cabinet={currentSlug} />
     </div>

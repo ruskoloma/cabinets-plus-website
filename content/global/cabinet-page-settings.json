@@ -1,15 +1,24 @@
 {
-  "_template": "cabinet",
-  "breadcrumbLabel": "Cabinets",
-  "technicalDetailsTitle": "Technical Details",
-  "contactButtonLabel": "Contact us",
-  "descriptionLabel": "Description",
-  "galleryThumbImageSize": "thumb",
-  "galleryMainImageSize": "feature",
-  "galleryLightboxImageSize": "full",
-  "relatedProductsTitle": "Related products",
-  "relatedProductsImageSize": "card",
-  "projectsSectionTitle": "Material in Real Projects",
-  "projectsSectionDescription": "Explore real installations showcasing this material in completed kitchens, bathrooms, and living spaces to see how it looks and performs in everyday use.",
-  "projectsSectionImageSize": "thumb"
+  "blocks": [
+    {
+      "breadcrumbLabel": "Cabinets",
+      "technicalDetailsTitle": "Technical Details",
+      "contactButtonLabel": "Contact Us",
+      "descriptionLabel": "Description",
+      "_template": "cabinetProductInfo"
+    },
+    {
+      "title": "Material in Real Projects",
+      "description": "Explore real installations showcasing this material in completed kitchens, bathrooms, and living spaces to see how it looks and performs in everyday use.",
+      "_template": "projectsUsingThisProduct"
+    },
+    {
+      "title": "Related products",
+      "_template": "relatedProducts"
+    },
+    {
+      "_template": "contactSection"
+    }
+  ],
+  "_template": "cabinet"
 }

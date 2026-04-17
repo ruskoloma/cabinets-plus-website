@@ -115,18 +115,83 @@ export const CABINET_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsCabinet {
-        breadcrumbLabel
-        technicalDetailsTitle
-        contactButtonLabel
-        descriptionLabel
-        galleryThumbImageSize
-        galleryMainImageSize
-        galleryLightboxImageSize
-        relatedProductsTitle
-        relatedProductsImageSize
-        projectsSectionTitle
-        projectsSectionDescription
-        projectsSectionImageSize
+        blocks {
+          __typename
+          ... on PageSettingsCabinetBlocksCabinetProductInfo {
+            breadcrumbLabel
+            technicalDetailsTitle
+            contactButtonLabel
+            descriptionLabel
+            galleryThumbImageSize
+            galleryMainImageSize
+            galleryLightboxImageSize
+          }
+          ... on PageSettingsCabinetBlocksProjectsUsingThisProduct {
+            title
+            description
+            imageSize
+          }
+          ... on PageSettingsCabinetBlocksRelatedProducts {
+            title
+            subtitle
+            imageSize
+          }
+          ... on PageSettingsCabinetBlocksTextImageSection {
+            title
+            paragraphs
+            image
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
+          ... on PageSettingsCabinetBlocksFaqSection {
+            title
+            tabs {
+              label
+              faqs {
+                question
+                answer
+              }
+            }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on PageSettingsCabinetBlocksShowroomBanner {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            image
+            imageSize
+          }
+          ... on PageSettingsCabinetBlocksPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on PageSettingsCabinetBlocksContactSection {
+            title
+            image
+            imageSize
+            nameLabel
+            namePlaceholder
+            emailLabel
+            emailPlaceholder
+            messageLabel
+            messagePlaceholder
+            submitLabel
+            showroomTitle
+            followUsLabel
+            mapEmbedUrl
+          }
+        }
       }
     }
   }
@@ -144,18 +209,83 @@ export const COUNTERTOP_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsCountertop {
-        breadcrumbLabel
-        technicalDetailsTitle
-        contactButtonLabel
-        descriptionLabel
-        galleryThumbImageSize
-        galleryMainImageSize
-        galleryLightboxImageSize
-        relatedProductsTitle
-        relatedProductsImageSize
-        projectsSectionTitle
-        projectsSectionDescription
-        projectsSectionImageSize
+        blocks {
+          __typename
+          ... on PageSettingsCountertopBlocksCountertopProductInfo {
+            breadcrumbLabel
+            technicalDetailsTitle
+            contactButtonLabel
+            descriptionLabel
+            galleryThumbImageSize
+            galleryMainImageSize
+            galleryLightboxImageSize
+          }
+          ... on PageSettingsCountertopBlocksProjectsUsingThisProduct {
+            title
+            description
+            imageSize
+          }
+          ... on PageSettingsCountertopBlocksRelatedProducts {
+            title
+            subtitle
+            imageSize
+          }
+          ... on PageSettingsCountertopBlocksTextImageSection {
+            title
+            paragraphs
+            image
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
+          ... on PageSettingsCountertopBlocksFaqSection {
+            title
+            tabs {
+              label
+              faqs {
+                question
+                answer
+              }
+            }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on PageSettingsCountertopBlocksShowroomBanner {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            image
+            imageSize
+          }
+          ... on PageSettingsCountertopBlocksPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on PageSettingsCountertopBlocksContactSection {
+            title
+            image
+            imageSize
+            nameLabel
+            namePlaceholder
+            emailLabel
+            emailPlaceholder
+            messageLabel
+            messagePlaceholder
+            submitLabel
+            showroomTitle
+            followUsLabel
+            mapEmbedUrl
+          }
+        }
       }
     }
   }

@@ -1113,6 +1113,145 @@ function imageSizeSettingField(name: string, label: string, description: string)
   };
 }
 
+// ─── Shared block templates ─────────────────────────────────────
+// Factor templates that are reused across multiple collections so they
+// stay in sync. When adding new fields, watch for cross-template name
+// collisions inside any collection's blocks union (e.g. avoid `body` /
+// `content` names that conflict with rich-text fields elsewhere).
+
+function sharedContactSectionTemplate() {
+  return {
+    name: "contactSection" as const,
+    label: "Contact Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "image" as const, name: "image", label: "Section Image" },
+      ...homepageSectionImageFields(),
+      { type: "string" as const, name: "nameLabel", label: "Name Field Label" },
+      { type: "string" as const, name: "namePlaceholder", label: "Name Placeholder" },
+      { type: "string" as const, name: "emailLabel", label: "Email Field Label" },
+      { type: "string" as const, name: "emailPlaceholder", label: "Email Placeholder" },
+      { type: "string" as const, name: "messageLabel", label: "Message Field Label" },
+      { type: "string" as const, name: "messagePlaceholder", label: "Message Placeholder" },
+      { type: "string" as const, name: "submitLabel", label: "Submit Button Label" },
+      { type: "string" as const, name: "showroomTitle", label: "Showroom Title" },
+      { type: "string" as const, name: "followUsLabel", label: "Follow Label" },
+      {
+        type: "string" as const,
+        name: "mapEmbedUrl",
+        label: "Google Maps Embed URL",
+        ui: { component: "textarea" as const },
+      },
+    ],
+  };
+}
+
+function sharedFaqSectionTemplate() {
+  return {
+    name: "faqSection" as const,
+    label: "FAQ Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      {
+        type: "object" as const,
+        name: "tabs",
+        label: "FAQ Tabs",
+        list: true,
+        ui: { itemProps: (item: any) => ({ label: item.label }) },
+        fields: [
+          { type: "string" as const, name: "label", label: "Tab Label" },
+          {
+            type: "object" as const,
+            name: "faqs",
+            label: "FAQs",
+            list: true,
+            ui: { itemProps: (item: any) => ({ label: item.question }) },
+            fields: [
+              { type: "string" as const, name: "question", label: "Question" },
+              { type: "string" as const, name: "answer", label: "Answer", ui: { component: "textarea" as const } },
+            ],
+          },
+        ],
+      },
+      {
+        type: "object" as const,
+        name: "faqs",
+        label: "FAQs (single list)",
+        list: true,
+        description: "Alternative: flat FAQ list when tabs are not needed.",
+        ui: { itemProps: (item: any) => ({ label: item.question }) },
+        fields: [
+          { type: "string" as const, name: "question", label: "Question" },
+          { type: "string" as const, name: "answer", label: "Answer", ui: { component: "textarea" as const } },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedShowroomBannerTemplate() {
+  return {
+    name: "showroomBanner" as const,
+    label: "Showroom Banner",
+    fields: [
+      { type: "string" as const, name: "heading", label: "Heading" },
+      { type: "string" as const, name: "subtext", label: "Subtext", ui: { component: "textarea" as const } },
+      { type: "string" as const, name: "ctaLabel", label: "CTA Text" },
+      { type: "string" as const, name: "ctaLink", label: "CTA Link" },
+      { type: "image" as const, name: "image", label: "Main Image" },
+      ...homepageSectionImageFields(),
+    ],
+  };
+}
+
+function sharedPartnersSectionTemplate() {
+  return {
+    name: "partnersSection" as const,
+    label: "Partners Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "string" as const, name: "description", label: "Body Text", ui: { component: "textarea" as const } },
+      { type: "string" as const, name: "footnote", label: "Footnote" },
+      {
+        type: "object" as const,
+        name: "partnerLogos",
+        label: "Partner Logos",
+        list: true,
+        ui: { itemProps: (item: any) => ({ label: item.alt || "Partner logo" }) },
+        fields: [
+          { type: "image" as const, name: "logo", label: "Logo" },
+          { type: "string" as const, name: "alt", label: "Alt Text" },
+          { type: "string" as const, name: "url", label: "External URL" },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedTextImageSectionTemplate() {
+  return {
+    name: "textImageSection" as const,
+    label: "Info Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "rich-text" as const, name: "paragraphs", label: "Body Paragraphs" },
+      { type: "image" as const, name: "image", label: "Image" },
+      {
+        type: "string" as const,
+        name: "imagePosition",
+        label: "Image Position",
+        options: [
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+        ],
+        ui: { component: "select" as const },
+      },
+      { type: "string" as const, name: "ctaLabel", label: "CTA Button Text (optional)" },
+      { type: "string" as const, name: "ctaLink", label: "CTA Button Link (optional)" },
+    ],
+  };
+}
+
 export default defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
@@ -1406,86 +1545,156 @@ export default defineConfig({
             name: "cabinet",
             label: "Cabinet",
             fields: [
-              { type: "string", name: "breadcrumbLabel", label: "Breadcrumb Label" },
-              { type: "string", name: "technicalDetailsTitle", label: "Technical Details Title" },
-              { type: "string", name: "contactButtonLabel", label: "Contact Button Label" },
-              { type: "string", name: "descriptionLabel", label: "Description Label" },
-              imageSizeSettingField(
-                "galleryThumbImageSize",
-                "Gallery Thumbnail Images",
-                "Controls the thumbnail rail on cabinet detail pages.",
-              ),
-              imageSizeSettingField(
-                "galleryMainImageSize",
-                "Gallery Main Image",
-                "Controls the main gallery image on cabinet detail pages.",
-              ),
-              imageSizeSettingField(
-                "galleryLightboxImageSize",
-                "Gallery Lightbox Image",
-                "Controls the expanded lightbox image on cabinet detail pages.",
-              ),
-              { type: "string", name: "projectsSectionTitle", label: "Projects Section Title" },
               {
-                type: "string",
-                name: "projectsSectionDescription",
-                label: "Projects Section Description",
-                ui: { component: "textarea" },
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on every cabinet detail page. The Product Info block (gallery, code, name, description, technical details) is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "cabinetProductInfo",
+                    label: "Product Info (title, gallery, description — pulled from each cabinet)",
+                    fields: [
+                      { type: "string" as const, name: "breadcrumbLabel", label: "Breadcrumb Label" },
+                      { type: "string" as const, name: "technicalDetailsTitle", label: "Technical Details Title" },
+                      { type: "string" as const, name: "contactButtonLabel", label: "Contact Button Label" },
+                      { type: "string" as const, name: "descriptionLabel", label: "Description Label" },
+                      imageSizeSettingField(
+                        "galleryThumbImageSize",
+                        "Gallery Thumbnail Images",
+                        "Controls the thumbnail rail on cabinet detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "galleryMainImageSize",
+                        "Gallery Main Image",
+                        "Controls the main gallery image on cabinet detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "galleryLightboxImageSize",
+                        "Gallery Lightbox Image",
+                        "Controls the expanded lightbox image on cabinet detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "projectsUsingThisProduct",
+                    label: "Material in Real Projects (pulled per cabinet)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      {
+                        type: "string" as const,
+                        name: "description",
+                        label: "Section Description",
+                        ui: { component: "textarea" as const },
+                      },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Project Images",
+                        "Controls the project images in this section on cabinet detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "relatedProducts",
+                    label: "Related Products (pulled per cabinet)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      { type: "string" as const, name: "subtitle", label: "Subtitle" },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Related Product Images",
+                        "Controls the related product card images on cabinet detail pages.",
+                      ),
+                    ],
+                  },
+                  sharedTextImageSectionTemplate(),
+                  sharedFaqSectionTemplate(),
+                  sharedShowroomBannerTemplate(),
+                  sharedPartnersSectionTemplate(),
+                  sharedContactSectionTemplate(),
+                ],
               },
-              imageSizeSettingField(
-                "projectsSectionImageSize",
-                "Material In Real Projects Images",
-                "Controls the images in the Material in Real Projects section on cabinet and countertop detail pages.",
-              ),
-              { type: "string", name: "relatedProductsTitle", label: "Related Products Title" },
-              imageSizeSettingField(
-                "relatedProductsImageSize",
-                "Related Products Images",
-                "Controls the related-product card images on cabinet detail pages.",
-              ),
             ],
           },
           {
             name: "countertop",
             label: "Countertop",
             fields: [
-              { type: "string", name: "breadcrumbLabel", label: "Breadcrumb Label" },
-              { type: "string", name: "technicalDetailsTitle", label: "Technical Details Title" },
-              { type: "string", name: "contactButtonLabel", label: "Contact Button Label" },
-              { type: "string", name: "descriptionLabel", label: "Description Label" },
-              imageSizeSettingField(
-                "galleryThumbImageSize",
-                "Gallery Thumbnail Images",
-                "Controls the thumbnail rail on countertop detail pages.",
-              ),
-              imageSizeSettingField(
-                "galleryMainImageSize",
-                "Gallery Main Image",
-                "Controls the main gallery image on countertop detail pages.",
-              ),
-              imageSizeSettingField(
-                "galleryLightboxImageSize",
-                "Gallery Lightbox Image",
-                "Controls the expanded lightbox image on countertop detail pages.",
-              ),
-              { type: "string", name: "projectsSectionTitle", label: "Projects Section Title" },
               {
-                type: "string",
-                name: "projectsSectionDescription",
-                label: "Projects Section Description",
-                ui: { component: "textarea" },
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on every countertop detail page. The Product Info block (gallery, code, name, description, technical details) is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "countertopProductInfo",
+                    label: "Product Info (title, gallery, description — pulled from each countertop)",
+                    fields: [
+                      { type: "string" as const, name: "breadcrumbLabel", label: "Breadcrumb Label" },
+                      { type: "string" as const, name: "technicalDetailsTitle", label: "Technical Details Title" },
+                      { type: "string" as const, name: "contactButtonLabel", label: "Contact Button Label" },
+                      { type: "string" as const, name: "descriptionLabel", label: "Description Label" },
+                      imageSizeSettingField(
+                        "galleryThumbImageSize",
+                        "Gallery Thumbnail Images",
+                        "Controls the thumbnail rail on countertop detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "galleryMainImageSize",
+                        "Gallery Main Image",
+                        "Controls the main gallery image on countertop detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "galleryLightboxImageSize",
+                        "Gallery Lightbox Image",
+                        "Controls the expanded lightbox image on countertop detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "projectsUsingThisProduct",
+                    label: "Material in Real Projects (pulled per countertop)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      {
+                        type: "string" as const,
+                        name: "description",
+                        label: "Section Description",
+                        ui: { component: "textarea" as const },
+                      },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Project Images",
+                        "Controls the project images in this section on countertop detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "relatedProducts",
+                    label: "Related Products (pulled per countertop)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      { type: "string" as const, name: "subtitle", label: "Subtitle" },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Related Product Images",
+                        "Controls the related product card images on countertop detail pages.",
+                      ),
+                    ],
+                  },
+                  sharedTextImageSectionTemplate(),
+                  sharedFaqSectionTemplate(),
+                  sharedShowroomBannerTemplate(),
+                  sharedPartnersSectionTemplate(),
+                  sharedContactSectionTemplate(),
+                ],
               },
-              imageSizeSettingField(
-                "projectsSectionImageSize",
-                "Material In Real Projects Images",
-                "Controls the images in the Material in Real Projects section on countertop detail pages.",
-              ),
-              { type: "string", name: "relatedProductsTitle", label: "Related Products Title" },
-              imageSizeSettingField(
-                "relatedProductsImageSize",
-                "Related Products Images",
-                "Controls the related-product card images on countertop detail pages.",
-              ),
             ],
           },
         ],
@@ -1630,17 +1839,7 @@ export default defineConfig({
                   { type: "string", name: "ctaLink", label: "Button Link" },
                 ],
               },
-              {
-                name: "showroomBanner", label: "Showroom Banner",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
-                  { type: "string", name: "ctaLabel", label: "CTA Text" },
-                  { type: "string", name: "ctaLink", label: "CTA Link" },
-                  { type: "image", name: "image", label: "Main Image" },
-                  ...homepageSectionImageFields(),
-                ],
-              },
+              sharedShowroomBannerTemplate(),
               {
                 name: "processSection", label: "Process Section",
                 fields: [
@@ -1658,71 +1857,9 @@ export default defineConfig({
                   },
                 ],
               },
-              {
-                name: "faqSection", label: "FAQ Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  {
-                    type: "object", name: "tabs", label: "FAQ Tabs", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.label }) },
-                    fields: [
-                      { type: "string", name: "label", label: "Tab Label" },
-                      {
-                        type: "object", name: "faqs", label: "FAQs", list: true,
-                        ui: { itemProps: (item: any) => ({ label: item.question }) },
-                        fields: [
-                          { type: "string", name: "question", label: "Question" },
-                          { type: "string", name: "answer", label: "Answer", ui: { component: "textarea" } },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    type: "object", name: "faqs", label: "FAQs (single list)", list: true,
-                    description: "Alternative: flat FAQ list when tabs are not needed.",
-                    ui: { itemProps: (item: any) => ({ label: item.question }) },
-                    fields: [
-                      { type: "string", name: "question", label: "Question" },
-                      { type: "string", name: "answer", label: "Answer", ui: { component: "textarea" } },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "partnersSection", label: "Partners Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  { type: "string", name: "description", label: "Body Text", ui: { component: "textarea" } },
-                  { type: "string", name: "footnote", label: "Footnote" },
-                  {
-                    type: "object", name: "partnerLogos", label: "Partner Logos", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.alt || "Partner logo" }) },
-                    fields: [
-                      { type: "image", name: "logo", label: "Logo" },
-                      { type: "string", name: "alt", label: "Alt Text" },
-                      { type: "string", name: "url", label: "External URL" },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "contactSection", label: "Contact Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  { type: "image", name: "image", label: "Section Image" },
-                  ...homepageSectionImageFields(),
-                  { type: "string", name: "nameLabel", label: "Name Field Label" },
-                  { type: "string", name: "namePlaceholder", label: "Name Placeholder" },
-                  { type: "string", name: "emailLabel", label: "Email Field Label" },
-                  { type: "string", name: "emailPlaceholder", label: "Email Placeholder" },
-                  { type: "string", name: "messageLabel", label: "Message Field Label" },
-                  { type: "string", name: "messagePlaceholder", label: "Message Placeholder" },
-                  { type: "string", name: "submitLabel", label: "Submit Button Label" },
-                  { type: "string", name: "showroomTitle", label: "Showroom Title" },
-                  { type: "string", name: "followUsLabel", label: "Follow Label" },
-                  { type: "string", name: "mapEmbedUrl", label: "Google Maps Embed URL", ui: { component: "textarea" } },
-                ],
-              },
+              sharedFaqSectionTemplate(),
+              sharedPartnersSectionTemplate(),
+              sharedContactSectionTemplate(),
               {
                 name: "aboutStorySection", label: "About Story Section",
                 fields: [
@@ -1763,30 +1900,7 @@ export default defineConfig({
                   { type: "rich-text", name: "body", label: "Content" },
                 ],
               },
-              {
-                name: "textImageSection", label: "Info Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  {
-                    type: "rich-text",
-                    name: "paragraphs",
-                    label: "Body Paragraphs",
-                  },
-                  { type: "image", name: "image", label: "Image" },
-                  {
-                    type: "string",
-                    name: "imagePosition",
-                    label: "Image Position",
-                    options: [
-                      { label: "Left", value: "left" },
-                      { label: "Right", value: "right" },
-                    ],
-                    ui: { component: "select" },
-                  },
-                  { type: "string", name: "ctaLabel", label: "CTA Button Text (optional)" },
-                  { type: "string", name: "ctaLink", label: "CTA Button Link (optional)" },
-                ],
-              },
+              sharedTextImageSectionTemplate(),
             ],
           },
         ],

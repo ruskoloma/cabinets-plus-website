@@ -77,6 +77,24 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
   PageBlocksAboutStorySection: "aboutStorySection",
   PageBlocksPartnersSection: "partnersSection",
   PageBlocksTextImageSection: "textImageSection",
+  // Cabinet page-settings blocks
+  PageSettingsCabinetBlocksCabinetProductInfo: "cabinetProductInfo",
+  PageSettingsCabinetBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
+  PageSettingsCabinetBlocksRelatedProducts: "relatedProducts",
+  PageSettingsCabinetBlocksTextImageSection: "textImageSection",
+  PageSettingsCabinetBlocksFaqSection: "faqSection",
+  PageSettingsCabinetBlocksShowroomBanner: "showroomBanner",
+  PageSettingsCabinetBlocksPartnersSection: "partnersSection",
+  PageSettingsCabinetBlocksContactSection: "contactSection",
+  // Countertop page-settings blocks
+  PageSettingsCountertopBlocksCountertopProductInfo: "countertopProductInfo",
+  PageSettingsCountertopBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
+  PageSettingsCountertopBlocksRelatedProducts: "relatedProducts",
+  PageSettingsCountertopBlocksTextImageSection: "textImageSection",
+  PageSettingsCountertopBlocksFaqSection: "faqSection",
+  PageSettingsCountertopBlocksShowroomBanner: "showroomBanner",
+  PageSettingsCountertopBlocksPartnersSection: "partnersSection",
+  PageSettingsCountertopBlocksContactSection: "contactSection",
 };
 
 const FALLBACK_FAQ_TABS: FaqTab[] = [

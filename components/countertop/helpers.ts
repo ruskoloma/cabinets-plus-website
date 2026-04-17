@@ -1,12 +1,13 @@
-import { resolveCabinetPageText } from "@/components/cabinet-door/helpers";
 import { buildCountertopProjectMatches } from "@/components/catalog-product/project-matching";
 import { normalizeOptionValue } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
 import type { GalleryOverviewDataShape } from "@/components/gallery-overview/types";
+import type { CabinetPageTextConfig } from "@/components/cabinet-door/types";
 import type {
-  CabinetPageSettings,
   CountertopData,
   CountertopListItem,
   CountertopMediaItem,
+  CountertopPageSettings,
+  CountertopPageSettingsBlock,
   CountertopProjectItem,
   CountertopReferenceProduct,
   CountertopRelatedItem,
@@ -14,6 +15,54 @@ import type {
   CountertopTechnicalDetail,
   ProductGalleryItemViewModel,
 } from "./types";
+
+const TYPENAME_TO_TEMPLATE: Record<string, string> = {
+  PageSettingsCountertopBlocksCountertopProductInfo: "countertopProductInfo",
+  PageSettingsCountertopBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
+  PageSettingsCountertopBlocksRelatedProducts: "relatedProducts",
+  PageSettingsCountertopBlocksTextImageSection: "textImageSection",
+  PageSettingsCountertopBlocksFaqSection: "faqSection",
+  PageSettingsCountertopBlocksShowroomBanner: "showroomBanner",
+  PageSettingsCountertopBlocksPartnersSection: "partnersSection",
+  PageSettingsCountertopBlocksContactSection: "contactSection",
+};
+
+function resolveBlockTemplate(block: CountertopPageSettingsBlock | null | undefined): string | null {
+  if (!block || typeof block !== "object") return null;
+  const rawTemplate = typeof block._template === "string" ? block._template : null;
+  if (rawTemplate) return rawTemplate;
+  const typename = typeof block.__typename === "string" ? block.__typename : "";
+  return TYPENAME_TO_TEMPLATE[typename] || null;
+}
+
+export function findCountertopBlock(
+  blocks: Array<CountertopPageSettingsBlock | null> | null | undefined,
+  template: string,
+): CountertopPageSettingsBlock | null {
+  if (!Array.isArray(blocks)) return null;
+  for (const block of blocks) {
+    if (!block) continue;
+    if (resolveBlockTemplate(block) === template) return block;
+  }
+  return null;
+}
+
+export const DEFAULT_COUNTERTOP_PAGE_TEXT: CabinetPageTextConfig = {
+  breadcrumbLabel: "Countertops",
+  technicalDetailsTitle: "Technical Details",
+  contactButtonLabel: "Contact us",
+  descriptionLabel: "Description",
+  relatedProductsTitle: "Related products",
+  projectsSectionTitle: "Material in Real Projects",
+  projectsSectionDescription:
+    "Explore real installations showcasing this material in completed kitchens, bathrooms, and living spaces to see how it looks and performs in everyday use.",
+};
+
+function readNonEmpty(value: unknown, fallback: string): string {
+  if (typeof value !== "string") return fallback;
+  const trimmed = value.trim();
+  return trimmed.length ? trimmed : fallback;
+}
 
 function toSlug(value: string): string {
   return value
@@ -98,15 +147,29 @@ export function sortTechnicalDetails(details: Array<CountertopTechnicalDetail | 
   });
 }
 
-export function resolveCountertopPageText(settings?: CabinetPageSettings | null) {
-  const breadcrumbLabel =
-    typeof settings?.breadcrumbLabel === "string" && settings.breadcrumbLabel.trim().length
-      ? settings.breadcrumbLabel.trim()
-      : "Countertops";
+export function resolveCountertopPageText(settings?: CountertopPageSettings | null): CabinetPageTextConfig {
+  const blocks = settings?.blocks;
+  const productInfoBlock = findCountertopBlock(blocks, "countertopProductInfo");
+  const projectsBlock = findCountertopBlock(blocks, "projectsUsingThisProduct");
+  const relatedProductsBlock = findCountertopBlock(blocks, "relatedProducts");
 
   return {
-    ...resolveCabinetPageText(settings),
-    breadcrumbLabel,
+    breadcrumbLabel: readNonEmpty(productInfoBlock?.breadcrumbLabel, DEFAULT_COUNTERTOP_PAGE_TEXT.breadcrumbLabel),
+    technicalDetailsTitle: readNonEmpty(
+      productInfoBlock?.technicalDetailsTitle,
+      DEFAULT_COUNTERTOP_PAGE_TEXT.technicalDetailsTitle,
+    ),
+    contactButtonLabel: readNonEmpty(
+      productInfoBlock?.contactButtonLabel,
+      DEFAULT_COUNTERTOP_PAGE_TEXT.contactButtonLabel,
+    ),
+    descriptionLabel: readNonEmpty(productInfoBlock?.descriptionLabel, DEFAULT_COUNTERTOP_PAGE_TEXT.descriptionLabel),
+    relatedProductsTitle: readNonEmpty(relatedProductsBlock?.title, DEFAULT_COUNTERTOP_PAGE_TEXT.relatedProductsTitle),
+    projectsSectionTitle: readNonEmpty(projectsBlock?.title, DEFAULT_COUNTERTOP_PAGE_TEXT.projectsSectionTitle),
+    projectsSectionDescription: readNonEmpty(
+      projectsBlock?.description,
+      DEFAULT_COUNTERTOP_PAGE_TEXT.projectsSectionDescription,
+    ),
   };
 }
 

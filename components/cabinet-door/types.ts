@@ -114,23 +114,18 @@ export interface CabinetRelatedItem {
   relation?: CabinetRelatedProduct;
 }
 
+export interface CabinetPageSettingsBlock {
+  __typename?: string | null;
+  _template?: string | null;
+  [key: string]: unknown;
+}
+
 export interface CabinetPageSettings {
   __typename?: string;
   id?: string;
   _sys?: CabinetSystemInfo | null;
   _content_source?: unknown;
-  breadcrumbLabel?: string | null;
-  technicalDetailsTitle?: string | null;
-  contactButtonLabel?: string | null;
-  descriptionLabel?: string | null;
-  galleryThumbImageSize?: string | null;
-  galleryMainImageSize?: string | null;
-  galleryLightboxImageSize?: string | null;
-  relatedProductsTitle?: string | null;
-  relatedProductsImageSize?: string | null;
-  projectsSectionTitle?: string | null;
-  projectsSectionDescription?: string | null;
-  projectsSectionImageSize?: string | null;
+  blocks?: Array<CabinetPageSettingsBlock | null> | null;
 }
 
 export interface CabinetPageSettingsQueryLikeResult {
