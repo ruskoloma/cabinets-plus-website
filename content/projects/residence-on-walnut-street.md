@@ -1,8 +1,8 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/1230-copy-of-03-inside-spokane-walnut-12.jpg'
 published: true
 title: Residence on Walnut Street
 description: 'Clean-lined white shaker cabinetry defines this bright open kitchen and bath vanity project. A waterfall-look quartz island, matching quartz counters, light subway tile backsplash, and stainless steel appliances create a fresh modern palette. Black hardware, a dark faucet, and clear glass pendants add contrast, while warm wood-look flooring softens the crisp finishes. The bathroom vanity echoes the kitchen with white cabinetry, veined quartz, and matte black fixtures.'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/1230-copy-of-03-inside-spokane-walnut-12.jpg'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-walnut-street/1230-copy-of-03-inside-spokane-walnut-12.jpg'
     roomPriority: false
@@ -225,7 +225,7 @@ media:
     label: White bathroom vanity
     description: 'Residence on Walnut Street featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/lsw.md
+  - cabinet: content/cabinets/swu.md
 countertopProducts:
   - countertop: content/countertops/carraramist.md
 relatedProjects:

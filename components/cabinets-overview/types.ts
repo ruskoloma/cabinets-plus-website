@@ -20,6 +20,7 @@ export interface CatalogSettingsData {
   stainTypes: CatalogVisualOption[];
   rooms: string[];
   countertopTypes: CatalogVisualOption[];
+  flooringTypes: CatalogVisualOption[];
   _content_source?: unknown;
   _values?: unknown;
 }

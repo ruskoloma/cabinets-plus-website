@@ -1,0 +1,29 @@
+{
+  "blocks": [
+    {
+      "breadcrumbLabel": "Flooring",
+      "technicalDetailsTitle": "Technical Details",
+      "contactButtonLabel": "Contact us",
+      "descriptionLabel": "Description",
+      "galleryThumbImageSize": "thumb",
+      "galleryMainImageSize": "feature",
+      "galleryLightboxImageSize": "full",
+      "_template": "flooringProductInfo"
+    },
+    {
+      "title": "Flooring in Real Projects",
+      "description": "Explore real installations showcasing this flooring in completed spaces to see how the texture, tone, and finish work in everyday rooms.",
+      "imageSize": "card",
+      "_template": "projectsUsingThisProduct"
+    },
+    {
+      "title": "Related products",
+      "imageSize": "card",
+      "_template": "relatedProducts"
+    },
+    {
+      "_template": "contactSection"
+    }
+  ],
+  "_template": "flooring"
+}

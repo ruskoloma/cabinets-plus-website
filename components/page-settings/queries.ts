@@ -38,6 +38,26 @@ export const COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   }
 `;
 
+export const FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY = `
+  query FlooringOverviewPageSettingsDocument($relativePath: String!) {
+    flooringOverviewPageSettings: pageSettings(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+      ... on PageSettingsFlooringOverview {
+        pageTitle
+        flooringOverviewCardImageSize
+        flooringOverviewFilterImageSize
+      }
+    }
+  }
+`;
+
 export const GALLERY_PAGE_SETTINGS_QUERY = `
   query GalleryPageSettingsDocument($relativePath: String!) {
     galleryPageSettings: pageSettings(relativePath: $relativePath) {
@@ -271,6 +291,100 @@ export const COUNTERTOP_PAGE_SETTINGS_QUERY = `
             }
           }
           ... on PageSettingsCountertopBlocksContactSection {
+            title
+            image
+            imageSize
+            nameLabel
+            namePlaceholder
+            emailLabel
+            emailPlaceholder
+            messageLabel
+            messagePlaceholder
+            submitLabel
+            showroomTitle
+            followUsLabel
+            mapEmbedUrl
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const FLOORING_PAGE_SETTINGS_QUERY = `
+  query FlooringPageSettingsDocument($relativePath: String!) {
+    flooringPageSettings: pageSettings(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+      ... on PageSettingsFlooring {
+        blocks {
+          __typename
+          ... on PageSettingsFlooringBlocksFlooringProductInfo {
+            breadcrumbLabel
+            technicalDetailsTitle
+            contactButtonLabel
+            descriptionLabel
+            galleryThumbImageSize
+            galleryMainImageSize
+            galleryLightboxImageSize
+          }
+          ... on PageSettingsFlooringBlocksProjectsUsingThisProduct {
+            title
+            description
+            imageSize
+          }
+          ... on PageSettingsFlooringBlocksRelatedProducts {
+            title
+            subtitle
+            imageSize
+          }
+          ... on PageSettingsFlooringBlocksTextImageSection {
+            title
+            paragraphs
+            image
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
+          ... on PageSettingsFlooringBlocksFaqSection {
+            title
+            tabs {
+              label
+              faqs {
+                question
+                answer
+              }
+            }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on PageSettingsFlooringBlocksShowroomBanner {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            image
+            imageSize
+          }
+          ... on PageSettingsFlooringBlocksPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on PageSettingsFlooringBlocksContactSection {
             title
             image
             imageSize

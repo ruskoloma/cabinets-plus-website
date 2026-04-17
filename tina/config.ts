@@ -7,12 +7,15 @@ import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
 import {
   getCabinetReferenceFocusItemId,
   getCountertopReferenceFocusItemId,
+  getFlooringReferenceFocusItemId,
   getProjectReferenceFocusItemId,
   TINA_FOCUS_LIST_ITEM_MESSAGE,
   TINA_LIST_KEY_CABINET_RELATED_PRODUCTS,
   TINA_LIST_KEY_CABINET_RELATED_PROJECTS,
   TINA_LIST_KEY_COUNTERTOP_RELATED_PRODUCTS,
   TINA_LIST_KEY_COUNTERTOP_RELATED_PROJECTS,
+  TINA_LIST_KEY_FLOORING_RELATED_PRODUCTS,
+  TINA_LIST_KEY_FLOORING_RELATED_PROJECTS,
   TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
   TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
   TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
@@ -50,6 +53,7 @@ const defaultCabinetStainTypes = ["white glaze stain", "mocha stain"];
 const defaultDoorStyles = ["shaker", "slim shaker", "elegant shaker", "flat panel"];
 const defaultRooms = ["Kitchen", "Bathroom", "Laundry", "Other"];
 const defaultCountertopTypes = ["Quartz", "Granite", "Marble", "Quartzite", "Soapstone", "Porcelain", "Butcher Block", "Other"];
+const defaultFlooringTypes = ["LVP", "Laminate", "Carpet", "Hardwood"];
 
 function extractCatalogOptionValues(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
@@ -78,6 +82,7 @@ function readCatalogSettingsOptions() {
       rooms?: unknown;
       paintOptions?: unknown;
       countertopTypes?: unknown;
+      flooringTypes?: unknown;
     };
     const stainTypes = extractCatalogOptionValues(parsed.stainTypes);
     const doorStyles = extractCatalogOptionValues(parsed.doorStyles);
@@ -86,12 +91,14 @@ function readCatalogSettingsOptions() {
       : [];
     const paintOptions = extractCatalogOptionValues(parsed.paintOptions);
     const countertopTypes = extractCatalogOptionValues(parsed.countertopTypes);
+    const flooringTypes = extractCatalogOptionValues(parsed.flooringTypes);
     return {
       stainTypes: stainTypes.length ? stainTypes : defaultCabinetStainTypes,
       doorStyles: doorStyles.length ? doorStyles : defaultDoorStyles,
       rooms: rooms.length ? rooms : defaultRooms,
       paintOptions: paintOptions.length ? paintOptions : defaultPaintOptions,
       countertopTypes: countertopTypes.length ? countertopTypes : defaultCountertopTypes,
+      flooringTypes: flooringTypes.length ? flooringTypes : defaultFlooringTypes,
     };
   } catch {
     return {
@@ -100,6 +107,7 @@ function readCatalogSettingsOptions() {
       rooms: defaultRooms,
       paintOptions: defaultPaintOptions,
       countertopTypes: defaultCountertopTypes,
+      flooringTypes: defaultFlooringTypes,
     };
   }
 }
@@ -176,6 +184,38 @@ function resolveCountertopDocumentReferenceLabel(value: unknown) {
   }
 
   return resolveCountertopReferenceLabel(value);
+}
+
+function resolveFlooringReferenceLabel(value: unknown) {
+  const normalized = normalizeReferenceValue(String(value || ""), "flooring");
+  if (!normalized) return "Select flooring";
+
+  const file = normalized.split("/").pop() || normalized;
+  const slug = file.replace(/\.md$/i, "");
+  return humanizeSlug(slug);
+}
+
+function resolveFlooringDocumentReferenceLabel(value: unknown) {
+  const record = asRecord(value);
+  if (record) {
+    const name = typeof record.name === "string" ? record.name.trim() : "";
+    const code = typeof record.code === "string" ? record.code.trim().replace(/^#+/, "") : "";
+    const sys = asRecord(record._sys);
+    const fallback = resolveFlooringReferenceLabel(
+      typeof record.slug === "string" && record.slug.trim()
+        ? `content/flooring/${record.slug.trim()}.md`
+        : typeof sys?.relativePath === "string"
+          ? sys.relativePath
+          : typeof sys?.filename === "string"
+            ? `content/flooring/${sys.filename}`
+            : "",
+    );
+
+    if (code && name) return `${code} - ${name}`;
+    return name || fallback;
+  }
+
+  return resolveFlooringReferenceLabel(value);
 }
 
 function resolveProjectReferenceLabel(value: unknown) {
@@ -371,6 +411,24 @@ function readCountertopReferenceData(
   };
 }
 
+function readFlooringReferenceData(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const record = asRecord(values);
+  const picture = typeof record?.picture === "string" ? record.picture.trim() : "";
+  const fallbackImage = getReferenceMediaFallback(record?.media);
+
+  return {
+    name: typeof record?.name === "string" ? record.name.trim() : "",
+    code: typeof record?.code === "string" ? record.code.trim().replace(/^#+/, "") : "",
+    slug: typeof record?.slug === "string" ? record.slug.trim() : "",
+    picture: picture || fallbackImage,
+    filename: internalSys?.filename?.trim() || "",
+    path: internalSys?.path?.trim() || "",
+  };
+}
+
 function renderProjectReferenceOption(
   values: unknown,
   internalSys?: { filename?: string; path?: string },
@@ -509,6 +567,64 @@ function renderCountertopReferenceOption(
     countertop.picture
       ? React.createElement("img", {
           src: countertop.picture,
+          alt: title,
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            objectFit: "cover",
+            backgroundColor: "#f9fafb",
+            display: "block",
+          },
+        })
+      : React.createElement("div", {
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            backgroundColor: "#f9fafb",
+          },
+        }),
+    React.createElement(
+      "div",
+      { style: { minWidth: 0, flex: 1 } },
+      React.createElement("div", { style: { fontSize: "14px", lineHeight: 1.3, fontWeight: 600, color: "#111827" } }, title),
+      meta
+        ? React.createElement("div", { style: { marginTop: "4px", fontSize: "12px", lineHeight: 1.3, color: "#6b7280" } }, meta)
+        : null,
+    ),
+  );
+}
+
+function renderFlooringReferenceOption(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const flooring = readFlooringReferenceData(values, internalSys);
+  const title =
+    flooring.code && flooring.name
+      ? `${flooring.code} - ${flooring.name}`
+      : flooring.name || resolveFlooringReferenceLabel(flooring.filename || flooring.path);
+  const meta = flooring.slug || flooring.filename || "";
+
+  return React.createElement(
+    "div",
+    {
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "14px",
+        minWidth: 0,
+        padding: "6px 0",
+      },
+    },
+    flooring.picture
+      ? React.createElement("img", {
+          src: flooring.picture,
           alt: title,
           style: {
             width: "252px",
@@ -871,6 +987,18 @@ const countertopRelatedProductsItemProps = createFocusableObjectListItemProps<{ 
   (item) => getCountertopReferenceFocusItemId(item?.product),
 );
 
+const flooringRelatedProjectsItemProps = createFocusableObjectListItemProps<{ project?: unknown }>(
+  TINA_LIST_KEY_FLOORING_RELATED_PROJECTS,
+  (item) => resolveProjectReferenceLabel(item?.project),
+  (item) => getProjectReferenceFocusItemId(item?.project),
+);
+
+const flooringRelatedProductsItemProps = createFocusableObjectListItemProps<{ product?: unknown }>(
+  TINA_LIST_KEY_FLOORING_RELATED_PRODUCTS,
+  (item) => resolveFlooringDocumentReferenceLabel(item?.product),
+  (item) => getFlooringReferenceFocusItemId(item?.product),
+);
+
 const projectCabinetProductsItemProps = createFocusableObjectListItemProps<{ cabinet?: unknown }>(
   TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
   (item) => resolveCabinetDocumentReferenceLabel(item?.cabinet),
@@ -1025,6 +1153,41 @@ function filterCountertopReferenceOptions(list: Array<unknown>, searchQuery?: st
           countertop.slug,
           countertop.filename,
           countertop.path,
+        ].join(" "));
+
+        return haystack.includes(query);
+      });
+
+      return {
+        ...(groupRecord || {}),
+        edges: filteredEdges,
+      };
+    })
+    .filter((group) => Array.isArray(group?.edges) && group.edges.length > 0);
+}
+
+function filterFlooringReferenceOptions(list: Array<unknown>, searchQuery?: string) {
+  const query = normalizeSearchText(searchQuery || "");
+  if (!query) return list;
+
+  return list
+    .map((group) => {
+      const groupRecord = asRecord(group);
+      const edges = Array.isArray(groupRecord?.edges) ? groupRecord.edges : [];
+      const filteredEdges = edges.filter((edge) => {
+        const edgeRecord = asRecord(edge);
+        const node = asRecord(edgeRecord?.node);
+        const internalSys = asRecord(node?._internalSys);
+        const flooring = readFlooringReferenceData(node?._values, {
+          filename: typeof internalSys?.filename === "string" ? internalSys.filename : undefined,
+          path: typeof internalSys?.path === "string" ? internalSys.path : undefined,
+        });
+        const haystack = normalizeSearchText([
+          flooring.code,
+          flooring.name,
+          flooring.slug,
+          flooring.filename,
+          flooring.path,
         ].join(" "));
 
         return haystack.includes(query);
@@ -1427,6 +1590,18 @@ export default defineConfig({
               { type: "image", name: "image", label: "Image" },
             ],
           },
+          {
+            type: "object",
+            name: "flooringTypes",
+            label: "Flooring Types",
+            list: true,
+            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Flooring type" }) },
+            fields: [
+              { type: "string", name: "value", label: "Value", required: true },
+              { type: "string", name: "label", label: "Label" },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
         ],
       },
       {
@@ -1436,7 +1611,7 @@ export default defineConfig({
         format: "json",
         match: {
           include:
-            "@(cabinets-overview-page-settings|countertops-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings)",
+            "@(cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
         },
         ui: {
           global: true,
@@ -1474,6 +1649,23 @@ export default defineConfig({
                 "countertopsOverviewFilterImageSize",
                 "Filter Images",
                 "Controls the visual filter cards on /countertops.",
+              ),
+            ],
+          },
+          {
+            name: "flooringOverview",
+            label: "Flooring Overview",
+            fields: [
+              { type: "string", name: "pageTitle", label: "Page Title" },
+              imageSizeSettingField(
+                "flooringOverviewCardImageSize",
+                "Card Images",
+                "Controls the main product grid card images on /flooring/catalog.",
+              ),
+              imageSizeSettingField(
+                "flooringOverviewFilterImageSize",
+                "Filter Images",
+                "Controls the visual filter cards on /flooring/catalog.",
               ),
             ],
           },
@@ -1697,6 +1889,84 @@ export default defineConfig({
               },
             ],
           },
+          {
+            name: "flooring",
+            label: "Flooring",
+            fields: [
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on every flooring detail page. The Product Info block (gallery, code, name, description, technical details) is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "flooringProductInfo",
+                    label: "Product Info (title, gallery, description — pulled from each flooring product)",
+                    fields: [
+                      { type: "string" as const, name: "breadcrumbLabel", label: "Breadcrumb Label" },
+                      { type: "string" as const, name: "technicalDetailsTitle", label: "Technical Details Title" },
+                      { type: "string" as const, name: "contactButtonLabel", label: "Contact Button Label" },
+                      { type: "string" as const, name: "descriptionLabel", label: "Description Label" },
+                      imageSizeSettingField(
+                        "galleryThumbImageSize",
+                        "Gallery Thumbnail Images",
+                        "Controls the thumbnail rail on flooring detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "galleryMainImageSize",
+                        "Gallery Main Image",
+                        "Controls the main gallery image on flooring detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "galleryLightboxImageSize",
+                        "Gallery Lightbox Image",
+                        "Controls the expanded lightbox image on flooring detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "projectsUsingThisProduct",
+                    label: "Flooring in Real Projects (pulled per flooring product)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      {
+                        type: "string" as const,
+                        name: "description",
+                        label: "Section Description",
+                        ui: { component: "textarea" as const },
+                      },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Project Images",
+                        "Controls the project images in this section on flooring detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "relatedProducts",
+                    label: "Related Products (pulled per flooring product)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      { type: "string" as const, name: "subtitle", label: "Subtitle" },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Related Product Images",
+                        "Controls the related product card images on flooring detail pages.",
+                      ),
+                    ],
+                  },
+                  sharedTextImageSectionTemplate(),
+                  sharedFaqSectionTemplate(),
+                  sharedShowroomBannerTemplate(),
+                  sharedPartnersSectionTemplate(),
+                  sharedContactSectionTemplate(),
+                ],
+              },
+            ],
+          },
         ],
       },
 
@@ -1833,6 +2103,7 @@ export default defineConfig({
                     fields: [
                       { type: "image", name: "logo", label: "Logo" },
                       { type: "string", name: "alt", label: "Alt Text" },
+                      { type: "string", name: "href", label: "Partner Website" },
                     ],
                   },
                   { type: "string", name: "ctaLabel", label: "Button Text" },
@@ -2191,6 +2462,112 @@ export default defineConfig({
             ],
           },
           { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
+          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
+          { type: "string", name: "slug", label: "Slug", required: true },
+        ],
+      },
+      {
+        name: "flooring",
+        label: "Flooring",
+        path: "content/flooring",
+        format: "md",
+        ui: {
+          router: ({ document }) => `/flooring/catalog/${resolveDocumentRouteSegment(document as { _sys: { filename: string } } & Record<string, unknown>)}`,
+        },
+        fields: [
+          {
+            type: "boolean",
+            name: "published",
+            label: "Published",
+            description: "Only published flooring products are shown in the catalog.",
+          },
+          { type: "string", name: "name", label: "Name", isTitle: true, required: true },
+          { type: "string", name: "code", label: "Code", required: true },
+          {
+            type: "string",
+            name: "flooringType",
+            label: "Flooring Type",
+            options: catalogSettingsOptions.flooringTypes,
+          },
+          {
+            type: "object",
+            name: "technicalDetails",
+            label: "Technical Details",
+            list: true,
+            ui: { itemProps: (item: any) => ({ label: item.key || "Detail" }) },
+            fields: [
+              { type: "string", name: "key", label: "Key" },
+              { type: "string", name: "value", label: "Value" },
+              { type: "string", name: "unit", label: "Unit" },
+              { type: "number", name: "order", label: "Order" },
+            ],
+          },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          { type: "image", name: "picture", label: "Primary Picture" },
+          {
+            type: "object",
+            name: "media",
+            label: "Media",
+            list: true,
+            ui: {
+              itemProps: mediaGroupItemProps,
+            },
+            fields: [
+              { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
+              { type: "string", name: "kind", label: "Kind", options: ["image", "video", "other"] },
+              { type: "string", name: "mimeType", label: "MIME Type" },
+              { type: "boolean", name: "isPrimary", label: "Primary" },
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "altText", label: "Alt Text" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "number", name: "sourceId", label: "Source Media ID" },
+            ],
+          },
+          {
+            type: "object",
+            name: "relatedProjects",
+            label: "Related Projects",
+            list: true,
+            description: "Search and select project entries related to this flooring product.",
+            ui: {
+              itemProps: flooringRelatedProjectsItemProps,
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "project",
+                label: "Project",
+                collections: ["project"],
+                ui: {
+                  optionComponent: renderProjectReferenceOption,
+                  experimental___filter: filterProjectReferenceOptions,
+                },
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "relatedProducts",
+            label: "Related Products",
+            list: true,
+            description: "Select other flooring entries from this collection.",
+            ui: {
+              itemProps: flooringRelatedProductsItemProps,
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "product",
+                label: "Flooring",
+                collections: ["flooring"],
+                ui: {
+                  optionComponent: renderFlooringReferenceOption,
+                  experimental___filter: filterFlooringReferenceOptions,
+                },
+              },
+            ],
+          },
+          { type: "number", name: "sourceId", label: "Source ID" },
           { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
           { type: "string", name: "slug", label: "Slug", required: true },
         ],

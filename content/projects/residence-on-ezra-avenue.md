@@ -159,7 +159,7 @@ cabinetProducts:
   - cabinet: content/cabinets/smb.md
   - cabinet: content/cabinets/swoa.md
 relatedProjects:
-  - project: content/projects/residence-on-sheneen-ct.md
+  - project: content/projects/modern-transitional-kitchen-and-bath-cabinetry.md
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-villier-road.md
 slug: residence-on-ezra-avenue

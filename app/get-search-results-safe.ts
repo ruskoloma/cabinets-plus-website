@@ -7,6 +7,7 @@ import {
 } from "@/app/lib/content";
 import { getCabinetIndexSafe } from "@/app/get-cabinet-data-safe";
 import { getCountertopIndexSafe } from "@/app/get-countertop-data-safe";
+import { getFlooringIndexSafe } from "@/app/get-flooring-data-safe";
 
 export interface SearchProductResult {
   type: "product";
@@ -14,7 +15,7 @@ export interface SearchProductResult {
   title: string;
   subtitle: string;
   image: string;
-  kind: "cabinet" | "countertop";
+  kind: "cabinet" | "countertop" | "flooring";
   score: number;
 }
 
@@ -108,9 +109,10 @@ export async function getSearchResultsSafe(rawQuery: string): Promise<SearchResu
     return { query: "", products: [], projects: [], articles: [] };
   }
 
-  const [cabinets, countertops, projectFiles, postFiles] = await Promise.all([
+  const [cabinets, countertops, flooring, projectFiles, postFiles] = await Promise.all([
     getCabinetIndexSafe(),
     getCountertopIndexSafe(),
+    getFlooringIndexSafe(),
     listMarkdownFiles("projects"),
     listMarkdownFiles("posts"),
   ]);
@@ -149,7 +151,24 @@ export async function getSearchResultsSafe(rawQuery: string): Promise<SearchResu
     })
     .filter((item): item is SearchProductResult => Boolean(item));
 
-  const products = [...cabinetProducts, ...countertopProducts].sort(compareByScoreAndTitle);
+  const flooringProducts = flooring
+    .map((item): SearchProductResult | null => {
+      const score = buildScore(query, [item.name, item.code, item.flooringType || ""]);
+      if (score <= 0) return null;
+
+      return {
+        type: "product",
+        href: `/flooring/catalog/${item.slug}`,
+        title: item.name,
+        subtitle: item.code,
+        image: item.picture,
+        kind: "flooring",
+        score,
+      };
+    })
+    .filter((item): item is SearchProductResult => Boolean(item));
+
+  const products = [...cabinetProducts, ...countertopProducts, ...flooringProducts].sort(compareByScoreAndTitle);
 
   const projects = (
     await Promise.all(

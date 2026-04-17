@@ -13,7 +13,7 @@
           "label": "Cabinets",
           "href": "/cabinets",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/cabinets/catalog",
+          "buttonLink": "/cabinets",
           "catalogItems": [
             {
               "name": "Trenton Fairy",
@@ -51,7 +51,7 @@
           "label": "Countertops",
           "href": "/countertops",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/countertops/catalog",
+          "buttonLink": "/countertops",
           "catalogItems": [
             {
               "name": "Calacatta Dolce",

@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-04-09T19:10:20.761Z",
+  "sourceImageCount": 109,
+  "productCount": 107,
+  "sourceUrlsReviewed": [
+    "https://www.primafloors.com/products/pdt_1.html",
+    "https://www.primafloors.com/products/pdt_1/id-63.html",
+    "https://www.primafloors.com/products/pdt_1/id-61.html",
+    "https://www.primafloors.com/products/pdt_1/id-60.html",
+    "https://www.primafloors.com/products/pdt_1/id-48.html",
+    "https://www.primafloors.com/products/pdt_1/id-47.html",
+    "https://www.primafloors.com/products/pdt_1/id-46.html",
+    "https://www.primafloors.com/products/pdt_1/id-30.html",
+    "https://www.primafloors.com/products/pdt_1/id-29.html",
+    "https://www.primafloors.com/products/pdt_1/id-28.html",
+    "https://www.mozaiksc.com/shop/category/lyrus-lyrus-stone-composite-37",
+    "https://www.mozaiksc.com/shop/waterwise-waterwise-flooring-41/waterwise-premium-94359?attribute_values=63670%2C63550",
+    "https://www.mozaiksc.com/shop/waterwise-waterwise-flooring-41/waterwise-select-pad-attached-94805?attribute_values=64057%2C64198",
+    "https://www.mozaiksc.com/shop/lyrus-lyrus-stone-composite-37/lyrus-stone-composite-elite-94334?attribute_values=60160%2C63476",
+    "https://www.lionsfloor.com/laminate-floorings/lions-floor-comfort-heights-cliff-cottage-li-ch03/",
+    "https://www.lionsfloor.com/spc-floorings/lions-floor-indoor-delight-country-breeze-li-id01/",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/388-ND?variant=7088-ND-2",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/322-ENII?variant=4768-ENII-7",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/341-HM?variant=5552-HM-5",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/358-AP?variant=6093-AP-4",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/321-ATII?variant=4763-ATII-8",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/509-BB?variant=7217-BB-6",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/334-NT?variant=5272-NT-6",
+    "https://flooring2.com/products/6-broadloom-carpet/collection/315-RF?variant=4709-RF-7"
+  ],
+  "countsByType": {
+    "Carpet": 17,
+    "Laminate": 14,
+    "LVP": 66,
+    "Hardwood": 10
+  },
+  "countsByVendor": {
+    "Flooring2": 17,
+    "Lions Floor": 28,
+    "Mozaik": 52,
+    "Prima Floors": 10
+  }
+}

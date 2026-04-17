@@ -41,6 +41,7 @@ export interface PartnerLogoItem {
   raw?: Dict;
   src: string;
   alt: string;
+  href?: string;
 }
 
 export interface ProcessItem {
@@ -95,6 +96,15 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
   PageSettingsCountertopBlocksShowroomBanner: "showroomBanner",
   PageSettingsCountertopBlocksPartnersSection: "partnersSection",
   PageSettingsCountertopBlocksContactSection: "contactSection",
+  // Flooring page-settings blocks
+  PageSettingsFlooringBlocksFlooringProductInfo: "flooringProductInfo",
+  PageSettingsFlooringBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
+  PageSettingsFlooringBlocksRelatedProducts: "relatedProducts",
+  PageSettingsFlooringBlocksTextImageSection: "textImageSection",
+  PageSettingsFlooringBlocksFaqSection: "faqSection",
+  PageSettingsFlooringBlocksShowroomBanner: "showroomBanner",
+  PageSettingsFlooringBlocksPartnersSection: "partnersSection",
+  PageSettingsFlooringBlocksContactSection: "contactSection",
 };
 
 const FALLBACK_FAQ_TABS: FaqTab[] = [
@@ -224,6 +234,7 @@ export function mapPartnerLogos(value: unknown): PartnerLogoItem[] {
         raw,
         src: text(raw.logo),
         alt: text(raw.alt, "Partner logo"),
+        href: text(raw.href) || undefined,
       };
     })
     .filter((item) => item.src.length > 0);
