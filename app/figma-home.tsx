@@ -253,7 +253,7 @@ export default function FigmaHome({ page }: Props) {
               tinaImageField={tinaField(item.raw as Record<string, unknown>, "image")}
               tinaTitleField={tinaField(item.raw as Record<string, unknown>, "title")}
               title={item.title}
-              titleClassName="mt-3 text-[20px] font-normal capitalize leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]"
+              titleClassName="mt-3 text-[20px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]"
             />
           ))}
         </div>
