@@ -19,6 +19,82 @@ interface PartnersSectionProps {
   defaultFootnote?: string;
 }
 
+const COUNTERTOP_LOGO_CLASSES: Record<string, string> = {
+  Cambria:
+    "w-auto h-auto max-w-[82px] max-h-[56px] md:max-w-[118px] md:max-h-[80px]",
+  Caesarstone:
+    "w-auto h-auto max-w-[125px] max-h-[20px] md:max-w-[180px] md:max-h-[29px]",
+  "Moda Surfaces": "w-full h-full object-contain",
+  MSI: "w-full h-full object-contain",
+  Bedrosians:
+    "w-auto h-auto max-w-[103px] max-h-[12px] md:max-w-[175px] md:max-h-[21px]",
+  Daltile:
+    "w-auto h-auto max-w-[94px] max-h-[28px] md:max-w-[136px] md:max-h-[40px]",
+  PentalQuartz:
+    "w-auto h-auto max-w-[125px] max-h-[23px] md:max-w-[180px] md:max-h-[33px]",
+  "Pental Quartz":
+    "w-auto h-auto max-w-[125px] max-h-[23px] md:max-w-[180px] md:max-h-[33px]",
+  "Stratus Quartz":
+    "w-auto h-auto max-w-[106px] max-h-[20px] md:max-w-[180px] md:max-h-[35px]",
+  HanStone:
+    "w-auto h-auto max-w-[76px] max-h-[31px] md:max-w-[109px] md:max-h-[45px]",
+};
+
+const FLOORING_LOGO_CLASSES: Record<string, string> = {
+  Mozaik:
+    "w-auto h-auto max-w-[68px] max-h-[39px] md:max-w-[97px] md:max-h-[55px]",
+  "Lions Floor":
+    "w-auto h-auto max-w-[97px] max-h-[35px] md:max-w-[138px] md:max-h-[50px]",
+  "Prima Floors":
+    "w-auto h-auto max-w-[104px] max-h-[28px] md:max-w-[148px] md:max-h-[40px]",
+  "flooring²":
+    "w-auto h-auto max-w-[88px] max-h-[35px] md:max-w-[125px] md:max-h-[50px]",
+  MSI: "w-auto h-auto max-w-[76px] max-h-[32px] md:max-w-[110px] md:max-h-[46px]",
+  Pacmat:
+    "w-auto h-auto max-w-[99px] max-h-[28px] md:max-w-[141px] md:max-h-[40px]",
+  Mohawk:
+    "w-auto h-auto max-w-[81px] max-h-[26px] md:max-w-[114px] md:max-h-[36px]",
+  Stonewood:
+    "w-auto h-auto max-w-[103px] max-h-[14px] md:max-w-[147px] md:max-h-[20px]",
+  Opus: "w-auto h-auto max-w-[29px] max-h-[35px] md:max-w-[41px] md:max-h-[50px]",
+  "Engineered Floors":
+    "w-auto h-auto max-w-[95px] max-h-[23px] md:max-w-[136px] md:max-h-[32px]",
+};
+
+const DEFAULT_LOGO_CLASS =
+  "w-auto h-auto max-h-[40px] max-w-full md:max-h-[60px]";
+
+function WankeCascadeLogo() {
+  return (
+    <span className="relative block h-[16px] w-[116px] md:h-[23px] md:w-[165px]">
+      <span className="absolute" style={{ inset: "0.34% 0.11% 29.92% 44.98%" }}>
+        <img
+          alt=""
+          aria-hidden="true"
+          className="block h-full w-full max-w-none"
+          src="/library/partners/flooring/wanke-cascade-part-1.svg"
+        />
+      </span>
+      <span className="absolute" style={{ inset: "1.46% 55.84% 28.79% 0.1%" }}>
+        <img
+          alt=""
+          aria-hidden="true"
+          className="block h-full w-full max-w-none"
+          src="/library/partners/flooring/wanke-cascade-part-2.svg"
+        />
+      </span>
+      <span className="absolute" style={{ inset: "80.59% 0.63% 4.04% 79.35%" }}>
+        <img
+          alt=""
+          aria-hidden="true"
+          className="block h-full w-full max-w-none"
+          src="/library/partners/flooring/wanke-cascade-part-3.svg"
+        />
+      </span>
+    </span>
+  );
+}
+
 const DEFAULT_FALLBACK_LOGOS: PartnerLogoItem[] = [
   { src: "/library/trust/trust-cambria.svg", alt: "Cambria" },
   { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png", alt: "Caesarstone" },
@@ -37,40 +113,57 @@ function PartnerTile({
   tinaFieldValue,
   logoField,
   href,
+  spanFullOnMobile,
 }: {
   logo: PartnerLogoItem;
   tinaFieldValue?: string;
   logoField?: string;
   href?: string;
+  spanFullOnMobile?: boolean;
 }) {
+  const isCountertopLogo = logo.src.includes("/partners/countertops/");
+  const isFlooringLogo = logo.src.includes("/partners/flooring/");
+  const isWankeCascade = isFlooringLogo && logo.alt === "Wanke Cascade";
+  const logoClass =
+    (isCountertopLogo && COUNTERTOP_LOGO_CLASSES[logo.alt]) ||
+    (isFlooringLogo && FLOORING_LOGO_CLASSES[logo.alt]) ||
+    DEFAULT_LOGO_CLASS;
+  const tileClass = [
+    "group relative flex items-center justify-center overflow-hidden bg-[#262626] transition-opacity hover:opacity-90",
+    spanFullOnMobile
+      ? "col-span-2 h-[72px] md:col-span-1 md:h-[112px]"
+      : "h-[80px] md:h-[112px]",
+  ].join(" ");
+
   const content = (
     <>
-      <span className="flex h-full w-full items-center justify-center px-4 py-6">
+      {isWankeCascade ? (
+        <WankeCascadeLogo />
+      ) : (
         <FallbackImg
           alt={logo.alt}
-          className="max-h-[40px] max-w-full object-contain md:max-h-[48px]"
+          className={logoClass}
           data-tina-field={logoField || tinaFieldValue}
           src={logo.src}
         />
-      </span>
+      )}
       <img
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-2 top-2 h-4 w-4 opacity-80 md:h-6 md:w-6"
+        className="pointer-events-none absolute right-2 top-2 h-6 w-6"
         src="/library/icons/arrow-up-right-light.svg"
       />
     </>
   );
 
-  const tileClass = "group relative block h-[80px] bg-[#1e1e1c] transition-colors hover:bg-[#262623] md:h-[112px]";
-
   if (href) {
     return (
       <a
+        aria-label={`${logo.alt} — opens in new tab`}
         className={tileClass}
         data-tina-field={tinaFieldValue}
         href={href}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         target="_blank"
       >
         {content}
@@ -97,12 +190,14 @@ export default function PartnersSection({
   const heading = text(block.title, defaultTitle);
   const body = text(block.description, defaultBody);
   const footnote = text(block.footnote, defaultFootnote);
+  const lastIndex = resolvedLogos.length - 1;
+  const oddCount = resolvedLogos.length % 2 === 1;
 
   return (
-    <section className="bg-[#262623] text-white" data-tina-field={tinaField(block)}>
-      <div className="cp-container px-4 py-12 md:px-8 md:py-[88px]">
+    <section className="bg-[var(--cp-primary-500)] text-white" data-tina-field={tinaField(block)}>
+      <div className="cp-container px-4 py-12 md:px-8 md:py-[92px]">
         <div className="mx-auto flex max-w-[1378px] flex-col gap-8 md:grid md:grid-cols-[minmax(0,558px)_minmax(0,791px)] md:items-start md:gap-[28px]">
-          <div className="flex flex-col">
+          <div className="flex flex-col md:pt-[52px]">
             <h2
               className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px]"
               data-tina-field={tinaField(block, "title")}
@@ -110,15 +205,15 @@ export default function PartnersSection({
               {heading}
             </h2>
             <p
-              className="mt-6 max-w-[558px] font-[var(--font-red-hat-display)] text-[16px] font-normal leading-[1.5] text-white/90 md:mt-[48px] md:text-[20px]"
+              className="mt-4 font-[var(--font-red-hat-display)] text-[18px] font-normal leading-[1.5] text-white md:mt-12 md:text-[24px]"
               data-tina-field={tinaField(block, "description")}
             >
               {body}
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 md:gap-0">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-[28px]">
+          <div className="flex flex-col gap-5">
+            <div className="grid grid-cols-2 gap-4 overflow-hidden rounded-[2.78px] md:grid-cols-3 md:gap-7 md:rounded-[4px]">
               {resolvedLogos.map((logo, index) => {
                 const raw = logo.raw;
                 const href = typeof raw?.url === "string" ? (raw.url as string) : undefined;
@@ -128,6 +223,7 @@ export default function PartnersSection({
                     key={`${logo.src}-${index}`}
                     logo={logo}
                     logoField={raw ? tinaField(raw as Record<string, unknown>, "logo") : undefined}
+                    spanFullOnMobile={oddCount && index === lastIndex}
                     tinaFieldValue={raw ? tinaField(raw as Record<string, unknown>) : undefined}
                   />
                 );
@@ -135,7 +231,7 @@ export default function PartnersSection({
             </div>
             {footnote ? (
               <p
-                className="mt-6 text-right text-[14px] leading-[1.5] text-white/70 md:mt-8 md:text-[14px]"
+                className="text-center font-[var(--font-red-hat-display)] text-[14px] font-normal leading-[1.5] text-white/60"
                 data-tina-field={tinaField(block, "footnote")}
               >
                 {footnote}

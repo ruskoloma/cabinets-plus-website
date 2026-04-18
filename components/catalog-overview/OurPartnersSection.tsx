@@ -15,14 +15,33 @@ interface FlooringPartnerItem extends PartnerLogoItem {
   kind?: "image" | "wankeCascade";
 }
 
-const FALLBACK_PARTNER_LOGOS: PartnerLogoItem[] = [
-  { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png", alt: "Lions Floor" },
-  { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png", alt: "Lyrus Collection" },
-  { src: "/library/trust/trust-cambria.svg", alt: "Cambria" },
-  { src: "/library/trust/trust-bedrosians.svg", alt: "Bedrosians" },
-  { src: "/library/trust/trust-msi.svg", alt: "MSI" },
-  { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png", alt: "Easy Stones" },
-];
+const COUNTERTOP_LOGO_CLASSES: Record<string, string> = {
+  Cambria:
+    "w-auto h-auto max-w-[82px] max-h-[56px] md:max-w-[118px] md:max-h-[80px]",
+  Caesarstone:
+    "w-auto h-auto max-w-[125px] max-h-[20px] md:max-w-[180px] md:max-h-[29px]",
+  "Moda Surfaces": "w-full h-full object-contain",
+  MSI: "w-full h-full object-contain",
+  Bedrosians:
+    "w-auto h-auto max-w-[103px] max-h-[12px] md:max-w-[175px] md:max-h-[21px]",
+  Daltile:
+    "w-auto h-auto max-w-[94px] max-h-[28px] md:max-w-[136px] md:max-h-[40px]",
+  PentalQuartz:
+    "w-auto h-auto max-w-[125px] max-h-[23px] md:max-w-[180px] md:max-h-[33px]",
+  "Pental Quartz":
+    "w-auto h-auto max-w-[125px] max-h-[23px] md:max-w-[180px] md:max-h-[33px]",
+  "Stratus Quartz":
+    "w-auto h-auto max-w-[106px] max-h-[20px] md:max-w-[180px] md:max-h-[35px]",
+  HanStone:
+    "w-auto h-auto max-w-[76px] max-h-[31px] md:max-w-[109px] md:max-h-[45px]",
+};
+
+const DEFAULT_COUNTERTOP_LOGO_CLASS =
+  "w-auto h-auto max-h-[40px] max-w-full md:max-h-[60px]";
+
+function text(value: unknown, fallback = ""): string {
+  return typeof value === "string" ? value : fallback;
+}
 
 const FLOORING_PARTNER_LOGOS: FlooringPartnerItem[] = [
   {
@@ -192,47 +211,100 @@ function FlooringPartnersSection({ block }: { block: Record<string, unknown> }) 
   );
 }
 
-function DefaultPartnersSection({ block }: { block: Record<string, unknown> }) {
+function CountertopPartnersSection({ block }: { block: Record<string, unknown> }) {
   const partnerLogos = mapPartnerLogos(block.partnerLogos);
-  const resolvedLogos = (partnerLogos.length > 0 ? partnerLogos : FALLBACK_PARTNER_LOGOS).slice(0, 6);
+  const title = text(block.title, "Our partners");
+  const description = text(
+    block.description,
+    "In addition to the countertop options shown in our catalog, you may also order countertops from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order."
+  );
+  const footnote = text(
+    block.footnote,
+    "Click on a partner logo to view their products on the official website."
+  );
 
   return (
     <section className="bg-[var(--cp-primary-500)] text-white" data-tina-field={tinaField(block)}>
-      <div className="cp-container px-4 py-14 md:px-8 md:py-24">
-        <div className="mx-auto flex max-w-[1378px] flex-col gap-10 md:grid md:grid-cols-[minmax(0,558px)_1px_minmax(0,679px)] md:items-center md:gap-[44px]">
-          <div>
-            <h2 className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px]">
-              Our partners
+      <div className="cp-container px-4 py-12 md:px-8 md:py-[92px]">
+        <div className="mx-auto flex max-w-[1378px] flex-col gap-8 md:grid md:grid-cols-[minmax(0,558px)_minmax(0,791px)] md:items-start md:gap-[28px]">
+          <div className="flex flex-col md:pt-[52px]">
+            <h2
+              className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px]"
+              data-tina-field={tinaField(block, "title")}
+            >
+              {title}
             </h2>
-            <p className="mt-8 max-w-[558px] font-[var(--font-red-hat-display)] text-[20px] font-normal leading-[1.5] text-white md:text-[24px]">
-              In addition to the countertop options shown in this catalog, you may also order countertops
-              from the catalogs of the manufacturers listed below. Please discuss availability and details
-              with our manager when placing your order.
+            <p
+              className="mt-4 font-[var(--font-red-hat-display)] text-[18px] font-normal leading-[1.5] text-white md:mt-12 md:text-[24px]"
+              data-tina-field={tinaField(block, "description")}
+            >
+              {description}
             </p>
           </div>
 
-          <div className="h-px w-full bg-white/20 md:h-[392px] md:w-px" />
+          <div className="flex flex-col gap-5">
+            <div className="grid grid-cols-2 gap-4 overflow-hidden rounded-[2.78px] md:grid-cols-3 md:gap-7 md:rounded-[4px]">
+              {partnerLogos.map((logo, idx) => {
+                const raw = logo.raw;
+                const href = typeof raw?.url === "string" ? (raw.url as string) : undefined;
+                const isLast = idx === partnerLogos.length - 1;
+                const logoClass = COUNTERTOP_LOGO_CLASSES[logo.alt] || DEFAULT_COUNTERTOP_LOGO_CLASS;
+                const tileClass = [
+                  "group relative flex items-center justify-center overflow-hidden bg-[#262626] transition-opacity hover:opacity-90",
+                  isLast
+                    ? "col-span-2 h-[72px] md:col-span-1 md:h-[112px]"
+                    : "h-[80px] md:h-[112px]",
+                ].join(" ");
 
-          <div className="grid grid-cols-2 items-center gap-x-8 gap-y-10 opacity-40 md:grid-cols-3 md:gap-x-16 md:gap-y-14">
-            {resolvedLogos.map((logo, index) => {
-              const raw = logo.raw;
-
-              return (
-                <div
-                  className="flex min-h-[56px] items-center justify-start md:min-h-[70px]"
-                  data-tina-field={raw ? tinaField(raw as Record<string, unknown>) : undefined}
-                  key={`${logo.src}-${index}`}
-                >
+                const logoImg = (
                   <FallbackImg
                     alt={logo.alt}
-                    className="max-h-[55px] w-auto max-w-full object-contain md:max-h-[80px]"
+                    className={logoClass}
                     data-tina-field={raw ? tinaField(raw as Record<string, unknown>, "logo") : undefined}
                     src={logo.src}
-                    variant="thumb"
                   />
-                </div>
-              );
-            })}
+                );
+                const arrow = (
+                  <span className="pointer-events-none absolute right-2 top-2 text-white">
+                    <ExternalArrowIcon />
+                  </span>
+                );
+
+                if (href) {
+                  return (
+                    <a
+                      aria-label={`${logo.alt} — opens in new tab`}
+                      className={tileClass}
+                      data-tina-field={raw ? tinaField(raw as Record<string, unknown>) : undefined}
+                      href={href}
+                      key={`${logo.src}-${idx}`}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {logoImg}
+                      {arrow}
+                    </a>
+                  );
+                }
+
+                return (
+                  <div
+                    className={tileClass}
+                    data-tina-field={raw ? tinaField(raw as Record<string, unknown>) : undefined}
+                    key={`${logo.src}-${idx}`}
+                  >
+                    {logoImg}
+                    {arrow}
+                  </div>
+                );
+              })}
+            </div>
+            <p
+              className="text-center font-[var(--font-red-hat-display)] text-[14px] font-normal leading-[1.5] text-white/60"
+              data-tina-field={tinaField(block, "footnote")}
+            >
+              {footnote}
+            </p>
           </div>
         </div>
       </div>
@@ -248,5 +320,5 @@ export default function OurPartnersSection({
     return <FlooringPartnersSection block={block} />;
   }
 
-  return <DefaultPartnersSection block={block} />;
+  return <CountertopPartnersSection block={block} />;
 }
