@@ -28,6 +28,7 @@ import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import TrustBar from "@/components/home/TrustBar";
 import TrustMessageStrip from "@/components/home/TrustMessageStrip";
 import PartnersSection from "@/components/shared/PartnersSection";
+import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
 import FillImage from "@/components/ui/FillImage";
 import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import type { ImageVariantPreset } from "@/lib/image-variants";
@@ -174,6 +175,20 @@ export default function FigmaHome({ page }: Props) {
 
   const hasTemplate = (template: string) => templateOrder[template] !== undefined;
   const getSectionOrder = (template: string, fallbackOrder: number, offset = 0) => ((templateOrder[template] ?? fallbackOrder) * 10) + offset;
+  const customTemplates = new Set([
+    "hero",
+    "productsSection",
+    "servicesSection",
+    "projectsSection",
+    "whyUsSection",
+    "trustStrip",
+    "aboutSection",
+    "showroomBanner",
+    "processSection",
+    "faqSection",
+    "contactSection",
+    "partnersSection",
+  ]);
   const resolveSectionVariant = (
     options: { useOriginal?: boolean; variant?: ImageVariantPreset },
     defaultVariant: ImageVariantPreset,
@@ -446,6 +461,20 @@ export default function FigmaHome({ page }: Props) {
       {hasTemplate("contactSection") ? <div style={{ order: getSectionOrder("contactSection", 10, 1) }}>
         <OurShowroomSection block={contactRecord} />
       </div> : null}
+
+      {parsedBlocks.map((block, index) => {
+        const template = resolveTemplateName(block);
+        if (!template || customTemplates.has(template)) return null;
+
+        return (
+          <div key={`shared-${template}-${index}`} style={{ order: index * 10 }}>
+            <SharedPageSectionRenderer
+              block={block as Record<string, unknown>}
+              template={template}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

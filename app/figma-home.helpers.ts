@@ -63,69 +63,64 @@ export interface FaqTab {
   faqs: FaqItem[];
 }
 
+const SHARED_PAGE_TYPENAME_TO_TEMPLATE: Record<string, string> = {
+  Hero: "hero",
+  ProductsSection: "productsSection",
+  ServicesSection: "servicesSection",
+  ProjectsSection: "projectsSection",
+  WhyUsSection: "whyUsSection",
+  AboutSection: "aboutSection",
+  ShowroomBanner: "showroomBanner",
+  ProcessSection: "processSection",
+  FaqSection: "faqSection",
+  ContactSection: "contactSection",
+  TrustStrip: "trustStrip",
+  AboutStorySection: "aboutStorySection",
+  RichContent: "richContent",
+  PartnersSection: "partnersSection",
+  CountertopPartnersSection: "countertopPartnersSection",
+  FlooringPartnersSection: "flooringPartnersSection",
+  TextImageSection: "textImageSection",
+};
+
+function buildTypenameMap(prefix: string, entries: Record<string, string>): Record<string, string> {
+  return Object.fromEntries(
+    Object.entries(entries).map(([suffix, template]) => [`${prefix}${suffix}`, template]),
+  );
+}
+
 const TYPE_TO_TEMPLATE: Record<string, string> = {
-  PageBlocksHero: "hero",
-  PageBlocksProductsSection: "productsSection",
-  PageBlocksServicesSection: "servicesSection",
-  PageBlocksProjectsSection: "projectsSection",
-  PageBlocksWhyUsSection: "whyUsSection",
-  PageBlocksAboutSection: "aboutSection",
-  PageBlocksShowroomBanner: "showroomBanner",
-  PageBlocksProcessSection: "processSection",
-  PageBlocksFaqSection: "faqSection",
-  PageBlocksContactSection: "contactSection",
-  PageBlocksTrustStrip: "trustStrip",
-  PageBlocksAboutStorySection: "aboutStorySection",
-  PageBlocksPartnersSection: "partnersSection",
-  PageBlocksTextImageSection: "textImageSection",
-  // Cabinet page-settings blocks
-  PageSettingsCabinetBlocksCabinetProductInfo: "cabinetProductInfo",
-  PageSettingsCabinetBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
-  PageSettingsCabinetBlocksRelatedProducts: "relatedProducts",
-  PageSettingsCabinetBlocksTextImageSection: "textImageSection",
-  PageSettingsCabinetBlocksFaqSection: "faqSection",
-  PageSettingsCabinetBlocksShowroomBanner: "showroomBanner",
-  PageSettingsCabinetBlocksPartnersSection: "partnersSection",
-  PageSettingsCabinetBlocksContactSection: "contactSection",
-  // Countertop page-settings blocks
-  PageSettingsCountertopBlocksCountertopProductInfo: "countertopProductInfo",
-  PageSettingsCountertopBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
-  PageSettingsCountertopBlocksRelatedProducts: "relatedProducts",
-  PageSettingsCountertopBlocksTextImageSection: "textImageSection",
-  PageSettingsCountertopBlocksFaqSection: "faqSection",
-  PageSettingsCountertopBlocksShowroomBanner: "showroomBanner",
-  PageSettingsCountertopBlocksPartnersSection: "partnersSection",
-  PageSettingsCountertopBlocksContactSection: "contactSection",
-  // Flooring page-settings blocks
-  PageSettingsFlooringBlocksFlooringProductInfo: "flooringProductInfo",
-  PageSettingsFlooringBlocksProjectsUsingThisProduct: "projectsUsingThisProduct",
-  PageSettingsFlooringBlocksRelatedProducts: "relatedProducts",
-  PageSettingsFlooringBlocksTextImageSection: "textImageSection",
-  PageSettingsFlooringBlocksFaqSection: "faqSection",
-  PageSettingsFlooringBlocksShowroomBanner: "showroomBanner",
-  PageSettingsFlooringBlocksPartnersSection: "partnersSection",
-  PageSettingsFlooringBlocksContactSection: "contactSection",
-  // Cabinets-overview catalog page-settings blocks
-  PageSettingsCabinetsOverviewBlocksCabinetCatalogGrid: "cabinetCatalogGrid",
-  PageSettingsCabinetsOverviewBlocksTextImageSection: "textImageSection",
-  PageSettingsCabinetsOverviewBlocksFaqSection: "faqSection",
-  PageSettingsCabinetsOverviewBlocksShowroomBanner: "showroomBanner",
-  PageSettingsCabinetsOverviewBlocksPartnersSection: "partnersSection",
-  PageSettingsCabinetsOverviewBlocksContactSection: "contactSection",
-  // Countertops-overview catalog page-settings blocks
-  PageSettingsCountertopsOverviewBlocksCountertopCatalogGrid: "countertopCatalogGrid",
-  PageSettingsCountertopsOverviewBlocksTextImageSection: "textImageSection",
-  PageSettingsCountertopsOverviewBlocksFaqSection: "faqSection",
-  PageSettingsCountertopsOverviewBlocksShowroomBanner: "showroomBanner",
-  PageSettingsCountertopsOverviewBlocksPartnersSection: "partnersSection",
-  PageSettingsCountertopsOverviewBlocksContactSection: "contactSection",
-  // Flooring-overview catalog page-settings blocks
-  PageSettingsFlooringOverviewBlocksFlooringCatalogGrid: "flooringCatalogGrid",
-  PageSettingsFlooringOverviewBlocksTextImageSection: "textImageSection",
-  PageSettingsFlooringOverviewBlocksFaqSection: "faqSection",
-  PageSettingsFlooringOverviewBlocksShowroomBanner: "showroomBanner",
-  PageSettingsFlooringOverviewBlocksPartnersSection: "partnersSection",
-  PageSettingsFlooringOverviewBlocksContactSection: "contactSection",
+  ...buildTypenameMap("PageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
+  ...buildTypenameMap("PageSettingsCabinetBlocks", {
+    CabinetProductInfo: "cabinetProductInfo",
+    ProjectsUsingThisProduct: "projectsUsingThisProduct",
+    RelatedProducts: "relatedProducts",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PageSettingsCountertopBlocks", {
+    CountertopProductInfo: "countertopProductInfo",
+    ProjectsUsingThisProduct: "projectsUsingThisProduct",
+    RelatedProducts: "relatedProducts",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PageSettingsFlooringBlocks", {
+    FlooringProductInfo: "flooringProductInfo",
+    ProjectsUsingThisProduct: "projectsUsingThisProduct",
+    RelatedProducts: "relatedProducts",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PageSettingsCabinetsOverviewBlocks", {
+    CabinetCatalogGrid: "cabinetCatalogGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PageSettingsCountertopsOverviewBlocks", {
+    CountertopCatalogGrid: "countertopCatalogGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PageSettingsFlooringOverviewBlocks", {
+    FlooringCatalogGrid: "flooringCatalogGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
 };
 
 const FALLBACK_FAQ_TABS: FaqTab[] = [

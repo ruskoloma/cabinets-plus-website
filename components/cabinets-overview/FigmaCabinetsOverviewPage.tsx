@@ -22,6 +22,7 @@ import PreviewCard from "@/components/home/PreviewCard";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import PartnersSection from "@/components/shared/PartnersSection";
+import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
 import TextImageSection from "@/components/shared/TextImageSection";
 import FillImage from "@/components/ui/FillImage";
 import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
@@ -92,6 +93,17 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
   const hasTemplate = (template: string) => templateOrder[template] !== undefined;
   const getSectionOrder = (template: string, fallbackOrder: number, offset = 0) =>
     ((templateOrder[template] ?? fallbackOrder) * 10) + offset;
+  const customTemplates = new Set([
+    "hero",
+    "productsSection",
+    "projectsSection",
+    "textImageSection",
+    "partnersSection",
+    "processSection",
+    "showroomBanner",
+    "faqSection",
+    "contactSection",
+  ]);
 
   const resolveSectionVariant = (
     options: { useOriginal?: boolean; variant?: ImageVariantPreset },
@@ -408,6 +420,20 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
           <OurShowroomSection block={contactRecord} />
         </div>
       ) : null}
+
+      {parsedBlocks.map((block, index) => {
+        const template = resolveTemplateName(block);
+        if (!template || customTemplates.has(template)) return null;
+
+        return (
+          <div key={`shared-${template}-${index}`} style={{ order: index * 10 }}>
+            <SharedPageSectionRenderer
+              block={block as Record<string, unknown>}
+              template={template}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

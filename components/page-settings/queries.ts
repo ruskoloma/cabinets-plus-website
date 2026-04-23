@@ -1,3 +1,171 @@
+function buildSharedPageSettingsBlockFragments(prefix: string) {
+  return `
+          ... on ${prefix}Hero {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            backgroundImage
+            imageSize
+          }
+          ... on ${prefix}ProductsSection {
+            title
+            imageSize
+            products {
+              name
+              image
+              link
+            }
+          }
+          ... on ${prefix}ServicesSection {
+            title
+            imageSize
+            services {
+              title
+              description
+              image
+              link
+            }
+          }
+          ... on ${prefix}ProjectsSection {
+            title
+            ctaLabel
+            ctaLink
+            images
+            titles
+            imageSize
+          }
+          ... on ${prefix}WhyUsSection {
+            title
+            subtitle
+            introText
+            introText2
+            imageSize
+            features {
+              icon
+              title
+              description
+              image
+            }
+          }
+          ... on ${prefix}TrustStrip {
+            trustStripText
+            trustStripHighlight
+            trustStripTexture
+          }
+          ... on ${prefix}AboutSection {
+            stats {
+              value
+              label
+            }
+            membershipDesktopLogo
+            membershipMobileTopLogo
+            membershipMobileBottomLogo
+            membershipLabel
+            partnershipLabel
+            partnerLogos {
+              logo
+              alt
+              href
+            }
+            ctaLabel
+            ctaLink
+          }
+          ... on ${prefix}ShowroomBanner {
+            heading
+            subtext
+            ctaLabel
+            ctaLink
+            image
+            imageSize
+          }
+          ... on ${prefix}ProcessSection {
+            title
+            steps {
+              number
+              iconImage
+              title
+              description
+              icon
+            }
+          }
+          ... on ${prefix}FaqSection {
+            title
+            tabs {
+              label
+              faqs {
+                question
+                answer
+              }
+            }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on ${prefix}ContactSection {
+            title
+            image
+            imageSize
+            nameLabel
+            namePlaceholder
+            emailLabel
+            emailPlaceholder
+            messageLabel
+            messagePlaceholder
+            submitLabel
+            showroomTitle
+            followUsLabel
+            mapEmbedUrl
+          }
+          ... on ${prefix}AboutStorySection {
+            title
+            body
+          }
+          ... on ${prefix}RichContent {
+            title
+            body
+          }
+          ... on ${prefix}TextImageSection {
+            title
+            paragraphs
+            image
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
+          ... on ${prefix}PartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on ${prefix}CountertopPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }
+          ... on ${prefix}FlooringPartnersSection {
+            title
+            description
+            footnote
+            partnerLogos {
+              logo
+              alt
+              url
+            }
+          }`;
+}
+
 export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   query CabinetsOverviewPageSettingsDocument($relativePath: String!) {
     cabinetsOverviewPageSettings: pageSettings(relativePath: $relativePath) {
@@ -17,61 +185,7 @@ export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
             cardImageSize
             filterImageSize
           }
-          ... on PageSettingsCabinetsOverviewBlocksTextImageSection {
-            title
-            paragraphs
-            image
-            imagePosition
-            ctaLabel
-            ctaLink
-          }
-          ... on PageSettingsCabinetsOverviewBlocksFaqSection {
-            title
-            tabs {
-              label
-              faqs {
-                question
-                answer
-              }
-            }
-            faqs {
-              question
-              answer
-            }
-          }
-          ... on PageSettingsCabinetsOverviewBlocksShowroomBanner {
-            heading
-            subtext
-            ctaLabel
-            ctaLink
-            image
-            imageSize
-          }
-          ... on PageSettingsCabinetsOverviewBlocksPartnersSection {
-            title
-            description
-            footnote
-            partnerLogos {
-              logo
-              alt
-              url
-            }
-          }
-          ... on PageSettingsCabinetsOverviewBlocksContactSection {
-            title
-            image
-            imageSize
-            nameLabel
-            namePlaceholder
-            emailLabel
-            emailPlaceholder
-            messageLabel
-            messagePlaceholder
-            submitLabel
-            showroomTitle
-            followUsLabel
-            mapEmbedUrl
-          }
+${buildSharedPageSettingsBlockFragments("PageSettingsCabinetsOverviewBlocks")}
         }
       }
     }
@@ -97,61 +211,7 @@ export const COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY = `
             cardImageSize
             filterImageSize
           }
-          ... on PageSettingsCountertopsOverviewBlocksTextImageSection {
-            title
-            paragraphs
-            image
-            imagePosition
-            ctaLabel
-            ctaLink
-          }
-          ... on PageSettingsCountertopsOverviewBlocksFaqSection {
-            title
-            tabs {
-              label
-              faqs {
-                question
-                answer
-              }
-            }
-            faqs {
-              question
-              answer
-            }
-          }
-          ... on PageSettingsCountertopsOverviewBlocksShowroomBanner {
-            heading
-            subtext
-            ctaLabel
-            ctaLink
-            image
-            imageSize
-          }
-          ... on PageSettingsCountertopsOverviewBlocksPartnersSection {
-            title
-            description
-            footnote
-            partnerLogos {
-              logo
-              alt
-              url
-            }
-          }
-          ... on PageSettingsCountertopsOverviewBlocksContactSection {
-            title
-            image
-            imageSize
-            nameLabel
-            namePlaceholder
-            emailLabel
-            emailPlaceholder
-            messageLabel
-            messagePlaceholder
-            submitLabel
-            showroomTitle
-            followUsLabel
-            mapEmbedUrl
-          }
+${buildSharedPageSettingsBlockFragments("PageSettingsCountertopsOverviewBlocks")}
         }
       }
     }
@@ -177,61 +237,7 @@ export const FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY = `
             cardImageSize
             filterImageSize
           }
-          ... on PageSettingsFlooringOverviewBlocksTextImageSection {
-            title
-            paragraphs
-            image
-            imagePosition
-            ctaLabel
-            ctaLink
-          }
-          ... on PageSettingsFlooringOverviewBlocksFaqSection {
-            title
-            tabs {
-              label
-              faqs {
-                question
-                answer
-              }
-            }
-            faqs {
-              question
-              answer
-            }
-          }
-          ... on PageSettingsFlooringOverviewBlocksShowroomBanner {
-            heading
-            subtext
-            ctaLabel
-            ctaLink
-            image
-            imageSize
-          }
-          ... on PageSettingsFlooringOverviewBlocksPartnersSection {
-            title
-            description
-            footnote
-            partnerLogos {
-              logo
-              alt
-              url
-            }
-          }
-          ... on PageSettingsFlooringOverviewBlocksContactSection {
-            title
-            image
-            imageSize
-            nameLabel
-            namePlaceholder
-            emailLabel
-            emailPlaceholder
-            messageLabel
-            messagePlaceholder
-            submitLabel
-            showroomTitle
-            followUsLabel
-            mapEmbedUrl
-          }
+${buildSharedPageSettingsBlockFragments("PageSettingsFlooringOverviewBlocks")}
         }
       }
     }
@@ -336,61 +342,7 @@ export const CABINET_PAGE_SETTINGS_QUERY = `
             subtitle
             imageSize
           }
-          ... on PageSettingsCabinetBlocksTextImageSection {
-            title
-            paragraphs
-            image
-            imagePosition
-            ctaLabel
-            ctaLink
-          }
-          ... on PageSettingsCabinetBlocksFaqSection {
-            title
-            tabs {
-              label
-              faqs {
-                question
-                answer
-              }
-            }
-            faqs {
-              question
-              answer
-            }
-          }
-          ... on PageSettingsCabinetBlocksShowroomBanner {
-            heading
-            subtext
-            ctaLabel
-            ctaLink
-            image
-            imageSize
-          }
-          ... on PageSettingsCabinetBlocksPartnersSection {
-            title
-            description
-            footnote
-            partnerLogos {
-              logo
-              alt
-              url
-            }
-          }
-          ... on PageSettingsCabinetBlocksContactSection {
-            title
-            image
-            imageSize
-            nameLabel
-            namePlaceholder
-            emailLabel
-            emailPlaceholder
-            messageLabel
-            messagePlaceholder
-            submitLabel
-            showroomTitle
-            followUsLabel
-            mapEmbedUrl
-          }
+${buildSharedPageSettingsBlockFragments("PageSettingsCabinetBlocks")}
         }
       }
     }
@@ -430,61 +382,7 @@ export const COUNTERTOP_PAGE_SETTINGS_QUERY = `
             subtitle
             imageSize
           }
-          ... on PageSettingsCountertopBlocksTextImageSection {
-            title
-            paragraphs
-            image
-            imagePosition
-            ctaLabel
-            ctaLink
-          }
-          ... on PageSettingsCountertopBlocksFaqSection {
-            title
-            tabs {
-              label
-              faqs {
-                question
-                answer
-              }
-            }
-            faqs {
-              question
-              answer
-            }
-          }
-          ... on PageSettingsCountertopBlocksShowroomBanner {
-            heading
-            subtext
-            ctaLabel
-            ctaLink
-            image
-            imageSize
-          }
-          ... on PageSettingsCountertopBlocksPartnersSection {
-            title
-            description
-            footnote
-            partnerLogos {
-              logo
-              alt
-              url
-            }
-          }
-          ... on PageSettingsCountertopBlocksContactSection {
-            title
-            image
-            imageSize
-            nameLabel
-            namePlaceholder
-            emailLabel
-            emailPlaceholder
-            messageLabel
-            messagePlaceholder
-            submitLabel
-            showroomTitle
-            followUsLabel
-            mapEmbedUrl
-          }
+${buildSharedPageSettingsBlockFragments("PageSettingsCountertopBlocks")}
         }
       }
     }
@@ -524,61 +422,7 @@ export const FLOORING_PAGE_SETTINGS_QUERY = `
             subtitle
             imageSize
           }
-          ... on PageSettingsFlooringBlocksTextImageSection {
-            title
-            paragraphs
-            image
-            imagePosition
-            ctaLabel
-            ctaLink
-          }
-          ... on PageSettingsFlooringBlocksFaqSection {
-            title
-            tabs {
-              label
-              faqs {
-                question
-                answer
-              }
-            }
-            faqs {
-              question
-              answer
-            }
-          }
-          ... on PageSettingsFlooringBlocksShowroomBanner {
-            heading
-            subtext
-            ctaLabel
-            ctaLink
-            image
-            imageSize
-          }
-          ... on PageSettingsFlooringBlocksPartnersSection {
-            title
-            description
-            footnote
-            partnerLogos {
-              logo
-              alt
-              url
-            }
-          }
-          ... on PageSettingsFlooringBlocksContactSection {
-            title
-            image
-            imageSize
-            nameLabel
-            namePlaceholder
-            emailLabel
-            emailPlaceholder
-            messageLabel
-            messagePlaceholder
-            submitLabel
-            showroomTitle
-            followUsLabel
-            mapEmbedUrl
-          }
+${buildSharedPageSettingsBlockFragments("PageSettingsFlooringBlocks")}
         }
       }
     }

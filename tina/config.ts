@@ -1276,11 +1276,189 @@ function imageSizeSettingField(name: string, label: string, description: string)
   };
 }
 
+type TinaListItem = Record<string, unknown> | null | undefined;
+
+function getListItemValue(item: TinaListItem, key: string): unknown {
+  return item && typeof item === "object" ? item[key] : undefined;
+}
+
+function getListItemLabel(item: TinaListItem, keys: string[], fallback: string): string {
+  for (const key of keys) {
+    const value = getListItemValue(item, key);
+    if (typeof value === "string" && value.trim().length > 0) {
+      return value;
+    }
+  }
+
+  return fallback;
+}
+
 // ─── Shared block templates ─────────────────────────────────────
 // Factor templates that are reused across multiple collections so they
 // stay in sync. When adding new fields, watch for cross-template name
 // collisions inside any collection's blocks union (e.g. avoid `body` /
 // `content` names that conflict with rich-text fields elsewhere).
+
+function sharedHeroSectionTemplate() {
+  return {
+    name: "hero" as const,
+    label: "Hero Section",
+    fields: [
+      { type: "string" as const, name: "heading", label: "Heading" },
+      { type: "string" as const, name: "subtext", label: "Subtext", ui: { component: "textarea" as const } },
+      { type: "string" as const, name: "ctaLabel", label: "CTA Text" },
+      { type: "string" as const, name: "ctaLink", label: "CTA Link" },
+      { type: "image" as const, name: "backgroundImage", label: "Background Image" },
+      ...homepageSectionImageFields(),
+    ],
+  };
+}
+
+function sharedProductsSectionTemplate() {
+  return {
+    name: "productsSection" as const,
+    label: "Products Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      ...homepageSectionImageFields(),
+      {
+        type: "object" as const,
+        name: "products",
+        label: "Products",
+        list: true,
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["name"], "Product") }) },
+        fields: [
+          { type: "string" as const, name: "name", label: "Name" },
+          { type: "image" as const, name: "image", label: "Image" },
+          { type: "string" as const, name: "link", label: "Link" },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedServicesSectionTemplate() {
+  return {
+    name: "servicesSection" as const,
+    label: "Services Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      ...homepageSectionImageFields(),
+      {
+        type: "object" as const,
+        name: "services",
+        label: "Services",
+        list: true,
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["title"], "Service") }) },
+        fields: [
+          { type: "string" as const, name: "title", label: "Title" },
+          { type: "string" as const, name: "description", label: "Description", ui: { component: "textarea" as const } },
+          { type: "image" as const, name: "image", label: "Image" },
+          { type: "string" as const, name: "link", label: "Link" },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedProjectsSectionTemplate() {
+  return {
+    name: "projectsSection" as const,
+    label: "Projects Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "string" as const, name: "ctaLabel", label: "CTA Text" },
+      { type: "string" as const, name: "ctaLink", label: "CTA Link" },
+      { type: "image" as const, name: "images", label: "Project Images", list: true },
+      {
+        type: "string" as const,
+        name: "titles",
+        label: "Project Titles",
+        list: true,
+        description: "Optional hover titles for each project image (in the same order as the images above).",
+      },
+      ...homepageSectionImageFields(),
+    ],
+  };
+}
+
+function sharedWhyUsSectionTemplate() {
+  return {
+    name: "whyUsSection" as const,
+    label: "Why Us Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "string" as const, name: "subtitle", label: "Subtitle" },
+      { type: "string" as const, name: "introText", label: "Intro Text (line 1)", ui: { component: "textarea" as const } },
+      { type: "string" as const, name: "introText2", label: "Intro Text (line 2)", ui: { component: "textarea" as const } },
+      ...homepageSectionImageFields(),
+      {
+        type: "object" as const,
+        name: "features",
+        label: "Features",
+        list: true,
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["title"], "Feature") }) },
+        fields: [
+          { type: "string" as const, name: "icon", label: "Icon (emoji)" },
+          { type: "string" as const, name: "title", label: "Title" },
+          { type: "string" as const, name: "description", label: "Description", ui: { component: "textarea" as const } },
+          { type: "image" as const, name: "image", label: "Feature Image" },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedTrustStripTemplate() {
+  return {
+    name: "trustStrip" as const,
+    label: "Trust Message Strip",
+    fields: [
+      { type: "string" as const, name: "trustStripText", label: "Message", ui: { component: "textarea" as const } },
+      { type: "string" as const, name: "trustStripHighlight", label: "Highlight Text" },
+      { type: "image" as const, name: "trustStripTexture", label: "Background Texture" },
+    ],
+  };
+}
+
+function sharedAboutSectionTemplate() {
+  return {
+    name: "aboutSection" as const,
+    label: "About Section",
+    fields: [
+      {
+        type: "object" as const,
+        name: "stats",
+        label: "Stats",
+        list: true,
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Stat") }) },
+        fields: [
+          { type: "string" as const, name: "value", label: "Value" },
+          { type: "string" as const, name: "label", label: "Label" },
+        ],
+      },
+      { type: "image" as const, name: "membershipDesktopLogo", label: "Membership Logo (Desktop)" },
+      { type: "image" as const, name: "membershipMobileTopLogo", label: "Membership Logo Top (Mobile)" },
+      { type: "image" as const, name: "membershipMobileBottomLogo", label: "Membership Logo Bottom (Mobile)" },
+      { type: "string" as const, name: "membershipLabel", label: "Membership Label" },
+      { type: "string" as const, name: "partnershipLabel", label: "Partnership Label" },
+      {
+        type: "object" as const,
+        name: "partnerLogos",
+        label: "Partner Logos",
+        list: true,
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["alt"], "Partner logo") }) },
+        fields: [
+          { type: "image" as const, name: "logo", label: "Logo" },
+          { type: "string" as const, name: "alt", label: "Alt Text" },
+          { type: "string" as const, name: "href", label: "Partner Website" },
+        ],
+      },
+      { type: "string" as const, name: "ctaLabel", label: "Button Text" },
+      { type: "string" as const, name: "ctaLink", label: "Button Link" },
+    ],
+  };
+}
 
 function sharedContactSectionTemplate() {
   return {
@@ -1320,7 +1498,7 @@ function sharedFaqSectionTemplate() {
         name: "tabs",
         label: "FAQ Tabs",
         list: true,
-        ui: { itemProps: (item: any) => ({ label: item.label }) },
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "FAQ Tab") }) },
         fields: [
           { type: "string" as const, name: "label", label: "Tab Label" },
           {
@@ -1328,7 +1506,7 @@ function sharedFaqSectionTemplate() {
             name: "faqs",
             label: "FAQs",
             list: true,
-            ui: { itemProps: (item: any) => ({ label: item.question }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["question"], "FAQ") }) },
             fields: [
               { type: "string" as const, name: "question", label: "Question" },
               { type: "string" as const, name: "answer", label: "Answer", ui: { component: "textarea" as const } },
@@ -1342,7 +1520,7 @@ function sharedFaqSectionTemplate() {
         label: "FAQs (single list)",
         list: true,
         description: "Alternative: flat FAQ list when tabs are not needed.",
-        ui: { itemProps: (item: any) => ({ label: item.question }) },
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["question"], "FAQ") }) },
         fields: [
           { type: "string" as const, name: "question", label: "Question" },
           { type: "string" as const, name: "answer", label: "Answer", ui: { component: "textarea" as const } },
@@ -1367,10 +1545,13 @@ function sharedShowroomBannerTemplate() {
   };
 }
 
-function sharedPartnersSectionTemplate() {
+function sharedPartnersSectionTemplate(options?: {
+  name?: "partnersSection" | "countertopPartnersSection" | "flooringPartnersSection";
+  label?: string;
+}) {
   return {
-    name: "partnersSection" as const,
-    label: "Partners Section",
+    name: options?.name ?? ("partnersSection" as const),
+    label: options?.label ?? "Partners Section",
     fields: [
       { type: "string" as const, name: "title", label: "Section Title" },
       { type: "string" as const, name: "description", label: "Body Text", ui: { component: "textarea" as const } },
@@ -1380,13 +1561,85 @@ function sharedPartnersSectionTemplate() {
         name: "partnerLogos",
         label: "Partner Logos",
         list: true,
-        ui: { itemProps: (item: any) => ({ label: item.alt || "Partner logo" }) },
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["alt"], "Partner logo") }) },
         fields: [
           { type: "image" as const, name: "logo", label: "Logo" },
           { type: "string" as const, name: "alt", label: "Alt Text" },
           { type: "string" as const, name: "url", label: "External URL" },
         ],
       },
+    ],
+  };
+}
+
+function sharedProcessSectionTemplate() {
+  return {
+    name: "processSection" as const,
+    label: "Process Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      {
+        type: "object" as const,
+        name: "steps",
+        label: "Steps",
+        list: true,
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["title"], "Step") }) },
+        fields: [
+          { type: "number" as const, name: "number", label: "Step Number" },
+          { type: "image" as const, name: "iconImage", label: "Step Icon" },
+          { type: "string" as const, name: "title", label: "Title" },
+          { type: "string" as const, name: "description", label: "Description", ui: { component: "textarea" as const } },
+          { type: "string" as const, name: "icon", label: "Legacy Icon (optional)" },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedAboutStorySectionTemplate() {
+  return {
+    name: "aboutStorySection" as const,
+    label: "About Story Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      {
+        type: "rich-text" as const,
+        name: "body",
+        label: "Story Content",
+        templates: [
+          {
+            name: "ArticleImage" as const,
+            label: "Article Image",
+            fields: [
+              { type: "image" as const, name: "image", label: "Image" },
+              { type: "string" as const, name: "alt", label: "Alt Text" },
+              { type: "string" as const, name: "caption", label: "Caption" },
+              {
+                type: "string" as const,
+                name: "aspectRatio",
+                label: "Aspect Ratio",
+                options: [
+                  { label: "16:9", value: "landscape" },
+                  { label: "1:1", value: "square" },
+                  { label: "3:4", value: "portrait" },
+                ],
+                ui: { component: "select" as const },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedRichContentTemplate() {
+  return {
+    name: "richContent" as const,
+    label: "Rich Text Content",
+    fields: [
+      { type: "string" as const, name: "title", label: "Title" },
+      { type: "rich-text" as const, name: "body", label: "Content" },
     ],
   };
 }
@@ -1413,6 +1666,34 @@ function sharedTextImageSectionTemplate() {
       { type: "string" as const, name: "ctaLink", label: "CTA Button Link (optional)" },
     ],
   };
+}
+
+function sharedPageSectionTemplates() {
+  return [
+    sharedHeroSectionTemplate(),
+    sharedProductsSectionTemplate(),
+    sharedServicesSectionTemplate(),
+    sharedProjectsSectionTemplate(),
+    sharedWhyUsSectionTemplate(),
+    sharedTrustStripTemplate(),
+    sharedAboutSectionTemplate(),
+    sharedShowroomBannerTemplate(),
+    sharedProcessSectionTemplate(),
+    sharedFaqSectionTemplate(),
+    sharedContactSectionTemplate(),
+    sharedAboutStorySectionTemplate(),
+    sharedRichContentTemplate(),
+    sharedTextImageSectionTemplate(),
+    sharedPartnersSectionTemplate(),
+    sharedPartnersSectionTemplate({
+      name: "countertopPartnersSection",
+      label: "Countertop Partners Section",
+    }),
+    sharedPartnersSectionTemplate({
+      name: "flooringPartnersSection",
+      label: "Flooring Partners Section",
+    }),
+  ];
 }
 
 export default defineConfig({
@@ -1458,7 +1739,7 @@ export default defineConfig({
             // 1. Simple link: { label, href }  — href is set, no children
             // 2. Dropdown:   { label, children: [{ label, href }] } — href empty
             type: "object", name: "navLinks", label: "Nav Links", list: true,
-            ui: { itemProps: (item: any) => ({ label: item.label }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Link") }) },
             fields: [
               { type: "string", name: "label", label: "Label" },
               { type: "string", name: "href", label: "Link (leave empty for dropdown)" },
@@ -1471,7 +1752,7 @@ export default defineConfig({
                   {
                     name: "simpleLink",
                     label: "Simple Link",
-                    ui: { itemProps: (item: any) => ({ label: item?.label || "Simple Link" }) },
+                    ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Simple Link") }) },
                     fields: [
                       { type: "string", name: "label", label: "Label" },
                       { type: "string", name: "href", label: "Link" },
@@ -1480,7 +1761,7 @@ export default defineConfig({
                   {
                     name: "cabinetCatalog",
                     label: "Cabinet Catalog",
-                    ui: { itemProps: (item: any) => ({ label: item?.label || "Cabinet Catalog" }) },
+                    ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Cabinet Catalog") }) },
                     fields: [
                       { type: "string", name: "label", label: "Label" },
                       { type: "string", name: "href", label: "Link" },
@@ -1493,8 +1774,8 @@ export default defineConfig({
                         list: true,
                         description: "Search and select cabinet products to show in the Products dropdown.",
                         ui: {
-                          itemProps: (item: any) => ({
-                            label: resolveCabinetDocumentReferenceLabel(item?.product) || "Catalog item",
+                          itemProps: (item: TinaListItem) => ({
+                            label: resolveCabinetDocumentReferenceLabel(getListItemValue(item, "product")) || "Catalog item",
                           }),
                         },
                         fields: [
@@ -1515,7 +1796,7 @@ export default defineConfig({
                   {
                     name: "countertopCatalog",
                     label: "Countertop Catalog",
-                    ui: { itemProps: (item: any) => ({ label: item?.label || "Countertop Catalog" }) },
+                    ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Countertop Catalog") }) },
                     fields: [
                       { type: "string", name: "label", label: "Label" },
                       { type: "string", name: "href", label: "Link" },
@@ -1528,8 +1809,8 @@ export default defineConfig({
                         list: true,
                         description: "Search and select countertop products to show in the Products dropdown.",
                         ui: {
-                          itemProps: (item: any) => ({
-                            label: resolveCountertopDocumentReferenceLabel(item?.product) || "Catalog item",
+                          itemProps: (item: TinaListItem) => ({
+                            label: resolveCountertopDocumentReferenceLabel(getListItemValue(item, "product")) || "Catalog item",
                           }),
                         },
                         fields: [
@@ -1550,7 +1831,7 @@ export default defineConfig({
                   {
                     name: "flooringCatalog",
                     label: "Flooring Catalog",
-                    ui: { itemProps: (item: any) => ({ label: item?.label || "Flooring Catalog" }) },
+                    ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Flooring Catalog") }) },
                     fields: [
                       { type: "string", name: "label", label: "Label" },
                       { type: "string", name: "href", label: "Link" },
@@ -1563,8 +1844,8 @@ export default defineConfig({
                         list: true,
                         description: "Search and select flooring products to show in the Products dropdown.",
                         ui: {
-                          itemProps: (item: any) => ({
-                            label: resolveFlooringDocumentReferenceLabel(item?.product) || "Catalog item",
+                          itemProps: (item: TinaListItem) => ({
+                            label: resolveFlooringDocumentReferenceLabel(getListItemValue(item, "product")) || "Catalog item",
                           }),
                         },
                         fields: [
@@ -1588,7 +1869,7 @@ export default defineConfig({
           },
           {
             type: "object", name: "footerLinks", label: "Footer Links", list: true,
-            ui: { itemProps: (item: any) => ({ label: item.label }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Link") }) },
             fields: [
               { type: "string", name: "label", label: "Label" },
               { type: "string", name: "href", label: "Link" },
@@ -1621,7 +1902,7 @@ export default defineConfig({
             label: "Stain Type Options",
             list: true,
             required: true,
-            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Stain type" }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label", "value"], "Stain type") }) },
             fields: [
               { type: "string", name: "value", label: "Value", required: true },
               { type: "string", name: "label", label: "Label" },
@@ -1634,7 +1915,7 @@ export default defineConfig({
             label: "Door Style Options",
             list: true,
             required: true,
-            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Door style" }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label", "value"], "Door style") }) },
             fields: [
               { type: "string", name: "value", label: "Value", required: true },
               { type: "string", name: "label", label: "Label" },
@@ -1654,7 +1935,7 @@ export default defineConfig({
             label: "Paint Options",
             list: true,
             required: true,
-            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Paint option" }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label", "value"], "Paint option") }) },
             fields: [
               { type: "string", name: "value", label: "Value", required: true },
               { type: "string", name: "label", label: "Label" },
@@ -1667,7 +1948,7 @@ export default defineConfig({
             name: "countertopTypes",
             label: "Countertop Types",
             list: true,
-            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Countertop type" }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label", "value"], "Countertop type") }) },
             fields: [
               { type: "string", name: "value", label: "Value", required: true },
               { type: "string", name: "label", label: "Label" },
@@ -1679,7 +1960,7 @@ export default defineConfig({
             name: "flooringTypes",
             label: "Flooring Types",
             list: true,
-            ui: { itemProps: (item: any) => ({ label: item?.label || item?.value || "Flooring type" }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label", "value"], "Flooring type") }) },
             fields: [
               { type: "string", name: "value", label: "Value", required: true },
               { type: "string", name: "label", label: "Label" },
@@ -1732,11 +2013,7 @@ export default defineConfig({
                       ),
                     ],
                   },
-                  sharedTextImageSectionTemplate(),
-                  sharedFaqSectionTemplate(),
-                  sharedShowroomBannerTemplate(),
-                  sharedPartnersSectionTemplate(),
-                  sharedContactSectionTemplate(),
+                  ...sharedPageSectionTemplates(),
                 ],
               },
             ],
@@ -1771,11 +2048,7 @@ export default defineConfig({
                       ),
                     ],
                   },
-                  sharedTextImageSectionTemplate(),
-                  sharedFaqSectionTemplate(),
-                  sharedShowroomBannerTemplate(),
-                  sharedPartnersSectionTemplate(),
-                  sharedContactSectionTemplate(),
+                  ...sharedPageSectionTemplates(),
                 ],
               },
             ],
@@ -1810,11 +2083,7 @@ export default defineConfig({
                       ),
                     ],
                   },
-                  sharedTextImageSectionTemplate(),
-                  sharedFaqSectionTemplate(),
-                  sharedShowroomBannerTemplate(),
-                  sharedPartnersSectionTemplate(),
-                  sharedContactSectionTemplate(),
+                  ...sharedPageSectionTemplates(),
                 ],
               },
             ],
@@ -1952,11 +2221,7 @@ export default defineConfig({
                       ),
                     ],
                   },
-                  sharedTextImageSectionTemplate(),
-                  sharedFaqSectionTemplate(),
-                  sharedShowroomBannerTemplate(),
-                  sharedPartnersSectionTemplate(),
-                  sharedContactSectionTemplate(),
+                  ...sharedPageSectionTemplates(),
                 ],
               },
             ],
@@ -2030,11 +2295,7 @@ export default defineConfig({
                       ),
                     ],
                   },
-                  sharedTextImageSectionTemplate(),
-                  sharedFaqSectionTemplate(),
-                  sharedShowroomBannerTemplate(),
-                  sharedPartnersSectionTemplate(),
-                  sharedContactSectionTemplate(),
+                  ...sharedPageSectionTemplates(),
                 ],
               },
             ],
@@ -2108,11 +2369,7 @@ export default defineConfig({
                       ),
                     ],
                   },
-                  sharedTextImageSectionTemplate(),
-                  sharedFaqSectionTemplate(),
-                  sharedShowroomBannerTemplate(),
-                  sharedPartnersSectionTemplate(),
-                  sharedContactSectionTemplate(),
+                  ...sharedPageSectionTemplates(),
                 ],
               },
             ],
@@ -2141,188 +2398,7 @@ export default defineConfig({
           {
             type: "object", name: "blocks", label: "Page Sections", list: true,
             ui: { visualSelector: true },
-            templates: [
-              {
-                name: "hero", label: "Hero Section",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
-                  { type: "string", name: "ctaLabel", label: "CTA Text" },
-                  { type: "string", name: "ctaLink", label: "CTA Link" },
-                  { type: "image", name: "backgroundImage", label: "Background Image" },
-                  ...homepageSectionImageFields(),
-                ],
-              },
-              {
-                name: "productsSection", label: "Products Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  ...homepageSectionImageFields(),
-                  {
-                    type: "object", name: "products", label: "Products", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.name }) },
-                    fields: [
-                      { type: "string", name: "name", label: "Name" },
-                      { type: "image", name: "image", label: "Image" },
-                      { type: "string", name: "link", label: "Link" },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "servicesSection", label: "Services Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  ...homepageSectionImageFields(),
-                  {
-                    type: "object", name: "services", label: "Services", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.title }) },
-                    fields: [
-                      { type: "string", name: "title", label: "Title" },
-                      { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-                      { type: "image", name: "image", label: "Image" },
-                      { type: "string", name: "link", label: "Link" },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "projectsSection", label: "Projects Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  { type: "string", name: "ctaLabel", label: "CTA Text" },
-                  { type: "string", name: "ctaLink", label: "CTA Link" },
-                  { type: "image", name: "images", label: "Project Images", list: true },
-                  {
-                    type: "string",
-                    name: "titles",
-                    label: "Project Titles",
-                    list: true,
-                    description: "Optional hover titles for each project image (in the same order as the images above).",
-                  },
-                  ...homepageSectionImageFields(),
-                ],
-              },
-              {
-                name: "whyUsSection", label: "Why Us Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  { type: "string", name: "subtitle", label: "Subtitle" },
-                  { type: "string", name: "introText", label: "Intro Text (line 1)", ui: { component: "textarea" } },
-                  { type: "string", name: "introText2", label: "Intro Text (line 2)", ui: { component: "textarea" } },
-                  ...homepageSectionImageFields(),
-                  {
-                    type: "object", name: "features", label: "Features", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.title }) },
-                    fields: [
-                      { type: "string", name: "icon", label: "Icon (emoji)" },
-                      { type: "string", name: "title", label: "Title" },
-                      { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-                      { type: "image", name: "image", label: "Feature Image" },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "trustStrip", label: "Trust Message Strip",
-                fields: [
-                  { type: "string", name: "trustStripText", label: "Message", ui: { component: "textarea" } },
-                  { type: "string", name: "trustStripHighlight", label: "Highlight Text" },
-                  { type: "image", name: "trustStripTexture", label: "Background Texture" },
-                ],
-              },
-              {
-                name: "aboutSection", label: "About Section",
-                fields: [
-                  {
-                    type: "object", name: "stats", label: "Stats", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.label }) },
-                    fields: [
-                      { type: "string", name: "value", label: "Value" },
-                      { type: "string", name: "label", label: "Label" },
-                    ],
-                  },
-                  { type: "image", name: "membershipDesktopLogo", label: "Membership Logo (Desktop)" },
-                  { type: "image", name: "membershipMobileTopLogo", label: "Membership Logo Top (Mobile)" },
-                  { type: "image", name: "membershipMobileBottomLogo", label: "Membership Logo Bottom (Mobile)" },
-                  { type: "string", name: "membershipLabel", label: "Membership Label" },
-                  { type: "string", name: "partnershipLabel", label: "Partnership Label" },
-                  {
-                    type: "object", name: "partnerLogos", label: "Partner Logos", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.alt || "Partner logo" }) },
-                    fields: [
-                      { type: "image", name: "logo", label: "Logo" },
-                      { type: "string", name: "alt", label: "Alt Text" },
-                      { type: "string", name: "href", label: "Partner Website" },
-                    ],
-                  },
-                  { type: "string", name: "ctaLabel", label: "Button Text" },
-                  { type: "string", name: "ctaLink", label: "Button Link" },
-                ],
-              },
-              sharedShowroomBannerTemplate(),
-              {
-                name: "processSection", label: "Process Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  {
-                    type: "object", name: "steps", label: "Steps", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.title }) },
-                    fields: [
-                      { type: "number", name: "number", label: "Step Number" },
-                      { type: "image", name: "iconImage", label: "Step Icon" },
-                      { type: "string", name: "title", label: "Title" },
-                      { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-                      { type: "string", name: "icon", label: "Legacy Icon (optional)" },
-                    ],
-                  },
-                ],
-              },
-              sharedFaqSectionTemplate(),
-              sharedPartnersSectionTemplate(),
-              sharedContactSectionTemplate(),
-              {
-                name: "aboutStorySection", label: "About Story Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  {
-                    type: "rich-text",
-                    name: "body",
-                    label: "Story Content",
-                    templates: [
-                      {
-                        name: "ArticleImage",
-                        label: "Article Image",
-                        fields: [
-                          { type: "image", name: "image", label: "Image" },
-                          { type: "string", name: "alt", label: "Alt Text" },
-                          { type: "string", name: "caption", label: "Caption" },
-                          {
-                            type: "string",
-                            name: "aspectRatio",
-                            label: "Aspect Ratio",
-                            options: [
-                              { label: "16:9", value: "landscape" },
-                              { label: "1:1", value: "square" },
-                              { label: "3:4", value: "portrait" },
-                            ],
-                            ui: { component: "select" },
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "richContent", label: "Rich Text Content",
-                fields: [
-                  { type: "string", name: "title", label: "Title" },
-                  { type: "rich-text", name: "body", label: "Content" },
-                ],
-              },
-              sharedTextImageSectionTemplate(),
-            ],
+            templates: sharedPageSectionTemplates(),
           },
         ],
       },
@@ -2357,7 +2433,7 @@ export default defineConfig({
                   { type: "string", name: "title", label: "Section Title" },
                   {
                     type: "object", name: "items", label: "Feature Items", list: true,
-                    ui: { itemProps: (item: any) => ({ label: item.title }) },
+                    ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["title"], "Feature") }) },
                     fields: [
                       { type: "string", name: "icon", label: "Icon" },
                       { type: "string", name: "title", label: "Title" },
@@ -2538,7 +2614,7 @@ export default defineConfig({
             name: "technicalDetails",
             label: "Technical Details",
             list: true,
-            ui: { itemProps: (item: any) => ({ label: item.key || "Detail" }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["key"], "Detail") }) },
             fields: [
               { type: "string", name: "key", label: "Key" },
               { type: "string", name: "value", label: "Value" },
@@ -2644,7 +2720,7 @@ export default defineConfig({
             name: "technicalDetails",
             label: "Technical Details",
             list: true,
-            ui: { itemProps: (item: any) => ({ label: item.key || "Detail" }) },
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["key"], "Detail") }) },
             fields: [
               { type: "string", name: "key", label: "Key" },
               { type: "string", name: "value", label: "Value" },
@@ -2874,8 +2950,8 @@ export default defineConfig({
             list: true,
             description: "Select other articles to feature at the bottom of this page.",
             ui: {
-              itemProps: (item: any) => ({
-                label: resolvePostReferenceLabel(item?.post),
+              itemProps: (item: TinaListItem) => ({
+                label: resolvePostReferenceLabel(getListItemValue(item, "post")),
               }),
             },
             fields: [

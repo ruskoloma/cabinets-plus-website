@@ -37,6 +37,8 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   aboutStorySection: "PageBlocksAboutStorySection",
   richContent: "PageBlocksRichContent",
   partnersSection: "PageBlocksPartnersSection",
+  countertopPartnersSection: "PageBlocksCountertopPartnersSection",
+  flooringPartnersSection: "PageBlocksFlooringPartnersSection",
   textImageSection: "PageBlocksTextImageSection",
 };
 

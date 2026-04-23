@@ -21,7 +21,8 @@ import FallbackImg from "@/components/ui/FallbackImg";
 import PreviewCard from "@/components/home/PreviewCard";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
-import PartnersSection from "@/components/shared/PartnersSection";
+import { CountertopPartnersSection } from "@/components/catalog-overview/OurPartnersSection";
+import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
 import TextImageSection from "@/components/shared/TextImageSection";
 import FillImage from "@/components/ui/FillImage";
 import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
@@ -44,7 +45,8 @@ export default function FigmaCountertopsOverviewPage({ page }: Props) {
   const hero = getBlock(parsedBlocks, "hero");
   const materials = getBlock(parsedBlocks, "productsSection");
   const projects = getBlock(parsedBlocks, "projectsSection");
-  const partners = getBlock(parsedBlocks, "partnersSection");
+  const dedicatedPartners = getBlock(parsedBlocks, "countertopPartnersSection");
+  const genericPartners = getBlock(parsedBlocks, "partnersSection");
   const process = getBlock(parsedBlocks, "processSection");
   const showroomBanner = getBlock(parsedBlocks, "showroomBanner");
   const faq = getBlock(parsedBlocks, "faqSection");
@@ -57,7 +59,9 @@ export default function FigmaCountertopsOverviewPage({ page }: Props) {
   const showroomRecord = showroomBanner as Record<string, unknown>;
   const faqRecord = faq as Record<string, unknown>;
   const contactRecord = contact as Record<string, unknown>;
-  const partnersRecord = partners as Record<string, unknown>;
+  const partnersRecord = (
+    Object.keys(dedicatedPartners).length > 0 ? dedicatedPartners : genericPartners
+  ) as Record<string, unknown>;
 
   const heroImageOptions = resolveHomepageSectionImageOptions(heroRecord);
   const materialsImageOptions = resolveHomepageSectionImageOptions(materialsRecord);
@@ -92,6 +96,20 @@ export default function FigmaCountertopsOverviewPage({ page }: Props) {
   const hasTemplate = (template: string) => templateOrder[template] !== undefined;
   const getSectionOrder = (template: string, fallbackOrder: number, offset = 0) =>
     ((templateOrder[template] ?? fallbackOrder) * 10) + offset;
+  const hasPartnersTemplate = hasTemplate("countertopPartnersSection") || hasTemplate("partnersSection");
+  const partnersTemplate = hasTemplate("countertopPartnersSection") ? "countertopPartnersSection" : "partnersSection";
+  const customTemplates = new Set([
+    "hero",
+    "productsSection",
+    "projectsSection",
+    "textImageSection",
+    "partnersSection",
+    "countertopPartnersSection",
+    "processSection",
+    "showroomBanner",
+    "faqSection",
+    "contactSection",
+  ]);
 
   const resolveSectionVariant = (
     options: { useOriginal?: boolean; variant?: ImageVariantPreset },
@@ -242,9 +260,9 @@ export default function FigmaCountertopsOverviewPage({ page }: Props) {
         );
       })}
 
-      {hasTemplate("partnersSection") ? (
-        <div style={{ order: getSectionOrder("partnersSection", 3) }}>
-          <PartnersSection block={partnersRecord} />
+      {hasPartnersTemplate ? (
+        <div style={{ order: getSectionOrder(partnersTemplate, 3) }}>
+          <CountertopPartnersSection block={partnersRecord} />
         </div>
       ) : null}
 
@@ -408,6 +426,20 @@ export default function FigmaCountertopsOverviewPage({ page }: Props) {
           <OurShowroomSection block={contactRecord} />
         </div>
       ) : null}
+
+      {parsedBlocks.map((block, index) => {
+        const template = resolveTemplateName(block);
+        if (!template || customTemplates.has(template)) return null;
+
+        return (
+          <div key={`shared-${template}-${index}`} style={{ order: index * 10 }}>
+            <SharedPageSectionRenderer
+              block={block as Record<string, unknown>}
+              template={template}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

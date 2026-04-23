@@ -1,25 +1,17 @@
 {
-  "_template": "countertopsOverview",
   "blocks": [
     {
-      "_template": "countertopCatalogGrid",
       "pageTitle": "Countertops",
       "cardImageSize": "card",
-      "filterImageSize": "thumb"
+      "filterImageSize": "thumb",
+      "_template": "countertopCatalogGrid"
     },
     {
-      "_template": "partnersSection",
-      "title": "Our partners",
-      "description": "In addition to the countertop options shown in this catalog, you may also order countertops from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.",
-      "footnote": "Click on a partner logo to view their products on the official website.",
-      "partnerLogos": [
-        { "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png", "alt": "Lions Floor" },
-        { "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png", "alt": "Lyrus Collection" },
-        { "logo": "/library/trust/trust-cambria.svg", "alt": "Cambria" },
-        { "logo": "/library/trust/trust-bedrosians.svg", "alt": "Bedrosians" },
-        { "logo": "/library/trust/trust-msi.svg", "alt": "MSI" },
-        { "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png", "alt": "Easy Stones" }
-      ]
+      "_template": "countertopPartnersSection"
+    },
+    {
+      "_template": "contactSection"
     }
-  ]
+  ],
+  "_template": "countertopsOverview"
 }

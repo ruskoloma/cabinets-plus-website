@@ -10,11 +10,10 @@
       "label": "Products",
       "children": [
         {
-          "_template": "cabinetCatalog",
           "label": "Cabinets",
           "href": "/cabinets",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/cabinets",
+          "buttonLink": "/cabinets/catalog",
           "catalogItems": [
             {
               "product": "content/cabinets/tgb.md"
@@ -31,14 +30,14 @@
             {
               "product": "content/cabinets/aeb.md"
             }
-          ]
+          ],
+          "_template": "cabinetCatalog"
         },
         {
-          "_template": "countertopCatalog",
           "label": "Countertops",
           "href": "/countertops",
           "buttonLabel": "View All Catalog",
-          "buttonLink": "/countertops",
+          "buttonLink": "/countertops/catalog",
           "catalogItems": [
             {
               "product": "content/countertops/calacattadolce.md"
@@ -55,10 +54,10 @@
             {
               "product": "content/countertops/calacattastraightgrey.md"
             }
-          ]
+          ],
+          "_template": "countertopCatalog"
         },
         {
-          "_template": "flooringCatalog",
           "label": "Flooring",
           "href": "/flooring",
           "buttonLabel": "View All Catalog",
@@ -79,7 +78,8 @@
             {
               "product": "content/flooring/lyrus-stone-composite-elite-mammoth-mo-el01.md"
             }
-          ]
+          ],
+          "_template": "flooringCatalog"
         }
       ]
     },
@@ -87,14 +87,14 @@
       "label": "Services",
       "children": [
         {
-          "_template": "simpleLink",
           "label": "Kitchen remodeling",
-          "href": "/kitchen-remodel"
+          "href": "/kitchen-remodel",
+          "_template": "simpleLink"
         },
         {
-          "_template": "simpleLink",
           "label": "Bathroom remodeling",
-          "href": "/bathroom-remodel"
+          "href": "/bathroom-remodel",
+          "_template": "simpleLink"
         }
       ]
     },

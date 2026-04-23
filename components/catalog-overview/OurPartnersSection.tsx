@@ -15,6 +15,10 @@ interface FlooringPartnerItem extends PartnerLogoItem {
   kind?: "image" | "wankeCascade";
 }
 
+interface CountertopPartnerItem extends PartnerLogoItem {
+  featuredOnMobile?: boolean;
+}
+
 const COUNTERTOP_LOGO_CLASSES: Record<string, string> = {
   Cambria:
     "w-auto h-auto max-w-[82px] max-h-[56px] md:max-w-[118px] md:max-h-[80px]",
@@ -113,6 +117,55 @@ const FLOORING_PARTNER_LOGOS: FlooringPartnerItem[] = [
   },
 ];
 
+const COUNTERTOP_PARTNER_LOGOS: CountertopPartnerItem[] = [
+  {
+    src: "/library/partners/countertops/cambria.svg",
+    alt: "Cambria",
+    href: "https://www.cambriausa.com/",
+  },
+  {
+    src: "/library/partners/countertops/caesarstone.svg",
+    alt: "Caesarstone",
+    href: "https://www.caesarstoneus.com/",
+  },
+  {
+    src: "/library/partners/countertops/moda-surfaces.svg",
+    alt: "Moda Surfaces",
+    href: "https://modasurfaces.com/",
+  },
+  {
+    src: "/library/partners/countertops/msi.svg",
+    alt: "MSI",
+    href: "https://www.msisurfaces.com/",
+  },
+  {
+    src: "/library/partners/countertops/bedrosians.svg",
+    alt: "Bedrosians",
+    href: "https://www.bedrosians.com/",
+  },
+  {
+    src: "/library/partners/countertops/daltile.svg",
+    alt: "Daltile",
+    href: "https://www.daltile.com/",
+  },
+  {
+    src: "/library/partners/countertops/pental-quartz.svg",
+    alt: "Pental Quartz",
+    href: "https://www.pentalquartz.com/",
+  },
+  {
+    src: "/library/partners/countertops/stratus-quartz.svg",
+    alt: "Stratus Quartz",
+    href: "https://www.stratusquartz.com/",
+  },
+  {
+    src: "/library/partners/countertops/hanstone.svg",
+    alt: "HanStone",
+    href: "https://www.hanstone.com/",
+    featuredOnMobile: true,
+  },
+];
+
 function ExternalArrowIcon() {
   return (
     <svg aria-hidden className="h-6 w-6" fill="none" viewBox="0 0 24 24">
@@ -164,13 +217,20 @@ function FlooringPartnerCard({ logo }: { logo: FlooringPartnerItem }) {
       <FallbackImg
         alt={logo.alt}
         className={`h-auto max-w-full object-contain opacity-80 ${logo.logoClassName || "w-[120px]"}`.trim()}
+        data-tina-field={logo.raw ? tinaField(logo.raw as Record<string, unknown>, "logo") : undefined}
         src={logo.src}
         variant="thumb"
       />
     );
 
   return (
-    <a className={cardClassName} href={logo.href} rel="noreferrer noopener" target="_blank">
+    <a
+      className={cardClassName}
+      data-tina-field={logo.raw ? tinaField(logo.raw as Record<string, unknown>) : undefined}
+      href={logo.href}
+      rel="noreferrer noopener"
+      target="_blank"
+    >
       <span className="absolute right-2 top-2 text-white transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
         <ExternalArrowIcon />
       </span>
@@ -179,31 +239,69 @@ function FlooringPartnerCard({ logo }: { logo: FlooringPartnerItem }) {
   );
 }
 
-function FlooringPartnersSection({ block }: { block: Record<string, unknown> }) {
+function mapFlooringPartnerLogos(block: Record<string, unknown>): FlooringPartnerItem[] {
+  const partnerLogos = mapPartnerLogos(block.partnerLogos);
+
+  if (!partnerLogos.length) {
+    return FLOORING_PARTNER_LOGOS;
+  }
+
+  return partnerLogos.map((logo, index) => ({
+    ...logo,
+    featuredOnMobile:
+      typeof (logo.raw as { featuredOnMobile?: unknown } | undefined)?.featuredOnMobile === "boolean"
+        ? Boolean((logo.raw as { featuredOnMobile?: boolean }).featuredOnMobile)
+        : index === partnerLogos.length - 1 && partnerLogos.length % 2 === 1,
+    logoClassName: FLOORING_PARTNER_LOGOS.find((item) => item.alt === logo.alt)?.logoClassName,
+    kind: logo.alt === "Wanke Cascade" ? "wankeCascade" : "image",
+  }));
+}
+
+export function FlooringPartnersSection({ block }: { block: Record<string, unknown> }) {
+  const partnerLogos = mapFlooringPartnerLogos(block);
+  const title = text(block.title, "Our partners");
+  const description = text(
+    block.description,
+    "In addition to the flooring options shown in our catalog, you may also order flooring from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.",
+  );
+  const footnote = text(
+    block.footnote,
+    "Click on a partner logo to view their products on the official website.",
+  );
+
   return (
     <section className="bg-[var(--cp-primary-500)] text-white" data-tina-field={tinaField(block)}>
       <div className="cp-container px-4 py-12 md:px-8 md:py-16">
         <div className="mx-auto flex max-w-[1349px] flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,558px)_minmax(0,791px)] lg:gap-[57px]">
           <div className="max-w-[361px] lg:max-w-[558px] lg:pt-[84px]">
-            <h2 className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px]">
-              Our partners
+            <h2
+              className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px]"
+              data-tina-field={tinaField(block, "title")}
+            >
+              {title}
             </h2>
-            <p className="mt-4 text-[18px] leading-[1.5] text-white md:mt-12 md:text-[24px]">
-              In addition to the flooring options shown in our catalog, you may also order flooring from
-              the catalogs of the manufacturers listed below. Please discuss availability and details with
-              our manager when placing your order.
+            <p
+              className="mt-4 text-[18px] leading-[1.5] text-white md:mt-12 md:text-[24px]"
+              data-tina-field={tinaField(block, "description")}
+            >
+              {description}
             </p>
           </div>
 
           <div className="lg:pt-0">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7">
-              {FLOORING_PARTNER_LOGOS.map((logo) => (
-                <FlooringPartnerCard key={logo.alt} logo={logo} />
+              {partnerLogos.map((logo, index) => (
+                <FlooringPartnerCard key={`${logo.alt}-${index}`} logo={logo} />
               ))}
             </div>
-            <p className="mt-5 text-center text-[14px] leading-[1.5] text-white/60">
-              Click on a partner logo to view their products on the official website.
-            </p>
+            {footnote ? (
+              <p
+                className="mt-5 text-center text-[14px] leading-[1.5] text-white/60"
+                data-tina-field={tinaField(block, "footnote")}
+              >
+                {footnote}
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
@@ -211,16 +309,17 @@ function FlooringPartnersSection({ block }: { block: Record<string, unknown> }) 
   );
 }
 
-function CountertopPartnersSection({ block }: { block: Record<string, unknown> }) {
-  const partnerLogos = mapPartnerLogos(block.partnerLogos);
+export function CountertopPartnersSection({ block }: { block: Record<string, unknown> }) {
+  const mappedPartnerLogos = mapPartnerLogos(block.partnerLogos);
+  const partnerLogos = mappedPartnerLogos.length > 0 ? mappedPartnerLogos : COUNTERTOP_PARTNER_LOGOS;
   const title = text(block.title, "Our partners");
   const description = text(
     block.description,
-    "In addition to the countertop options shown in our catalog, you may also order countertops from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order."
+    "In addition to the countertop options shown in our catalog, you may also order countertops from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.",
   );
   const footnote = text(
     block.footnote,
-    "Click on a partner logo to view their products on the official website."
+    "Click on a partner logo to view their products on the official website.",
   );
 
   return (
@@ -246,7 +345,12 @@ function CountertopPartnersSection({ block }: { block: Record<string, unknown> }
             <div className="grid grid-cols-2 gap-4 overflow-hidden rounded-[2.78px] md:grid-cols-3 md:gap-7 md:rounded-[4px]">
               {partnerLogos.map((logo, idx) => {
                 const raw = logo.raw;
-                const href = typeof raw?.url === "string" ? (raw.url as string) : undefined;
+                const href =
+                  typeof raw?.url === "string"
+                    ? (raw.url as string)
+                    : typeof raw?.href === "string"
+                      ? (raw.href as string)
+                      : logo.href;
                 const isLast = idx === partnerLogos.length - 1;
                 const logoClass = COUNTERTOP_LOGO_CLASSES[logo.alt] || DEFAULT_COUNTERTOP_LOGO_CLASS;
                 const tileClass = [

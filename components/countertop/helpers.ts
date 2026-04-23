@@ -24,6 +24,8 @@ const TYPENAME_TO_TEMPLATE: Record<string, string> = {
   PageSettingsCountertopBlocksFaqSection: "faqSection",
   PageSettingsCountertopBlocksShowroomBanner: "showroomBanner",
   PageSettingsCountertopBlocksPartnersSection: "partnersSection",
+  PageSettingsCountertopBlocksCountertopPartnersSection: "countertopPartnersSection",
+  PageSettingsCountertopBlocksFlooringPartnersSection: "flooringPartnersSection",
   PageSettingsCountertopBlocksContactSection: "contactSection",
 };
 

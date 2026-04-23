@@ -29,6 +29,7 @@ function hasRichText(value: unknown): boolean {
 export default function TextImageSection({ block }: Props) {
   const title = text(block.title);
   const paragraphs = block.paragraphs as RichTextContent | undefined;
+  const paragraphsContent = hasRichText(paragraphs) ? (paragraphs as RichTextContent) : null;
   const image = text(block.image);
   const imagePosition = text(block.imagePosition, "right");
   const ctaLabel = text(block.ctaLabel);
@@ -46,12 +47,12 @@ export default function TextImageSection({ block }: Props) {
           {title}
         </h2>
       ) : null}
-      {hasRichText(paragraphs) ? (
+      {paragraphsContent ? (
         <div
           className="mt-8 space-y-4 text-[16px] font-normal leading-[1.5] text-[var(--cp-primary-500)] md:mt-6 md:text-[18px] [&_a]:text-[var(--cp-primary-400)] [&_a]:underline [&_a]:underline-offset-[0.14em] [&_a:hover]:text-[var(--cp-primary-350)] [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li+li]:mt-1"
           data-tina-field={tinaField(block, "paragraphs")}
         >
-          <TinaMarkdown content={paragraphs} />
+          <TinaMarkdown content={paragraphsContent} />
         </div>
       ) : null}
       {ctaLabel ? (

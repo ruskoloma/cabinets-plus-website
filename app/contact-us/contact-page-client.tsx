@@ -1,9 +1,8 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import OurShowroomSection from "@/components/home/OurShowroomSection";
-import ContactUsSection from "@/components/home/ContactUsSection";
-import { getBlock, toBlockArray, type Dict } from "@/app/figma-home.helpers";
+import { resolveTemplateName, toBlockArray, type HomeBlock } from "@/app/figma-home.helpers";
+import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
 
 interface ContactPageClientProps {
   data: { page?: { blocks?: unknown[] | null } | null };
@@ -11,12 +10,23 @@ interface ContactPageClientProps {
   variables?: Record<string, unknown>;
 }
 
-function renderSections(block: Dict) {
+function renderSections(blocks: HomeBlock[]) {
   return (
-    <>
-      <OurShowroomSection block={block} />
-      <ContactUsSection block={block} />
-    </>
+    <div className="flex flex-col bg-white text-[var(--cp-primary-500)]">
+      {blocks.map((block, index) => {
+        const template = resolveTemplateName(block);
+        const blockRecord = block as Record<string, unknown>;
+
+        return (
+          <SharedPageSectionRenderer
+            block={blockRecord}
+            contactMode="formAndShowroom"
+            key={`contact-block-${template || "unknown"}-${index}`}
+            template={template}
+          />
+        );
+      })}
+    </div>
   );
 }
 
@@ -27,16 +37,14 @@ function TinaContactPageClient(props: ContactPageClientProps) {
     variables: props.variables || {},
   });
 
-  const block = getBlock(toBlockArray(data.page?.blocks), "contactSection");
-  return renderSections(block);
+  return renderSections(toBlockArray(data.page?.blocks));
 }
 
 export default function ContactPageClient(props: ContactPageClientProps) {
-  const block = getBlock(toBlockArray(props.data?.page?.blocks), "contactSection");
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    return renderSections(block);
+    return renderSections(toBlockArray(props.data?.page?.blocks));
   }
 
   return <TinaContactPageClient {...props} />;
