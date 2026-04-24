@@ -33,6 +33,7 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   processSection: "PageBlocksProcessSection",
   faqSection: "PageBlocksFaqSection",
   contactSection: "PageBlocksContactSection",
+  showroomSection: "PageBlocksShowroomSection",
   trustStrip: "PageBlocksTrustStrip",
   aboutStorySection: "PageBlocksAboutStorySection",
   richContent: "PageBlocksRichContent",
@@ -40,6 +41,12 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   countertopPartnersSection: "PageBlocksCountertopPartnersSection",
   flooringPartnersSection: "PageBlocksFlooringPartnersSection",
   textImageSection: "PageBlocksTextImageSection",
+  sharedContactSection: "PageBlocksSharedContactSection",
+  sharedShowroomSection: "PageBlocksSharedShowroomSection",
+  sharedAboutSection: "PageBlocksSharedAboutSection",
+  sharedPartnersSection: "PageBlocksSharedPartnersSection",
+  sharedCountertopPartnersSection: "PageBlocksSharedCountertopPartnersSection",
+  sharedFlooringPartnersSection: "PageBlocksSharedFlooringPartnersSection",
 };
 
 function normalizePageBlock(value: unknown): Record<string, unknown> | null {

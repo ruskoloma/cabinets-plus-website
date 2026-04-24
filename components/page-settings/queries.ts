@@ -114,6 +114,8 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             messageLabel
             messagePlaceholder
             submitLabel
+          }
+          ... on ${prefix}ShowroomSection {
             showroomTitle
             followUsLabel
             mapEmbedUrl
@@ -165,6 +167,66 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             }
           }`;
 }
+
+function buildServiceMainPageSettingsQuery({
+  operationName,
+  resultKey,
+  templateTypename,
+  blocksTypenamePrefix,
+}: {
+  operationName: string;
+  resultKey: string;
+  templateTypename: string;
+  blocksTypenamePrefix: string;
+}) {
+  return `
+  query ${operationName}($relativePath: String!) {
+    ${resultKey}: pageSettings(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+      ... on ${templateTypename} {
+        title
+        seo {
+          title
+          description
+          ogImage
+        }
+        blocks {
+          __typename
+${buildSharedPageSettingsBlockFragments(blocksTypenamePrefix)}
+        }
+      }
+    }
+  }
+`;
+}
+
+export const CABINETS_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
+  operationName: "CabinetsMainPageSettingsDocument",
+  resultKey: "cabinetsMainPageSettings",
+  templateTypename: "PageSettingsCabinetsMainPage",
+  blocksTypenamePrefix: "PageSettingsCabinetsMainPageBlocks",
+});
+
+export const COUNTERTOPS_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
+  operationName: "CountertopsMainPageSettingsDocument",
+  resultKey: "countertopsMainPageSettings",
+  templateTypename: "PageSettingsCountertopsMainPage",
+  blocksTypenamePrefix: "PageSettingsCountertopsMainPageBlocks",
+});
+
+export const FLOORING_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
+  operationName: "FlooringMainPageSettingsDocument",
+  resultKey: "flooringMainPageSettings",
+  templateTypename: "PageSettingsFlooringMainPage",
+  blocksTypenamePrefix: "PageSettingsFlooringMainPageBlocks",
+});
 
 export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   query CabinetsOverviewPageSettingsDocument($relativePath: String!) {
@@ -256,9 +318,21 @@ export const GALLERY_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsGallery {
-        pageTitle
-        galleryOverviewProjectCardImageSize
-        galleryOverviewFilterImageSize
+        title
+        seo {
+          title
+          description
+          ogImage
+        }
+        blocks {
+          __typename
+          ... on PageSettingsGalleryBlocksGalleryProjectGrid {
+            pageTitle
+            galleryOverviewProjectCardImageSize
+            galleryOverviewFilterImageSize
+          }
+${buildSharedPageSettingsBlockFragments("PageSettingsGalleryBlocks")}
+        }
       }
     }
   }

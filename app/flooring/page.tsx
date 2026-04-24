@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { buildDocumentMetadata } from "@/app/lib/metadata";
 import FlooringOverviewClient from "./flooring-overview-client";
-import { getPageDataSafe } from "@/app/get-page-data-safe";
+import { getFlooringMainPageSettingsSafe } from "@/app/get-flooring-main-page-settings-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const result = await getPageDataSafe("flooring-overview.md");
-  const built = buildDocumentMetadata(result.data.page);
+  const result = await getFlooringMainPageSettingsSafe();
+  const built = buildDocumentMetadata(result.data.flooringMainPageSettings);
   return {
     title: built.title || "Flooring",
     description:
@@ -16,6 +16,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function FlooringPage() {
-  const result = await getPageDataSafe("flooring-overview.md");
+  const result = await getFlooringMainPageSettingsSafe();
   return <FlooringOverviewClient {...result} />;
 }

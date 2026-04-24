@@ -1,12 +1,12 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import CabinetsOverviewPage from "@/components/cabinets-overview/CabinetsOverviewPage";
-import { normalizeCabinetsOverviewQueryData } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
+import CabinetsOverviewPage from "@/components/special/cabinets-overview/CabinetsOverviewPage";
+import { normalizeCabinetsOverviewQueryData } from "@/components/special/cabinets-overview/normalize-cabinets-overview-query";
 import { CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import type { CabinetsOverviewPageSettingsQueryLikeResult } from "@/components/page-settings/types";
-import { CABINETS_OVERVIEW_QUERY } from "@/components/cabinets-overview/queries";
-import type { CabinetsOverviewQueryLikeResult } from "@/components/cabinets-overview/types";
+import { CABINETS_OVERVIEW_QUERY } from "@/components/special/cabinets-overview/queries";
+import type { CabinetsOverviewQueryLikeResult } from "@/components/special/cabinets-overview/types";
 
 interface HomePageDataShape {
   page?: {

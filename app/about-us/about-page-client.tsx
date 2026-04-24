@@ -4,6 +4,7 @@ import { useTina } from "tinacms/dist/react";
 import { resolveTemplateName, toBlockArray, type HomeBlock } from "@/app/figma-home.helpers";
 import AboutHeroSection from "@/components/about/AboutHeroSection";
 import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
+import { useResolvedSharedSectionBlocks } from "@/components/shared/use-shared-sections";
 
 interface AboutPageClientProps {
   data: { page?: { blocks?: unknown[] | null } | null };
@@ -23,7 +24,6 @@ function renderBlock(block: HomeBlock, index: number) {
       return (
         <SharedPageSectionRenderer
           block={blockRecord}
-          contactMode="formAndShowroom"
           key={key}
           template={template}
         />
@@ -41,16 +41,22 @@ function TinaAboutPageClient(props: AboutPageClientProps) {
     query: props.query || "",
     variables: props.variables || {},
   });
+  const blocks = useResolvedSharedSectionBlocks(data.page?.blocks);
 
-  return renderPage(toBlockArray(data.page?.blocks));
+  return renderPage(blocks);
 }
 
 export default function AboutPageClient(props: AboutPageClientProps) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    return renderPage(toBlockArray(props.data?.page?.blocks));
+    return <StaticAboutPageClient blocks={props.data?.page?.blocks} />;
   }
 
   return <TinaAboutPageClient {...props} />;
+}
+
+function StaticAboutPageClient({ blocks }: { blocks: unknown }) {
+  const resolvedBlocks = useResolvedSharedSectionBlocks(blocks);
+  return renderPage(resolvedBlocks);
 }

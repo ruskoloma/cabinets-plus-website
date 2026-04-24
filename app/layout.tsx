@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Jost, Open_Sans, Red_Hat_Display, Red_Hat_Text } from "next/font/google";
 import "./globals.css";
 import { getGlobalDocumentSafe } from "@/app/get-global-document-safe";
+import { getSharedSectionsSafe } from "@/app/get-shared-sections-safe";
 import LayoutClient from "@/components/layout/LayoutClient";
 import InjectedScripts from "@/components/layout/InjectedScripts";
 import {
@@ -38,10 +39,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [headerData, footerData, generalData] = await Promise.all([
+  const [headerData, footerData, generalData, sharedSectionsData] = await Promise.all([
     getGlobalDocumentSafe("header.json", FALLBACK_HEADER_DOCUMENT),
     getGlobalDocumentSafe("footer.json", FALLBACK_FOOTER_DOCUMENT),
     getGlobalDocumentSafe("general.json", FALLBACK_GENERAL_DOCUMENT),
+    getSharedSectionsSafe(),
   ]);
   const generalRecord = generalData.data.global || FALLBACK_GENERAL_DOCUMENT;
   const headScripts = typeof generalRecord.headScripts === "string" ? generalRecord.headScripts : "";
@@ -53,7 +55,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <InjectedScripts placement="head" snippet={headScripts} />
       </head>
       <body className={`${redHatDisplay.variable} ${redHatText.variable} ${jost.variable} ${openSans.variable} antialiased`}>
-        <LayoutClient footerData={footerData} generalData={generalData} headerData={headerData}>
+        <LayoutClient
+          footerData={footerData}
+          generalData={generalData}
+          headerData={headerData}
+          sharedSectionsData={sharedSectionsData}
+        >
           {children}
         </LayoutClient>
         <InjectedScripts placement="body" snippet={bodyScripts} />

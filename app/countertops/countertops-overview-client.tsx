@@ -1,11 +1,19 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
-import FigmaCountertopsOverviewPage from "@/components/countertops-overview/FigmaCountertopsOverviewPage";
+import FigmaCountertopsOverviewPage from "@/components/special/countertops-overview/FigmaCountertopsOverviewPage";
 
 interface Props {
   data: Record<string, unknown>;
   query?: string;
   variables?: Record<string, unknown>;
+}
+
+function getPageRecord(data: Record<string, unknown>) {
+  const page =
+    (data as { countertopsMainPageSettings?: unknown }).countertopsMainPageSettings ??
+    (data as { page?: unknown }).page;
+
+  return page && typeof page === "object" ? (page as Record<string, unknown>) : {};
 }
 
 function TinaCountertopsOverviewClient(props: Props) {
@@ -15,17 +23,14 @@ function TinaCountertopsOverviewClient(props: Props) {
     variables: props.variables || {},
   });
 
-  const page = (data as { page?: Record<string, unknown> }).page;
-
-  return <FigmaCountertopsOverviewPage page={page || {}} />;
+  return <FigmaCountertopsOverviewPage page={getPageRecord(data as Record<string, unknown>)} />;
 }
 
 export default function CountertopsOverviewClient(props: Props) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    const page = (props.data as { page?: Record<string, unknown> }).page;
-    return <FigmaCountertopsOverviewPage page={page || {}} />;
+    return <FigmaCountertopsOverviewPage page={getPageRecord(props.data)} />;
   }
 
   return <TinaCountertopsOverviewClient {...props} />;

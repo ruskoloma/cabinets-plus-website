@@ -1,7 +1,7 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
-import { asBlockArray, type BlockRecord } from "@/components/blocks/block-types";
-import BlockRenderer from "@/components/blocks/BlockRenderer";
+import { asBlockArray, type BlockRecord } from "@/components/sections/block-types";
+import BlockRenderer from "@/components/sections/BlockRenderer";
 
 interface ServiceDataShape {
   service?: {

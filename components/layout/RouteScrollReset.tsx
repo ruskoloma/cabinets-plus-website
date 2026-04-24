@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { scrollPageToTop } from "@/components/catalog-overview/use-pagination-scroll";
+import { scrollPageToTop } from "@/components/special/catalog-overview/use-pagination-scroll";
 
 export default function RouteScrollReset() {
   const pathname = usePathname();

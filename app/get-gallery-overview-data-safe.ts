@@ -7,9 +7,9 @@ import {
   withContentSysFields,
 } from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
-import { GALLERY_OVERVIEW_QUERY } from "@/components/gallery-overview/queries";
-import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
-import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
+import { GALLERY_OVERVIEW_QUERY } from "@/components/special/gallery-overview/queries";
+import { normalizeGalleryOverviewQueryData } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
+import type { GalleryOverviewQueryLikeResult } from "@/components/special/gallery-overview/types";
 
 export async function getGalleryOverviewDataSafe(): Promise<GalleryOverviewQueryLikeResult> {
   try {

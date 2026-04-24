@@ -9,8 +9,8 @@ import {
 } from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 import { FLOORING_LIVE_QUERY } from "@/app/flooring-live-query";
-import { normalizeFlooringQueryData } from "@/components/flooring/normalize-flooring-query";
-import type { FlooringListItem, FlooringQueryLikeResult } from "@/components/flooring/types";
+import { normalizeFlooringQueryData } from "@/components/special/flooring/normalize-flooring-query";
+import type { FlooringListItem, FlooringQueryLikeResult } from "@/components/special/flooring/types";
 
 function toSlug(value: string): string {
   return value

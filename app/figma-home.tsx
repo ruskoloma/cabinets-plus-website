@@ -18,8 +18,8 @@ import {
   type Dict,
   type PartnerLogoItem,
 } from "@/app/figma-home.helpers";
-import ContactUsSection from "@/components/home/ContactUsSection";
-import OurShowroomSection from "@/components/home/OurShowroomSection";
+import ContactUsSection from "@/components/shared/ContactUsSection";
+import OurShowroomSection from "@/components/shared/OurShowroomSection";
 import Button from "@/components/ui/Button";
 import FallbackImg from "@/components/ui/FallbackImg";
 import PreviewCard from "@/components/home/PreviewCard";
@@ -29,6 +29,7 @@ import TrustBar from "@/components/home/TrustBar";
 import TrustMessageStrip from "@/components/home/TrustMessageStrip";
 import PartnersSection from "@/components/shared/PartnersSection";
 import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
+import { useResolvedSharedSectionBlocks } from "@/components/shared/use-shared-sections";
 import FillImage from "@/components/ui/FillImage";
 import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import type { ImageVariantPreset } from "@/lib/image-variants";
@@ -78,7 +79,7 @@ function renderHighlightedText(textValue: string, highlights: string[], emphasis
 }
 
 export default function FigmaHome({ page }: Props) {
-  const parsedBlocks = toBlockArray(page.blocks);
+  const parsedBlocks = useResolvedSharedSectionBlocks(page.blocks);
 
   const hero = getBlock(parsedBlocks, "hero");
   const products = getBlock(parsedBlocks, "productsSection");
@@ -90,6 +91,7 @@ export default function FigmaHome({ page }: Props) {
   const process = getBlock(parsedBlocks, "processSection");
   const faq = getBlock(parsedBlocks, "faqSection");
   const contact = getBlock(parsedBlocks, "contactSection");
+  const showroomSection = getBlock(parsedBlocks, "showroomSection");
   const trustStrip = getBlock(parsedBlocks, "trustStrip");
   const partnersBlock = getBlock(parsedBlocks, "partnersSection");
 
@@ -103,6 +105,7 @@ export default function FigmaHome({ page }: Props) {
   const processRecord = process as Record<string, unknown>;
   const faqRecord = faq as Record<string, unknown>;
   const contactRecord = contact as Record<string, unknown>;
+  const showroomSectionRecord = showroomSection as Record<string, unknown>;
   const trustStripRecord = trustStrip as Record<string, unknown>;
   const partnersRecord = partnersBlock as Record<string, unknown>;
   const heroImageOptions = resolveHomepageSectionImageOptions(heroRecord);
@@ -187,6 +190,7 @@ export default function FigmaHome({ page }: Props) {
     "processSection",
     "faqSection",
     "contactSection",
+    "showroomSection",
     "partnersSection",
   ]);
   const resolveSectionVariant = (
@@ -458,8 +462,8 @@ export default function FigmaHome({ page }: Props) {
         <PartnersSection block={partnersRecord} />
       </div> : null}
 
-      {hasTemplate("contactSection") ? <div style={{ order: getSectionOrder("contactSection", 10, 1) }}>
-        <OurShowroomSection block={contactRecord} />
+      {hasTemplate("showroomSection") ? <div style={{ order: getSectionOrder("showroomSection", 10, 1) }}>
+        <OurShowroomSection block={showroomSectionRecord} />
       </div> : null}
 
       {parsedBlocks.map((block, index) => {

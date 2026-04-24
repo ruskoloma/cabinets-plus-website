@@ -7,10 +7,10 @@
       "_template": "countertopCatalogGrid"
     },
     {
-      "_template": "countertopPartnersSection"
+      "_template": "sharedCountertopPartnersSection"
     },
     {
-      "_template": "contactSection"
+      "_template": "sharedContactSection"
     }
   ],
   "_template": "countertopsOverview"

@@ -2,78 +2,100 @@
 
 import AboutStorySection from "@/components/about/AboutStorySection";
 import AboutTrustSection from "@/components/about/AboutTrustSection";
-import FAQSectionBlock from "@/components/blocks/FAQSectionBlock";
-import HeroBlock from "@/components/blocks/HeroBlock";
-import ProcessSectionBlock from "@/components/blocks/ProcessSectionBlock";
-import ProductsSectionBlock from "@/components/blocks/ProductsSectionBlock";
-import ProjectsSectionBlock from "@/components/blocks/ProjectsSectionBlock";
-import RichContentBlock from "@/components/blocks/RichContentBlock";
-import ServicesSectionBlock from "@/components/blocks/ServicesSectionBlock";
-import WhyUsSectionBlock from "@/components/blocks/WhyUsSectionBlock";
+import FAQSectionBlock from "@/components/sections/FAQSectionBlock";
+import HeroBlock from "@/components/sections/HeroBlock";
+import ProcessSectionBlock from "@/components/sections/ProcessSectionBlock";
+import ProductsSectionBlock from "@/components/sections/ProductsSectionBlock";
+import ProjectsSectionBlock from "@/components/sections/ProjectsSectionBlock";
+import RichContentBlock from "@/components/sections/RichContentBlock";
+import ServicesSectionBlock from "@/components/sections/ServicesSectionBlock";
+import ShowroomBannerBlock from "@/components/sections/ShowroomBannerBlock";
+import WhyUsSectionBlock from "@/components/sections/WhyUsSectionBlock";
 import {
   CountertopPartnersSection,
   FlooringPartnersSection,
-} from "@/components/catalog-overview/OurPartnersSection";
-import ContactUsSection from "@/components/home/ContactUsSection";
-import OurShowroomSection from "@/components/home/OurShowroomSection";
+} from "@/components/shared/OurPartnersSection";
+import ContactUsSection from "@/components/shared/ContactUsSection";
+import OurShowroomSection from "@/components/shared/OurShowroomSection";
 import TrustMessageStrip from "@/components/home/TrustMessageStrip";
 import PartnersSection from "@/components/shared/PartnersSection";
-import ShowroomBannerSection from "@/components/shared/ShowroomBannerSection";
-import TextImageSection from "@/components/shared/TextImageSection";
+import ShowroomBannerSection from "@/components/sections/ShowroomBannerSection";
+import TextImageSection from "@/components/sections/TextImageSection";
+import { useSharedSections } from "@/components/layout/GlobalContext";
+import { resolveSharedSectionBlock } from "@/components/shared/shared-sections";
 
 interface SharedPageSectionRendererProps {
   block: Record<string, unknown>;
   template: string;
-  contactMode?: "form" | "formAndShowroom";
 }
 
 export default function SharedPageSectionRenderer({
   block,
   template,
-  contactMode = "form",
 }: SharedPageSectionRendererProps) {
-  switch (template) {
+  const sharedSections = useSharedSections();
+  const resolvedBlock = resolveSharedSectionBlock(block, sharedSections);
+  const resolvedTemplate =
+    typeof resolvedBlock._template === "string" ? resolvedBlock._template : template;
+
+  switch (resolvedTemplate) {
     case "hero":
-      return <HeroBlock block={block} />;
+      return <HeroBlock block={resolvedBlock} />;
     case "productsSection":
-      return <ProductsSectionBlock block={block} />;
+      return <ProductsSectionBlock block={resolvedBlock} />;
     case "servicesSection":
-      return <ServicesSectionBlock block={block} />;
+      return <ServicesSectionBlock block={resolvedBlock} />;
     case "projectsSection":
-      return <ProjectsSectionBlock block={block} />;
+      return <ProjectsSectionBlock block={resolvedBlock} />;
     case "whyUsSection":
-      return <WhyUsSectionBlock block={block} />;
-    case "trustStrip":
-      return <TrustMessageStrip block={block} />;
-    case "aboutSection":
-      return <AboutTrustSection block={block} />;
-    case "showroomBanner":
-      return <ShowroomBannerSection block={block} />;
-    case "processSection":
-      return <ProcessSectionBlock block={block} />;
-    case "faqSection":
-      return <FAQSectionBlock block={block} />;
-    case "contactSection":
-      return contactMode === "formAndShowroom" ? (
-        <>
-          <ContactUsSection block={block} />
-          <OurShowroomSection block={block} />
-        </>
-      ) : (
-        <ContactUsSection block={block} />
+      return <WhyUsSectionBlock block={resolvedBlock} />;
+    case "features":
+      return (
+        <WhyUsSectionBlock
+          block={{
+            ...resolvedBlock,
+            features: Array.isArray(resolvedBlock.features) ? resolvedBlock.features : resolvedBlock.items,
+          }}
+        />
       );
+    case "trustStrip":
+      return <TrustMessageStrip block={resolvedBlock} />;
+    case "aboutSection":
+      return <AboutTrustSection block={resolvedBlock} />;
+    case "showroomBanner":
+      return <ShowroomBannerSection block={resolvedBlock} />;
+    case "ctaBanner":
+      return (
+        <ShowroomBannerBlock
+          block={{
+            ...resolvedBlock,
+            ctaLabel: resolvedBlock.ctaLabel || resolvedBlock.buttonText,
+            ctaLink: resolvedBlock.ctaLink || resolvedBlock.buttonLink,
+          }}
+        />
+      );
+    case "processSection":
+      return <ProcessSectionBlock block={resolvedBlock} />;
+    case "faqSection":
+      return <FAQSectionBlock block={resolvedBlock} />;
+    case "contactSection":
+      return <ContactUsSection block={resolvedBlock} />;
+    case "showroomSection":
+      return <OurShowroomSection block={resolvedBlock} />;
     case "aboutStorySection":
-      return <AboutStorySection block={block} />;
+      return <AboutStorySection block={resolvedBlock} />;
     case "richContent":
-      return <RichContentBlock block={block} />;
+      return <RichContentBlock block={resolvedBlock} />;
+    case "gallery":
+      return <ProjectsSectionBlock block={resolvedBlock} />;
     case "textImageSection":
-      return <TextImageSection block={block} />;
+      return <TextImageSection block={resolvedBlock} />;
     case "partnersSection":
-      return <PartnersSection block={block} />;
+      return <PartnersSection block={resolvedBlock} />;
     case "countertopPartnersSection":
-      return <CountertopPartnersSection block={block} />;
+      return <CountertopPartnersSection block={resolvedBlock} />;
     case "flooringPartnersSection":
-      return <FlooringPartnersSection block={block} />;
+      return <FlooringPartnersSection block={resolvedBlock} />;
     default:
       return null;
   }

@@ -2,7 +2,7 @@ import { createStaticQueryResult, readJsonContentFile } from "@/app/lib/content"
 import type {
   CountertopPageSettings,
   CountertopPageSettingsQueryLikeResult,
-} from "@/components/countertop/types";
+} from "@/components/special/countertop/types";
 import { COUNTERTOP_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import { client } from "@/tina/__generated__/client";
 

@@ -7,9 +7,9 @@ import {
   withContentSysFields,
 } from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
-import { normalizeCabinetsOverviewQueryData } from "@/components/cabinets-overview/normalize-cabinets-overview-query";
-import { CABINETS_OVERVIEW_QUERY } from "@/components/cabinets-overview/queries";
-import type { CabinetsOverviewQueryLikeResult } from "@/components/cabinets-overview/types";
+import { normalizeCabinetsOverviewQueryData } from "@/components/special/cabinets-overview/normalize-cabinets-overview-query";
+import { CABINETS_OVERVIEW_QUERY } from "@/components/special/cabinets-overview/queries";
+import type { CabinetsOverviewQueryLikeResult } from "@/components/special/cabinets-overview/types";
 
 export async function getCabinetsOverviewDataSafe(): Promise<CabinetsOverviewQueryLikeResult> {
   try {

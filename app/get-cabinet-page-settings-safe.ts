@@ -2,7 +2,7 @@ import { createStaticQueryResult, readJsonContentFile } from "@/app/lib/content"
 import type {
   CabinetPageSettings,
   CabinetPageSettingsQueryLikeResult,
-} from "@/components/cabinet-door/types";
+} from "@/components/special/cabinet-door/types";
 import { CABINET_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import { client } from "@/tina/__generated__/client";
 

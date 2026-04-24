@@ -1475,6 +1475,15 @@ function sharedContactSectionTemplate() {
       { type: "string" as const, name: "messageLabel", label: "Message Field Label" },
       { type: "string" as const, name: "messagePlaceholder", label: "Message Placeholder" },
       { type: "string" as const, name: "submitLabel", label: "Submit Button Label" },
+    ],
+  };
+}
+
+function sharedShowroomSectionTemplate() {
+  return {
+    name: "showroomSection" as const,
+    label: "Our Showroom Section",
+    fields: [
       { type: "string" as const, name: "showroomTitle", label: "Showroom Title" },
       { type: "string" as const, name: "followUsLabel", label: "Follow Label" },
       {
@@ -1570,6 +1579,44 @@ function sharedPartnersSectionTemplate(options?: {
       },
     ],
   };
+}
+
+function sharedSectionReferenceTemplate(
+  name:
+    | "sharedContactSection"
+    | "sharedShowroomSection"
+    | "sharedAboutSection"
+    | "sharedPartnersSection"
+    | "sharedCountertopPartnersSection"
+    | "sharedFlooringPartnersSection",
+  label: string,
+  sharedSourceLabel: string,
+) {
+  return {
+    name,
+    label,
+    fields: [
+      {
+        type: "string" as const,
+        name: "sharedSection",
+        label: "Shared Source",
+        description: `${sharedSourceLabel} is edited once in Page Settings > Shared Sections and reused anywhere this block is placed.`,
+        options: [{ label: sharedSourceLabel, value: name }],
+        ui: { component: "select" as const },
+      },
+    ],
+  };
+}
+
+function sharedSectionReferenceTemplates() {
+  return [
+    sharedSectionReferenceTemplate("sharedContactSection", "Shared: Contact Section", "Contact Section"),
+    sharedSectionReferenceTemplate("sharedShowroomSection", "Shared: Our Showroom Section", "Our Showroom Section"),
+    sharedSectionReferenceTemplate("sharedAboutSection", "Shared: About / Trust Section", "About / Trust Section"),
+    sharedSectionReferenceTemplate("sharedPartnersSection", "Shared: Cabinet Partners", "Cabinet Partners"),
+    sharedSectionReferenceTemplate("sharedCountertopPartnersSection", "Shared: Countertop Partners", "Countertop Partners"),
+    sharedSectionReferenceTemplate("sharedFlooringPartnersSection", "Shared: Flooring Partners", "Flooring Partners"),
+  ];
 }
 
 function sharedProcessSectionTemplate() {
@@ -1681,6 +1728,7 @@ function sharedPageSectionTemplates() {
     sharedProcessSectionTemplate(),
     sharedFaqSectionTemplate(),
     sharedContactSectionTemplate(),
+    sharedShowroomSectionTemplate(),
     sharedAboutStorySectionTemplate(),
     sharedRichContentTemplate(),
     sharedTextImageSectionTemplate(),
@@ -1693,7 +1741,33 @@ function sharedPageSectionTemplates() {
       name: "flooringPartnersSection",
       label: "Flooring Partners Section",
     }),
+    ...sharedSectionReferenceTemplates(),
   ];
+}
+
+function sharedPageSectionTemplatesExcept(excludedNames: string[]) {
+  const excluded = new Set(excludedNames);
+  return sharedPageSectionTemplates().filter((template) => !excluded.has(template.name));
+}
+
+function serviceMainPageSettingsTemplate(name: string, label: string, route: string) {
+  return {
+    name,
+    label,
+    fields: [
+      { type: "string" as const, name: "title", label: "Page Title", isTitle: true, required: true },
+      seoFields(),
+      {
+        type: "object" as const,
+        name: "blocks",
+        label: "Page Sections",
+        description: `Reorderable sections that render on ${route}. Add, delete, edit, and drag sections here.`,
+        list: true,
+        ui: { visualSelector: true },
+        templates: sharedPageSectionTemplates(),
+      },
+    ],
+  };
 }
 
 export default defineConfig({
@@ -1976,13 +2050,64 @@ export default defineConfig({
         format: "json",
         match: {
           include:
-            "@(cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
+            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
         },
         ui: {
           global: true,
           allowedActions: { create: false, delete: false },
         },
         templates: [
+          {
+            name: "sharedSections",
+            label: "Shared Sections",
+            fields: [
+              {
+                type: "object",
+                name: "contactSection",
+                label: "Contact Section",
+                fields: sharedContactSectionTemplate().fields,
+              },
+              {
+                type: "object",
+                name: "showroomSection",
+                label: "Our Showroom Section",
+                fields: sharedShowroomSectionTemplate().fields,
+              },
+              {
+                type: "object",
+                name: "aboutSection",
+                label: "About / Trust Section",
+                fields: sharedAboutSectionTemplate().fields,
+              },
+              {
+                type: "object",
+                name: "partnersSection",
+                label: "Cabinet Partners",
+                fields: sharedPartnersSectionTemplate().fields,
+              },
+              {
+                type: "object",
+                name: "countertopPartnersSection",
+                label: "Countertop Partners",
+                fields: sharedPartnersSectionTemplate({
+                  name: "countertopPartnersSection",
+                  label: "Countertop Partners",
+                }).fields,
+              },
+              {
+                type: "object",
+                name: "flooringPartnersSection",
+                label: "Flooring Partners",
+                fields: sharedPartnersSectionTemplate({
+                  name: "flooringPartnersSection",
+                  label: "Flooring Partners",
+                }).fields,
+              },
+            ],
+          },
+          serviceMainPageSettingsTemplate("cabinetsMainPage", "Cabinets Page (/cabinets)", "/cabinets"),
+          serviceMainPageSettingsTemplate("countertopsMainPage", "Countertops Page (/countertops)", "/countertops"),
+          serviceMainPageSettingsTemplate("flooringMainPage", "Flooring Page (/flooring)", "/flooring"),
           {
             name: "cabinetsOverview",
             label: "Cabinet Catalog",
@@ -2090,19 +2215,39 @@ export default defineConfig({
           },
           {
             name: "gallery",
-            label: "Gallery",
+            label: "Gallery Page (/gallery)",
             fields: [
-              { type: "string", name: "pageTitle", label: "Page Title" },
-              imageSizeSettingField(
-                "galleryOverviewProjectCardImageSize",
-                "Project Card Images",
-                "Controls the main project grid images on /gallery.",
-              ),
-              imageSizeSettingField(
-                "galleryOverviewFilterImageSize",
-                "Filter Images",
-                "Controls the visual filter cards on /gallery.",
-              ),
+              { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
+              seoFields(),
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on /gallery. The Gallery Grid block is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "galleryProjectGrid",
+                    label: "Gallery Grid (filters + project grid — required)",
+                    fields: [
+                      { type: "string", name: "pageTitle", label: "Page Title" },
+                      imageSizeSettingField(
+                        "galleryOverviewProjectCardImageSize",
+                        "Project Card Images",
+                        "Controls the main project grid images on /gallery.",
+                      ),
+                      imageSizeSettingField(
+                        "galleryOverviewFilterImageSize",
+                        "Filter Images",
+                        "Controls the visual filter cards on /gallery.",
+                      ),
+                    ],
+                  },
+                  ...sharedPageSectionTemplates(),
+                ],
+              },
             ],
           },
           {
@@ -2382,12 +2527,10 @@ export default defineConfig({
         name: "page",
         label: "Pages",
         path: "content/pages",
+        match: { include: "@(home|about-us|contact-us)" },
         ui: {
           router: ({ document }) => {
             if (document._sys.filename === "home") return "/";
-            if (document._sys.filename === "countertops-overview") return "/countertops";
-            if (document._sys.filename === "cabinets-overview") return "/cabinets";
-            if (document._sys.filename === "flooring-overview") return "/flooring";
             return `/${document._sys.filename}`;
           },
           allowedActions: { create: false, delete: false },
@@ -2457,6 +2600,7 @@ export default defineConfig({
                   { type: "string", name: "buttonLink", label: "Button Link" },
                 ],
               },
+              ...sharedPageSectionTemplatesExcept(["hero"]),
             ],
           },
         ],

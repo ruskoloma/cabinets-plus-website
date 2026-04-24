@@ -1,8 +1,8 @@
 "use client";
 
 import { useEditState, useTina } from "tinacms/dist/react";
-import CabinetDoorPage from "@/components/cabinet-door/CabinetDoorPage";
-import { normalizeCabinetQueryData } from "@/components/cabinet-door/normalize-cabinet-query";
+import CabinetDoorPage from "@/components/special/cabinet-door/CabinetDoorPage";
+import { normalizeCabinetQueryData } from "@/components/special/cabinet-door/normalize-cabinet-query";
 import { CABINET_LIVE_QUERY } from "@/app/cabinet-live-query";
 import {
   buildGalleryItems,
@@ -12,15 +12,15 @@ import {
   getCabinetSlug,
   resolveCabinetPageText,
   sortTechnicalDetails,
-} from "@/components/cabinet-door/helpers";
+} from "@/components/special/cabinet-door/helpers";
 import type {
   CabinetData,
   CabinetListItem,
   CabinetPageSettings,
   CabinetPageSettingsQueryLikeResult,
-} from "@/components/cabinet-door/types";
-import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
-import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
+} from "@/components/special/cabinet-door/types";
+import { normalizeGalleryOverviewQueryData } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
+import type { GalleryOverviewQueryLikeResult } from "@/components/special/gallery-overview/types";
 
 interface CabinetDataShape {
   cabinet?: CabinetData | null;

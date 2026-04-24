@@ -2,7 +2,7 @@ import { createStaticQueryResult, readJsonContentFile } from "@/app/lib/content"
 import type {
   FlooringPageSettings,
   FlooringPageSettingsQueryLikeResult,
-} from "@/components/flooring/types";
+} from "@/components/special/flooring/types";
 import { FLOORING_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import { client } from "@/tina/__generated__/client";
 

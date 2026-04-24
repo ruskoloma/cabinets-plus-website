@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { buildDocumentMetadata } from "@/app/lib/metadata";
 import CountertopsOverviewClient from "./countertops-overview-client";
-import { getPageDataSafe } from "@/app/get-page-data-safe";
+import { getCountertopsMainPageSettingsSafe } from "@/app/get-countertops-main-page-settings-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const result = await getPageDataSafe("countertops-overview.md");
-  const built = buildDocumentMetadata(result.data.page);
+  const result = await getCountertopsMainPageSettingsSafe();
+  const built = buildDocumentMetadata(result.data.countertopsMainPageSettings);
   return {
     title: built.title || "Countertops",
     description:
@@ -16,6 +16,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CountertopsPage() {
-  const result = await getPageDataSafe("countertops-overview.md");
+  const result = await getCountertopsMainPageSettingsSafe();
   return <CountertopsOverviewClient {...result} />;
 }

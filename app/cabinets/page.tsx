@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { buildDocumentMetadata } from "@/app/lib/metadata";
 import CabinetsOverviewClient from "./cabinets-overview-client";
-import { getPageDataSafe } from "@/app/get-page-data-safe";
+import { getCabinetsMainPageSettingsSafe } from "@/app/get-cabinets-main-page-settings-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const result = await getPageDataSafe("cabinets-overview.md");
-  const built = buildDocumentMetadata(result.data.page);
+  const result = await getCabinetsMainPageSettingsSafe();
+  const built = buildDocumentMetadata(result.data.cabinetsMainPageSettings);
   return {
     title: built.title || "Cabinets",
     description:
@@ -16,6 +16,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CabinetsPage() {
-  const result = await getPageDataSafe("cabinets-overview.md");
+  const result = await getCabinetsMainPageSettingsSafe();
   return <CabinetsOverviewClient {...result} />;
 }

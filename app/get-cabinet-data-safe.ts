@@ -9,11 +9,11 @@ import {
 } from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 import { CABINET_LIVE_QUERY } from "@/app/cabinet-live-query";
-import { normalizeCabinetQueryData } from "@/components/cabinet-door/normalize-cabinet-query";
+import { normalizeCabinetQueryData } from "@/components/special/cabinet-door/normalize-cabinet-query";
 import type {
   CabinetListItem,
   CabinetQueryLikeResult,
-} from "@/components/cabinet-door/types";
+} from "@/components/special/cabinet-door/types";
 
 function toSlug(value: string): string {
   return value

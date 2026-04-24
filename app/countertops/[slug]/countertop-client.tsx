@@ -2,7 +2,7 @@
 
 import { tinaField, useEditState, useTina } from "tinacms/dist/react";
 import { COUNTERTOP_LIVE_QUERY } from "@/app/countertop-live-query";
-import CountertopDetailPage from "@/components/countertop/CountertopDetailPage";
+import CountertopDetailPage from "@/components/special/countertop/CountertopDetailPage";
 import {
   buildCountertopGalleryItems,
   buildCountertopProjectItems,
@@ -11,17 +11,17 @@ import {
   getCountertopSlug,
   resolveCountertopPageText,
   sortTechnicalDetails,
-} from "@/components/countertop/helpers";
-import { normalizeCountertopQueryData } from "@/components/countertop/normalize-countertop-query";
+} from "@/components/special/countertop/helpers";
+import { normalizeCountertopQueryData } from "@/components/special/countertop/normalize-countertop-query";
 import type {
   CountertopPageSettings,
   CountertopPageSettingsQueryLikeResult,
   CountertopData,
   CountertopListItem,
   ProductTechnicalDetailViewModel,
-} from "@/components/countertop/types";
-import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
-import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
+} from "@/components/special/countertop/types";
+import { normalizeGalleryOverviewQueryData } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
+import type { GalleryOverviewQueryLikeResult } from "@/components/special/gallery-overview/types";
 
 interface CountertopDataShape {
   countertop?: CountertopData | null;

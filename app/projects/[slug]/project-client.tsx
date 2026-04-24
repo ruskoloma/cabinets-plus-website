@@ -1,23 +1,23 @@
 "use client";
 
 import { useEditState, useTina, tinaField } from "tinacms/dist/react";
-import { GALLERY_OVERVIEW_QUERY } from "@/components/gallery-overview/queries";
-import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
-import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
+import { GALLERY_OVERVIEW_QUERY } from "@/components/special/gallery-overview/queries";
+import type { GalleryOverviewQueryLikeResult } from "@/components/special/gallery-overview/types";
+import { normalizeGalleryOverviewQueryData } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
 import { PROJECT_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import type { ProjectPageSettingsQueryLikeResult } from "@/components/page-settings/types";
-import ProjectDetailPage from "@/components/project-detail/ProjectDetailPage";
-import { normalizeProjectQueryData } from "@/components/project-detail/normalize-project-query";
+import ProjectDetailPage from "@/components/special/project-detail/ProjectDetailPage";
+import { normalizeProjectQueryData } from "@/components/special/project-detail/normalize-project-query";
 import {
   buildMaterialCards,
   buildProjectGallery,
   buildRelatedProjectCards,
-} from "@/components/project-detail/helpers";
+} from "@/components/special/project-detail/helpers";
 import type {
   CabinetListItem,
   CountertopListItem,
   ProjectDetailQueryLikeResult,
-} from "@/components/project-detail/types";
+} from "@/components/special/project-detail/types";
 import { PROJECT_LIVE_QUERY } from "@/app/project-live-query";
 
 interface HomePageDataShape {

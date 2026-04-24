@@ -1,0 +1,219 @@
+{
+  "_template": "sharedSections",
+  "contactSection": {
+    "title": "Contact us",
+    "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "messageLabel": "Project Idea (optional)",
+    "messagePlaceholder": "Tell us more about your project",
+    "submitLabel": "Send request"
+  },
+  "showroomSection": {
+    "showroomTitle": "Our showroom",
+    "followUsLabel": "Follow us",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus"
+  },
+  "aboutSection": {
+    "stats": [
+      {
+        "value": "10+",
+        "label": "years experience"
+      },
+      {
+        "value": "5K",
+        "label": "Happy customers"
+      },
+      {
+        "value": "200+",
+        "label": "New designs"
+      }
+    ],
+    "membershipDesktopLogo": "/library/trust/trust-membership.svg",
+    "membershipMobileTopLogo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-shba.png",
+    "membershipMobileBottomLogo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-membership-mobile-bottom.png",
+    "membershipLabel": "Membership",
+    "partnershipLabel": "Exclusive Partnership",
+    "partnerLogos": [
+      {
+        "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png",
+        "alt": "Lions Floor"
+      },
+      {
+        "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png",
+        "alt": "Lyrus Collection"
+      },
+      {
+        "logo": "/library/trust/trust-cambria.svg",
+        "alt": "Cambria"
+      },
+      {
+        "logo": "/library/trust/trust-bedrosians.svg",
+        "alt": "Bedrosians"
+      },
+      {
+        "logo": "/library/trust/trust-msi.svg",
+        "alt": "MSI"
+      },
+      {
+        "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png",
+        "alt": "Easy Stones"
+      }
+    ],
+    "ctaLabel": "About us",
+    "ctaLink": "/about-us"
+  },
+  "partnersSection": {
+    "title": "Our partners",
+    "description": "In addition to the cabinet options shown in our catalog, you may also order cabinetry from the partner brands listed below. Talk with our team about availability and lead times when placing your order.",
+    "footnote": "Click on a partner logo to view their products on the official website.",
+    "partnerLogos": [
+      {
+        "logo": "/library/trust/trust-cambria.svg",
+        "alt": "Cambria",
+        "url": "https://www.cambriausa.com/"
+      },
+      {
+        "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png",
+        "alt": "Lyrus Collection",
+        "url": "https://lyrus.com/"
+      },
+      {
+        "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png",
+        "alt": "Easy Stones",
+        "url": "https://easystones.com/"
+      },
+      {
+        "logo": "/library/trust/trust-msi.svg",
+        "alt": "MSI",
+        "url": "https://www.msisurfaces.com/"
+      },
+      {
+        "logo": "/library/trust/trust-bedrosians.svg",
+        "alt": "Bedrosians",
+        "url": "https://www.bedrosians.com/"
+      },
+      {
+        "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png",
+        "alt": "Lions Floor",
+        "url": "https://lionsfloor.com/"
+      }
+    ]
+  },
+  "countertopPartnersSection": {
+    "title": "Our partners",
+    "description": "In addition to the countertop options shown in our catalog, you may also order countertops from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.",
+    "footnote": "Click on a partner logo to view their products on the official website.",
+    "partnerLogos": [
+      {
+        "logo": "/library/partners/countertops/cambria.svg",
+        "alt": "Cambria",
+        "url": "https://www.cambriausa.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/caesarstone.svg",
+        "alt": "Caesarstone",
+        "url": "https://www.caesarstoneus.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/moda-surfaces.svg",
+        "alt": "Moda Surfaces",
+        "url": "https://modasurfaces.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/msi.svg",
+        "alt": "MSI",
+        "url": "https://www.msisurfaces.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/bedrosians.svg",
+        "alt": "Bedrosians",
+        "url": "https://www.bedrosians.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/daltile.svg",
+        "alt": "Daltile",
+        "url": "https://www.daltile.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/pental-quartz.svg",
+        "alt": "PentalQuartz",
+        "url": "https://www.pentalquartz.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/stratus-quartz.svg",
+        "alt": "Stratus Quartz",
+        "url": "https://www.stratusquartz.com/"
+      },
+      {
+        "logo": "/library/partners/countertops/hanstone.svg",
+        "alt": "HanStone",
+        "url": "https://www.hanstone.com/"
+      }
+    ]
+  },
+  "flooringPartnersSection": {
+    "title": "Our partners",
+    "description": "In addition to the flooring options shown in our catalog, you may also order flooring from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.",
+    "footnote": "Click on a partner logo to view their products on the official website.",
+    "partnerLogos": [
+      {
+        "logo": "/library/partners/flooring/mozaik.svg",
+        "alt": "Mozaik",
+        "url": "https://mozaikcollection.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/lions-floor.png",
+        "alt": "Lions Floor",
+        "url": "https://lionsfloor.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/prima-floors.png",
+        "alt": "Prima Floors",
+        "url": "https://primafloors.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/flooring2.png",
+        "alt": "flooring2",
+        "url": "https://flooring2.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/wanke-cascade-part-1.svg",
+        "alt": "Wanke Cascade",
+        "url": "https://wankecascade.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/msi.svg",
+        "alt": "MSI",
+        "url": "https://www.msisurfaces.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/pacmat.png",
+        "alt": "Pacmat",
+        "url": "https://pacmat.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/mohawk.svg",
+        "alt": "Mohawk",
+        "url": "https://www.mohawkflooring.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/stonewood.png",
+        "alt": "Stonewood",
+        "url": "https://stonewoodproducts.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/opus.png",
+        "alt": "Opus",
+        "url": "https://opusflooring.com/"
+      },
+      {
+        "logo": "/library/partners/flooring/engineered-floors.svg",
+        "alt": "Engineered Floors",
+        "url": "https://www.engineeredfloors.com/"
+      }
+    ]
+  }
+}

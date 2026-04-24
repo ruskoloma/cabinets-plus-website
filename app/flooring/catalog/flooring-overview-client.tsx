@@ -1,12 +1,12 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import FlooringOverviewPage from "@/components/flooring-overview/FlooringOverviewPage";
-import { normalizeFlooringOverviewQueryData } from "@/components/flooring-overview/normalize-flooring-overview-query";
+import FlooringOverviewPage from "@/components/special/flooring-overview/FlooringOverviewPage";
+import { normalizeFlooringOverviewQueryData } from "@/components/special/flooring-overview/normalize-flooring-overview-query";
 import { FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import type { FlooringOverviewPageSettingsQueryLikeResult } from "@/components/page-settings/types";
-import { FLOORING_OVERVIEW_QUERY } from "@/components/flooring-overview/queries";
-import type { FlooringOverviewQueryLikeResult } from "@/components/flooring-overview/types";
+import { FLOORING_OVERVIEW_QUERY } from "@/components/special/flooring-overview/queries";
+import type { FlooringOverviewQueryLikeResult } from "@/components/special/flooring-overview/types";
 
 interface HomePageDataShape {
   page?: {

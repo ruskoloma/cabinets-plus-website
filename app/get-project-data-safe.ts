@@ -7,8 +7,8 @@ import {
 } from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 import { PROJECT_LIVE_QUERY } from "@/app/project-live-query";
-import { normalizeProjectQueryData } from "@/components/project-detail/normalize-project-query";
-import type { ProjectDetailQueryLikeResult } from "@/components/project-detail/types";
+import { normalizeProjectQueryData } from "@/components/special/project-detail/normalize-project-query";
+import type { ProjectDetailQueryLikeResult } from "@/components/special/project-detail/types";
 
 const LEGACY_PROJECT_REDIRECTS: Record<string, string> = {
   "custom-kitchen-cabinetry-collection": "/gallery",

@@ -2,16 +2,17 @@
 
 import { useEditState } from "tinacms/dist/react";
 import { useTina } from "tinacms/dist/react";
-import type { PageQueryLikeResult } from "@/app/get-page-data-safe";
-import GalleryOverviewPage from "@/components/gallery-overview/GalleryOverviewPage";
-import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
+import GalleryOverviewPage from "@/components/special/gallery-overview/GalleryOverviewPage";
+import { normalizeGalleryOverviewQueryData } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
 import { GALLERY_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import type { GalleryPageSettingsQueryLikeResult } from "@/components/page-settings/types";
-import { GALLERY_OVERVIEW_QUERY } from "@/components/gallery-overview/queries";
-import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
+import { GALLERY_OVERVIEW_QUERY } from "@/components/special/gallery-overview/queries";
+import type { GalleryOverviewQueryLikeResult } from "@/components/special/gallery-overview/types";
+import { resolveTemplateName, type HomeBlock } from "@/app/figma-home.helpers";
+import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
+import { useResolvedSharedSectionBlocks } from "@/components/shared/use-shared-sections";
 
 interface GalleryOverviewClientProps {
-  homePageData: PageQueryLikeResult;
   overviewData: GalleryOverviewQueryLikeResult;
   pageSettingsData: GalleryPageSettingsQueryLikeResult;
 }
@@ -28,61 +29,104 @@ function filterPublishedProjects(overviewData: ReturnType<typeof normalizeGaller
   };
 }
 
-function extractHomeBlock(
-  pageData: unknown,
-  options: { typename: string; template: string },
-): Record<string, unknown> | null {
-  if (!pageData || typeof pageData !== "object") return null;
+const GALLERY_PROJECT_GRID_TEMPLATE = "galleryProjectGrid";
 
-  const page = pageData as { page?: { blocks?: unknown[] | null } | null };
-  const blocks = Array.isArray(page.page?.blocks) ? page.page.blocks : [];
+function getStringField(record: Record<string, unknown> | null, field: string, fallback = "") {
+  const value = record?.[field];
+  return typeof value === "string" && value.length > 0 ? value : fallback;
+}
 
-  const found = blocks.find((block) => {
-    if (!block || typeof block !== "object") return false;
-    const typed = block as { __typename?: string; _template?: string };
-    return typed.__typename === options.typename || typed._template === options.template;
-  });
+function ensureGalleryGridBlock(blocks: HomeBlock[], pageSettings: Record<string, unknown> | null): HomeBlock[] {
+  const hasGrid = blocks.some((block) => resolveTemplateName(block) === GALLERY_PROJECT_GRID_TEMPLATE);
+  if (hasGrid) return blocks;
 
-  return found && typeof found === "object" ? (found as Record<string, unknown>) : null;
+  return [
+    {
+      _template: GALLERY_PROJECT_GRID_TEMPLATE,
+      pageTitle: getStringField(pageSettings, "title", "Gallery"),
+      galleryOverviewProjectCardImageSize: "card",
+      galleryOverviewFilterImageSize: "thumb",
+    } as HomeBlock,
+    ...blocks,
+  ];
 }
 
 function GalleryOverviewRenderer({
-  homePageData,
   overviewData,
   pageSettingsData,
 }: {
-  homePageData: unknown;
   overviewData: unknown;
   pageSettingsData?: GalleryPageSettingsQueryLikeResult["data"];
 }) {
   const normalized = filterPublishedProjects(normalizeGalleryOverviewQueryData(overviewData));
-  const contactBlock = extractHomeBlock(homePageData, {
-    typename: "PageBlocksContactSection",
-    template: "contactSection",
-  });
   const pageSettings = pageSettingsData?.galleryPageSettings || null;
+  const pageSettingsRecord = pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null;
+  const rawBlocks = Array.isArray(pageSettingsRecord?.blocks)
+    ? pageSettingsRecord.blocks
+    : [
+        {
+          _template: GALLERY_PROJECT_GRID_TEMPLATE,
+          pageTitle: getStringField(pageSettingsRecord, "title", "Gallery"),
+          galleryOverviewProjectCardImageSize: "card",
+          galleryOverviewFilterImageSize: "thumb",
+        },
+        { _template: "sharedContactSection" },
+        { _template: "sharedShowroomSection" },
+      ];
+  const resolvedBlocks = useResolvedSharedSectionBlocks(rawBlocks);
+  const blocks = ensureGalleryGridBlock(resolvedBlocks as HomeBlock[], pageSettingsRecord);
 
   return (
-    <GalleryOverviewPage
-      contactBlock={contactBlock}
-      data={normalized}
-      filterImageSizeChoice={pageSettings?.galleryOverviewFilterImageSize}
-      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
-      pageTitle={pageSettings?.pageTitle || "Gallery"}
-      projectCardImageSizeChoice={pageSettings?.galleryOverviewProjectCardImageSize}
-    />
+    <div className="bg-white">
+      {blocks.map((block, index) => {
+        const template = resolveTemplateName(block);
+        const blockRecord = block as Record<string, unknown>;
+        const key = `${template || "block"}-${index}`;
+
+        if (template === GALLERY_PROJECT_GRID_TEMPLATE) {
+          return (
+            <GalleryOverviewPage
+              contactBlock={null}
+              data={normalized}
+              filterImageSizeChoice={
+                typeof blockRecord.galleryOverviewFilterImageSize === "string"
+                  ? blockRecord.galleryOverviewFilterImageSize
+                  : "thumb"
+              }
+              key={key}
+              pageSettingsRecord={blockRecord}
+              pageTitle={
+                typeof blockRecord.pageTitle === "string"
+                  ? blockRecord.pageTitle
+                  : getStringField(pageSettingsRecord, "title", "Gallery")
+              }
+              projectCardImageSizeChoice={
+                typeof blockRecord.galleryOverviewProjectCardImageSize === "string"
+                  ? blockRecord.galleryOverviewProjectCardImageSize
+                  : "card"
+              }
+            />
+          );
+        }
+
+        return (
+          <SharedPageSectionRenderer
+            block={blockRecord}
+            key={key}
+            template={template}
+          />
+        );
+      })}
+    </div>
   );
 }
 
 function TinaGalleryOverview({
-  homePageData,
-  homeQuery,
   overviewData,
   overviewQuery,
   pageSettingsData,
   settingsQuery,
 }: GalleryOverviewClientProps & {
-  homeQuery?: string;
   overviewQuery: string;
   settingsQuery: string;
 }) {
@@ -92,39 +136,27 @@ function TinaGalleryOverview({
     variables: overviewData.variables || {},
   });
 
-  const liveHome = useTina({
-    data: homePageData.data,
-    query: homeQuery || "",
-    variables: homePageData.variables || {},
-  });
   const liveSettings = useTina({
     data: pageSettingsData.data,
     query: settingsQuery,
     variables: pageSettingsData.variables || {},
   });
 
-  return <GalleryOverviewRenderer homePageData={liveHome.data} overviewData={liveOverview.data} pageSettingsData={liveSettings.data} />;
+  return <GalleryOverviewRenderer overviewData={liveOverview.data} pageSettingsData={liveSettings.data} />;
 }
 
-export default function GalleryOverviewClient({ homePageData, overviewData, pageSettingsData }: GalleryOverviewClientProps) {
+export default function GalleryOverviewClient({ overviewData, pageSettingsData }: GalleryOverviewClientProps) {
   const { edit } = useEditState();
   const overviewQuery = overviewData.query?.trim() || GALLERY_OVERVIEW_QUERY;
   const hasLiveQuery = Boolean(overviewData.query?.trim());
-  const homeQuery = homePageData.query?.trim() || "";
   const settingsQuery = pageSettingsData.query?.trim() || GALLERY_PAGE_SETTINGS_QUERY;
 
-  if (!hasLiveQuery && !homeQuery && !edit) {
-    return <GalleryOverviewRenderer homePageData={homePageData.data} overviewData={overviewData.data} pageSettingsData={pageSettingsData.data} />;
-  }
-
-  if (!homeQuery) {
-    return <GalleryOverviewRenderer homePageData={homePageData.data} overviewData={overviewData.data} pageSettingsData={pageSettingsData.data} />;
+  if (!hasLiveQuery && !edit) {
+    return <GalleryOverviewRenderer overviewData={overviewData.data} pageSettingsData={pageSettingsData.data} />;
   }
 
   return (
     <TinaGalleryOverview
-      homePageData={homePageData}
-      homeQuery={homeQuery}
       overviewData={overviewData}
       overviewQuery={overviewQuery}
       pageSettingsData={pageSettingsData}

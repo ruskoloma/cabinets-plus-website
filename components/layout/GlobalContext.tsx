@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useContext } from "react";
+import type { SharedSectionsDocument } from "@/components/shared/shared-sections";
 
 export interface GlobalSettings {
   siteName: string;
@@ -49,6 +50,7 @@ interface GlobalRawDocuments {
 
 interface GlobalContextValue {
   rawDocuments: GlobalRawDocuments;
+  sharedSections: SharedSectionsDocument;
   settings: GlobalSettings;
 }
 
@@ -66,4 +68,10 @@ export function useGlobalRawDocument(documentName: keyof GlobalRawDocuments): Re
   const ctx = useContext(GlobalContext);
   if (!ctx) throw new Error("useGlobalRawDocument must be used inside GlobalProvider");
   return ctx.rawDocuments[documentName];
+}
+
+export function useSharedSections(): SharedSectionsDocument {
+  const ctx = useContext(GlobalContext);
+  if (!ctx) throw new Error("useSharedSections must be used inside GlobalProvider");
+  return ctx.sharedSections;
 }

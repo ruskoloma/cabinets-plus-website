@@ -7,9 +7,9 @@ import {
   withContentSysFields,
 } from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
-import { normalizeCountertopsOverviewQueryData } from "@/components/countertops-overview/normalize-countertops-overview-query";
-import { COUNTERTOPS_OVERVIEW_QUERY } from "@/components/countertops-overview/queries";
-import type { CountertopsOverviewQueryLikeResult } from "@/components/countertops-overview/types";
+import { normalizeCountertopsOverviewQueryData } from "@/components/special/countertops-overview/normalize-countertops-overview-query";
+import { COUNTERTOPS_OVERVIEW_QUERY } from "@/components/special/countertops-overview/queries";
+import type { CountertopsOverviewQueryLikeResult } from "@/components/special/countertops-overview/types";
 
 export async function getCountertopsOverviewDataSafe(): Promise<CountertopsOverviewQueryLikeResult> {
   try {

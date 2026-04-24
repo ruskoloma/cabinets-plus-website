@@ -1,12 +1,12 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import CountertopsOverviewPage from "@/components/countertops-overview/CountertopsOverviewPage";
-import { normalizeCountertopsOverviewQueryData } from "@/components/countertops-overview/normalize-countertops-overview-query";
+import CountertopsOverviewPage from "@/components/special/countertops-overview/CountertopsOverviewPage";
+import { normalizeCountertopsOverviewQueryData } from "@/components/special/countertops-overview/normalize-countertops-overview-query";
 import { COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries";
 import type { CountertopsOverviewPageSettingsQueryLikeResult } from "@/components/page-settings/types";
-import { COUNTERTOPS_OVERVIEW_QUERY } from "@/components/countertops-overview/queries";
-import type { CountertopsOverviewQueryLikeResult } from "@/components/countertops-overview/types";
+import { COUNTERTOPS_OVERVIEW_QUERY } from "@/components/special/countertops-overview/queries";
+import type { CountertopsOverviewQueryLikeResult } from "@/components/special/countertops-overview/types";
 
 interface HomePageDataShape {
   page?: {

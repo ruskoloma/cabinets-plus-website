@@ -1,11 +1,19 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
-import FigmaCabinetsOverviewPage from "@/components/cabinets-overview/FigmaCabinetsOverviewPage";
+import FigmaCabinetsOverviewPage from "@/components/special/cabinets-overview/FigmaCabinetsOverviewPage";
 
 interface Props {
   data: Record<string, unknown>;
   query?: string;
   variables?: Record<string, unknown>;
+}
+
+function getPageRecord(data: Record<string, unknown>) {
+  const page =
+    (data as { cabinetsMainPageSettings?: unknown }).cabinetsMainPageSettings ??
+    (data as { page?: unknown }).page;
+
+  return page && typeof page === "object" ? (page as Record<string, unknown>) : {};
 }
 
 function TinaCabinetsOverviewClient(props: Props) {
@@ -15,17 +23,14 @@ function TinaCabinetsOverviewClient(props: Props) {
     variables: props.variables || {},
   });
 
-  const page = (data as { page?: Record<string, unknown> }).page;
-
-  return <FigmaCabinetsOverviewPage page={page || {}} />;
+  return <FigmaCabinetsOverviewPage page={getPageRecord(data as Record<string, unknown>)} />;
 }
 
 export default function CabinetsOverviewClient(props: Props) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    const page = (props.data as { page?: Record<string, unknown> }).page;
-    return <FigmaCabinetsOverviewPage page={page || {}} />;
+    return <FigmaCabinetsOverviewPage page={getPageRecord(props.data)} />;
   }
 
   return <TinaCabinetsOverviewClient {...props} />;

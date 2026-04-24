@@ -1,6 +1,21 @@
 {
   "_template": "gallery",
-  "pageTitle": "Gallery",
-  "galleryOverviewProjectCardImageSize": "card",
-  "galleryOverviewFilterImageSize": "thumb"
+  "title": "Gallery",
+  "seo": {
+    "description": "Browse completed cabinet, bath, laundry, and interior projects from Cabinets Plus."
+  },
+  "blocks": [
+    {
+      "_template": "galleryProjectGrid",
+      "pageTitle": "Gallery",
+      "galleryOverviewProjectCardImageSize": "card",
+      "galleryOverviewFilterImageSize": "thumb"
+    },
+    {
+      "_template": "sharedContactSection"
+    },
+    {
+      "_template": "sharedShowroomSection"
+    }
+  ]
 }

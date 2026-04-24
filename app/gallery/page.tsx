@@ -1,25 +1,31 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import GalleryOverviewClient from "./gallery-overview-client";
+import { buildDocumentMetadata } from "@/app/lib/metadata";
 import { getGalleryOverviewDataSafe } from "@/app/get-gallery-overview-data-safe";
 import { getGalleryPageSettingsSafe } from "@/app/get-gallery-page-settings-safe";
-import { getPageDataSafe } from "@/app/get-page-data-safe";
 
-export const metadata: Metadata = {
-  title: "Gallery",
-  description: "Browse completed cabinet, bath, laundry, and interior projects from Cabinets Plus.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const result = await getGalleryPageSettingsSafe();
+  const built = buildDocumentMetadata(result.data.galleryPageSettings);
+  return {
+    title: built.title || "Gallery",
+    description:
+      built.description ||
+      "Browse completed cabinet, bath, laundry, and interior projects from Cabinets Plus.",
+    openGraph: built.openGraph,
+  };
+}
 
 export default async function GalleryPage() {
-  const [overviewData, homePageData, pageSettingsData] = await Promise.all([
+  const [overviewData, pageSettingsData] = await Promise.all([
     getGalleryOverviewDataSafe(),
-    getPageDataSafe("home.md"),
     getGalleryPageSettingsSafe(),
   ]);
 
   return (
     <Suspense fallback={null}>
-      <GalleryOverviewClient homePageData={homePageData} overviewData={overviewData} pageSettingsData={pageSettingsData} />
+      <GalleryOverviewClient overviewData={overviewData} pageSettingsData={pageSettingsData} />
     </Suspense>
   );
 }

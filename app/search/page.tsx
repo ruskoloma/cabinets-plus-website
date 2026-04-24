@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
-import { formatProductCode } from "@/components/cabinet-door/helpers";
+import { formatProductCode } from "@/components/special/cabinet-door/helpers";
 import { getSearchResultsSafe } from "@/app/get-search-results-safe";
 
 function textQuery(value: string | string[] | undefined): string {

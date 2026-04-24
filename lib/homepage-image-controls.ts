@@ -6,7 +6,7 @@ import {
 
 export const HOMEPAGE_SECTION_IMAGE_SIZE_OPTIONS = IMAGE_SIZE_SELECT_OPTIONS;
 
-export interface HomepageSectionImageOptions extends ImageSizeSelection {}
+export type HomepageSectionImageOptions = ImageSizeSelection;
 
 export function resolveHomepageSectionImageOptions(value: Record<string, unknown> | null | undefined): HomepageSectionImageOptions {
   return resolveImageSizeSelection(value?.imageSize);

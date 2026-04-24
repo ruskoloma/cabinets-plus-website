@@ -1,8 +1,9 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import { resolveTemplateName, toBlockArray, type HomeBlock } from "@/app/figma-home.helpers";
+import { resolveTemplateName, type HomeBlock } from "@/app/figma-home.helpers";
 import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
+import { useResolvedSharedSectionBlocks } from "@/components/shared/use-shared-sections";
 
 interface ContactPageClientProps {
   data: { page?: { blocks?: unknown[] | null } | null };
@@ -20,7 +21,6 @@ function renderSections(blocks: HomeBlock[]) {
         return (
           <SharedPageSectionRenderer
             block={blockRecord}
-            contactMode="formAndShowroom"
             key={`contact-block-${template || "unknown"}-${index}`}
             template={template}
           />
@@ -36,16 +36,22 @@ function TinaContactPageClient(props: ContactPageClientProps) {
     query: props.query || "",
     variables: props.variables || {},
   });
+  const blocks = useResolvedSharedSectionBlocks(data.page?.blocks);
 
-  return renderSections(toBlockArray(data.page?.blocks));
+  return renderSections(blocks);
 }
 
 export default function ContactPageClient(props: ContactPageClientProps) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    return renderSections(toBlockArray(props.data?.page?.blocks));
+    return <StaticContactPageClient blocks={props.data?.page?.blocks} />;
   }
 
   return <TinaContactPageClient {...props} />;
+}
+
+function StaticContactPageClient({ blocks }: { blocks: unknown }) {
+  const resolvedBlocks = useResolvedSharedSectionBlocks(blocks);
+  return renderSections(resolvedBlocks);
 }

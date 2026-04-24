@@ -9,8 +9,8 @@ import {
 } from "@/app/lib/content";
 import { client } from "@/tina/__generated__/client";
 import { COUNTERTOP_LIVE_QUERY } from "@/app/countertop-live-query";
-import { normalizeCountertopQueryData } from "@/components/countertop/normalize-countertop-query";
-import type { CountertopListItem, CountertopQueryLikeResult } from "@/components/countertop/types";
+import { normalizeCountertopQueryData } from "@/components/special/countertop/normalize-countertop-query";
+import type { CountertopListItem, CountertopQueryLikeResult } from "@/components/special/countertop/types";
 
 function toSlug(value: string): string {
   return value

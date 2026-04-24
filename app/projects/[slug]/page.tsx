@@ -8,7 +8,7 @@ import { getProjectPageSettingsSafe } from "@/app/get-project-page-settings-safe
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 import { getCabinetIndexSafe } from "@/app/get-cabinet-data-safe";
 import { getCountertopIndexSafe } from "@/app/get-countertop-data-safe";
-import { buildProjectGallery, getProjectHeading } from "@/components/project-detail/helpers";
+import { buildProjectGallery, getProjectHeading } from "@/components/special/project-detail/helpers";
 
 export async function generateStaticParams() {
   const projectIndex = await getProjectIndexSafe();

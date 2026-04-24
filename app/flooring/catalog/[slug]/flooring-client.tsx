@@ -2,7 +2,7 @@
 
 import { tinaField, useEditState, useTina } from "tinacms/dist/react";
 import { FLOORING_LIVE_QUERY } from "@/app/flooring-live-query";
-import FlooringDetailPage from "@/components/flooring/FlooringDetailPage";
+import FlooringDetailPage from "@/components/special/flooring/FlooringDetailPage";
 import {
   buildFlooringGalleryItems,
   buildFlooringProjectItems,
@@ -11,17 +11,17 @@ import {
   getFlooringSlug,
   resolveFlooringPageText,
   sortTechnicalDetails,
-} from "@/components/flooring/helpers";
-import { normalizeFlooringQueryData } from "@/components/flooring/normalize-flooring-query";
+} from "@/components/special/flooring/helpers";
+import { normalizeFlooringQueryData } from "@/components/special/flooring/normalize-flooring-query";
 import type {
   FlooringPageSettings,
   FlooringPageSettingsQueryLikeResult,
   FlooringData,
   FlooringListItem,
   ProductTechnicalDetailViewModel,
-} from "@/components/flooring/types";
-import { normalizeGalleryOverviewQueryData } from "@/components/gallery-overview/normalize-gallery-overview-query";
-import type { GalleryOverviewQueryLikeResult } from "@/components/gallery-overview/types";
+} from "@/components/special/flooring/types";
+import { normalizeGalleryOverviewQueryData } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
+import type { GalleryOverviewQueryLikeResult } from "@/components/special/gallery-overview/types";
 
 interface FlooringDataShape {
   flooring?: FlooringData | null;

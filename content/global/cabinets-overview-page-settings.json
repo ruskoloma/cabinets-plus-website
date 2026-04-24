@@ -82,7 +82,7 @@
       ]
     },
     {
-      "_template": "contactSection",
+      "_template": "sharedContactSection",
       "title": "Contact us",
       "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
       "nameLabel": "Name",
