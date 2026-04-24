@@ -115,9 +115,17 @@ sourceId: 243
 sourceUpdatedAt: '2025-07-25T22:53:52.983Z'
 stainType: mocha stain
 relatedProjects:
-  - project: content/projects/residence-on-dishman-road.md
-  - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/art-house-on-27th-avenue.md
+  - project: content/projects/residence-on-20th-avenue.md
+  - project: content/projects/residence-on-beverly-drive.md
+  - project: content/projects/residence-on-bush-drive.md
+  - project: content/projects/residence-on-dahl-road.md
+  - project: content/projects/residence-on-handy-road.md
+  - project: content/projects/residence-on-little-deep-creek-lane.md
+  - project: content/projects/residence-on-peone-road.md
+  - project: content/projects/residence-on-whitetail-lane.md
+  - project: content/projects/restaurant-project.md
+  - project: content/projects/two-tone-residence-on-locust-road.md
 relatedProducts:
   - product: content/cabinets/awb.md
   - product: content/cabinets/axm.md
@@ -126,4 +134,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: timber
 ---
-

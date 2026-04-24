@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaibizagold/3275-calacatta-ibiza-gold.jpg
-relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-villier-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattaelitegold.md
   - product: content/countertops/calacattabellagio.md
@@ -60,4 +57,3 @@ media:
 sourceId: 1701
 sourceUpdatedAt: '2025-09-18T18:25:11.065Z'
 ---
-

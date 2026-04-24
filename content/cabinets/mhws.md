@@ -48,10 +48,7 @@ media:
 sourceId: 302
 sourceUpdatedAt: '2025-07-25T22:53:52.919Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-madison-road.md
-  - project: content/projects/residence-on-peone-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/moss.md
   - product: content/cabinets/nwk.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: shaker
 paint: off white
 ---
-

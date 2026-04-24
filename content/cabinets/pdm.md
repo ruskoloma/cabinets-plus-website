@@ -48,10 +48,7 @@ media:
 sourceId: 269
 sourceUpdatedAt: '2025-07-25T22:53:55.423Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-handy-road.md
-  - project: content/projects/residence-on-whitetail-lane.md
-  - project: content/projects/residence-on-kate-drive.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/prm.md
   - product: content/cabinets/psm.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: blue
 ---
-

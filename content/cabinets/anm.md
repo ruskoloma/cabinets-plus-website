@@ -74,9 +74,7 @@ media:
 sourceId: 266
 sourceUpdatedAt: '2025-07-25T22:53:54.607Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-sipple-road.md
-  - project: content/projects/residence-on-20th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/aop.md
   - product: content/cabinets/arm.md
@@ -85,4 +83,3 @@ relatedProducts:
 doorStyle: shaker
 paint: gray
 ---
-

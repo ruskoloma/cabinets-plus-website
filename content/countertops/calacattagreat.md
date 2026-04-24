@@ -15,6 +15,7 @@ description: >-
   This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
   selection.
 picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattagreat/calacatta-great.jpg
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattabellagio.md
   - product: content/countertops/calacattabrezze.md

@@ -18,10 +18,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ACB/3090-acb-artisanal-charcoal.jpg
-relatedProjects:
-  - project: content/projects/residence-on-bruce-road.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-geiger.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/aeb.md
   - product: content/cabinets/algb.md
@@ -61,4 +58,3 @@ sourceUpdatedAt: 2025-07-25T22:53:52.619Z
 doorStyle: flat panel
 paint: custom paint
 ---
-

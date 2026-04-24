@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgold/3650-calacatta-slim-gold-1.jpg
-relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-whitetail-lane.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattaelitegold.md
   - product: content/countertops/calacattaibizagold.md
@@ -56,4 +53,3 @@ media:
 sourceId: 1724
 sourceUpdatedAt: '2025-09-18T18:25:09.454Z'
 ---
-

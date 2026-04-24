@@ -49,9 +49,7 @@ sourceId: 307
 sourceUpdatedAt: '2025-07-25T22:53:56.098Z'
 stainType: mocha stain
 relatedProjects:
-  - project: content/projects/duplex-kitchen-project.md
-  - project: content/projects/residence-on-dishman-road.md
-  - project: content/projects/residence-on-chattaroy.md
+  - project: content/projects/residence-on-akre-heights-drive.md
 relatedProducts:
   - product: content/cabinets/owk.md
   - product: content/cabinets/owu.md
@@ -60,4 +58,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: brown
 ---
-

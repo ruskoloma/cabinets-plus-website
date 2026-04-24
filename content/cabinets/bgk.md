@@ -100,9 +100,7 @@ media:
 sourceId: 253
 sourceUpdatedAt: '2025-07-25T22:53:53.814Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-sipple-road.md
-  - project: content/projects/residence-on-20th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/bmk.md
   - product: content/cabinets/bsk.md
@@ -111,4 +109,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: gray
 ---
-

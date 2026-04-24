@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattabellagio/3287-calacatta-bellagio.jpg
-relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/dental-clinic-project.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattabrezze.md
   - product: content/countertops/calacattadays.md
@@ -60,4 +57,3 @@ media:
 sourceId: 1689
 sourceUpdatedAt: '2025-09-18T18:25:12.119Z'
 ---
-

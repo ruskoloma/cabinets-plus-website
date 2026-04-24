@@ -17,9 +17,13 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3268-simple-pure-white.jpg
 relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-may-ella-loop.md
+  - project: content/projects/duplex-kitchen-project.md
+  - project: content/projects/residence-on-hawthorne-road.md
+  - project: content/projects/residence-on-locust-road.md
+  - project: content/projects/residence-on-montgomery-avenue.md
+  - project: content/projects/residence-on-shiva-lane.md
+  - project: content/projects/residence-on-sipple-road.md
+  - project: content/projects/restaurant-project.md
 relatedProducts:
   - product: content/countertops/coastalwhite.md
   - product: content/countertops/calacattabellagio.md
@@ -60,4 +64,3 @@ media:
 sourceId: 1706
 sourceUpdatedAt: '2025-09-18T18:25:10.722Z'
 ---
-

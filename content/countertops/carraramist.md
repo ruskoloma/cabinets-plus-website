@@ -17,9 +17,8 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraramist/3270-carrara-mist.jpg
 relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/dental-clinic-project.md
+  - project: content/projects/residence-on-walnut-street.md
 relatedProducts:
   - product: content/countertops/cararrablackmistsuede.md
   - product: content/countertops/calacattabellagio.md
@@ -60,4 +59,3 @@ media:
 sourceId: 1005
 sourceUpdatedAt: '2025-09-18T18:25:12.193Z'
 ---
-

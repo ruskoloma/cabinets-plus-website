@@ -128,7 +128,17 @@ sourceId: 244
 sourceUpdatedAt: '2025-07-25T22:53:53.115Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
+  - project: content/projects/residence-on-7th-street.md
+  - project: content/projects/residence-on-beverly-drive.md
+  - project: content/projects/residence-on-bush-drive.md
+  - project: content/projects/residence-on-handy-road.md
+  - project: content/projects/residence-on-hawthorne-road.md
+  - project: content/projects/residence-on-huxley-drive.md
+  - project: content/projects/residence-on-june-bug-street.md
+  - project: content/projects/residence-on-kate-drive.md
+  - project: content/projects/residence-on-may-ella-loop.md
+  - project: content/projects/residence-on-peone-road.md
+  - project: content/projects/two-tone-residence-on-locust-road.md
 relatedProducts:
   - product: content/cabinets/axm.md
   - product: content/cabinets/bfk.md
@@ -137,4 +147,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: white
 ---
-

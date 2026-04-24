@@ -10,7 +10,8 @@ description: >-
   projects that want dependable performance, a polished showroom presentation,
   and a coordinated finish within the broader Alpine color line.
 picture: /library/flooring/flooring2/alpine-iron-frost-ap-9.avif
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/residence-on-harmony-road.md
 relatedProducts:
   - product: content/flooring/alpine-shell-ap-3.md
 technicalDetails:

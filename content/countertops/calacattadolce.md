@@ -34,10 +34,7 @@ media:
     altText: ''
     description: ''
     sourceId: 3667
-relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-whitetail-lane.md
-  - project: content/projects/black-island-project-at-the-art-house.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattabellagio.md
   - product: content/countertops/calacattabrezze.md
@@ -47,4 +44,3 @@ sourceId: 1726
 sourceUpdatedAt: 2025-09-18T18:25:09.275Z
 slug: calacattadolce
 ---
-

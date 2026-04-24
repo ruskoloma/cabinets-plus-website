@@ -88,8 +88,8 @@ sourceId: 250
 sourceUpdatedAt: '2025-07-25T22:53:51.874Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
-  - project: content/projects/residence-on-hawthorne-road.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
 relatedProducts:
   - product: content/cabinets/sek.md
   - product: content/cabinets/sfb.md
@@ -98,4 +98,3 @@ relatedProducts:
 doorStyle: shaker
 paint: white
 ---
-

@@ -75,9 +75,10 @@ sourceId: 301
 sourceUpdatedAt: '2025-07-25T22:53:52.537Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-bruce-road.md
-  - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-villier-road.md
+  - project: content/projects/restaurant-project.md
 relatedProducts:
   - product: content/cabinets/mhws.md
   - product: content/cabinets/moss.md
@@ -86,4 +87,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: black
 ---
-

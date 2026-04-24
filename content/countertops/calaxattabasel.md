@@ -35,9 +35,7 @@ media:
     description: ''
     sourceId: 3678
 relatedProjects:
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-may-ella-loop.md
+  - project: content/projects/residence-on-bush-drive.md
 relatedProducts:
   - product: content/countertops/calacattabellagio.md
   - product: content/countertops/calacattabrezze.md
@@ -47,4 +45,3 @@ sourceId: 1720
 sourceUpdatedAt: 2025-09-18T18:25:09.781Z
 slug: calaxattabasel
 ---
-

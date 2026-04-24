@@ -17,9 +17,7 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockywhitesparkle/3665-rocky-white-sparkle-1.jpg
 relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-may-ella-loop.md
+  - project: content/projects/coffee-bar-project.md
 relatedProducts:
   - product: content/countertops/rockygraysparkle.md
   - product: content/countertops/rockywhite.md
@@ -56,4 +54,3 @@ media:
 sourceId: 1709
 sourceUpdatedAt: '2025-09-18T18:25:10.528Z'
 ---
-

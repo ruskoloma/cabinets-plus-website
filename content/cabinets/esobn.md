@@ -49,9 +49,8 @@ sourceId: 276
 sourceUpdatedAt: '2025-07-25T22:53:52.115Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-bruce-road.md
-  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-akre-heights-drive.md
 relatedProducts:
   - product: content/cabinets/esoin.md
   - product: content/cabinets/esomn.md
@@ -60,4 +59,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: black
 ---
-

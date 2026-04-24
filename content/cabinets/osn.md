@@ -48,10 +48,7 @@ media:
 sourceId: 285
 sourceUpdatedAt: '2025-07-25T22:53:53.043Z'
 stainType: mocha stain
-relatedProjects:
-  - project: content/projects/residence-on-dishman-road.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/art-house-on-27th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/osu.md
   - product: content/cabinets/otu.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: shaker
 paint: timber
 ---
-

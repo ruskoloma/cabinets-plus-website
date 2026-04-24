@@ -75,7 +75,8 @@ sourceId: 231
 sourceUpdatedAt: '2025-07-25T22:53:52.362Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
+  - project: content/projects/residence-on-sheneen-ct.md
+  - project: content/projects/residence-on-villier-road.md
 relatedProducts:
   - product: content/cabinets/sdwh.md
   - product: content/cabinets/sek.md
@@ -84,4 +85,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
-

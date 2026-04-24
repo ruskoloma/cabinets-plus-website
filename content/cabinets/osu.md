@@ -48,10 +48,7 @@ media:
 sourceId: 306
 sourceUpdatedAt: '2025-07-25T22:53:52.788Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/otu.md
   - product: content/cabinets/owk.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: green
 ---
-

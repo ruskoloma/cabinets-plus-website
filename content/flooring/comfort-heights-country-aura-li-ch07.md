@@ -11,7 +11,8 @@ description: >-
   scratch resistance for spaces that want a durable surface with an elevated
   wood-floor visual.
 picture: /library/flooring/lionsfloor/comfort-heights-country-aura-li-ch07.jpg
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/residence-on-peone-road.md
 relatedProducts:
   - product: content/flooring/comfort-heights-cliff-cottage-li-ch03.md
   - product: content/flooring/comfort-heights-gardens-li-ch06.md

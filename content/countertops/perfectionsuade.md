@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/perfectionsuade/3269-soapstone-perfection-suade.jpg
-relatedProjects:
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-20th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattaperfection.md
   - product: content/countertops/tajperfection.md
@@ -60,4 +57,3 @@ media:
 sourceId: 1708
 sourceUpdatedAt: '2025-09-18T18:25:10.594Z'
 ---
-

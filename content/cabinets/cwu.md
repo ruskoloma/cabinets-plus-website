@@ -19,10 +19,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/CWU/3160-cwu-antique-white.jpg
-relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-madison-road.md
-  - project: content/projects/residence-on-peone-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/bmk.md
   - product: content/cabinets/esgn.md
@@ -60,4 +57,3 @@ media:
 sourceId: 304
 sourceUpdatedAt: 2025-07-25T22:53:55.353Z
 ---
-

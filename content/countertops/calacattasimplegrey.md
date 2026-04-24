@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasimplegrey/3649-calacatta-simple-grey-1.jpg
-relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/black-island-project-at-the-art-house.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattagreyalpine.md
   - product: content/countertops/calacattaicegrey.md
@@ -56,4 +53,3 @@ media:
 sourceId: 1725
 sourceUpdatedAt: '2025-09-18T18:25:09.351Z'
 ---
-

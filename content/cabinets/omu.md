@@ -48,9 +48,7 @@ media:
 sourceId: 305
 sourceUpdatedAt: '2025-07-25T22:53:55.559Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-sipple-road.md
-  - project: content/projects/residence-on-20th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/ook.md
   - product: content/cabinets/osn.md
@@ -59,4 +57,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: custom paint
 ---
-

@@ -49,9 +49,8 @@ sourceId: 294
 sourceUpdatedAt: '2025-07-25T22:53:53.246Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-villier-road.md
-  - project: content/projects/duplex-kitchen-project.md
+  - project: content/projects/residence-on-jacobs-road.md
+  - project: content/projects/residence-on-long-road.md
 relatedProducts:
   - product: content/cabinets/lsw.md
   - product: content/cabinets/mbs.md
@@ -60,4 +59,3 @@ relatedProducts:
 doorStyle: shaker
 paint: custom paint
 ---
-

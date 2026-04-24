@@ -48,10 +48,7 @@ media:
 sourceId: 303
 sourceUpdatedAt: '2025-07-25T22:53:52.695Z'
 stainType: mocha stain
-relatedProjects:
-  - project: content/projects/duplex-kitchen-project.md
-  - project: content/projects/residence-on-dishman-road.md
-  - project: content/projects/residence-on-chattaroy.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/cwu.md
   - product: content/cabinets/escp.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: brown
 ---
-

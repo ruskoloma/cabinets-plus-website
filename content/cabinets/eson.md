@@ -140,9 +140,10 @@ sourceId: 279
 sourceUpdatedAt: '2025-07-25T22:53:53.604Z'
 stainType: mocha stain
 relatedProjects:
-  - project: content/projects/residence-on-dishman-road.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/art-house-on-27th-avenue.md
+  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-harmony-road.md
+  - project: content/projects/residence-on-madison-road.md
+  - project: content/projects/stone-bathroom-project.md
 relatedProducts:
   - product: content/cabinets/fsh-iwb.md
   - product: content/cabinets/fsh-nbb.md
@@ -151,4 +152,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: timber
 ---
-

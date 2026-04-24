@@ -48,10 +48,7 @@ media:
 sourceId: 284
 sourceUpdatedAt: '2025-07-25T22:53:54.812Z'
 stainType: mocha stain
-relatedProjects:
-  - project: content/projects/residence-on-dishman-road.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-gerard-street.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/jgs.md
   - product: content/cabinets/lsa.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: shaker
 paint: brown
 ---
-

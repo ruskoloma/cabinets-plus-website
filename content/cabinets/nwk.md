@@ -87,8 +87,7 @@ media:
 sourceId: 259
 sourceUpdatedAt: '2025-07-25T22:53:53.754Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/omu.md
   - product: content/cabinets/ook.md
@@ -97,4 +96,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: white
 ---
-

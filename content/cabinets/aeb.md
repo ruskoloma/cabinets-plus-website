@@ -102,9 +102,10 @@ sourceId: 241
 sourceUpdatedAt: '2025-07-25T22:53:54.892Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-bruce-road.md
-  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-dahl-road.md
   - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-little-deep-creek-lane.md
+  - project: content/projects/residence-on-shiva-lane.md
 relatedProducts:
   - product: content/cabinets/algb.md
   - product: content/cabinets/anm.md
@@ -113,4 +114,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: custom paint
 ---
-

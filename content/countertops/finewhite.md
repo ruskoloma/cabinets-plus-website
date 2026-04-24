@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/finewhite/3657-fine-white-1.jpg
-relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/coastalwhite.md
   - product: content/countertops/rockywhite.md
@@ -56,4 +53,3 @@ media:
 sourceId: 1717
 sourceUpdatedAt: '2025-09-18T18:25:09.971Z'
 ---
-

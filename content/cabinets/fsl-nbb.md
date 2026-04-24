@@ -48,10 +48,7 @@ media:
 sourceId: 237
 sourceUpdatedAt: '2025-07-25T22:53:54.023Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-handy-road.md
-  - project: content/projects/residence-on-whitetail-lane.md
-  - project: content/projects/residence-on-kate-drive.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/haan.md
   - product: content/cabinets/habn.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: blue
 ---
-

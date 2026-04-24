@@ -48,9 +48,7 @@ media:
 sourceId: 235
 sourceUpdatedAt: '2025-07-25T22:53:55.097Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-sipple-road.md
-  - project: content/projects/residence-on-20th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/fsl-iwb.md
   - product: content/cabinets/fsl-nbb.md
@@ -59,4 +57,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: gray
 ---
-

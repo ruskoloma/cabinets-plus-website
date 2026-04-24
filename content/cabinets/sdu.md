@@ -48,9 +48,7 @@ media:
 sourceId: 311
 sourceUpdatedAt: '2025-07-25T22:53:56.249Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-sipple-road.md
-  - project: content/projects/residence-on-20th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/sdwa.md
   - product: content/cabinets/sdwh.md
@@ -59,4 +57,3 @@ relatedProducts:
 doorStyle: shaker
 paint: custom paint
 ---
-

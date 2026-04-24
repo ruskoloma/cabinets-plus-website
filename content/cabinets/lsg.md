@@ -153,8 +153,8 @@ sourceId: 293
 sourceUpdatedAt: '2025-07-25T22:53:52.276Z'
 stainType: ''
 relatedProjects:
+  - project: content/projects/residence-on-sheneen-ct.md
   - project: content/projects/residence-on-sipple-road.md
-  - project: content/projects/residence-on-20th-avenue.md
 relatedProducts:
   - product: content/cabinets/lskp.md
   - product: content/cabinets/lsw.md
@@ -163,4 +163,3 @@ relatedProducts:
 doorStyle: shaker
 paint: gray
 ---
-

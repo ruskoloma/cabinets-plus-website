@@ -48,10 +48,7 @@ media:
 sourceId: 233
 sourceUpdatedAt: '2025-07-25T22:53:53.873Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-madison-road.md
-  - project: content/projects/residence-on-peone-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/fsh-nbb.md
   - product: content/cabinets/fsl-dgb.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: off white
 ---
-

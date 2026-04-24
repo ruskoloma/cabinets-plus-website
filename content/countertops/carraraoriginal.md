@@ -17,9 +17,7 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraraoriginal/3655-carrara-original-1.jpg
 relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-22nd-avenue.md
 relatedProducts:
   - product: content/countertops/carraraclassic.md
   - product: content/countertops/carraramist.md
@@ -56,4 +54,3 @@ media:
 sourceId: 1719
 sourceUpdatedAt: '2025-09-18T18:25:09.841Z'
 ---
-

@@ -11,7 +11,8 @@ description: >-
   want waterproof durability, realistic embossed texture, and a quieter
   underfoot feel.
 picture: /library/flooring/lionsfloor/indoor-delight-forest-timber-li-id07.jpg
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/residence-on-beverly-drive.md
 relatedProducts:
   - product: content/flooring/indoor-delight-farmstead-li-id10.md
   - product: content/flooring/indoor-delight-fortress-dawn-li-id06.md

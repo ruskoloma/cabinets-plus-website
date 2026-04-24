@@ -88,9 +88,10 @@ sourceId: 232
 sourceUpdatedAt: '2025-07-25T22:53:53.679Z'
 stainType: ''
 relatedProjects:
+  - project: content/projects/residence-on-ezra-avenue.md
+  - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-harmony-road.md
-  - project: content/projects/art-house-on-27th-avenue.md
+  - project: content/projects/residence-on-villier-road.md
 relatedProducts:
   - product: content/cabinets/swu.md
   - product: content/cabinets/tgb.md
@@ -99,4 +100,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
-

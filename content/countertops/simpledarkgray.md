@@ -17,9 +17,7 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3664-simple-dark-gray-1.jpg
 relatedProjects:
-  - project: content/projects/residence-on-20th-avenue.md
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-priest-view-lane.md
 relatedProducts:
   - product: content/countertops/calacattaelitegray.md
   - product: content/countertops/calacattasimplegold.md
@@ -56,4 +54,3 @@ media:
 sourceId: 1710
 sourceUpdatedAt: '2025-09-18T18:25:10.455Z'
 ---
-

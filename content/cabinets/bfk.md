@@ -87,10 +87,7 @@ media:
 sourceId: 252
 sourceUpdatedAt: '2025-07-25T22:53:51.727Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-villier-road.md
-  - project: content/projects/duplex-kitchen-project.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/bgk.md
   - product: content/cabinets/bmk.md
@@ -99,4 +96,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: custom paint
 ---
-

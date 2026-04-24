@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraraclassic/3656-carrara-classic-1.jpg
-relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/black-island-project-at-the-art-house.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/carraramist.md
   - product: content/countertops/carraraoriginal.md
@@ -56,4 +53,3 @@ media:
 sourceId: 1718
 sourceUpdatedAt: '2025-09-18T18:25:09.910Z'
 ---
-

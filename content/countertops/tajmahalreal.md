@@ -15,6 +15,9 @@ description: >-
   This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
   selection.
 picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/tajmahalreal/taj-mahal-real.jpg
+relatedProjects:
+  - project: content/projects/residence-on-long-road.md
+  - project: content/projects/residence-on-owens-road.md
 relatedProducts:
   - product: content/countertops/tajlight.md
   - product: content/countertops/tajperfection.md

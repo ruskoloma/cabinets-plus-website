@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/cararrablackmistsuede/3281-cararra-black-mist-suede.jpg
-relatedProjects:
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-20th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/carraramist.md
   - product: content/countertops/calacattabellagio.md
@@ -60,4 +57,3 @@ media:
 sourceId: 1695
 sourceUpdatedAt: '2025-09-18T18:25:11.504Z'
 ---
-

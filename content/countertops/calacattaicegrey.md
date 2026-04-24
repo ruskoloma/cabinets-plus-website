@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaicegrey/3273-calacatta-ice-grey.jpg
-relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-honeycomb.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattagreyalpine.md
   - product: content/countertops/calacattabellagio.md
@@ -60,4 +57,3 @@ media:
 sourceId: 1703
 sourceUpdatedAt: '2025-09-18T18:25:10.924Z'
 ---
-

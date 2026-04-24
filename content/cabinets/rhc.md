@@ -101,9 +101,7 @@ sourceId: 249
 sourceUpdatedAt: '2025-07-25T22:53:50.969Z'
 stainType: mocha stain
 relatedProjects:
-  - project: content/projects/residence-on-dishman-road.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/art-house-on-27th-avenue.md
+  - project: content/projects/residence-on-priest-view-lane.md
 relatedProducts:
   - product: content/cabinets/sbu.md
   - product: content/cabinets/scu.md
@@ -112,4 +110,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: timber
 ---
-

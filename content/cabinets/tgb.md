@@ -114,8 +114,7 @@ sourceId: 247
 sourceUpdatedAt: '2025-07-25T22:53:55.709Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-villier-road.md
+  - project: content/projects/residence-on-7th-street.md
 relatedProducts:
   - product: content/cabinets/tgm.md
   - product: content/cabinets/twb.md
@@ -124,4 +123,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: custom paint
 ---
-

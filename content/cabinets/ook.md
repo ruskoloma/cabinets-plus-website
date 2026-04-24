@@ -38,10 +38,7 @@ media:
 sourceId: 260
 sourceUpdatedAt: '2025-07-25T22:53:53.386Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-harmony-road.md
-  - project: content/projects/art-house-on-27th-avenue.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/osn.md
   - product: content/cabinets/osu.md
@@ -50,4 +47,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
-

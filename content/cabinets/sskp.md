@@ -38,9 +38,7 @@ media:
 sourceId: 299
 sourceUpdatedAt: '2025-07-25T22:53:53.178Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-villier-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/swk.md
   - product: content/cabinets/swoa.md
@@ -49,4 +47,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: custom paint
 ---
-

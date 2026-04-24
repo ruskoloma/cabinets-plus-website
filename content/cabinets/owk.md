@@ -38,9 +38,7 @@ media:
 sourceId: 261
 sourceUpdatedAt: '2025-07-25T22:53:53.480Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
-  - project: content/projects/residence-on-hawthorne-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/owu.md
   - product: content/cabinets/pdm.md
@@ -49,4 +47,3 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
-

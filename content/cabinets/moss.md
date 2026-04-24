@@ -38,10 +38,7 @@ media:
 sourceId: 258
 sourceUpdatedAt: '2025-07-25T22:53:54.308Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/nwk.md
   - product: content/cabinets/omu.md
@@ -50,4 +47,3 @@ relatedProducts:
 doorStyle: shaker
 paint: custom paint
 ---
-

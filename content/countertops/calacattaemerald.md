@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaemerald/3277-calacatta-emerald.jpg
-relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-whitetail-lane.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattabellagio.md
   - product: content/countertops/calacattabrezze.md
@@ -60,4 +57,3 @@ media:
 sourceId: 1699
 sourceUpdatedAt: '2025-09-18T18:25:11.217Z'
 ---
-

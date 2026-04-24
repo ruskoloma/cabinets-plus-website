@@ -15,6 +15,7 @@ description: >-
   This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final
   selection.
 picture: https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattagold/calacatta-gold.jpg
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattaibizagold.md
   - product: content/countertops/calacattaelitegold.md

@@ -16,6 +16,11 @@ description: >-
   selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/blackpearlgranite/black-pearl-granite-polished.jpg
+relatedProjects:
+  - project: content/projects/residence-on-dunn-road.md
+  - project: content/projects/residence-on-huxley-drive.md
+  - project: content/projects/residence-on-peone-road.md
+  - project: content/projects/residence-on-whitetail-lane.md
 relatedProducts:
   - product: content/countertops/cararrablackmistsuede.md
   - product: content/countertops/simpleblacklaza.md

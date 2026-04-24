@@ -17,9 +17,9 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaelitegold/3274-calacatta-elite-gold.jpg
 relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-whitetail-lane.md
-  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-beverly-drive.md
+  - project: content/projects/residence-on-june-bug-street.md
+  - project: content/projects/residence-on-kate-drive.md
 relatedProducts:
   - product: content/countertops/calacattaelitegray.md
   - product: content/countertops/calacattaibizagold.md
@@ -60,4 +60,3 @@ media:
 sourceId: 1702
 sourceUpdatedAt: '2025-09-18T18:25:10.994Z'
 ---
-

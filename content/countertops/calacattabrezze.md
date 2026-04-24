@@ -17,9 +17,7 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattabrezze/3286-calacatta-brezze.jpg
 relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-whitetail-lane.md
-  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-madison-road.md
 relatedProducts:
   - product: content/countertops/calacattabellagio.md
   - product: content/countertops/calacattadays.md
@@ -60,4 +58,3 @@ media:
 sourceId: 1690
 sourceUpdatedAt: '2025-09-18T18:25:12.031Z'
 ---
-

@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/coastalbrown/3659-coastal-brown-1.jpg
-relatedProjects:
-  - project: content/projects/black-island-project-at-the-art-house.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/coastalwhite.md
   - product: content/countertops/calacattabellagio.md
@@ -56,4 +53,3 @@ media:
 sourceId: 1715
 sourceUpdatedAt: '2025-09-18T18:25:10.113Z'
 ---
-

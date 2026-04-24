@@ -17,9 +17,7 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgrey/3653-calacatta-slim-grey-1.jpg
 relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-villier-road.md
+  - project: content/projects/residence-on-dahl-road.md
 relatedProducts:
   - product: content/countertops/calacattagreyalpine.md
   - product: content/countertops/calacattaicegrey.md
@@ -56,4 +54,3 @@ media:
 sourceId: 1721
 sourceUpdatedAt: '2025-09-18T18:25:09.704Z'
 ---
-

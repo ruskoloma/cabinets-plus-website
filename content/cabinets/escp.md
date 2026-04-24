@@ -96,9 +96,9 @@ sourceId: 289
 sourceUpdatedAt: '2025-07-25T22:53:51.583Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-22nd-avenue.md
-  - project: content/projects/residence-on-villier-road.md
   - project: content/projects/duplex-kitchen-project.md
+  - project: content/projects/residence-on-june-bug-street.md
+  - project: content/projects/residence-on-may-ella-loop.md
 relatedProducts:
   - product: content/cabinets/esgn.md
   - product: content/cabinets/esn.md
@@ -107,4 +107,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: custom paint
 ---
-

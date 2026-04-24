@@ -115,7 +115,6 @@ sourceUpdatedAt: '2025-07-25T22:53:55.158Z'
 stainType: ''
 relatedProjects:
   - project: content/projects/residence-on-handy-road.md
-  - project: content/projects/residence-on-whitetail-lane.md
   - project: content/projects/residence-on-kate-drive.md
 relatedProducts:
   - product: content/cabinets/acb.md
@@ -125,4 +124,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: blue
 ---
-

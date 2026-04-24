@@ -49,8 +49,7 @@ sourceId: 274
 sourceUpdatedAt: '2025-07-25T22:53:51.123Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
-  - project: content/projects/residence-on-hawthorne-road.md
+  - project: content/projects/residence-on-madison-road.md
 relatedProducts:
   - product: content/cabinets/esnn.md
   - product: content/cabinets/esobn.md
@@ -59,4 +58,3 @@ relatedProducts:
 doorStyle: elegant shaker
 paint: white
 ---
-

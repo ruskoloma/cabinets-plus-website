@@ -113,9 +113,7 @@ media:
 sourceId: 265
 sourceUpdatedAt: '2025-07-25T22:53:55.293Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
-  - project: content/projects/residence-on-hawthorne-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/swoa.md
   - product: content/cabinets/swu.md
@@ -124,4 +122,3 @@ relatedProducts:
 doorStyle: shaker
 paint: white
 ---
-

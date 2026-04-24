@@ -38,10 +38,7 @@ media:
     countertop: ''
     label: SNU Shaker Navy.jpg
     description: ''
-relatedProjects:
-  - project: content/projects/dental-clinic-project.md
-  - project: content/projects/residence-on-kate-drive.md
-  - project: content/projects/residence-on-whitetail-lane.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/osu.md
   - product: content/cabinets/sskp.md
@@ -51,4 +48,3 @@ sourceId: 313
 sourceUpdatedAt: 2025-07-25T22:53:56.398Z
 slug: snu
 ---
-

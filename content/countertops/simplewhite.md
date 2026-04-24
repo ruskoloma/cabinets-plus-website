@@ -17,9 +17,8 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplewhite/3663-simple-white-1.jpg
 relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-may-ella-loop.md
+  - project: content/projects/art-house-on-27th-avenue.md
+  - project: content/projects/residence-on-villier-road.md
 relatedProducts:
   - product: content/countertops/simplepurewhite.md
   - product: content/countertops/simplewhitelaza.md
@@ -56,4 +55,3 @@ media:
 sourceId: 1711
 sourceUpdatedAt: '2025-09-18T18:25:10.385Z'
 ---
-

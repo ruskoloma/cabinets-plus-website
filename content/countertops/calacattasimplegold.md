@@ -17,9 +17,8 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasimplegold/3651-calacatta-simple-gold-1.jpg
 relatedProjects:
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-whitetail-lane.md
-  - project: content/projects/black-island-project-at-the-art-house.md
+  - project: content/projects/residence-on-may-ella-loop.md
+  - project: content/projects/two-tone-residence-on-locust-road.md
 relatedProducts:
   - product: content/countertops/calacattaelitegold.md
   - product: content/countertops/calacattaibizagold.md
@@ -56,4 +55,3 @@ media:
 sourceId: 1723
 sourceUpdatedAt: '2025-09-18T18:25:09.527Z'
 ---
-

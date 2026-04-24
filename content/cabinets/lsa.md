@@ -75,8 +75,7 @@ sourceId: 290
 sourceUpdatedAt: '2025-07-25T22:53:53.545Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-sipple-road.md
-  - project: content/projects/residence-on-20th-avenue.md
+  - project: content/projects/residence-on-helena-street.md
 relatedProducts:
   - product: content/cabinets/lse.md
   - product: content/cabinets/lsg.md
@@ -85,4 +84,3 @@ relatedProducts:
 doorStyle: shaker
 paint: gray
 ---
-

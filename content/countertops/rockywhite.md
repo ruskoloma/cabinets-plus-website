@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockywhite/3660-rocky-white-1.jpg
-relatedProjects:
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-may-ella-loop.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/rockywhitesparkle.md
   - product: content/countertops/coastalwhite.md
@@ -56,4 +53,3 @@ media:
 sourceId: 1714
 sourceUpdatedAt: '2025-09-18T18:25:10.167Z'
 ---
-

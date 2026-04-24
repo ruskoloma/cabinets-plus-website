@@ -101,9 +101,9 @@ sourceId: 263
 sourceUpdatedAt: '2025-07-25T22:53:54.472Z'
 stainType: mocha stain
 relatedProjects:
-  - project: content/projects/duplex-kitchen-project.md
-  - project: content/projects/residence-on-chattaroy.md
-  - project: content/projects/residence-on-dishman-road.md
+  - project: content/projects/residence-on-20th-avenue.md
+  - project: content/projects/residence-on-22nd-avenue.md
+  - project: content/projects/residence-on-sheneen-ct.md
 relatedProducts:
   - product: content/cabinets/skk.md
   - product: content/cabinets/smb.md
@@ -112,4 +112,3 @@ relatedProducts:
 doorStyle: shaker
 paint: brown
 ---
-

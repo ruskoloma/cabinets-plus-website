@@ -87,10 +87,7 @@ media:
 sourceId: 254
 sourceUpdatedAt: '2025-07-25T22:53:54.743Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-bruce-road.md
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-geiger.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/bsk.md
   - product: content/cabinets/bwk.md
@@ -99,4 +96,3 @@ relatedProducts:
 doorStyle: flat panel
 paint: custom paint
 ---
-

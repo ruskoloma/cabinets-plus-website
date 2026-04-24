@@ -128,7 +128,14 @@ sourceUpdatedAt: '2025-07-25T22:53:54.382Z'
 stainType: ''
 relatedProjects:
   - project: content/projects/residence-on-bolan-avenue.md
-  - project: content/projects/residence-on-hawthorne-road.md
+  - project: content/projects/residence-on-harmony-road.md
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-jacobs-road.md
+  - project: content/projects/residence-on-locust-road.md
+  - project: content/projects/residence-on-montgomery-avenue.md
+  - project: content/projects/residence-on-shiva-lane.md
+  - project: content/projects/residence-on-walnut-street.md
+  - project: content/projects/residence-on-whitetail-lane.md
 relatedProducts:
   - product: content/cabinets/mbs.md
   - product: content/cabinets/mhws.md
@@ -137,4 +144,3 @@ relatedProducts:
 doorStyle: shaker
 paint: white
 ---
-

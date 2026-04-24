@@ -49,8 +49,7 @@ sourceId: 314
 sourceUpdatedAt: '2025-07-25T22:53:52.202Z'
 stainType: ''
 relatedProjects:
-  - project: content/projects/residence-on-bolan-avenue.md
-  - project: content/projects/residence-on-hawthorne-road.md
+  - project: content/projects/residence-on-redemption-rock-road.md
 relatedProducts:
   - product: content/cabinets/tgb.md
   - product: content/cabinets/tgm.md
@@ -59,4 +58,3 @@ relatedProducts:
 doorStyle: shaker
 paint: white
 ---
-

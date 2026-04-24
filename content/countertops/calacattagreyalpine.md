@@ -16,10 +16,7 @@ description: >-
   finish before making your final selection.
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattagreyalpine/3272-grey-alpine.jpg
-relatedProjects:
-  - project: content/projects/residence-on-helena-street.md
-  - project: content/projects/residence-on-geiger.md
-  - project: content/projects/residence-on-villier-road.md
+relatedProjects: []
 relatedProducts:
   - product: content/countertops/calacattaicegrey.md
   - product: content/countertops/calacattabellagio.md
@@ -60,4 +57,3 @@ media:
 sourceId: 1704
 sourceUpdatedAt: '2025-09-18T18:25:10.858Z'
 ---
-

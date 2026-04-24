@@ -48,10 +48,7 @@ media:
 sourceId: 309
 sourceUpdatedAt: '2025-07-25T22:53:51.501Z'
 stainType: ''
-relatedProjects:
-  - project: content/projects/residence-on-honeycomb.md
-  - project: content/projects/residence-on-bruce-road.md
-  - project: content/projects/residence-on-shiva-lane.md
+relatedProjects: []
 relatedProducts:
   - product: content/cabinets/scu.md
   - product: content/cabinets/sdu.md
@@ -60,4 +57,3 @@ relatedProducts:
 doorStyle: shaker
 paint: black
 ---
-
