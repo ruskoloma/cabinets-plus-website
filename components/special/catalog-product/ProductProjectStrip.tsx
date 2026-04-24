@@ -24,13 +24,16 @@ interface ProductProjectStripProps {
   focusRootFieldName?: string;
 }
 
+// `sectionTinaField` in props is intentionally ignored: we do NOT put data-tina-field on the
+// outer section (or on project cards) so clicks on cards can focus the product's
+// relatedProjects list row via the custom postMessage channel, instead of Tina's native
+// handler walking up and focusing the page-settings block.
 export default function ProductProjectStrip({
   items,
   title,
   description,
   titleTinaField,
   descriptionTinaField,
-  sectionTinaField,
   imageSizeChoice,
   focusListKey,
   focusRootFieldName,
@@ -39,11 +42,10 @@ export default function ProductProjectStrip({
   const quickEditEnabled = useTinaQuickEditEnabled();
   const projectImageVariant = resolveConfiguredImageVariant(imageSizeChoice, "card");
   const canUseCustomFocus = Boolean(edit && quickEditEnabled && focusListKey);
-  const suppressSectionQuickEdit = canUseCustomFocus && items.some((item) => Boolean(item.focusItemId));
   if (!items.length) return null;
 
   return (
-    <section className="bg-white" data-tina-field={suppressSectionQuickEdit ? undefined : sectionTinaField}>
+    <section className="bg-white">
       <div className="cp-container px-4 py-12 md:px-8 md:py-16">
         <h2
           className="font-[var(--font-red-hat-display)] text-[28px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]"
@@ -61,14 +63,16 @@ export default function ProductProjectStrip({
         <div className="cp-hide-scrollbar mt-8 overflow-x-auto pb-2">
           <div className="flex min-w-max gap-5 md:gap-8">
             {items.map((project, index) => {
-              const useCustomFocus = canUseCustomFocus && Boolean(project.focusItemId);
-              const cardClassName = useCustomFocus ? `group block ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}` : "group block";
+              const cardClassName = canUseCustomFocus
+                ? `group block ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
+                : "group block";
               const handleClick = (event: MouseEvent<HTMLElement>) => {
                 if (!edit) return;
 
                 event.preventDefault();
+                event.stopPropagation();
 
-                if (!useCustomFocus || !focusListKey) return;
+                if (!focusListKey) return;
 
                 focusTinaSidebarListItem({
                   rootFieldName: focusRootFieldName,
@@ -100,19 +104,13 @@ export default function ProductProjectStrip({
               return (
                 <article className="w-[173px] md:w-[426px]" key={`${project.file}-${index}`}>
                   {project.href ? (
-                    <Link
-                      className={cardClassName}
-                      data-tina-field={useCustomFocus ? undefined : project.selectionTinaField}
-                      href={project.href}
-                      onClick={handleClick}
-                    >
+                    <Link className={cardClassName} href={project.href} onClick={handleClick}>
                       {content}
                     </Link>
                   ) : (
                     <div
-                      className={useCustomFocus ? TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME : undefined}
-                      data-tina-field={useCustomFocus ? undefined : project.selectionTinaField}
-                      onClick={useCustomFocus ? handleClick : undefined}
+                      className={canUseCustomFocus ? TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME : undefined}
+                      onClick={canUseCustomFocus ? handleClick : undefined}
                     >
                       {content}
                     </div>

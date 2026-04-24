@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { MouseEvent } from "react";
 import { useEditState } from "tinacms/dist/react";
 import FillImage from "@/components/ui/FillImage";
 import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
@@ -26,12 +27,14 @@ function formatProductCode(code?: string): string {
   return `#${code.replace(/^#+/, "").trim()}`;
 }
 
+// `sectionTinaField` in props is intentionally ignored: we do NOT put data-tina-field on the
+// outer section (or on related-product cards) so clicks route entirely through the custom
+// postMessage channel below.
 export default function ProductRelatedProducts({
   items,
   title,
   imageSizeChoice,
   titleTinaField,
-  sectionTinaField,
   focusListKey,
   focusRootFieldName,
 }: ProductRelatedProductsProps) {
@@ -39,11 +42,10 @@ export default function ProductRelatedProducts({
   const quickEditEnabled = useTinaQuickEditEnabled();
   const relatedImageVariant = resolveConfiguredImageVariant(imageSizeChoice, "card");
   const canUseCustomFocus = Boolean(edit && quickEditEnabled && focusListKey);
-  const suppressSectionQuickEdit = canUseCustomFocus && items.some((item) => Boolean(item.focusItemId));
   if (!items.length) return null;
 
   return (
-    <section className="bg-white" data-tina-field={suppressSectionQuickEdit ? undefined : sectionTinaField}>
+    <section className="bg-white">
       <div className="cp-container px-4 py-12 md:px-8 md:py-16">
         <h2
           className="font-[var(--font-red-hat-display)] text-[28px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[32px]"
@@ -55,31 +57,27 @@ export default function ProductRelatedProducts({
         <div className="cp-hide-scrollbar mt-6 overflow-x-auto pb-2 md:mt-10 md:overflow-visible">
           <div className="flex min-w-max gap-3 md:min-w-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-4 lg:gap-7">
             {items.map((item) => {
-              const useCustomFocus = canUseCustomFocus && Boolean(item.focusItemId);
-              const className = useCustomFocus
+              const className = canUseCustomFocus
                 ? `group block w-[173px] shrink-0 md:w-auto ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
                 : "group block w-[173px] shrink-0 md:w-auto";
 
+              const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+                if (!edit) return;
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (!focusListKey) return;
+
+                focusTinaSidebarListItem({
+                  rootFieldName: focusRootFieldName,
+                  listKey: focusListKey,
+                  itemId: item.focusItemId,
+                });
+              };
+
               return (
-                <Link
-                  className={className}
-                  data-tina-field={useCustomFocus ? undefined : item.tinaField}
-                  href={item.href}
-                  key={item.href}
-                  onClick={(event) => {
-                    if (!edit) return;
-
-                    event.preventDefault();
-
-                    if (!useCustomFocus || !focusListKey) return;
-
-                    focusTinaSidebarListItem({
-                      rootFieldName: focusRootFieldName,
-                      listKey: focusListKey,
-                      itemId: item.focusItemId,
-                    });
-                  }}
-                >
+                <Link className={className} href={item.href} key={item.href} onClick={handleClick}>
                   <div className="aspect-square w-full overflow-hidden bg-[#f0f0f0]">
                     {item.image ? (
                       <div className="relative h-full w-full">

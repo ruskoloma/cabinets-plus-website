@@ -59,23 +59,24 @@ export default function FlooringDetailPage({
       {blocks.map((block, index) => {
         const template = resolveTemplateName(block);
         const blockRecord = block as Record<string, unknown>;
-        const blockField = tinaField(blockRecord) || undefined;
         const key = `${template || "block"}-${index}`;
 
+        // No `<div data-tina-field={blockField}>` wrapper for the specialty cases: clicks on
+        // media tiles / project cards / related-product cards must focus the flooring
+        // document's list row via the custom postMessage channel, not the page-settings block.
         switch (template) {
           case "flooringProductInfo":
             return (
-              <div data-tina-field={blockField} key={key}>
-                <FlooringProductInfoSection
-                  block={blockRecord}
-                  flooring={flooring}
-                  galleryItems={galleryItems}
-                  nextProduct={nextProduct}
-                  pageText={pageText}
-                  previousProduct={previousProduct}
-                  technicalDetails={technicalDetails}
-                />
-              </div>
+              <FlooringProductInfoSection
+                block={blockRecord}
+                flooring={flooring}
+                galleryItems={galleryItems}
+                key={key}
+                nextProduct={nextProduct}
+                pageText={pageText}
+                previousProduct={previousProduct}
+                technicalDetails={technicalDetails}
+              />
             );
 
           case "projectsUsingThisProduct": {
@@ -89,42 +90,41 @@ export default function FlooringDetailPage({
               typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
 
             return (
-              <div data-tina-field={blockField} key={key}>
-                <ProductProjectStrip
-                  description={blockDescription}
-                  descriptionTinaField={descriptionField}
-                  focusListKey={TINA_LIST_KEY_FLOORING_RELATED_PROJECTS}
-                  focusRootFieldName={flooringFieldName}
-                  imageSizeChoice={imageSizeChoice}
-                  items={projectItems.map((project) => ({
-                    file: project.file,
-                    title: project.title,
-                    href: project.href,
-                    focusItemId: project.projectSource ? getProjectReferenceFocusItemId(project.projectSource) : undefined,
-                    selectionTinaField:
-                      typeof project.selectionIndex === "number"
-                        ? tinaField(flooringRecord, `relatedProjects.${project.selectionIndex}.project`) || undefined
-                        : tinaField(flooringRecord, "relatedProjects") || undefined,
-                    imageTinaField: project.mediaSource
-                      ? tinaField(project.mediaSource, "file") || undefined
-                      : project.media
-                        ? tinaField(project.media as unknown as Record<string, unknown>, "file") || undefined
-                        : project.project
-                          ? tinaField(project.project as unknown as Record<string, unknown>, "media.0.file") || undefined
-                          : undefined,
-                    titleTinaField: project.projectSource
-                      ? tinaField(project.projectSource, "title") || undefined
-                      : project.media
-                        ? tinaField(project.media as unknown as Record<string, unknown>, "label") || tinaField(project.media as unknown as Record<string, unknown>, "altText") || undefined
-                        : project.project
-                          ? tinaField(project.project as unknown as Record<string, unknown>, "title") || undefined
-                          : undefined,
-                  }))}
-                  sectionTinaField={flooringFieldName}
-                  title={blockTitle}
-                  titleTinaField={titleField}
-                />
-              </div>
+              <ProductProjectStrip
+                description={blockDescription}
+                descriptionTinaField={descriptionField}
+                focusListKey={TINA_LIST_KEY_FLOORING_RELATED_PROJECTS}
+                focusRootFieldName={flooringFieldName}
+                imageSizeChoice={imageSizeChoice}
+                items={projectItems.map((project) => ({
+                  file: project.file,
+                  title: project.title,
+                  href: project.href,
+                  focusItemId: project.projectSource ? getProjectReferenceFocusItemId(project.projectSource) : undefined,
+                  selectionTinaField:
+                    typeof project.selectionIndex === "number"
+                      ? tinaField(flooringRecord, `relatedProjects.${project.selectionIndex}.project`) || undefined
+                      : tinaField(flooringRecord, "relatedProjects") || undefined,
+                  imageTinaField: project.mediaSource
+                    ? tinaField(project.mediaSource, "file") || undefined
+                    : project.media
+                      ? tinaField(project.media as unknown as Record<string, unknown>, "file") || undefined
+                      : project.project
+                        ? tinaField(project.project as unknown as Record<string, unknown>, "media.0.file") || undefined
+                        : undefined,
+                  titleTinaField: project.projectSource
+                    ? tinaField(project.projectSource, "title") || undefined
+                    : project.media
+                      ? tinaField(project.media as unknown as Record<string, unknown>, "label") || tinaField(project.media as unknown as Record<string, unknown>, "altText") || undefined
+                      : project.project
+                        ? tinaField(project.project as unknown as Record<string, unknown>, "title") || undefined
+                        : undefined,
+                }))}
+                key={key}
+                sectionTinaField={flooringFieldName}
+                title={blockTitle}
+                titleTinaField={titleField}
+              />
             );
           }
 
@@ -137,15 +137,14 @@ export default function FlooringDetailPage({
               typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
 
             return (
-              <div data-tina-field={blockField} key={key}>
-                <FlooringRelatedProducts
-                  imageSizeChoice={imageSizeChoice}
-                  items={relatedItems}
-                  sectionTinaField={flooringFieldName}
-                  title={blockTitle}
-                  titleTinaField={titleField}
-                />
-              </div>
+              <FlooringRelatedProducts
+                imageSizeChoice={imageSizeChoice}
+                items={relatedItems}
+                key={key}
+                sectionTinaField={flooringFieldName}
+                title={blockTitle}
+                titleTinaField={titleField}
+              />
             );
           }
 

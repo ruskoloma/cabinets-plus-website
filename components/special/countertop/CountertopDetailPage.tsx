@@ -55,23 +55,24 @@ export default function CountertopDetailPage({
       {blocks.map((block, index) => {
         const template = resolveTemplateName(block);
         const blockRecord = block as Record<string, unknown>;
-        const blockField = tinaField(blockRecord) || undefined;
         const key = `${template || "block"}-${index}`;
 
+        // No `<div data-tina-field={blockField}>` wrapper for the specialty cases: clicks on
+        // media tiles / project cards / related-product cards must focus the countertop
+        // document's list row via the custom postMessage channel, not the page-settings block.
         switch (template) {
           case "countertopProductInfo":
             return (
-              <div data-tina-field={blockField} key={key}>
-                <CountertopProductInfoSection
-                  block={blockRecord}
-                  countertop={countertop}
-                  galleryItems={galleryItems}
-                  nextProduct={nextProduct}
-                  pageText={pageText}
-                  previousProduct={previousProduct}
-                  technicalDetails={technicalDetails}
-                />
-              </div>
+              <CountertopProductInfoSection
+                block={blockRecord}
+                countertop={countertop}
+                galleryItems={galleryItems}
+                key={key}
+                nextProduct={nextProduct}
+                pageText={pageText}
+                previousProduct={previousProduct}
+                technicalDetails={technicalDetails}
+              />
             );
 
           case "projectsUsingThisProduct": {
@@ -85,19 +86,18 @@ export default function CountertopDetailPage({
               typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
 
             return (
-              <div data-tina-field={blockField} key={key}>
-                <CountertopProjectStrip
-                  description={blockDescription}
-                  descriptionTinaField={descriptionField}
-                  imageSizeChoice={imageSizeChoice}
-                  items={projectItems}
-                  sectionTinaField={countertopFieldName}
-                  selectionListTinaField={tinaField(countertopRecord, "relatedProjects") || undefined}
-                  selectionSourceRecord={countertopRecord}
-                  title={blockTitle}
-                  titleTinaField={titleField}
-                />
-              </div>
+              <CountertopProjectStrip
+                description={blockDescription}
+                descriptionTinaField={descriptionField}
+                imageSizeChoice={imageSizeChoice}
+                items={projectItems}
+                key={key}
+                sectionTinaField={countertopFieldName}
+                selectionListTinaField={tinaField(countertopRecord, "relatedProjects") || undefined}
+                selectionSourceRecord={countertopRecord}
+                title={blockTitle}
+                titleTinaField={titleField}
+              />
             );
           }
 
@@ -110,15 +110,14 @@ export default function CountertopDetailPage({
               typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
 
             return (
-              <div data-tina-field={blockField} key={key}>
-                <CountertopRelatedProducts
-                  imageSizeChoice={imageSizeChoice}
-                  items={relatedItems}
-                  sectionTinaField={countertopFieldName}
-                  title={blockTitle}
-                  titleTinaField={titleField}
-                />
-              </div>
+              <CountertopRelatedProducts
+                imageSizeChoice={imageSizeChoice}
+                items={relatedItems}
+                key={key}
+                sectionTinaField={countertopFieldName}
+                title={blockTitle}
+                titleTinaField={titleField}
+              />
             );
           }
 

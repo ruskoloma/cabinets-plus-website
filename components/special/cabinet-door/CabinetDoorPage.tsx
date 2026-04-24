@@ -77,23 +77,24 @@ export default function CabinetDoorPage({
       {blocks.map((block, index) => {
         const template = resolveTemplateName(block);
         const blockRecord = block as Record<string, unknown>;
-        const blockField = tinaField(blockRecord) || undefined;
         const key = `${template || "block"}-${index}`;
 
+        // No `<div data-tina-field={blockField}>` wrapper for the specialty cases: clicks on
+        // media tiles / project cards / related-product cards must focus the cabinet document's
+        // list row via the custom postMessage channel, not the page-settings block.
         switch (template) {
           case "cabinetProductInfo":
             return (
-              <div data-tina-field={blockField} key={key}>
-                <CabinetProductInfoSection
-                  block={blockRecord}
-                  cabinet={cabinet}
-                  galleryItems={galleryItems}
-                  nextProduct={nextProduct}
-                  pageText={pageText}
-                  previousProduct={previousProduct}
-                  technicalDetails={technicalDetails}
-                />
-              </div>
+              <CabinetProductInfoSection
+                block={blockRecord}
+                cabinet={cabinet}
+                galleryItems={galleryItems}
+                key={key}
+                nextProduct={nextProduct}
+                pageText={pageText}
+                previousProduct={previousProduct}
+                technicalDetails={technicalDetails}
+              />
             );
 
           case "projectsUsingThisProduct": {
@@ -107,19 +108,18 @@ export default function CabinetDoorPage({
               typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
 
             return (
-              <div data-tina-field={blockField} key={key}>
-                <CabinetProjectStrip
-                  description={blockDescription}
-                  descriptionTinaField={descriptionField}
-                  imageSizeChoice={imageSizeChoice}
-                  items={projectItems}
-                  sectionTinaField={cabinetFieldName}
-                  selectionListTinaField={tinaField(cabinetRecord, "relatedProjects") || undefined}
-                  selectionSourceRecord={cabinetRecord}
-                  title={blockTitle}
-                  titleTinaField={titleField}
-                />
-              </div>
+              <CabinetProjectStrip
+                description={blockDescription}
+                descriptionTinaField={descriptionField}
+                imageSizeChoice={imageSizeChoice}
+                items={projectItems}
+                key={key}
+                sectionTinaField={cabinetFieldName}
+                selectionListTinaField={tinaField(cabinetRecord, "relatedProjects") || undefined}
+                selectionSourceRecord={cabinetRecord}
+                title={blockTitle}
+                titleTinaField={titleField}
+              />
             );
           }
 
@@ -132,15 +132,14 @@ export default function CabinetDoorPage({
               typeof blockRecord.imageSize === "string" ? blockRecord.imageSize : null;
 
             return (
-              <div data-tina-field={blockField} key={key}>
-                <CabinetRelatedProducts
-                  imageSizeChoice={imageSizeChoice}
-                  items={relatedItems}
-                  sectionTinaField={cabinetFieldName}
-                  title={blockTitle}
-                  titleTinaField={titleField}
-                />
-              </div>
+              <CabinetRelatedProducts
+                imageSizeChoice={imageSizeChoice}
+                items={relatedItems}
+                key={key}
+                sectionTinaField={cabinetFieldName}
+                title={blockTitle}
+                titleTinaField={titleField}
+              />
             );
           }
 

@@ -162,9 +162,15 @@ export default function ProductMediaGallery({
 
   if (!activeItem) return null;
 
-  const activeItemUsesCustomFocus = Boolean(edit && quickEditEnabled && activeItem.focusMediaItemId);
-  const openLightbox = () => {
-    if (activeItemUsesCustomFocus) {
+  // In edit mode, any tile/main-image click focuses the product's media list row via the
+  // custom postMessage channel instead of opening the lightbox. We deliberately do NOT set
+  // data-tina-field on the tile elements so Tina's native click handler can't walk up to
+  // the page-settings block and focus it.
+  const canUseCustomFocus = Boolean(edit && quickEditEnabled);
+  const openLightbox = (event?: { preventDefault?: () => void; stopPropagation?: () => void }) => {
+    if (canUseCustomFocus) {
+      event?.preventDefault?.();
+      event?.stopPropagation?.();
       focusTinaSidebarMediaItem({
         rootFieldName: focusRootFieldName,
         mediaFile: activeItem.file,
@@ -181,8 +187,7 @@ export default function ProductMediaGallery({
         <div className="cp-hide-scrollbar hidden flex-shrink-0 gap-4 overflow-x-auto pb-1 lg:flex lg:h-[557px] lg:w-fit lg:flex-col lg:items-start lg:gap-[29px] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0">
           {items.map((item, index) => {
             const isActive = activeItem.id === item.id;
-            const useCustomFocus = Boolean(edit && quickEditEnabled && item.focusMediaItemId);
-            const buttonClassName = useCustomFocus
+            const buttonClassName = canUseCustomFocus
               ? `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"} ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
               : `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"}`;
 
@@ -190,13 +195,14 @@ export default function ProductMediaGallery({
               <button
                 aria-label={`Show ${item.kind === "video" ? "video" : "image"} ${index + 1}`}
                 className={buttonClassName}
-                data-tina-field={useCustomFocus ? undefined : item.tinaField}
                 key={item.id}
-                onClick={() => {
+                onClick={(event) => {
                   setActiveId(item.id);
 
-                  if (!useCustomFocus) return;
+                  if (!canUseCustomFocus) return;
 
+                  event.preventDefault();
+                  event.stopPropagation();
                   focusTinaSidebarMediaItem({
                     rootFieldName: focusRootFieldName,
                     mediaFile: item.file,
@@ -221,11 +227,11 @@ export default function ProductMediaGallery({
         <button
           aria-label={activeItem.kind === "video" ? `Open video for ${productName}` : `Expand image for ${productName}`}
           className={
-            activeItemUsesCustomFocus
+            canUseCustomFocus
               ? `group relative block h-auto w-full max-w-[557px] overflow-hidden bg-[#fafafa] text-left lg:h-[557px] lg:w-[557px] lg:max-w-none lg:shrink-0 ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
               : "group relative block h-auto w-full max-w-[557px] overflow-hidden bg-[#fafafa] text-left lg:h-[557px] lg:w-[557px] lg:max-w-none lg:shrink-0"
           }
-          onClick={openLightbox}
+          onClick={(event) => openLightbox(event)}
           type="button"
         >
           <div ref={activeMediaFrameRef} className="aspect-square h-full w-full">
@@ -258,7 +264,6 @@ export default function ProductMediaGallery({
                     <FillImage
                       alt={activeItem.alt}
                       className="object-contain object-center"
-                      data-tina-field={activeItemUsesCustomFocus ? undefined : activeItem.tinaField}
                       sizes="(min-width: 1024px) 557px, 100vw"
                       src={activeItem.previewFile}
                       variant={mainImageVariant}
