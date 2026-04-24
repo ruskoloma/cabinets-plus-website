@@ -1,10 +1,33 @@
 {
-  "_template": "project",
-  "projectDetailMaterialsTitle": "Finish & Materials",
-  "projectDetailRelatedProjectsTitle": "Projects You Might Like",
-  "projectDetailRelatedProjectsCtaLabel": "View all",
-  "projectDetailMaterialCardImageSize": "thumb",
-  "projectDetailGalleryImageSize": "card",
-  "projectDetailLightboxImageSize": "full",
-  "projectDetailRelatedProjectsImageSize": "card"
+  "blocks": [
+    {
+      "breadcrumbLabel": "Gallery",
+      "breadcrumbLink": "/gallery",
+      "galleryImageSize": "card",
+      "lightboxImageSize": "full",
+      "_template": "projectInfo"
+    },
+    {
+      "title": "Finish & Materials",
+      "cabinetTitle": "Cabinet door",
+      "cabinetPlaceholder": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/Materials%20Used/cabinet%E2%80%93placeholder.jpg",
+      "countertopTitle": "Countertop",
+      "countertopPlaceholder": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/Materials%20Used/countertop%E2%80%93placeholder.jpg",
+      "flooringTitle": "Flooring",
+      "flooringPlaceholder": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/Materials%20Used/flooring%E2%80%93placeholder.jpg",
+      "imageSize": "thumb",
+      "_template": "projectMaterials"
+    },
+    {
+      "title": "Projects You Might Like",
+      "ctaLabel": "View all",
+      "ctaLink": "/gallery",
+      "imageSize": "card",
+      "_template": "projectRelatedProjects"
+    },
+    {
+      "_template": "sharedContactSection"
+    }
+  ],
+  "_template": "project"
 }

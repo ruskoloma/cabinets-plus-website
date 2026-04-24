@@ -1,21 +1,55 @@
 import { buildGalleryProjects } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
 import type { GalleryOverviewDataShape } from "@/components/special/gallery-overview/types";
 import {
-  getCabinetReferenceFocusItemId,
-  getCountertopReferenceFocusItemId,
+  getCabinetProductFocusItemId,
+  getCountertopProductFocusItemId,
+  getFlooringProductFocusItemId,
   getProjectReferenceFocusItemId,
   TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
   TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+  TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
   TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
 } from "@/lib/tina-list-focus";
 import type {
   CabinetListItem,
   CountertopListItem,
+  FlooringListItem,
   ProjectGalleryItem,
   ProjectMaterialCardData,
   ProjectOverviewItem,
   ProjectRelatedCardData,
 } from "./types";
+
+const PLACEHOLDER_CABINET = "/library/catalog/material-placeholder-cabinet.svg";
+const PLACEHOLDER_COUNTERTOP = "/library/catalog/material-placeholder-countertop.svg";
+const PLACEHOLDER_FLOORING = "/library/catalog/material-placeholder-flooring.svg";
+
+export interface MaterialCardsGroupConfig {
+  label?: string | null;
+  placeholderImage?: string | null;
+}
+
+export interface MaterialCardsConfig {
+  cabinet?: MaterialCardsGroupConfig | null;
+  countertop?: MaterialCardsGroupConfig | null;
+  flooring?: MaterialCardsGroupConfig | null;
+}
+
+function resolveGroupLabel(
+  configured: string | null | undefined,
+  fallback: string,
+): string {
+  const trimmed = (configured || "").trim();
+  return trimmed || fallback;
+}
+
+function resolveGroupPlaceholder(
+  configured: string | null | undefined,
+  fallback: string,
+): string {
+  const trimmed = (configured || "").trim();
+  return trimmed || fallback;
+}
 
 function toSlug(value: string): string {
   return value
@@ -40,7 +74,7 @@ function humanizeFileName(file: string): string {
   return titleCase(trimmed.replace(/\.[a-z0-9]+$/i, "").replace(/[-_]+/g, " "));
 }
 
-function toCollectionSlug(value: string, collectionName: "cabinets" | "countertops"): string {
+function toCollectionSlug(value: string, collectionName: "cabinets" | "countertops" | "flooring"): string {
   return value
     .trim()
     .toLowerCase()
@@ -60,7 +94,7 @@ function formatProductCode(code?: string | null): string | undefined {
 
 function resolveReferencedProductSlug(
   value: string | { slug?: string | null; _sys?: { filename?: string; relativePath?: string } | null } | null | undefined,
-  collectionName: "cabinets" | "countertops",
+  collectionName: "cabinets" | "countertops" | "flooring",
 ): string {
   if (!value) return "";
   if (typeof value === "string") return toCollectionSlug(value, collectionName);
@@ -96,7 +130,7 @@ function resolveReferencedProductCard<
       }
     | null
     | undefined,
-  collectionName: "cabinets" | "countertops",
+  collectionName: "cabinets" | "countertops" | "flooring",
   indexBySlug: Map<string, T>,
 ): { slug: string; title: string; subtitle?: string; image?: string } | null {
   const slug = resolveReferencedProductSlug(value, collectionName);
@@ -142,44 +176,109 @@ export function buildMaterialCards(
   cabinetIndex: CabinetListItem[],
   countertopIndex: CountertopListItem[],
   tinaFieldFn: (value: Record<string, unknown>, field?: string) => string | undefined,
+  flooringIndex: FlooringListItem[] = [],
+  config: MaterialCardsConfig = {},
 ): ProjectMaterialCardData[] {
   const cards: ProjectMaterialCardData[] = [];
   const rawProject = project as unknown as Record<string, unknown>;
   const cabinetIndexBySlug = new Map(cabinetIndex.map((item) => [item.slug, item]));
   const countertopIndexBySlug = new Map(countertopIndex.map((item) => [item.slug, item]));
+  const flooringIndexBySlug = new Map(flooringIndex.map((item) => [item.slug, item]));
+
+  const cabinetLabel = resolveGroupLabel(config.cabinet?.label, "Cabinet door");
+  const countertopLabel = resolveGroupLabel(config.countertop?.label, "Countertop");
+  const flooringLabel = resolveGroupLabel(config.flooring?.label, "Flooring");
+  const cabinetPlaceholder = resolveGroupPlaceholder(config.cabinet?.placeholderImage, PLACEHOLDER_CABINET);
+  const countertopPlaceholder = resolveGroupPlaceholder(config.countertop?.placeholderImage, PLACEHOLDER_COUNTERTOP);
+  const flooringPlaceholder = resolveGroupPlaceholder(config.flooring?.placeholderImage, PLACEHOLDER_FLOORING);
 
   (project.cabinetProducts || []).forEach((item, index) => {
     const linked = resolveReferencedProductCard(item?.cabinet, "cabinets", cabinetIndexBySlug);
-    if (!linked) return;
-
-    cards.push({
-      kind: "cabinet",
-      label: "Cabinet door",
-      title: linked.title,
-      subtitle: linked.subtitle,
-      image: linked.image,
-      href: `/cabinets/${linked.slug}`,
-      focusItemId: getCabinetReferenceFocusItemId(item?.cabinet),
-      focusListKey: TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
-      tinaField: tinaFieldFn(rawProject, `cabinetProducts.${index}.cabinet`) || undefined,
-    });
+    const itemField = tinaFieldFn(rawProject, `cabinetProducts.${index}`) || undefined;
+    // Unified focus ID: linked cabinet ref if present, else synthetic `custom:<name>` so
+    // customName-only items can also be scrolled/highlighted in the Tina sidebar.
+    const focusItemId = getCabinetProductFocusItemId(item || undefined);
+    if (linked) {
+      cards.push({
+        kind: "cabinet",
+        label: cabinetLabel,
+        title: linked.title,
+        subtitle: linked.subtitle,
+        image: linked.image,
+        href: `/cabinets/${linked.slug}`,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
+        tinaField: itemField,
+      });
+    } else if (item?.customName?.trim()) {
+      cards.push({
+        kind: "cabinet",
+        label: cabinetLabel,
+        title: item.customName.trim(),
+        image: cabinetPlaceholder,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
+        tinaField: itemField,
+      });
+    }
   });
 
   (project.countertopProducts || []).forEach((item, index) => {
     const linked = resolveReferencedProductCard(item?.countertop, "countertops", countertopIndexBySlug);
-    if (!linked) return;
+    const itemField = tinaFieldFn(rawProject, `countertopProducts.${index}`) || undefined;
+    const focusItemId = getCountertopProductFocusItemId(item || undefined);
+    if (linked) {
+      cards.push({
+        kind: "countertop",
+        label: countertopLabel,
+        title: linked.title,
+        subtitle: linked.subtitle,
+        image: linked.image,
+        href: `/countertops/${linked.slug}`,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+        tinaField: itemField,
+      });
+    } else if (item?.customName?.trim()) {
+      cards.push({
+        kind: "countertop",
+        label: countertopLabel,
+        title: item.customName.trim(),
+        image: countertopPlaceholder,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+        tinaField: itemField,
+      });
+    }
+  });
 
-    cards.push({
-      kind: "countertop",
-      label: "Countertop",
-      title: linked.title,
-      subtitle: linked.subtitle,
-      image: linked.image,
-      href: `/countertops/${linked.slug}`,
-      focusItemId: getCountertopReferenceFocusItemId(item?.countertop),
-      focusListKey: TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
-      tinaField: tinaFieldFn(rawProject, `countertopProducts.${index}.countertop`) || undefined,
-    });
+  (project.flooringProducts || []).forEach((item, index) => {
+    const linked = resolveReferencedProductCard(item?.flooring, "flooring", flooringIndexBySlug);
+    const itemField = tinaFieldFn(rawProject, `flooringProducts.${index}`) || undefined;
+    const focusItemId = getFlooringProductFocusItemId(item || undefined);
+    if (linked) {
+      cards.push({
+        kind: "flooring",
+        label: flooringLabel,
+        title: linked.title,
+        subtitle: linked.subtitle,
+        image: linked.image,
+        href: `/flooring/catalog/${linked.slug}`,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
+        tinaField: itemField,
+      });
+    } else if (item?.customName?.trim()) {
+      cards.push({
+        kind: "flooring",
+        label: flooringLabel,
+        title: item.customName.trim(),
+        image: flooringPlaceholder,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
+        tinaField: itemField,
+      });
+    }
   });
 
   return cards;

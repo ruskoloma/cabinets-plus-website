@@ -1,6 +1,6 @@
 "use client";
 
-import { useEditState, useTina, tinaField } from "tinacms/dist/react";
+import { useEditState, useTina } from "tinacms/dist/react";
 import { GALLERY_OVERVIEW_QUERY } from "@/components/special/gallery-overview/queries";
 import type { GalleryOverviewQueryLikeResult } from "@/components/special/gallery-overview/types";
 import { normalizeGalleryOverviewQueryData } from "@/components/special/gallery-overview/normalize-gallery-overview-query";
@@ -8,14 +8,10 @@ import { PROJECT_PAGE_SETTINGS_QUERY } from "@/components/page-settings/queries"
 import type { ProjectPageSettingsQueryLikeResult } from "@/components/page-settings/types";
 import ProjectDetailPage from "@/components/special/project-detail/ProjectDetailPage";
 import { normalizeProjectQueryData } from "@/components/special/project-detail/normalize-project-query";
-import {
-  buildMaterialCards,
-  buildProjectGallery,
-  buildRelatedProjectCards,
-} from "@/components/special/project-detail/helpers";
 import type {
   CabinetListItem,
   CountertopListItem,
+  FlooringListItem,
   ProjectDetailQueryLikeResult,
 } from "@/components/special/project-detail/types";
 import { PROJECT_LIVE_QUERY } from "@/app/project-live-query";
@@ -36,6 +32,7 @@ interface ProjectDetailClientProps {
   currentSlug: string;
   cabinetIndex: CabinetListItem[];
   countertopIndex: CountertopListItem[];
+  flooringIndex: FlooringListItem[];
   projectData: ProjectDetailQueryLikeResult;
   overviewData: GalleryOverviewQueryLikeResult;
   homePageData: HomePageQueryLikeResult;
@@ -60,6 +57,7 @@ function extractContactBlock(pageData: unknown): Record<string, unknown> | null 
 function ProjectDetailRenderer({
   cabinetIndex,
   countertopIndex,
+  flooringIndex,
   projectData,
   overviewData,
   homePageData,
@@ -70,26 +68,21 @@ function ProjectDetailRenderer({
 
   const normalizedOverview = normalizeGalleryOverviewQueryData(overviewData.data);
   const contactBlock = extractContactBlock(homePageData.data);
-  const galleryItems = buildProjectGallery(project);
-  const materialCards = buildMaterialCards(project, cabinetIndex, countertopIndex, tinaField);
-  const relatedProjects = buildRelatedProjectCards(project, normalizedOverview, tinaField);
   const pageSettings = pageSettingsData.data.projectPageSettings || null;
 
   return (
     <ProjectDetailPage
+      cabinetIndex={cabinetIndex}
       contactBlock={contactBlock}
-      galleryItems={galleryItems}
-      galleryImageSizeChoice={pageSettings?.projectDetailGalleryImageSize}
-      lightboxImageSizeChoice={pageSettings?.projectDetailLightboxImageSize}
-      materialCardImageSizeChoice={pageSettings?.projectDetailMaterialCardImageSize}
-      materialCards={materialCards}
-      materialsTitle={pageSettings?.projectDetailMaterialsTitle}
-      pageSettingsRecord={pageSettings && typeof pageSettings === "object" ? (pageSettings as Record<string, unknown>) : null}
+      countertopIndex={countertopIndex}
+      flooringIndex={flooringIndex}
+      overviewData={normalizedOverview}
+      pageSettingsRecord={
+        pageSettings && typeof pageSettings === "object"
+          ? (pageSettings as Record<string, unknown>)
+          : null
+      }
       project={project}
-      relatedProjectsCtaLabel={pageSettings?.projectDetailRelatedProjectsCtaLabel}
-      relatedProjects={relatedProjects}
-      relatedProjectsImageSizeChoice={pageSettings?.projectDetailRelatedProjectsImageSize}
-      relatedProjectsTitle={pageSettings?.projectDetailRelatedProjectsTitle}
     />
   );
 }
@@ -129,8 +122,9 @@ function TinaProjectDetailClient(props: ProjectDetailClientProps) {
   return (
     <ProjectDetailRenderer
       cabinetIndex={props.cabinetIndex}
-      currentSlug={props.currentSlug}
       countertopIndex={props.countertopIndex}
+      currentSlug={props.currentSlug}
+      flooringIndex={props.flooringIndex}
       homePageData={{
         ...props.homePageData,
         data: homeQuery ? homePageData : props.homePageData.data,

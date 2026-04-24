@@ -14,6 +14,7 @@ export const TINA_LIST_KEY_FLOORING_RELATED_PROJECTS = "flooring.relatedProjects
 export const TINA_LIST_KEY_FLOORING_RELATED_PRODUCTS = "flooring.relatedProducts";
 export const TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS = "project.cabinetProducts";
 export const TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS = "project.countertopProducts";
+export const TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS = "project.flooringProducts";
 export const TINA_LIST_KEY_PROJECT_RELATED_PROJECTS = "project.relatedProjects";
 
 const TINA_LIST_FOCUS_RETRY_DELAYS_MS = [0, 120, 260, 480, 760, 1120];
@@ -135,4 +136,32 @@ export function getCountertopReferenceFocusItemId(value: unknown): string | unde
 
 export function getFlooringReferenceFocusItemId(value: unknown): string | undefined {
   return encodeListItemId(normalizeReferenceValue(value, "flooring"));
+}
+
+/**
+ * Derives a focus item ID for a project material list item. Prefers the linked product's
+ * normalized reference path; falls back to a synthetic `custom:<name>` ID so customName-only
+ * items can be scrolled-to/highlighted in the Tina sidebar. The preview card and the sidebar
+ * row compute this the same way so the postMessage payload matches.
+ */
+function customNameFocusItemId(customName: unknown): string | undefined {
+  if (typeof customName !== "string") return undefined;
+  const trimmed = customName.trim();
+  if (!trimmed) return undefined;
+  return `custom:${encodeURIComponent(trimmed)}`;
+}
+
+export function getCabinetProductFocusItemId(item: { cabinet?: unknown; customName?: unknown } | null | undefined): string | undefined {
+  if (!item) return undefined;
+  return getCabinetReferenceFocusItemId(item.cabinet) || customNameFocusItemId(item.customName);
+}
+
+export function getCountertopProductFocusItemId(item: { countertop?: unknown; customName?: unknown } | null | undefined): string | undefined {
+  if (!item) return undefined;
+  return getCountertopReferenceFocusItemId(item.countertop) || customNameFocusItemId(item.customName);
+}
+
+export function getFlooringProductFocusItemId(item: { flooring?: unknown; customName?: unknown } | null | undefined): string | undefined {
+  if (!item) return undefined;
+  return getFlooringReferenceFocusItemId(item.flooring) || customNameFocusItemId(item.customName);
 }

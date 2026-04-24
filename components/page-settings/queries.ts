@@ -350,13 +350,32 @@ export const PROJECT_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsProject {
-        projectDetailMaterialsTitle
-        projectDetailRelatedProjectsTitle
-        projectDetailRelatedProjectsCtaLabel
-        projectDetailMaterialCardImageSize
-        projectDetailGalleryImageSize
-        projectDetailLightboxImageSize
-        projectDetailRelatedProjectsImageSize
+        blocks {
+          __typename
+          ... on PageSettingsProjectBlocksProjectInfo {
+            breadcrumbLabel
+            breadcrumbLink
+            galleryImageSize
+            lightboxImageSize
+          }
+          ... on PageSettingsProjectBlocksProjectMaterials {
+            title
+            cabinetTitle
+            cabinetPlaceholder
+            countertopTitle
+            countertopPlaceholder
+            flooringTitle
+            flooringPlaceholder
+            imageSize
+          }
+          ... on PageSettingsProjectBlocksProjectRelatedProjects {
+            title
+            ctaLabel
+            ctaLink
+            imageSize
+          }
+${buildSharedPageSettingsBlockFragments("PageSettingsProjectBlocks")}
+        }
       }
     }
   }

@@ -32,6 +32,7 @@ export const PROJECT_LIVE_QUERY = `
               }
             }
           }
+          customName
         }
         countertopProducts {
           __typename
@@ -49,6 +50,25 @@ export const PROJECT_LIVE_QUERY = `
               }
             }
           }
+          customName
+        }
+        flooringProducts {
+          __typename
+          flooring {
+            ... on Flooring {
+              id
+              name
+              code
+              slug
+              picture
+              _sys {
+                filename
+                basename
+                relativePath
+              }
+            }
+          }
+          customName
         }
         media {
           __typename

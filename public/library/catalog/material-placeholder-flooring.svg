@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" fill="#EDE9E4"/>
+  <!-- Floor plank grid: 2 rows x 3 columns offset -->
+  <!-- Row 1 -->
+  <rect x="12" y="22" width="26" height="16" rx="1" stroke="#9B8F83" stroke-width="1.2" fill="#F5F2EF"/>
+  <rect x="42" y="22" width="26" height="16" rx="1" stroke="#9B8F83" stroke-width="1.2" fill="#F5F2EF"/>
+  <!-- Row 2 (offset) -->
+  <rect x="12" y="42" width="14" height="16" rx="1" stroke="#9B8F83" stroke-width="1.2" fill="#F5F2EF"/>
+  <rect x="30" y="42" width="26" height="16" rx="1" stroke="#9B8F83" stroke-width="1.2" fill="#F5F2EF"/>
+  <rect x="60" y="42" width="8" height="16" rx="1" stroke="#9B8F83" stroke-width="1.2" fill="#F5F2EF"/>
+</svg>

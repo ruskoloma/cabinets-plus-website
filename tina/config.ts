@@ -5,8 +5,11 @@ import React from "react";
 import { defineConfig, ImageField } from "tinacms";
 import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
 import {
+  getCabinetProductFocusItemId,
   getCabinetReferenceFocusItemId,
+  getCountertopProductFocusItemId,
   getCountertopReferenceFocusItemId,
+  getFlooringProductFocusItemId,
   getFlooringReferenceFocusItemId,
   getProjectReferenceFocusItemId,
   TINA_FOCUS_LIST_ITEM_MESSAGE,
@@ -18,6 +21,7 @@ import {
   TINA_LIST_KEY_FLOORING_RELATED_PROJECTS,
   TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
   TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+  TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
   TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
   TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE,
   TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE,
@@ -999,16 +1003,32 @@ const flooringRelatedProductsItemProps = createFocusableObjectListItemProps<{ pr
   (item) => getFlooringReferenceFocusItemId(item?.product),
 );
 
-const projectCabinetProductsItemProps = createFocusableObjectListItemProps<{ cabinet?: unknown }>(
+function resolveCustomOrProductLabel(
+  referenceValue: unknown,
+  customName: unknown,
+  resolveReferenceLabel: (value: unknown) => string,
+): string {
+  if (referenceValue) return resolveReferenceLabel(referenceValue);
+  if (typeof customName === "string" && customName.trim()) return customName.trim();
+  return resolveReferenceLabel(referenceValue);
+}
+
+const projectCabinetProductsItemProps = createFocusableObjectListItemProps<{ cabinet?: unknown; customName?: unknown }>(
   TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
-  (item) => resolveCabinetDocumentReferenceLabel(item?.cabinet),
-  (item) => getCabinetReferenceFocusItemId(item?.cabinet),
+  (item) => resolveCustomOrProductLabel(item?.cabinet, item?.customName, resolveCabinetDocumentReferenceLabel),
+  (item) => getCabinetProductFocusItemId(item),
 );
 
-const projectCountertopProductsItemProps = createFocusableObjectListItemProps<{ countertop?: unknown }>(
+const projectCountertopProductsItemProps = createFocusableObjectListItemProps<{ countertop?: unknown; customName?: unknown }>(
   TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
-  (item) => resolveCountertopDocumentReferenceLabel(item?.countertop),
-  (item) => getCountertopReferenceFocusItemId(item?.countertop),
+  (item) => resolveCustomOrProductLabel(item?.countertop, item?.customName, resolveCountertopDocumentReferenceLabel),
+  (item) => getCountertopProductFocusItemId(item),
+);
+
+const projectFlooringProductsItemProps = createFocusableObjectListItemProps<{ flooring?: unknown; customName?: unknown }>(
+  TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
+  (item) => resolveCustomOrProductLabel(item?.flooring, item?.customName, resolveFlooringDocumentReferenceLabel),
+  (item) => getFlooringProductFocusItemId(item),
 );
 
 const projectRelatedProjectsItemProps = createFocusableObjectListItemProps<{ project?: unknown }>(
@@ -2254,29 +2274,80 @@ export default defineConfig({
             name: "project",
             label: "Project",
             fields: [
-              { type: "string", name: "projectDetailMaterialsTitle", label: "Finish & Materials Title" },
-              { type: "string", name: "projectDetailRelatedProjectsTitle", label: "Related Projects Title" },
-              { type: "string", name: "projectDetailRelatedProjectsCtaLabel", label: "Related Projects CTA Label" },
-              imageSizeSettingField(
-                "projectDetailMaterialCardImageSize",
-                "Finish & Materials Images",
-                "Controls the cabinet, countertop, and flooring cards on project detail pages.",
-              ),
-              imageSizeSettingField(
-                "projectDetailGalleryImageSize",
-                "Gallery Grid Images",
-                "Controls the project gallery grid images on project detail pages.",
-              ),
-              imageSizeSettingField(
-                "projectDetailLightboxImageSize",
-                "Lightbox Images",
-                "Controls the expanded lightbox image on project detail pages.",
-              ),
-              imageSizeSettingField(
-                "projectDetailRelatedProjectsImageSize",
-                "Related Projects Images",
-                "Controls the related-project card images on project detail pages.",
-              ),
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on every project detail page. The Project Info and Materials blocks pull data (cabinets, countertops, flooring, gallery media) directly from each project document.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "projectInfo",
+                    label: "Project Info (title, description, gallery — pulled from each project)",
+                    fields: [
+                      { type: "string" as const, name: "breadcrumbLabel", label: "Breadcrumb Label" },
+                      { type: "string" as const, name: "breadcrumbLink", label: "Breadcrumb Link" },
+                      imageSizeSettingField(
+                        "galleryImageSize",
+                        "Gallery Grid Images",
+                        "Controls the project gallery grid images on project detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "lightboxImageSize",
+                        "Lightbox Images",
+                        "Controls the expanded lightbox image on project detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "projectMaterials",
+                    label: "Materials Used (pulled per project)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      { type: "string" as const, name: "cabinetTitle", label: "Cabinet Title" },
+                      {
+                        type: "image" as const,
+                        name: "cabinetPlaceholder",
+                        label: "Cabinet Placeholder (shown when cabinet product is not linked but a custom name is provided)",
+                      },
+                      { type: "string" as const, name: "countertopTitle", label: "Countertop Title" },
+                      {
+                        type: "image" as const,
+                        name: "countertopPlaceholder",
+                        label: "Countertop Placeholder (shown when countertop product is not linked but a custom name is provided)",
+                      },
+                      { type: "string" as const, name: "flooringTitle", label: "Flooring Title" },
+                      {
+                        type: "image" as const,
+                        name: "flooringPlaceholder",
+                        label: "Flooring Placeholder (shown when flooring product is not linked but a custom name is provided)",
+                      },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Material Card Images",
+                        "Controls the cabinet, countertop, and flooring card images on project detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "projectRelatedProjects",
+                    label: "Related Projects (pulled per project)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      { type: "string" as const, name: "ctaLabel", label: "CTA Label" },
+                      { type: "string" as const, name: "ctaLink", label: "CTA Link" },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Related Project Images",
+                        "Controls the related-project card images on project detail pages.",
+                      ),
+                    ],
+                  },
+                  ...sharedPageSectionTemplates(),
+                ],
+              },
             ],
           },
           {
@@ -2987,7 +3058,7 @@ export default defineConfig({
             name: "cabinetProducts",
             label: "Cabinet Doors",
             list: true,
-            description: "Select cabinet door products used in this project.",
+            description: "Select cabinet door products used in this project. If no product is selected, fill in a custom name to display it without a link.",
             ui: {
               itemProps: projectCabinetProductsItemProps,
             },
@@ -2995,12 +3066,18 @@ export default defineConfig({
               {
                 type: "reference",
                 name: "cabinet",
-                label: "Cabinet Door",
+                label: "Cabinet Door (linked product)",
                 collections: ["cabinet"],
                 ui: {
                   optionComponent: renderCabinetReferenceOption,
                   experimental___filter: filterCabinetReferenceOptions,
                 },
+              },
+              {
+                type: "string",
+                name: "customName",
+                label: "Custom Name (if no linked product)",
+                description: "Shown with a placeholder image when no linked product is selected.",
               },
             ],
           },
@@ -3009,7 +3086,7 @@ export default defineConfig({
             name: "countertopProducts",
             label: "Countertop Slabs",
             list: true,
-            description: "Select countertop slab products used in this project.",
+            description: "Select countertop slab products used in this project. If no product is selected, fill in a custom name to display it without a link.",
             ui: {
               itemProps: projectCountertopProductsItemProps,
             },
@@ -3017,12 +3094,46 @@ export default defineConfig({
               {
                 type: "reference",
                 name: "countertop",
-                label: "Countertop Slab",
+                label: "Countertop Slab (linked product)",
                 collections: ["countertop"],
                 ui: {
                   optionComponent: renderCountertopReferenceOption,
                   experimental___filter: filterCountertopReferenceOptions,
                 },
+              },
+              {
+                type: "string",
+                name: "customName",
+                label: "Custom Name (if no linked product)",
+                description: "Shown with a placeholder image when no linked product is selected.",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "flooringProducts",
+            label: "Flooring",
+            list: true,
+            description: "Select flooring products used in this project. If no product is selected, fill in a custom name to display it without a link.",
+            ui: {
+              itemProps: projectFlooringProductsItemProps,
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "flooring",
+                label: "Flooring (linked product)",
+                collections: ["flooring"],
+                ui: {
+                  optionComponent: renderFlooringReferenceOption,
+                  experimental___filter: filterFlooringReferenceOptions,
+                },
+              },
+              {
+                type: "string",
+                name: "customName",
+                label: "Custom Name (if no linked product)",
+                description: "Shown with a placeholder image when no linked product is selected.",
               },
             ],
           },

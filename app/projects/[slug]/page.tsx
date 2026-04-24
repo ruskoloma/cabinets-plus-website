@@ -8,6 +8,7 @@ import { getProjectPageSettingsSafe } from "@/app/get-project-page-settings-safe
 import { getPageDataSafe } from "@/app/get-page-data-safe";
 import { getCabinetIndexSafe } from "@/app/get-cabinet-data-safe";
 import { getCountertopIndexSafe } from "@/app/get-countertop-data-safe";
+import { getFlooringIndexSafe } from "@/app/get-flooring-data-safe";
 import { buildProjectGallery, getProjectHeading } from "@/components/special/project-detail/helpers";
 
 export async function generateStaticParams() {
@@ -51,12 +52,13 @@ export default async function ProjectDetailRoute(
     redirect(legacyRedirect);
   }
 
-  const [projectData, overviewData, homePageData, cabinetIndex, countertopIndex, pageSettingsData] = await Promise.all([
+  const [projectData, overviewData, homePageData, cabinetIndex, countertopIndex, flooringIndex, pageSettingsData] = await Promise.all([
     getProjectDataSafe(slug),
     getGalleryOverviewDataSafe(),
     getPageDataSafe("home.md"),
     getCabinetIndexSafe(),
     getCountertopIndexSafe(),
+    getFlooringIndexSafe(),
     getProjectPageSettingsSafe(),
   ]);
 
@@ -68,12 +70,13 @@ export default async function ProjectDetailRoute(
     <Suspense fallback={null}>
       <ProjectClient
         cabinetIndex={cabinetIndex}
+        countertopIndex={countertopIndex}
         currentSlug={slug}
+        flooringIndex={flooringIndex}
         homePageData={homePageData}
         overviewData={overviewData}
         pageSettingsData={pageSettingsData}
         projectData={projectData}
-        countertopIndex={countertopIndex}
       />
     </Suspense>
   );

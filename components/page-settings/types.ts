@@ -52,13 +52,7 @@ export interface GalleryPageSettings extends BaseSettingsDocument {
 }
 
 export interface ProjectPageSettings extends BaseSettingsDocument {
-  projectDetailMaterialsTitle?: string | null;
-  projectDetailRelatedProjectsTitle?: string | null;
-  projectDetailRelatedProjectsCtaLabel?: string | null;
-  projectDetailMaterialCardImageSize?: string | null;
-  projectDetailGalleryImageSize?: string | null;
-  projectDetailLightboxImageSize?: string | null;
-  projectDetailRelatedProjectsImageSize?: string | null;
+  blocks?: Array<CatalogPageSettingsBlock | null> | null;
 }
 
 export interface PostPageSettings extends BaseSettingsDocument {
@@ -173,13 +167,34 @@ export const FALLBACK_GALLERY_PAGE_SETTINGS: GalleryPageSettings = {
 };
 
 export const FALLBACK_PROJECT_PAGE_SETTINGS: ProjectPageSettings = {
-  projectDetailMaterialsTitle: "Finish & Materials",
-  projectDetailRelatedProjectsTitle: "Projects You Might Like",
-  projectDetailRelatedProjectsCtaLabel: "View all",
-  projectDetailMaterialCardImageSize: "thumb",
-  projectDetailGalleryImageSize: "card",
-  projectDetailLightboxImageSize: "full",
-  projectDetailRelatedProjectsImageSize: "card",
+  blocks: [
+    {
+      _template: "projectInfo",
+      breadcrumbLabel: "Gallery",
+      breadcrumbLink: "/gallery",
+      galleryImageSize: "card",
+      lightboxImageSize: "full",
+    },
+    {
+      _template: "projectMaterials",
+      title: "Finish & Materials",
+      cabinetTitle: "Cabinet door",
+      cabinetPlaceholder: "/library/catalog/material-placeholder-cabinet.svg",
+      countertopTitle: "Countertop",
+      countertopPlaceholder: "/library/catalog/material-placeholder-countertop.svg",
+      flooringTitle: "Flooring",
+      flooringPlaceholder: "/library/catalog/material-placeholder-flooring.svg",
+      imageSize: "thumb",
+    },
+    {
+      _template: "projectRelatedProjects",
+      title: "Projects You Might Like",
+      ctaLabel: "View all",
+      ctaLink: "/gallery",
+      imageSize: "card",
+    },
+    { _template: "sharedContactSection" },
+  ],
 };
 
 export const FALLBACK_POST_PAGE_SETTINGS: PostPageSettings = {

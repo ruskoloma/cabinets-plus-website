@@ -1,6 +1,7 @@
 import type {
   ProjectCabinetProductLink,
   ProjectCountertopProductLink,
+  ProjectFlooringProductLink,
   ProjectDetailQueryLikeResult,
   ProjectMediaItem,
   ProjectOverviewItem,
@@ -106,6 +107,7 @@ function normalizeProjectCabinetProduct(value: unknown): ProjectCabinetProductLi
       typeof record.cabinet === "string"
         ? record.cabinet
         : normalizeReferencedProduct(record.cabinet),
+    customName: asString(record.customName) ?? null,
     _content_source: record._content_source as unknown,
   };
 }
@@ -119,6 +121,21 @@ function normalizeProjectCountertopProduct(value: unknown): ProjectCountertopPro
       typeof record.countertop === "string"
         ? record.countertop
         : normalizeReferencedProduct(record.countertop),
+    customName: asString(record.customName) ?? null,
+    _content_source: record._content_source as unknown,
+  };
+}
+
+function normalizeProjectFlooringProduct(value: unknown): ProjectFlooringProductLink | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    flooring:
+      typeof record.flooring === "string"
+        ? record.flooring
+        : normalizeReferencedProduct(record.flooring),
+    customName: asString(record.customName) ?? null,
     _content_source: record._content_source as unknown,
   };
 }
@@ -166,6 +183,11 @@ function normalizeProject(value: unknown, fallbackFilename?: string): ProjectOve
       ? record.countertopProducts
           .map((item) => normalizeProjectCountertopProduct(item))
           .filter((item): item is ProjectCountertopProductLink => Boolean(item))
+      : [],
+    flooringProducts: Array.isArray(record.flooringProducts)
+      ? record.flooringProducts
+          .map((item) => normalizeProjectFlooringProduct(item))
+          .filter((item): item is ProjectFlooringProductLink => Boolean(item))
       : [],
     media,
     sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,

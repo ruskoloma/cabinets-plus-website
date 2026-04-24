@@ -123,6 +123,12 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
     RelatedProducts: "relatedProducts",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),
+  ...buildTypenameMap("PageSettingsProjectBlocks", {
+    ProjectInfo: "projectInfo",
+    ProjectMaterials: "projectMaterials",
+    ProjectRelatedProjects: "projectRelatedProjects",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
   ...buildTypenameMap("PageSettingsCabinetsMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
   ...buildTypenameMap("PageSettingsCountertopsMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
   ...buildTypenameMap("PageSettingsFlooringMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),

@@ -33,11 +33,19 @@ export interface ProjectReferencedProduct {
 
 export interface ProjectCabinetProductLink {
   cabinet?: ProjectReferencedProduct | string | null;
+  customName?: string | null;
   _content_source?: unknown;
 }
 
 export interface ProjectCountertopProductLink {
   countertop?: ProjectReferencedProduct | string | null;
+  customName?: string | null;
+  _content_source?: unknown;
+}
+
+export interface ProjectFlooringProductLink {
+  flooring?: ProjectReferencedProduct | string | null;
+  customName?: string | null;
   _content_source?: unknown;
 }
 
@@ -55,6 +63,7 @@ export interface ProjectOverviewItem {
   relatedProjects?: Array<string | null> | null;
   cabinetProducts?: Array<ProjectCabinetProductLink | null> | null;
   countertopProducts?: Array<ProjectCountertopProductLink | null> | null;
+  flooringProducts?: Array<ProjectFlooringProductLink | null> | null;
   sourceUpdatedAt?: string | null;
   media?: Array<ProjectMediaItem | null> | null;
   _content_source?: unknown;
