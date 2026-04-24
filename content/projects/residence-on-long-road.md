@@ -163,6 +163,8 @@ media:
     description: 'Residence on Long Road featuring bathroom vanity and tower, bathroom, timber cabinetry, marble surfaces.'
 cabinetProducts:
   - cabinet: content/cabinets/lskp.md
+countertopProducts:
+  - countertop: content/countertops/tajmahalreal.md
 relatedProjects:
   - project: content/projects/residence-on-owens-road.md
   - project: content/projects/residence-on-villier-road.md

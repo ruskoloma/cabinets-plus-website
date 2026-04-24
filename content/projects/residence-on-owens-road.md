@@ -201,6 +201,8 @@ media:
     countertop: Quartzite
     label: Kitchen island and seating
     description: 'Residence on Owens Road featuring kitchen island and seating, kitchen, timber + black cabinetry, quartzite surfaces.'
+countertopProducts:
+  - countertop: content/countertops/tajmahalreal.md
 relatedProjects:
   - project: content/projects/residence-on-akre-heights-drive.md
   - project: content/projects/residence-on-long-road.md

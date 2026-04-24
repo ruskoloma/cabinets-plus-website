@@ -165,6 +165,10 @@ cabinetProducts:
   - cabinet: content/cabinets/eson.md
 countertopProducts:
   - countertop: content/countertops/calacattabrezze.md
+flooringProducts:
+  - flooring: ''
+    customName: Test
+  - flooring: content/flooring/alpine-iron-frost-ap-9.md
 relatedProjects:
   - project: content/projects/residence-on-may-ella-loop.md
   - project: content/projects/residence-on-dahl-road.md

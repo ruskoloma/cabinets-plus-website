@@ -226,7 +226,7 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/awb.md
 countertopProducts:
-  - countertop: content/countertops/calacattasimplegold.md
+  - countertop: content/countertops/blackpearlgranite.md
 relatedProjects:
   - project: content/projects/residence-on-little-deep-creek-lane.md
   - project: content/projects/residence-on-may-ella-loop.md

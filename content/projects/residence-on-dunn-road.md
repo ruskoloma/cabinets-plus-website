@@ -108,6 +108,8 @@ media:
     countertop: Other
     label: Blue kitchen island
     description: 'Residence on Dunn Road featuring blue kitchen island, kitchen, blue cabinetry, other surfaces.'
+countertopProducts:
+  - countertop: content/countertops/blackpearlgranite.md
 relatedProjects:
   - project: content/projects/residence-on-whitetail-lane.md
   - project: content/projects/stone-bathroom-project.md
