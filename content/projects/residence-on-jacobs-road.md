@@ -203,6 +203,9 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/lsw.md
   - cabinet: content/cabinets/lskp.md
+countertopProducts:
+  - countertop: ''
+    customName: Calacatta Lincoln
 relatedProjects:
   - project: content/projects/residence-on-toni-rae.md
   - project: content/projects/residence-on-walnut-street.md

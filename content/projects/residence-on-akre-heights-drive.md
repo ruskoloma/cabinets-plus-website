@@ -117,6 +117,9 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/esobn.md
   - cabinet: content/cabinets/otu.md
+countertopProducts:
+  - countertop: ''
+    customName: Brittanica Gold Cool by Cambria
 relatedProjects:
   - project: content/projects/residence-on-dunn-road.md
   - project: content/projects/residence-on-bruce-road.md

@@ -232,8 +232,9 @@ cabinetProducts:
   - cabinet: content/cabinets/atb.md
   - cabinet: content/cabinets/awb.md
 countertopProducts:
-  - countertop: content/countertops/carraraoriginal.md
-  - countertop: ''
+  - countertop: content/countertops/blackpearlgranite.md
+flooringProducts:
+  - flooring: content/flooring/comfort-heights-country-aura-li-ch07.md
 relatedProjects:
   - project: content/projects/residence-on-harmony-road.md
   - project: content/projects/residence-on-vera-crest-drive.md

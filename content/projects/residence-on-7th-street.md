@@ -132,7 +132,11 @@ cabinetProducts:
   - cabinet: content/cabinets/awb.md
   - cabinet: content/cabinets/tgb.md
 countertopProducts:
-  - countertop: content/countertops/simplepurewhite.md
+  - countertop: ''
+    customName: Enigma quartz
+flooringProducts:
+  - flooring: ''
+    customName: Lions
 relatedProjects:
   - project: content/projects/residence-on-addison-street.md
   - project: content/projects/residence-on-walnut-street.md

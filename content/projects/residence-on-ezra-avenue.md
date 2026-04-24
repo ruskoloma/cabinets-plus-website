@@ -158,6 +158,12 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/smb.md
   - cabinet: content/cabinets/swoa.md
+countertopProducts:
+  - countertop: ''
+    customName: Calacatta Tesoro
+flooringProducts:
+  - flooring: ''
+    customName: Mozaik
 relatedProjects:
   - project: content/projects/residence-on-sheneen-ct.md
   - project: content/projects/residence-on-geiger.md

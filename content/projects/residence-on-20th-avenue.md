@@ -200,6 +200,9 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/sk.md
   - cabinet: content/cabinets/atb.md
+countertopProducts:
+  - countertop: ''
+    customName: Soapstone
 relatedProjects:
   - project: content/projects/residence-on-22nd-avenue.md
   - project: content/projects/residence-on-helena-street.md

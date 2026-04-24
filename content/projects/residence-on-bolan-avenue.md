@@ -263,6 +263,9 @@ media:
     description: 'Residence on Bolan Avenue featuring tiled shower stall, bathroom.'
 cabinetProducts:
   - cabinet: content/cabinets/lsw.md
+countertopProducts:
+  - countertop: ''
+    customName: Enigma quartz
 relatedProjects:
   - project: content/projects/residence-on-sipple-road.md
   - project: content/projects/residence-on-locust-road.md

@@ -112,6 +112,9 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/lsw.md
   - cabinet: content/cabinets/lsa.md
+countertopProducts:
+  - countertop: ''
+    customName: Calacatta Lincoln
 relatedProjects:
   - project: content/projects/residence-on-conklin-street.md
   - project: content/projects/residence-on-locust-road.md

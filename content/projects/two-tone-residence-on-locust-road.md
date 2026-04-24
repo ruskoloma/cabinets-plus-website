@@ -171,6 +171,9 @@ cabinetProducts:
   - cabinet: content/cabinets/atb.md
 countertopProducts:
   - countertop: content/countertops/calacattasimplegold.md
+flooringProducts:
+  - flooring: ''
+    customName: Paradigm (Falcon)
 relatedProjects:
   - project: content/projects/residence-on-shiva-lane.md
   - project: content/projects/art-house-on-27th-avenue.md

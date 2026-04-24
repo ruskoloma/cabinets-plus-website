@@ -204,7 +204,7 @@ cabinetProducts:
   - cabinet: content/cabinets/lsw.md
   - cabinet: content/cabinets/atb.md
 countertopProducts:
-  - countertop: content/countertops/carraraoriginal.md
+  - countertop: content/countertops/blackpearlgranite.md
 relatedProjects:
   - project: content/projects/residence-on-dunn-road.md
   - project: content/projects/residence-on-beverly-avenue.md

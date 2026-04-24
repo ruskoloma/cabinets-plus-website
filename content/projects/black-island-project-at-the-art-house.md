@@ -397,6 +397,11 @@ cabinetProducts:
   - cabinet: content/cabinets/esobn.md
   - cabinet: content/cabinets/esoin.md
   - cabinet: content/cabinets/ssgh.md
+countertopProducts:
+  - countertop: ''
+    customName: Whitendale by Cambria
+  - countertop: ''
+    customName: Titanium Gold granite
 relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
   - project: content/projects/residence-on-madison-road.md

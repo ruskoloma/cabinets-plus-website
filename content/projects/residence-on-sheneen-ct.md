@@ -224,7 +224,13 @@ cabinetProducts:
   - cabinet: content/cabinets/sk.md
   - cabinet: content/cabinets/lsg.md
 countertopProducts:
-  - countertop: content/countertops/cararrablackmistsuede.md
+  - countertop: ''
+    customName: Wisconsin White quartz
+  - countertop: ''
+    customName: Luxo Oro quartz
+flooringProducts:
+  - flooring: ''
+    customName: Waterwise Laminate by Mozaik
 relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
   - project: content/projects/residence-on-22nd-avenue.md

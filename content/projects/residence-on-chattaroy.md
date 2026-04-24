@@ -248,6 +248,9 @@ media:
     countertop: Quartz
     label: White laundry cabinets
     description: 'Residence on Chattaroy featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
+countertopProducts:
+  - countertop: ''
+    customName: Calacatta Venus
 relatedProjects:
   - project: content/projects/residence-on-bruce-road.md
   - project: content/projects/residence-on-dishman-road.md

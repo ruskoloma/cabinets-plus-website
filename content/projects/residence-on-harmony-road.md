@@ -164,10 +164,11 @@ cabinetProducts:
   - cabinet: content/cabinets/lsw.md
   - cabinet: content/cabinets/eson.md
 countertopProducts:
-  - countertop: content/countertops/calacattabrezze.md
+  - countertop: ''
+    customName: Calacatta Lincoln quartz
 flooringProducts:
   - flooring: ''
-    customName: Test
+    customName: Lions
   - flooring: content/flooring/alpine-iron-frost-ap-9.md
 relatedProjects:
   - project: content/projects/residence-on-may-ella-loop.md

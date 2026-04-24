@@ -132,7 +132,11 @@ cabinetProducts:
   - cabinet: content/cabinets/atb.md
   - cabinet: content/cabinets/abb.md
 countertopProducts:
-  - countertop: content/countertops/calacattabrezze.md
+  - countertop: ''
+    customName: Polaris quartz
+flooringProducts:
+  - flooring: ''
+    customName: Flooring square
 relatedProjects:
   - project: content/projects/residence-on-whitetail-lane.md
   - project: content/projects/residence-on-jacobs-road.md

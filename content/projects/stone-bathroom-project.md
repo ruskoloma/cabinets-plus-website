@@ -109,7 +109,8 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/eson.md
 countertopProducts:
-  - countertop: content/countertops/simplepurewhite.md
+  - countertop: ''
+    customName: Statuario Lasa
 relatedProjects:
   - project: content/projects/residence-on-mercy.md
   - project: content/projects/black-island-project-at-the-art-house.md

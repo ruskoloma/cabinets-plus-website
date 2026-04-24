@@ -227,6 +227,9 @@ cabinetProducts:
   - cabinet: content/cabinets/awb.md
 countertopProducts:
   - countertop: content/countertops/blackpearlgranite.md
+flooringProducts:
+  - flooring: ''
+    customName: Stonewood "Aegean"
 relatedProjects:
   - project: content/projects/residence-on-little-deep-creek-lane.md
   - project: content/projects/residence-on-may-ella-loop.md

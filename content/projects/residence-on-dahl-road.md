@@ -129,6 +129,9 @@ cabinetProducts:
   - cabinet: content/cabinets/aeb.md
 countertopProducts:
   - countertop: content/countertops/calacattaslimgrey.md
+flooringProducts:
+  - flooring: ''
+    customName: Mozaik
 relatedProjects:
   - project: content/projects/residence-on-harmony-road.md
   - project: content/projects/two-tone-residence-on-locust-road.md

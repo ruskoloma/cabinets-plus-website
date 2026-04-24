@@ -494,6 +494,12 @@ cabinetProducts:
   - cabinet: content/cabinets/sdwh.md
   - cabinet: content/cabinets/ssgh.md
   - cabinet: content/cabinets/mbs.md
+countertopProducts:
+  - countertop: ''
+    customName: Calacatta Mia
+flooringProducts:
+  - flooring: ''
+    customName: Prima Floor (royal oak)
 relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-may-ella-loop.md

@@ -195,6 +195,8 @@ cabinetProducts:
   - cabinet: content/cabinets/awb.md
 countertopProducts:
   - countertop: content/countertops/calacattaelitegold.md
+flooringProducts:
+  - flooring: content/flooring/indoor-delight-forest-timber-li-id07.md
 relatedProjects:
   - project: content/projects/residence-on-bush-drive.md
   - project: content/projects/residence-on-dahl-road.md

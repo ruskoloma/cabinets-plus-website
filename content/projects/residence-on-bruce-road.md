@@ -253,6 +253,9 @@ media:
     countertop: Quartz
     label: Laundry room cabinets
     description: 'Residence on Bruce Road featuring laundry room cabinets, laundry, white + black cabinetry, quartz surfaces.'
+countertopProducts:
+  - countertop: ''
+    customName: Calacatta Polaris
 relatedProjects:
   - project: content/projects/two-tone-residence-on-locust-road.md
   - project: content/projects/residence-on-chattaroy.md
