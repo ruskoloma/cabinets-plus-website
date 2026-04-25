@@ -57,7 +57,9 @@ blocks:
   - title: 'The difference is real:'
     subtitle: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'
     introText: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'
-    introText2: 'At Cabinets Plus, you''re working with a local team that''s been designing and building kitchens in Spokane for 10+ years.'
+    introText2: |-
+      You're buying from people you can call directly if anything needs attention,
+      not a 1-800 number three states away.
     features:
       - title: 'More Design Freedom, Better Value'
         description: 'Big Box Stores limit you to pre-made stock cabinets with minimal customization. Our semi-custom cabinets give you design flexibility without custom pricing—choose your dimensions, door styles, finishes, and hardware to fit your exact space and vision.'

@@ -16,16 +16,25 @@ interface ProjectMosaicProps {
 
 function ProjectHoverOverlay({ title }: { title?: string }) {
   return (
-    <div className="pointer-events-none absolute inset-0 hidden flex-col justify-end gap-3 bg-[rgba(0,0,0,0.4)] p-6 opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:flex">
-      {title ? (
-        <span className="text-[24px] font-normal leading-[1.25] text-white">
-          {title}
+    <>
+      <div className="pointer-events-none absolute inset-0 hidden flex-col justify-end gap-3 bg-[rgba(0,0,0,0.4)] p-6 opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:flex">
+        {title ? (
+          <span className="text-[24px] font-normal leading-[1.25] text-white">
+            {title}
+          </span>
+        ) : null}
+        <span className="pointer-events-auto inline-flex min-h-[48px] w-max items-center justify-center rounded-[2px] border border-white bg-transparent px-8 text-[16px] font-medium leading-[1.2] text-white transition-colors duration-150 hover:bg-white/10">
+          View
         </span>
+      </div>
+      {title ? (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-[rgba(0,0,0,0.65)] to-transparent p-3 md:hidden">
+          <span className="text-[14px] font-medium leading-[1.25] text-white">
+            {title}
+          </span>
+        </div>
       ) : null}
-      <span className="pointer-events-auto inline-flex min-h-[48px] w-max items-center justify-center rounded-[2px] border border-white bg-transparent px-8 text-[16px] font-medium leading-[1.2] text-white transition-colors duration-150 hover:bg-white/10">
-        View
-      </span>
-    </div>
+    </>
   );
 }
 

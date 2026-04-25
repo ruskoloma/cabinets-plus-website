@@ -39,6 +39,16 @@ interface Props {
   page: Dict;
 }
 
+function withLineBreaks(textValue: string, keyPrefix: string): React.ReactNode[] {
+  const lines = textValue.split(/\n/);
+  const out: React.ReactNode[] = [];
+  lines.forEach((line, index) => {
+    if (index > 0) out.push(<br key={`${keyPrefix}-br-${index}`} />);
+    if (line) out.push(line);
+  });
+  return out;
+}
+
 function renderHighlightedText(textValue: string, highlights: string[], emphasisClassName: string) {
   if (!textValue) return null;
 
@@ -52,7 +62,7 @@ function renderHighlightedText(textValue: string, highlights: string[], emphasis
     .sort((left, right) => left.start - right.start);
 
   if (matches.length === 0) {
-    return textValue;
+    return withLineBreaks(textValue, "plain");
   }
 
   const nodes: React.ReactNode[] = [];
@@ -60,7 +70,7 @@ function renderHighlightedText(textValue: string, highlights: string[], emphasis
 
   matches.forEach((match, index) => {
     if (match.start > cursor) {
-      nodes.push(textValue.slice(cursor, match.start));
+      nodes.push(...withLineBreaks(textValue.slice(cursor, match.start), `pre-${index}`));
     }
 
     nodes.push(
@@ -72,7 +82,7 @@ function renderHighlightedText(textValue: string, highlights: string[], emphasis
   });
 
   if (cursor < textValue.length) {
-    nodes.push(textValue.slice(cursor));
+    nodes.push(...withLineBreaks(textValue.slice(cursor), "tail"));
   }
 
   return nodes;
@@ -120,7 +130,7 @@ export default function FigmaHome({ page }: Props) {
     ["We start with a free 3D design consultation"],
     ["Our installation team"],
   ];
-  const introHighlight = "local team";
+  const introHighlight = "you can call directly";
   const processDesktopLineSegments = [
     { left: "22px", top: "65px", height: "80px" },
     { left: "22px", top: "221px", height: "80px" },
@@ -248,7 +258,7 @@ export default function FigmaHome({ page }: Props) {
               tinaImageField={tinaField(item.raw as Record<string, unknown>, "image")}
               tinaTitleField={tinaField(item.raw as Record<string, unknown>, "name")}
               title={item.name}
-              titleClassName="mt-3 text-[24px] font-normal capitalize leading-[1.25] text-[var(--cp-primary-500)]"
+              titleClassName="mt-3 text-[24px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]"
             />
           ))}
         </div>
@@ -324,7 +334,7 @@ export default function FigmaHome({ page }: Props) {
                 {item.image ? <FillImage alt={item.title} className="object-cover" sizes="(min-width: 768px) 31vw, 100vw" src={item.image} variant={resolveSectionVariant(whyUsImageOptions, "card")} /> : null}
               </div>
               <h3
-                className="mt-3 text-[20px] font-normal leading-[1.15] text-[var(--cp-primary-500)] md:text-[24px] md:leading-[1.25]"
+                className="mt-3 text-[20px] font-semibold leading-[1.15] text-[var(--cp-primary-500)] md:text-[24px] md:leading-[1.25]"
                 data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}
               >
                 {item.title}

@@ -66,7 +66,7 @@ function StaticLayout({
     >
       <RouteScrollReset />
       <Header data={global} generalRaw={generalRaw} headerRaw={headerRaw} />
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen bg-white">{children}</main>
       <Footer data={global} footerRaw={footerRaw} generalRaw={generalRaw} />
     </GlobalProvider>
   );

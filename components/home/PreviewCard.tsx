@@ -59,7 +59,7 @@ export default function PreviewCard({
       {showMobileChevron && href ? (
         <>
           <div className="mt-2 flex items-center gap-1.5 md:hidden" data-tina-field={tinaTitleField}>
-            <h3 className="min-w-0 flex-1 font-[var(--font-red-hat-display)] text-[16px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
+            <h3 className="font-[var(--font-red-hat-display)] text-[16px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)]">
               {title}
             </h3>
             <img

@@ -32,7 +32,7 @@ export default function FaqTabsAccordion({ tabs }: FaqTabsAccordionProps) {
         <div className="mx-auto flex min-w-max gap-6 px-4 md:justify-center md:gap-8 md:px-0">
           {tabs.map((tab, index) => (
             <button
-              className={`border-b-2 pb-[2px] whitespace-nowrap font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] tracking-[0.01em] transition-colors md:text-[20px] md:uppercase ${
+              className={`border-b-2 pb-[2px] whitespace-nowrap font-[var(--font-red-hat-display)] text-[18px] font-semibold uppercase leading-[1.5] tracking-[0.01em] transition-colors md:text-[20px] ${
                 activeTab === index
                   ? "border-[var(--cp-primary-500)] text-[var(--cp-primary-500)]"
                   : "border-transparent text-[var(--cp-primary-500)] hover:border-[var(--cp-primary-350)] hover:text-[var(--cp-primary-350)]"

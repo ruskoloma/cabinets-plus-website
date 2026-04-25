@@ -630,9 +630,10 @@ export default function GalleryOverviewPage({
             <div className="relative" ref={filtersRef}>
               <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
                 <div className="order-2 flex flex-col gap-5 md:order-1 md:gap-8">
-                  <div className="flex items-center justify-between gap-4 md:hidden">
+                  <div className="-mx-4 flex items-center gap-10 overflow-x-auto px-4 cp-hide-scrollbar md:hidden">
                     <FilterTrigger
                       active={openPanel === "room"}
+                      className="shrink-0 cp-inline-trigger--large"
                       label="Room"
                       onClick={() => toggleFilter("room")}
                     />
@@ -652,24 +653,24 @@ export default function GalleryOverviewPage({
                     />
                   </div>
 
-                  <div className="flex items-center justify-between gap-3 md:hidden">
+                  <div className="-mx-4 flex items-center gap-10 overflow-x-auto px-4 cp-hide-scrollbar md:hidden">
                     <FilterTrigger
                       active={openPanel === "doorStyle"}
-                      className="text-[18px]"
+                      className="shrink-0 text-[18px]"
                       disabled={selectedFilters.flooringOnly}
                       label="Door Style"
                       onClick={() => toggleFilter("doorStyle")}
                     />
                     <FilterTrigger
                       active={openPanel === "countertop"}
-                      className="text-[18px]"
+                      className="shrink-0 text-[18px]"
                       disabled={selectedFilters.flooringOnly}
                       label="Countertop"
                       onClick={() => toggleFilter("countertop")}
                     />
                     <FilterTrigger
                       active={openPanel === "finish"}
-                      className="text-[18px]"
+                      className="shrink-0 text-[18px]"
                       disabled={selectedFilters.flooringOnly}
                       label="Finish"
                       onClick={() => toggleFilter("finish")}

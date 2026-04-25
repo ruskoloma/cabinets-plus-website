@@ -530,9 +530,9 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
           </div>
 
           <div className="mt-8 flex flex-col gap-4 md:mt-12">
-            <div className="flex items-center gap-10 md:hidden">
+            <div className="-mx-4 flex items-center gap-10 overflow-x-auto px-4 cp-hide-scrollbar md:hidden">
               <button
-                className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
+                className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large shrink-0"
                 onClick={() => {
                   setPendingDoorStyles(queryState.styles);
                   setOpenPanel("doorStyle");
@@ -544,7 +544,7 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
               </button>
 
               <button
-                className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large"
+                className="cp-inline-trigger cp-inline-trigger--display cp-inline-trigger--large shrink-0"
                 onClick={() => {
                   setPendingFinishes(queryState.finishes);
                   setFinishTab(queryState.finishes.some((value) => stainValueSet.has(value)) ? "stain" : "paint");

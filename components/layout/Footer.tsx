@@ -27,22 +27,9 @@ const FOOTER_SHBA_LOGO = "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/li
 
 function FooterLinkItem({ href, children, field }: { href: string; children: React.ReactNode; field?: string }) {
   return (
-    <TextLink className="block" dataTinaField={field} href={href} size="large" tone="white">
+    <TextLink className="block whitespace-nowrap" dataTinaField={field} href={href} size="large" tone="white">
       {children}
     </TextLink>
-  );
-}
-
-function FooterInlineLinks({ links }: { links: Array<FooterLink & { field?: string }> }) {
-  return (
-    <>
-      {links.map((link, index) => (
-        <span className="inline-flex items-center" key={`${link.href}-${link.label}-${index}`}>
-          <FooterLinkItem field={link.field} href={link.href}>{link.label}</FooterLinkItem>
-          {index < links.length - 1 ? <span className="px-2 text-white">•</span> : null}
-        </span>
-      ))}
-    </>
   );
 }
 
@@ -86,8 +73,6 @@ export default function Footer({
     field: tinaField(footerRaw, `footerLinks.${index}`),
   }));
   const serviceLinks = allLinks.slice(0, 5);
-  const serviceLinksLine1 = serviceLinks.slice(0, 3);
-  const serviceLinksLine2 = serviceLinks.slice(3, 5);
   const pageLinks = allLinks.slice(5, 8);
   const legalLinks = allLinks.slice(8, 12);
   const primaryAddress = (data.address || "").split(",")[0].trim();
@@ -200,19 +185,28 @@ export default function Footer({
           ))}
         </div>
 
-        <div className="mt-[53px] w-[361px] text-[16px] leading-6 text-white" data-tina-field={tinaField(footerRaw, "footerLinks")}>
-          <p className="flex items-center">
-            <FooterInlineLinks links={serviceLinksLine1} />
-          </p>
-          <p className="flex items-center">
-            <FooterInlineLinks links={serviceLinksLine2} />
-          </p>
-          <p className="mt-6 flex items-center">
-            <FooterInlineLinks links={pageLinks} />
-          </p>
-          <p className="mt-8 flex items-center">
-            <FooterInlineLinks links={legalLinks} />
-          </p>
+        <div className="mt-[53px] text-[16px] leading-6 text-white" data-tina-field={tinaField(footerRaw, "footerLinks")}>
+          <div className="space-y-4">
+            {serviceLinks.map((link, index) => (
+              <FooterLinkItem field={link.field} href={link.href} key={`m-svc-${link.href}-${index}`}>
+                {link.label}
+              </FooterLinkItem>
+            ))}
+          </div>
+          <div className="mt-6 space-y-4">
+            {pageLinks.map((link, index) => (
+              <FooterLinkItem field={link.field} href={link.href} key={`m-pg-${link.href}-${index}`}>
+                {link.label}
+              </FooterLinkItem>
+            ))}
+          </div>
+          <div className="mt-8 space-y-4">
+            {legalLinks.map((link, index) => (
+              <FooterLinkItem field={link.field} href={link.href} key={`m-lg-${link.href}-${index}`}>
+                {link.label}
+              </FooterLinkItem>
+            ))}
+          </div>
         </div>
 
         <div className="mt-[65px]">
