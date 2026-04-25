@@ -1,4 +1,5 @@
 import { createStaticQueryResult, readJsonContentFile } from "@/app/lib/content";
+import { enrichProjectsSectionBlocksInPageResult } from "@/app/lib/enrich-projects-section";
 import { client } from "@/tina/__generated__/client";
 
 interface QueryLikeResult<T> {
@@ -27,19 +28,23 @@ export async function getJsonSettingsDocumentSafe<TDocument, TResult extends Que
       {},
     );
 
-    return {
+    const payload = {
       data: ((result as { data?: Record<string, unknown> }).data || {}) as TResult["data"],
       query,
       variables: { relativePath },
-    } as unknown as TResult;
+    };
+    await enrichProjectsSectionBlocksInPageResult(payload);
+    return payload as unknown as TResult;
   } catch (error) {
     try {
       const document = await readJsonContentFile<TDocument>("global", relativePath);
-      return {
+      const fallback = {
         ...createStaticQueryResult({ [resultKey]: document }),
         query,
         variables: { relativePath },
-      } as unknown as TResult;
+      };
+      await enrichProjectsSectionBlocksInPageResult(fallback);
+      return fallback as unknown as TResult;
     } catch {
       console.error(`Unable to load Tina settings for "${relativePath}"; using hardcoded fallback.`, error);
       return {

@@ -1389,13 +1389,35 @@ function sharedProjectsSectionTemplate() {
       { type: "string" as const, name: "title", label: "Section Title" },
       { type: "string" as const, name: "ctaLabel", label: "CTA Text" },
       { type: "string" as const, name: "ctaLink", label: "CTA Link" },
-      { type: "image" as const, name: "images", label: "Project Images", list: true },
       {
-        type: "string" as const,
-        name: "titles",
-        label: "Project Titles",
+        type: "object" as const,
+        name: "projects",
+        label: "Projects",
         list: true,
-        description: "Optional hover titles for each project image (in the same order as the images above).",
+        description: "Pick up to five projects. Each tile links to the project detail page and uses the project's first image unless an override is set.",
+        ui: {
+          itemProps: (item: TinaListItem) => ({
+            label: resolveProjectReferenceLabel((item as { project?: unknown })?.project),
+          }),
+        },
+        fields: [
+          {
+            type: "reference" as const,
+            name: "project",
+            label: "Project",
+            collections: ["project"],
+            ui: {
+              optionComponent: renderProjectReferenceOption,
+              experimental___filter: filterProjectReferenceOptions,
+            },
+          },
+          {
+            type: "image" as const,
+            name: "imageOverride",
+            label: "Image Override (optional)",
+            description: "Optional: overrides the project's first image. Leave blank to use the project's first image.",
+          },
+        ],
       },
       ...homepageSectionImageFields(),
     ],

@@ -91,12 +91,32 @@ export default function ComponentsShowcasePage() {
         <div className="cp-container px-4 md:px-8">
           <h2 className="text-[24px] uppercase md:text-[32px]">Project Mosaic</h2>
           <ProjectMosaic
-            images={[
-              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
-              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
-              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
-              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
-              "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg",
+            items={[
+              {
+                image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
+                title: "Featured project",
+                href: "/gallery",
+              },
+              {
+                image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
+                title: "Project 2",
+                href: "/gallery",
+              },
+              {
+                image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
+                title: "Project 3",
+                href: "/gallery",
+              },
+              {
+                image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
+                title: "Project 4",
+                href: "/gallery",
+              },
+              {
+                image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg",
+                title: "Project 5",
+                href: "/gallery",
+              },
             ]}
           />
         </div>

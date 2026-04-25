@@ -42,18 +42,17 @@ blocks:
   - title: Our projects
     ctaLabel: View All projects
     ctaLink: /gallery
-    images:
-      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg'
-      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg'
-      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg'
-      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg'
-      - 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg'
-    titles:
-      - Scandinavian Warmth
-      - Modern Heritage
-      - Coastal Calm
-      - Urban Retreat
-      - Timeless Classic
+    projects:
+      - project: content/projects/art-house-on-27th-avenue.md
+        imageOverride: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg'
+      - project: content/projects/two-tone-residence-on-locust-road.md
+        imageOverride: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg'
+      - project: content/projects/stone-bathroom-project.md
+        imageOverride: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg'
+      - project: content/projects/black-island-project-at-the-art-house.md
+        imageOverride: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg'
+      - project: content/projects/residence-on-harmony-road.md
+        imageOverride: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg'
     _template: projectsSection
   - title: 'The difference is real:'
     subtitle: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'

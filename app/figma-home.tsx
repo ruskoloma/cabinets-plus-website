@@ -3,12 +3,12 @@
 import {
   FALLBACK_HERO_IMAGE,
   FALLBACK_PROCESS_ICONS,
-  FALLBACK_PROJECT_IMAGES,
   getBlock,
   mapFaqTabs,
   mapFeatures,
   mapPartnerLogos,
   mapProducts,
+  mapResolvedProjects,
   resolveTemplateName,
   mapServices,
   mapStats,
@@ -140,10 +140,12 @@ export default function FigmaHome({ page }: Props) {
   const faqTabs = mapFaqTabs(toBlockArray(faq.tabs));
 
   const heroImage = text(hero.backgroundImage, FALLBACK_HERO_IMAGE);
-  const projectGallery = (Array.isArray(projects.images) ? (projects.images as unknown[]) : []).map((item) => text(item)).filter(Boolean);
-  const projectImages = projectGallery.length > 0 ? projectGallery : FALLBACK_PROJECT_IMAGES;
-  const projectImageFields = projectGallery.map((_, index) => tinaField(projectsRecord, `images.${index}`));
-  const projectTitles = (Array.isArray(projects.titles) ? (projects.titles as unknown[]) : []).map((item) => text(item));
+  const projectMosaicItems = mapResolvedProjects(projects.projects ?? projects.resolvedProjects).slice(0, 5).map((item, index) => ({
+    image: item.image,
+    title: item.title,
+    href: item.href,
+    tinaField: tinaField(projectsRecord, `projects.${index}`),
+  }));
   const partnerLogos = mapPartnerLogos(about.partnerLogos);
   const fallbackTrustPartnerLogos: PartnerLogoItem[] = [
     { src: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png", alt: "Lions Floor" },
@@ -284,10 +286,8 @@ export default function FigmaHome({ page }: Props) {
             {text(projects.title, "Our projects")}
           </h2>
           <ProjectMosaic
-            imageFields={projectImageFields}
             imageVariant={projectsImageOptions.useOriginal ? null : projectsImageOptions.variant}
-            images={projectImages}
-            titles={projectTitles}
+            items={projectMosaicItems}
           />
           <div className="mt-12 text-center md:mt-7">
             <Button className="!min-h-12 md:!min-h-14" dataTinaField={tinaField(projectsRecord, "ctaLabel")} href={text(projects.ctaLink, "/gallery")} variant="outline">

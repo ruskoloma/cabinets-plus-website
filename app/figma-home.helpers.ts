@@ -166,13 +166,86 @@ const FALLBACK_FAQ_TABS: FaqTab[] = [
 export const FALLBACK_HERO_IMAGE =
   "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/hero.jpg";
 
-export const FALLBACK_PROJECT_IMAGES = [
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-2.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg",
-  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg",
-];
+export interface ResolvedProjectItem {
+  href: string;
+  image: string;
+  title: string;
+  imageOverride?: string;
+  projectFilename?: string;
+}
+
+function projectFilenameFromReference(project: unknown): string {
+  if (typeof project === "string") {
+    const name = project.split("/").pop() || "";
+    return name.replace(/\.md$/, "");
+  }
+  if (project && typeof project === "object") {
+    const record = project as Record<string, unknown>;
+    const sys = record._sys as Record<string, unknown> | undefined;
+    const filename = typeof sys?.filename === "string" ? sys.filename : "";
+    if (filename) return filename.replace(/\.md$/, "");
+    const relativePath = typeof sys?.relativePath === "string" ? sys.relativePath : "";
+    if (relativePath) {
+      const name = relativePath.split("/").pop() || "";
+      return name.replace(/\.md$/, "");
+    }
+  }
+  return "";
+}
+
+function firstMediaFile(project: unknown): string {
+  if (!project || typeof project !== "object") return "";
+  const mediaList = (project as Record<string, unknown>).media;
+  if (!Array.isArray(mediaList) || mediaList.length === 0) return "";
+  const first = mediaList[0];
+  if (!first || typeof first !== "object") return "";
+  const file = (first as Record<string, unknown>).file;
+  return typeof file === "string" ? file : "";
+}
+
+export function mapResolvedProjects(value: unknown): ResolvedProjectItem[] {
+  if (!Array.isArray(value)) return [];
+
+  const items: ResolvedProjectItem[] = [];
+  for (const raw of value) {
+    if (!raw || typeof raw !== "object") continue;
+    const item = raw as Record<string, unknown>;
+
+    if (typeof item.href === "string" || typeof item.image === "string") {
+      const href = text(item.href);
+      const image = text(item.image);
+      if (!href && !image) continue;
+
+      items.push({
+        href,
+        image,
+        title: text(item.title),
+        imageOverride: text(item.imageOverride) || undefined,
+        projectFilename: text(item.projectFilename) || undefined,
+      });
+      continue;
+    }
+
+    const filename = projectFilenameFromReference(item.project);
+    if (!filename) continue;
+
+    const projectRecord = item.project && typeof item.project === "object" ? (item.project as Record<string, unknown>) : null;
+    const override = text(item.imageOverride);
+    const image = override.length > 0 ? override : firstMediaFile(projectRecord);
+    const title = projectRecord && typeof projectRecord.title === "string" && projectRecord.title.length > 0
+      ? projectRecord.title
+      : filename;
+
+    items.push({
+      href: `/projects/${filename}`,
+      image,
+      title,
+      imageOverride: override.length > 0 ? override : undefined,
+      projectFilename: filename,
+    });
+  }
+  return items;
+}
 
 export const FALLBACK_PROCESS_ICONS = [
   "/library/process/process-step-1.svg",

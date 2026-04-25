@@ -31,8 +31,21 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             title
             ctaLabel
             ctaLink
-            images
-            titles
+            projects {
+              project {
+                ... on Project {
+                  title
+                  media {
+                    file
+                  }
+                  _sys {
+                    filename
+                    relativePath
+                  }
+                }
+              }
+              imageOverride
+            }
             imageSize
           }
           ... on ${prefix}WhyUsSection {

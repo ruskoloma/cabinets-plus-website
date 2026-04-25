@@ -100,7 +100,6 @@ cabinetProducts:
 countertopProducts:
   - countertop: content/countertops/simplepurewhite.md
 relatedProjects:
-  - project: content/projects/residence-on-mercy.md
   - project: content/projects/residence-on-walnut-street.md
   - project: content/projects/art-house-on-27th-avenue.md
 slug: residence-on-sipple-road

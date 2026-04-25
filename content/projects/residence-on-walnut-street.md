@@ -231,7 +231,6 @@ countertopProducts:
 relatedProjects:
   - project: content/projects/white-cabinet-project-on-shiva-lane.md
   - project: content/projects/residence-on-addison-street.md
-  - project: content/projects/residence-on-mercy.md
 slug: residence-on-walnut-street
 address: 1217 S Walnut
 notes: |-

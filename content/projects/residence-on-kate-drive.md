@@ -93,7 +93,6 @@ countertopProducts:
   - countertop: content/countertops/calacattaelitegold.md
 relatedProjects:
   - project: content/projects/residence-on-toni-rae.md
-  - project: content/projects/residence-on-mercy.md
   - project: content/projects/two-tone-residence-on-locust-road.md
 slug: residence-on-kate-drive
 address: '6567 Kate Dr Nine Mile Falls, WA 99026, USA'

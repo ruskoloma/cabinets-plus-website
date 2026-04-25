@@ -2,6 +2,7 @@ import {
   createStaticQueryResult,
   readMarkdownFrontmatter,
 } from "@/app/lib/content";
+import { enrichProjectsSectionBlocksInPageResult } from "@/app/lib/enrich-projects-section";
 import { client } from "@/tina/__generated__/client";
 
 interface PageSeo {
@@ -85,13 +86,17 @@ function normalizePageData(value: unknown): PageData | null {
 
 export async function getPageDataSafe(relativePath: string): Promise<PageQueryLikeResult> {
   try {
-    return await client.queries.page({ relativePath });
+    const result = await client.queries.page({ relativePath });
+    await enrichProjectsSectionBlocksInPageResult(result);
+    return result;
   } catch (error) {
     try {
       const frontmatter = await readMarkdownFrontmatter("pages", relativePath);
-      return createStaticQueryResult({
+      const fallback = createStaticQueryResult({
         page: normalizePageData(frontmatter),
       });
+      await enrichProjectsSectionBlocksInPageResult(fallback);
+      return fallback;
     } catch {
       console.error(`Unable to load page "${relativePath}" from Tina or local file.`, error);
       return createStaticQueryResult({ page: null });

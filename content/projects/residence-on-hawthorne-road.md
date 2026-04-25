@@ -152,7 +152,6 @@ cabinetProducts:
 countertopProducts:
   - countertop: content/countertops/simplepurewhite.md
 relatedProjects:
-  - project: content/projects/residence-on-mercy.md
   - project: content/projects/residence-on-shiva-lane.md
   - project: content/projects/residence-on-redemption-rock-road.md
 slug: residence-on-hawthorne-road
