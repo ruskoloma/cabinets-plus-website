@@ -10,7 +10,6 @@ export default function WhyUsSectionBlock({ block }: { block: BlockRecord }) {
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle
           title={asText(block.title)}
-          subtitle={asText(block.subtitle) || undefined}
           tinaField={tinaField(block, "title")}
           centered
         />

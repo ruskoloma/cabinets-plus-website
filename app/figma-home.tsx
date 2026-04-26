@@ -34,6 +34,7 @@ import FillImage from "@/components/ui/FillImage";
 import { resolveHomepageSectionImageOptions } from "@/lib/homepage-image-controls";
 import type { ImageVariantPreset } from "@/lib/image-variants";
 import { tinaField } from "tinacms/dist/react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 interface Props {
   page: Dict;
@@ -130,7 +131,6 @@ export default function FigmaHome({ page }: Props) {
     ["We start with a free 3D design consultation"],
     ["Our installation team"],
   ];
-  const introHighlight = "you can call directly";
   const processDesktopLineSegments = [
     { left: "22px", top: "65px", height: "80px" },
     { left: "22px", top: "221px", height: "80px" },
@@ -312,17 +312,17 @@ export default function FigmaHome({ page }: Props) {
           {text(whyUs.title, "The difference is real:")}
         </h2>
 
-        {text(whyUs.introText).length > 0 || text(whyUs.introText2).length > 0 ? (
-          <div className="mt-8 grid gap-4 text-[18px] leading-[1.5] text-[var(--cp-primary-500)] md:mt-4 md:grid-cols-[559px_minmax(0,1fr)] md:gap-20 md:py-8 md:text-[24px] md:leading-[1.45]">
-            {text(whyUs.introText).length > 0 ? (
-              <p data-tina-field={tinaField(whyUsRecord, "introText")}>
-                {text(whyUs.introText)}
-              </p>
+        {whyUs.text1 || whyUs.text2 ? (
+          <div className="mt-8 grid gap-4 text-[18px] leading-[1.5] text-[var(--cp-primary-500)] md:mt-4 md:grid-cols-[559px_minmax(0,1fr)] md:gap-20 md:py-8 md:text-[24px] md:leading-[1.45] [&_strong]:font-black">
+            {whyUs.text1 ? (
+              <div data-tina-field={tinaField(whyUsRecord, "text1")}>
+                <TinaMarkdown content={whyUs.text1 as Parameters<typeof TinaMarkdown>[0]["content"]} />
+              </div>
             ) : null}
-            {text(whyUs.introText2).length > 0 ? (
-              <p data-tina-field={tinaField(whyUsRecord, "introText2")}>
-                {renderHighlightedText(text(whyUs.introText2), [introHighlight], "font-black")}
-              </p>
+            {whyUs.text2 ? (
+              <div data-tina-field={tinaField(whyUsRecord, "text2")}>
+                <TinaMarkdown content={whyUs.text2 as Parameters<typeof TinaMarkdown>[0]["content"]} />
+              </div>
             ) : null}
           </div>
         ) : null}

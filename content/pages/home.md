@@ -55,10 +55,9 @@ blocks:
         imageOverride: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg'
     _template: projectsSection
   - title: 'The difference is real:'
-    subtitle: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'
-    introText: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'
-    introText2: |-
-      You're buying from people you can call directly if anything needs attention,
+    text1: 'When you walk into a big-box store, you''re navigating aisles of stock options with limited help.'
+    text2: |-
+      You're buying from people **you can call directly** if anything needs attention,
       not a 1-800 number three states away.
     features:
       - title: 'More Design Freedom, Better Value'

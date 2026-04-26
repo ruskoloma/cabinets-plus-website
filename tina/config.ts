@@ -1432,9 +1432,24 @@ function sharedWhyUsSectionTemplate() {
     label: "Why Us Section",
     fields: [
       { type: "string" as const, name: "title", label: "Section Title" },
-      { type: "string" as const, name: "subtitle", label: "Subtitle" },
-      { type: "string" as const, name: "introText", label: "Intro Text (line 1)", ui: { component: "textarea" as const } },
-      { type: "string" as const, name: "introText2", label: "Intro Text (line 2)", ui: { component: "textarea" as const } },
+      {
+        type: "rich-text" as const,
+        name: "text1",
+        label: "Text 1",
+        description: "Use bold/italic to emphasize phrases. Headings, lists, links and images are intentionally disabled for this section.",
+        overrides: {
+          toolbar: ["bold" as const, "italic" as const],
+        },
+      },
+      {
+        type: "rich-text" as const,
+        name: "text2",
+        label: "Text 2",
+        description: "Use bold/italic to emphasize phrases. Headings, lists, links and images are intentionally disabled for this section.",
+        overrides: {
+          toolbar: ["bold" as const, "italic" as const],
+        },
+      },
       ...homepageSectionImageFields(),
       {
         type: "object" as const,

@@ -52,9 +52,8 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
           }
           ... on ${prefix}WhyUsSection {
             title
-            subtitle
-            introText
-            introText2
+            text1
+            text2
             imageSize
             features {
               icon
