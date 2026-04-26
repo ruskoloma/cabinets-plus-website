@@ -113,15 +113,15 @@ function CaretIcon() {
 }
 
 function SearchIcon() {
-  return <img alt="" aria-hidden className="h-6 w-6" src="/library/header/nav-search.svg" />;
+  return <img alt="" aria-hidden height="24" src="/library/header/nav-search.svg" width="24" />;
 }
 
 function MenuIcon() {
-  return <img alt="" aria-hidden className="h-6 w-6" src="/library/header/nav-menu.svg" />;
+  return <img alt="" aria-hidden height="24" src="/library/header/nav-menu.svg" width="24" />;
 }
 
 function CloseIcon() {
-  return <img alt="" aria-hidden className="h-6 w-6" src="/library/header/nav-close.svg" />;
+  return <img alt="" aria-hidden height="24" src="/library/header/nav-close.svg" width="24" />;
 }
 
 function ChevronRightIcon() {
@@ -483,10 +483,15 @@ export default function Header({
 
           <div className="hidden items-center md:flex">
             {desktopSearchVisible ? (
-              <div className="cp-input-shell h-12 w-[600px] bg-[var(--cp-brand-neutral-50)]">
-                <div className="cp-input-shell__icon">
+              <div className="cp-input-shell h-12 w-[600px] bg-white pl-6 pr-4">
+                <button
+                  aria-label={data.navSearchLabel || "Search"}
+                  className="cp-input-shell__icon shrink-0 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
+                  onClick={submitSearch}
+                  type="button"
+                >
                   <SearchIcon />
-                </div>
+                </button>
                 <input
                   aria-label={data.navSearchLabel || "Search"}
                   className="cp-input-shell__input"
@@ -503,7 +508,7 @@ export default function Header({
                 />
                 <button
                   aria-label={isSearchRoute ? "Clear search" : "Close search"}
-                  className="text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
+                  className="cp-input-shell__icon shrink-0 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
                   onClick={() => {
                     setDesktopSearchValue("");
                     if (isSearchRoute) {

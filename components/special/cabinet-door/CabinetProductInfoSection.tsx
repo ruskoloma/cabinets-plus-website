@@ -65,7 +65,7 @@ export default function CabinetProductInfoSection({
             aria-label="Breadcrumb"
             className="flex min-w-0 flex-wrap items-center gap-1 text-[16px] leading-[1.2] text-[var(--cp-primary-300)] md:text-[14px]"
           >
-            <Link className="transition-colors hover:text-[var(--cp-primary-350)]" href="/cabinets">
+            <Link className="transition-colors hover:text-[var(--cp-primary-350)]" href="/cabinets/catalog">
               <span data-tina-field={breadcrumbField}>
                 {pageText.breadcrumbLabel}
               </span>

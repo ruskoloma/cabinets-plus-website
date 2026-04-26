@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
@@ -13,8 +12,14 @@ export const metadata: Metadata = {
 
 function MobileSearchField() {
   return (
-    <form action="/search" className="cp-input-shell mx-auto h-12 w-full max-w-[361px] bg-white md:hidden">
-      <Image alt="" aria-hidden className="cp-input-shell__icon" height={24} src="/library/header/nav-search.svg" width={24} />
+    <form action="/search" className="cp-input-shell mx-auto h-12 w-full max-w-[361px] bg-white pl-6 pr-4 md:hidden">
+      <button
+        aria-label="Search"
+        className="cp-input-shell__icon shrink-0 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
+        type="submit"
+      >
+        <img alt="" aria-hidden height="24" src="/library/header/nav-search.svg" width="24" />
+      </button>
       <input
         aria-label="Search"
         className="cp-input-shell__input"
@@ -24,10 +29,10 @@ function MobileSearchField() {
       />
       <Link
         aria-label="Open search page"
-        className="text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
+        className="cp-input-shell__icon shrink-0 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
         href="/search"
       >
-        <Image alt="" aria-hidden className="h-6 w-6" height={24} src="/library/header/nav-close.svg" width={24} />
+        <img alt="" aria-hidden height="24" src="/library/header/nav-close.svg" width="24" />
       </Link>
     </form>
   );

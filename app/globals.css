@@ -536,12 +536,20 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
 }
 
-.cp-field-control,
-.cp-input-shell {
+.cp-field-control {
   border: 1px solid var(--cp-primary-100);
   border-radius: 2px;
   background: var(--cp-brand-neutral-50);
   transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+@layer components {
+  .cp-input-shell {
+    border: 1px solid var(--cp-primary-100);
+    border-radius: 2px;
+    background: var(--cp-brand-neutral-50);
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
 }
 
 .cp-field-control {
@@ -595,18 +603,30 @@ h1, h2, h3, h4, h5, h6 {
   resize: none;
 }
 
-.cp-input-shell {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 40px;
-  padding: 0 16px;
+@layer components {
+  .cp-input-shell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 0 16px;
+  }
 }
 
 .cp-input-shell__icon {
-  width: 20px;
-  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
+}
+
+.cp-input-shell__icon > img,
+.cp-input-shell__icon > svg {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 .cp-input-shell__input {
@@ -622,6 +642,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.5;
   outline: none;
+}
+
+.cp-input-shell__input::-webkit-search-cancel-button,
+.cp-input-shell__input::-webkit-search-decoration,
+.cp-input-shell__input::-webkit-search-results-button,
+.cp-input-shell__input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .cp-contact-form .cp-field-label {

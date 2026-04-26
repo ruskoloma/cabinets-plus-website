@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import FillImage from "@/components/ui/FillImage";
 import Button from "@/components/ui/Button";
@@ -17,8 +16,14 @@ function SearchField({
   defaultValue: string;
 }) {
   return (
-    <form action="/search" className="cp-input-shell h-12 w-full bg-[var(--cp-brand-neutral-50)] md:hidden">
-      <Image alt="" aria-hidden className="cp-input-shell__icon" height={24} src="/library/header/nav-search.svg" width={24} />
+    <form action="/search" className="cp-input-shell h-12 w-full bg-white pl-6 pr-4 md:hidden">
+      <button
+        aria-label="Search"
+        className="cp-input-shell__icon shrink-0 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
+        type="submit"
+      >
+        <img alt="" aria-hidden height="24" src="/library/header/nav-search.svg" width="24" />
+      </button>
       <input
         aria-label="Search"
         className="cp-input-shell__input"
@@ -30,10 +35,10 @@ function SearchField({
       {defaultValue.trim() ? (
         <Link
           aria-label="Clear search"
-          className="text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
+          className="cp-input-shell__icon shrink-0 text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-350)]"
           href="/search"
         >
-          <Image alt="" aria-hidden className="h-6 w-6" height={24} src="/library/header/nav-close.svg" width={24} />
+          <img alt="" aria-hidden height="24" src="/library/header/nav-close.svg" width="24" />
         </Link>
       ) : null}
     </form>
@@ -48,11 +53,11 @@ function SectionHeader({
   count: number;
 }) {
   return (
-    <div className="flex items-end gap-4">
-      <h2 className="font-[var(--font-red-hat-display)] text-[30px] font-normal leading-none text-[var(--cp-primary-500)] md:text-[40px]">
+    <div className="flex items-end gap-6">
+      <h2 className="[font-family:var(--font-red-hat-display)] text-[24px] font-normal uppercase leading-[1.25] text-[var(--cp-primary-500)] md:text-[32px]">
         {title}
       </h2>
-      <p className="pb-1 font-[var(--font-red-hat-display)] text-[23px] font-normal leading-none text-[var(--cp-primary-300)] md:text-[30px]">
+      <p className="[font-family:var(--font-red-hat-display)] text-[18px] font-normal leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
         ({count} results)
       </p>
     </div>
@@ -84,7 +89,7 @@ function ProductCard({
         ) : null}
       </div>
       <div className="mt-3 max-w-[270px]">
-        <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
+        <p className="[font-family:var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
           {title}
         </p>
         {subtitle ? (
@@ -117,7 +122,7 @@ function ProjectCard({
           variant="card"
         />
       </div>
-      <p className="mt-2 font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:mt-3 md:text-[24px]">
+      <p className="mt-2 [font-family:var(--font-red-hat-display)] text-[16px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)] md:mt-3 md:text-[24px]">
         {title}
       </p>
     </Link>
@@ -144,7 +149,7 @@ function ArticleCard({
           variant="feature"
         />
       </div>
-      <p className="mt-2 font-[var(--font-red-hat-display)] text-[20px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:mt-3 md:text-[24px]">
+      <p className="mt-2 [font-family:var(--font-red-hat-display)] text-[16px] font-semibold capitalize leading-[1.25] text-[var(--cp-primary-500)] md:mt-3 md:text-[24px]">
         {title}
       </p>
     </Link>
@@ -177,19 +182,21 @@ export default async function SearchPage({
   const rawQuery = textQuery(params.q);
   const results = await getSearchResultsSafe(rawQuery);
   const hasQuery = results.query.trim().length > 0;
+  const hasResults =
+    results.products.length > 0 || results.projects.length > 0 || results.articles.length > 0;
 
   return (
     <div className="bg-white">
-      <div className="cp-container px-4 pb-16 pt-6 md:px-[120px] md:pb-[120px] md:pt-[88px]">
+      <div className="cp-container px-4 pb-16 pt-6 md:px-[120px] md:pb-[88px] md:pt-[88px]">
         <SearchField defaultValue={results.query} />
 
-        {hasQuery ? (
+        {hasQuery && hasResults ? (
           <>
             <div className="mt-12 md:mt-0">
-              <p className="font-[var(--font-red-hat-display)] text-[18px] font-normal leading-none text-[var(--cp-primary-500)] md:text-[30px]">
+              <p className="[font-family:var(--font-red-hat-display)] text-[14px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]">
                 Search results for:
               </p>
-              <h1 className="mt-2 font-[var(--font-red-hat-display)] text-[40px] font-normal leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:mt-2 md:text-[54px]">
+              <h1 className="mt-2 [font-family:var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px]">
                 {results.query}
               </h1>
             </div>
@@ -233,20 +240,19 @@ export default async function SearchPage({
               </section>
             ) : null}
 
-            {results.products.length === 0 && results.projects.length === 0 && results.articles.length === 0 ? (
-              <section className="mt-16 flex flex-col items-center text-center md:mt-[140px]">
-                <h2 className="font-[var(--font-red-hat-display)] text-[50px] font-normal uppercase leading-none text-[var(--cp-primary-500)] md:text-[60px]">
-                  No results found
-                </h2>
-                <p className="mt-4 max-w-[526px] text-[27px] leading-[1.35] text-[var(--cp-primary-500)] md:mt-5 md:text-[18px] md:leading-[2]">
-                  We couldn&apos;t find anything matching your search. Try different keywords or browse our services.
-                </p>
-                <Button className="mt-5 !min-h-14 !px-8 !text-[24px] md:mt-4 md:!min-h-[56px] md:!text-[20px]" href="/" variant="secondary">
-                  Go To Homepage
-                </Button>
-              </section>
-            ) : null}
           </>
+        ) : hasQuery ? (
+          <section className="mt-16 flex flex-col items-center gap-5 text-center md:mt-[140px]">
+            <h2 className="[font-family:var(--font-red-hat-display)] text-[40px] font-semibold uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:text-[48px] md:font-normal">
+              No results found
+            </h2>
+            <p className="max-w-[526px] [font-family:var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[24px]">
+              We couldn&apos;t find anything matching your search. Try different keywords or browse our services.
+            </p>
+            <Button className="!min-h-[56px] !px-8 !text-[20px]" href="/" variant="primary">
+              Go To Homepage
+            </Button>
+          </section>
         ) : (
           <div className="hidden md:block md:min-h-[320px]" />
         )}
