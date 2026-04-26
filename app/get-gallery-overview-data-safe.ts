@@ -30,23 +30,35 @@ export async function getGalleryOverviewDataSafe(): Promise<GalleryOverviewQuery
     };
   } catch (error) {
     try {
-      const [settings, files] = await Promise.all([
+      const [settings, projectFiles, collectionFiles] = await Promise.all([
         readJsonContentFile("global", "catalog-settings.json"),
         listMarkdownFiles("projects"),
+        listMarkdownFiles("collections").catch(() => [] as string[]),
       ]);
 
-      const projects = await Promise.all(
-        files.map(async (filename) => {
-          const frontmatter = await readMarkdownFrontmatter("projects", filename);
-          return withContentSysFields("projects", filename, frontmatter);
-        }),
-      );
+      const [projects, collections] = await Promise.all([
+        Promise.all(
+          projectFiles.map(async (filename) => {
+            const frontmatter = await readMarkdownFrontmatter("projects", filename);
+            return withContentSysFields("projects", filename, frontmatter);
+          }),
+        ),
+        Promise.all(
+          collectionFiles.map(async (filename) => {
+            const frontmatter = await readMarkdownFrontmatter("collections", filename);
+            return withContentSysFields("collections", filename, frontmatter);
+          }),
+        ),
+      ]);
 
       return createStaticQueryResult(
         normalizeGalleryOverviewQueryData({
           catalogSettings: settings,
           projectConnection: {
             edges: projects.map((project) => ({ node: project })),
+          },
+          collectionConnection: {
+            edges: collections.map((collection) => ({ node: collection })),
           },
         }),
       );

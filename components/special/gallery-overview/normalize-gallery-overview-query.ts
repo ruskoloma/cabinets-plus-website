@@ -3,6 +3,9 @@ import type {
   CatalogSettingsData,
   CatalogSystemInfo,
   CatalogVisualOption,
+  CollectionMediaSummary,
+  CollectionOverviewItem,
+  GalleryCollectionItemData,
   GalleryProjectMediaData,
   GalleryProjectItemData,
   GalleryOverviewDataShape,
@@ -196,6 +199,80 @@ function normalizeProjectMedia(value: unknown): ProjectMediaItem | null {
   };
 }
 
+function toCollectionSlug(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/\.md$/i, "")
+    .replace(/^content\//i, "")
+    .replace(/^collections\//i, "")
+    .replace(/\s+/g, "-");
+}
+
+function normalizeCollectionMedia(value: unknown): CollectionMediaSummary | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    file: asString(record.file) ?? null,
+    label: asString(record.label) ?? null,
+    description: asString(record.description) ?? null,
+    raw: record,
+  };
+}
+
+function normalizeCollectionReference(value: unknown): string | null {
+  if (typeof value === "string") return value;
+
+  const record = asRecord(value);
+  if (!record) return null;
+
+  if ("project" in record) {
+    return normalizeCollectionReference(record.project);
+  }
+
+  return (
+    asString(record.slug) ||
+    asString(asRecord(record._sys)?.relativePath) ||
+    asString(asRecord(record._sys)?.filename) ||
+    null
+  );
+}
+
+function normalizeCollection(value: unknown, fallbackFilename?: string): CollectionOverviewItem | null {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  const sysFallback = fallbackFilename || asString(asRecord(record._sys)?.filename);
+  const media = Array.isArray(record.media)
+    ? record.media.map((entry) => normalizeCollectionMedia(entry)).filter((entry): entry is CollectionMediaSummary => Boolean(entry))
+    : [];
+
+  return {
+    __typename: asString(record.__typename),
+    _sys: normalizeSystemInfo(record._sys, sysFallback),
+    id: asString(record.id),
+    published: asBoolean(record.published) ?? null,
+    title: asString(record.title) ?? null,
+    slug: toCollectionSlug(asString(record.slug) || sysFallback || ""),
+    description: asString(record.description) ?? null,
+    coverImage: asString(record.coverImage) ?? null,
+    sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
+    media,
+    relatedProjects: (() => {
+      const typedRelated = Array.isArray(record.relatedProjects)
+        ? record.relatedProjects.map((item) => normalizeCollectionReference(item))
+        : [];
+      const rawRelated = Array.isArray(asRecord(record._values)?.relatedProjects)
+        ? (asRecord(record._values)?.relatedProjects as unknown[]).map((item) => normalizeCollectionReference(item))
+        : [];
+      return typedRelated.length > 0 ? typedRelated : rawRelated;
+    })(),
+    _content_source: record._content_source as unknown,
+    _values: record._values as unknown,
+  };
+}
+
 function normalizeProject(value: unknown): ProjectOverviewItem | null {
   const record = asRecord(value);
   if (!record) return null;
@@ -236,10 +313,28 @@ export function normalizeGalleryOverviewQueryData(value: unknown): GalleryOvervi
     })
     .filter((edge): edge is { node: ProjectOverviewItem } => Boolean(edge));
 
+  // Tina exposes the GraphQL field as `specialityCollectionConnection` (the literal
+  // name `collection` is reserved). Accept either key on input so file-fallback
+  // payloads can still use the friendlier `collectionConnection` name.
+  const collectionConnectionRecord =
+    asRecord(record?.specialityCollectionConnection) || asRecord(record?.collectionConnection);
+  const collectionEdges = Array.isArray(collectionConnectionRecord?.edges) ? collectionConnectionRecord.edges : [];
+  const normalizedCollectionEdges = collectionEdges
+    .map((edge) => {
+      const edgeRecord = asRecord(edge);
+      const node = normalizeCollection(edgeRecord?.node);
+      if (!node) return null;
+      return { node };
+    })
+    .filter((edge): edge is { node: CollectionOverviewItem } => Boolean(edge));
+
   return {
     catalogSettings: normalizeCatalogSettings(record?.catalogSettings),
     projectConnection: {
       edges: normalizedEdges,
+    },
+    collectionConnection: {
+      edges: normalizedCollectionEdges,
     },
   };
 }
@@ -250,6 +345,14 @@ export function getOverviewProjectItems(data: GalleryOverviewDataShape): Project
   return edges
     .map((edge) => edge?.node || null)
     .filter((node): node is ProjectOverviewItem => Boolean(node));
+}
+
+export function getOverviewCollectionItems(data: GalleryOverviewDataShape): CollectionOverviewItem[] {
+  const edges = Array.isArray(data.collectionConnection?.edges) ? data.collectionConnection.edges : [];
+
+  return edges
+    .map((edge) => edge?.node || null)
+    .filter((node): node is CollectionOverviewItem => Boolean(node));
 }
 
 function cleanList(values: Array<string | null | undefined>): string[] {
@@ -333,5 +436,36 @@ export function buildGalleryProjects(data: GalleryOverviewDataShape): GalleryPro
     .sort((left, right) => {
       if (right.updatedAt !== left.updatedAt) return right.updatedAt - left.updatedAt;
       return left.projectTitle.localeCompare(right.projectTitle);
+    });
+}
+
+export function buildGalleryCollections(data: GalleryOverviewDataShape): GalleryCollectionItemData[] {
+  return getOverviewCollectionItems(data)
+    .filter((collection) => collection.published === true)
+    .map((collection) => {
+      const rawCollection = collection as unknown as Record<string, unknown>;
+      const collectionSlug = toCollectionSlug(collection.slug || collection._sys?.filename || "");
+      const collectionTitle = (collection.title || (collectionSlug ? toLabel(collectionSlug) : "Collection")).trim();
+      const description = (collection.description || "").trim();
+      const updatedAt = collection.sourceUpdatedAt ? Date.parse(collection.sourceUpdatedAt) : Number.NaN;
+      const directCover = (collection.coverImage || "").trim();
+      const fallbackCover = (collection.media || [])
+        .map((item) => (item?.file || "").trim())
+        .find(Boolean) || "";
+      const coverImage = directCover || fallbackCover;
+
+      return {
+        rawCollection,
+        collectionSlug,
+        collectionTitle,
+        description,
+        coverImage,
+        updatedAt: Number.isFinite(updatedAt) ? updatedAt : 0,
+      };
+    })
+    .filter((collection) => collection.collectionSlug.length > 0 && collection.coverImage.length > 0)
+    .sort((left, right) => {
+      if (right.updatedAt !== left.updatedAt) return right.updatedAt - left.updatedAt;
+      return left.collectionTitle.localeCompare(right.collectionTitle);
     });
 }

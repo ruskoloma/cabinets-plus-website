@@ -73,10 +73,36 @@ export interface ProjectOverviewItem {
   _values?: unknown;
 }
 
+export interface CollectionMediaSummary {
+  file?: string | null;
+  label?: string | null;
+  description?: string | null;
+  raw?: Record<string, unknown>;
+}
+
+export interface CollectionOverviewItem {
+  __typename?: string;
+  _sys?: CatalogSystemInfo | null;
+  id?: string;
+  published?: boolean | null;
+  title?: string | null;
+  slug?: string | null;
+  description?: string | null;
+  coverImage?: string | null;
+  sourceUpdatedAt?: string | null;
+  media?: Array<CollectionMediaSummary | null> | null;
+  relatedProjects?: Array<string | null> | null;
+  _content_source?: unknown;
+  _values?: unknown;
+}
+
 export interface GalleryOverviewDataShape {
   catalogSettings?: CatalogSettingsData | null;
   projectConnection?: {
     edges?: Array<{ node?: ProjectOverviewItem | null } | null> | null;
+  } | null;
+  collectionConnection?: {
+    edges?: Array<{ node?: CollectionOverviewItem | null } | null> | null;
   } | null;
 }
 
@@ -117,4 +143,13 @@ export interface GalleryProjectMediaData {
   label: string;
   description: string;
   order: number;
+}
+
+export interface GalleryCollectionItemData {
+  rawCollection: Record<string, unknown>;
+  collectionSlug: string;
+  collectionTitle: string;
+  description: string;
+  coverImage: string;
+  updatedAt: number;
 }

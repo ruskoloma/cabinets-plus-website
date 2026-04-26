@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { type RefObject, useCallback } from "react";
 
 function forceScrollToTop(behavior: ScrollBehavior) {
   if (typeof window === "undefined") return;
@@ -13,10 +13,14 @@ function forceScrollToTop(behavior: ScrollBehavior) {
   body.scrollTop = 0;
 }
 
-export function usePaginationScrollTarget() {
+export function usePaginationScrollTarget(targetRef?: RefObject<HTMLElement | null>) {
   const scrollToTarget = useCallback(() => {
+    if (targetRef?.current) {
+      targetRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     forceScrollToTop("smooth");
-  }, []);
+  }, [targetRef]);
 
   return {
     scrollToTarget,

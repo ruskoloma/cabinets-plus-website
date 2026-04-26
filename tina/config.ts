@@ -15,6 +15,7 @@ import {
   TINA_FOCUS_LIST_ITEM_MESSAGE,
   TINA_LIST_KEY_CABINET_RELATED_PRODUCTS,
   TINA_LIST_KEY_CABINET_RELATED_PROJECTS,
+  TINA_LIST_KEY_COLLECTION_RELATED_PROJECTS,
   TINA_LIST_KEY_COUNTERTOP_RELATED_PRODUCTS,
   TINA_LIST_KEY_COUNTERTOP_RELATED_PROJECTS,
   TINA_LIST_KEY_FLOORING_RELATED_PRODUCTS,
@@ -1024,6 +1025,12 @@ const projectFlooringProductsItemProps = createFocusableObjectListItemProps<{ fl
 
 const projectRelatedProjectsItemProps = createFocusableObjectListItemProps<{ project?: unknown }>(
   TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
+  (item) => resolveProjectReferenceLabel(item?.project),
+  (item) => getProjectReferenceFocusItemId(item?.project),
+);
+
+const collectionRelatedProjectsItemProps = createFocusableObjectListItemProps<{ project?: unknown }>(
+  TINA_LIST_KEY_COLLECTION_RELATED_PROJECTS,
   (item) => resolveProjectReferenceLabel(item?.project),
   (item) => getProjectReferenceFocusItemId(item?.project),
 );
@@ -2130,7 +2137,7 @@ export default defineConfig({
         format: "json",
         match: {
           include:
-            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
+            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|collection-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
         },
         ui: {
           global: true,
@@ -2325,6 +2332,23 @@ export default defineConfig({
                         "Filter Images",
                         "Controls the visual filter cards on /gallery.",
                       ),
+                      {
+                        type: "string",
+                        name: "specialityTitle",
+                        label: "Speciality Section Title",
+                        description: "Heading shown above the Speciality (collections) strip on /gallery.",
+                      },
+                      {
+                        type: "boolean",
+                        name: "specialityEnabled",
+                        label: "Show Speciality Section",
+                        description: "Hide the Speciality strip without deleting collections.",
+                      },
+                      imageSizeSettingField(
+                        "specialityCardImageSize",
+                        "Speciality Card Images",
+                        "Controls the cover-image size on Speciality cards.",
+                      ),
                     ],
                   },
                   ...sharedPageSectionTemplates(),
@@ -2404,6 +2428,56 @@ export default defineConfig({
                         "imageSize",
                         "Related Project Images",
                         "Controls the related-project card images on project detail pages.",
+                      ),
+                    ],
+                  },
+                  ...sharedPageSectionTemplates(),
+                ],
+              },
+            ],
+          },
+          {
+            name: "collection",
+            label: "Collection",
+            fields: [
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on every collection detail page. The Collection Info block (title, description, gallery) is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "collectionInfo",
+                    label: "Collection Info (title, description, gallery — pulled from each collection)",
+                    fields: [
+                      { type: "string" as const, name: "breadcrumbLabel", label: "Breadcrumb Label" },
+                      { type: "string" as const, name: "breadcrumbLink", label: "Breadcrumb Link" },
+                      imageSizeSettingField(
+                        "galleryImageSize",
+                        "Gallery Grid Images",
+                        "Controls the gallery grid images on collection detail pages.",
+                      ),
+                      imageSizeSettingField(
+                        "lightboxImageSize",
+                        "Lightbox Images",
+                        "Controls the expanded lightbox image on collection detail pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "collectionRelatedProjects",
+                    label: "Related Projects (pulled per collection)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      { type: "string" as const, name: "ctaLabel", label: "CTA Label" },
+                      { type: "string" as const, name: "ctaLink", label: "CTA Link" },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Related Project Images",
+                        "Controls the related-project card images on collection detail pages.",
                       ),
                     ],
                   },
@@ -3247,6 +3321,74 @@ export default defineConfig({
           { type: "string", name: "notes", label: "Notes", ui: { component: "textarea" } },
           { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
           { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
+        ],
+      },
+
+      // ─── COLLECTIONS: /collections/[slug] ───────────────────────
+      // NOTE: Tina reserves `Query.collection` for its built-in metadata API,
+      // so the content collection name must be `specialityCollection` even though
+      // the URL, file path, and admin label remain "Collection(s)".
+      {
+        name: "specialityCollection",
+        label: "Collections",
+        path: "content/collections",
+        format: "md",
+        ui: {
+          router: ({ document }) => `/collections/${document._sys.filename}`,
+        },
+        fields: [
+          {
+            type: "boolean",
+            name: "published",
+            label: "Published",
+            description: "Only published collections appear in the Speciality strip on /gallery and on related-collections lists.",
+          },
+          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          {
+            type: "image",
+            name: "coverImage",
+            label: "Cover Image (used as the Speciality card thumbnail on /gallery)",
+            ui: { component: renderLargeMediaPreviewField },
+          },
+          {
+            type: "object",
+            name: "media",
+            label: "Media",
+            list: true,
+            ui: {
+              itemProps: mediaGroupItemProps,
+            },
+            fields: [
+              { type: "image", name: "file", label: "File", ui: { component: renderLargeMediaPreviewField } },
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+            ],
+          },
+          {
+            type: "object",
+            name: "relatedProjects",
+            label: "Related Projects",
+            list: true,
+            description: "Search and select project entries to feature on this collection's detail page.",
+            ui: {
+              itemProps: collectionRelatedProjectsItemProps,
+            },
+            fields: [
+              {
+                type: "reference",
+                name: "project",
+                label: "Project",
+                collections: ["project"],
+                ui: {
+                  optionComponent: renderProjectReferenceOption,
+                  experimental___filter: filterProjectReferenceOptions,
+                },
+              },
+            ],
+          },
+          { type: "string", name: "slug", label: "Slug", required: true },
+          { type: "datetime", name: "sourceUpdatedAt", label: "Date" },
         ],
       },
 

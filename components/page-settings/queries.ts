@@ -364,6 +364,9 @@ export const GALLERY_PAGE_SETTINGS_QUERY = `
             pageTitle
             galleryOverviewProjectCardImageSize
             galleryOverviewFilterImageSize
+            specialityTitle
+            specialityEnabled
+            specialityCardImageSize
           }
 ${buildSharedPageSettingsBlockFragments("PageSettingsGalleryBlocks")}
         }
@@ -409,6 +412,39 @@ export const PROJECT_PAGE_SETTINGS_QUERY = `
             imageSize
           }
 ${buildSharedPageSettingsBlockFragments("PageSettingsProjectBlocks")}
+        }
+      }
+    }
+  }
+`;
+
+export const COLLECTION_PAGE_SETTINGS_QUERY = `
+  query CollectionPageSettingsDocument($relativePath: String!) {
+    collectionPageSettings: pageSettings(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+      ... on PageSettingsCollection {
+        blocks {
+          __typename
+          ... on PageSettingsCollectionBlocksCollectionInfo {
+            breadcrumbLabel
+            breadcrumbLink
+            galleryImageSize
+            lightboxImageSize
+          }
+          ... on PageSettingsCollectionBlocksCollectionRelatedProjects {
+            title
+            ctaLabel
+            ctaLink
+            imageSize
+          }
+${buildSharedPageSettingsBlockFragments("PageSettingsCollectionBlocks")}
         }
       }
     }

@@ -67,5 +67,32 @@ export const GALLERY_OVERVIEW_QUERY = `
         }
       }
     }
+    specialityCollectionConnection(first: 200) {
+      edges {
+        node {
+          ... on Document {
+            id
+            _sys {
+              filename
+              basename
+              relativePath
+            }
+          }
+          ... on SpecialityCollection {
+            published
+            title
+            slug
+            description
+            coverImage
+            sourceUpdatedAt
+            media {
+              file
+              label
+              description
+            }
+          }
+        }
+      }
+    }
   }
 `;

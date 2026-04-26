@@ -1,0 +1,25 @@
+{
+  "blocks": [
+    {
+      "breadcrumbLabel": "Gallery",
+      "breadcrumbLink": "/gallery",
+      "galleryImageSize": "card",
+      "lightboxImageSize": "full",
+      "_template": "collectionInfo"
+    },
+    {
+      "title": "Related Projects",
+      "ctaLabel": "View all",
+      "ctaLink": "/gallery",
+      "imageSize": "card",
+      "_template": "collectionRelatedProjects"
+    },
+    {
+      "_template": "sharedShowroomSection"
+    },
+    {
+      "_template": "sharedContactSection"
+    }
+  ],
+  "_template": "collection"
+}

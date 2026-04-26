@@ -57,6 +57,10 @@ export interface ProjectPageSettings extends BaseSettingsDocument {
   blocks?: Array<CatalogPageSettingsBlock | null> | null;
 }
 
+export interface CollectionPageSettings extends BaseSettingsDocument {
+  blocks?: Array<CatalogPageSettingsBlock | null> | null;
+}
+
 export interface PostPageSettings extends BaseSettingsDocument {
   postBreadcrumbLabel?: string | null;
   postRelatedArticlesTitle?: string | null;
@@ -124,6 +128,12 @@ export interface ProjectPageSettingsQueryLikeResult {
   variables?: Record<string, unknown>;
 }
 
+export interface CollectionPageSettingsQueryLikeResult {
+  data: { collectionPageSettings?: CollectionPageSettings | null };
+  query?: string;
+  variables?: Record<string, unknown>;
+}
+
 export interface PostPageSettingsQueryLikeResult {
   data: { postPageSettings?: PostPageSettings | null };
   query?: string;
@@ -184,6 +194,9 @@ export const FALLBACK_GALLERY_PAGE_SETTINGS: GalleryPageSettings = {
       pageTitle: "Gallery",
       galleryOverviewProjectCardImageSize: "card",
       galleryOverviewFilterImageSize: "thumb",
+      specialityTitle: "Speciality",
+      specialityEnabled: true,
+      specialityCardImageSize: "card",
     },
     { _template: "sharedContactSection" },
     { _template: "sharedShowroomSection" },
@@ -213,6 +226,26 @@ export const FALLBACK_PROJECT_PAGE_SETTINGS: ProjectPageSettings = {
     {
       _template: "projectRelatedProjects",
       title: "Projects You Might Like",
+      ctaLabel: "View all",
+      ctaLink: "/gallery",
+      imageSize: "card",
+    },
+    { _template: "sharedContactSection" },
+  ],
+};
+
+export const FALLBACK_COLLECTION_PAGE_SETTINGS: CollectionPageSettings = {
+  blocks: [
+    {
+      _template: "collectionInfo",
+      breadcrumbLabel: "Gallery",
+      breadcrumbLink: "/gallery",
+      galleryImageSize: "card",
+      lightboxImageSize: "full",
+    },
+    {
+      _template: "collectionRelatedProjects",
+      title: "Related Projects",
       ctaLabel: "View all",
       ctaLink: "/gallery",
       imageSize: "card",

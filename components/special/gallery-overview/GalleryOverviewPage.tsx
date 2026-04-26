@@ -23,7 +23,8 @@ import {
   toggleMultiValue,
   type GalleryFilterState,
 } from "./filtering";
-import { buildGalleryProjects } from "./normalize-gallery-overview-query";
+import { buildGalleryCollections, buildGalleryProjects } from "./normalize-gallery-overview-query";
+import GallerySpecialitySection from "./GallerySpecialitySection";
 import type { CatalogVisualOption, GalleryOverviewDataShape } from "./types";
 
 const PAGE_SIZE = 18;
@@ -365,6 +366,20 @@ export default function GalleryOverviewPage({
   const galleryProjectCardImageVariant = resolveConfiguredImageVariant(projectCardImageSizeChoice, "card");
   const galleryFilterImageVariant = resolveConfiguredImageVariant(filterImageSizeChoice, "thumb");
   const projects = useMemo(() => buildGalleryProjects(data), [data]);
+  const collections = useMemo(() => buildGalleryCollections(data), [data]);
+  const specialityTitle = useMemo(() => {
+    const value = pageSettingsRecord?.specialityTitle;
+    return typeof value === "string" && value.trim().length > 0 ? value : "Speciality";
+  }, [pageSettingsRecord]);
+  const specialityEnabled = useMemo(() => {
+    const value = pageSettingsRecord?.specialityEnabled;
+    if (value === false) return false;
+    return true;
+  }, [pageSettingsRecord]);
+  const specialityImageSizeChoice = useMemo(() => {
+    const value = pageSettingsRecord?.specialityCardImageSize;
+    return typeof value === "string" ? value : null;
+  }, [pageSettingsRecord]);
   const sortLabel = useMemo(
     () => SORT_OPTIONS.find((option) => option.value === sortValue)?.label || "New",
     [sortValue],
@@ -394,7 +409,8 @@ export default function GalleryOverviewPage({
   const [pendingFilters, setPendingFilters] = useState<GalleryFilterState>(selectedFilters);
   const [finishTab, setFinishTab] = useState<FinishTab>("paint");
   const filtersRef = useRef<HTMLDivElement | null>(null);
-  const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget();
+  const projectsHeadingRef = useRef<HTMLHeadingElement | null>(null);
+  const { scrollToTarget: scrollToResultsTop } = usePaginationScrollTarget(projectsHeadingRef);
 
   const roomOptions = useMemo(
     () =>
@@ -626,7 +642,22 @@ export default function GalleryOverviewPage({
             {pageTitle || "Gallery"}
           </h1>
 
-          <div className="mt-4 flex flex-col gap-5 md:mt-12 md:gap-8">
+          <GallerySpecialitySection
+            block={pageSettingsRecord || null}
+            collections={collections}
+            enabled={specialityEnabled}
+            imageSizeChoice={specialityImageSizeChoice}
+            title={specialityTitle}
+          />
+
+          <h2
+            className="mt-10 text-[28px] uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)] md:mt-12 md:text-[32px]"
+            ref={projectsHeadingRef}
+          >
+            Projects
+          </h2>
+
+          <div className="mt-6 flex flex-col gap-5 md:mt-8 md:gap-8">
             <div className="relative" ref={filtersRef}>
               <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
                 <div className="order-2 flex flex-col gap-5 md:order-1 md:gap-8">
