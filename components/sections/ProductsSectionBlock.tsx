@@ -1,6 +1,7 @@
 import { tinaField } from "tinacms/dist/react";
 import Link from "next/link";
 import SectionTitle from "@/components/ui/SectionTitle";
+import Button from "@/components/ui/Button";
 import FillImage from "@/components/ui/FillImage";
 import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import { asBlockArray, asText, type BlockRecord } from "./block-types";
@@ -53,6 +54,13 @@ export default function ProductsSectionBlock({ block }: { block: BlockRecord }) 
             </Link>
           ))}
         </div>
+        {asText(block.ctaLabel) && (
+          <div className="mt-10 text-center">
+            <Button href={asText(block.ctaLink, "#")} variant="outline">
+              {asText(block.ctaLabel)}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

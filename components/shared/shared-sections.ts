@@ -40,6 +40,7 @@ export const SHARED_SECTIONS_QUERY = `
         }
         showroomSection {
           showroomTitle
+          texture
           followUsLabel
           mapEmbedUrl
         }
@@ -110,6 +111,7 @@ export const FALLBACK_SHARED_SECTIONS: SharedSectionsDocument = {
   },
   showroomSection: {
     showroomTitle: "Our showroom",
+    texture: "/library/catalog/countertop-marble.png",
     followUsLabel: "Follow us",
   },
   aboutSection: {},

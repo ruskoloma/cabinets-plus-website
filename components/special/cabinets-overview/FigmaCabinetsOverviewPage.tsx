@@ -131,7 +131,7 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
     <div className="flex flex-col bg-white text-[var(--cp-primary-500)]">
       {hasTemplate("hero") ? (
         <section
-          className="relative h-[697px] overflow-hidden"
+          className="relative min-h-[697px] overflow-hidden"
           data-tina-field={tinaField(heroRecord)}
           style={{ order: getSectionOrder("hero", 0) }}
         >
@@ -146,8 +146,8 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(38,36,35,0.8)]" />
 
-          <div className="cp-container relative h-full px-4 md:px-8">
-            <div className="absolute left-4 top-[247px] w-[345px] max-w-[calc(100%-32px)] md:left-8 md:top-auto md:w-auto md:max-w-[806px] md:bottom-8">
+          <div className="cp-container relative flex min-h-[697px] flex-col px-4 pb-8 pt-[247px] md:px-8 md:pb-8 md:pt-16">
+            <div className="md:mt-auto md:max-w-[806px]">
               <h1
                 className="text-[40px] font-semibold uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[56px]"
                 data-tina-field={tinaField(heroRecord, "heading")}
@@ -155,7 +155,7 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
                 {text(hero.heading, "Custom Cabinets in Spokane That Fit Your Space and Style")}
               </h1>
               <p
-                className="mt-4 max-w-[314px] text-base font-medium leading-[1.5] text-white md:mt-6 md:max-w-[712px] md:text-[18px]"
+                className="mt-4 text-base font-medium leading-[1.5] text-white md:mt-6 md:max-w-[712px] md:text-[18px]"
                 data-tina-field={tinaField(heroRecord, "subtext")}
               >
                 {text(
@@ -207,8 +207,13 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
             ))}
           </div>
           <div className="mt-10 text-center md:mt-12">
-            <Button className="!min-h-12 md:!min-h-14" href="/cabinets/catalog" variant="outline">
-              View Catalog
+            <Button
+              className="!min-h-12 md:!min-h-14"
+              dataTinaField={tinaField(materialsRecord, "ctaLabel")}
+              href={text(materials.ctaLink, "/cabinets/catalog")}
+              variant="outline"
+            >
+              {text(materials.ctaLabel, "View Catalog")}
             </Button>
           </div>
         </section>
@@ -340,7 +345,7 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
 
       {hasTemplate("showroomBanner") ? (
         <section
-          className="relative h-[697px] overflow-hidden"
+          className="relative min-h-[697px] overflow-hidden"
           data-tina-field={tinaField(showroomRecord)}
           style={{ order: getSectionOrder("showroomBanner", 5) }}
         >
@@ -355,8 +360,8 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
           <div className="absolute inset-0 bg-[rgba(38,38,35,0.4)] md:hidden" />
           <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgba(38,38,35,0.6)_0%,rgba(38,38,35,0.45)_50%,rgba(38,38,35,0)_100%)] md:block" />
 
-          <div className="cp-container relative h-full px-4 md:px-8">
-            <div className="absolute left-4 top-[247px] w-[345px] max-w-[calc(100%-32px)] md:left-8 md:top-[225px] md:w-auto md:max-w-[806px]">
+          <div className="cp-container relative flex min-h-[697px] flex-col px-4 pb-8 pt-[247px] md:px-8 md:pb-8 md:pt-[225px]">
+            <div className="md:max-w-[806px]">
               <h2
                 className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-white md:text-[48px] md:font-normal"
                 data-tina-field={tinaField(showroomRecord, "heading")}
@@ -364,7 +369,7 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
                 {text(showroomBanner.heading, "See Cabinet Samples Before You Commit")}
               </h2>
               <p
-                className="mt-4 max-w-[314px] text-[16px] font-medium leading-[1.5] text-white md:mt-6 md:max-w-[493px] md:text-[18px] md:font-normal"
+                className="mt-4 text-[16px] font-medium leading-[1.5] text-white md:mt-6 md:max-w-[493px] md:text-[18px] md:font-normal"
                 data-tina-field={tinaField(showroomRecord, "subtext")}
               >
                 {text(

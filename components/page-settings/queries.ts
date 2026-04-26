@@ -10,6 +10,8 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
           }
           ... on ${prefix}ProductsSection {
             title
+            ctaLabel
+            ctaLink
             imageSize
             products {
               name
@@ -62,8 +64,7 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             }
           }
           ... on ${prefix}TrustStrip {
-            trustStripText
-            trustStripHighlight
+            trustStripContent
             trustStripTexture
           }
           ... on ${prefix}AboutSection {
@@ -111,6 +112,13 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
                 answer
               }
             }
+            faqs {
+              question
+              answer
+            }
+          }
+          ... on ${prefix}MiniFaqSection {
+            title
             faqs {
               question
               answer

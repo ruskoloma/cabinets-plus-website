@@ -1,40 +1,51 @@
 "use client";
 
+import type { ComponentProps } from "react";
 import { tinaField } from "tinacms/dist/react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 import FallbackImg from "@/components/ui/FallbackImg";
+
+type RichTextContent = ComponentProps<typeof TinaMarkdown>["content"];
 
 interface TrustMessageStripProps {
   block: Record<string, unknown>;
 }
 
-function text(value: unknown, fallback = ""): string {
-  return typeof value === "string" ? value : fallback;
+const FALLBACK_TEXTURE =
+  "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-strip-texture.jpg";
+
+function hasRichText(value: unknown): boolean {
+  if (!value) return false;
+  if (typeof value === "string") return value.trim().length > 0;
+  if (typeof value === "object") {
+    const children = (value as { children?: unknown }).children;
+    return Array.isArray(children) && children.length > 0;
+  }
+  return false;
 }
 
-function splitWithHighlight(content: string, highlight: string) {
-  if (!highlight || !content.includes(highlight)) {
-    return { before: content, marked: "", after: "" };
+function normalizeRichText(value: unknown): RichTextContent | null {
+  if (!hasRichText(value)) return null;
+
+  if (typeof value !== "string") {
+    return value as RichTextContent;
   }
 
-  const start = content.indexOf(highlight);
-  const before = content.slice(0, start);
-  const marked = content.slice(start, start + highlight.length);
-  const after = content.slice(start + highlight.length);
+  const children = value
+    .split(/\n\s*\n/g)
+    .map((paragraph) => paragraph.replace(/\n/g, " ").trim())
+    .filter(Boolean)
+    .map((paragraph) => ({
+      type: "p",
+      children: [{ type: "text", text: paragraph }],
+    }));
 
-  return { before, marked, after };
+  return { type: "root", children } as unknown as RichTextContent;
 }
 
 export default function TrustMessageStrip({ block }: TrustMessageStripProps) {
-  const stripText = text(
-    block.trustStripText,
-    "You're buying from people you can call directly if anything needs attention, not a 1-800 number three states away.",
-  );
-  const stripHighlight = text(block.trustStripHighlight, "you can call directly");
-  const stripTexture = text(
-    block.trustStripTexture,
-    "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-strip-texture.jpg",
-  );
-  const { before, marked, after } = splitWithHighlight(stripText, stripHighlight);
+  const content = normalizeRichText(block.trustStripContent);
+  const stripTexture = typeof block.trustStripTexture === "string" ? block.trustStripTexture : FALLBACK_TEXTURE;
 
   return (
     <section className="relative overflow-hidden bg-[var(--cp-brand-neutral-100)]" data-tina-field={tinaField(block)}>
@@ -46,19 +57,11 @@ export default function TrustMessageStrip({ block }: TrustMessageStripProps) {
         src={stripTexture}
         variant="full"
       />
-      <div className="cp-container relative px-4 py-[33px] md:px-8">
-        <p
-          className="mx-auto max-w-[1376px] text-center font-[var(--font-red-hat-display)] text-[20px] font-medium leading-[1.25] text-[var(--cp-primary-500)] md:text-[28px]"
-          data-tina-field={tinaField(block, "trustStripText")}
-        >
-          {before}
-          {marked ? (
-            <strong className="font-black" data-tina-field={tinaField(block, "trustStripHighlight")}>
-              {marked}
-            </strong>
-          ) : null}
-          {after}
-        </p>
+      <div
+        className="cp-container relative px-4 py-[33px] md:px-8 [&_p]:mx-auto [&_p]:max-w-[1376px] [&_p]:text-center [&_p]:font-[var(--font-red-hat-display)] [&_p]:text-[20px] [&_p]:font-medium [&_p]:leading-[1.25] [&_p]:text-[var(--cp-primary-500)] md:[&_p]:text-[28px] [&_strong]:font-black"
+        data-tina-field={tinaField(block, "trustStripContent")}
+      >
+        {content ? <TinaMarkdown content={content} /> : null}
       </div>
     </section>
   );

@@ -1,15 +1,14 @@
 {
-  "_template": "cabinetsMainPage",
   "title": "Cabinets",
   "seo": {
-    "title": "Custom Cabinets in Spokane | Cabinets Plus",
-    "description": "Shop semi-custom kitchen and bath cabinets in Spokane. Shaker, modern, traditional, and inset styles with in-house design, professional installation, and a local showroom."
+    "title": "Custom Cabinets in Spokane | Semi-Custom Kitchen, Bath & Laundry | Cabinets Plus",
+    "description": "Semi-custom kitchen, bath, and laundry cabinets sized to your Spokane home. Shaker, modern, traditional, and inset panel doors — compared in person at our Sprague Avenue showroom, installed in-house."
   },
   "blocks": [
     {
-      "heading": "Custom Cabinets in Spokane That Fit Your Space and Style",
-      "subtext": "Design the kitchen, bath, or laundry room you actually want. Work with our Spokane team on semi-custom cabinetry sized to your space, chosen from door styles and finishes you can see in person at the showroom.",
-      "ctaLabel": "View Catalog",
+      "heading": "Cabinets Built to Last, Designed to Fit",
+      "subtext": "Quality semi-custom kitchen and bathroom cabinets in every style — modern, shaker, traditional — designed by our Spokane team and built to fit your space, your storage needs, and your budget.",
+      "ctaLabel": "Explore Our Cabinet Catalog",
       "ctaLink": "/cabinets/catalog",
       "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg",
       "imageSize": "full",
@@ -17,98 +16,40 @@
     },
     {
       "title": "Cabinet Styles",
+      "ctaLabel": "View Catalog",
+      "ctaLink": "/cabinets/catalog",
       "imageSize": "card",
       "products": [
         {
           "name": "Shaker",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-1.jpg",
-          "link": "/cabinets/catalog"
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2615-kitchen-cover.jpg",
+          "link": "/cabinets/catalog?style=shaker"
         },
         {
-          "name": "Modern",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-2.jpg",
-          "link": "/cabinets/catalog"
+          "name": "Slim Shaker",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3299-dsc07973.jpg",
+          "link": "/cabinets/catalog?style=slim%20shaker"
         },
         {
-          "name": "Traditional",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-3.jpg",
-          "link": "/cabinets/catalog"
+          "name": "Elegant Shaker",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2954-dsc04075.jpg",
+          "link": "/cabinets/catalog?style=elegant%20shaker"
         },
         {
-          "name": "Inset Panel",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg",
-          "link": "/cabinets/catalog"
+          "name": "Flat panel",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg",
+          "link": "/cabinets/catalog?style=flat%20panel"
         }
       ],
       "_template": "productsSection"
     },
     {
-      "title": "Built to Fit Your Kitchen, Bathroom, or Beyond",
-      "paragraphs": {
-        "type": "root",
-        "children": [
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "We carry a wide range of semi-custom cabinets—Shaker, modern slab, traditional raised panel, and inset looks—so you can match the style of your home instead of settling for whatever a box store has in stock. Size, door style, finish, and hardware are all things you get to choose, and our team helps you keep those choices within the budget you had in mind."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Whether you're refreshing a single vanity or planning a full kitchen rebuild, we'll walk your space, talk through how you actually use it, and help you land on a configuration that looks right and works for real life. Come in with measurements, photos, or a vague Pinterest board—we'll take it from there."
-              }
-            ]
-          }
-        ]
-      },
+      "title": "One Showroom, Every Kind of Project",
+      "paragraphs": "Whether you're a homeowner planning your forever kitchen, a contractor juggling three builds at once, or a flipper trying to turn a property fast without cutting corners, we've got you covered. Cabinets Plus stocks semi-custom cabinets in a wide range of styles, finishes, and price points — so you can spec a high-end primary residence one week and a tight-budget rental flip the next, all from the same showroom. Same honest pricing, same straight answers, no matter the scale.\n",
       "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-kitchen.jpg",
       "imagePosition": "right",
-      "ctaLabel": "Contact Us",
+      "ctaLabel": "Schedule a Consultation",
       "ctaLink": "/contact-us",
-      "_template": "textImageSection"
-    },
-    {
-      "title": "Why Spokane Homeowners Choose Cabinets Plus",
-      "paragraphs": {
-        "type": "root",
-        "children": [
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Your cabinets set the tone for the whole room, so it helps to see them in person before you commit. Stop by our Spokane showroom and open real doors, compare finishes under the lights, and look at samples against the countertop and flooring options you're considering. Our designers sit down with you, sketch the layout, and produce a 3D rendering so you can see how everything lines up before a single cabinet is ordered."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "We handle the full project under one roof: design consultation, cabinet selection, precise measurements, and professional installation by our in-house team. Because we're a local shop—not a national chain—you're working with the same people from your first appointment through install day, and you can always call us directly if something needs attention."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Planning a DIY project? We can still help. Many customers pick up their cabinets and counters and handle installation themselves, and our team is happy to answer questions along the way. Visit the Spokane showroom to get started."
-              }
-            ]
-          }
-        ]
-      },
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
-      "imagePosition": "left",
       "_template": "textImageSection"
     },
     {
@@ -140,147 +81,94 @@
       "_template": "projectsSection"
     },
     {
-      "title": "Our partners",
-      "description": "In addition to the cabinet options shown in our catalog, you may also order cabinetry from the partner brands listed below. Talk with our team about availability and lead times when placing your order.",
-      "footnote": "Click on a partner logo to view their products on the official website.",
-      "partnerLogos": [
-        {
-          "logo": "/library/trust/trust-cambria.svg",
-          "alt": "Cambria",
-          "url": "https://www.cambriausa.com/"
-        },
-        {
-          "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png",
-          "alt": "Lyrus Collection",
-          "url": "https://lyrus.com/"
-        },
-        {
-          "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png",
-          "alt": "Easy Stones",
-          "url": "https://easystones.com/"
-        },
-        {
-          "logo": "/library/trust/trust-msi.svg",
-          "alt": "MSI",
-          "url": "https://www.msisurfaces.com/"
-        },
-        {
-          "logo": "/library/trust/trust-bedrosians.svg",
-          "alt": "Bedrosians",
-          "url": "https://www.bedrosians.com/"
-        },
-        {
-          "logo": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png",
-          "alt": "Lions Floor",
-          "url": "https://lionsfloor.com/"
-        }
-      ],
-      "_template": "sharedPartnersSection"
-    },
-    {
-      "title": "Our Cabinet Process",
+      "title": "From First Sketch to Final Install",
       "steps": [
         {
           "number": 1,
-          "iconImage": "/library/process/process-step-1.svg",
-          "title": "Showroom Consultation",
-          "description": "Start at our Spokane showroom. Open cabinet doors, compare finishes, and talk through how you use the space. We'll review your goals and budget before picking anything."
+          "iconImage": "/library/countertops/process/step-showroom.svg",
+          "title": "Showroom Visit & Style Consultation",
+          "description": "Come look at door samples, finishes, and full kitchen displays in person. Our designers walk you through styles, hardware, and storage upgrades that fit your goals and budget."
         },
         {
           "number": 2,
-          "iconImage": "/library/process/process-step-2.svg",
-          "title": "Design & 3D Renderings",
-          "description": "Our designers lay out your kitchen, bath, or laundry room and produce 3D renderings so you can see the finished look before you commit."
+          "iconImage": "/library/countertops/process/step-measurement.svg",
+          "title": "Design & Layout",
+          "description": "Bring your room measurements (or let us measure) and we'll draft a layout that maximizes storage, traffic flow, and sightlines. We'll show you 3D renderings so you can see it before you commit."
         },
         {
           "number": 3,
-          "iconImage": "/library/process/process-step-3.svg",
-          "title": "Precise Measurements",
-          "description": "We confirm dimensions in your home so every cabinet, filler, and panel lines up with the walls, appliances, and plumbing you already have."
+          "iconImage": "/library/process/process-step-4.svg",
+          "title": "Order & Build",
+          "description": "Once you approve the design, we place the order with our trusted manufacturers. Lead times vary by line, but we'll give you a clear timeline up front and keep you posted along the way."
         },
         {
           "number": 4,
-          "iconImage": "/library/process/process-step-4.svg",
-          "title": "Build & Order",
-          "description": "Your semi-custom cabinets go into production with the exact sizes, doors, and finishes from your plan. We'll share a clear timeline for arrival."
-        },
-        {
-          "number": 5,
           "iconImage": "/library/countertops/process/step-installation.svg",
           "title": "Professional Installation",
-          "description": "Our in-house installers set and level every cabinet, then hand the space back ready for countertops, hardware, and the rest of the build."
+          "description": "Our installers handle delivery, leveling, and finish carpentry — toe kicks, crown, fillers, and hardware. Prefer DIY? We provide install guides and how-to videos to help you tackle it yourself."
         }
       ],
       "_template": "processSection"
     },
     {
-      "heading": "See Cabinet Samples Before You Commit",
-      "subtext": "Open doors, feel finishes, and compare styles side by side at our Spokane showroom. Talk with a real designer who lives and works here.",
-      "ctaLabel": "Book a Consultation",
+      "title": "Don't Buy Cabinets You've Never Touched",
+      "paragraphs": "Cabinets are one of the biggest investments in any remodel, and the difference between a great set and a regretful one usually shows up in details you can only judge in person. The weight of the door when you open it. Whether the drawer glides feel solid or flimsy. How the soft-close actually closes. Whether the finish has real depth or looks painted on under bright lights. None of that comes through on a website thumbnail.\n\nThat's why we built our Spokane showroom the way we did — full kitchen vignettes, working drawers and doors, and door samples you can take home to compare against your paint colors. Bring your countertop and flooring samples. Bring photos of the room. Our team will walk you through what sets one line apart from the next — plywood boxes versus particle board, dovetail drawers versus stapled, soft-close versus standard — so you know exactly what you're paying for.\n\nWe carry semi-custom cabinets, which means real flexibility in sizing, door styles, finishes, and storage upgrades without the lead times and price tag of fully custom builds. For most Spokane homes, it's the sweet spot — better than stock, smarter than the alternative, and ready to ship in a fraction of the time.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
+      "imagePosition": "left",
+      "_template": "textImageSection"
+    },
+    {
+      "heading": "Build the Kitchen You Actually Want",
+      "subtext": "From sleek modern slabs to timeless shaker fronts in every color imaginable, Cabinets Plus has the cabinet styles, finishes, and storage solutions to bring your Spokane kitchen to life.",
+      "ctaLabel": "Book a Design Consultation",
       "ctaLink": "/contact-us",
       "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg",
       "_template": "showroomBanner"
     },
     {
       "title": "F.A.Q.",
-      "tabs": [
+      "faqs": [
         {
-          "label": "Cabinets",
-          "faqs": [
-            {
-              "question": "What cabinet styles do you carry?",
-              "answer": "We carry a curated mix of semi-custom styles, including Shaker, modern slab, traditional raised panel, and inset looks. Visit the Spokane showroom to compare doors and finishes in person."
-            },
-            {
-              "question": "Can I customize the size and finish?",
-              "answer": "Yes. Semi-custom cabinetry lets you adjust dimensions, door style, finish, and hardware. Our designers walk you through the options during consultation."
-            },
-            {
-              "question": "How long do cabinets take to arrive?",
-              "answer": "Timelines vary by line and finish. We share lead times during your design consultation so you can plan the rest of your project around delivery."
-            },
-            {
-              "question": "Do you install cabinets?",
-              "answer": "Yes. Our in-house crew handles cabinet installation across the Spokane area. If you prefer to handle installation yourself, you can also pick up your cabinets from our warehouse."
-            },
-            {
-              "question": "Do cabinet doors close softly?",
-              "answer": "Soft-close doors and drawers are available on the cabinet lines we carry. Ask our designer to include them in your configuration."
-            },
-            {
-              "question": "Do you offer 3D renderings?",
-              "answer": "Yes. We produce 3D renderings so you can see the layout and finishes before you commit to an order."
-            },
-            {
-              "question": "Can I see samples before ordering?",
-              "answer": "Absolutely. The showroom has real cabinet doors, finish samples, and full displays you can open and touch."
-            },
-            {
-              "question": "Do you offer a warranty?",
-              "answer": "Product warranties vary by manufacturer. Our installation workmanship is backed by our in-house standards."
-            }
-          ]
+          "question": "How much do new kitchen cabinets cost in Spokane?",
+          "answer": "For an average-size kitchen, expect $5,000–$15,000 for entry-level semi-custom cabinets and $15,000–$30,000 for higher-end semi-custom lines with premium finishes, soft-close hardware, and storage upgrades. Pricing depends on material, finish, hardware, and how much storage you build in. We give detailed itemized quotes so you know exactly what you're paying for."
+        },
+        {
+          "question": "What does \"semi-custom\" actually mean?",
+          "answer": "Semi-custom cabinets are pre-engineered cabinet lines that let you adjust sizes, door styles, finishes, and storage upgrades within a manufacturer's options. You get far more flexibility than stock cabinets, but with shorter lead times and lower cost than fully custom builds — which makes them the best fit for most Spokane homes."
+        },
+        {
+          "question": "How long does it take to get new cabinets installed?",
+          "answer": "Typical lead times run 4–8 weeks from order to delivery, plus 2–5 days for installation depending on kitchen size. We'll confirm timing before you commit so you can plan around it."
+        },
+        {
+          "question": "Can I just replace cabinet doors instead of full cabinets (refacing)?",
+          "answer": "In some cases, yes. If your existing cabinet boxes are solid plywood or quality construction, refacing with new doors and drawer fronts can save significant money. If the boxes are damaged or poorly built, full replacement is usually the better long-term value. We'll evaluate during your consultation."
+        },
+        {
+          "question": "What cabinet styles are most popular in Spokane right now?",
+          "answer": "Shaker remains the most popular by a wide margin — it pairs with modern, traditional, and farmhouse looks equally well. White and off-white finishes still lead, but navy, sage, charcoal, and natural wood tones are gaining ground fast, especially on islands and bathroom vanities."
+        },
+        {
+          "question": "Do you offer cabinet installation, or just sales?",
+          "answer": "Both. We sell cabinets to homeowners, contractors, and DIYers, and we offer professional installation as part of our remodeling service. If you're handy and want to install them yourself, we provide guidance and how-to resources to help."
+        },
+        {
+          "question": "Are your cabinets made of real wood or particle board?",
+          "answer": "We carry a range of construction qualities. Higher-end lines feature solid plywood boxes, solid wood doors, and dovetail drawer construction. Budget-friendly lines use engineered wood with veneers or thermofoil. We'll walk you through exactly what each option is built from so you know what you're buying."
+        },
+        {
+          "question": "Do you serve contractors and house flippers in the Spokane area?",
+          "answer": "Absolutely. A big part of our business is supplying contractors, real estate investors, and property managers throughout Spokane and North Idaho with reliable cabinets at competitive bulk pricing. Ask about our contractor program."
         }
       ],
-      "_template": "faqSection"
+      "_template": "miniFaqSection"
     },
     {
-      "title": "Contact us",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
-      "nameLabel": "Name",
-      "namePlaceholder": "Enter your name",
-      "emailLabel": "Email",
-      "emailPlaceholder": "Enter your email",
-      "messageLabel": "Project Idea (optional)",
-      "messagePlaceholder": "Tell us more about your project",
-      "submitLabel": "Send request",
-      "showroomTitle": "Our showroom",
-      "followUsLabel": "Follow us",
-      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus",
       "_template": "sharedContactSection"
     },
     {
       "_template": "sharedShowroomSection"
     }
-  ]
+  ],
+  "_template": "cabinetsMainPage"
 }

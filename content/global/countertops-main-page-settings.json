@@ -1,15 +1,14 @@
 {
-  "_template": "countertopsMainPage",
   "title": "Countertops",
   "seo": {
-    "title": "Top-Quality Countertops in Spokane | Cabinets Plus",
-    "description": "Explore quartz, granite, marble and quartzite countertops at Cabinets Plus in Spokane. In-house fabrication, free measurements and professional installation."
+    "title": "Quartz, Granite & Quartzite Countertops in Spokane | Cabinets Plus",
+    "description": "In-house countertop fabrication and installation in Spokane. Walk through real slabs of quartz, granite, marble, and quartzite at our Sprague Avenue showroom. Free in-home measurement."
   },
   "blocks": [
     {
-      "heading": "Top-Quality Countertops in Spokane at Great Prices",
-      "subtext": "Upgrade your kitchen or bathroom with durable, stylish quartz and granite countertops. Visit our Spokane showroom to explore your options, get expert guidance, and enjoy professional installation at competitive prices.",
-      "ctaLabel": "View Catalog",
+      "heading": "Spokane's Countertop Showroom & Fabrication Shop",
+      "subtext": "Quartz, granite, marble, and quartzite — fabricated and installed right here in Spokane. Visit our showroom, hand-pick your slab, and let our team handle the rest from measure to install.",
+      "ctaLabel": "View Slabs in Stock",
       "ctaLink": "#catalog",
       "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-countertops.jpg",
       "imageSize": "full",
@@ -17,98 +16,40 @@
     },
     {
       "title": "Countertop Materials",
+      "ctaLabel": "View Catalog",
+      "ctaLink": "/countertops/catalog",
       "imageSize": "card",
       "products": [
         {
           "name": "Quartz",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-countertops.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/03-dsc03364.jpg",
           "link": "/countertops?countertop=quartz"
         },
         {
           "name": "Granite",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-1.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/37-dsc01978.jpg",
           "link": "/countertops?countertop=granite"
         },
         {
           "name": "Quartzite",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-2.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/02-dsc03201.jpg",
           "link": "/countertops?countertop=quartzite"
         },
         {
           "name": "Marble",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-3.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/03-dsc01383.jpg",
           "link": "/countertops?countertop=marble"
         }
       ],
       "_template": "productsSection"
     },
     {
-      "title": "Wide Selection of Countertops for Kitchens, Bathrooms & More",
-      "paragraphs": {
-        "type": "root",
-        "children": [
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Looking to upgrade your kitchen or bathroom countertops? We carry a wide selection of quartz, granite, marble, and quartzite—and we handle everything from fabrication to installation right here in Spokane."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Whether you're replacing worn laminate counters or building a new home, we'll help you find the right material and see the job through from start to finish. And yes, you can actually come pick out your exact slab before we cut it."
-              }
-            ]
-          }
-        ]
-      },
+      "title": "A Wide Selection of Countertops for Kitchens, Bathrooms & Beyond",
+      "paragraphs": "We carry a full range of quartz, granite, marble, and quartzite — for kitchen counters, bathroom vanities, laundry rooms, bar tops, fireplace surrounds, you name it. You can pick from our own line of manufactured quartz slabs, or browse natural stone from the trusted partners we've worked with for years. Either way, you're seeing the actual slab in person before we cut it. Whether you're tearing out old laminate or starting fresh in a new build, we'll help you find the right material for the room and the way you live in it.\n",
       "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-kitchen.jpg",
       "imagePosition": "right",
-      "ctaLabel": "Contact Us",
+      "ctaLabel": "Visit Our Showroom",
       "ctaLink": "/contact-us",
-      "_template": "textImageSection"
-    },
-    {
-      "title": "Choosing the Right Countertops for Your Spokane Home",
-      "paragraphs": {
-        "type": "root",
-        "children": [
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Your countertops need to handle hot pans, sharp knives, daily spills, and constant use—all while looking good for years. When shopping for kitchen or bathroom countertops, think about how you actually use the space. Do you cook often? Have kids? Need something low-maintenance? These answers will point you toward the right material—whether that's durable quartz, natural granite, elegant marble, or tough quartzite."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "We handle everything in-house at our Spokane facility: measuring your space, fabricating countertops in our own shop, and professional installation. Because we control quality at every step, we can ensure precision and typically finish projects faster. Our fabrication facility stocks hundreds of slabs from trusted suppliers, and since every piece of natural stone is unique, we encourage you to visit and pick your exact slab before we cut it."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Whether you're remodeling a kitchen or building new construction in Spokane county, we'll help you find countertops that fit your style, budget, and lifestyle. Stop by our showroom to see samples and get honest recommendations from our team."
-              }
-            ]
-          }
-        ]
-      },
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
-      "imagePosition": "left",
       "_template": "textImageSection"
     },
     {
@@ -140,162 +81,97 @@
       "_template": "projectsSection"
     },
     {
-      "title": "Our partners",
-      "description": "In addition to the countertop options shown in our catalog, you may also order countertops from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.",
-      "footnote": "Click on a partner logo to view their products on the official website.",
-      "partnerLogos": [
-        {
-          "logo": "/library/partners/countertops/cambria.svg",
-          "alt": "Cambria",
-          "url": "https://www.cambriausa.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/caesarstone.svg",
-          "alt": "Caesarstone",
-          "url": "https://www.caesarstoneus.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/moda-surfaces.svg",
-          "alt": "Moda Surfaces",
-          "url": "https://modasurfaces.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/msi.svg",
-          "alt": "MSI",
-          "url": "https://www.msisurfaces.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/bedrosians.svg",
-          "alt": "Bedrosians",
-          "url": "https://www.bedrosians.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/daltile.svg",
-          "alt": "Daltile",
-          "url": "https://www.daltile.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/pental-quartz.svg",
-          "alt": "PentalQuartz",
-          "url": "https://www.pentalquartz.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/stratus-quartz.svg",
-          "alt": "Stratus Quartz",
-          "url": "https://www.stratusquartz.com/"
-        },
-        {
-          "logo": "/library/partners/countertops/hanstone.svg",
-          "alt": "HanStone",
-          "url": "https://www.hanstone.com/"
-        }
-      ],
       "_template": "sharedCountertopPartnersSection"
     },
     {
-      "title": "Our Countertop Installation Process",
+      "title": "From Slab to Sink Cutout — How We Do It",
       "steps": [
         {
           "number": 1,
-          "iconImage": "/library/countertops/process/step-showroom.svg",
-          "title": "Visit Our Showroom",
-          "description": "Browse samples and see what's in stock at our Spokane showroom. Our team will walk you through materials, colors, and pricing based on your project."
+          "iconImage": "/library/countertops/process/step-slab.svg",
+          "title": "Browse & Pick Your Slab",
+          "description": "Stop by the showroom and see what's in stock. For natural stone, you'll choose your exact slab in person so you know precisely how it'll look in your kitchen."
         },
         {
           "number": 2,
-          "iconImage": "/library/countertops/process/step-slab.svg",
-          "title": "Choose Your Slab",
-          "description": "For natural stone countertops, you can view full slabs in person to choose the exact piece you want. Since every granite, marble, or quartzite slab is unique, selecting it yourself ensures there are no surprises."
+          "iconImage": "/library/countertops/process/step-measurement.svg",
+          "title": "Free In-Home Measure",
+          "description": "We come to you with laser measuring tools and template your space down to the millimeter — sink cutouts, cooktop openings, overhangs, the works."
         },
         {
           "number": 3,
-          "iconImage": "/library/countertops/process/step-measurement.svg",
-          "title": "Free In-Home Measurement",
-          "description": "We come to your home and take precise measurements of your existing countertops or new cabinetry. This guarantees a perfect fit during installation."
+          "iconImage": "/library/countertops/process/step-fabrication.svg",
+          "title": "Fabrication in Our Spokane Shop",
+          "description": "Your slab heads to our on-site fabrication facility, where we cut, polish, and shape your edge profile. No middlemen, no shipping delays — we control the whole job."
         },
         {
           "number": 4,
-          "iconImage": "/library/countertops/process/step-fabrication.svg",
-          "title": "Fabrication",
-          "description": "We cut, polish, and finish your countertop in our on-site fabrication shop. We handle edge profiles, sink cutouts, cooktop openings, and any other custom details."
-        },
-        {
-          "number": 5,
           "iconImage": "/library/countertops/process/step-installation.svg",
           "title": "Professional Installation",
-          "description": "Our installers deliver and install your new countertops. We level everything, seal seams if needed, and make sure your counters are ready to use immediately."
+          "description": "Our installers deliver, level, and seal your countertops in a single day for most projects. We clean up, walk you through care tips, and you're ready to use them that night."
         }
       ],
       "_template": "processSection"
     },
     {
+      "title": "Quartz, Granite, Marble, Quartzite — How to Pick the Right One",
+      "paragraphs": "Choosing a countertop isn't just about looks. It's about how the surface fits into your daily life. If you've got a busy household with kids, dogs, and a slow-cooker permanently parked on the counter, quartz is hard to beat — it's non-porous, stain-resistant, and never needs sealing. Want a one-of-a-kind look that doubles as a statement piece? Granite delivers natural patterns no other slab will ever match, plus heat resistance that handles a hot pan straight off the stove. Marble is for people who want timeless elegance and don't mind a little patina building character over time — it's gorgeous in bathrooms and baking stations. And quartzite is the sweet spot: marble's airy white-and-gray look with durability close to granite.\n\nSpokane's dry summers and cold winters don't really affect indoor stone, but our hard local water can leave mineral spots on natural stone if it isn't sealed properly — something we always handle as part of our install. Whatever direction you lean, our team will give you straight answers about maintenance, longevity, and price so you can make a decision you'll be happy with for the next 20 years.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
+      "imagePosition": "left",
+      "_template": "textImageSection"
+    },
+    {
       "heading": "Find Your Perfect Countertop",
       "subtext": "With a huge selection of premium quartz and granite, sourced from trusted partners, Cabinets Plus brings you top-quality countertops to match any style and space.",
-      "ctaLabel": "Book a Consultation",
+      "ctaLabel": "Book a Slab Walk-Through",
       "ctaLink": "/contact-us",
       "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg",
       "_template": "showroomBanner"
     },
     {
       "title": "F.A.Q.",
-      "tabs": [
+      "faqs": [
         {
-          "label": "Countertops",
-          "faqs": [
-            {
-              "question": "Are your countertops seamless in design?",
-              "answer": "Seamless countertops depend on the size of your kitchen or bathroom and the layout of your cabinets. Slabs are typically up to 126\" long and 63\" wide. For spaces within that limit you can enjoy a truly seamless look — otherwise, we'll join slabs carefully for a clean appearance."
-            },
-            {
-              "question": "Can I use my countertops as a cutting surface?",
-              "answer": "We recommend using a cutting board to protect both your knives and your countertop. Granite and quartzite resist scratches well, but any natural or engineered surface can dull or chip a blade over time."
-            },
-            {
-              "question": "How do I care for my new countertops?",
-              "answer": "Quartz only needs soap and water. Natural stones like granite, marble, and quartzite should be sealed periodically and cleaned with a pH-neutral stone cleaner to keep them looking their best."
-            },
-            {
-              "question": "Can I see samples of your countertop options before making a decision?",
-              "answer": "Yes — visit our Spokane showroom to see and feel full slabs and material samples. Our team can help you pick the best fit for your kitchen or bathroom project."
-            },
-            {
-              "question": "How long does it take to install new countertops?",
-              "answer": "Most installs take 1–2 days after fabrication. Lead time from template to install typically ranges from 1 to 3 weeks depending on material availability and project size."
-            },
-            {
-              "question": "How much does it cost to install new countertops?",
-              "answer": "Pricing depends on material, slab size, and edge profiles. We provide detailed quotes during your consultation after we review your measurements and design."
-            },
-            {
-              "question": "Do you handle sink cutouts and edge profiles?",
-              "answer": "Yes. We fabricate sink cutouts, cooktop openings, and a full range of edge profiles including straight, eased, beveled, bullnose, and ogee."
-            },
-            {
-              "question": "Do you offer a warranty on countertops?",
-              "answer": "Manufacturer warranties vary by brand and material. All installation workmanship is backed by our in-house quality standards."
-            }
-          ]
+          "question": "How much do countertops cost in Spokane?",
+          "answer": "Pricing depends on material, square footage, and edge details. In Spokane, quartz typically runs $50–$95 per square foot installed, granite $45–$90, and quartzite or premium marble $80–$150+. We provide free, accurate quotes based on a real measurement of your space — no rough phone estimates."
+        },
+        {
+          "question": "Do you fabricate countertops in-house, or do you outsource?",
+          "answer": "Everything is fabricated at our Spokane facility. Cutting, polishing, edge work, sink cutouts — it all happens here. That's why we can hit tight timelines and catch issues before they ever leave the shop."
+        },
+        {
+          "question": "What's the difference between quartz and quartzite?",
+          "answer": "Quartz is engineered stone (about 90% natural quartz crushed and bound with resin), while quartzite is 100% natural stone formed from sandstone under heat and pressure. Quartz is non-porous and never needs sealing; quartzite is harder than granite but does require periodic sealing."
+        },
+        {
+          "question": "How long does countertop installation take?",
+          "answer": "After you choose your slab, the typical turnaround is 1–2 weeks from measure to install. Installation day itself usually takes 4–6 hours depending on kitchen size. We work around your schedule whenever possible."
+        },
+        {
+          "question": "Do I need to seal my granite or marble countertops?",
+          "answer": "Yes — natural stone (granite, marble, quartzite) needs sealing about once a year to prevent staining. We seal everything before install and walk you through how to test and reapply sealer down the road. Quartz never needs sealing."
+        },
+        {
+          "question": "Can I bring in my own slab or one from another supplier?",
+          "answer": "We focus on stones we source from our trusted suppliers and our own manufactured quartz line, because we can stand behind the quality and grain. If you've found something specific elsewhere, talk to us — we may already carry it or have access to the same supplier."
+        },
+        {
+          "question": "Do you serve areas outside of Spokane?",
+          "answer": "Yes. We regularly install countertops throughout Spokane County and into North Idaho — including Spokane Valley, Liberty Lake, Cheney, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
+        },
+        {
+          "question": "Will my old countertops be removed and disposed of?",
+          "answer": "Yes, removal and disposal of your existing countertops is part of our installation service. We protect your cabinets and floors during demo, haul everything away, and leave the space ready for the new tops."
         }
       ],
-      "_template": "faqSection"
+      "_template": "miniFaqSection"
     },
     {
-      "title": "Contact us",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
-      "nameLabel": "Name",
-      "namePlaceholder": "Enter your name",
-      "emailLabel": "Email",
-      "emailPlaceholder": "Enter your email",
-      "messageLabel": "Project Idea (optional)",
-      "messagePlaceholder": "Tell us more about your project",
-      "submitLabel": "Send request",
-      "showroomTitle": "Our showroom",
-      "followUsLabel": "Follow us",
-      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus",
       "_template": "sharedContactSection"
     },
     {
       "_template": "sharedShowroomSection"
     }
-  ]
+  ],
+  "_template": "countertopsMainPage"
 }

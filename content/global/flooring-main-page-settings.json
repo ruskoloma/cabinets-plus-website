@@ -1,37 +1,38 @@
 {
-  "_template": "flooringMainPage",
   "title": "Flooring",
   "seo": {
-    "title": "Hardwood, LVP, Tile & Laminate Flooring in Spokane | Cabinets Plus",
-    "description": "Shop hardwood, luxury vinyl plank, tile, and laminate flooring at Cabinets Plus in Spokane. Visit our showroom to compare styles and match your cabinets and countertops."
+    "title": "Flooring in Spokane | Hardwood, LVP, Tile & Laminate | Cabinets Plus",
+    "description": "Hardwood, luxury vinyl plank, tile, and laminate flooring in Spokane. Compare hundreds of samples at our Sprague Avenue showroom alongside the cabinets and counters in your remodel."
   },
   "blocks": [
     {
-      "heading": "Flooring for Spokane Homes, Picked to Last",
-      "subtext": "Hardwood, luxury vinyl plank, tile, and laminate sourced from trusted suppliers. Stop by our Spokane showroom to compare wear ratings, textures, and colors alongside your cabinets and countertops.",
-      "ctaLabel": "Request a Consultation",
-      "ctaLink": "/contact-us",
+      "heading": "Hardwood, Vinyl, Tile & Carpet in Spokane",
+      "subtext": "A full range of flooring from trusted manufacturers, all in one Spokane showroom — with the selection, pricing, and local know-how to help you pick the right fit.",
+      "ctaLabel": "Compare Flooring Types",
+      "ctaLink": "#catalog",
       "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-flooring.jpg",
       "imageSize": "full",
       "_template": "hero"
     },
     {
       "title": "Flooring Types",
+      "ctaLabel": "View Catalog",
+      "ctaLink": "/flooring/catalog",
       "imageSize": "card",
       "products": [
         {
           "name": "Hardwood",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-1.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg",
           "link": "/contact-us"
         },
         {
           "name": "Luxury Vinyl Plank",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-2.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-lane/14-dsc07769.jpg",
           "link": "/contact-us"
         },
         {
           "name": "Tile",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-3.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/18-dsc01505.jpg",
           "link": "/contact-us"
         },
         {
@@ -43,72 +44,12 @@
       "_template": "productsSection"
     },
     {
-      "title": "Flooring That Lasts, Styled for Your Home",
-      "paragraphs": {
-        "type": "root",
-        "children": [
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "We stock hardwood, luxury vinyl plank, tile, and laminate from suppliers we actually trust, so you can choose what fits your space instead of compromising on durability or looks. Busy kitchen with pets and kids? LVP or tile handles the traffic. Formal living room that needs real warmth? Hardwood is still hard to beat. Basement or laundry that sees moisture? There are waterproof options built for exactly that."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Since we also carry cabinets and countertops, you can pick flooring that coordinates with the rest of your project in one visit. Bring photos, samples, or just a rough idea of the room, and we'll help you narrow the field without leaving you to guess."
-              }
-            ]
-          }
-        ]
-      },
+      "title": "Why Buy Flooring at Cabinets Plus",
+      "paragraphs": "There are plenty of flooring stores in Spokane, but our customers keep coming back for three simple reasons. **Selection** — we stock a wider range of hardwood, LVP, SPC, laminate, tile, and carpet than most local shops, so you can compare materials side by side instead of guessing. **Pricing** — because we work directly with trusted manufacturers, we keep prices honest without cutting corners on quality. And **local trust** — we've built our reputation in Spokane the slow way, one happy customer at a time, and we treat every project like it matters. Stop by the showroom and see the difference for yourself.\n",
       "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-kitchen.jpg",
       "imagePosition": "right",
-      "ctaLabel": "Contact Us",
+      "ctaLabel": "Visit Our Showroom",
       "ctaLink": "/contact-us",
-      "_template": "textImageSection"
-    },
-    {
-      "title": "From Sample to Install, We Make It Easy",
-      "paragraphs": {
-        "type": "root",
-        "children": [
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Bring your dimensions, a floor plan sketch, or even a quick phone photo of the space and stop by the Spokane showroom. Our team will walk you through wear ratings, finishes, and which flooring types hold up where. We'll help match the flooring to the cabinets and counters you're considering so the whole room reads as a single design."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Once you pick your flooring, we offer pickup from our warehouse or delivery within the Spokane area. Cabinet and countertop installation is handled by our in-house crew; flooring itself is currently pickup or delivery only, so we'll help you line up a flooring installer or guide you through a DIY plan if that's the route you prefer."
-              }
-            ]
-          },
-          {
-            "type": "p",
-            "children": [
-              {
-                "type": "text",
-                "text": "Whether it's a single room refresh or a full remodel, we'll help you compare options honestly and avoid the surprises that come with shopping flooring alone."
-              }
-            ]
-          }
-        ]
-      },
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
-      "imagePosition": "left",
       "_template": "textImageSection"
     },
     {
@@ -140,162 +81,97 @@
       "_template": "projectsSection"
     },
     {
-      "title": "Our partners",
-      "description": "In addition to the flooring options shown in our catalog, you may also order flooring from the catalogs of the manufacturers listed below. Please discuss availability and details with our manager when placing your order.",
-      "footnote": "Click on a partner logo to view their products on the official website.",
-      "partnerLogos": [
-        {
-          "logo": "/library/partners/flooring/mozaik.svg",
-          "alt": "Mozaik",
-          "url": "https://mozaikcollection.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/lions-floor.png",
-          "alt": "Lions Floor",
-          "url": "https://lionsfloor.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/prima-floors.png",
-          "alt": "Prima Floors",
-          "url": "https://primafloors.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/flooring2.png",
-          "alt": "flooring²",
-          "url": "https://flooring2.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/wanke-cascade-part-1.svg",
-          "alt": "Wanke Cascade",
-          "url": "https://wankecascade.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/msi.svg",
-          "alt": "MSI",
-          "url": "https://www.msisurfaces.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/pacmat.png",
-          "alt": "Pacmat",
-          "url": "https://pacmat.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/mohawk.svg",
-          "alt": "Mohawk",
-          "url": "https://www.mohawkflooring.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/stonewood.png",
-          "alt": "Stonewood",
-          "url": "https://stonewoodproducts.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/opus.png",
-          "alt": "Opus",
-          "url": "https://opusflooring.com/"
-        },
-        {
-          "logo": "/library/partners/flooring/engineered-floors.svg",
-          "alt": "Engineered Floors",
-          "url": "https://www.engineeredfloors.com/"
-        }
-      ],
       "_template": "sharedFlooringPartnersSection"
     },
     {
-      "title": "How We Help You Pick Flooring",
+      "title": "How We Help You Get the Right Floors",
       "steps": [
         {
           "number": 1,
-          "iconImage": "/library/process/process-step-1.svg",
-          "title": "Visit the Showroom",
-          "description": "Stop by our Spokane showroom to walk on samples, compare colors, and get a feel for different flooring types before you make a choice."
+          "iconImage": "/library/countertops/process/step-showroom.svg",
+          "title": "See & Sample",
+          "description": "Walk our Spokane showroom, feel each material under your shoes, and take samples home to check them in your own light next to your cabinets and paint colors."
         },
         {
           "number": 2,
-          "iconImage": "/library/process/process-step-2.svg",
-          "title": "Match the Room",
-          "description": "Our team talks through traffic, moisture, pets, and how the room is used so we can narrow the options to flooring that fits the space."
+          "iconImage": "/library/process/process-step-1.svg",
+          "title": "Get Recommendations",
+          "description": "Tell us about the room, the traffic, and your budget. We'll point you to materials that fit — and steer you away from the ones that won't."
         },
         {
           "number": 3,
-          "iconImage": "/library/process/process-step-3.svg",
-          "title": "Coordinate the Look",
-          "description": "We compare flooring samples to the cabinets and countertops you're considering so everything reads as a unified design."
+          "iconImage": "/library/countertops/process/step-measurement.svg",
+          "title": "Measure & Order",
+          "description": "Bring us your room measurements, or we'll help you figure out how to measure properly. Once you've picked your flooring, we'll order it and let you know when it's in."
         },
         {
           "number": 4,
-          "iconImage": "/library/process/process-step-4.svg",
-          "title": "Pickup or Delivery",
-          "description": "Once you pick your flooring, arrange pickup from our warehouse or delivery in the Spokane area. Cabinet and countertop install is in-house; flooring install is currently pickup/delivery only."
+          "iconImage": "/library/countertops/process/step-installation.svg",
+          "title": "Pick Up Your Order",
+          "description": "We don't offer flooring installation, but we can recommend trusted local installers we've worked with for years. Or, if you're handy, plenty of LVP, SPC, and laminate options are designed for DIY install."
         }
       ],
       "_template": "processSection"
     },
     {
-      "heading": "Feel the Floor Before You Buy It",
-      "subtext": "Walk on hardwood, vinyl, and tile side by side at our Spokane showroom. Our team helps you compare wear ratings and coordinate the look with your cabinets and counters.",
-      "ctaLabel": "Visit Our Showroom",
+      "title": "Choosing the Right Flooring for Your Spokane Home",
+      "paragraphs": "The right floor isn't about picking the prettiest plank — it's about matching the material to the room and the way you actually live. A floor that's perfect in a quiet bedroom might be a disaster in a kitchen full of kids and dogs, and a hardwood that looks beautiful in a dining room won't survive a week in a basement laundry room. Before anything else, think about how the space gets used: foot traffic, moisture, sunlight, pets, the works.\n\nFor high-traffic and wet areas — kitchens, mudrooms, bathrooms, basements — luxury vinyl plank (LVP) and SPC are tough to beat. They're fully waterproof, scratch-resistant, and tough enough for big dogs and Spokane winters, while still looking like real wood. Tile holds up just as well in bathrooms and entryways, and lasts for decades with almost no maintenance. For living rooms, dining rooms, and bedrooms, hardwood is still the gold standard — timeless, refinishable, and a real boost to resale value, especially in older Spokane craftsman and ranch homes.\n\nLaminate is the budget-friendly pick for bedrooms and lower-traffic spaces, and carpet still wins where you want softness, warmth, and quiet underfoot. Whatever direction you lean, our team will give you straight, room-by-room recommendations based on what we've seen work in Spokane homes — no pressure, no upsells, just honest help finding the right fit.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg",
+      "imagePosition": "left",
+      "_template": "textImageSection"
+    },
+    {
+      "heading": "Step Into Something New",
+      "subtext": "From rich hardwood and waterproof LVP to cozy carpet and durable tile, Cabinets Plus has the right flooring to match your style, your space, and the way you live in Spokane.",
+      "ctaLabel": "Visit Our Spokane Showroom",
       "ctaLink": "/contact-us",
       "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg",
       "_template": "showroomBanner"
     },
     {
       "title": "F.A.Q.",
-      "tabs": [
+      "faqs": [
         {
-          "label": "Flooring",
-          "faqs": [
-            {
-              "question": "What flooring types do you carry?",
-              "answer": "We stock hardwood, luxury vinyl plank, tile, and laminate. Visit the Spokane showroom to compare samples in person."
-            },
-            {
-              "question": "Which flooring holds up best in kitchens and baths?",
-              "answer": "LVP and tile are popular choices in kitchens and baths because they handle spills and traffic well. Our team can walk you through the trade-offs based on how you use the space."
-            },
-            {
-              "question": "Can I match flooring to my cabinets and countertops?",
-              "answer": "Yes—bringing flooring, cabinets, and countertops into one visit is one of the main reasons people shop with us. We'll help you coordinate finishes under the showroom lights."
-            },
-            {
-              "question": "Do you install flooring?",
-              "answer": "Cabinet and countertop installation is handled by our in-house crew. Flooring is currently available for pickup or delivery within the Spokane area, so we'll help you plan a DIY install or connect with a flooring installer."
-            },
-            {
-              "question": "Can I pick up my flooring?",
-              "answer": "Yes. Once your order is confirmed, pickup can be arranged at our Spokane location. Delivery in the Spokane area is also available."
-            },
-            {
-              "question": "Do you have samples to take home?",
-              "answer": "Ask at the showroom. Sample availability depends on the product line, but we'll help you compare finishes in the space you're flooring."
-            },
-            {
-              "question": "Do you offer a warranty?",
-              "answer": "Product warranties vary by manufacturer. We're happy to walk you through what a specific line covers during your visit."
-            }
-          ]
+          "question": "What's the best flooring for kitchens and bathrooms in Spokane?",
+          "answer": "For wet areas, we typically recommend luxury vinyl plank (LVP), SPC, or tile. They're fully waterproof, easy to clean, and stand up to the daily abuse kitchens and bathrooms see. Hardwood and laminate aren't ideal where standing water is a risk."
+        },
+        {
+          "question": "How much does flooring cost in Spokane?",
+          "answer": "For materials only, expect roughly $2–$5 per square foot for laminate and basic LVP, $4–$8 for premium LVP and SPC, $6–$12 for hardwood, and $3–$10 for tile depending on size and pattern. Carpet typically runs $2–$5 per square foot. Installation is separate and varies by installer."
+        },
+        {
+          "question": "What's the difference between LVP and SPC flooring?",
+          "answer": "Both are vinyl plank products. LVP (luxury vinyl plank) has a flexible PVC core, while SPC (stone plastic composite) has a rigid mineral-based core that's harder, more dent-resistant, and better for uneven subfloors. SPC tends to be the more durable choice for heavy traffic."
+        },
+        {
+          "question": "Do you install flooring?",
+          "answer": "We don't currently offer flooring installation — we focus on cabinet and countertop installation. But we can point you to trusted local installers we've worked with for years, or help you find DIY-friendly products if you want to handle it yourself."
+        },
+        {
+          "question": "Can you recommend a flooring installer?",
+          "answer": "Yes. We've built relationships with reliable installers across Spokane County and North Idaho who've handled jobs for our customers for years. Ask us when you visit the showroom and we'll connect you."
+        },
+        {
+          "question": "Do I need to acclimate flooring before installation?",
+          "answer": "Yes — hardwood, laminate, and even some LVP products need to sit in the home for 24–72 hours before install so they adjust to indoor humidity. Skipping this step is one of the top causes of gaps, buckling, and warranty claims. Any reputable installer will plan for this."
+        },
+        {
+          "question": "Can I install flooring over my existing floor?",
+          "answer": "Sometimes. LVP, SPC, and laminate can often be floated over existing tile or vinyl if the surface is flat and stable. Hardwood and tile usually require the old floor to come out. Your installer will evaluate the subfloor before starting."
+        },
+        {
+          "question": "Do you sell flooring outside of Spokane?",
+          "answer": "Yes. We supply flooring to homeowners, contractors, and house flippers throughout Spokane County and North Idaho — Spokane Valley, Liberty Lake, Cheney, Airway Heights, Medical Lake, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
         }
       ],
-      "_template": "faqSection"
+      "_template": "miniFaqSection"
     },
     {
-      "title": "Contact us",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
-      "nameLabel": "Name",
-      "namePlaceholder": "Enter your name",
-      "emailLabel": "Email",
-      "emailPlaceholder": "Enter your email",
-      "messageLabel": "Project Idea (optional)",
-      "messagePlaceholder": "Tell us more about your project",
-      "submitLabel": "Send request",
-      "showroomTitle": "Our showroom",
-      "followUsLabel": "Follow us",
-      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus",
       "_template": "sharedContactSection"
     },
     {
       "_template": "sharedShowroomSection"
     }
-  ]
+  ],
+  "_template": "flooringMainPage"
 }

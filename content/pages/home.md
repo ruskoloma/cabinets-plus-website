@@ -71,38 +71,13 @@ blocks:
         description: 'Big box stores can leave you managing multiple contractors and delayed timelines. At Cabinets Plus, we handle everything under one roof—from design and material selection to in-house countertop fabrication and professional installation.'
         image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-3.jpg'
     _template: whyUsSection
-  - trustStripText: 'You''re buying from people you can call directly if anything needs attention, not a 1-800 number three states away.'
-    trustStripHighlight: you can call directly
+  - trustStripContent: |
+      You're buying from people **you can call directly** if anything needs attention, 
+
+      not a 1-800 number three states away.
     trustStripTexture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-strip-texture.jpg'
     _template: trustStrip
   - _template: sharedAboutSection
-    stats:
-      - value: 10+
-        label: years experience
-      - value: 5K
-        label: Happy customers
-      - value: 200+
-        label: New designs
-    membershipDesktopLogo: /library/trust/trust-membership.svg
-    membershipMobileTopLogo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-shba.png'
-    membershipMobileBottomLogo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-membership-mobile-bottom.png'
-    membershipLabel: Membership
-    partnershipLabel: Exclusive Partnership
-    partnerLogos:
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lions-floor.png'
-        alt: Lions Floor
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-lyrus.png'
-        alt: Lyrus Collection
-      - logo: /library/trust/trust-cambria.svg
-        alt: Cambria
-      - logo: /library/trust/trust-bedrosians.svg
-        alt: Bedrosians
-      - logo: /library/trust/trust-msi.svg
-        alt: MSI
-      - logo: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-easy-stones.png'
-        alt: Easy Stones
-    ctaLabel: About us
-    ctaLink: /about-us
   - heading: Spokane's Premier Cabinet & Stone Showroom
     subtext: 'Factory-direct semi-custom cabinets, granite & quartz countertops, and flooring. Experience quality before you buy.'
     ctaLabel: Visit Our Showroom
@@ -163,18 +138,7 @@ blocks:
           - question: What flooring types are available?
             answer: 'We offer hardwood, LVP, tile, and other flooring options for a range of performance and style goals.'
     _template: faqSection
-  - title: Contact us
-    image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg'
-    nameLabel: Name
-    namePlaceholder: Enter your name
-    emailLabel: Email
-    emailPlaceholder: Enter your email
-    messageLabel: Project Idea (optional)
-    messagePlaceholder: Tell us more about your project
-    submitLabel: Send request
-    showroomTitle: Our showroom
-    followUsLabel: Follow us
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus'
-    _template: sharedContactSection
+  - _template: sharedContactSection
   - _template: sharedShowroomSection
 ---
+

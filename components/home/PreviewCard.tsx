@@ -34,7 +34,7 @@ export default function PreviewCard({
   tinaTitleField,
   tinaDescriptionField,
   imageVariant,
-  showMobileChevron = false,
+  showMobileChevron = true,
   hoverViewLabel = "View",
 }: PreviewCardProps) {
   const imageClasses = [

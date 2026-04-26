@@ -3,6 +3,7 @@
 import AboutStorySection from "@/components/about/AboutStorySection";
 import AboutTrustSection from "@/components/about/AboutTrustSection";
 import FAQSectionBlock from "@/components/sections/FAQSectionBlock";
+import MiniFAQSectionBlock from "@/components/sections/MiniFAQSectionBlock";
 import HeroBlock from "@/components/sections/HeroBlock";
 import ProcessSectionBlock from "@/components/sections/ProcessSectionBlock";
 import ProductsSectionBlock from "@/components/sections/ProductsSectionBlock";
@@ -78,6 +79,8 @@ export default function SharedPageSectionRenderer({
       return <ProcessSectionBlock block={resolvedBlock} />;
     case "faqSection":
       return <FAQSectionBlock block={resolvedBlock} />;
+    case "miniFaqSection":
+      return <MiniFAQSectionBlock block={resolvedBlock} />;
     case "contactSection":
       return <ContactUsSection block={resolvedBlock} />;
     case "showroomSection":

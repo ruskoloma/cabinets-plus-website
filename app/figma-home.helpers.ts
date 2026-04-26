@@ -73,6 +73,7 @@ const SHARED_PAGE_TYPENAME_TO_TEMPLATE: Record<string, string> = {
   ShowroomBanner: "showroomBanner",
   ProcessSection: "processSection",
   FaqSection: "faqSection",
+  MiniFaqSection: "miniFaqSection",
   ContactSection: "contactSection",
   ShowroomSection: "showroomSection",
   TrustStrip: "trustStrip",

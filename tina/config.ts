@@ -1340,6 +1340,8 @@ function sharedProductsSectionTemplate() {
     label: "Products Section",
     fields: [
       { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "string" as const, name: "ctaLabel", label: "CTA Text" },
+      { type: "string" as const, name: "ctaLink", label: "CTA Link" },
       ...homepageSectionImageFields(),
       {
         type: "object" as const,
@@ -1456,8 +1458,15 @@ function sharedTrustStripTemplate() {
     name: "trustStrip" as const,
     label: "Trust Message Strip",
     fields: [
-      { type: "string" as const, name: "trustStripText", label: "Message", ui: { component: "textarea" as const } },
-      { type: "string" as const, name: "trustStripHighlight", label: "Highlight Text" },
+      {
+        type: "rich-text" as const,
+        name: "trustStripContent",
+        label: "Message",
+        description: "Use bold to emphasize key phrases. Headings, lists, links and images are intentionally disabled for this section.",
+        overrides: {
+          toolbar: ["bold" as const, "italic" as const],
+        },
+      },
       { type: "image" as const, name: "trustStripTexture", label: "Background Texture" },
     ],
   };
@@ -1527,6 +1536,7 @@ function sharedShowroomSectionTemplate() {
     label: "Our Showroom Section",
     fields: [
       { type: "string" as const, name: "showroomTitle", label: "Showroom Title" },
+      { type: "image" as const, name: "texture", label: "Background Texture" },
       { type: "string" as const, name: "followUsLabel", label: "Follow Label" },
       {
         type: "string" as const,
@@ -1571,6 +1581,27 @@ function sharedFaqSectionTemplate() {
         label: "FAQs (single list)",
         list: true,
         description: "Alternative: flat FAQ list when tabs are not needed.",
+        ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["question"], "FAQ") }) },
+        fields: [
+          { type: "string" as const, name: "question", label: "Question" },
+          { type: "string" as const, name: "answer", label: "Answer", ui: { component: "textarea" as const } },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedMiniFaqSectionTemplate() {
+  return {
+    name: "miniFaqSection" as const,
+    label: "Mini FAQ Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      {
+        type: "object" as const,
+        name: "faqs",
+        label: "FAQs",
+        list: true,
         ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["question"], "FAQ") }) },
         fields: [
           { type: "string" as const, name: "question", label: "Question" },
@@ -1769,6 +1800,7 @@ function sharedPageSectionTemplates() {
     sharedShowroomBannerTemplate(),
     sharedProcessSectionTemplate(),
     sharedFaqSectionTemplate(),
+    sharedMiniFaqSectionTemplate(),
     sharedContactSectionTemplate(),
     sharedShowroomSectionTemplate(),
     sharedAboutStorySectionTemplate(),
