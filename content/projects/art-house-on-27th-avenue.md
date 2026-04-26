@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3686-dsc00067.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3686-dsc00067.jpg'
 published: true
 title: Residence on 27th Avenue
 description: 'A bright contemporary interior centered on a spacious kitchen with light wood shaker cabinetry, crisp white countertops, and a dramatic waterfall island. Matte black hardware, faucet, stools, and linear pendant create clean contrast, while stainless steel appliances and glossy white backsplash tile keep the palette fresh. The project also carries the same cabinetry language into a double vanity, giving the home a cohesive modern look.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3686-dsc00067.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3686-dsc00067.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -30,7 +30,7 @@ media:
     countertop: Quartz
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3687-dsc00008.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3687-dsc00008.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
     countertop: Quartz
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3688-dsc00012.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3688-dsc00012.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -55,7 +55,7 @@ media:
     countertop: ''
     label: DSC00012.jpg
     description: ''
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3692-dsc00090.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3692-dsc00090.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -68,7 +68,7 @@ media:
     countertop: Quartz
     label: Light wood bathroom vanity
     description: 'Art House on 27th Avenue featuring light wood bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3693-dsc00079.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3693-dsc00079.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -81,7 +81,7 @@ media:
     countertop: Other
     label: Light wood bathroom vanity
     description: 'Art House on 27th Avenue featuring light wood bathroom vanity, bathroom, timber cabinetry, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3694-dsc00062.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3694-dsc00062.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -94,7 +94,7 @@ media:
     countertop: Quartz
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3695-dsc00108.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3695-dsc00108.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -107,7 +107,7 @@ media:
     countertop: Other
     label: Light wood laundry cabinets
     description: 'Art House on 27th Avenue featuring light wood laundry cabinets, laundry, timber cabinetry, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3697-dsc00036.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3697-dsc00036.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -120,7 +120,7 @@ media:
     countertop: Other
     label: Wood cabinet niche
     description: 'Art House on 27th Avenue featuring wood cabinet niche, other, timber cabinetry, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3698-dsc00065.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3698-dsc00065.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -133,7 +133,7 @@ media:
     countertop: Quartz
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3699-dsc000512.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3699-dsc000512.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false

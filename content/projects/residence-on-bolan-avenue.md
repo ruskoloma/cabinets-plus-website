@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2920-dsc00562-edit.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2920-dsc00562-edit.jpg'
 published: true
 title: Residence on Bolan Avenue
 description: 'Open-concept kitchen featuring crisp white shaker cabinetry, tall pantry storage, and glass-front upper cabinets for a light, airy look. A large island with integrated sink anchors the space, paired with white solid-surface counters, a glossy white backsplash, and stainless appliances. Warm wood-accent pendant lights and pale wood-look flooring soften the clean palette, creating a modern transitional design with generous storage and streamlined detailing.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2920-dsc00562-edit.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2920-dsc00562-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2875-project-example-36.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2875-project-example-36.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -30,7 +30,7 @@ media:
     countertop: Quartz
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2872-project-example-35.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2872-project-example-35.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2841-project-example-39.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2841-project-example-39.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -56,7 +56,7 @@ media:
     countertop: Quartz
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2840-project-example-38.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2840-project-example-38.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +69,7 @@ media:
     countertop: Quartz
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2869-project-example-33.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2869-project-example-33.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -82,7 +82,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2839-project-example-37.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2839-project-example-37.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -95,7 +95,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2868-project-example-68.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2868-project-example-68.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -108,7 +108,7 @@ media:
     countertop: ''
     label: white bathroom vanity
     description: 'Residence on Bolan Avenue featuring white bathroom vanity, bathroom, white cabinetry.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2866-project-example-66.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2866-project-example-66.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -121,7 +121,7 @@ media:
     countertop: Quartz
     label: white kitchen sink
     description: 'Residence on Bolan Avenue featuring white kitchen sink, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2863-project-example-61.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2863-project-example-61.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -133,7 +133,7 @@ media:
     countertop: ''
     label: white shaker cabinets
     description: Residence on Bolan Avenue featuring white shaker cabinets.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2862-project-example-62.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2862-project-example-62.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -146,7 +146,7 @@ media:
     countertop: ''
     label: white shaker cabinets
     description: 'Residence on Bolan Avenue featuring white shaker cabinets, kitchen, white cabinetry.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2860-project-example-40.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2860-project-example-40.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -159,7 +159,7 @@ media:
     countertop: Quartz
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2855-project-example-54.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2855-project-example-54.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -172,7 +172,7 @@ media:
     countertop: Other
     label: White laundry cabinet
     description: 'Residence on Bolan Avenue featuring white laundry cabinet, laundry, white cabinetry, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2852-project-example-52.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2852-project-example-52.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -184,7 +184,7 @@ media:
     countertop: ''
     label: Tiled shower surround
     description: 'Residence on Bolan Avenue featuring tiled shower surround, bathroom.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2851-project-example-53.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2851-project-example-53.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -197,7 +197,7 @@ media:
     countertop: Quartz
     label: White laundry cabinets
     description: 'Residence on Bolan Avenue featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2850-project-example-50.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2850-project-example-50.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -210,7 +210,7 @@ media:
     countertop: ''
     label: white shaker cabinets
     description: 'Residence on Bolan Avenue featuring white shaker cabinets, kitchen, white cabinetry.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2849-project-example-49.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2849-project-example-49.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -223,7 +223,7 @@ media:
     countertop: Quartz
     label: white bathroom vanity
     description: 'Residence on Bolan Avenue featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2847-project-example-45.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2847-project-example-45.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -236,7 +236,7 @@ media:
     countertop: Quartz
     label: white bathroom vanity
     description: 'Residence on Bolan Avenue featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2846-project-example-48.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2846-project-example-48.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -249,7 +249,7 @@ media:
     countertop: Quartz
     label: white bathroom vanity
     description: 'Residence on Bolan Avenue featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/bright-white-shaker-kitchen-with-glass-uppers/2842-project-example-43.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2842-project-example-43.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false

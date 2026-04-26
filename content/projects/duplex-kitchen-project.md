@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-01-dsc08019.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-01-dsc08019.jpg'
 published: true
 title: Duplex Kitchen Project
 description: 'A clean, contemporary kitchen featuring warm brown shaker cabinets, bright white quartz countertops, and a full-height peninsula with integrated sink. Stainless steel appliances add contrast, while simple bar pulls and recessed lighting keep the look streamlined. The L-shaped layout maximizes storage and prep space, complemented by light wood-look flooring and crisp white walls for a balanced, modern finish.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-01-dsc08019.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-01-dsc08019.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-02-dsc07995.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-02-dsc07995.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -30,7 +30,7 @@ media:
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-05-dsc08053.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-05-dsc08053.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -43,7 +43,7 @@ media:
     countertop: ''
     label: Mocha stained cabinets
     description: 'Duplex Kitchen Project featuring mocha stained cabinets, kitchen, mocha stain.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-06-dsc08034.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-06-dsc08034.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -56,7 +56,7 @@ media:
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-07-dsc08044.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-07-dsc08044.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -69,7 +69,7 @@ media:
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-08-dsc08039.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-08-dsc08039.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -82,7 +82,7 @@ media:
     countertop: Quartz
     label: Brown cabinets white quartz
     description: 'Duplex Kitchen Project featuring brown cabinets white quartz, kitchen, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-09-dsc08031.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-09-dsc08031.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -95,7 +95,7 @@ media:
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, brown cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-brown-shaker-kitchen-white-quartz/clean-20260326-r2-11-dsc08003.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/duplex-kitchen-project/clean-20260326-r2-11-dsc08003.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false

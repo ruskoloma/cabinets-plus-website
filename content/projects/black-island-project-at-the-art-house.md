@@ -1,10 +1,10 @@
 ---
-primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2952-dsc04056.jpg'
+primaryPicture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2952-dsc04056.jpg'
 published: true
 title: Residence on Honeycomb Ln
 description: 'Custom kitchen cabinetry pairs warm natural wood tones with a bold black island for a refined modern look. Glass-front towers frame the range wall, while open shelves and a full-height white tile backsplash keep the space airy. Quartz countertops, stainless appliances, a farmhouse sink, and black hardware add clean contrast and practical function throughout the open dining-connected layout.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2954-dsc04075.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2954-dsc04075.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -17,7 +17,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2952-dsc04056.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2952-dsc04056.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -31,7 +31,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, timber + black cabinetry, quartz surfaces, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2947-dsc04053.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2947-dsc04053.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,7 +45,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black cabinetry, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2948-dsc03999.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2948-dsc03999.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -60,7 +60,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black + gray cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2953-dsc04060.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2953-dsc04060.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -73,7 +73,7 @@ media:
     countertop: Quartz
     label: Wood kitchen black island
     description: 'Black Island Project at the Art House featuring wood kitchen black island, kitchen, black cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2955-dsc04103.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2955-dsc04103.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -87,7 +87,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, timber + black cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2956-dsc04087.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2956-dsc04087.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -100,7 +100,7 @@ media:
     countertop: Quartz
     label: Black island kitchen
     description: 'Black Island Project at the Art House featuring black island kitchen, kitchen, black cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2957-dsc04100.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2957-dsc04100.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -113,7 +113,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2960-dsc04119.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2960-dsc04119.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -126,7 +126,7 @@ media:
     countertop: Quartz
     label: Wood kitchen cabinetry
     description: 'Black Island Project at the Art House featuring wood kitchen cabinetry, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2961-dsc04125.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2961-dsc04125.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -139,7 +139,7 @@ media:
     countertop: Quartz
     label: Wood cabinetry nook
     description: 'Black Island Project at the Art House featuring wood cabinetry nook, other, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2962-dsc04129.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2962-dsc04129.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -153,7 +153,7 @@ media:
     countertop: Quartz
     label: Laundry with timber cabinets
     description: 'Black Island Project at the Art House featuring laundry with timber cabinets, laundry, timber + off white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2964-dsc04142.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2964-dsc04142.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -165,7 +165,7 @@ media:
     countertop: Quartz
     label: Laundry with custom cabinets
     description: 'Black Island Project at the Art House featuring laundry with custom cabinets, laundry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2967-dsc04171.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2967-dsc04171.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -177,7 +177,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2968-dsc04176.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2968-dsc04176.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -190,7 +190,7 @@ media:
     countertop: Quartz
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, mocha stain, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2970-dsc04186.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2970-dsc04186.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -203,7 +203,7 @@ media:
     countertop: Quartz
     label: Warm wood cabinets
     description: 'Black Island Project at the Art House featuring warm wood cabinets, kitchen, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2971-dsc04209.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2971-dsc04209.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -215,7 +215,7 @@ media:
     countertop: Quartz
     label: Wood kitchen cabinets
     description: 'Black Island Project at the Art House featuring wood kitchen cabinets, kitchen, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2972-dsc04233-2.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2972-dsc04233-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -227,7 +227,7 @@ media:
     countertop: ''
     label: Living room built-ins
     description: 'Black Island Project at the Art House featuring living room built-ins, other.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2998-dsc04397.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2998-dsc04397.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -239,7 +239,7 @@ media:
     countertop: Other
     label: Wood base cabinets
     description: 'Black Island Project at the Art House featuring wood base cabinets, other, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2974-dsc04216.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2974-dsc04216.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -251,7 +251,7 @@ media:
     countertop: ''
     label: Timber built-in cabinets
     description: 'Black Island Project at the Art House featuring timber built-in cabinets, other.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2976-dsc04243.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2976-dsc04243.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -264,7 +264,7 @@ media:
     countertop: Other
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2983-dsc04283.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2983-dsc04283.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -277,7 +277,7 @@ media:
     countertop: ''
     label: Green built-in cabinets
     description: 'Black Island Project at the Art House featuring green built-in cabinets, other, green cabinetry.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2978-dsc04259.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2978-dsc04259.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -290,7 +290,7 @@ media:
     countertop: Marble
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, marble surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2979-dsc04262.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2979-dsc04262.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -303,7 +303,7 @@ media:
     countertop: Marble
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, marble surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2982-dsc04269.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2982-dsc04269.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -316,7 +316,7 @@ media:
     countertop: Marble
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, marble surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2985-dsc04309.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2985-dsc04309.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -328,7 +328,7 @@ media:
     countertop: Quartzite
     label: Wood cabinets pantry
     description: 'Black Island Project at the Art House featuring wood cabinets pantry, kitchen, quartzite surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2987-dsc04295.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2987-dsc04295.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -341,7 +341,7 @@ media:
     countertop: Granite
     label: Timber bathroom vanity
     description: 'Black Island Project at the Art House featuring timber bathroom vanity, bathroom, timber cabinetry, granite surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2988-dsc04301.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2988-dsc04301.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
@@ -354,7 +354,7 @@ media:
     countertop: Granite
     label: Timber bathroom vanity
     description: 'Black Island Project at the Art House featuring timber bathroom vanity, bathroom, timber cabinetry, granite surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2991-dsc04340.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2991-dsc04340.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -366,7 +366,7 @@ media:
     countertop: ''
     label: Tiled shower alcove
     description: 'Black Island Project at the Art House featuring tiled shower alcove, bathroom.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2996-dsc04377.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2996-dsc04377.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -379,7 +379,7 @@ media:
     countertop: Quartz
     label: Wood vanity bathroom
     description: 'Black Island Project at the Art House featuring wood vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2997-dsc04385.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2997-dsc04385.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
