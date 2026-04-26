@@ -33,6 +33,7 @@ export type CabinetsMainPageSettings = ServiceMainPageSettings;
 export type CountertopsMainPageSettings = ServiceMainPageSettings;
 export type FlooringMainPageSettings = ServiceMainPageSettings;
 export type KitchenRemodelMainPageSettings = ServiceMainPageSettings;
+export type BathroomRemodelMainPageSettings = ServiceMainPageSettings;
 
 export interface CabinetsOverviewPageSettings extends BaseSettingsDocument {
   blocks?: Array<CatalogPageSettingsBlock | null> | null;
@@ -83,6 +84,12 @@ export interface FlooringMainPageSettingsQueryLikeResult {
 
 export interface KitchenRemodelMainPageSettingsQueryLikeResult {
   data: { kitchenRemodelMainPageSettings?: KitchenRemodelMainPageSettings | null };
+  query?: string;
+  variables?: Record<string, unknown>;
+}
+
+export interface BathroomRemodelMainPageSettingsQueryLikeResult {
+  data: { bathroomRemodelMainPageSettings?: BathroomRemodelMainPageSettings | null };
   query?: string;
   variables?: Record<string, unknown>;
 }
@@ -140,6 +147,11 @@ export const FALLBACK_FLOORING_MAIN_PAGE_SETTINGS: FlooringMainPageSettings = {
 
 export const FALLBACK_KITCHEN_REMODEL_MAIN_PAGE_SETTINGS: KitchenRemodelMainPageSettings = {
   title: "Kitchen Remodel",
+  blocks: [],
+};
+
+export const FALLBACK_BATHROOM_REMODEL_MAIN_PAGE_SETTINGS: BathroomRemodelMainPageSettings = {
+  title: "Bathroom Remodel",
   blocks: [],
 };
 

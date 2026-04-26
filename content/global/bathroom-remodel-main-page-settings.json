@@ -1,0 +1,184 @@
+{
+  "_template": "bathroomRemodelMainPage",
+  "title": "Bathroom Remodel",
+  "seo": {
+    "title": "Bathroom Remodeling in Spokane | Vanities, Countertops, Tile & Shower Glass | Cabinets Plus",
+    "description": "Bathroom remodel materials and installation in Spokane — vanities, countertops, flooring, and shower glass at our Sprague Avenue showroom. We work with homeowners and contractors."
+  },
+  "blocks": [
+    {
+      "heading": "Bathroom Remodeling in Spokane",
+      "subtext": "Vanities, countertops, flooring, and shower glass — everything that makes a bathroom remodel come together, from one trusted Spokane showroom.",
+      "ctaLabel": "Visit Our Showroom",
+      "ctaLink": "/contact-us",
+      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-beverly-drive/25-dsc00331.jpg",
+      "imageSize": "full",
+      "_template": "hero"
+    },
+    {
+      "title": "Products",
+      "imageSize": "full",
+      "products": [
+        {
+          "name": "cabinets",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg",
+          "link": "/cabinets"
+        },
+        {
+          "name": "Countertops",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-countertops.jpg",
+          "link": "/countertops"
+        },
+        {
+          "name": "Flooring",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-flooring.jpg",
+          "link": "/flooring"
+        },
+        {
+          "name": "Glass & Enclosures",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-glass-enclosures.jpg",
+          "link": "/contact-us"
+        }
+      ],
+      "_template": "productsSection"
+    },
+    {
+      "title": "Your Spokane Bathroom Remodel Starts Here",
+      "paragraphs": "A bathroom remodel is one of the highest-impact upgrades you can make to your Spokane home — both for daily quality of life and for resale. Cabinets Plus is where a lot of those remodels start. We carry the full range of vanities, countertops, flooring, and shower glass options you'll want for the project, and we install the cabinets, countertops, and glass ourselves. Whether you're a homeowner planning the remodel yourself or a contractor sending your client our way for the materials and finish work, we'll help you find what fits your space and budget.",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2988-dsc04301.jpg",
+      "imagePosition": "right",
+      "ctaLabel": "Schedule a Design Consultation",
+      "ctaLink": "/contact-us",
+      "_template": "textImageSection"
+    },
+    {
+      "title": "Featured bathroom projects",
+      "ctaLabel": "View All projects",
+      "ctaLink": "/gallery",
+      "projects": [
+        {
+          "project": "content/projects/art-house-on-27th-avenue.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3693-dsc00079.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-7th-street.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3435-dsc05565.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-akre-heights-drive.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/17-dsc03388.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-beverly-drive.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-beverly-drive/25-dsc00331.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-bush-drive.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3609-dsc00359.jpg"
+        }
+      ],
+      "_template": "projectsSection"
+    },
+    {
+      "title": "How We Help With Your Bathroom Remodel",
+      "steps": [
+        {
+          "number": 1,
+          "iconImage": "/library/countertops/process/step-showroom.svg",
+          "title": "Showroom Visit & Vision",
+          "description": "Stop by our Spokane showroom to see vanity styles, countertop slabs, flooring options, and shower glass configurations in person. Bring photos of your current bathroom and any inspiration you've collected."
+        },
+        {
+          "number": 2,
+          "iconImage": "/library/countertops/process/step-slab.svg",
+          "title": "Material Selection & Planning",
+          "description": "We'll help you choose the cabinet, countertop, flooring, and glass that fit your space, your style, and your budget. For natural stone, you'll pick your exact slab from our inventory."
+        },
+        {
+          "number": 3,
+          "iconImage": "/library/countertops/process/step-measurement.svg",
+          "title": "Measure, Order & Fabrication",
+          "description": "We measure precisely, order your materials, and fabricate your countertop in our Spokane shop. You'll get a clear timeline for when everything will be ready to install."
+        },
+        {
+          "number": 4,
+          "iconImage": "/library/countertops/process/step-installation.svg",
+          "title": "Cabinet, Countertop & Glass Installation",
+          "description": "Our team handles install for the vanity, countertop, and shower glass. We level everything, seal where needed, fit the finish details, and walk you through care before we leave."
+        }
+      ],
+      "_template": "processSection"
+    },
+    {
+      "title": "What Makes a Great Bathroom Remodel",
+      "paragraphs": "The biggest visual elements in any bathroom remodel are the vanity, the countertop, the flooring, and the shower. Get those right and the room comes together — even on a modest budget. The vanity sets the tone of the bathroom: clean shaker styles in white or navy remain the most popular in Spokane, but we're seeing a real surge in deeper colors like charcoal and sage, plus floating vanities in modern designs. Countertops are usually quartz or natural stone — both hold up beautifully to daily use, hard water, and toothpaste-and-makeup chaos. For flooring, tile and luxury vinyl plank are the go-to picks because they're fully waterproof and easy to maintain. And shower glass — a frameless walk-in enclosure or a beautifully fit panel — is one of those upgrades that instantly makes the whole bathroom feel high-end.\n\nWe help you pick all of those pieces in our showroom, then install the vanity, countertop, and shower glass ourselves. If your remodel involves plumbing changes, tile work, or other trades, those are typically handled by your contractor — and a lot of Spokane contractors already send their clients to us for the materials side of the project. Whether you're refreshing a powder room, redoing the kids' bathroom, or planning a primary bath overhaul, we'll help you put it together.",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3400-21-27603-n-bruce-rd-049.jpg",
+      "imagePosition": "left",
+      "_template": "textImageSection"
+    },
+    {
+      "heading": "A Bathroom Worth Walking Into",
+      "subtext": "From compact powder rooms to full primary bath overhauls, Cabinets Plus brings the vanities, countertops, flooring, and shower glass to make your Spokane bathroom remodel come together.",
+      "ctaLabel": "Book a Design Consultation",
+      "ctaLink": "/contact-us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg",
+      "_template": "showroomBanner"
+    },
+    {
+      "title": "F.A.Q.",
+      "faqs": [
+        {
+          "question": "Where do I start with a bathroom remodel in Spokane?",
+          "answer": "Start at our showroom. Come see vanities, countertop slabs, flooring options, and shower glass in person. Our team will help you sort through what fits your space, your style, and your budget — and you'll leave with a much clearer picture of what your remodel can look like."
+        },
+        {
+          "question": "Do you do full bathroom remodels?",
+          "answer": "We focus on the cabinets, countertops, flooring, and shower glass — both the products and installation of those pieces. For plumbing, electrical, tile, and drywall, most homeowners work with a general contractor. Plenty of Spokane contractors send their clients to our showroom for the materials side of the project."
+        },
+        {
+          "question": "Can I just replace the vanity and countertop without a full remodel?",
+          "answer": "Yes, and it's one of the most cost-effective bathroom upgrades out there. A new vanity and countertop can completely change the look of a bathroom, and the install usually wraps up in a day or two. Plenty of customers start there."
+        },
+        {
+          "question": "What countertop is best for a bathroom vanity?",
+          "answer": "Quartz is the most popular choice for Spokane bathrooms — non-porous, stain-resistant, and zero maintenance with hard water and daily use. Granite, marble, and quartzite are also great picks if you want a natural stone look. We'll walk you through the trade-offs in person."
+        },
+        {
+          "question": "What flooring works best in a bathroom?",
+          "answer": "Tile and luxury vinyl plank (LVP) are the top choices because they're fully waterproof and built to handle daily moisture. Tile is the more traditional, premium option; LVP is more affordable, easier on the feet, and looks great in modern bathrooms."
+        },
+        {
+          "question": "Do you install shower glass?",
+          "answer": "Yes. We install frameless and semi-frameless shower glass enclosures as part of our bathroom remodel work. We'll help you choose a configuration that fits your shower and your style, then handle the measurement and install."
+        },
+        {
+          "question": "What's the most popular bathroom remodel style in Spokane right now?",
+          "answer": "Clean-lined shaker vanities in deeper colors (navy, charcoal, sage) paired with quartz tops in soft white-and-gray patterns. Walk-in showers with frameless glass and brushed gold or matte black hardware are also in heavy demand."
+        },
+        {
+          "question": "Do you serve areas outside of Spokane?",
+          "answer": "Yes. We work with homeowners and contractors throughout Spokane County and into North Idaho, including Spokane Valley, Liberty Lake, Cheney, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
+        }
+      ],
+      "_template": "miniFaqSection"
+    },
+    {
+      "title": "Contact us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "messageLabel": "Project Idea (optional)",
+      "messagePlaceholder": "Tell us more about your project",
+      "submitLabel": "Send request",
+      "showroomTitle": "Our showroom",
+      "followUsLabel": "Follow us",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus",
+      "_template": "sharedContactSection"
+    },
+    {
+      "_template": "sharedShowroomSection"
+    }
+  ]
+}

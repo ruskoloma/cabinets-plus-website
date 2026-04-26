@@ -2139,7 +2139,7 @@ export default defineConfig({
         format: "json",
         match: {
           include:
-            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
+            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
         },
         ui: {
           global: true,
@@ -2198,6 +2198,7 @@ export default defineConfig({
           serviceMainPageSettingsTemplate("countertopsMainPage", "Countertops Page (/countertops)", "/countertops"),
           serviceMainPageSettingsTemplate("flooringMainPage", "Flooring Page (/flooring)", "/flooring"),
           serviceMainPageSettingsTemplate("kitchenRemodelMainPage", "Kitchen Remodel Page (/kitchen-remodel)", "/kitchen-remodel"),
+          serviceMainPageSettingsTemplate("bathroomRemodelMainPage", "Bathroom Remodel Page (/bathroom-remodel)", "/bathroom-remodel"),
           {
             name: "cabinetsOverview",
             label: "Cabinet Catalog",
