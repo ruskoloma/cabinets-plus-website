@@ -34,6 +34,7 @@ import {
 } from "../lib/tina-media-focus";
 import { cabinetReferenceLabelsByValue } from "./cabinet-reference-options";
 import { seoFields } from "./seo-fields";
+import catalogSettingsData from "../content/global/catalog-settings.json";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -78,42 +79,30 @@ function extractCatalogOptionValues(value: unknown): string[] {
 }
 
 function readCatalogSettingsOptions() {
-  try {
-    const raw = fs.readFileSync(path.join(process.cwd(), "content", "global", "catalog-settings.json"), "utf8");
-    const parsed = JSON.parse(raw) as {
-      stainTypes?: unknown;
-      doorStyles?: unknown;
-      rooms?: unknown;
-      paintOptions?: unknown;
-      countertopTypes?: unknown;
-      flooringTypes?: unknown;
-    };
-    const stainTypes = extractCatalogOptionValues(parsed.stainTypes);
-    const doorStyles = extractCatalogOptionValues(parsed.doorStyles);
-    const rooms = Array.isArray(parsed.rooms)
-      ? parsed.rooms.map((value) => String(value).trim()).filter(Boolean)
-      : [];
-    const paintOptions = extractCatalogOptionValues(parsed.paintOptions);
-    const countertopTypes = extractCatalogOptionValues(parsed.countertopTypes);
-    const flooringTypes = extractCatalogOptionValues(parsed.flooringTypes);
-    return {
-      stainTypes: stainTypes.length ? stainTypes : defaultCabinetStainTypes,
-      doorStyles: doorStyles.length ? doorStyles : defaultDoorStyles,
-      rooms: rooms.length ? rooms : defaultRooms,
-      paintOptions: paintOptions.length ? paintOptions : defaultPaintOptions,
-      countertopTypes: countertopTypes.length ? countertopTypes : defaultCountertopTypes,
-      flooringTypes: flooringTypes.length ? flooringTypes : defaultFlooringTypes,
-    };
-  } catch {
-    return {
-      stainTypes: defaultCabinetStainTypes,
-      doorStyles: defaultDoorStyles,
-      rooms: defaultRooms,
-      paintOptions: defaultPaintOptions,
-      countertopTypes: defaultCountertopTypes,
-      flooringTypes: defaultFlooringTypes,
-    };
-  }
+  const parsed = catalogSettingsData as {
+    stainTypes?: unknown;
+    doorStyles?: unknown;
+    rooms?: unknown;
+    paintOptions?: unknown;
+    countertopTypes?: unknown;
+    flooringTypes?: unknown;
+  };
+  const stainTypes = extractCatalogOptionValues(parsed.stainTypes);
+  const doorStyles = extractCatalogOptionValues(parsed.doorStyles);
+  const rooms = Array.isArray(parsed.rooms)
+    ? parsed.rooms.map((value) => String(value).trim()).filter(Boolean)
+    : [];
+  const paintOptions = extractCatalogOptionValues(parsed.paintOptions);
+  const countertopTypes = extractCatalogOptionValues(parsed.countertopTypes);
+  const flooringTypes = extractCatalogOptionValues(parsed.flooringTypes);
+  return {
+    stainTypes: stainTypes.length ? stainTypes : defaultCabinetStainTypes,
+    doorStyles: doorStyles.length ? doorStyles : defaultDoorStyles,
+    rooms: rooms.length ? rooms : defaultRooms,
+    paintOptions: paintOptions.length ? paintOptions : defaultPaintOptions,
+    countertopTypes: countertopTypes.length ? countertopTypes : defaultCountertopTypes,
+    flooringTypes: flooringTypes.length ? flooringTypes : defaultFlooringTypes,
+  };
 }
 
 const catalogSettingsOptions = readCatalogSettingsOptions();
@@ -1007,27 +996,29 @@ function resolveCustomOrProductLabel(
   referenceValue: unknown,
   customName: unknown,
   resolveReferenceLabel: (value: unknown) => string,
+  typeValue?: unknown,
 ): string {
   if (referenceValue) return resolveReferenceLabel(referenceValue);
   if (typeof customName === "string" && customName.trim()) return customName.trim();
+  if (typeof typeValue === "string" && typeValue.trim()) return typeValue.trim();
   return resolveReferenceLabel(referenceValue);
 }
 
-const projectCabinetProductsItemProps = createFocusableObjectListItemProps<{ cabinet?: unknown; customName?: unknown }>(
+const projectCabinetProductsItemProps = createFocusableObjectListItemProps<{ cabinet?: unknown; customName?: unknown; type?: unknown }>(
   TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
-  (item) => resolveCustomOrProductLabel(item?.cabinet, item?.customName, resolveCabinetDocumentReferenceLabel),
+  (item) => resolveCustomOrProductLabel(item?.cabinet, item?.customName, resolveCabinetDocumentReferenceLabel, item?.type),
   (item) => getCabinetProductFocusItemId(item),
 );
 
-const projectCountertopProductsItemProps = createFocusableObjectListItemProps<{ countertop?: unknown; customName?: unknown }>(
+const projectCountertopProductsItemProps = createFocusableObjectListItemProps<{ countertop?: unknown; customName?: unknown; type?: unknown }>(
   TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
-  (item) => resolveCustomOrProductLabel(item?.countertop, item?.customName, resolveCountertopDocumentReferenceLabel),
+  (item) => resolveCustomOrProductLabel(item?.countertop, item?.customName, resolveCountertopDocumentReferenceLabel, item?.type),
   (item) => getCountertopProductFocusItemId(item),
 );
 
-const projectFlooringProductsItemProps = createFocusableObjectListItemProps<{ flooring?: unknown; customName?: unknown }>(
+const projectFlooringProductsItemProps = createFocusableObjectListItemProps<{ flooring?: unknown; customName?: unknown; type?: unknown }>(
   TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
-  (item) => resolveCustomOrProductLabel(item?.flooring, item?.customName, resolveFlooringDocumentReferenceLabel),
+  (item) => resolveCustomOrProductLabel(item?.flooring, item?.customName, resolveFlooringDocumentReferenceLabel, item?.type),
   (item) => getFlooringProductFocusItemId(item),
 );
 
@@ -3150,6 +3141,13 @@ export default defineConfig({
                 label: "Custom Name (if no linked product)",
                 description: "Shown with a placeholder image when no linked product is selected.",
               },
+              {
+                type: "string",
+                name: "type",
+                label: "Type",
+                description: "Optional. Pulled from Catalog Settings → Door Style Options.",
+                options: catalogSettingsOptions.doorStyles,
+              },
             ],
           },
           {
@@ -3178,6 +3176,13 @@ export default defineConfig({
                 label: "Custom Name (if no linked product)",
                 description: "Shown with a placeholder image when no linked product is selected.",
               },
+              {
+                type: "string",
+                name: "type",
+                label: "Type",
+                description: "Optional. Pulled from Catalog Settings → Countertop Types.",
+                options: catalogSettingsOptions.countertopTypes,
+              },
             ],
           },
           {
@@ -3205,6 +3210,13 @@ export default defineConfig({
                 name: "customName",
                 label: "Custom Name (if no linked product)",
                 description: "Shown with a placeholder image when no linked product is selected.",
+              },
+              {
+                type: "string",
+                name: "type",
+                label: "Type",
+                description: "Optional. Pulled from Catalog Settings → Flooring Types.",
+                options: catalogSettingsOptions.flooringTypes,
               },
             ],
           },

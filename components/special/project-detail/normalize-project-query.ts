@@ -108,6 +108,7 @@ function normalizeProjectCabinetProduct(value: unknown): ProjectCabinetProductLi
         ? record.cabinet
         : normalizeReferencedProduct(record.cabinet),
     customName: asString(record.customName) ?? null,
+    type: asString(record.type) ?? null,
     _content_source: record._content_source as unknown,
   };
 }
@@ -122,6 +123,7 @@ function normalizeProjectCountertopProduct(value: unknown): ProjectCountertopPro
         ? record.countertop
         : normalizeReferencedProduct(record.countertop),
     customName: asString(record.customName) ?? null,
+    type: asString(record.type) ?? null,
     _content_source: record._content_source as unknown,
   };
 }
@@ -136,6 +138,7 @@ function normalizeProjectFlooringProduct(value: unknown): ProjectFlooringProduct
         ? record.flooring
         : normalizeReferencedProduct(record.flooring),
     customName: asString(record.customName) ?? null,
+    type: asString(record.type) ?? null,
     _content_source: record._content_source as unknown,
   };
 }

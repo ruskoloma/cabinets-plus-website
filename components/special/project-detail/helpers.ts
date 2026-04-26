@@ -220,6 +220,16 @@ export function buildMaterialCards(
         focusListKey: TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
         tinaField: itemField,
       });
+    } else if (item?.type?.trim()) {
+      cards.push({
+        kind: "cabinet",
+        label: cabinetLabel,
+        title: item.type.trim(),
+        image: cabinetPlaceholder,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_CABINET_PRODUCTS,
+        tinaField: itemField,
+      });
     }
   });
 
@@ -249,6 +259,16 @@ export function buildMaterialCards(
         focusListKey: TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
         tinaField: itemField,
       });
+    } else if (item?.type?.trim()) {
+      cards.push({
+        kind: "countertop",
+        label: countertopLabel,
+        title: item.type.trim(),
+        image: countertopPlaceholder,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
+        tinaField: itemField,
+      });
     }
   });
 
@@ -273,6 +293,16 @@ export function buildMaterialCards(
         kind: "flooring",
         label: flooringLabel,
         title: item.customName.trim(),
+        image: flooringPlaceholder,
+        focusItemId,
+        focusListKey: TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
+        tinaField: itemField,
+      });
+    } else if (item?.type?.trim()) {
+      cards.push({
+        kind: "flooring",
+        label: flooringLabel,
+        title: item.type.trim(),
         image: flooringPlaceholder,
         focusItemId,
         focusListKey: TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,

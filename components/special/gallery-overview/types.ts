@@ -34,18 +34,21 @@ export interface ProjectReferencedProduct {
 export interface ProjectCabinetProductLink {
   cabinet?: ProjectReferencedProduct | string | null;
   customName?: string | null;
+  type?: string | null;
   _content_source?: unknown;
 }
 
 export interface ProjectCountertopProductLink {
   countertop?: ProjectReferencedProduct | string | null;
   customName?: string | null;
+  type?: string | null;
   _content_source?: unknown;
 }
 
 export interface ProjectFlooringProductLink {
   flooring?: ProjectReferencedProduct | string | null;
   customName?: string | null;
+  type?: string | null;
   _content_source?: unknown;
 }
 

@@ -140,9 +140,10 @@ export function getFlooringReferenceFocusItemId(value: unknown): string | undefi
 
 /**
  * Derives a focus item ID for a project material list item. Prefers the linked product's
- * normalized reference path; falls back to a synthetic `custom:<name>` ID so customName-only
- * items can be scrolled-to/highlighted in the Tina sidebar. The preview card and the sidebar
- * row compute this the same way so the postMessage payload matches.
+ * normalized reference path; falls back to a synthetic `custom:<name>` ID for customName-only
+ * items, then `type:<value>` for type-only items, so all three card variants can be
+ * scrolled-to/highlighted in the Tina sidebar. The preview card and the sidebar row compute
+ * this the same way so the postMessage payload matches.
  */
 function customNameFocusItemId(customName: unknown): string | undefined {
   if (typeof customName !== "string") return undefined;
@@ -151,17 +152,36 @@ function customNameFocusItemId(customName: unknown): string | undefined {
   return `custom:${encodeURIComponent(trimmed)}`;
 }
 
-export function getCabinetProductFocusItemId(item: { cabinet?: unknown; customName?: unknown } | null | undefined): string | undefined {
-  if (!item) return undefined;
-  return getCabinetReferenceFocusItemId(item.cabinet) || customNameFocusItemId(item.customName);
+function typeFocusItemId(typeValue: unknown): string | undefined {
+  if (typeof typeValue !== "string") return undefined;
+  const trimmed = typeValue.trim();
+  if (!trimmed) return undefined;
+  return `type:${encodeURIComponent(trimmed)}`;
 }
 
-export function getCountertopProductFocusItemId(item: { countertop?: unknown; customName?: unknown } | null | undefined): string | undefined {
+export function getCabinetProductFocusItemId(item: { cabinet?: unknown; customName?: unknown; type?: unknown } | null | undefined): string | undefined {
   if (!item) return undefined;
-  return getCountertopReferenceFocusItemId(item.countertop) || customNameFocusItemId(item.customName);
+  return (
+    getCabinetReferenceFocusItemId(item.cabinet) ||
+    customNameFocusItemId(item.customName) ||
+    typeFocusItemId(item.type)
+  );
 }
 
-export function getFlooringProductFocusItemId(item: { flooring?: unknown; customName?: unknown } | null | undefined): string | undefined {
+export function getCountertopProductFocusItemId(item: { countertop?: unknown; customName?: unknown; type?: unknown } | null | undefined): string | undefined {
   if (!item) return undefined;
-  return getFlooringReferenceFocusItemId(item.flooring) || customNameFocusItemId(item.customName);
+  return (
+    getCountertopReferenceFocusItemId(item.countertop) ||
+    customNameFocusItemId(item.customName) ||
+    typeFocusItemId(item.type)
+  );
+}
+
+export function getFlooringProductFocusItemId(item: { flooring?: unknown; customName?: unknown; type?: unknown } | null | undefined): string | undefined {
+  if (!item) return undefined;
+  return (
+    getFlooringReferenceFocusItemId(item.flooring) ||
+    customNameFocusItemId(item.customName) ||
+    typeFocusItemId(item.type)
+  );
 }

@@ -222,6 +222,9 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/aeb.md
   - cabinet: content/cabinets/atb.md
+countertopProducts:
+  - countertop: ''
+    type: Quartz
 relatedProjects:
   - project: content/projects/residence-on-dunn-road.md
   - project: content/projects/residence-on-whitetail-lane.md
