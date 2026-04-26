@@ -133,6 +133,7 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
   ...buildTypenameMap("PageSettingsCabinetsMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
   ...buildTypenameMap("PageSettingsCountertopsMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
   ...buildTypenameMap("PageSettingsFlooringMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
+  ...buildTypenameMap("PageSettingsKitchenRemodelMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
   ...buildTypenameMap("PageSettingsCabinetsOverviewBlocks", {
     CabinetCatalogGrid: "cabinetCatalogGrid",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,

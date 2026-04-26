@@ -1,0 +1,184 @@
+{
+  "_template": "kitchenRemodelMainPage",
+  "title": "Kitchen Remodel",
+  "seo": {
+    "title": "Kitchen Remodeling in Spokane | Cabinets, Countertops, Flooring & Install | Cabinets Plus",
+    "description": "Plan your Spokane kitchen remodel at Cabinets Plus — full range of cabinets, countertops, and flooring with in-house design help and cabinet & countertop installation."
+  },
+  "blocks": [
+    {
+      "heading": "Kitchen Remodeling in Spokane",
+      "subtext": "Cabinets, countertops, flooring, and install — all in one Spokane showroom. Whether you're planning a full kitchen remodel or sourcing materials for your contractor, start here.",
+      "ctaLabel": "Visit Our Showroom",
+      "ctaLink": "/contact-us",
+      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg",
+      "imageSize": "full",
+      "_template": "hero"
+    },
+    {
+      "title": "Products",
+      "imageSize": "full",
+      "products": [
+        {
+          "name": "cabinets",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg",
+          "link": "/cabinets"
+        },
+        {
+          "name": "Countertops",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-countertops.jpg",
+          "link": "/countertops"
+        },
+        {
+          "name": "Flooring",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-flooring.jpg",
+          "link": "/flooring"
+        },
+        {
+          "name": "Glass & Enclosures",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-glass-enclosures.jpg",
+          "link": "/contact-us"
+        }
+      ],
+      "_template": "productsSection"
+    },
+    {
+      "title": "Your Spokane Kitchen Remodel Starts Here",
+      "paragraphs": "A great kitchen remodel comes down to picking the right cabinets, the right countertop, and the right flooring — and getting them installed properly. That's exactly what Cabinets Plus does. Our Spokane showroom carries the full range of cabinet styles, countertop materials, and flooring options you'll want to compare for your remodel. We help homeowners plan it out, install the cabinets and countertops ourselves, and work with contractors throughout Spokane County who send their clients to us for honest pricing and quality product. Stop in and we'll help you map out the kitchen you've been picturing.",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2948-dsc03999.jpg",
+      "imagePosition": "right",
+      "ctaLabel": "Schedule a Design Consultation",
+      "ctaLink": "/contact-us",
+      "_template": "textImageSection"
+    },
+    {
+      "title": "Featured kitchen projects",
+      "ctaLabel": "View All projects",
+      "ctaLink": "/gallery",
+      "projects": [
+        {
+          "project": "content/projects/art-house-on-27th-avenue.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-7th-street.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3436-dsc05586.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-bruce-road.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3415-02-27603-n-bruce-rd-024.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-bush-drive.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3601-dsc00299.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-dahl-road.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3629-dsc00389.jpg"
+        }
+      ],
+      "_template": "projectsSection"
+    },
+    {
+      "title": "How We Help With Your Kitchen Remodel",
+      "steps": [
+        {
+          "number": 1,
+          "iconImage": "/library/countertops/process/step-showroom.svg",
+          "title": "Showroom Visit & Design Consultation",
+          "description": "Stop by our Spokane showroom to see cabinet displays, countertop slabs, and flooring options in person. Bring photos of your current kitchen, measurements if you have them, and any inspiration you've saved."
+        },
+        {
+          "number": 2,
+          "iconImage": "/library/countertops/process/step-measurement.svg",
+          "title": "Design & Layout",
+          "description": "We'll help you map out a layout that fits your space, your storage needs, and your budget. You'll see 3D renderings of your new kitchen before any orders are placed."
+        },
+        {
+          "number": 3,
+          "iconImage": "/library/countertops/process/step-fabrication.svg",
+          "title": "Materials & Fabrication",
+          "description": "We order your cabinets, fabricate your countertops in our Spokane shop, and pull your flooring from stock or place the order. You'll get a clear timeline for when everything will be ready."
+        },
+        {
+          "number": 4,
+          "iconImage": "/library/countertops/process/step-installation.svg",
+          "title": "Cabinet & Countertop Installation",
+          "description": "Our team handles delivery and install for the cabinets and countertops. We level everything, fit the finish carpentry, and walk you through care before we leave."
+        }
+      ],
+      "_template": "processSection"
+    },
+    {
+      "title": "What Goes Into a Great Kitchen Remodel",
+      "paragraphs": "The heart of any kitchen remodel is the cabinets, countertops, and flooring. Cabinets are the biggest visual element — they set the tone of the room, define your storage, and usually represent the largest single line item in the budget. Countertops are what you'll touch every day, so material choice matters: quartz for low-maintenance durability, granite for one-of-a-kind natural stone, marble for elegance, or quartzite for the best of both worlds. Flooring needs to survive spills, dropped pans, and heavy traffic — which is why LVP, SPC, hardwood, and tile are the most common picks for Spokane kitchens.\n\nWe start every remodel project by understanding how you actually use your kitchen. Are you a serious cook who needs deep pan drawers and counter space? A family of five who needs storage for snacks, water bottles, and lunchboxes? A couple who entertains on weekends and wants a great island? Those answers shape the cabinet layout, the countertop size, the storage upgrades, and the flooring choice. From there, we'll source the materials, fabricate your countertops in our Spokane shop, and install the cabinets and counters ourselves. If your remodel involves plumbing, electrical, or other trades, those are typically handled by your contractor — and we work alongside contractors throughout the area every day.",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-beverly-drive/01-dsc00199.jpg",
+      "imagePosition": "left",
+      "_template": "textImageSection"
+    },
+    {
+      "heading": "Build the Kitchen You Actually Want",
+      "subtext": "From cabinets and countertops to flooring and finishing details, Cabinets Plus has the products, design help, and craftsmanship to bring your Spokane kitchen remodel to life.",
+      "ctaLabel": "Book a Design Consultation",
+      "ctaLink": "/contact-us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg",
+      "_template": "showroomBanner"
+    },
+    {
+      "title": "F.A.Q.",
+      "faqs": [
+        {
+          "question": "Where do I start with a kitchen remodel in Spokane?",
+          "answer": "The best place to start is our showroom. Come see cabinets, countertop slabs, and flooring in person, and our team will help you understand your options based on your space, your style, and your budget. From there, we'll help you map out a plan and figure out what materials make sense."
+        },
+        {
+          "question": "Do you do full kitchen remodels?",
+          "answer": "We focus on the cabinets, countertops, and flooring side of the remodel — the products plus installation of cabinets and countertops. For plumbing, electrical, tile, drywall, and paint, most homeowners work with a general contractor. Plenty of Spokane contractors send their clients to our showroom for the materials piece, and we're happy to work alongside them."
+        },
+        {
+          "question": "What's the most important part of a kitchen remodel?",
+          "answer": "Cabinets and layout. They're the biggest visual element, the largest line item, and the part that affects how the kitchen actually functions every day. Get those right and the rest of the remodel falls into place much more easily."
+        },
+        {
+          "question": "What countertop is best for a kitchen?",
+          "answer": "For most Spokane kitchens, quartz is the most popular choice — it's non-porous, stain-resistant, and never needs sealing. Granite is great for traditional kitchens and high-heat use. Quartzite gives you a marble look with much better durability. We'll walk you through the trade-offs in the showroom."
+        },
+        {
+          "question": "What's the most popular kitchen design in Spokane right now?",
+          "answer": "Open-concept layouts with a large island are still the most requested. Within that, we're seeing strong demand for two-tone cabinets (white perimeter with a darker island), deep pan drawers in place of traditional lower cabinets, and quartz countertops in soft white-and-gray patterns."
+        },
+        {
+          "question": "Should I replace my cabinets or just refinish them?",
+          "answer": "It depends on the cabinets you have. If they're solid plywood with quality construction, refinishing or refacing can save real money. If they're particle board or showing structural wear, full replacement usually delivers better long-term value. Stop by the showroom and we'll give you an honest read."
+        },
+        {
+          "question": "Can you work with my contractor?",
+          "answer": "Yes. We work with contractors throughout Spokane and North Idaho all the time — they send their clients to our showroom for cabinets, countertops, and flooring, and we coordinate delivery and install timing with their schedule."
+        },
+        {
+          "question": "Do you serve areas outside of Spokane?",
+          "answer": "Yes. We work with homeowners and contractors throughout Spokane County and into North Idaho, including Spokane Valley, Liberty Lake, Cheney, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
+        }
+      ],
+      "_template": "miniFaqSection"
+    },
+    {
+      "title": "Contact us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "messageLabel": "Project Idea (optional)",
+      "messagePlaceholder": "Tell us more about your project",
+      "submitLabel": "Send request",
+      "showroomTitle": "Our showroom",
+      "followUsLabel": "Follow us",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4219204649216!2d-117.34231340000001!3d47.6567994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549e1f2329ca588f%3A0x5d5cbf04120a6e84!2sCabinets%20Plus!5e0!3m2!1sen!2sus!4v1772842605411!5m2!1sen!2sus",
+      "_template": "sharedContactSection"
+    },
+    {
+      "_template": "sharedShowroomSection"
+    }
+  ]
+}

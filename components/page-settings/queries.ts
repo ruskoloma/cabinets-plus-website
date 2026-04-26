@@ -248,6 +248,13 @@ export const FLOORING_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQue
   blocksTypenamePrefix: "PageSettingsFlooringMainPageBlocks",
 });
 
+export const KITCHEN_REMODEL_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
+  operationName: "KitchenRemodelMainPageSettingsDocument",
+  resultKey: "kitchenRemodelMainPageSettings",
+  templateTypename: "PageSettingsKitchenRemodelMainPage",
+  blocksTypenamePrefix: "PageSettingsKitchenRemodelMainPageBlocks",
+});
+
 export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   query CabinetsOverviewPageSettingsDocument($relativePath: String!) {
     cabinetsOverviewPageSettings: pageSettings(relativePath: $relativePath) {
