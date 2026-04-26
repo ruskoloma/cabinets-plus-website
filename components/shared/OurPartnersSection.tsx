@@ -35,25 +35,24 @@ const COUNTERTOP_LOGO_CLASSES: Record<string, string> = {
 };
 
 const FLOORING_LOGO_CLASSES: Record<string, string> = {
-  Mozaik: "w-auto h-auto max-w-[84px] max-h-[42px] md:max-w-[122px] md:max-h-[60px]",
-  "Lions Floor": "w-auto h-auto max-w-[97px] max-h-[38px] md:max-w-[138px] md:max-h-[54px]",
-  "Prima Floors": "w-auto h-auto max-w-[104px] max-h-[42px] md:max-w-[148px] md:max-h-[60px]",
-  Flooring2: "w-auto h-auto max-w-[88px] max-h-[46px] md:max-w-[125px] md:max-h-[66px]",
-  flooring2: "w-auto h-auto max-w-[88px] max-h-[46px] md:max-w-[125px] md:max-h-[66px]",
-  "Wanke Cascade": "w-auto h-auto max-w-[116px] max-h-[50px] md:max-w-[165px] md:max-h-[70px]",
-  MSI: "w-auto h-auto max-w-[76px] max-h-[42px] md:max-w-[94px] md:max-h-[60px]",
-  Pacmat: "w-auto h-auto max-w-[99px] max-h-[42px] md:max-w-[141px] md:max-h-[60px]",
-  "Pacific Mat & Flooring": "w-auto h-auto max-w-[99px] max-h-[42px] md:max-w-[141px] md:max-h-[60px]",
-  Mohawk: "w-auto h-auto max-w-[99px] max-h-[42px] md:max-w-[113px] md:max-h-[60px]",
-  Stonewood: "w-auto h-auto max-w-[103px] max-h-[42px] md:max-w-[147px] md:max-h-[60px]",
-  "Stonewood Floors": "w-auto h-auto max-w-[103px] max-h-[42px] md:max-w-[147px] md:max-h-[60px]",
-  Opus: "w-auto h-auto max-w-[29px] max-h-[46px] md:max-w-[41px] md:max-h-[66px]",
-  "Opus Hardwood": "w-auto h-auto max-w-[29px] max-h-[46px] md:max-w-[41px] md:max-h-[66px]",
-  "Engineered Floors":
-    "w-auto h-auto max-w-[95px] max-h-[42px] md:max-w-[136px] md:max-h-[60px]",
+  Mozaik: "object-contain w-[68px] h-[39px] md:w-[97px] md:h-[55px]",
+  "Lions Floor": "object-contain w-[97px] h-[35px] md:w-[138px] md:h-[50px]",
+  "Prima Floors": "object-contain w-[104px] h-[28px] md:w-[148px] md:h-[40px]",
+  Flooring2: "object-contain w-[88px] h-[35px] md:w-[125px] md:h-[50px]",
+  flooring2: "object-contain w-[88px] h-[35px] md:w-[125px] md:h-[50px]",
+  "Wanke Cascade": "object-contain w-[116px] h-[16px] md:w-[165px] md:h-[22px]",
+  MSI: "object-contain w-[66px] h-[27px] md:w-[94px] md:h-[39px]",
+  Pacmat: "object-contain w-[99px] h-[28px] md:w-[141px] md:h-[40px]",
+  "Pacific Mat & Flooring": "object-contain w-[99px] h-[28px] md:w-[141px] md:h-[40px]",
+  Mohawk: "object-contain w-[81px] h-[25px] md:w-[115px] md:h-[36px]",
+  Stonewood: "object-contain w-[104px] h-[14px] md:w-[147px] md:h-[20px]",
+  "Stonewood Floors": "object-contain w-[104px] h-[14px] md:w-[147px] md:h-[20px]",
+  Opus: "object-contain w-[29px] h-[35px] md:w-[41px] md:h-[50px]",
+  "Opus Hardwood": "object-contain w-[29px] h-[35px] md:w-[41px] md:h-[50px]",
+  "Engineered Floors": "object-contain w-[96px] h-[23px] md:w-[136px] md:h-[33px]",
 };
 
-const DEFAULT_LOGO_CLASS = "w-auto h-auto max-h-[40px] max-w-full md:max-h-[60px]";
+const DEFAULT_LOGO_CLASS = "object-contain max-h-[40px] max-w-full md:max-h-[60px]";
 
 const COUNTERTOP_PARTNER_LOGOS: CatalogPartnerItem[] = [
   { src: "/library/partners/countertops/cambria.svg", alt: "Cambria", href: "https://www.cambriausa.com/" },
@@ -72,7 +71,7 @@ const FLOORING_PARTNER_LOGOS: CatalogPartnerItem[] = [
   { src: "/library/partners/flooring/lions-floor.png", alt: "Lions Floor", href: "https://www.lionsfloor.com/" },
   { src: "/library/partners/flooring/prima-floors.png", alt: "Prima Floors", href: "https://www.primafloors.com/" },
   { src: "/library/partners/flooring/flooring2.png", alt: "Flooring2", href: "https://flooring2.com/" },
-  { src: "/library/partners/flooring/wanke-cascade-part-1.svg", alt: "Wanke Cascade", href: "https://www.wanke.com/" },
+  { src: "/library/partners/flooring/wanke-cascade.svg", alt: "Wanke Cascade", href: "https://wankecascade.com/" },
   { src: "/library/partners/flooring/msi.svg", alt: "MSI", href: "https://www.msisurfaces.com/" },
   { src: "/library/partners/flooring/pacmat.png", alt: "Pacific Mat & Flooring", href: "https://www.pacmat.com/" },
   { src: "/library/partners/flooring/mohawk.svg", alt: "Mohawk", href: "https://www.mohawkflooring.com/" },
@@ -87,8 +86,8 @@ function text(value: unknown, fallback = ""): string {
 
 function ExternalArrowIcon() {
   return (
-    <svg aria-hidden className="h-6 w-6" fill="none" viewBox="0 0 24 24">
-      <path d="M8 16L16 8M9 8h7v7" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+    <svg aria-hidden className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.7504 6V15.75C18.7504 15.9489 18.6714 16.1397 18.5307 16.2803C18.3901 16.421 18.1993 16.5 18.0004 16.5C17.8015 16.5 17.6107 16.421 17.4701 16.2803C17.3294 16.1397 17.2504 15.9489 17.2504 15.75V7.81031L6.53104 18.5306C6.39031 18.6714 6.19944 18.7504 6.00042 18.7504C5.80139 18.7504 5.61052 18.6714 5.46979 18.5306C5.32906 18.3899 5.25 18.199 5.25 18C5.25 17.801 5.32906 17.6101 5.46979 17.4694L16.1901 6.75H8.25042C8.0515 6.75 7.86074 6.67098 7.72009 6.53033C7.57943 6.38968 7.50042 6.19891 7.50042 6C7.50042 5.80109 7.57943 5.61032 7.72009 5.46967C7.86074 5.32902 8.0515 5.25 8.25042 5.25H18.0004C18.1993 5.25 18.3901 5.32902 18.5307 5.46967C18.6714 5.61032 18.7504 5.80109 18.7504 6Z" />
     </svg>
   );
 }
@@ -137,7 +136,7 @@ function CatalogPartnersSection({
           </div>
 
           <div className="flex flex-col gap-5">
-            <div className="grid grid-cols-2 gap-4 overflow-hidden rounded-[2.78px] md:grid-cols-3 md:gap-7 md:rounded-[4px]">
+            <div className="grid grid-cols-2 gap-4 overflow-hidden rounded-[2.78px] md:grid-cols-3 md:gap-[28px] md:rounded-[4px]">
               {partnerLogos.map((logo, idx) => {
                 const raw = logo.raw;
                 const href =
@@ -149,19 +148,21 @@ function CatalogPartnersSection({
                 const isLast = idx === partnerLogos.length - 1;
                 const logoClass = logoClasses[logo.alt] || DEFAULT_LOGO_CLASS;
                 const tileClass = [
-                  "group relative flex items-center justify-center overflow-hidden bg-[#262626] transition-opacity hover:opacity-90",
+                  "group relative flex items-center justify-center overflow-hidden bg-[#262626] transition-opacity hover:opacity-95",
                   isLast
                     ? "col-span-2 h-[72px] md:col-span-1 md:h-[112px]"
                     : "h-[80px] md:h-[112px]",
                 ].join(" ");
 
                 const logoImg = (
-                  <FallbackImg
-                    alt={logo.alt}
-                    className={logoClass}
-                    data-tina-field={raw ? tinaField(raw as Record<string, unknown>, "logo") : undefined}
-                    src={logo.src}
-                  />
+                  <span className="pointer-events-none flex h-full w-full items-center justify-center opacity-80">
+                    <FallbackImg
+                      alt={logo.alt}
+                      className={logoClass}
+                      data-tina-field={raw ? tinaField(raw as Record<string, unknown>, "logo") : undefined}
+                      src={logo.src}
+                    />
+                  </span>
                 );
                 const arrow = (
                   <span className="pointer-events-none absolute right-2 top-2 text-white">
