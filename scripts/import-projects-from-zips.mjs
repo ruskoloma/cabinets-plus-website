@@ -833,15 +833,30 @@ async function main() {
 
     const resolvedSlug = ensureUniqueSlug(identity.slug || normalizeSlug(resolvedTitle), existingSlugs);
 
-    console.log(`  analyzing image metadata for "${resolvedTitle}"`);
-    const imageAnalyses = await mapWithConcurrency(uploadedMedia, IMAGE_CONCURRENCY, (media, index) =>
-      analyzeSingleImage({
-        apiKey: openRouterApiKey,
-        model: imageModel,
-        projectTitle: resolvedTitle,
-        media,
-      }).then((result) => ({ ...result, sourceName: media.sourceName, index })),
-    );
+    const skipImageMeta = hasFlag("skip-image-meta");
+    const imageAnalyses = skipImageMeta
+      ? uploadedMedia.map((media, index) => ({
+          room: "",
+          cabinetPaints: [],
+          cabinetStains: [],
+          countertop: "",
+          flooring: false,
+          label: "",
+          confidence: 0,
+          sourceName: media.sourceName,
+          index,
+        }))
+      : await (async () => {
+          console.log(`  analyzing image metadata for "${resolvedTitle}"`);
+          return mapWithConcurrency(uploadedMedia, IMAGE_CONCURRENCY, (media, index) =>
+            analyzeSingleImage({
+              apiKey: openRouterApiKey,
+              model: imageModel,
+              projectTitle: resolvedTitle,
+              media,
+            }).then((result) => ({ ...result, sourceName: media.sourceName, index })),
+          );
+        })();
 
     const scoredMedia = imageAnalyses.map((analysis, index) => ({
       ...analysis,
@@ -850,10 +865,12 @@ async function main() {
       sortScore: scoreMediaForCover(analysis),
     }));
 
-    const coverIndex = scoredMedia.reduce((bestIndex, current, currentIndex, list) => {
-      if (bestIndex < 0) return currentIndex;
-      return current.sortScore > list[bestIndex].sortScore ? currentIndex : bestIndex;
-    }, -1);
+    const coverIndex = skipImageMeta
+      ? (scoredMedia.length > 0 ? 0 : -1)
+      : scoredMedia.reduce((bestIndex, current, currentIndex, list) => {
+          if (bestIndex < 0) return currentIndex;
+          return current.sortScore > list[bestIndex].sortScore ? currentIndex : bestIndex;
+        }, -1);
 
     const orderedMedia = [
       ...(coverIndex >= 0 ? [scoredMedia[coverIndex]] : []),
