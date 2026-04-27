@@ -775,6 +775,10 @@ media:
     countertop: Quartz
     label: Bathroom vanity detail
     description: 'Residence on Slaton Lane featuring bathroom vanity detail, bathroom, timber cabinetry, quartz surfaces.'
+cabinetProducts:
+  - cabinet: ''
+    customName: Walnut
+    type: flat panel
 countertopProducts:
   - countertop: ''
     customName: Taj Mahal
