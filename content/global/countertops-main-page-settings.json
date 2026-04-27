@@ -23,22 +23,22 @@
         {
           "name": "Quartz",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/03-dsc03364.jpg",
-          "link": "/countertops?countertop=quartz"
+          "link": "/countertops/catalog?countertop=quartz"
         },
         {
           "name": "Granite",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/37-dsc01978.jpg",
-          "link": "/countertops?countertop=granite"
+          "link": "/countertops/catalog?countertop=granite"
         },
         {
           "name": "Quartzite",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/02-dsc03201.jpg",
-          "link": "/countertops?countertop=quartzite"
+          "link": "/countertops/catalog?countertop=quartzite"
         },
         {
           "name": "Marble",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/03-dsc01383.jpg",
-          "link": "/countertops?countertop=marble"
+          "link": "/countertops/catalog?countertop=marble"
         }
       ],
       "_template": "productsSection"
