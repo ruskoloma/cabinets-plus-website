@@ -58,7 +58,7 @@
       "ctaLink": "/gallery",
       "projects": [
         {
-          "project": "content/projects/art-house-on-27th-avenue.md",
+          "project": "content/projects/dental-clinic-project.md",
           "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg"
         },
         {
