@@ -1032,7 +1032,9 @@ countertopProducts:
   - countertop: ''
     customName: Bianco Superiore
     type: Quartzite
-  - {}
+  - countertop: ''
+    customName: Taj Mahal
+    type: Quartzite
   - {}
 slug: residence-on-plymouth-road
 address: 7115 S Plymouth Rd
