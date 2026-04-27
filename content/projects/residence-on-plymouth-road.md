@@ -1038,6 +1038,10 @@ countertopProducts:
   - countertop: ''
     customName: Titanium Gold
     type: Granite
+relatedProjects:
+  - project: content/projects/residence-on-slaton-lane.md
+  - project: content/projects/residence-on-park-road.md
+  - project: content/projects/residence-on-geiger.md
 slug: residence-on-plymouth-road
 address: 7115 S Plymouth Rd
 notes: Eugene Dumbrava
