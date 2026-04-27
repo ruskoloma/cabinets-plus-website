@@ -503,7 +503,7 @@ media:
     label: Coffee bar cabinetry
     description: 'Residence on Slaton Lane featuring coffee bar cabinetry, other, brown cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-lane/49-dsc08076.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
