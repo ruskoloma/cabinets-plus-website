@@ -1035,7 +1035,9 @@ countertopProducts:
   - countertop: ''
     customName: Taj Mahal
     type: Quartzite
-  - {}
+  - countertop: ''
+    customName: Titanium Gold
+    type: Granite
 slug: residence-on-plymouth-road
 address: 7115 S Plymouth Rd
 notes: Eugene Dumbrava
