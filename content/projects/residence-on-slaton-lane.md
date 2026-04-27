@@ -777,6 +777,7 @@ media:
     description: 'Residence on Slaton Lane featuring bathroom vanity detail, bathroom, timber cabinetry, quartz surfaces.'
 countertopProducts:
   - countertop: ''
+    customName: Taj Mahal
     type: Quartzite
 slug: residence-on-slaton-lane
 address: '1389 W Slaton Ln, Deer Park, WA 99006'
