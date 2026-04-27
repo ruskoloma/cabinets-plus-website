@@ -1026,6 +1026,8 @@ media:
     description: Residence on Plymouth Road featuring 110 7115 s plymouth rd 104.
 cabinetProducts:
   - cabinet: content/cabinets/osn.md
+  - cabinet: content/cabinets/sdwa.md
+  - {}
 slug: residence-on-plymouth-road
 address: 7115 S Plymouth Rd
 notes: Eugene Dumbrava
