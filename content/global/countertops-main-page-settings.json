@@ -70,8 +70,8 @@
           "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-3.jpg"
         },
         {
-          "project": "content/projects/black-island-project-at-the-art-house.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-4.jpg"
+          "project": "content/projects/coffee-bar-project.md",
+          "imageOverride": ""
         },
         {
           "project": "content/projects/residence-on-harmony-road.md",
