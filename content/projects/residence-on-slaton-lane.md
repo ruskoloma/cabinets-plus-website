@@ -750,7 +750,7 @@ media:
     label: Double vanity bathroom
     description: 'Residence on Slaton Lane featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-lane/68-dsc08235.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
@@ -759,7 +759,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: Quartzite
     label: Double vanity bathroom
     description: 'Residence on Slaton Lane featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-lane/69-dsc08246.jpg'
