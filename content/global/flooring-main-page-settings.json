@@ -74,8 +74,8 @@
           "imageOverride": ""
         },
         {
-          "project": "content/projects/residence-on-harmony-road.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-5.jpg"
+          "project": "",
+          "imageOverride": ""
         }
       ],
       "_template": "projectsSection"
