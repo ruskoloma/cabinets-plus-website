@@ -775,6 +775,9 @@ media:
     countertop: Quartz
     label: Bathroom vanity detail
     description: 'Residence on Slaton Lane featuring bathroom vanity detail, bathroom, timber cabinetry, quartz surfaces.'
+countertopProducts:
+  - countertop: ''
+    type: Quartzite
 slug: residence-on-slaton-lane
 address: '1389 W Slaton Ln, Deer Park, WA 99006'
 sourceUpdatedAt: 2026-04-09T16:44:27.289Z
