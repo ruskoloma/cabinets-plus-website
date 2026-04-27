@@ -1028,6 +1028,12 @@ cabinetProducts:
   - cabinet: content/cabinets/osn.md
   - cabinet: content/cabinets/sdwa.md
   - cabinet: content/cabinets/mbs.md
+countertopProducts:
+  - countertop: ''
+    customName: Bianco Superiore
+    type: Quartzite
+  - {}
+  - {}
 slug: residence-on-plymouth-road
 address: 7115 S Plymouth Rd
 notes: Eugene Dumbrava
