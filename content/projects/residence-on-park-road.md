@@ -531,6 +531,9 @@ media:
     countertop: Quartz
     label: Game room bar
     description: 'Residence on Park Road featuring game room bar, other, white cabinetry, quartz surfaces.'
+countertopProducts:
+  - countertop: ''
+    type: Quartzite
 slug: residence-on-park-road
 address: '2324 S Park Rd, Spokane, WA 99212'
 sourceUpdatedAt: 2026-04-09T16:44:27.289Z
