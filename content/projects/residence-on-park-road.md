@@ -123,7 +123,7 @@ media:
     label: Black kitchen island
     description: 'Residence on Park Road featuring black kitchen island, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/10-dsc03488.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
@@ -148,44 +148,6 @@ media:
     countertop: Quartz
     label: White kitchen cabinetry
     description: 'Residence on Park Road featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/12-dsc03508.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-    cabinetStains: []
-    countertop: Quartz
-    label: White pantry cabinetry
-    description: 'Residence on Park Road featuring white pantry cabinetry, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/13-dsc03511.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-    cabinetStains: []
-    countertop: Quartz
-    label: White pantry cabinetry
-    description: 'Residence on Park Road featuring white pantry cabinetry, kitchen, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/14-dsc03518.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Kitchen
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: ''
-    label: Floral arrangement on counter
-    description: 'Residence on Park Road featuring floral arrangement on counter, kitchen.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/15-dsc03524.jpg'
     roomPriority: false
     paintPriority: false
@@ -401,57 +363,6 @@ media:
     countertop: Quartz
     label: Bathroom vanity
     description: 'Residence on Park Road featuring bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/32-dsc03675.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Marble
-    label: Double vanity bathroom
-    description: 'Residence on Park Road featuring double vanity bathroom, bathroom, timber cabinetry, marble surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/33-dsc03679.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Double vanity bathroom
-    description: 'Residence on Park Road featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/34-dsc03687.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: Other
-    label: Bathroom flowers vignette
-    description: 'Residence on Park Road featuring bathroom flowers vignette, bathroom, other surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/35-dsc03691.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Bathroom vanity detail
-    description: 'Residence on Park Road featuring bathroom vanity detail, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/36-dsc03698.jpg'
     roomPriority: false
     paintPriority: false
@@ -594,19 +505,6 @@ media:
     countertop: Quartz
     label: White bathroom vanity
     description: 'Residence on Park Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/47-dsc03791.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Bathroom vanity
-    description: 'Residence on Park Road featuring bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/48-dsc03792.jpg'
     roomPriority: false
     paintPriority: false
