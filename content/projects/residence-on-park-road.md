@@ -532,9 +532,12 @@ media:
     label: Game room bar
     description: 'Residence on Park Road featuring game room bar, other, white cabinetry, quartz surfaces.'
 countertopProducts:
-  - countertop: ''
-    customName: Taj Mahal
+  - customName: Taj Mahal
     type: Quartzite
+relatedProjects:
+  - project: content/projects/residence-on-plymouth-road.md
+  - project: content/projects/residence-on-long-road.md
+  - project: content/projects/residence-on-owens-road.md
 slug: residence-on-park-road
 address: '2324 S Park Rd, Spokane, WA 99212'
 sourceUpdatedAt: 2026-04-09T16:44:27.289Z
