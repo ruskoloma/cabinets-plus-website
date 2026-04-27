@@ -188,7 +188,7 @@ media:
     label: White built-in workspace
     description: 'Residence on Park Road featuring white built-in workspace, other, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-park-road/18-dsc03559.jpg'
-    roomPriority: false
+    roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
