@@ -1,7 +1,16 @@
 {
   "_template": "post",
-  "postBreadcrumbLabel": "Articles",
-  "postRelatedArticlesTitle": "Related articles",
-  "postDetailThumbnailImageSize": "feature",
-  "postDetailRelatedArticlesImageSize": "card"
+  "title": "Post",
+  "blocks": [
+    {
+      "_template": "postContent",
+      "breadcrumbLabel": "Articles",
+      "heroImageSize": "original"
+    },
+    {
+      "_template": "postRelatedArticles",
+      "title": "Related articles",
+      "imageSize": "feature"
+    }
+  ]
 }

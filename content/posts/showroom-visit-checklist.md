@@ -6,9 +6,6 @@ thumbnail: >-
 subtitle: >-
   A little prep makes your first showroom appointment much more productive and helps our team guide
   you toward the right cabinet and countertop options faster.
-excerpt: >-
-  You do not need a full architectural set to begin, but coming in with a few dimensions, reference
-  photos, and a rough wish list gives you a much better starting point.
 relatedArticles:
   - post: content/posts/my-first-post.md
   - post: content/posts/second-post.md
@@ -16,6 +13,8 @@ seo:
   title: What to Bring to Your First Showroom Visit | Cabinets Plus
   description: Prepare for your first Cabinets Plus showroom appointment with measurements, inspiration, and the right project details.
 ---
+
+You do not need a full architectural set to begin, but coming in with a few dimensions, reference photos, and a rough wish list gives you a much better starting point.
 
 The most helpful first appointments are the ones where we can quickly understand your space, your style, and your priorities. Even a simple folder on your phone can be enough if it covers the basics.
 

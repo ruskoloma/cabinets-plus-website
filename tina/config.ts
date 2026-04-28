@@ -2137,7 +2137,7 @@ export default defineConfig({
         format: "json",
         match: {
           include:
-            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|project-page-settings|collection-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
+            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|blog-page-settings|project-page-settings|collection-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
         },
         ui: {
           global: true,
@@ -2357,6 +2357,39 @@ export default defineConfig({
             ],
           },
           {
+            name: "blog",
+            label: "Blog Page (/blog)",
+            fields: [
+              { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
+              seoFields(),
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on /blog. The Blog Posts Grid block is required and will be injected at the top if missing.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "blogPostsGrid",
+                    label: "Blog Posts Grid (post grid + pagination — required)",
+                    fields: [
+                      { type: "string" as const, name: "pageTitle", label: "Page Title" },
+                      { type: "number" as const, name: "postsPerPage", label: "Posts Per Page" },
+                      imageSizeSettingField(
+                        "postCardImageSize",
+                        "Post Card Images",
+                        "Controls the post card images on /blog.",
+                      ),
+                    ],
+                  },
+                  ...sharedPageSectionTemplates(),
+                ],
+              },
+            ],
+          },
+          {
             name: "project",
             label: "Project",
             fields: [
@@ -2488,20 +2521,46 @@ export default defineConfig({
           },
           {
             name: "post",
-            label: "Post",
+            label: "Post Page (/post/[slug])",
             fields: [
-              { type: "string", name: "postBreadcrumbLabel", label: "Breadcrumb Label" },
-              { type: "string", name: "postRelatedArticlesTitle", label: "Related Articles Title" },
-              imageSizeSettingField(
-                "postDetailThumbnailImageSize",
-                "Hero Image",
-                "Controls the hero image on /post/[slug] pages.",
-              ),
-              imageSizeSettingField(
-                "postDetailRelatedArticlesImageSize",
-                "Related Article Images",
-                "Controls the related-article card images on /post/[slug] pages.",
-              ),
+              { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
+              seoFields(),
+              {
+                type: "object",
+                name: "blocks",
+                label: "Page Sections",
+                description:
+                  "Reorderable sections that render on every post detail page. The Post Content block (hero + body — pulled per post) is required and will be injected at the top if missing. Add, delete, edit, and drag sections here.",
+                list: true,
+                ui: { visualSelector: true },
+                templates: [
+                  {
+                    name: "postContent",
+                    label: "Post Content (hero + body — pulled from each post)",
+                    fields: [
+                      { type: "string" as const, name: "breadcrumbLabel", label: "Breadcrumb Label" },
+                      imageSizeSettingField(
+                        "heroImageSize",
+                        "Hero Image",
+                        "Controls the hero image on /post/[slug] pages.",
+                      ),
+                    ],
+                  },
+                  {
+                    name: "postRelatedArticles",
+                    label: "Related Articles + Prev/Next (pulled per post)",
+                    fields: [
+                      { type: "string" as const, name: "title", label: "Section Title" },
+                      imageSizeSettingField(
+                        "imageSize",
+                        "Related Article Images",
+                        "Controls the related-article card images on /post/[slug] pages.",
+                      ),
+                    ],
+                  },
+                  ...sharedPageSectionTemplates(),
+                ],
+              },
             ],
           },
           {
@@ -2729,12 +2788,12 @@ export default defineConfig({
         ],
       },
 
-      // ─── PAGES: home, about-us, contact-us (blocks-based) ─────
+      // ─── PAGES: home, about-us, contact-us, privacy-policy ─────
       {
         name: "page",
         label: "Pages",
         path: "content/pages",
-        match: { include: "@(home|about-us|contact-us)" },
+        match: { include: "@(home|about-us|contact-us|privacy-policy)" },
         ui: {
           router: ({ document }) => {
             if (document._sys.filename === "home") return "/";
@@ -2749,6 +2808,35 @@ export default defineConfig({
             type: "object", name: "blocks", label: "Page Sections", list: true,
             ui: { visualSelector: true },
             templates: sharedPageSectionTemplates(),
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            description: "Rich-text body. Used by simple pages like Privacy Policy.",
+            isBody: true,
+            templates: [
+              {
+                name: "ArticleImage",
+                label: "Article Image",
+                fields: [
+                  { type: "image", name: "image", label: "Image" },
+                  { type: "string", name: "alt", label: "Alt Text" },
+                  { type: "string", name: "caption", label: "Caption" },
+                  {
+                    type: "string",
+                    name: "aspectRatio",
+                    label: "Aspect Ratio",
+                    options: [
+                      { label: "16:9", value: "landscape" },
+                      { label: "1:1", value: "square" },
+                      { label: "3:4", value: "portrait" },
+                    ],
+                    ui: { component: "select" },
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
@@ -3414,13 +3502,6 @@ export default defineConfig({
             type: "string",
             name: "subtitle",
             label: "Hero Subtitle",
-            ui: { component: "textarea" },
-          },
-          {
-            type: "string",
-            name: "excerpt",
-            label: "Lead Paragraph",
-            description: "Large intro paragraph shown directly below the hero image.",
             ui: { component: "textarea" },
           },
           {

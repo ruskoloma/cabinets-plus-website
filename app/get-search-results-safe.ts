@@ -226,7 +226,6 @@ export async function getSearchResultsSafe(rawQuery: string): Promise<SearchResu
           const score = buildScore(query, [
             title,
             asString(record.subtitle) || "",
-            asString(record.excerpt) || "",
             content,
           ]);
 

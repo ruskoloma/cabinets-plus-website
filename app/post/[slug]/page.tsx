@@ -8,8 +8,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = await params;
   const result = await client.queries.post({ relativePath: `${slug}.md` });
-  const { title, seo, excerpt, subtitle } = result.data.post;
-  const description = seo?.description || excerpt || subtitle || undefined;
+  const { title, seo, subtitle } = result.data.post;
+  const description = seo?.description || subtitle || undefined;
   return {
     title: seo?.title || title,
     description,

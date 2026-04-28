@@ -151,6 +151,15 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
     GalleryProjectGrid: "galleryProjectGrid",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),
+  ...buildTypenameMap("PageSettingsBlogBlocks", {
+    BlogPostsGrid: "blogPostsGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PageSettingsPostBlocks", {
+    PostContent: "postContent",
+    PostRelatedArticles: "postRelatedArticles",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
 };
 
 const FALLBACK_FAQ_TABS: FaqTab[] = [

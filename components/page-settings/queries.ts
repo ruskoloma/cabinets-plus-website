@@ -375,6 +375,38 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsGalleryBlocks")}
   }
 `;
 
+export const BLOG_PAGE_SETTINGS_QUERY = `
+  query BlogPageSettingsDocument($relativePath: String!) {
+    blogPageSettings: pageSettings(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+      ... on PageSettingsBlog {
+        title
+        seo {
+          title
+          description
+          ogImage
+        }
+        blocks {
+          __typename
+          ... on PageSettingsBlogBlocksBlogPostsGrid {
+            pageTitle
+            postsPerPage
+            postCardImageSize
+          }
+${buildSharedPageSettingsBlockFragments("PageSettingsBlogBlocks")}
+        }
+      }
+    }
+  }
+`;
+
 export const PROJECT_PAGE_SETTINGS_QUERY = `
   query ProjectPageSettingsDocument($relativePath: String!) {
     projectPageSettings: pageSettings(relativePath: $relativePath) {
@@ -463,10 +495,24 @@ export const POST_PAGE_SETTINGS_QUERY = `
         }
       }
       ... on PageSettingsPost {
-        postBreadcrumbLabel
-        postRelatedArticlesTitle
-        postDetailThumbnailImageSize
-        postDetailRelatedArticlesImageSize
+        title
+        seo {
+          title
+          description
+          ogImage
+        }
+        blocks {
+          __typename
+          ... on PageSettingsPostBlocksPostContent {
+            breadcrumbLabel
+            heroImageSize
+          }
+          ... on PageSettingsPostBlocksPostRelatedArticles {
+            title
+            imageSize
+          }
+${buildSharedPageSettingsBlockFragments("PageSettingsPostBlocks")}
+        }
       }
     }
   }

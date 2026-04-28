@@ -6,10 +6,6 @@ thumbnail: >-
 subtitle: >-
   Planning a kitchen remodel in Spokane means balancing layout, budget, storage, and finishes
   before the first cabinet ever comes out.
-excerpt: >-
-  A great remodel feels smooth because the early decisions were thoughtful. These are the five
-  conversations we encourage homeowners to have before they choose cabinetry, countertops, and
-  finishes.
 relatedArticles:
   - post: content/posts/second-post.md
   - post: content/posts/showroom-visit-checklist.md
@@ -17,6 +13,8 @@ seo:
   title: 5 Things to Know Before a Kitchen Remodel | Cabinets Plus
   description: Planning a kitchen remodel in Spokane? Here are five key things every homeowner should know before they start demo day.
 ---
+
+A great remodel feels smooth because the early decisions were thoughtful. These are the five conversations we encourage homeowners to have before they choose cabinetry, countertops, and finishes.
 
 Planning a kitchen remodel is exciting, but the projects that feel the most successful usually start with a clear plan before demo day. When we walk clients through the earliest stages, these are the five areas that make the biggest difference.
 

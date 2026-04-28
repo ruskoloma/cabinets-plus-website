@@ -1,0 +1,18 @@
+{
+  "_template": "blog",
+  "title": "Blog",
+  "seo": {
+    "description": "Discover helpful insights for your home renovation journey from the Cabinets Plus team."
+  },
+  "blocks": [
+    {
+      "_template": "blogPostsGrid",
+      "pageTitle": "Discover helpful insights for your home renovation journey",
+      "postsPerPage": 12,
+      "postCardImageSize": "card"
+    },
+    {
+      "_template": "sharedContactSection"
+    }
+  ]
+}

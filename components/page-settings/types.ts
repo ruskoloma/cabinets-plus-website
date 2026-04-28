@@ -61,11 +61,22 @@ export interface CollectionPageSettings extends BaseSettingsDocument {
   blocks?: Array<CatalogPageSettingsBlock | null> | null;
 }
 
+export interface BlogPageSettings extends BaseSettingsDocument {
+  title?: string | null;
+  seo?: SettingsSeo | null;
+  blocks?: Array<CatalogPageSettingsBlock | null> | null;
+}
+
+export interface BlogPageSettingsQueryLikeResult {
+  data: { blogPageSettings?: BlogPageSettings | null };
+  query?: string;
+  variables?: Record<string, unknown>;
+}
+
 export interface PostPageSettings extends BaseSettingsDocument {
-  postBreadcrumbLabel?: string | null;
-  postRelatedArticlesTitle?: string | null;
-  postDetailThumbnailImageSize?: string | null;
-  postDetailRelatedArticlesImageSize?: string | null;
+  title?: string | null;
+  seo?: SettingsSeo | null;
+  blocks?: Array<CatalogPageSettingsBlock | null> | null;
 }
 
 export interface CabinetsMainPageSettingsQueryLikeResult {
@@ -254,9 +265,35 @@ export const FALLBACK_COLLECTION_PAGE_SETTINGS: CollectionPageSettings = {
   ],
 };
 
+export const FALLBACK_BLOG_PAGE_SETTINGS: BlogPageSettings = {
+  title: "Blog",
+  seo: {
+    description:
+      "Discover helpful insights for your home renovation journey from the Cabinets Plus team.",
+  },
+  blocks: [
+    {
+      _template: "blogPostsGrid",
+      pageTitle: "Discover helpful insights for your home renovation journey",
+      postsPerPage: 12,
+      postCardImageSize: "card",
+    },
+    { _template: "sharedContactSection" },
+  ],
+};
+
 export const FALLBACK_POST_PAGE_SETTINGS: PostPageSettings = {
-  postBreadcrumbLabel: "Articles",
-  postRelatedArticlesTitle: "Related articles",
-  postDetailThumbnailImageSize: "feature",
-  postDetailRelatedArticlesImageSize: "card",
+  title: "Post",
+  blocks: [
+    {
+      _template: "postContent",
+      breadcrumbLabel: "Articles",
+      heroImageSize: "feature",
+    },
+    {
+      _template: "postRelatedArticles",
+      title: "Related articles",
+      imageSize: "card",
+    },
+  ],
 };
