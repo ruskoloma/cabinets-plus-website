@@ -1,8 +1,9 @@
 "use client";
 
-import type { ComponentProps } from "react";
+import { type ComponentProps } from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import FillImage from "@/components/ui/FillImage";
+import { extractYouTubeId } from "@/lib/youtube";
 
 type RichTextContent = ComponentProps<typeof TinaMarkdown>["content"];
 
@@ -59,6 +60,63 @@ function ArticleImage({ image, alt, caption, aspectRatio }: ArticleImageProps) {
   );
 }
 
+function YouTubeEmbed({ id }: { id: string }) {
+  return (
+    <span className="my-5 block md:my-[50px]">
+      <span className="relative block aspect-video w-full overflow-hidden rounded-[2px] bg-black">
+        <iframe
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          src={`https://www.youtube-nocookie.com/embed/${id}`}
+          title="YouTube video"
+        />
+      </span>
+    </span>
+  );
+}
+
+// Tina rich-text stores body as an AST: { type: "root", children: [...] }.
+// We walk the AST once before rendering and rewrite "paragraph containing
+// only a bare YouTube URL" into a custom `youtubeEmbed` node, then provide a
+// renderer for that node below. This keeps the `[custom text](youtube-url)`
+// case rendering as a regular link.
+function rewriteYouTubeEmbeds(content: RichTextContent): RichTextContent {
+  if (!content || typeof content !== "object") return content;
+  const root = content as { children?: unknown };
+  if (!Array.isArray(root.children)) return content;
+  return { ...(content as object), children: root.children.map(rewriteNode) } as RichTextContent;
+}
+
+function rewriteNode(node: unknown): unknown {
+  if (!node || typeof node !== "object") return node;
+  const record = node as Record<string, unknown>;
+
+  if (record.type === "p" && Array.isArray(record.children) && record.children.length === 1) {
+    const link = record.children[0] as Record<string, unknown> | null;
+    if (link && link.type === "a" && typeof link.url === "string") {
+      const id = extractYouTubeId(link.url);
+      const linkChildren = Array.isArray(link.children) ? link.children : [];
+      const text = linkChildren
+        .map((child) => {
+          if (!child || typeof child !== "object") return "";
+          const childRecord = child as Record<string, unknown>;
+          return childRecord.type === "text" && typeof childRecord.text === "string" ? childRecord.text : "";
+        })
+        .join("");
+      if (id && text.trim() === link.url.trim()) {
+        // TinaMarkdown only recognizes custom node types via mdxJsxFlowElement.name
+        // (see node_modules/tinacms/dist/rich-text/index.js).
+        return { type: "mdxJsxFlowElement", name: "youtubeEmbed", props: { id } };
+      }
+    }
+  }
+
+  return node;
+}
+
 function InlineArticleImage({ url, alt, caption }: InlineImageProps) {
   if (!url) return null;
 
@@ -84,8 +142,9 @@ export default function ArticleRichText({ content }: ArticleRichTextProps) {
         components={{
           ArticleImage: ((props: unknown) => <ArticleImage {...(props as ArticleImageProps)} />) as never,
           img: ((props: unknown) => <InlineArticleImage {...(props as InlineImageProps)} />) as never,
+          youtubeEmbed: ((props: unknown) => <YouTubeEmbed id={(props as { id: string }).id} />) as never,
         }}
-        content={content}
+        content={rewriteYouTubeEmbeds(content)}
       />
     </div>
   );
