@@ -69,11 +69,12 @@ relatedProjects:
   - project: content/projects/residence-on-villier-road.md
   - project: content/projects/restaurant-project.md
 relatedProducts:
-  - product: content/cabinets/mhws.md
+  - product: null
   - product: content/cabinets/moss.md
   - product: null
   - product: content/cabinets/omu.md
 doorStyle: flat panel
 paint: black
 ---
+
 
