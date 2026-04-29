@@ -3,19 +3,11 @@ published: true
 name: Shaker Espresso
 code: SEK
 slug: sek
-description: >-
-  Shaker Espresso sample door from KCD Collection is produced using the exact
-  same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+description: |-
+  Shaker Espresso sample door from KCD Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/3104-sek-shaker-espresso.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/3104-sek-shaker-espresso.jpg'
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/3104-sek-shaker-espresso.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/3104-sek-shaker-espresso.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,8 +36,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1771-sek.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1771-sek.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -58,8 +48,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1773-sek.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1773-sek.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -71,8 +60,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1770-sek.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SEK/1770-sek.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -90,9 +78,10 @@ stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/sfb.md
-  - product: content/cabinets/sgu.md
+  - product: null
   - product: content/cabinets/sk.md
   - product: content/cabinets/skk.md
 doorStyle: shaker
 paint: brown
 ---
+
