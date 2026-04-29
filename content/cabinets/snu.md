@@ -41,10 +41,11 @@ media:
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/osu.md
-  - product: content/cabinets/sskp.md
+  - product: null
   - product: content/cabinets/swk.md
   - product: content/cabinets/swoa.md
 sourceId: 313
-sourceUpdatedAt: 2025-07-25T22:53:56.398Z
+sourceUpdatedAt: '2025-07-25T22:53:56.398Z'
 slug: snu
 ---
+
