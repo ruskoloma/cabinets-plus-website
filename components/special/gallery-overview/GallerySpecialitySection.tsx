@@ -93,8 +93,8 @@ function SpecialityCard({
     ? "group relative block h-[100px] w-full overflow-hidden bg-[var(--cp-primary-100)]"
     : `group relative block h-[200px] overflow-hidden bg-[var(--cp-primary-100)] ${fixedWidth ? "w-[440px] shrink-0" : "w-full"}`;
   const titleClass = isMobile
-    ? "absolute inset-0 flex items-center justify-center px-4 text-center text-[24px] uppercase font-semibold leading-[1.2] tracking-[0.03em] text-white"
-    : "absolute bottom-4 left-4 right-12 text-[28px] uppercase font-semibold leading-[1.2] text-white";
+    ? "absolute inset-0 flex items-center justify-center px-4 text-center text-[24px] uppercase font-semibold leading-[1.2] tracking-[0.03em] text-white font-[family-name:var(--font-red-hat-display)]"
+    : "absolute bottom-4 left-4 right-12 text-[28px] uppercase font-semibold leading-[1] tracking-[0.03em] text-white font-[family-name:var(--font-red-hat-display)]";
 
   // Pass the linked Collection's `title` field to Tina so clicking the card in
   // edit mode opens the collection document in the sidebar — mirrors how the
@@ -110,13 +110,13 @@ function SpecialityCard({
         src={item.coverImage}
         variant={imageVariant}
       />
-      <span className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent" />
+      <span className="absolute inset-0 bg-black/35" />
       <span className={titleClass}>{item.collectionTitle}</span>
       <img
         alt=""
         aria-hidden
-        className="absolute right-4 top-4 h-6 w-6 invert"
-        src="/library/header/nav-chevron-right.svg"
+        className="absolute right-4 top-4 h-6 w-6"
+        src="/library/icons/collection-card-arrow.svg"
       />
     </Link>
   );
