@@ -3,19 +3,11 @@ published: true
 name: Shaker Kodiak
 code: SKK
 slug: skk
-description: >-
-  Shaker Kodiak sample door from KCD Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+description: |-
+  Shaker Kodiak sample door from KCD Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SKK/3109-skk-shaker-kodiak.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SKK/3109-skk-shaker-kodiak.jpg'
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SKK/3109-skk-shaker-kodiak.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SKK/3109-skk-shaker-kodiak.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -53,7 +44,8 @@ relatedProducts:
   - product: content/cabinets/smb.md
   - product: content/cabinets/snu.md
   - product: content/cabinets/ssgh.md
-  - product: content/cabinets/sskp.md
+  - product: null
 doorStyle: shaker
 paint: brown
 ---
+
