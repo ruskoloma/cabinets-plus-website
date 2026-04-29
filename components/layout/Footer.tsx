@@ -35,6 +35,29 @@ function FooterLinkItem({ href, children, field }: { href: string; children: Rea
   );
 }
 
+function MobileFooterLinkRow({
+  links,
+  keyPrefix,
+  field,
+}: {
+  links: { label: string; href: string; field?: string }[];
+  keyPrefix: string;
+  field?: string;
+}) {
+  return (
+    <div className="flex flex-wrap gap-x-2 leading-6 text-white" data-tina-field={field}>
+      {links.map((link, index) => (
+        <span className="flex shrink-0 items-center gap-x-2" key={`${keyPrefix}-${link.href}-${index}`}>
+          <TextLink className="whitespace-nowrap" dataTinaField={link.field} href={link.href} size="large" tone="white">
+            {link.label}
+          </TextLink>
+          {index < links.length - 1 ? <span aria-hidden>•</span> : null}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function SocialIcon({ href, src, alt, field }: { href: string; src: string; alt: string; field?: string }) {
   return (
     <a aria-label={alt} className="transition-opacity hover:opacity-80" data-tina-field={field} href={href} rel="noreferrer" target="_blank">
@@ -192,27 +215,13 @@ export default function Footer({
           ))}
         </div>
 
-        <div className="mt-[53px] text-[16px] leading-6 text-white">
-          <div className="space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks1")}>
-            {serviceLinks.map((link, index) => (
-              <FooterLinkItem field={link.field} href={link.href} key={`m-svc-${link.href}-${index}`}>
-                {link.label}
-              </FooterLinkItem>
-            ))}
+        <div className="mt-[37px] text-[16px]">
+          <MobileFooterLinkRow field={tinaField(footerRaw, "footerLinks1")} keyPrefix="m-svc" links={serviceLinks} />
+          <div className="mt-6">
+            <MobileFooterLinkRow field={tinaField(footerRaw, "footerLinks2")} keyPrefix="m-pg" links={pageLinks} />
           </div>
-          <div className="mt-6 space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks2")}>
-            {pageLinks.map((link, index) => (
-              <FooterLinkItem field={link.field} href={link.href} key={`m-pg-${link.href}-${index}`}>
-                {link.label}
-              </FooterLinkItem>
-            ))}
-          </div>
-          <div className="mt-8 space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks3")}>
-            {legalLinks.map((link, index) => (
-              <FooterLinkItem field={link.field} href={link.href} key={`m-lg-${link.href}-${index}`}>
-                {link.label}
-              </FooterLinkItem>
-            ))}
+          <div className="mt-8">
+            <MobileFooterLinkRow field={tinaField(footerRaw, "footerLinks3")} keyPrefix="m-lg" links={legalLinks} />
           </div>
         </div>
 
