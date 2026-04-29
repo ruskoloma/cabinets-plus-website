@@ -3,19 +3,11 @@ published: true
 name: Arlington Oatmeal
 code: AOP
 slug: aop
-description: >-
-  Arlington Oatmeal sample door from Pro Collection is produced using the exact
-  same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+description: |-
+  Arlington Oatmeal sample door from Pro Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AOP/3142-aop-arlington-oatmeal.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AOP/3142-aop-arlington-oatmeal.jpg'
 technicalDetails:
   - key: Manufacturer
     value: Pro Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AOP/3142-aop-arlington-oatmeal.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AOP/3142-aop-arlington-oatmeal.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -53,7 +44,8 @@ relatedProducts:
   - product: content/cabinets/arm.md
   - product: content/cabinets/atb.md
   - product: content/cabinets/awb.md
-  - product: content/cabinets/axm.md
+  - product: null
 doorStyle: shaker
 paint: custom paint
 ---
+
