@@ -2,12 +2,9 @@
 published: true
 name: Brooklyn Bright White
 code: BWK
-slug: bwk
-description: |-
-  Brooklyn Bright White sample door from KCD Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
-picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/3098-bwk-brooklyn-bright-white.jpg'
+doorStyle: shaker
+paint: white
+stainType: ''
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
@@ -23,90 +20,92 @@ technicalDetails:
     value: Made of wood
   - key: Box Construction
     value: Plywood
+description: |-
+  Brooklyn Bright White sample door from KCD Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
+
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/3098-bwk-brooklyn-bright-white.jpg'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/3098-bwk-brooklyn-bright-white.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: BWK Brooklyn Bright White.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: BWK Brooklyn Bright White.jpg
+    description: ''
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1747-bwk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: BWK
-    description: Image of cabinet
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: BWK
+    description: Image of cabinet
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1748-bwk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: BWK
-    description: Image of cabinet
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: BWK
+    description: Image of cabinet
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1749-bwk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: BWK
-    description: Image of cabinet
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: BWK
+    description: Image of cabinet
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1752-bwk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: BWK
-    description: Image of cabinet
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: BWK
+    description: Image of cabinet
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BWK/1753-bwk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: BWK
-    description: Image of cabinet
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
-sourceId: 256
-sourceUpdatedAt: '2025-07-25T22:53:52.437Z'
-stainType: ''
+    countertop: ''
+    label: BWK
+    description: Image of cabinet
 relatedProjects: []
 relatedProducts:
-  - product: null
-  - product: null
+  - {}
+  - {}
   - product: content/cabinets/escp.md
   - product: content/cabinets/esgn.md
-doorStyle: flat panel
-paint: white
+sourceId: 256
+sourceUpdatedAt: 2025-07-25T22:53:52.437Z
+slug: bwk
 ---
-
 
