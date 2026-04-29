@@ -43,10 +43,11 @@ relatedProjects: []
 relatedProducts:
   - product: null
   - product: null
-  - product: content/cabinets/fsl-nbb.md
+  - product: null
   - product: content/cabinets/haan.md
 doorStyle: elegant shaker
 paint: blue
 ---
+
 
 
