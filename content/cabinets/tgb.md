@@ -101,12 +101,13 @@ media:
 relatedProjects:
   - project: content/projects/residence-on-7th-street.md
 relatedProducts:
-  - product: content/cabinets/tgm.md
+  - product: null
   - product: content/cabinets/twb.md
   - product: content/cabinets/aab.md
   - product: content/cabinets/aap.md
 sourceId: 247
-sourceUpdatedAt: 2025-07-25T22:53:55.709Z
+sourceUpdatedAt: '2025-07-25T22:53:55.709Z'
 slug: tgb
 ---
+
 
