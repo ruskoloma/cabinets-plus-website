@@ -1820,6 +1820,39 @@ function sharedRichContentTemplate() {
   };
 }
 
+function sharedMagazineEmbedTemplate() {
+  return {
+    name: "magazineEmbed" as const,
+    label: "Magazine Embed",
+    fields: [
+      { type: "string" as const, name: "heading", label: "Heading" },
+      {
+        type: "string" as const,
+        name: "subheading",
+        label: "Subheading",
+        ui: { component: "textarea" as const },
+      },
+      {
+        type: "string" as const,
+        name: "embedUrl",
+        label: "Embed URL",
+        description: "Full iframe src URL (e.g., a Google Drive PDF preview link).",
+      },
+      {
+        type: "string" as const,
+        name: "height",
+        label: "Embed Height",
+        description: "CSS height value for the iframe container (e.g., 85vh, 800px). Defaults to 85vh.",
+      },
+      {
+        type: "string" as const,
+        name: "iframeTitle",
+        label: "Iframe Title (accessibility)",
+      },
+    ],
+  };
+}
+
 function sharedTextImageSectionTemplate() {
   return {
     name: "textImageSection" as const,
@@ -1894,6 +1927,7 @@ function sharedPageSectionTemplates() {
     sharedShowroomSectionTemplate(),
     sharedAboutStorySectionTemplate(),
     sharedRichContentTemplate(),
+    sharedMagazineEmbedTemplate(),
     sharedTextImageSectionTemplate(),
     sharedPartnersSectionTemplate(),
     sharedPartnersSectionTemplate({
@@ -2881,12 +2915,12 @@ export default defineConfig({
         ],
       },
 
-      // ─── PAGES: home, about-us, contact-us, privacy-policy ─────
+      // ─── PAGES: home, about-us, contact-us, privacy-policy, magazine ─────
       {
         name: "page",
         label: "Pages",
         path: "content/pages",
-        match: { include: "@(home|about-us|contact-us|privacy-policy)" },
+        match: { include: "@(home|about-us|contact-us|privacy-policy|magazine)" },
         ui: {
           router: ({ document }) => {
             if (document._sys.filename === "home") return "/";

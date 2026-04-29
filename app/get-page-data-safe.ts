@@ -38,6 +38,7 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   trustStrip: "PageBlocksTrustStrip",
   aboutStorySection: "PageBlocksAboutStorySection",
   richContent: "PageBlocksRichContent",
+  magazineEmbed: "PageBlocksMagazineEmbed",
   partnersSection: "PageBlocksPartnersSection",
   countertopPartnersSection: "PageBlocksCountertopPartnersSection",
   flooringPartnersSection: "PageBlocksFlooringPartnersSection",
