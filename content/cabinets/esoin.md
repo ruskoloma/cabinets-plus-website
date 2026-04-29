@@ -69,8 +69,9 @@ relatedProducts:
   - product: content/cabinets/esomn.md
   - product: content/cabinets/eson.md
   - product: null
-  - product: content/cabinets/fsh-nbb.md
+  - product: null
 doorStyle: elegant shaker
 paint: off white
 ---
+
 
