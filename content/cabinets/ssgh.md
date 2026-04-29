@@ -3,19 +3,11 @@ published: true
 name: Sage Green
 code: SSGH
 slug: ssgh
-description: >-
-  Sage Green sample door from Hand Crafted Collection is produced using the
-  exact same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+description: |-
+  Sage Green sample door from Hand Crafted Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3096-ssgh-sage-green.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3096-ssgh-sage-green.jpg'
 technicalDetails:
   - key: Manufacturer
     value: Hand Crafted Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3096-ssgh-sage-green.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3096-ssgh-sage-green.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,8 +36,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3221-dsc05517.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3221-dsc05517.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -58,8 +48,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3222-dsc05512.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3222-dsc05512.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -71,8 +60,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3223-dsc05523.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3223-dsc05523.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -84,8 +72,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3224-dsc05520.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SSGH/3224-dsc05520.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -105,11 +92,12 @@ relatedProjects:
   - project: content/projects/residence-on-geiger.md
   - project: content/projects/residence-on-honeycomb.md
 relatedProducts:
-  - product: content/cabinets/sskp.md
+  - product: null
   - product: content/cabinets/swk.md
   - product: content/cabinets/swoa.md
   - product: content/cabinets/swu.md
 doorStyle: shaker
 paint: green
 ---
+
 
