@@ -3,19 +3,11 @@ published: true
 name: Oak
 code: ESON
 slug: eson
-description: >-
-  Oak sample door from NGY Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+description: |-
+  Oak sample door from NGY Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3130-eson-oak.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3130-eson-oak.jpg'
 technicalDetails:
   - key: Manufacturer
     value: NGY Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3130-eson-oak.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3130-eson-oak.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,8 +36,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3205-dsc08286.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3205-dsc08286.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -58,8 +48,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3206-dsc04103.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3206-dsc04103.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -71,8 +60,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3207-dsc08325.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3207-dsc08325.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -84,8 +72,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3208-dsc04056.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3208-dsc04056.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -97,8 +84,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3209-dsc08307.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3209-dsc08307.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -110,8 +96,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3210-dsc08329.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3210-dsc08329.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -123,8 +108,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3211-dsc02139-edit.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESON/3211-dsc02139-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -147,8 +131,9 @@ relatedProjects:
 relatedProducts:
   - product: content/cabinets/fsh-iwb.md
   - product: content/cabinets/fsh-nbb.md
-  - product: content/cabinets/fsl-dgb.md
+  - product: null
   - product: content/cabinets/fsl-iwb.md
 doorStyle: elegant shaker
 paint: timber
 ---
+
