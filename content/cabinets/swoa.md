@@ -81,11 +81,12 @@ relatedProjects:
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-villier-road.md
 relatedProducts:
-  - product: content/cabinets/swu.md
+  - product: null
   - product: content/cabinets/tgb.md
   - product: null
   - product: content/cabinets/twb.md
 doorStyle: slim shaker
 paint: white
 ---
+
 
