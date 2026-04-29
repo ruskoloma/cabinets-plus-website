@@ -43,9 +43,10 @@ relatedProjects: []
 relatedProducts:
   - product: content/cabinets/pdm.md
   - product: null
-  - product: content/cabinets/psm.md
+  - product: null
   - product: content/cabinets/rhc.md
 doorStyle: flat panel
 paint: white
 ---
+
 
