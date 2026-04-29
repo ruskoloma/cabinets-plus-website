@@ -43,9 +43,10 @@ relatedProjects: []
 relatedProducts:
   - product: null
   - product: content/cabinets/aop.md
-  - product: content/cabinets/arm.md
+  - product: null
   - product: content/cabinets/atb.md
 doorStyle: flat panel
 paint: gray
 ---
+
 
