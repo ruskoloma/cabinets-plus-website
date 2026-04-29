@@ -132,9 +132,10 @@ relatedProducts:
   - product: null
   - product: content/cabinets/fsh-nbb.md
   - product: null
-  - product: content/cabinets/fsl-iwb.md
+  - product: null
 doorStyle: elegant shaker
 paint: timber
 ---
+
 
 
