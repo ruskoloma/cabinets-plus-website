@@ -3,7 +3,7 @@ published: true
 name: Shaker Kodiak
 code: SKK
 doorStyle: shaker
-paint: ''
+paint: brown
 stainType: mocha stain
 technicalDetails:
   - key: Manufacturer
