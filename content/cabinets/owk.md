@@ -4,8 +4,7 @@ name: Slim Shaker White
 code: OWK
 slug: owk
 description: 'NEW, update code, Oslo White'
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg'
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
@@ -22,8 +21,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -42,8 +40,9 @@ relatedProjects: []
 relatedProducts:
   - product: content/cabinets/owu.md
   - product: content/cabinets/pdm.md
-  - product: content/cabinets/prm.md
+  - product: null
   - product: content/cabinets/psm.md
 doorStyle: slim shaker
 paint: white
 ---
+
