@@ -1,21 +1,10 @@
 ---
 published: true
-name: Gray
+name: Elegant Gray
 code: ESGN
-slug: esgn
-description: >-
-  Gray sample door from NGY Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
-
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESGN/3120-esgn-gray.jpg
+doorStyle: elegant shaker
+paint: gray
+stainType: ''
 technicalDetails:
   - key: Manufacturer
     value: NGY Collection
@@ -31,29 +20,32 @@ technicalDetails:
     value: Made of wood
   - key: Box Construction
     value: Plywood
+description: |-
+  Elegant Gray sample door from NGY Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
+
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESGN/3120-esgn-gray.jpg'
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESGN/3120-esgn-gray.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESGN/3120-esgn-gray.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: ESGN Gray.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
-sourceId: 273
-sourceUpdatedAt: '2025-07-25T22:53:55.904Z'
-stainType: ''
+    countertop: ''
+    label: ESGN Gray.jpg
+    description: ''
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/esn.md
   - product: content/cabinets/esnn.md
   - product: content/cabinets/esobn.md
   - product: content/cabinets/esoin.md
-doorStyle: elegant shaker
-paint: gray
+sourceId: 273
+sourceUpdatedAt: 2025-07-25T22:53:55.904Z
+slug: esgn
 ---
+
