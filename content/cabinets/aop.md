@@ -41,11 +41,12 @@ sourceUpdatedAt: '2025-07-25T22:53:56.034Z'
 stainType: ''
 relatedProjects: []
 relatedProducts:
-  - product: content/cabinets/arm.md
+  - product: null
   - product: content/cabinets/atb.md
   - product: content/cabinets/awb.md
   - product: null
 doorStyle: shaker
 paint: custom paint
 ---
+
 
