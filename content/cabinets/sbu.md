@@ -41,11 +41,12 @@ sourceUpdatedAt: '2025-07-25T22:53:51.501Z'
 stainType: ''
 relatedProjects: []
 relatedProducts:
-  - product: content/cabinets/scu.md
+  - product: null
   - product: content/cabinets/sdu.md
   - product: content/cabinets/sdwa.md
   - product: null
 doorStyle: shaker
 paint: black
 ---
+
 
