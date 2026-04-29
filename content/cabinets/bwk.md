@@ -101,11 +101,12 @@ sourceUpdatedAt: '2025-07-25T22:53:52.437Z'
 stainType: ''
 relatedProjects: []
 relatedProducts:
-  - product: content/cabinets/csu.md
+  - product: null
   - product: null
   - product: content/cabinets/escp.md
   - product: content/cabinets/esgn.md
 doorStyle: flat panel
 paint: white
 ---
+
 
