@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import FillImage from "@/components/ui/FillImage";
 import type { ImageVariantPreset } from "@/lib/image-variants";
 
 export interface BreadcrumbItem {
   label: string;
+  href?: string;
   tinaFieldValue?: string;
 }
 
@@ -59,7 +61,17 @@ export default function PostPageHero({
               {breadcrumbItems.map((item, index) => (
                 <span className="flex items-center gap-1" key={`${item.label}-${index}`}>
                   {index > 0 ? <span aria-hidden>/</span> : null}
-                  <span data-tina-field={item.tinaFieldValue}>{item.label}</span>
+                  {item.href ? (
+                    <Link
+                      className="underline-offset-4 hover:underline focus-visible:underline"
+                      data-tina-field={item.tinaFieldValue}
+                      href={item.href}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span data-tina-field={item.tinaFieldValue}>{item.label}</span>
+                  )}
                 </span>
               ))}
             </nav>

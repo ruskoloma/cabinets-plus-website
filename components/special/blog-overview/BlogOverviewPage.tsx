@@ -148,7 +148,10 @@ export default function BlogOverviewPage({
     const edges = Array.isArray(data?.postConnection?.edges) ? data.postConnection.edges : [];
     const nodes = edges
       .map((edge) => edge?.node)
-      .filter((node): node is BlogPostNode => Boolean(node));
+      .filter((node): node is BlogPostNode => Boolean(node))
+      // Hide posts where the editor explicitly turned on "Hide in /blog feed".
+      // Default (undefined / null / false) keeps the post visible.
+      .filter((node) => node.hideInFeed !== true);
     return getSortedPosts(nodes);
   }, [data]);
 

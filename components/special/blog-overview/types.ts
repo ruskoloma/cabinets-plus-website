@@ -9,6 +9,7 @@ export interface BlogPostNode {
   date?: string | null;
   thumbnail?: string | null;
   subtitle?: string | null;
+  hideInFeed?: boolean | null;
   [key: string]: unknown;
 }
 

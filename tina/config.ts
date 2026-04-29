@@ -3553,6 +3553,13 @@ export default defineConfig({
               },
             ],
           },
+          {
+            type: "boolean",
+            name: "hideInFeed",
+            label: "Hide in /blog feed",
+            description:
+              "When on, this post is hidden from the /blog feed but still reachable at its /post/<slug> URL.",
+          },
         ],
       },
     ],

@@ -16,6 +16,7 @@ export const BLOG_POSTS_QUERY = `
             date
             thumbnail
             subtitle
+            hideInFeed
           }
         }
       }

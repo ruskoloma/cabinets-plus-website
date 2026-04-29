@@ -35,6 +35,7 @@ export default function PostContentSection({ block, post }: PostContentSectionPr
         breadcrumbItems={[
           {
             label: breadcrumbLabel,
+            href: "/blog",
             tinaFieldValue: block ? tinaField(block, "breadcrumbLabel") || undefined : undefined,
           },
           { label: title, tinaFieldValue: tinaField(postRecord, "title") || undefined },

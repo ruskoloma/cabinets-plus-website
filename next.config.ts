@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 7,
   },
+  async redirects() {
+    return [
+      // Legacy URL from the old site — keep these reachable.
+      {
+        source: "/blog/post/:slug",
+        destination: "/post/:slug",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
