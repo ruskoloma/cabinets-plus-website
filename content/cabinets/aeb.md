@@ -96,8 +96,9 @@ relatedProducts:
   - product: content/cabinets/algb.md
   - product: null
   - product: content/cabinets/aop.md
-  - product: content/cabinets/arm.md
+  - product: null
 doorStyle: flat panel
 paint: custom paint
 ---
+
 
