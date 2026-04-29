@@ -42,10 +42,11 @@ stainType: ''
 relatedProjects: []
 relatedProducts:
   - product: null
-  - product: content/cabinets/psm.md
+  - product: null
   - product: content/cabinets/rhc.md
   - product: content/cabinets/sbu.md
 doorStyle: flat panel
 paint: blue
 ---
+
 
