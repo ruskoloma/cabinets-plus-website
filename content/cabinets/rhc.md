@@ -9,7 +9,7 @@ technicalDetails:
   - key: Manufacturer
     value: Carriage Collection
   - key: Doors
-    value: Birch
+    value: Hickory
   - key: Hinges
     value: 6-way adjustable
   - key: Drawers
