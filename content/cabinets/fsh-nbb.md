@@ -42,10 +42,11 @@ stainType: ''
 relatedProjects: []
 relatedProducts:
   - product: null
-  - product: content/cabinets/fsl-iwb.md
+  - product: null
   - product: content/cabinets/fsl-nbb.md
   - product: content/cabinets/haan.md
 doorStyle: elegant shaker
 paint: blue
 ---
+
 
