@@ -1,4 +1,4 @@
-type ReferenceDirectory = "projects" | "cabinets" | "countertops" | "flooring" | "collections";
+type ReferenceDirectory = "projects" | "cabinets" | "countertops" | "flooring" | "collections" | "posts";
 
 export const TINA_FOCUS_LIST_ITEM_MESSAGE = "cp:tina-focus-list-item";
 export const TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE = "data-cp-tina-list-key";
@@ -17,6 +17,7 @@ export const TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS = "project.countertopProd
 export const TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS = "project.flooringProducts";
 export const TINA_LIST_KEY_PROJECT_RELATED_PROJECTS = "project.relatedProjects";
 export const TINA_LIST_KEY_COLLECTION_RELATED_PROJECTS = "collection.relatedProjects";
+export const TINA_LIST_KEY_RELATED_ARTICLES_SECTION = "relatedArticlesSection.posts";
 
 const TINA_LIST_FOCUS_RETRY_DELAYS_MS = [0, 120, 260, 480, 760, 1120];
 
@@ -141,6 +142,10 @@ export function getFlooringReferenceFocusItemId(value: unknown): string | undefi
 
 export function getCollectionReferenceFocusItemId(value: unknown): string | undefined {
   return encodeListItemId(normalizeReferenceValue(value, "collections"));
+}
+
+export function getPostReferenceFocusItemId(value: unknown): string | undefined {
+  return encodeListItemId(normalizeReferenceValue(value, "posts"));
 }
 
 /**

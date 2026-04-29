@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { buildDocumentMetadata } from "@/app/lib/metadata";
 import CountertopsOverviewClient from "./countertops-overview-client";
 import { getCountertopsMainPageSettingsSafe } from "@/app/get-countertops-main-page-settings-safe";
+import { extractRelatedPostNodes, getRelatedPostsSafe } from "@/app/get-related-posts-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
   const result = await getCountertopsMainPageSettingsSafe();
@@ -16,6 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CountertopsPage() {
-  const result = await getCountertopsMainPageSettingsSafe();
-  return <CountertopsOverviewClient {...result} />;
+  const [result, postsResult] = await Promise.all([
+    getCountertopsMainPageSettingsSafe(),
+    getRelatedPostsSafe(),
+  ]);
+  return <CountertopsOverviewClient {...result} posts={extractRelatedPostNodes(postsResult.data)} />;
 }

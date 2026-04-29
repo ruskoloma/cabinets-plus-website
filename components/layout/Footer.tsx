@@ -15,7 +15,9 @@ interface GlobalData {
   address?: string;
   email?: string;
   copyrightText?: string;
-  footerLinks?: FooterLink[];
+  footerLinks1?: FooterLink[];
+  footerLinks2?: FooterLink[];
+  footerLinks3?: FooterLink[];
   pinterestUrl?: string;
   instagramUrl?: string;
   facebookUrl?: string;
@@ -68,13 +70,18 @@ export default function Footer({
   footerRaw: Record<string, unknown>;
   generalRaw: Record<string, unknown>;
 }) {
-  const allLinks = (data.footerLinks || []).map((link, index) => ({
+  const serviceLinks = (data.footerLinks1 || []).map((link, index) => ({
     ...link,
-    field: tinaField(footerRaw, `footerLinks.${index}`),
+    field: tinaField(footerRaw, `footerLinks1.${index}`),
   }));
-  const serviceLinks = allLinks.slice(0, 5);
-  const pageLinks = allLinks.slice(5, 8);
-  const legalLinks = allLinks.slice(8, 12);
+  const pageLinks = (data.footerLinks2 || []).map((link, index) => ({
+    ...link,
+    field: tinaField(footerRaw, `footerLinks2.${index}`),
+  }));
+  const legalLinks = (data.footerLinks3 || []).map((link, index) => ({
+    ...link,
+    field: tinaField(footerRaw, `footerLinks3.${index}`),
+  }));
   const primaryAddress = (data.address || "").split(",")[0].trim();
   const phone = data.phone || "";
   const email = data.email || "";
@@ -134,8 +141,8 @@ export default function Footer({
             ))}
           </div>
 
-          <div className="flex w-[506px] justify-between" data-tina-field={tinaField(footerRaw, "footerLinks")}>
-            <div className="w-[134px] space-y-4">
+          <div className="flex w-[506px] justify-between">
+            <div className="w-[134px] space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks1")}>
               {serviceLinks.map((link, index) => (
                 <FooterLinkItem field={link.field} href={link.href} key={`${link.href}-${link.label}-${index}`}>
                   {link.label}
@@ -143,7 +150,7 @@ export default function Footer({
               ))}
             </div>
 
-            <div className="w-[66px] space-y-4">
+            <div className="w-[66px] space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks2")}>
               {pageLinks.map((link, index) => (
                 <FooterLinkItem field={link.field} href={link.href} key={`${link.href}-${link.label}-${index}`}>
                   {link.label}
@@ -151,7 +158,7 @@ export default function Footer({
               ))}
             </div>
 
-            <div className="w-[98px] space-y-4">
+            <div className="w-[98px] space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks3")}>
               {legalLinks.map((link, index) => (
                 <FooterLinkItem field={link.field} href={link.href} key={`${link.href}-${link.label}-${index}`}>
                   {link.label}
@@ -185,22 +192,22 @@ export default function Footer({
           ))}
         </div>
 
-        <div className="mt-[53px] text-[16px] leading-6 text-white" data-tina-field={tinaField(footerRaw, "footerLinks")}>
-          <div className="space-y-4">
+        <div className="mt-[53px] text-[16px] leading-6 text-white">
+          <div className="space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks1")}>
             {serviceLinks.map((link, index) => (
               <FooterLinkItem field={link.field} href={link.href} key={`m-svc-${link.href}-${index}`}>
                 {link.label}
               </FooterLinkItem>
             ))}
           </div>
-          <div className="mt-6 space-y-4">
+          <div className="mt-6 space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks2")}>
             {pageLinks.map((link, index) => (
               <FooterLinkItem field={link.field} href={link.href} key={`m-pg-${link.href}-${index}`}>
                 {link.label}
               </FooterLinkItem>
             ))}
           </div>
-          <div className="mt-8 space-y-4">
+          <div className="mt-8 space-y-4" data-tina-field={tinaField(footerRaw, "footerLinks3")}>
             {legalLinks.map((link, index) => (
               <FooterLinkItem field={link.field} href={link.href} key={`m-lg-${link.href}-${index}`}>
                 {link.label}

@@ -1,11 +1,14 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
 import FigmaCountertopsOverviewPage from "@/components/special/countertops-overview/FigmaCountertopsOverviewPage";
+import { RelatedPostsProvider } from "@/components/sections/related-posts-context";
+import type { PostConnectionNode } from "@/components/special/post-detail/types";
 
 interface Props {
   data: Record<string, unknown>;
   query?: string;
   variables?: Record<string, unknown>;
+  posts?: PostConnectionNode[];
 }
 
 function getPageRecord(data: Record<string, unknown>) {
@@ -28,10 +31,11 @@ function TinaCountertopsOverviewClient(props: Props) {
 
 export default function CountertopsOverviewClient(props: Props) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
+  const body = hasLiveQuery ? (
+    <TinaCountertopsOverviewClient {...props} />
+  ) : (
+    <FigmaCountertopsOverviewPage page={getPageRecord(props.data)} />
+  );
 
-  if (!hasLiveQuery) {
-    return <FigmaCountertopsOverviewPage page={getPageRecord(props.data)} />;
-  }
-
-  return <TinaCountertopsOverviewClient {...props} />;
+  return <RelatedPostsProvider posts={props.posts}>{body}</RelatedPostsProvider>;
 }

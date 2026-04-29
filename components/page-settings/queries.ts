@@ -185,6 +185,20 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
               alt
               url
             }
+          }
+          ... on ${prefix}RelatedArticlesSection {
+            title
+            imageSize
+            posts {
+              post {
+                ... on Post {
+                  _sys {
+                    filename
+                    relativePath
+                  }
+                }
+              }
+            }
           }`;
 }
 

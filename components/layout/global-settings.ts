@@ -41,7 +41,9 @@ export interface GlobalDocumentInput {
     href?: string | null;
     children?: Array<NavLinkChildInput | null> | null;
   } | null> | null;
-  footerLinks?: Array<{ label?: string | null; href?: string | null } | null> | null;
+  footerLinks1?: Array<{ label?: string | null; href?: string | null } | null> | null;
+  footerLinks2?: Array<{ label?: string | null; href?: string | null } | null> | null;
+  footerLinks3?: Array<{ label?: string | null; href?: string | null } | null> | null;
   logo?: string | null;
   footerLogo?: string | null;
   instagramUrl?: string | null;
@@ -158,15 +160,19 @@ export const FALLBACK_HEADER_DOCUMENT: GlobalDocumentInput = {
 
 export const FALLBACK_FOOTER_DOCUMENT: GlobalDocumentInput = {
   footerLogo: "/library/branding/logo-footer-light.svg",
-  footerLinks: [
+  footerLinks1: [
     { label: "Cabinets", href: "/cabinets" },
     { label: "Countertops", href: "/countertops" },
     { label: "Flooring", href: "/flooring" },
     { label: "Bathroom remodel", href: "/bathroom-remodel" },
     { label: "Kitchen remodel", href: "/kitchen-remodel" },
+  ],
+  footerLinks2: [
     { label: "Gallery", href: "/gallery" },
     { label: "About us", href: "/about-us" },
     { label: "Contacts", href: "/contact-us" },
+  ],
+  footerLinks3: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Blog", href: "/blog" },
     { label: "FAQ's", href: "/#faq" },
@@ -229,14 +235,16 @@ function normalizeNavLinks(global?: GlobalDocumentInput | null): GlobalSettings[
     : normalizeNavLinks(FALLBACK_HEADER_DOCUMENT) || [];
 }
 
-function normalizeFooterLinks(
-  global?: GlobalDocumentInput | null,
-): GlobalSettings["footerLinks"] {
-  return Array.isArray(global?.footerLinks)
-    ? global.footerLinks.flatMap((item) =>
+function normalizeFooterLinkList(
+  list: GlobalDocumentInput["footerLinks1"] | undefined | null,
+  fallback: GlobalDocumentInput["footerLinks1"] | undefined | null,
+): Array<{ label: string; href: string }> {
+  const source = Array.isArray(list) ? list : fallback;
+  return Array.isArray(source)
+    ? source.flatMap((item) =>
         item?.label && item?.href ? [{ label: item.label, href: item.href }] : [],
       )
-    : normalizeFooterLinks(FALLBACK_FOOTER_DOCUMENT) || [];
+    : [];
 }
 
 export function toRawDocument(value?: GlobalDocumentInput | null): Record<string, unknown> {
@@ -279,7 +287,9 @@ export function normalizeGlobalSettings(
       FALLBACK_GENERAL_DOCUMENT.pinterestUrl ??
       undefined,
     navLinks: normalizeNavLinks(header),
-    footerLinks: normalizeFooterLinks(footer),
+    footerLinks1: normalizeFooterLinkList(footer?.footerLinks1, FALLBACK_FOOTER_DOCUMENT.footerLinks1),
+    footerLinks2: normalizeFooterLinkList(footer?.footerLinks2, FALLBACK_FOOTER_DOCUMENT.footerLinks2),
+    footerLinks3: normalizeFooterLinkList(footer?.footerLinks3, FALLBACK_FOOTER_DOCUMENT.footerLinks3),
     logo: header?.logo ?? FALLBACK_HEADER_DOCUMENT.logo ?? undefined,
     footerLogo: footer?.footerLogo ?? FALLBACK_FOOTER_DOCUMENT.footerLogo ?? undefined,
     instagramUrl:

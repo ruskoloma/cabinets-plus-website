@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { buildDocumentMetadata } from "@/app/lib/metadata";
 import CabinetsOverviewClient from "./cabinets-overview-client";
 import { getCabinetsMainPageSettingsSafe } from "@/app/get-cabinets-main-page-settings-safe";
+import { extractRelatedPostNodes, getRelatedPostsSafe } from "@/app/get-related-posts-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
   const result = await getCabinetsMainPageSettingsSafe();
@@ -16,6 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CabinetsPage() {
-  const result = await getCabinetsMainPageSettingsSafe();
-  return <CabinetsOverviewClient {...result} />;
+  const [result, postsResult] = await Promise.all([
+    getCabinetsMainPageSettingsSafe(),
+    getRelatedPostsSafe(),
+  ]);
+  return <CabinetsOverviewClient {...result} posts={extractRelatedPostNodes(postsResult.data)} />;
 }

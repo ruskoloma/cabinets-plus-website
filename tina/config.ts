@@ -11,6 +11,7 @@ import {
   getCountertopReferenceFocusItemId,
   getFlooringProductFocusItemId,
   getFlooringReferenceFocusItemId,
+  getPostReferenceFocusItemId,
   getProjectReferenceFocusItemId,
   TINA_FOCUS_LIST_ITEM_MESSAGE,
   TINA_LIST_KEY_CABINET_RELATED_PRODUCTS,
@@ -24,6 +25,7 @@ import {
   TINA_LIST_KEY_PROJECT_COUNTERTOP_PRODUCTS,
   TINA_LIST_KEY_PROJECT_FLOORING_PRODUCTS,
   TINA_LIST_KEY_PROJECT_RELATED_PROJECTS,
+  TINA_LIST_KEY_RELATED_ARTICLES_SECTION,
   TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE,
   TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE,
 } from "../lib/tina-list-focus";
@@ -848,6 +850,22 @@ function TinaMediaListItemLabel({
   );
 }
 
+function findTinaListRow(start: HTMLElement | null): HTMLElement | null {
+  // Tina renders sidebar list rows via react-beautiful-dnd. The row element (ItemHeader)
+  // gets `data-rbd-draggable-id` from the dnd provider. That's the most reliable anchor.
+  // Fall back to draggable=true / role=button / parent if rbd isn't present.
+  let node: HTMLElement | null = start;
+  let secondary: HTMLElement | null = null;
+  while (node && node !== node.ownerDocument.body) {
+    if (node.hasAttribute("data-rbd-draggable-id")) return node;
+    if (!secondary && (node.getAttribute("draggable") === "true" || node.getAttribute("role") === "button")) {
+      secondary = node;
+    }
+    node = node.parentElement;
+  }
+  return secondary || start?.parentElement || null;
+}
+
 function TinaFocusableListItemLabel({
   itemId,
   label,
@@ -857,19 +875,33 @@ function TinaFocusableListItemLabel({
   label: string;
   listKey: string;
 }) {
+  const [spanEl, setSpanEl] = React.useState<HTMLSpanElement | null>(null);
+  const rowRef = React.useRef<HTMLElement | null>(null);
   const focusTimeoutRef = React.useRef<number | null>(null);
 
   React.useEffect(() => {
     if (!itemId || typeof window === "undefined") return undefined;
+
+    // Tina renders nested template list rows without spreading the data-* attrs
+    // returned from itemProps. Walk up from our label span and stamp the row
+    // ourselves so the postMessage handler can find it.
+    const row = findTinaListRow(spanEl);
+    rowRef.current = row;
+    if (row) {
+      row.setAttribute(TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE, listKey);
+      row.setAttribute(TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE, itemId);
+    }
 
     const handleMessage = (event: MessageEvent) => {
       const payload = event.data && typeof event.data === "object" ? (event.data as Record<string, unknown>) : null;
       if (!payload || payload.type !== TINA_FOCUS_LIST_ITEM_MESSAGE) return;
       if (payload.listKey !== listKey || payload.itemId !== itemId) return;
 
-      const target = window.document.querySelector<HTMLElement>(
-        `[${TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE}="${listKey}"][${TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE}="${itemId}"]`,
-      );
+      const target =
+        rowRef.current ||
+        window.document.querySelector<HTMLElement>(
+          `[${TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE}="${listKey}"][${TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE}="${itemId}"]`,
+        );
       if (!target) return;
 
       target.ownerDocument
@@ -900,10 +932,15 @@ function TinaFocusableListItemLabel({
       if (focusTimeoutRef.current !== null) {
         window.clearTimeout(focusTimeoutRef.current);
       }
+      if (row) {
+        row.removeAttribute(TINA_SIDEBAR_LIST_ROW_KEY_ATTRIBUTE);
+        row.removeAttribute(TINA_SIDEBAR_LIST_ROW_ITEM_ATTRIBUTE);
+      }
+      rowRef.current = null;
     };
-  }, [itemId, listKey]);
+  }, [itemId, listKey, spanEl]);
 
-  return React.createElement("span", null, label);
+  return React.createElement("span", { ref: setSpanEl }, label);
 }
 
 type TinaItemPropsResult = {
@@ -991,6 +1028,12 @@ const flooringRelatedProductsItemProps = createFocusableObjectListItemProps<{ pr
   TINA_LIST_KEY_FLOORING_RELATED_PRODUCTS,
   (item) => resolveFlooringDocumentReferenceLabel(item?.product),
   (item) => getFlooringReferenceFocusItemId(item?.product),
+);
+
+const relatedArticlesSectionItemProps = createFocusableObjectListItemProps<{ post?: unknown }>(
+  TINA_LIST_KEY_RELATED_ARTICLES_SECTION,
+  (item) => resolvePostReferenceLabel(item?.post),
+  (item) => getPostReferenceFocusItemId(item?.post),
 );
 
 function resolveCustomOrProductLabel(
@@ -1801,6 +1844,39 @@ function sharedTextImageSectionTemplate() {
   };
 }
 
+function sharedRelatedArticlesSectionTemplate() {
+  return {
+    name: "relatedArticlesSection" as const,
+    label: "Related Articles Section",
+    fields: [
+      { type: "string" as const, name: "title", label: "Section Title" },
+      imageSizeSettingField(
+        "imageSize",
+        "Article Card Images",
+        "Controls the article card images in this section.",
+      ),
+      {
+        type: "object" as const,
+        name: "posts",
+        label: "Articles",
+        list: true,
+        description: "Pick the articles to feature in this section.",
+        ui: {
+          itemProps: relatedArticlesSectionItemProps,
+        },
+        fields: [
+          {
+            type: "reference" as const,
+            name: "post",
+            label: "Article",
+            collections: ["post"],
+          },
+        ],
+      },
+    ],
+  };
+}
+
 function sharedPageSectionTemplates() {
   return [
     sharedHeroSectionTemplate(),
@@ -1828,6 +1904,7 @@ function sharedPageSectionTemplates() {
       name: "flooringPartnersSection",
       label: "Flooring Partners Section",
     }),
+    sharedRelatedArticlesSectionTemplate(),
     ...sharedSectionReferenceTemplates(),
   ];
 }
@@ -2029,7 +2106,23 @@ export default defineConfig({
             ],
           },
           {
-            type: "object", name: "footerLinks", label: "Footer Links", list: true,
+            type: "object", name: "footerLinks1", label: "Footer Links 1", list: true,
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Link") }) },
+            fields: [
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "href", label: "Link" },
+            ],
+          },
+          {
+            type: "object", name: "footerLinks2", label: "Footer Links 2", list: true,
+            ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Link") }) },
+            fields: [
+              { type: "string", name: "label", label: "Label" },
+              { type: "string", name: "href", label: "Link" },
+            ],
+          },
+          {
+            type: "object", name: "footerLinks3", label: "Footer Links 3", list: true,
             ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Link") }) },
             fields: [
               { type: "string", name: "label", label: "Label" },

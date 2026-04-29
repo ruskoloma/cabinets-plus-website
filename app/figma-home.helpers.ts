@@ -82,6 +82,7 @@ const SHARED_PAGE_TYPENAME_TO_TEMPLATE: Record<string, string> = {
   PartnersSection: "partnersSection",
   CountertopPartnersSection: "countertopPartnersSection",
   FlooringPartnersSection: "flooringPartnersSection",
+  RelatedArticlesSection: "relatedArticlesSection",
   TextImageSection: "textImageSection",
   SharedContactSection: "sharedContactSection",
   SharedShowroomSection: "sharedShowroomSection",

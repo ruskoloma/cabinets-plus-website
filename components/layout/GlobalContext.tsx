@@ -39,7 +39,9 @@ export interface GlobalSettings {
       }>;
     }>;
   }>;
-  footerLinks?: Array<{ label: string; href: string }>;
+  footerLinks1?: Array<{ label: string; href: string }>;
+  footerLinks2?: Array<{ label: string; href: string }>;
+  footerLinks3?: Array<{ label: string; href: string }>;
 }
 
 interface GlobalRawDocuments {

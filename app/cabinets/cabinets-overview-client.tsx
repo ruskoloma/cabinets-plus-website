@@ -1,11 +1,14 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
 import FigmaCabinetsOverviewPage from "@/components/special/cabinets-overview/FigmaCabinetsOverviewPage";
+import { RelatedPostsProvider } from "@/components/sections/related-posts-context";
+import type { PostConnectionNode } from "@/components/special/post-detail/types";
 
 interface Props {
   data: Record<string, unknown>;
   query?: string;
   variables?: Record<string, unknown>;
+  posts?: PostConnectionNode[];
 }
 
 function getPageRecord(data: Record<string, unknown>) {
@@ -28,10 +31,11 @@ function TinaCabinetsOverviewClient(props: Props) {
 
 export default function CabinetsOverviewClient(props: Props) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
+  const body = hasLiveQuery ? (
+    <TinaCabinetsOverviewClient {...props} />
+  ) : (
+    <FigmaCabinetsOverviewPage page={getPageRecord(props.data)} />
+  );
 
-  if (!hasLiveQuery) {
-    return <FigmaCabinetsOverviewPage page={getPageRecord(props.data)} />;
-  }
-
-  return <TinaCabinetsOverviewClient {...props} />;
+  return <RelatedPostsProvider posts={props.posts}>{body}</RelatedPostsProvider>;
 }

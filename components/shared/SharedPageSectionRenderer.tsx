@@ -1,5 +1,6 @@
 "use client";
 
+import { tinaField } from "tinacms/dist/react";
 import AboutStorySection from "@/components/about/AboutStorySection";
 import AboutTrustSection from "@/components/about/AboutTrustSection";
 import FAQSectionBlock from "@/components/sections/FAQSectionBlock";
@@ -8,6 +9,7 @@ import HeroBlock from "@/components/sections/HeroBlock";
 import ProcessSectionBlock from "@/components/sections/ProcessSectionBlock";
 import ProductsSectionBlock from "@/components/sections/ProductsSectionBlock";
 import ProjectsSectionBlock from "@/components/sections/ProjectsSectionBlock";
+import RelatedArticlesSection from "@/components/sections/RelatedArticlesSection";
 import RichContentBlock from "@/components/sections/RichContentBlock";
 import ServicesSectionBlock from "@/components/sections/ServicesSectionBlock";
 import ShowroomBannerBlock from "@/components/sections/ShowroomBannerBlock";
@@ -22,7 +24,9 @@ import TrustMessageStrip from "@/components/home/TrustMessageStrip";
 import PartnersSection from "@/components/shared/PartnersSection";
 import ShowroomBannerSection from "@/components/sections/ShowroomBannerSection";
 import TextImageSection from "@/components/sections/TextImageSection";
+import { useRelatedPosts } from "@/components/sections/related-posts-context";
 import { useSharedSections } from "@/components/layout/GlobalContext";
+import { TINA_LIST_KEY_RELATED_ARTICLES_SECTION } from "@/lib/tina-list-focus";
 import { resolveSharedSectionBlock } from "@/components/shared/shared-sections";
 
 interface SharedPageSectionRendererProps {
@@ -35,9 +39,28 @@ export default function SharedPageSectionRenderer({
   template,
 }: SharedPageSectionRendererProps) {
   const sharedSections = useSharedSections();
+  const relatedPosts = useRelatedPosts();
   const resolvedBlock = resolveSharedSectionBlock(block, sharedSections);
   const resolvedTemplate =
     typeof resolvedBlock._template === "string" ? resolvedBlock._template : template;
+
+  const renderRelatedArticles = () => {
+    const selections = Array.isArray(resolvedBlock.posts)
+      ? (resolvedBlock.posts as ReadonlyArray<{ post?: string | Record<string, unknown> | null } | null>)
+      : null;
+    return (
+      <RelatedArticlesSection
+        block={resolvedBlock}
+        focusListKey={TINA_LIST_KEY_RELATED_ARTICLES_SECTION}
+        focusRootFieldName={tinaField(resolvedBlock, "posts") || undefined}
+        posts={relatedPosts}
+        resolveSelectionField={(index) =>
+          tinaField(resolvedBlock, `posts.${index}.post`) || undefined
+        }
+        selections={selections}
+      />
+    );
+  };
 
   switch (resolvedTemplate) {
     case "hero":
@@ -99,6 +122,8 @@ export default function SharedPageSectionRenderer({
       return <CountertopPartnersSection block={resolvedBlock} />;
     case "flooringPartnersSection":
       return <FlooringPartnersSection block={resolvedBlock} />;
+    case "relatedArticlesSection":
+      return renderRelatedArticles();
     default:
       return null;
   }
