@@ -44,10 +44,11 @@ relatedProjects:
 relatedProducts:
   - product: content/cabinets/eson.md
   - product: null
-  - product: content/cabinets/fsh-nbb.md
+  - product: null
   - product: null
 doorStyle: elegant shaker
 paint: brown
 ---
+
 
 
