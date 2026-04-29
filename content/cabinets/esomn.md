@@ -43,10 +43,11 @@ relatedProjects:
   - project: content/projects/residence-on-sheneen-ct.md
 relatedProducts:
   - product: content/cabinets/eson.md
-  - product: content/cabinets/fsh-iwb.md
+  - product: null
   - product: content/cabinets/fsh-nbb.md
   - product: null
 doorStyle: elegant shaker
 paint: brown
 ---
+
 
