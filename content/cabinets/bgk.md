@@ -3,19 +3,11 @@ published: true
 name: Modern Gray
 code: BGK
 slug: bgk
-description: >-
-  Modern Gray sample door from KCD Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+description: |-
+  Modern Gray sample door from KCD Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/3106-bgk-brooklyn-modern-gray.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/3106-bgk-brooklyn-modern-gray.jpg'
 technicalDetails:
   - key: Manufacturer
     value: KCD Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/3106-bgk-brooklyn-modern-gray.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/3106-bgk-brooklyn-modern-gray.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,8 +36,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1721-bgk.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1721-bgk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -58,8 +48,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1729-bgk.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1729-bgk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -71,8 +60,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1726-bgk.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1726-bgk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -84,8 +72,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1701-bgk.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/BGK/1701-bgk.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -105,7 +92,8 @@ relatedProducts:
   - product: content/cabinets/bmk.md
   - product: content/cabinets/bsk.md
   - product: content/cabinets/bwk.md
-  - product: content/cabinets/csu.md
+  - product: null
 doorStyle: flat panel
 paint: gray
 ---
+
