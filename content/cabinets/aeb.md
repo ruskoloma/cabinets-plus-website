@@ -3,20 +3,11 @@ published: true
 name: Artisanal Ebony
 code: AEB
 slug: aeb
-description: >-
-  Artisanal Ebony sample door from Buy Wholesale Collection is produced using
-  the exact same manufacturing process as our full cabinet line, ensuring
-  absolute consistency in material selection, construction methods, and
-  finishing techniques. The style, recessed panel, stile and rail dimensions,
-  and solid birchwood are aligned with our true cabinet products, offering a
-  precise representation of the quality you can expect in your completed
-  cabinets.
+description: |-
+  Artisanal Ebony sample door from Buy Wholesale Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3091-aeb-artisanal-ebony.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3091-aeb-artisanal-ebony.jpg'
 technicalDetails:
   - key: Manufacturer
     value: Buy Wholesale Collection
@@ -33,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3091-aeb-artisanal-ebony.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3091-aeb-artisanal-ebony.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -46,8 +36,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3253-dsc05566.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3253-dsc05566.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -59,8 +48,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3254-dsc05604.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3254-dsc05604.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -72,8 +60,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3255-dsc05607.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3255-dsc05607.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -85,8 +72,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3256-dsc05628.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/AEB/3256-dsc05628.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -108,9 +94,10 @@ relatedProjects:
   - project: content/projects/residence-on-shiva-lane.md
 relatedProducts:
   - product: content/cabinets/algb.md
-  - product: content/cabinets/anm.md
+  - product: null
   - product: content/cabinets/aop.md
   - product: content/cabinets/arm.md
 doorStyle: flat panel
 paint: custom paint
 ---
+
