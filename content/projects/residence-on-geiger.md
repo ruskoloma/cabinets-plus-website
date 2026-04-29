@@ -379,7 +379,7 @@ media:
     label: Modern kitchen island
     description: 'Residence on Geiger featuring modern kitchen island, kitchen, off white + timber cabinetry, quartz surfaces.'
 cabinetProducts:
-  - cabinet: content/cabinets/sdwh.md
+  - cabinet: null
   - cabinet: content/cabinets/swoa.md
   - cabinet: content/cabinets/ssgh.md
   - cabinet: content/cabinets/mbs.md
@@ -410,6 +410,7 @@ notes: |-
   Media room - Titanium Gold granite
   Flooring - Laminate by Lyons
 sourceId: 54
-sourceUpdatedAt: 2025-09-18T21:10:07.268Z
+sourceUpdatedAt: '2025-09-18T21:10:07.268Z'
 ---
+
 

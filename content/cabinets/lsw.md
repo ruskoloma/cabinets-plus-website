@@ -3,19 +3,11 @@ published: true
 name: Liberty Shaker White
 code: LSW
 slug: lsw
-description: >-
-  Liberty Shaker White sample door from Pro Collection is produced using the
-  exact same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+description: |-
+  Liberty Shaker White sample door from Pro Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3134-lsw-liberty-shaker-white.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3134-lsw-liberty-shaker-white.jpg'
 technicalDetails:
   - key: Manufacturer
     value: Pro Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3134-lsw-liberty-shaker-white.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3134-lsw-liberty-shaker-white.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,8 +36,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3181-dsc07668.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3181-dsc07668.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -58,8 +48,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3182-dsc07658.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3182-dsc07658.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -71,8 +60,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3183-dsc07579.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3183-dsc07579.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -84,8 +72,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3184-dsc07478.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3184-dsc07478.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -97,8 +84,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3185-dsc07497.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3185-dsc07497.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -110,8 +96,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3186-dsc07699.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSW/3186-dsc07699.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -138,9 +123,11 @@ relatedProjects:
   - project: content/projects/residence-on-whitetail-lane.md
 relatedProducts:
   - product: content/cabinets/mbs.md
-  - product: content/cabinets/mhws.md
+  - product: null
   - product: content/cabinets/moss.md
-  - product: content/cabinets/nwk.md
+  - product: null
 doorStyle: shaker
 paint: white
 ---
+
+
