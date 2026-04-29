@@ -41,8 +41,9 @@ relatedProducts:
   - product: content/cabinets/owu.md
   - product: content/cabinets/pdm.md
   - product: null
-  - product: content/cabinets/psm.md
+  - product: null
 doorStyle: slim shaker
 paint: white
 ---
+
 
