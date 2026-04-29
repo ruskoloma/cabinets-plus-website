@@ -9,7 +9,7 @@
       "heading": "Spokane's Countertop Showroom & Fabrication Shop",
       "subtext": "Quartz, granite, marble, and quartzite — fabricated and installed right here in Spokane. Visit our showroom, hand-pick your slab, and let our team handle the rest from measure to install.",
       "ctaLabel": "View Slabs in Stock",
-      "ctaLink": "#catalog",
+      "ctaLink": "/countertops/catalog",
       "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-countertops.jpg",
       "imageSize": "full",
       "_template": "hero"
@@ -158,10 +158,6 @@
         {
           "question": "Do you serve areas outside of Spokane?",
           "answer": "Yes. We regularly install countertops throughout Spokane County and into North Idaho — including Spokane Valley, Liberty Lake, Cheney, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
-        },
-        {
-          "question": "Will my old countertops be removed and disposed of?",
-          "answer": "Yes, removal and disposal of your existing countertops is part of our installation service. We protect your cabinets and floors during demo, haul everything away, and leave the space ready for the new tops."
         }
       ],
       "_template": "miniFaqSection"

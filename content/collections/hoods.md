@@ -2,7 +2,7 @@
 published: true
 title: Hoods
 description: A curated showcase of statement range hoods — sculptural focal points blending craftsmanship with modern kitchen design.
-coverImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/hoods/01-002-7115-s-plymouth-rd-002.jpg'
+coverImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/hoods/cover/01-cover.jpg'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/hoods/01-002-7115-s-plymouth-rd-002.jpg'
     label: Range hood detail 01

@@ -2,7 +2,7 @@
 published: true
 title: Glass
 description: Shower enclosures and glass-front cabinetry — clear, frameless, and leaded glass moments that lift everyday spaces into a finished design.
-coverImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/01-040-7115-s-plymouth-rd-036.jpg'
+coverImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/cover/01-cover.jpg'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/01-040-7115-s-plymouth-rd-036.jpg'
     label: Glass detail 01

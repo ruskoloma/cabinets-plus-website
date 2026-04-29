@@ -9,7 +9,7 @@
       "heading": "Hardwood, LVP, Laminate & Carpet in Spokane",
       "subtext": "A full range of flooring from trusted manufacturers, all in one Spokane showroom — with the selection, pricing, and local know-how to help you pick the right fit.",
       "ctaLabel": "Compare Flooring Types",
-      "ctaLink": "#catalog",
+      "ctaLink": "/flooring/catalog",
       "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-flooring.jpg",
       "imageSize": "full",
       "_template": "hero"
@@ -23,22 +23,22 @@
         {
           "name": "Hardwood",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg",
-          "link": "/contact-us"
+          "link": "/flooring/catalog?flooring=hardwood"
         },
         {
           "name": "Luxury Vinyl Plank",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-lane/14-dsc07769.jpg",
-          "link": "/contact-us"
+          "link": "/flooring/catalog?flooring=lvp"
         },
         {
           "name": "Carpet",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/18-dsc01505.jpg",
-          "link": "/flooring/catalog"
+          "link": "/flooring/catalog?flooring=carpet"
         },
         {
           "name": "Laminate",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-flooring.jpg",
-          "link": "/contact-us"
+          "link": "/flooring/catalog?flooring=laminate"
         }
       ],
       "_template": "productsSection"
