@@ -129,11 +129,12 @@ relatedProjects:
   - project: content/projects/residence-on-madison-road.md
   - project: content/projects/stone-bathroom-project.md
 relatedProducts:
-  - product: content/cabinets/fsh-iwb.md
+  - product: null
   - product: content/cabinets/fsh-nbb.md
   - product: null
   - product: content/cabinets/fsl-iwb.md
 doorStyle: elegant shaker
 paint: timber
 ---
+
 
