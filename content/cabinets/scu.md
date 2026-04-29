@@ -3,19 +3,11 @@ published: true
 name: Shaker Cinder
 code: SCU
 slug: scu
-description: >-
-  Shaker Cinder sample door from US Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+description: |-
+  Shaker Cinder sample door from US Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SCU/3151-scu-shaker-cinder.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SCU/3151-scu-shaker-cinder.jpg'
 technicalDetails:
   - key: Manufacturer
     value: US Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SCU/3151-scu-shaker-cinder.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SCU/3151-scu-shaker-cinder.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -52,8 +43,9 @@ relatedProjects: []
 relatedProducts:
   - product: content/cabinets/sdu.md
   - product: content/cabinets/sdwa.md
-  - product: content/cabinets/sdwh.md
+  - product: null
   - product: content/cabinets/sek.md
 doorStyle: shaker
 paint: gray
 ---
+
