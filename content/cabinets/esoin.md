@@ -3,19 +3,11 @@ published: true
 name: Ivory
 code: ESOIN
 slug: esoin
-description: >-
-  Ivory sample door from NGY Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+description: |-
+  Ivory sample door from NGY Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3119-esoin-ivory.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3119-esoin-ivory.jpg'
 technicalDetails:
   - key: Manufacturer
     value: NGY Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3119-esoin-ivory.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3119-esoin-ivory.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -45,8 +36,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3213-dsc04075.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3213-dsc04075.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -58,8 +48,7 @@ media:
     cabinetPaints: []
     cabinetStains: []
     flooring: false
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3212-dsc04186.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ESOIN/3212-dsc04186.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -79,8 +68,9 @@ relatedProjects:
 relatedProducts:
   - product: content/cabinets/esomn.md
   - product: content/cabinets/eson.md
-  - product: content/cabinets/fsh-iwb.md
+  - product: null
   - product: content/cabinets/fsh-nbb.md
 doorStyle: elegant shaker
 paint: off white
 ---
+
