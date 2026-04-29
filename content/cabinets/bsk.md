@@ -78,10 +78,11 @@ stainType: ''
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/bwk.md
-  - product: content/cabinets/csu.md
+  - product: null
   - product: null
   - product: content/cabinets/escp.md
 doorStyle: flat panel
 paint: gray
 ---
+
 
