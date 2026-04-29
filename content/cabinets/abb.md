@@ -104,10 +104,11 @@ relatedProjects:
 relatedProducts:
   - product: content/cabinets/acb.md
   - product: content/cabinets/aeb.md
-  - product: content/cabinets/algb.md
+  - product: null
   - {}
 sourceId: 239
-sourceUpdatedAt: 2025-07-25T22:53:55.158Z
+sourceUpdatedAt: '2025-07-25T22:53:55.158Z'
 slug: abb
 ---
+
 
