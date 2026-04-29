@@ -1,13 +1,10 @@
 ---
 published: true
-name: Artisanal Timber
+name: Timber Shaker
 code: ATB
-slug: atb
-description: |-
-  Artisanal Timber sample door from Buy Wholesale Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
-picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3093-atb-artisanal-timber.jpg'
+doorStyle: shaker
+paint: timber
+stainType: white glaze stain
 technicalDetails:
   - key: Manufacturer
     value: Buy Wholesale Collection
@@ -23,82 +20,84 @@ technicalDetails:
     value: Made of wood
   - key: Box Construction
     value: Plywood
+description: |-
+  Timber Shaker sample door from Buy Wholesale Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
+
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3093-atb-artisanal-timber.jpg'
 media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3093-atb-artisanal-timber.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: ATB Artisanal Timber.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: ATB Artisanal Timber.jpg
+    description: ''
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3248-dsc08467.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: DSC08467.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: DSC08467.jpg
+    description: ''
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3249-dsc08464.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: DSC08464.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: DSC08464.jpg
+    description: ''
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3250-dsc08457.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: DSC08457.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: DSC08457.jpg
+    description: ''
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3251-dsc03125-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: DSC03125-Edit.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
+    countertop: ''
+    label: DSC03125-Edit.jpg
+    description: ''
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ATB/3252-dsc03137-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    label: DSC03137-Edit.jpg
-    description: ''
+    flooring: false
     room: ''
-    countertop: ''
     cabinetPaints: []
     cabinetStains: []
-    flooring: false
-sourceId: 243
-sourceUpdatedAt: '2025-07-25T22:53:52.983Z'
-stainType: mocha stain
+    countertop: ''
+    label: DSC03137-Edit.jpg
+    description: ''
 relatedProjects:
   - project: content/projects/art-house-on-27th-avenue.md
   - project: content/projects/residence-on-20th-avenue.md
@@ -113,10 +112,11 @@ relatedProjects:
   - project: content/projects/two-tone-residence-on-locust-road.md
 relatedProducts:
   - product: content/cabinets/awb.md
-  - product: null
+  - {}
   - product: content/cabinets/bfk.md
   - product: content/cabinets/bgk.md
-doorStyle: flat panel
-paint: timber
+sourceId: 243
+sourceUpdatedAt: 2025-07-25T22:53:52.983Z
+slug: atb
 ---
 
