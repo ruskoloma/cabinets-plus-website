@@ -42,11 +42,12 @@ stainType: mocha stain
 relatedProjects:
   - project: content/projects/residence-on-ezra-avenue.md
 relatedProducts:
-  - product: content/cabinets/snu.md
+  - product: null
   - product: content/cabinets/ssgh.md
   - product: null
   - product: content/cabinets/swk.md
 doorStyle: slim shaker
 paint: brown
 ---
+
 
