@@ -123,10 +123,11 @@ relatedProjects:
   - project: content/projects/residence-on-whitetail-lane.md
 relatedProducts:
   - product: content/cabinets/mbs.md
-  - product: content/cabinets/mhws.md
+  - product: null
   - product: content/cabinets/moss.md
   - product: null
 doorStyle: shaker
 paint: white
 ---
+
 
