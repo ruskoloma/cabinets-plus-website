@@ -90,11 +90,12 @@ stainType: mocha stain
 relatedProjects:
   - project: content/projects/residence-on-priest-view-lane.md
 relatedProducts:
-  - product: content/cabinets/sbu.md
+  - product: null
   - product: null
   - product: content/cabinets/sdu.md
   - product: content/cabinets/sdwa.md
 doorStyle: flat panel
 paint: timber
 ---
+
 
