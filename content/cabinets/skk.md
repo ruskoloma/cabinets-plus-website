@@ -42,10 +42,11 @@ stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/smb.md
-  - product: content/cabinets/snu.md
+  - product: null
   - product: content/cabinets/ssgh.md
   - product: null
 doorStyle: shaker
 paint: brown
 ---
+
 
