@@ -44,9 +44,10 @@ relatedProjects:
 relatedProducts:
   - product: content/cabinets/owk.md
   - product: content/cabinets/owu.md
-  - product: content/cabinets/pdm.md
+  - product: null
   - product: null
 doorStyle: flat panel
 paint: brown
 ---
+
 
