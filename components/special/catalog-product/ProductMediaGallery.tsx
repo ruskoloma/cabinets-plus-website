@@ -181,48 +181,52 @@ export default function ProductMediaGallery({
     setLightboxOpen(true);
   };
 
+  const showThumbnails = items.length > 1;
+
   return (
     <>
-      <div className="flex flex-col-reverse gap-5 lg:flex-row lg:gap-7">
-        <div className="cp-hide-scrollbar hidden flex-shrink-0 gap-4 overflow-x-auto pb-1 lg:flex lg:h-[557px] lg:w-fit lg:flex-col lg:items-start lg:gap-[29px] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0">
-          {items.map((item, index) => {
-            const isActive = activeItem.id === item.id;
-            const buttonClassName = canUseCustomFocus
-              ? `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"} ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
-              : `relative h-[90px] w-[90px] shrink-0 overflow-hidden border bg-[#fafafa] transition ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"}`;
+      <div className="flex w-full min-w-0 max-w-full flex-col-reverse gap-4 lg:flex-row lg:gap-7">
+        {showThumbnails ? (
+          <div className="cp-hide-scrollbar flex w-full min-w-0 max-w-full flex-shrink gap-4 overflow-x-auto pb-1 [justify-content:safe_center] lg:h-[557px] lg:w-fit lg:max-w-none lg:flex-shrink-0 lg:flex-col lg:items-start lg:gap-[29px] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0 lg:[justify-content:flex-start]">
+            {items.map((item, index) => {
+              const isActive = activeItem.id === item.id;
+              const buttonClassName = canUseCustomFocus
+                ? `relative h-[64px] w-[64px] shrink-0 overflow-hidden border bg-[#fafafa] transition lg:h-[90px] lg:w-[90px] ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"} ${TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME}`
+                : `relative h-[64px] w-[64px] shrink-0 overflow-hidden border bg-[#fafafa] transition lg:h-[90px] lg:w-[90px] ${isActive ? "border-[var(--cp-primary-500)]" : "border-transparent"}`;
 
-            return (
-              <button
-                aria-label={`Show ${item.kind === "video" ? "video" : "image"} ${index + 1}`}
-                className={buttonClassName}
-                key={item.id}
-                onClick={(event) => {
-                  setActiveId(item.id);
+              return (
+                <button
+                  aria-label={`Show ${item.kind === "video" ? "video" : "image"} ${index + 1}`}
+                  className={buttonClassName}
+                  key={item.id}
+                  onClick={(event) => {
+                    setActiveId(item.id);
 
-                  if (!canUseCustomFocus) return;
+                    if (!canUseCustomFocus) return;
 
-                  event.preventDefault();
-                  event.stopPropagation();
-                  focusTinaSidebarMediaItem({
-                    rootFieldName: focusRootFieldName,
-                    mediaFile: item.file,
-                  });
-                }}
-                type="button"
-              >
-                <FillImage alt="" aria-hidden className="object-cover" sizes="90px" src={item.previewFile} variant={thumbImageVariant} />
-                {item.kind === "video" ? (
-                  <>
-                    <div className="absolute inset-0 bg-black/20" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <PlayIcon className="h-7 w-6" />
-                    </div>
-                  </>
-                ) : null}
-              </button>
-            );
-          })}
-        </div>
+                    event.preventDefault();
+                    event.stopPropagation();
+                    focusTinaSidebarMediaItem({
+                      rootFieldName: focusRootFieldName,
+                      mediaFile: item.file,
+                    });
+                  }}
+                  type="button"
+                >
+                  <FillImage alt="" aria-hidden className="object-cover" sizes="(min-width: 1024px) 90px, 64px" src={item.previewFile} variant={thumbImageVariant} />
+                  {item.kind === "video" ? (
+                    <>
+                      <div className="absolute inset-0 bg-black/20" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <PlayIcon className="h-5 w-4 lg:h-7 lg:w-6" />
+                      </div>
+                    </>
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
 
         <button
           aria-label={activeItem.kind === "video" ? `Open video for ${productName}` : `Expand image for ${productName}`}
