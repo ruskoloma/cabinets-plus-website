@@ -3,19 +3,11 @@ published: true
 name: New Grey Shaker
 code: ARM
 slug: arm
-description: >-
-  New Grey Shaker sample door from MAX (Forevermark) is produced using the exact
-  same manufacturing process as our full cabinet line, ensuring absolute
-  consistency in material selection, construction methods, and finishing
-  techniques. The style, recessed panel, stile and rail dimensions, and solid
-  birchwood are aligned with our true cabinet products, offering a precise
-  representation of the quality you can expect in your completed cabinets.
+description: |-
+  New Grey Shaker sample door from MAX (Forevermark) is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ARM/3114-arm-wood-brown.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ARM/3114-arm-wood-brown.jpg'
 technicalDetails:
   - key: Manufacturer
     value: MAX (Forevermark)
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ARM/3114-arm-wood-brown.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/ARM/3114-arm-wood-brown.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -52,8 +43,9 @@ relatedProjects: []
 relatedProducts:
   - product: content/cabinets/atb.md
   - product: content/cabinets/awb.md
-  - product: content/cabinets/axm.md
+  - product: null
   - product: content/cabinets/bfk.md
 doorStyle: shaker
 paint: gray
 ---
+
