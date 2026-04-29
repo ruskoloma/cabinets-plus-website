@@ -491,7 +491,7 @@ media:
     description: 'Residence on Honeycomb featuring light wood vanity, bathroom, timber cabinetry, quartz surfaces.'
 cabinetProducts:
   - cabinet: content/cabinets/swoa.md
-  - cabinet: content/cabinets/sdwh.md
+  - cabinet: null
   - cabinet: content/cabinets/ssgh.md
   - cabinet: content/cabinets/mbs.md
 countertopProducts:
@@ -513,6 +513,7 @@ notes: |-
   Flooring - Prima Floor (royal oak)
   Countertop - Calacatta Mia
 sourceId: 53
-sourceUpdatedAt: 2025-09-18T20:57:28.714Z
+sourceUpdatedAt: '2025-09-18T20:57:28.714Z'
 ---
+
 
