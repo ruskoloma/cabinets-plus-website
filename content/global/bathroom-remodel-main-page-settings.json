@@ -45,7 +45,7 @@
     {
       "title": "Your Spokane Bathroom Remodel Starts Here",
       "paragraphs": "A bathroom remodel is one of the highest-impact upgrades you can make to your Spokane home — both for daily quality of life and for resale. Cabinets Plus is where a lot of those remodels start. We carry the full range of vanities, countertops, flooring, and shower glass options you'll want for the project, and we install the cabinets, countertops, and glass ourselves. Whether you're a homeowner planning the remodel yourself or a contractor sending your client our way for the materials and finish work, we'll help you find what fits your space and budget.",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2988-dsc04301.jpg",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2988-dsc04301.jpg",
       "imagePosition": "right",
       "ctaLabel": "Schedule a Design Consultation",
       "ctaLink": "/contact-us",
@@ -58,7 +58,7 @@
       "projects": [
         {
           "project": "content/projects/art-house-on-27th-avenue.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3693-dsc00079.jpg"
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3693-dsc00079.jpg"
         },
         {
           "project": "content/projects/residence-on-7th-street.md",

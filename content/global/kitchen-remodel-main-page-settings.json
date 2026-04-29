@@ -11,7 +11,7 @@
       "subtext": "Cabinets, countertops, flooring, and install — all in one Spokane showroom. Whether you're planning a full kitchen remodel or sourcing materials for your contractor, start here.",
       "ctaLabel": "Visit Our Showroom",
       "ctaLink": "/contact-us",
-      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg",
+      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg",
       "imageSize": "full",
       "_template": "hero"
     },
@@ -45,7 +45,7 @@
     {
       "title": "Your Spokane Kitchen Remodel Starts Here",
       "paragraphs": "A great kitchen remodel comes down to picking the right cabinets, the right countertop, and the right flooring — and getting them installed properly. That's exactly what Cabinets Plus does. Our Spokane showroom carries the full range of cabinet styles, countertop materials, and flooring options you'll want to compare for your remodel. We help homeowners plan it out, install the cabinets and countertops ourselves, and work with contractors throughout Spokane County who send their clients to us for honest pricing and quality product. Stop in and we'll help you map out the kitchen you've been picturing.",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/warm-wood-kitchen-with-black-island/2948-dsc03999.jpg",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2948-dsc03999.jpg",
       "imagePosition": "right",
       "ctaLabel": "Schedule a Design Consultation",
       "ctaLink": "/contact-us",
@@ -58,7 +58,7 @@
       "projects": [
         {
           "project": "content/projects/art-house-on-27th-avenue.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/light-wood-kitchen-waterfall-island-black-accents/3691-dsc00051.jpg"
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg"
         },
         {
           "project": "content/projects/residence-on-7th-street.md",
