@@ -102,10 +102,11 @@ stainType: ''
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/swoa.md
-  - product: content/cabinets/swu.md
+  - product: null
   - product: content/cabinets/tgb.md
   - product: null
 doorStyle: shaker
 paint: white
 ---
+
 
