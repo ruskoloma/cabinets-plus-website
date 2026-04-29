@@ -9,7 +9,7 @@ technicalDetails:
   - key: Manufacturer
     value: NGY Collection
   - key: Doors
-    value: Birch
+    value: Oak
   - key: Hinges
     value: 6-way adjustable
   - key: Drawers
