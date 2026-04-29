@@ -3,19 +3,11 @@ published: true
 name: Shaker Black
 code: SBU
 slug: sbu
-description: >-
-  Shaker Black sample door from US Collection is produced using the exact same
-  manufacturing process as our full cabinet line, ensuring absolute consistency
-  in material selection, construction methods, and finishing techniques. The
-  style, recessed panel, stile and rail dimensions, and solid birchwood are
-  aligned with our true cabinet products, offering a precise representation of
-  the quality you can expect in your completed cabinets.
+description: |-
+  Shaker Black sample door from US Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
-
-  This sample allows you to inspect the authentic craftsmanship, durability, and
-  finish before making your final selection.
-picture: >-
-  https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SBU/3149-sbu-shaker-black.jpg
+  This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
+picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SBU/3149-sbu-shaker-black.jpg'
 technicalDetails:
   - key: Manufacturer
     value: US Collection
@@ -32,8 +24,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 media:
-  - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SBU/3149-sbu-shaker-black.jpg
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SBU/3149-sbu-shaker-black.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -53,7 +44,8 @@ relatedProducts:
   - product: content/cabinets/scu.md
   - product: content/cabinets/sdu.md
   - product: content/cabinets/sdwa.md
-  - product: content/cabinets/sdwh.md
+  - product: null
 doorStyle: shaker
 paint: black
 ---
+
