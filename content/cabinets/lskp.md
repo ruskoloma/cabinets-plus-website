@@ -44,10 +44,11 @@ relatedProjects:
 relatedProducts:
   - product: content/cabinets/lsw.md
   - product: content/cabinets/mbs.md
-  - product: content/cabinets/mhws.md
+  - product: null
   - product: content/cabinets/moss.md
 sourceId: 294
-sourceUpdatedAt: 2025-07-25T22:53:53.246Z
+sourceUpdatedAt: '2025-07-25T22:53:53.246Z'
 slug: lskp
 ---
+
 
