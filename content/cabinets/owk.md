@@ -39,11 +39,12 @@ stainType: ''
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/owu.md
-  - product: content/cabinets/pdm.md
+  - product: null
   - product: null
   - product: null
 doorStyle: slim shaker
 paint: white
 ---
+
 
 
