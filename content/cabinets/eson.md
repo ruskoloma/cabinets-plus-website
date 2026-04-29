@@ -130,12 +130,13 @@ relatedProjects:
   - project: content/projects/stone-bathroom-project.md
 relatedProducts:
   - product: null
-  - product: content/cabinets/fsh-nbb.md
+  - product: null
   - product: null
   - product: null
 doorStyle: elegant shaker
 paint: timber
 ---
+
 
 
 
