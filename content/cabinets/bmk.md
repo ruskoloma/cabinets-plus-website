@@ -79,9 +79,10 @@ relatedProjects: []
 relatedProducts:
   - product: content/cabinets/bsk.md
   - product: content/cabinets/bwk.md
-  - product: content/cabinets/csu.md
+  - product: null
   - product: null
 doorStyle: flat panel
 paint: custom paint
 ---
+
 
