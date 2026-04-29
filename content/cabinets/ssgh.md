@@ -95,9 +95,10 @@ relatedProducts:
   - product: null
   - product: content/cabinets/swk.md
   - product: content/cabinets/swoa.md
-  - product: content/cabinets/swu.md
+  - product: null
 doorStyle: shaker
 paint: green
 ---
+
 
 
