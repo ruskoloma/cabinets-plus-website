@@ -1,0 +1,133 @@
+{
+  "title": "Glass Enclosures",
+  "seo": {
+    "title": "Custom Shower Glass & Enclosures in Spokane | Cabinets Plus",
+    "description": "Frameless shower doors, glass panels, and custom mirrors measured, fabricated, and installed by Cabinets Plus in Spokane."
+  },
+  "blocks": [
+    {
+      "heading": "Custom Shower Glass & Enclosures in Spokane",
+      "subtext": "Frameless shower doors, glass panels, and custom mirrors — measured, fabricated, and installed by our local team for a clean, modern fit in any bathroom.",
+      "ctaLabel": "Schedule a Glass Consultation",
+      "ctaLink": "/contact-us",
+      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/01-040-7115-s-plymouth-rd-036.jpg",
+      "imageSize": "full",
+      "_template": "hero"
+    },
+    {
+      "title": "Spokane's Newest Source for Custom Shower Glass",
+      "paragraphs": "We're excited to introduce one of our newest services — custom shower glass doors, panels, and mirrors, installed by the same Cabinets Plus team you already trust for cabinets and countertops. Whether you're finishing a full bathroom remodel or just replacing a tired old shower curtain or framed enclosure, custom glass is one of the highest-impact upgrades you can make. Pick your glass style, choose your hardware finish, and we'll handle the rest — measurement, fabrication, and a clean, precise install. No guesswork, no awkward off-the-shelf compromises.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/02-052-7115-s-plymouth-rd-048.jpg",
+      "imagePosition": "right",
+      "ctaLabel": "Visit Our Showroom",
+      "ctaLink": "/contact-us",
+      "_template": "textImageSection"
+    },
+    {
+      "projects": [
+        {
+          "project": "content/projects/black-island-project-at-the-art-house.md"
+        },
+        {
+          "project": "content/projects/dental-clinic-project.md"
+        },
+        {
+          "project": "content/projects/residence-on-ezra-avenue.md"
+        },
+        {
+          "project": "content/projects/residence-on-kate-drive.md"
+        },
+        {
+          "project": "content/projects/residence-on-villier-road.md"
+        }
+      ],
+      "_template": "projectsSection"
+    },
+    {
+      "title": "How We Get Your Glass Installed",
+      "steps": [
+        {
+          "number": 1,
+          "iconImage": "/library/countertops/process/step-showroom.svg",
+          "title": "Showroom Visit & Style Consultation",
+          "description": "Stop by our Spokane showroom to see glass styles, hardware finishes, and configuration options in person. Bring photos of your bathroom or current shower so we can talk through what'll work best."
+        },
+        {
+          "number": 2,
+          "iconImage": "/library/countertops/process/step-measurement.svg",
+          "title": "Precise In-Home Measurement",
+          "description": "Custom glass requires custom measurements. We come to your home and measure the shower opening, walls, and any tile or countertop transitions to the millimeter — so the fit is exactly right."
+        },
+        {
+          "number": 3,
+          "iconImage": "/library/countertops/process/step-fabrication.svg",
+          "title": "Fabrication to Spec",
+          "description": "Your glass is fabricated to your exact dimensions and specs — thickness, coating, edge profile, and hardware mounting all built to fit your space. No off-the-shelf compromises."
+        },
+        {
+          "number": 4,
+          "iconImage": "/library/countertops/process/step-installation.svg",
+          "title": "Professional Installation",
+          "description": "Our team installs your glass cleanly and carefully, fits the hardware, and seals where needed. We test the swing or slide, walk you through care and cleaning, and leave the bathroom ready to use."
+        }
+      ],
+      "_template": "processSection"
+    },
+    {
+      "title": "Glass Doors, Panels & Mirrors — Built for Your Space",
+      "paragraphs": "A great shower enclosure does more than separate the shower from the rest of the bathroom — it makes the whole room feel bigger, brighter, and more modern. We offer a full range of configurations to fit any layout: frameless swing doors for a clean, high-end look, sliding doors to save space in tighter bathrooms, fixed glass panels for walk-in showers, and channel-set or clip-mounted installations depending on the style you're after.\n\nGlass options run from standard clear to low-iron (for a true, untinted view), frosted for privacy, and specialty glass with patterns or texture. Multiple thickness options let you balance budget, durability, and that satisfying heavy-glass feel. We also offer advanced glass coatings that resist hard-water spotting — a real benefit in Spokane, where water mineral content tends to leave its mark over time.\n\nFor hardware, you'll have plenty of room to make it your own. Handles, hinges, brackets, and rollers come in a wide range of finishes — from classic chrome and brushed nickel, to modern matte black, to warmer brushed gold and bronze tones. Whether your bathroom leans modern, transitional, or classic, we'll help you spec a setup that fits the style of the room and the way you actually use the shower.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/08-dsc02394.jpg",
+      "imagePosition": "left",
+      "_template": "textImageSection"
+    },
+    {
+      "heading": "Make the Shower the Best Part of the Bathroom",
+      "subtext": "From frameless walk-ins to sliding glass doors, Cabinets Plus brings the custom glass, hardware, and clean install to make your Spokane bathroom feel finished.",
+      "ctaLabel": "Book A Glass Walk-Through",
+      "ctaLink": "/contact-us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/10-dsc02460.jpg",
+      "_template": "showroomBanner"
+    },
+    {
+      "title": "F.A.Q.",
+      "faqs": [
+        {
+          "question": "How much does custom shower glass cost in Spokane?",
+          "answer": "Pricing depends on configuration, glass thickness, coating, and hardware. A simple framed sliding door starts on the lower end, while a fully frameless walk-in with low-iron glass and premium hardware runs higher. We give detailed quotes after measuring — no rough phone estimates."
+        },
+        {
+          "question": "What's the difference between frameless and framed shower doors?",
+          "answer": "Framed doors use a metal frame around the perimeter for support — more affordable and traditional. Frameless doors use thicker glass and small hinges or clips, with no surrounding frame — the cleanest, most modern look and the most popular upgrade in Spokane bathrooms."
+        },
+        {
+          "question": "What is low-iron glass?",
+          "answer": "Standard glass has a slight green tint from its iron content — most noticeable at the edges and on thicker panels. Low-iron glass removes that tint, giving you a clearer, more accurate view through the glass. It's a popular pick for high-end bathrooms where you want the tile and finishes to show through cleanly."
+        },
+        {
+          "question": "What glass coating do you recommend for Spokane water?",
+          "answer": "Spokane's hard water can leave mineral spots on untreated glass over time. We offer advanced glass coatings that resist hard-water buildup and make day-to-day cleaning much easier. It's an upgrade we recommend for almost every shower enclosure we install around here."
+        },
+        {
+          "question": "Can I get frosted or patterned glass for privacy?",
+          "answer": "Yes. We offer frosted, textured, and specialty glass options for showers where you want a little more privacy without giving up the clean glass look. We'll show you samples in the showroom so you can see how they actually look in person."
+        },
+        {
+          "question": "How long does it take to get custom shower glass installed?",
+          "answer": "After we measure and place the order, typical turnaround is 2–4 weeks. Installation day itself usually takes a few hours. We'll give you an exact timeline before we start so you can plan around it."
+        },
+        {
+          "question": "Can you install shower glass in an existing bathroom, or only during a remodel?",
+          "answer": "Both. A lot of our glass jobs are upgrades to existing bathrooms — replacing a tired curtain, an old framed enclosure, or a shower door that no longer seals properly. As long as the tile and curb are in good shape, we can usually replace just the glass."
+        }
+      ],
+      "_template": "miniFaqSection"
+    },
+    {
+      "_template": "sharedContactSection"
+    },
+    {
+      "_template": "sharedShowroomSection"
+    }
+  ],
+  "_template": "glassEnclosuresMainPage"
+}

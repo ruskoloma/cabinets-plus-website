@@ -25,7 +25,7 @@ blocks:
         link: /flooring
       - name: Glass & Enclosures
         image: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-glass-enclosures.jpg'
-        link: /contact-us
+        link: /glass-enclosures
     _template: productsSection
   - title: Services
     imageSize: full
@@ -140,4 +140,3 @@ blocks:
   - _template: sharedContactSection
   - _template: sharedShowroomSection
 ---
-

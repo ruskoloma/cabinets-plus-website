@@ -34,6 +34,7 @@ export type CountertopsMainPageSettings = ServiceMainPageSettings;
 export type FlooringMainPageSettings = ServiceMainPageSettings;
 export type KitchenRemodelMainPageSettings = ServiceMainPageSettings;
 export type BathroomRemodelMainPageSettings = ServiceMainPageSettings;
+export type GlassEnclosuresMainPageSettings = ServiceMainPageSettings;
 
 export interface CabinetsOverviewPageSettings extends BaseSettingsDocument {
   blocks?: Array<CatalogPageSettingsBlock | null> | null;
@@ -109,6 +110,12 @@ export interface BathroomRemodelMainPageSettingsQueryLikeResult {
   variables?: Record<string, unknown>;
 }
 
+export interface GlassEnclosuresMainPageSettingsQueryLikeResult {
+  data: { glassEnclosuresMainPageSettings?: GlassEnclosuresMainPageSettings | null };
+  query?: string;
+  variables?: Record<string, unknown>;
+}
+
 export interface CabinetsOverviewPageSettingsQueryLikeResult {
   data: { cabinetsOverviewPageSettings?: CabinetsOverviewPageSettings | null };
   query?: string;
@@ -173,6 +180,11 @@ export const FALLBACK_KITCHEN_REMODEL_MAIN_PAGE_SETTINGS: KitchenRemodelMainPage
 
 export const FALLBACK_BATHROOM_REMODEL_MAIN_PAGE_SETTINGS: BathroomRemodelMainPageSettings = {
   title: "Bathroom Remodel",
+  blocks: [],
+};
+
+export const FALLBACK_GLASS_ENCLOSURES_MAIN_PAGE_SETTINGS: GlassEnclosuresMainPageSettings = {
+  title: "Glass Enclosures",
   blocks: [],
 };
 

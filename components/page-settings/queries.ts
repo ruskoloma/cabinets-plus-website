@@ -276,6 +276,13 @@ export const BATHROOM_REMODEL_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSet
   blocksTypenamePrefix: "PageSettingsBathroomRemodelMainPageBlocks",
 });
 
+export const GLASS_ENCLOSURES_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
+  operationName: "GlassEnclosuresMainPageSettingsDocument",
+  resultKey: "glassEnclosuresMainPageSettings",
+  templateTypename: "PageSettingsGlassEnclosuresMainPage",
+  blocksTypenamePrefix: "PageSettingsGlassEnclosuresMainPageBlocks",
+});
+
 export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   query CabinetsOverviewPageSettingsDocument($relativePath: String!) {
     cabinetsOverviewPageSettings: pageSettings(relativePath: $relativePath) {
