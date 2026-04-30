@@ -677,6 +677,27 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 4px;
 }
 
+.cp-form-alert {
+  border: 1px solid var(--cp-brand-neutral-300);
+  background: #ffffff;
+  color: var(--cp-primary-500);
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 14px 16px;
+}
+
+.cp-form-alert--error {
+  border-color: var(--cp-accent-400);
+}
+
+.cp-form-honey {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 @media (min-width: 768px) {
   .cp-contact-form .cp-field-label {
     margin-bottom: 8px;
