@@ -11,6 +11,7 @@ import {
   FALLBACK_GENERAL_DOCUMENT,
   FALLBACK_HEADER_DOCUMENT,
 } from "@/components/layout/global-settings";
+import { getSiteUrl } from "@/app/lib/site-url";
 
 const redHatDisplay = Red_Hat_Display({ variable: "--font-red-hat-display", subsets: ["latin"] });
 const redHatText = Red_Hat_Text({ variable: "--font-red-hat-text", subsets: ["latin"] });
@@ -19,7 +20,7 @@ const openSans = Open_Sans({ variable: "--font-open-sans", subsets: ["latin"] })
 
 // Site-wide fallback metadata — individual pages override title & description via generateMetadata
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: "Cabinets Plus Spokane | Kitchen & Bath Renovations",
     template: "%s | Cabinets Plus Spokane",

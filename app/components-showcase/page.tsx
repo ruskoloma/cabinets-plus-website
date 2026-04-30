@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import TextLink from "@/components/ui/TextLink";
 import PreviewCard from "@/components/home/PreviewCard";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
+
+export const metadata: Metadata = {
+  title: "Components Showcase",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 const sampleFaq = [
   {
