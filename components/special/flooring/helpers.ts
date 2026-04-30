@@ -209,6 +209,7 @@ export function buildFlooringGalleryItems(flooring: FlooringData): ProductGaller
       file,
       previewFile: normalizedKind === "video" ? primaryImage || file : file,
       alt: item.altText?.trim() || item.label?.trim() || displayName,
+      mimeType: item.mimeType?.trim() || undefined,
     });
   }
 

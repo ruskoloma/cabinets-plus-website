@@ -209,6 +209,7 @@ export function buildCountertopGalleryItems(countertop: CountertopData): Product
       file,
       previewFile: normalizedKind === "video" ? primaryImage || file : file,
       alt: item.altText?.trim() || item.label?.trim() || displayName,
+      mimeType: item.mimeType?.trim() || undefined,
     });
   }
 

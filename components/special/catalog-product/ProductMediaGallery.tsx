@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useEditState } from "tinacms/dist/react";
 import { getImageVariantUrl } from "@/lib/image-variants";
 import FillImage from "@/components/ui/FillImage";
+import MediaLightbox, { isVideoFile } from "@/components/ui/MediaLightbox";
 import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import { TINA_CUSTOM_FOCUSABLE_PREVIEW_CLASS_NAME } from "@/lib/tina-list-focus";
 import { focusTinaSidebarMediaItem } from "@/lib/tina-media-focus";
@@ -16,6 +17,7 @@ interface ProductMediaGalleryProps {
   expandLabel?: string;
   thumbImageSizeChoice?: string | null;
   mainImageSizeChoice?: string | null;
+  // Kept for existing page settings; fullscreen media always uses original files.
   lightboxImageSizeChoice?: string | null;
   focusRootFieldName?: string;
 }
@@ -37,14 +39,6 @@ function PlayIcon({ className = "h-[90px] w-[75px]" }: { className?: string }) {
   );
 }
 
-function CloseIcon() {
-  return (
-    <svg aria-hidden className="h-6 w-6" fill="none" viewBox="0 0 24 24">
-      <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
-    </svg>
-  );
-}
-
 const ACTIVE_MEDIA_MIN_PADDING = 12;
 const ACTIVE_MEDIA_PREFERRED_PADDING = 65;
 
@@ -54,13 +48,12 @@ export default function ProductMediaGallery({
   expandLabel = "Click to expand",
   thumbImageSizeChoice,
   mainImageSizeChoice,
-  lightboxImageSizeChoice,
   focusRootFieldName,
 }: ProductMediaGalleryProps) {
   const { edit } = useEditState();
   const quickEditEnabled = useTinaQuickEditEnabled();
   const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [frameSize, setFrameSize] = useState(0);
   const [imageAspectRatios, setImageAspectRatios] = useState<Record<string, number>>({});
   const activeMediaFrameRef = useRef<HTMLDivElement | null>(null);
@@ -70,27 +63,17 @@ export default function ProductMediaGallery({
   );
   const thumbImageVariant = resolveConfiguredImageVariant(thumbImageSizeChoice, "thumb");
   const mainImageVariant = resolveConfiguredImageVariant(mainImageSizeChoice, "feature");
-  const lightboxImageVariant = resolveConfiguredImageVariant(lightboxImageSizeChoice, "full");
-
-  useEffect(() => {
-    if (!lightboxOpen) return undefined;
-
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setLightboxOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [lightboxOpen]);
+  const lightboxItems = useMemo(
+    () =>
+      items.map((item) => ({
+        alt: item.alt,
+        poster: item.kind === "video" && item.previewFile && !isVideoFile(item.previewFile) ? item.previewFile : undefined,
+        src: item.file,
+        type: item.kind,
+        videoType: item.mimeType,
+      })),
+    [items],
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -178,10 +161,13 @@ export default function ProductMediaGallery({
       return;
     }
 
-    setLightboxOpen(true);
+    setLightboxIndex(Math.max(0, items.findIndex((item) => item.id === activeItem.id)));
   };
 
   const showThumbnails = items.length > 1;
+  const activeVideoPoster = activeItem.kind === "video" && !isVideoFile(activeItem.previewFile)
+    ? getImageVariantUrl(activeItem.previewFile, mainImageVariant)
+    : undefined;
 
   return (
     <>
@@ -213,7 +199,11 @@ export default function ProductMediaGallery({
                   }}
                   type="button"
                 >
-                  <FillImage alt="" aria-hidden className="object-cover" sizes="(min-width: 1024px) 90px, 64px" src={item.previewFile} variant={thumbImageVariant} />
+                  {item.kind === "video" && isVideoFile(item.previewFile) ? (
+                    <video aria-hidden className="h-full w-full object-cover" muted playsInline preload="metadata" src={item.file} />
+                  ) : (
+                    <FillImage alt="" aria-hidden className="object-cover" sizes="(min-width: 1024px) 90px, 64px" src={item.previewFile} variant={thumbImageVariant} />
+                  )}
                   {item.kind === "video" ? (
                     <>
                       <div className="absolute inset-0 bg-black/20" />
@@ -246,7 +236,7 @@ export default function ProductMediaGallery({
                   className="h-full w-full object-cover"
                   muted
                   playsInline
-                  poster={getImageVariantUrl(activeItem.previewFile, mainImageVariant)}
+                  poster={activeVideoPoster}
                   preload="metadata"
                   src={activeItem.file}
                 />
@@ -294,40 +284,17 @@ export default function ProductMediaGallery({
         </button>
       </div>
 
-      {lightboxOpen ? (
-        <div
-          aria-modal="true"
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/75 p-4"
-          onClick={() => setLightboxOpen(false)}
-          role="dialog"
-        >
-          <button
-            aria-label="Close preview"
-            className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--cp-primary-500)] transition hover:bg-white"
-            onClick={() => setLightboxOpen(false)}
-            type="button"
-          >
-            <CloseIcon />
-          </button>
-
-          <div className="max-h-[90vh] max-w-[min(95vw,1200px)]" onClick={(event) => event.stopPropagation()}>
-            {activeItem.kind === "video" ? (
-              <video
-                autoPlay
-                className="max-h-[85vh] w-full max-w-[min(95vw,1100px)] rounded-[4px] bg-black object-contain"
-                controls
-                playsInline
-                poster={getImageVariantUrl(activeItem.previewFile, mainImageVariant)}
-                src={activeItem.file}
-              />
-            ) : (
-              <div className="relative h-[min(85vh,900px)] w-[min(95vw,1100px)]">
-                <FillImage alt={activeItem.alt} className="rounded-[4px] object-contain" sizes="95vw" src={activeItem.file} variant={lightboxImageVariant} />
-              </div>
-            )}
-          </div>
-        </div>
-      ) : null}
+      <MediaLightbox
+        index={lightboxIndex ?? 0}
+        items={lightboxItems}
+        onClose={() => setLightboxIndex(null)}
+        onIndexChange={(index) => {
+          setLightboxIndex(index);
+          const item = items[index];
+          if (item) setActiveId(item.id);
+        }}
+        open={lightboxIndex !== null}
+      />
     </>
   );
 }

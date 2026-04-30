@@ -4,6 +4,7 @@ export interface ProductGalleryItemViewModel {
   file: string;
   previewFile: string;
   alt: string;
+  mimeType?: string;
   tinaField?: string;
   focusMediaItemId?: string;
 }

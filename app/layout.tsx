@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Jost, Open_Sans, Red_Hat_Display, Red_Hat_Text } from "next/font/google";
+import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
 import { getGlobalDocumentSafe } from "@/app/get-global-document-safe";
 import { getSharedSectionsSafe } from "@/app/get-shared-sections-safe";

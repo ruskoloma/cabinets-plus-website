@@ -43,6 +43,27 @@ body {
   overflow-x: clip;
 }
 
+.yarl__container {
+  background: #000;
+}
+
+.yarl__slide_image {
+  background: #000;
+}
+
+.yarl__video_container video {
+  background: #000;
+  max-height: calc(100vh - 96px);
+  max-width: calc(100vw - 32px);
+}
+
+@media (max-width: 767px) {
+  .yarl__navigation_next,
+  .yarl__navigation_prev {
+    padding: 20px 10px;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

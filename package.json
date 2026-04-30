@@ -18,7 +18,8 @@
     "next-tinacms-s3": "^21.0.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "tinacms": "^3.7.1"
+    "tinacms": "^3.7.1",
+    "yet-another-react-lightbox": "^3.31.0"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.1018.0",
