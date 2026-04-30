@@ -164,16 +164,16 @@
           "label": "General Questions",
           "faqs": [
             {
-              "question": "Can you provide advice on DIY projects?",
-              "answer": "To keep our prices as affordable as possible, our business operates exclusively online, which means we do not have a physical showroom open to the public. However, we offer a Sample Door program for those who want to see and feel the quality of our cabinet door styles and colors in person. This allows you to make informed decisions and choose the perfect cabinet options for your project."
+              "question": "How much does a kitchen or bathroom remodel cost?",
+              "answer": "Every remodel is different, so pricing depends on the size of the space, the materials you choose, and the scope of work. As a rough Spokane-area starting point, a typical kitchen remodel with semi-custom cabinets, stone countertops, and professional installation generally starts around $15,000–$25,000 and scales up from there based on size and finishes. Bathroom remodels typically start lower, around $8,000–$15,000. The best way to get a real number is our free design consultation — we'll take measurements, walk through your goals, and send you a detailed quote with no pressure to commit."
             },
             {
-              "question": "Can I order products online and pick them up in-store?",
-              "answer": "Yes, pickup can be arranged at our Spokane location after your order is confirmed."
+              "question": "How long does a typical remodel take, from consultation to completion?",
+              "answer": "Most projects fall into three phases. Design usually takes 1–2 weeks — that covers your free consultation, 3D renderings, material selection, and finalizing the quote. Material lead time runs 2–6 weeks depending on your cabinet choices and stone availability; we fabricate countertops in-house, which keeps that part fast. Installation is typically 1–2 weeks for a kitchen and 3–7 days for a bathroom. Start to finish, plan on roughly 6–10 weeks for a kitchen and 4–6 weeks for a bath. We'll give you a clear timeline at the consultation so there are no surprises."
             },
             {
-              "question": "How can I check the availability of a specific product?",
-              "answer": "Call 1-509-218-3349 or email info@spokanecabinetsplus.com and our team will confirm availability."
+              "question": "Do I need to have a design ready, or do you help with that?",
+              "answer": "Not at all — most of our clients walk in with nothing more than a Pinterest board, a few measurements, or just a vague idea of what they want. That's exactly what our free 3D design consultation is for. You'll sit down with our designers in the Spokane showroom, where you can touch real cabinet samples, compare countertop slabs, and see your space rendered in 3D before you commit to anything. If you do have inspiration photos or rough plans, bring them — we'll build from there. Either way, you leave with a clear design and a detailed quote."
             },
             {
               "question": "How much do you charge for measurements?",
@@ -197,12 +197,36 @@
           "label": "Cabinets",
           "faqs": [
             {
-              "question": "What cabinet brands do you carry?",
-              "answer": "We carry a curated range of semi-custom and custom cabinetry options selected for quality and value."
+              "question": "How much do new kitchen cabinets cost in Spokane?",
+              "answer": "For an average-size kitchen, expect $5,000–$15,000 for entry-level semi-custom cabinets and $15,000–$30,000 for higher-end semi-custom lines with premium finishes, soft-close hardware, and storage upgrades. Pricing depends on material, finish, hardware, and how much storage you build in. We give detailed itemized quotes so you know exactly what you're paying for."
             },
             {
-              "question": "How long do cabinets take to arrive?",
-              "answer": "Timelines vary by line and finish, but we provide lead times during your design consultation."
+              "question": "What does \"semi-custom\" actually mean?",
+              "answer": "Semi-custom cabinets are pre-engineered cabinet lines that let you adjust sizes, door styles, finishes, and storage upgrades within a manufacturer's options. You get far more flexibility than stock cabinets, but with shorter lead times and lower cost than fully custom builds — which makes them the best fit for most Spokane homes."
+            },
+            {
+              "question": "How long does it take to get new cabinets installed?",
+              "answer": "Typical lead times run 4–8 weeks from order to delivery, plus 2–5 days for installation depending on kitchen size. We'll confirm timing before you commit so you can plan around it."
+            },
+            {
+              "question": "Can I just replace cabinet doors instead of full cabinets (refacing)?",
+              "answer": "In some cases, yes. If your existing cabinet boxes are solid plywood or quality construction, refacing with new doors and drawer fronts can save significant money. If the boxes are damaged or poorly built, full replacement is usually the better long-term value. We'll evaluate during your consultation."
+            },
+            {
+              "question": "What cabinet styles are most popular in Spokane right now?",
+              "answer": "Shaker remains the most popular by a wide margin — it pairs with modern, traditional, and farmhouse looks equally well. White and off-white finishes still lead, but navy, sage, charcoal, and natural wood tones are gaining ground fast, especially on islands and bathroom vanities."
+            },
+            {
+              "question": "Do you offer cabinet installation, or just sales?",
+              "answer": "Both. We sell cabinets to homeowners, contractors, and DIYers, and we offer professional installation as part of our remodeling service. If you're handy and want to install them yourself, we provide guidance and how-to resources to help."
+            },
+            {
+              "question": "Are your cabinets made of real wood or particle board?",
+              "answer": "We carry a range of construction qualities. Higher-end lines feature solid plywood boxes, solid wood doors, and dovetail drawer construction. Budget-friendly lines use engineered wood with veneers or thermofoil. We'll walk you through exactly what each option is built from so you know what you're buying."
+            },
+            {
+              "question": "Do you serve contractors and house flippers in the Spokane area?",
+              "answer": "Absolutely. A big part of our business is supplying contractors, real estate investors, and property managers throughout Spokane and North Idaho with reliable cabinets at competitive bulk pricing. Ask about our contractor program."
             }
           ]
         },
@@ -210,12 +234,32 @@
           "label": "Countertops",
           "faqs": [
             {
-              "question": "Do you fabricate countertops in-house?",
-              "answer": "Yes. In-house fabrication helps us control quality and improve turnaround."
+              "question": "How much do countertops cost in Spokane?",
+              "answer": "Pricing depends on material, square footage, and edge details. In Spokane, quartz typically runs $50–$95 per square foot installed, granite $45–$90, and quartzite or premium marble $80–$150+. We provide free, accurate quotes based on a real measurement of your space — no rough phone estimates."
             },
             {
-              "question": "What countertop materials do you offer?",
-              "answer": "We offer quartz, granite, marble, quartzite, and additional surface options depending on project needs."
+              "question": "Do you fabricate countertops in-house, or do you outsource?",
+              "answer": "Everything is fabricated at our Spokane facility. Cutting, polishing, edge work, sink cutouts — it all happens here. That's why we can hit tight timelines and catch issues before they ever leave the shop."
+            },
+            {
+              "question": "What's the difference between quartz and quartzite?",
+              "answer": "Quartz is engineered stone (about 90% natural quartz crushed and bound with resin), while quartzite is 100% natural stone formed from sandstone under heat and pressure. Quartz is non-porous and never needs sealing; quartzite is harder than granite but does require periodic sealing."
+            },
+            {
+              "question": "How long does countertop installation take?",
+              "answer": "After you choose your slab, the typical turnaround is 1–2 weeks from measure to install. Installation day itself usually takes 4–6 hours depending on kitchen size. We work around your schedule whenever possible."
+            },
+            {
+              "question": "Do I need to seal my granite or marble countertops?",
+              "answer": "Yes — natural stone (granite, marble, quartzite) needs sealing about once a year to prevent staining. We seal everything before install and walk you through how to test and reapply sealer down the road. Quartz never needs sealing."
+            },
+            {
+              "question": "Can I bring in my own slab or one from another supplier?",
+              "answer": "We focus on stones we source from our trusted suppliers and our own manufactured quartz line, because we can stand behind the quality and grain. If you've found something specific elsewhere, talk to us — we may already carry it or have access to the same supplier."
+            },
+            {
+              "question": "Do you serve areas outside of Spokane?",
+              "answer": "Yes. We regularly install countertops throughout Spokane County and into North Idaho — including Spokane Valley, Liberty Lake, Cheney, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
             }
           ]
         },
@@ -223,8 +267,36 @@
           "label": "Flooring",
           "faqs": [
             {
-              "question": "What flooring types are available?",
-              "answer": "We offer hardwood, LVP, tile, and other flooring options for a range of performance and style goals."
+              "question": "What's the best flooring for kitchens and bathrooms in Spokane?",
+              "answer": "For wet areas, we typically recommend luxury vinyl plank (LVP), SPC, or tile. They're fully waterproof, easy to clean, and stand up to the daily abuse kitchens and bathrooms see. Hardwood and laminate aren't ideal where standing water is a risk."
+            },
+            {
+              "question": "How much does flooring cost in Spokane?",
+              "answer": "For materials only, expect roughly $2–$5 per square foot for laminate and basic LVP, $4–$8 for premium LVP and SPC, $6–$12 for hardwood, and $3–$10 for tile depending on size and pattern. Carpet typically runs $2–$5 per square foot. Installation is separate and varies by installer."
+            },
+            {
+              "question": "What's the difference between LVP and SPC flooring?",
+              "answer": "Both are vinyl plank products. LVP (luxury vinyl plank) has a flexible PVC core, while SPC (stone plastic composite) has a rigid mineral-based core that's harder, more dent-resistant, and better for uneven subfloors. SPC tends to be the more durable choice for heavy traffic."
+            },
+            {
+              "question": "Do you install flooring?",
+              "answer": "We don't currently offer flooring installation — we focus on cabinet and countertop installation. But we can point you to trusted local installers we've worked with for years, or help you find DIY-friendly products if you want to handle it yourself."
+            },
+            {
+              "question": "Can you recommend a flooring installer?",
+              "answer": "Yes. We've built relationships with reliable installers across Spokane County and North Idaho who've handled jobs for our customers for years. Ask us when you visit the showroom and we'll connect you."
+            },
+            {
+              "question": "Do I need to acclimate flooring before installation?",
+              "answer": "Yes — hardwood, laminate, and even some LVP products need to sit in the home for 24–72 hours before install so they adjust to indoor humidity. Skipping this step is one of the top causes of gaps, buckling, and warranty claims. Any reputable installer will plan for this."
+            },
+            {
+              "question": "Can I install flooring over my existing floor?",
+              "answer": "Sometimes. LVP, SPC, and laminate can often be floated over existing tile or vinyl if the surface is flat and stable. Hardwood and tile usually require the old floor to come out. Your installer will evaluate the subfloor before starting."
+            },
+            {
+              "question": "Do you sell flooring outside of Spokane?",
+              "answer": "Yes. We supply flooring to homeowners, contractors, and house flippers throughout Spokane County and North Idaho — Spokane Valley, Liberty Lake, Cheney, Airway Heights, Medical Lake, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
             }
           ]
         }
