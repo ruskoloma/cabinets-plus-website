@@ -148,6 +148,19 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             title
             body
           }
+          ... on ${prefix}ArticleContentSection {
+            breadcrumbLabel
+            title
+            subtitle
+            body
+          }
+          ... on ${prefix}MagazineEmbed {
+            heading
+            subheading
+            embedUrl
+            height
+            iframeTitle
+          }
           ... on ${prefix}TextImageSection {
             title
             paragraphs
@@ -202,6 +215,44 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
           }`;
 }
 
+const STATIC_PAGE_QUERY_TEMPLATES = [
+  { templateTypename: "PagesHomePage", blocksTypenamePrefix: "PagesHomePageBlocks" },
+  { templateTypename: "PagesAboutPage", blocksTypenamePrefix: "PagesAboutPageBlocks" },
+  { templateTypename: "PagesContactPage", blocksTypenamePrefix: "PagesContactPageBlocks" },
+  { templateTypename: "PagesPrivacyPolicyPage", blocksTypenamePrefix: "PagesPrivacyPolicyPageBlocks" },
+  { templateTypename: "PagesMagazinePage", blocksTypenamePrefix: "PagesMagazinePageBlocks" },
+];
+
+export const PAGE_QUERY = `
+  query PageDocument($relativePath: String!) {
+    page: pages(relativePath: $relativePath) {
+      ... on Document {
+        id
+        _sys {
+          filename
+          basename
+          relativePath
+        }
+      }
+${STATIC_PAGE_QUERY_TEMPLATES.map(
+  ({ templateTypename, blocksTypenamePrefix }) => `
+      ... on ${templateTypename} {
+        title
+        seo {
+          title
+          description
+          ogImage
+        }
+        blocks {
+          __typename
+${buildSharedPageSettingsBlockFragments(blocksTypenamePrefix)}
+        }
+      }`,
+).join("")}
+    }
+  }
+`;
+
 function buildServiceMainPageSettingsQuery({
   operationName,
   resultKey,
@@ -215,7 +266,7 @@ function buildServiceMainPageSettingsQuery({
 }) {
   return `
   query ${operationName}($relativePath: String!) {
-    ${resultKey}: pageSettings(relativePath: $relativePath) {
+    ${resultKey}: pages(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -244,48 +295,48 @@ ${buildSharedPageSettingsBlockFragments(blocksTypenamePrefix)}
 export const CABINETS_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
   operationName: "CabinetsMainPageSettingsDocument",
   resultKey: "cabinetsMainPageSettings",
-  templateTypename: "PageSettingsCabinetsMainPage",
-  blocksTypenamePrefix: "PageSettingsCabinetsMainPageBlocks",
+  templateTypename: "PagesCabinetsMainPage",
+  blocksTypenamePrefix: "PagesCabinetsMainPageBlocks",
 });
 
 export const COUNTERTOPS_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
   operationName: "CountertopsMainPageSettingsDocument",
   resultKey: "countertopsMainPageSettings",
-  templateTypename: "PageSettingsCountertopsMainPage",
-  blocksTypenamePrefix: "PageSettingsCountertopsMainPageBlocks",
+  templateTypename: "PagesCountertopsMainPage",
+  blocksTypenamePrefix: "PagesCountertopsMainPageBlocks",
 });
 
 export const FLOORING_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
   operationName: "FlooringMainPageSettingsDocument",
   resultKey: "flooringMainPageSettings",
-  templateTypename: "PageSettingsFlooringMainPage",
-  blocksTypenamePrefix: "PageSettingsFlooringMainPageBlocks",
+  templateTypename: "PagesFlooringMainPage",
+  blocksTypenamePrefix: "PagesFlooringMainPageBlocks",
 });
 
 export const KITCHEN_REMODEL_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
   operationName: "KitchenRemodelMainPageSettingsDocument",
   resultKey: "kitchenRemodelMainPageSettings",
-  templateTypename: "PageSettingsKitchenRemodelMainPage",
-  blocksTypenamePrefix: "PageSettingsKitchenRemodelMainPageBlocks",
+  templateTypename: "PagesKitchenRemodelMainPage",
+  blocksTypenamePrefix: "PagesKitchenRemodelMainPageBlocks",
 });
 
 export const BATHROOM_REMODEL_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
   operationName: "BathroomRemodelMainPageSettingsDocument",
   resultKey: "bathroomRemodelMainPageSettings",
-  templateTypename: "PageSettingsBathroomRemodelMainPage",
-  blocksTypenamePrefix: "PageSettingsBathroomRemodelMainPageBlocks",
+  templateTypename: "PagesBathroomRemodelMainPage",
+  blocksTypenamePrefix: "PagesBathroomRemodelMainPageBlocks",
 });
 
 export const GLASS_ENCLOSURES_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
   operationName: "GlassEnclosuresMainPageSettingsDocument",
   resultKey: "glassEnclosuresMainPageSettings",
-  templateTypename: "PageSettingsGlassEnclosuresMainPage",
-  blocksTypenamePrefix: "PageSettingsGlassEnclosuresMainPageBlocks",
+  templateTypename: "PagesGlassEnclosuresMainPage",
+  blocksTypenamePrefix: "PagesGlassEnclosuresMainPageBlocks",
 });
 
 export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   query CabinetsOverviewPageSettingsDocument($relativePath: String!) {
-    cabinetsOverviewPageSettings: pageSettings(relativePath: $relativePath) {
+    cabinetsOverviewPageSettings: pages(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -294,15 +345,15 @@ export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsCabinetsOverview {
+      ... on PagesCabinetsOverview {
         blocks {
           __typename
-          ... on PageSettingsCabinetsOverviewBlocksCabinetCatalogGrid {
+          ... on PagesCabinetsOverviewBlocksCabinetCatalogGrid {
             pageTitle
             cardImageSize
             filterImageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsCabinetsOverviewBlocks")}
+${buildSharedPageSettingsBlockFragments("PagesCabinetsOverviewBlocks")}
         }
       }
     }
@@ -311,7 +362,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsCabinetsOverviewBlocks")}
 
 export const COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY = `
   query CountertopsOverviewPageSettingsDocument($relativePath: String!) {
-    countertopsOverviewPageSettings: pageSettings(relativePath: $relativePath) {
+    countertopsOverviewPageSettings: pages(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -320,15 +371,15 @@ export const COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsCountertopsOverview {
+      ... on PagesCountertopsOverview {
         blocks {
           __typename
-          ... on PageSettingsCountertopsOverviewBlocksCountertopCatalogGrid {
+          ... on PagesCountertopsOverviewBlocksCountertopCatalogGrid {
             pageTitle
             cardImageSize
             filterImageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsCountertopsOverviewBlocks")}
+${buildSharedPageSettingsBlockFragments("PagesCountertopsOverviewBlocks")}
         }
       }
     }
@@ -337,7 +388,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsCountertopsOverviewBlocks")
 
 export const FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY = `
   query FlooringOverviewPageSettingsDocument($relativePath: String!) {
-    flooringOverviewPageSettings: pageSettings(relativePath: $relativePath) {
+    flooringOverviewPageSettings: pages(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -346,15 +397,15 @@ export const FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsFlooringOverview {
+      ... on PagesFlooringOverview {
         blocks {
           __typename
-          ... on PageSettingsFlooringOverviewBlocksFlooringCatalogGrid {
+          ... on PagesFlooringOverviewBlocksFlooringCatalogGrid {
             pageTitle
             cardImageSize
             filterImageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsFlooringOverviewBlocks")}
+${buildSharedPageSettingsBlockFragments("PagesFlooringOverviewBlocks")}
         }
       }
     }
@@ -363,7 +414,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsFlooringOverviewBlocks")}
 
 export const GALLERY_PAGE_SETTINGS_QUERY = `
   query GalleryPageSettingsDocument($relativePath: String!) {
-    galleryPageSettings: pageSettings(relativePath: $relativePath) {
+    galleryPageSettings: pages(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -372,7 +423,7 @@ export const GALLERY_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsGallery {
+      ... on PagesGallery {
         title
         seo {
           title
@@ -381,7 +432,7 @@ export const GALLERY_PAGE_SETTINGS_QUERY = `
         }
         blocks {
           __typename
-          ... on PageSettingsGalleryBlocksGalleryProjectGrid {
+          ... on PagesGalleryBlocksGalleryProjectGrid {
             pageTitle
             galleryOverviewProjectCardImageSize
             galleryOverviewFilterImageSize
@@ -389,7 +440,7 @@ export const GALLERY_PAGE_SETTINGS_QUERY = `
             specialityEnabled
             specialityCardImageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsGalleryBlocks")}
+${buildSharedPageSettingsBlockFragments("PagesGalleryBlocks")}
         }
       }
     }
@@ -398,7 +449,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsGalleryBlocks")}
 
 export const BLOG_PAGE_SETTINGS_QUERY = `
   query BlogPageSettingsDocument($relativePath: String!) {
-    blogPageSettings: pageSettings(relativePath: $relativePath) {
+    blogPageSettings: pages(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -407,7 +458,7 @@ export const BLOG_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsBlog {
+      ... on PagesBlog {
         title
         seo {
           title
@@ -416,12 +467,12 @@ export const BLOG_PAGE_SETTINGS_QUERY = `
         }
         blocks {
           __typename
-          ... on PageSettingsBlogBlocksBlogPostsGrid {
+          ... on PagesBlogBlocksBlogPostsGrid {
             pageTitle
             postsPerPage
             postCardImageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsBlogBlocks")}
+${buildSharedPageSettingsBlockFragments("PagesBlogBlocks")}
         }
       }
     }
@@ -430,7 +481,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsBlogBlocks")}
 
 export const PROJECT_PAGE_SETTINGS_QUERY = `
   query ProjectPageSettingsDocument($relativePath: String!) {
-    projectPageSettings: pageSettings(relativePath: $relativePath) {
+    projectPageSettings: templates(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -439,16 +490,16 @@ export const PROJECT_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsProject {
+      ... on TemplatesProject {
         blocks {
           __typename
-          ... on PageSettingsProjectBlocksProjectInfo {
+          ... on TemplatesProjectBlocksProjectInfo {
             breadcrumbLabel
             breadcrumbLink
             galleryImageSize
             lightboxImageSize
           }
-          ... on PageSettingsProjectBlocksProjectMaterials {
+          ... on TemplatesProjectBlocksProjectMaterials {
             title
             cabinetTitle
             cabinetPlaceholder
@@ -458,13 +509,13 @@ export const PROJECT_PAGE_SETTINGS_QUERY = `
             flooringPlaceholder
             imageSize
           }
-          ... on PageSettingsProjectBlocksProjectRelatedProjects {
+          ... on TemplatesProjectBlocksProjectRelatedProjects {
             title
             ctaLabel
             ctaLink
             imageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsProjectBlocks")}
+${buildSharedPageSettingsBlockFragments("TemplatesProjectBlocks")}
         }
       }
     }
@@ -473,7 +524,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsProjectBlocks")}
 
 export const COLLECTION_PAGE_SETTINGS_QUERY = `
   query CollectionPageSettingsDocument($relativePath: String!) {
-    collectionPageSettings: pageSettings(relativePath: $relativePath) {
+    collectionPageSettings: templates(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -482,22 +533,22 @@ export const COLLECTION_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsCollection {
+      ... on TemplatesCollection {
         blocks {
           __typename
-          ... on PageSettingsCollectionBlocksCollectionInfo {
+          ... on TemplatesCollectionBlocksCollectionInfo {
             breadcrumbLabel
             breadcrumbLink
             galleryImageSize
             lightboxImageSize
           }
-          ... on PageSettingsCollectionBlocksCollectionRelatedProjects {
+          ... on TemplatesCollectionBlocksCollectionRelatedProjects {
             title
             ctaLabel
             ctaLink
             imageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsCollectionBlocks")}
+${buildSharedPageSettingsBlockFragments("TemplatesCollectionBlocks")}
         }
       }
     }
@@ -506,7 +557,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsCollectionBlocks")}
 
 export const POST_PAGE_SETTINGS_QUERY = `
   query PostPageSettingsDocument($relativePath: String!) {
-    postPageSettings: pageSettings(relativePath: $relativePath) {
+    postPageSettings: templates(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -515,7 +566,7 @@ export const POST_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsPost {
+      ... on TemplatesPost {
         title
         seo {
           title
@@ -524,15 +575,15 @@ export const POST_PAGE_SETTINGS_QUERY = `
         }
         blocks {
           __typename
-          ... on PageSettingsPostBlocksPostContent {
+          ... on TemplatesPostBlocksPostContent {
             breadcrumbLabel
             heroImageSize
           }
-          ... on PageSettingsPostBlocksPostRelatedArticles {
+          ... on TemplatesPostBlocksPostRelatedArticles {
             title
             imageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsPostBlocks")}
+${buildSharedPageSettingsBlockFragments("TemplatesPostBlocks")}
         }
       }
     }
@@ -541,7 +592,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsPostBlocks")}
 
 export const CABINET_PAGE_SETTINGS_QUERY = `
   query CabinetPageSettingsDocument($relativePath: String!) {
-    cabinetPageSettings: pageSettings(relativePath: $relativePath) {
+    cabinetPageSettings: templates(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -550,10 +601,10 @@ export const CABINET_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsCabinet {
+      ... on TemplatesCabinet {
         blocks {
           __typename
-          ... on PageSettingsCabinetBlocksCabinetProductInfo {
+          ... on TemplatesCabinetBlocksCabinetProductInfo {
             breadcrumbLabel
             technicalDetailsTitle
             contactButtonLabel
@@ -562,17 +613,17 @@ export const CABINET_PAGE_SETTINGS_QUERY = `
             galleryMainImageSize
             galleryLightboxImageSize
           }
-          ... on PageSettingsCabinetBlocksProjectsUsingThisProduct {
+          ... on TemplatesCabinetBlocksProjectsUsingThisProduct {
             title
             description
             imageSize
           }
-          ... on PageSettingsCabinetBlocksRelatedProducts {
+          ... on TemplatesCabinetBlocksRelatedProducts {
             title
             subtitle
             imageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsCabinetBlocks")}
+${buildSharedPageSettingsBlockFragments("TemplatesCabinetBlocks")}
         }
       }
     }
@@ -581,7 +632,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsCabinetBlocks")}
 
 export const COUNTERTOP_PAGE_SETTINGS_QUERY = `
   query CountertopPageSettingsDocument($relativePath: String!) {
-    countertopPageSettings: pageSettings(relativePath: $relativePath) {
+    countertopPageSettings: templates(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -590,10 +641,10 @@ export const COUNTERTOP_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsCountertop {
+      ... on TemplatesCountertop {
         blocks {
           __typename
-          ... on PageSettingsCountertopBlocksCountertopProductInfo {
+          ... on TemplatesCountertopBlocksCountertopProductInfo {
             breadcrumbLabel
             technicalDetailsTitle
             contactButtonLabel
@@ -602,17 +653,17 @@ export const COUNTERTOP_PAGE_SETTINGS_QUERY = `
             galleryMainImageSize
             galleryLightboxImageSize
           }
-          ... on PageSettingsCountertopBlocksProjectsUsingThisProduct {
+          ... on TemplatesCountertopBlocksProjectsUsingThisProduct {
             title
             description
             imageSize
           }
-          ... on PageSettingsCountertopBlocksRelatedProducts {
+          ... on TemplatesCountertopBlocksRelatedProducts {
             title
             subtitle
             imageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsCountertopBlocks")}
+${buildSharedPageSettingsBlockFragments("TemplatesCountertopBlocks")}
         }
       }
     }
@@ -621,7 +672,7 @@ ${buildSharedPageSettingsBlockFragments("PageSettingsCountertopBlocks")}
 
 export const FLOORING_PAGE_SETTINGS_QUERY = `
   query FlooringPageSettingsDocument($relativePath: String!) {
-    flooringPageSettings: pageSettings(relativePath: $relativePath) {
+    flooringPageSettings: templates(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -630,10 +681,10 @@ export const FLOORING_PAGE_SETTINGS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsFlooring {
+      ... on TemplatesFlooring {
         blocks {
           __typename
-          ... on PageSettingsFlooringBlocksFlooringProductInfo {
+          ... on TemplatesFlooringBlocksFlooringProductInfo {
             breadcrumbLabel
             technicalDetailsTitle
             contactButtonLabel
@@ -642,17 +693,17 @@ export const FLOORING_PAGE_SETTINGS_QUERY = `
             galleryMainImageSize
             galleryLightboxImageSize
           }
-          ... on PageSettingsFlooringBlocksProjectsUsingThisProduct {
+          ... on TemplatesFlooringBlocksProjectsUsingThisProduct {
             title
             description
             imageSize
           }
-          ... on PageSettingsFlooringBlocksRelatedProducts {
+          ... on TemplatesFlooringBlocksRelatedProducts {
             title
             subtitle
             imageSize
           }
-${buildSharedPageSettingsBlockFragments("PageSettingsFlooringBlocks")}
+${buildSharedPageSettingsBlockFragments("TemplatesFlooringBlocks")}
         }
       }
     }

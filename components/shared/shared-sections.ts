@@ -16,7 +16,7 @@ export interface SharedSectionsQueryLikeResult {
 
 export const SHARED_SECTIONS_QUERY = `
   query SharedSectionsDocument($relativePath: String!) {
-    sharedSections: pageSettings(relativePath: $relativePath) {
+    sharedSections: sharedSectionSettings(relativePath: $relativePath) {
       ... on Document {
         id
         _sys {
@@ -25,7 +25,7 @@ export const SHARED_SECTIONS_QUERY = `
           relativePath
         }
       }
-      ... on PageSettingsSharedSections {
+      ... on SharedSectionSettingsSharedSections {
         contactSection {
           title
           image

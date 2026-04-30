@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import React from "react";
-import { defineConfig, ImageField } from "tinacms";
+import { defineConfig, EditIcon, ImageField, useCMS } from "tinacms";
 import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
 import {
   getCabinetProductFocusItemId,
@@ -1729,7 +1729,7 @@ function sharedSectionReferenceTemplate(
         type: "string" as const,
         name: "sharedSection",
         label: "Shared Source",
-        description: `${sharedSourceLabel} is edited once in Page Settings > Shared Sections and reused anywhere this block is placed.`,
+        description: `${sharedSourceLabel} is edited once in Shared Sections and reused anywhere this block is placed.`,
         options: [{ label: sharedSourceLabel, value: name }],
         ui: { component: "select" as const },
       },
@@ -1746,6 +1746,57 @@ function sharedSectionReferenceTemplates() {
     sharedSectionReferenceTemplate("sharedCountertopPartnersSection", "Shared: Countertop Partners", "Countertop Partners"),
     sharedSectionReferenceTemplate("sharedFlooringPartnersSection", "Shared: Flooring Partners", "Flooring Partners"),
   ];
+}
+
+function sharedSectionsSettingsTemplate() {
+  return {
+    name: "sharedSections" as const,
+    label: "Shared Sections",
+    fields: [
+      {
+        type: "object" as const,
+        name: "contactSection",
+        label: "Contact Section",
+        fields: sharedContactSectionTemplate().fields,
+      },
+      {
+        type: "object" as const,
+        name: "showroomSection",
+        label: "Our Showroom Section",
+        fields: sharedShowroomSectionTemplate().fields,
+      },
+      {
+        type: "object" as const,
+        name: "aboutSection",
+        label: "About / Trust Section",
+        fields: sharedAboutSectionTemplate().fields,
+      },
+      {
+        type: "object" as const,
+        name: "partnersSection",
+        label: "Cabinet Partners",
+        fields: sharedPartnersSectionTemplate().fields,
+      },
+      {
+        type: "object" as const,
+        name: "countertopPartnersSection",
+        label: "Countertop Partners",
+        fields: sharedPartnersSectionTemplate({
+          name: "countertopPartnersSection",
+          label: "Countertop Partners",
+        }).fields,
+      },
+      {
+        type: "object" as const,
+        name: "flooringPartnersSection",
+        label: "Flooring Partners",
+        fields: sharedPartnersSectionTemplate({
+          name: "flooringPartnersSection",
+          label: "Flooring Partners",
+        }).fields,
+      },
+    ],
+  };
 }
 
 function sharedProcessSectionTemplate() {
@@ -1816,6 +1867,45 @@ function sharedRichContentTemplate() {
     fields: [
       { type: "string" as const, name: "title", label: "Title" },
       { type: "rich-text" as const, name: "body", label: "Content" },
+    ],
+  };
+}
+
+function sharedArticleContentSectionTemplate() {
+  return {
+    name: "articleContentSection" as const,
+    label: "Article Content Section",
+    fields: [
+      { type: "string" as const, name: "breadcrumbLabel", label: "Breadcrumb Label" },
+      { type: "string" as const, name: "title", label: "Title" },
+      { type: "string" as const, name: "subtitle", label: "Subtitle", ui: { component: "textarea" as const } },
+      {
+        type: "rich-text" as const,
+        name: "body",
+        label: "Body",
+        templates: [
+          {
+            name: "ArticleImage" as const,
+            label: "Article Image",
+            fields: [
+              { type: "image" as const, name: "image", label: "Image" },
+              { type: "string" as const, name: "alt", label: "Alt Text" },
+              { type: "string" as const, name: "caption", label: "Caption" },
+              {
+                type: "string" as const,
+                name: "aspectRatio",
+                label: "Aspect Ratio",
+                options: [
+                  { label: "16:9", value: "landscape" },
+                  { label: "1:1", value: "square" },
+                  { label: "3:4", value: "portrait" },
+                ],
+                ui: { component: "select" as const },
+              },
+            ],
+          },
+        ],
+      },
     ],
   };
 }
@@ -1927,6 +2017,7 @@ function sharedPageSectionTemplates() {
     sharedShowroomSectionTemplate(),
     sharedAboutStorySectionTemplate(),
     sharedRichContentTemplate(),
+    sharedArticleContentSectionTemplate(),
     sharedMagazineEmbedTemplate(),
     sharedTextImageSectionTemplate(),
     sharedPartnersSectionTemplate(),
@@ -1941,11 +2032,6 @@ function sharedPageSectionTemplates() {
     sharedRelatedArticlesSectionTemplate(),
     ...sharedSectionReferenceTemplates(),
   ];
-}
-
-function sharedPageSectionTemplatesExcept(excludedNames: string[]) {
-  const excluded = new Set(excludedNames);
-  return sharedPageSectionTemplates().filter((template) => !excluded.has(template.name));
 }
 
 function serviceMainPageSettingsTemplate(name: string, label: string, route: string) {
@@ -1968,10 +2054,142 @@ function serviceMainPageSettingsTemplate(name: string, label: string, route: str
   };
 }
 
+type TinaEditTarget = {
+  collectionName: "pages" | "templates";
+  filename: string;
+};
+
+const pageSettingsEditTargetsByRoute: Record<string, TinaEditTarget> = {
+  "/": { collectionName: "pages", filename: "home" },
+  "/about-us": { collectionName: "pages", filename: "about-us" },
+  "/contact-us": { collectionName: "pages", filename: "contact-us" },
+  "/privacy-policy": { collectionName: "pages", filename: "privacy-policy" },
+  "/magazine": { collectionName: "pages", filename: "magazine" },
+  "/cabinets": { collectionName: "pages", filename: "cabinets-main-page-settings" },
+  "/countertops": { collectionName: "pages", filename: "countertops-main-page-settings" },
+  "/flooring": { collectionName: "pages", filename: "flooring-main-page-settings" },
+  "/kitchen-remodel": { collectionName: "pages", filename: "kitchen-remodel-main-page-settings" },
+  "/bathroom-remodel": { collectionName: "pages", filename: "bathroom-remodel-main-page-settings" },
+  "/glass-enclosures": { collectionName: "pages", filename: "glass-enclosures-main-page-settings" },
+  "/cabinets/catalog": { collectionName: "pages", filename: "cabinets-overview-page-settings" },
+  "/countertops/catalog": { collectionName: "pages", filename: "countertops-overview-page-settings" },
+  "/flooring/catalog": { collectionName: "pages", filename: "flooring-overview-page-settings" },
+  "/gallery": { collectionName: "pages", filename: "gallery-page-settings" },
+  "/blog": { collectionName: "pages", filename: "blog-page-settings" },
+};
+
+const pageRoutesByFilename = Object.fromEntries(
+  Object.entries(pageSettingsEditTargetsByRoute).map(([route, target]) => [target.filename, route]),
+) as Record<string, string>;
+
+const templateSettingsEditTargetsByRoutePrefix: Array<{ prefix: string; target: TinaEditTarget }> = [
+  { prefix: "/projects/", target: { collectionName: "templates", filename: "project-page-settings" } },
+  { prefix: "/collections/", target: { collectionName: "templates", filename: "collection-page-settings" } },
+  { prefix: "/post/", target: { collectionName: "templates", filename: "post-page-settings" } },
+  { prefix: "/cabinets/", target: { collectionName: "templates", filename: "cabinet-page-settings" } },
+  { prefix: "/countertops/", target: { collectionName: "templates", filename: "countertop-page-settings" } },
+  { prefix: "/flooring/catalog/", target: { collectionName: "templates", filename: "flooring-page-settings" } },
+];
+
+function normalizePreviewRoute(route: string) {
+  const [withoutQuery] = route.split(/[?#]/);
+  const decoded = decodeURI(withoutQuery || "/");
+  const withLeadingSlash = decoded.startsWith("/") ? decoded : `/${decoded}`;
+  return withLeadingSlash.length > 1 ? withLeadingSlash.replace(/\/+$/, "") : "/";
+}
+
+function getCurrentPreviewRoute() {
+  if (typeof window === "undefined") return "/";
+
+  const hashRoute = window.location.hash.replace(/^#/, "");
+  if (hashRoute === "/~") return "/";
+  if (hashRoute.startsWith("/~/")) {
+    return normalizePreviewRoute(hashRoute.slice(2));
+  }
+
+  return normalizePreviewRoute(window.location.pathname);
+}
+
+function resolveEditTargetForRoute(route: string): TinaEditTarget | null {
+  const normalizedRoute = normalizePreviewRoute(route);
+  const pageTarget = pageSettingsEditTargetsByRoute[normalizedRoute];
+  if (pageTarget) return pageTarget;
+
+  return templateSettingsEditTargetsByRoutePrefix.find(({ prefix }) => normalizedRoute.startsWith(prefix))?.target || null;
+}
+
+function getTinaFormPath(target: TinaEditTarget) {
+  return `content/global/${target.filename}.json`;
+}
+
+function EditCurrentPageScreen({ close }: { close: () => void }) {
+  const cms = useCMS();
+  const [message, setMessage] = React.useState("Focusing the current page settings...");
+
+  React.useEffect(() => {
+    const target = resolveEditTargetForRoute(getCurrentPreviewRoute());
+    if (!target) {
+      setMessage("This page does not have a page-builder page or detail template to focus.");
+      return;
+    }
+
+    const targetPath = getTinaFormPath(target);
+    const form = cms.state.forms.find(({ tinaForm }) => tinaForm.id === targetPath || tinaForm.path === targetPath);
+    if (!form) {
+      setMessage("Tina has not loaded the current page/template form yet. Try again after the preview finishes loading.");
+      return;
+    }
+
+    cms.dispatch({
+      type: "forms:set-active-field-name",
+      value: {
+        formId: form.tinaForm.id,
+        fieldName: "",
+      },
+    });
+    cms.dispatch({
+      type: "sidebar:set-display-state",
+      value: "openOrFull",
+    });
+    close();
+  }, [cms, close]);
+
+  return React.createElement(
+    "div",
+    { className: "p-6 text-gray-700" },
+    React.createElement("h2", { className: "text-xl font-semibold text-gray-900 mb-3" }, "Edit Current Page"),
+    React.createElement(
+      "p",
+      { className: "text-sm leading-6 mb-4" },
+      message,
+    ),
+    React.createElement(
+      "button",
+      {
+        className: "text-sm text-blue-600 hover:text-blue-700",
+        onClick: close,
+        type: "button",
+      },
+      "Close",
+    ),
+  );
+}
+
 export default defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
+  cmsCallback: (cms) => {
+    cms.plugins.add({
+      __type: "screen",
+      name: "Edit Current Page",
+      Icon: EditIcon,
+      layout: "popup",
+      navCategory: "Site",
+      Component: EditCurrentPageScreen,
+    });
+    return cms;
+  },
   build: { outputFolder: "admin", publicFolder: "public" },
   media: {
     loadCustomStore: async () => {
@@ -2258,76 +2476,46 @@ export default defineConfig({
         ],
       },
       {
-        name: "pageSettings",
-        label: "Page Settings",
+        name: "sharedSectionSettings",
+        label: "Shared Sections",
+        path: "content/global",
+        format: "json",
+        match: { include: "shared-sections" },
+        ui: {
+          allowedActions: { create: false, delete: false },
+        },
+        templates: [sharedSectionsSettingsTemplate()],
+      },
+      {
+        name: "pages",
+        label: "Pages",
         path: "content/global",
         format: "json",
         match: {
           include:
-            "@(shared-sections|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|glass-enclosures-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|blog-page-settings|project-page-settings|collection-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
+            "@(home|about-us|contact-us|privacy-policy|magazine|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|glass-enclosures-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|blog-page-settings)",
         },
         ui: {
-          global: true,
+          router: ({ document }) => {
+            return pageRoutesByFilename[document._sys.filename] || "/";
+          },
           allowedActions: { create: false, delete: false },
         },
         templates: [
-          {
-            name: "sharedSections",
-            label: "Shared Sections",
-            fields: [
-              {
-                type: "object",
-                name: "contactSection",
-                label: "Contact Section",
-                fields: sharedContactSectionTemplate().fields,
-              },
-              {
-                type: "object",
-                name: "showroomSection",
-                label: "Our Showroom Section",
-                fields: sharedShowroomSectionTemplate().fields,
-              },
-              {
-                type: "object",
-                name: "aboutSection",
-                label: "About / Trust Section",
-                fields: sharedAboutSectionTemplate().fields,
-              },
-              {
-                type: "object",
-                name: "partnersSection",
-                label: "Cabinet Partners",
-                fields: sharedPartnersSectionTemplate().fields,
-              },
-              {
-                type: "object",
-                name: "countertopPartnersSection",
-                label: "Countertop Partners",
-                fields: sharedPartnersSectionTemplate({
-                  name: "countertopPartnersSection",
-                  label: "Countertop Partners",
-                }).fields,
-              },
-              {
-                type: "object",
-                name: "flooringPartnersSection",
-                label: "Flooring Partners",
-                fields: sharedPartnersSectionTemplate({
-                  name: "flooringPartnersSection",
-                  label: "Flooring Partners",
-                }).fields,
-              },
-            ],
-          },
-          serviceMainPageSettingsTemplate("cabinetsMainPage", "Cabinets Page (/cabinets)", "/cabinets"),
-          serviceMainPageSettingsTemplate("countertopsMainPage", "Countertops Page (/countertops)", "/countertops"),
-          serviceMainPageSettingsTemplate("flooringMainPage", "Flooring Page (/flooring)", "/flooring"),
-          serviceMainPageSettingsTemplate("kitchenRemodelMainPage", "Kitchen Remodel Page (/kitchen-remodel)", "/kitchen-remodel"),
-          serviceMainPageSettingsTemplate("bathroomRemodelMainPage", "Bathroom Remodel Page (/bathroom-remodel)", "/bathroom-remodel"),
-          serviceMainPageSettingsTemplate("glassEnclosuresMainPage", "Glass Enclosures Page (/glass-enclosures)", "/glass-enclosures"),
+          serviceMainPageSettingsTemplate("homePage", "Page: Home (/)", "/"),
+          serviceMainPageSettingsTemplate("aboutPage", "Page: About (/about-us)", "/about-us"),
+          serviceMainPageSettingsTemplate("contactPage", "Page: Contact (/contact-us)", "/contact-us"),
+          serviceMainPageSettingsTemplate("privacyPolicyPage", "Page: Privacy Policy (/privacy-policy)", "/privacy-policy"),
+          serviceMainPageSettingsTemplate("magazinePage", "Page: Magazine (/magazine)", "/magazine"),
+          serviceMainPageSettingsTemplate("cabinetsMainPage", "Page: Cabinets (/cabinets)", "/cabinets"),
+          serviceMainPageSettingsTemplate("countertopsMainPage", "Page: Countertops (/countertops)", "/countertops"),
+          serviceMainPageSettingsTemplate("flooringMainPage", "Page: Flooring (/flooring)", "/flooring"),
+          serviceMainPageSettingsTemplate("kitchenRemodelMainPage", "Page: Kitchen Remodel (/kitchen-remodel)", "/kitchen-remodel"),
+          serviceMainPageSettingsTemplate("bathroomRemodelMainPage", "Page: Bathroom Remodel (/bathroom-remodel)", "/bathroom-remodel"),
+          serviceMainPageSettingsTemplate("glassEnclosuresMainPage", "Page: Glass Enclosures (/glass-enclosures)", "/glass-enclosures"),
           {
             name: "cabinetsOverview",
-            label: "Cabinet Catalog",
+            label: "Page: Cabinet Catalog (/cabinets/catalog)",
             fields: [
               {
                 type: "object",
@@ -2362,7 +2550,7 @@ export default defineConfig({
           },
           {
             name: "countertopsOverview",
-            label: "Countertop Catalog",
+            label: "Page: Countertop Catalog (/countertops/catalog)",
             fields: [
               {
                 type: "object",
@@ -2397,7 +2585,7 @@ export default defineConfig({
           },
           {
             name: "flooringOverview",
-            label: "Flooring Catalog",
+            label: "Page: Flooring Catalog (/flooring/catalog)",
             fields: [
               {
                 type: "object",
@@ -2432,7 +2620,7 @@ export default defineConfig({
           },
           {
             name: "gallery",
-            label: "Gallery Page (/gallery)",
+            label: "Page: Gallery (/gallery)",
             fields: [
               { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
               seoFields(),
@@ -2486,7 +2674,7 @@ export default defineConfig({
           },
           {
             name: "blog",
-            label: "Blog Page (/blog)",
+            label: "Page: Blog (/blog)",
             fields: [
               { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
               seoFields(),
@@ -2517,9 +2705,24 @@ export default defineConfig({
               },
             ],
           },
+        ],
+      },
+      {
+        name: "templates",
+        label: "Templates",
+        path: "content/global",
+        format: "json",
+        match: {
+          include:
+            "@(project-page-settings|collection-page-settings|post-page-settings|cabinet-page-settings|countertop-page-settings|flooring-page-settings)",
+        },
+        ui: {
+          allowedActions: { create: false, delete: false },
+        },
+        templates: [
           {
             name: "project",
-            label: "Project",
+            label: "Template: Project Detail (/projects/[slug])",
             fields: [
               {
                 type: "object",
@@ -2599,7 +2802,7 @@ export default defineConfig({
           },
           {
             name: "collection",
-            label: "Collection",
+            label: "Template: Collection Detail (/collections/[slug])",
             fields: [
               {
                 type: "object",
@@ -2649,7 +2852,7 @@ export default defineConfig({
           },
           {
             name: "post",
-            label: "Post Page (/post/[slug])",
+            label: "Template: Blog Post Detail (/post/[slug])",
             fields: [
               { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
               seoFields(),
@@ -2693,7 +2896,7 @@ export default defineConfig({
           },
           {
             name: "cabinet",
-            label: "Cabinet",
+            label: "Template: Cabinet Product Detail (/cabinets/[slug])",
             fields: [
               {
                 type: "object",
@@ -2767,7 +2970,7 @@ export default defineConfig({
           },
           {
             name: "countertop",
-            label: "Countertop",
+            label: "Template: Countertop Product Detail (/countertops/[slug])",
             fields: [
               {
                 type: "object",
@@ -2841,7 +3044,7 @@ export default defineConfig({
           },
           {
             name: "flooring",
-            label: "Flooring",
+            label: "Template: Flooring Product Detail (/flooring/catalog/[slug])",
             fields: [
               {
                 type: "object",
@@ -2911,119 +3114,6 @@ export default defineConfig({
                   ...sharedPageSectionTemplates(),
                 ],
               },
-            ],
-          },
-        ],
-      },
-
-      // ─── PAGES: home, about-us, contact-us, privacy-policy, magazine ─────
-      {
-        name: "page",
-        label: "Pages",
-        path: "content/pages",
-        match: { include: "@(home|about-us|contact-us|privacy-policy|magazine)" },
-        ui: {
-          router: ({ document }) => {
-            if (document._sys.filename === "home") return "/";
-            return `/${document._sys.filename}`;
-          },
-          allowedActions: { create: false, delete: false },
-        },
-        fields: [
-          { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
-          seoFields(),
-          {
-            type: "object", name: "blocks", label: "Page Sections", list: true,
-            ui: { visualSelector: true },
-            templates: sharedPageSectionTemplates(),
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            description: "Rich-text body. Used by simple pages like Privacy Policy.",
-            isBody: true,
-            templates: [
-              {
-                name: "ArticleImage",
-                label: "Article Image",
-                fields: [
-                  { type: "image", name: "image", label: "Image" },
-                  { type: "string", name: "alt", label: "Alt Text" },
-                  { type: "string", name: "caption", label: "Caption" },
-                  {
-                    type: "string",
-                    name: "aspectRatio",
-                    label: "Aspect Ratio",
-                    options: [
-                      { label: "16:9", value: "landscape" },
-                      { label: "1:1", value: "square" },
-                      { label: "3:4", value: "portrait" },
-                    ],
-                    ui: { component: "select" },
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-
-      // ─── SERVICES: /cabinets, /countertops, etc. ───────────────
-      {
-        name: "service",
-        label: "Services",
-        path: "content/services",
-        ui: {
-          router: ({ document }) => `/${document._sys.filename}`,
-        },
-        fields: [
-          { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
-          seoFields(),
-          {
-            type: "object", name: "blocks", label: "Page Sections", list: true,
-            templates: [
-              {
-                name: "hero", label: "Hero Section",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
-                  { type: "string", name: "ctaLabel", label: "CTA Text" },
-                  { type: "string", name: "ctaLink", label: "CTA Link" },
-                  { type: "image", name: "backgroundImage", label: "Background Image" },
-                ],
-              },
-              {
-                name: "features", label: "Features Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  {
-                    type: "object", name: "items", label: "Feature Items", list: true,
-                    ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["title"], "Feature") }) },
-                    fields: [
-                      { type: "string", name: "icon", label: "Icon" },
-                      { type: "string", name: "title", label: "Title" },
-                      { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "gallery", label: "Gallery Section",
-                fields: [
-                  { type: "string", name: "title", label: "Section Title" },
-                  { type: "image", name: "images", label: "Images", list: true },
-                ],
-              },
-              {
-                name: "ctaBanner", label: "CTA Banner",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  { type: "string", name: "buttonText", label: "Button Text" },
-                  { type: "string", name: "buttonLink", label: "Button Link" },
-                ],
-              },
-              ...sharedPageSectionTemplatesExcept(["hero"]),
             ],
           },
         ],

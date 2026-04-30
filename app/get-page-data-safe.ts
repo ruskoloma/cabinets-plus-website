@@ -1,8 +1,10 @@
 import {
   createStaticQueryResult,
+  readJsonContentFile,
   readMarkdownFrontmatter,
 } from "@/app/lib/content";
 import { enrichProjectsSectionBlocksInPageResult } from "@/app/lib/enrich-projects-section";
+import { PAGE_QUERY } from "@/components/page-settings/queries";
 import { client } from "@/tina/__generated__/client";
 
 interface PageSeo {
@@ -38,6 +40,7 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   trustStrip: "PageBlocksTrustStrip",
   aboutStorySection: "PageBlocksAboutStorySection",
   richContent: "PageBlocksRichContent",
+  articleContentSection: "PageBlocksArticleContentSection",
   magazineEmbed: "PageBlocksMagazineEmbed",
   partnersSection: "PageBlocksPartnersSection",
   countertopPartnersSection: "PageBlocksCountertopPartnersSection",
@@ -65,6 +68,10 @@ function normalizePageBlock(value: unknown): Record<string, unknown> | null {
   return block;
 }
 
+function normalizePageRelativePath(relativePath: string): string {
+  return relativePath.replace(/\.md$/i, ".json");
+}
+
 function normalizePageData(value: unknown): PageData | null {
   if (!value || typeof value !== "object") return null;
   const data = value as Record<string, unknown>;
@@ -86,21 +93,58 @@ function normalizePageData(value: unknown): PageData | null {
 }
 
 export async function getPageDataSafe(relativePath: string): Promise<PageQueryLikeResult> {
+  const normalizedRelativePath = normalizePageRelativePath(relativePath);
+
   try {
-    const result = await client.queries.page({ relativePath });
-    await enrichProjectsSectionBlocksInPageResult(result);
-    return result;
+    const result = await client.request(
+      {
+        query: PAGE_QUERY,
+        variables: { relativePath: normalizedRelativePath },
+      },
+      {},
+    );
+    const payload = {
+      data: (result as { data?: { page?: PageData | null } }).data || {},
+      query: PAGE_QUERY,
+      variables: { relativePath: normalizedRelativePath },
+    };
+    await enrichProjectsSectionBlocksInPageResult(payload);
+    return payload;
   } catch (error) {
     try {
-      const frontmatter = await readMarkdownFrontmatter("pages", relativePath);
-      const fallback = createStaticQueryResult({
-        page: normalizePageData(frontmatter),
-      });
+      const document = await readJsonContentFile<PageData>(
+        "global",
+        normalizedRelativePath,
+      );
+      const fallback = {
+        ...createStaticQueryResult({
+          page: normalizePageData(document),
+        }),
+        query: PAGE_QUERY,
+        variables: { relativePath: normalizedRelativePath },
+      };
       await enrichProjectsSectionBlocksInPageResult(fallback);
       return fallback;
     } catch {
-      console.error(`Unable to load page "${relativePath}" from Tina or local file.`, error);
-      return createStaticQueryResult({ page: null });
+      try {
+        const frontmatter = await readMarkdownFrontmatter("pages", relativePath);
+        const fallback = {
+          ...createStaticQueryResult({
+            page: normalizePageData(frontmatter),
+          }),
+          query: PAGE_QUERY,
+          variables: { relativePath: normalizedRelativePath },
+        };
+        await enrichProjectsSectionBlocksInPageResult(fallback);
+        return fallback;
+      } catch {
+        console.error(`Unable to load page "${normalizedRelativePath}" from Tina or local file.`, error);
+        return {
+          ...createStaticQueryResult({ page: null }),
+          query: PAGE_QUERY,
+          variables: { relativePath: normalizedRelativePath },
+        };
+      }
     }
   }
 }

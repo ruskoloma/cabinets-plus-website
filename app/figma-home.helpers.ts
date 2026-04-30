@@ -79,6 +79,7 @@ const SHARED_PAGE_TYPENAME_TO_TEMPLATE: Record<string, string> = {
   TrustStrip: "trustStrip",
   AboutStorySection: "aboutStorySection",
   RichContent: "richContent",
+  ArticleContentSection: "articleContentSection",
   MagazineEmbed: "magazineEmbed",
   PartnersSection: "partnersSection",
   CountertopPartnersSection: "countertopPartnersSection",
@@ -99,15 +100,37 @@ function buildTypenameMap(prefix: string, entries: Record<string, string>): Reco
   );
 }
 
+function buildTypenameMaps(prefixes: string[], entries: Record<string, string>): Record<string, string> {
+  return Object.assign({}, ...prefixes.map((prefix) => buildTypenameMap(prefix, entries)));
+}
+
+const ACTUAL_PAGE_BLOCK_PREFIXES = [
+  "PagesHomePageBlocks",
+  "PagesAboutPageBlocks",
+  "PagesContactPageBlocks",
+  "PagesPrivacyPolicyPageBlocks",
+  "PagesMagazinePageBlocks",
+  "PagesCabinetsMainPageBlocks",
+  "PagesCountertopsMainPageBlocks",
+  "PagesFlooringMainPageBlocks",
+  "PagesKitchenRemodelMainPageBlocks",
+  "PagesBathroomRemodelMainPageBlocks",
+  "PagesGlassEnclosuresMainPageBlocks",
+];
+
+const LEGACY_PAGE_SETTINGS_BLOCK_PREFIXES = [
+  "PageSettingsCabinetsMainPageBlocks",
+  "PageSettingsCountertopsMainPageBlocks",
+  "PageSettingsFlooringMainPageBlocks",
+  "PageSettingsKitchenRemodelMainPageBlocks",
+  "PageSettingsBathroomRemodelMainPageBlocks",
+  "PageSettingsGlassEnclosuresMainPageBlocks",
+];
+
 const TYPE_TO_TEMPLATE: Record<string, string> = {
   ...buildTypenameMap("PageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
-  ...buildTypenameMap("ServiceBlocks", {
-    Hero: "hero",
-    Features: "features",
-    Gallery: "gallery",
-    CtaBanner: "ctaBanner",
-    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
-  }),
+  ...buildTypenameMaps(ACTUAL_PAGE_BLOCK_PREFIXES, SHARED_PAGE_TYPENAME_TO_TEMPLATE),
+  ...buildTypenameMaps(LEGACY_PAGE_SETTINGS_BLOCK_PREFIXES, SHARED_PAGE_TYPENAME_TO_TEMPLATE),
   ...buildTypenameMap("PageSettingsCabinetBlocks", {
     CabinetProductInfo: "cabinetProductInfo",
     ProjectsUsingThisProduct: "projectsUsingThisProduct",
@@ -132,13 +155,45 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
     ProjectRelatedProjects: "projectRelatedProjects",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),
-  ...buildTypenameMap("PageSettingsCabinetsMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
-  ...buildTypenameMap("PageSettingsCountertopsMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
-  ...buildTypenameMap("PageSettingsFlooringMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
-  ...buildTypenameMap("PageSettingsKitchenRemodelMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
-  ...buildTypenameMap("PageSettingsBathroomRemodelMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
-  ...buildTypenameMap("PageSettingsGlassEnclosuresMainPageBlocks", SHARED_PAGE_TYPENAME_TO_TEMPLATE),
+  ...buildTypenameMap("TemplatesCabinetBlocks", {
+    CabinetProductInfo: "cabinetProductInfo",
+    ProjectsUsingThisProduct: "projectsUsingThisProduct",
+    RelatedProducts: "relatedProducts",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("TemplatesCountertopBlocks", {
+    CountertopProductInfo: "countertopProductInfo",
+    ProjectsUsingThisProduct: "projectsUsingThisProduct",
+    RelatedProducts: "relatedProducts",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("TemplatesFlooringBlocks", {
+    FlooringProductInfo: "flooringProductInfo",
+    ProjectsUsingThisProduct: "projectsUsingThisProduct",
+    RelatedProducts: "relatedProducts",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("TemplatesProjectBlocks", {
+    ProjectInfo: "projectInfo",
+    ProjectMaterials: "projectMaterials",
+    ProjectRelatedProjects: "projectRelatedProjects",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("TemplatesCollectionBlocks", {
+    CollectionInfo: "collectionInfo",
+    CollectionRelatedProjects: "collectionRelatedProjects",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("TemplatesPostBlocks", {
+    PostContent: "postContent",
+    PostRelatedArticles: "postRelatedArticles",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
   ...buildTypenameMap("PageSettingsCabinetsOverviewBlocks", {
+    CabinetCatalogGrid: "cabinetCatalogGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PagesCabinetsOverviewBlocks", {
     CabinetCatalogGrid: "cabinetCatalogGrid",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),
@@ -146,7 +201,15 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
     CountertopCatalogGrid: "countertopCatalogGrid",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),
+  ...buildTypenameMap("PagesCountertopsOverviewBlocks", {
+    CountertopCatalogGrid: "countertopCatalogGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
   ...buildTypenameMap("PageSettingsFlooringOverviewBlocks", {
+    FlooringCatalogGrid: "flooringCatalogGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PagesFlooringOverviewBlocks", {
     FlooringCatalogGrid: "flooringCatalogGrid",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),
@@ -154,7 +217,15 @@ const TYPE_TO_TEMPLATE: Record<string, string> = {
     GalleryProjectGrid: "galleryProjectGrid",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),
+  ...buildTypenameMap("PagesGalleryBlocks", {
+    GalleryProjectGrid: "galleryProjectGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
   ...buildTypenameMap("PageSettingsBlogBlocks", {
+    BlogPostsGrid: "blogPostsGrid",
+    ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
+  }),
+  ...buildTypenameMap("PagesBlogBlocks", {
     BlogPostsGrid: "blogPostsGrid",
     ...SHARED_PAGE_TYPENAME_TO_TEMPLATE,
   }),

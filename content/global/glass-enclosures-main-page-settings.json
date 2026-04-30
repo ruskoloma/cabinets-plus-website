@@ -118,6 +118,10 @@
         {
           "question": "Can you install shower glass in an existing bathroom, or only during a remodel?",
           "answer": "Both. A lot of our glass jobs are upgrades to existing bathrooms — replacing a tired curtain, an old framed enclosure, or a shower door that no longer seals properly. As long as the tile and curb are in good shape, we can usually replace just the glass."
+        },
+        {
+          "question": "Do you serve areas outside of Spokane?",
+          "answer": "Yes. We install custom shower glass and mirrors throughout Spokane County and into North Idaho, including Spokane Valley, Liberty Lake, Cheney, Deer Park, Coeur d'Alene, Post Falls, and Hayden."
         }
       ],
       "_template": "miniFaqSection"
