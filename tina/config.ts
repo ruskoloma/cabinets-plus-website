@@ -2517,6 +2517,7 @@ export default defineConfig({
             name: "cabinetsOverview",
             label: "Page: Cabinet Catalog (/cabinets/catalog)",
             fields: [
+              { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",
@@ -2552,6 +2553,7 @@ export default defineConfig({
             name: "countertopsOverview",
             label: "Page: Countertop Catalog (/countertops/catalog)",
             fields: [
+              { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",
@@ -2587,6 +2589,7 @@ export default defineConfig({
             name: "flooringOverview",
             label: "Page: Flooring Catalog (/flooring/catalog)",
             fields: [
+              { type: "string", name: "title", label: "Page Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",
@@ -2724,6 +2727,7 @@ export default defineConfig({
             name: "project",
             label: "Template: Project Detail (/projects/[slug])",
             fields: [
+              { type: "string", name: "title", label: "Template Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",
@@ -2804,6 +2808,7 @@ export default defineConfig({
             name: "collection",
             label: "Template: Collection Detail (/collections/[slug])",
             fields: [
+              { type: "string", name: "title", label: "Template Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",
@@ -2898,6 +2903,7 @@ export default defineConfig({
             name: "cabinet",
             label: "Template: Cabinet Product Detail (/cabinets/[slug])",
             fields: [
+              { type: "string", name: "title", label: "Template Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",
@@ -2972,6 +2978,7 @@ export default defineConfig({
             name: "countertop",
             label: "Template: Countertop Product Detail (/countertops/[slug])",
             fields: [
+              { type: "string", name: "title", label: "Template Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",
@@ -3046,6 +3053,7 @@ export default defineConfig({
             name: "flooring",
             label: "Template: Flooring Product Detail (/flooring/catalog/[slug])",
             fields: [
+              { type: "string", name: "title", label: "Template Title", isTitle: true, required: true },
               {
                 type: "object",
                 name: "blocks",

@@ -1,5 +1,6 @@
 {
   "_template": "flooringOverview",
+  "title": "Flooring Catalog",
   "blocks": [
     {
       "_template": "flooringCatalogGrid",

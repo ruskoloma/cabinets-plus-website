@@ -1,5 +1,6 @@
 {
   "_template": "cabinetsOverview",
+  "title": "Cabinet Catalog",
   "blocks": [
     {
       "_template": "cabinetCatalogGrid",
