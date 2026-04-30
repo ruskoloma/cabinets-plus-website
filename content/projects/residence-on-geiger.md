@@ -10,376 +10,357 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White kitchen wood island
-    description: 'Residence on Geiger featuring white kitchen wood island, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Bright kitchen with island'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3957-dsc05668.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: Modern living area
-    description: 'Residence on Geiger featuring modern living area, other, primary project view.'
+    label: 'Light wood flooring'
+    description: 'This room features light wood flooring.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3908-dsc05314.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Bright kitchen with island
-    description: 'Residence on Geiger featuring bright kitchen with island, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Bright open kitchen design'
+    description: 'This kitchen features white painted cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3912-dsc05326.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White kitchen wood island
-    description: 'Residence on Geiger featuring white kitchen wood island, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Bright kitchen with island'
+    description: 'This kitchen features white painted upper cabinets, timber stained lower cabinets, and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3913-dsc05357.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Modern kitchen island
-    description: 'Residence on Geiger featuring modern kitchen island, kitchen, quartz surfaces.'
+    countertop: ''
+    label: 'Quartzite countertop kitchen island'
+    description: 'This kitchen features mocha stained cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3915-dsc05452.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Modern kitchen island
-    description: 'Residence on Geiger featuring modern kitchen island, kitchen, quartz surfaces.'
+    countertop: ''
+    label: 'Wood kitchen island countertop'
+    description: 'This kitchen features wood cabinetry and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3916-dsc05403.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White and wood kitchen
-    description: 'Residence on Geiger featuring white and wood kitchen, kitchen, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Modern white and timber kitchen'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3917-dsc05407.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White and timber kitchen
-    description: 'Residence on Geiger featuring white and timber kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and timber kitchen'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3920-dsc05380.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White and wood kitchen
-    description: 'Residence on Geiger featuring white and wood kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Modern white and timber kitchen'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3922-dsc05434.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Modern kitchen cabinetry
-    description: 'Residence on Geiger featuring modern kitchen cabinetry, kitchen, quartz surfaces.'
+    countertop: ''
+    label: 'Bright kitchen with wood cabinets'
+    description: 'This kitchen features white painted cabinets, timber stained cabinets, and marble countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3923-dsc05467.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - off white
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
-    label: Off-white bathroom vanity
-    description: 'Residence on Geiger featuring off-white bathroom vanity, bathroom, off white cabinetry, marble surfaces.'
+    countertop: ''
+    label: 'White double vanity'
+    description: 'White painted cabinets with a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3925-dsc05442.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Quartz kitchen island
-    description: 'Residence on Geiger featuring quartz kitchen island, kitchen, quartz surfaces.'
+    countertop: ''
+    label: 'White quartzite kitchen island'
+    description: 'This kitchen features white painted cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3926-dsc05512.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Laundry
+    room: 'Laundry'
     cabinetPaints:
       - green
     cabinetStains: []
-    countertop: Quartz
-    label: Green laundry cabinets
-    description: 'Residence on Geiger featuring green laundry cabinets, laundry, green cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Green laundry room cabinets'
+    description: 'This laundry room features green painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3928-dsc05469.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - white
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Geiger featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White shaker bathroom vanity'
+    description: 'This bathroom features white shaker cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3930-dsc05489.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: Marble shower enclosure
-    description: 'Residence on Geiger featuring marble shower enclosure, bathroom.'
+    label: 'Marble shower with bench'
+    description: 'This bathroom features a marble shower with a built-in bench.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3932-dsc05520.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Laundry
+    room: 'Laundry'
     cabinetPaints:
       - green
     cabinetStains: []
     countertop: ''
-    label: Green laundry cabinets
-    description: 'Residence on Geiger featuring green laundry cabinets, laundry, green cabinetry.'
+    label: 'Green laundry room cabinets'
+    description: 'This laundry room features green painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3937-dsc05534.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: Entry with staircase
-    description: 'Residence on Geiger featuring entry with staircase, other.'
+    label: 'Modern staircase with wood treads'
+    description: 'This space features a modern staircase with wood treads and white risers.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3939-dsc05555.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
+    cabinetStains:
+      - white glaze stain
     countertop: ''
-    label: Bathroom timber cabinet
-    description: 'Residence on Geiger featuring bathroom timber cabinet, bathroom, timber cabinetry.'
+    label: 'Tall stained bathroom cabinet'
+    description: 'This bathroom features a tall cabinet with a white glaze stain.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3941-dsc05574.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Other
-    cabinetPaints: []
+    flooring: true
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
     countertop: ''
-    label: Living room built-ins
-    description: 'Residence on Geiger featuring living room built-ins, other.'
+    label: 'Black and blue media cabinets'
+    description: 'This space features black and blue painted cabinets with open timber shelving.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3943-dsc05552.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Double vanity bathroom
-    description: 'Residence on Geiger featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Double vanity with quartzite countertop'
+    description: 'Bathroom featuring mocha stained cabinets and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3944-dsc05604.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Kitchen
+    flooring: true
+    room: 'Other'
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Other
-    label: Black kitchen cabinetry
-    description: 'Residence on Geiger featuring black kitchen cabinetry, kitchen, black cabinetry, other surfaces.'
+    countertop: ''
+    label: 'Black bar with granite countertop'
+    description: 'This space features black painted cabinetry and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3945-dsc05605.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Kitchen
-    cabinetPaints: []
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: Quartzite
-    label: Black bar cabinets
-    description: 'Residence on Geiger featuring black bar cabinets, kitchen, quartzite surfaces.'
+    countertop: ''
+    label: 'Black cabinets with granite countertop'
+    description: 'This space features black painted cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3946-dsc05633.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Other'
     cabinetPaints:
       - black
     cabinetStains: []
     countertop: ''
-    label: Built-in black office cabinetry
-    description: 'Residence on Geiger featuring built-in black office cabinetry, other, black cabinetry.'
+    label: 'Black built-in office cabinets'
+    description: 'This is an office with black painted cabinets and shelves.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3948-dsc05629.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Other
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: Built-in brown cabinetry
-    description: 'Residence on Geiger featuring built-in brown cabinetry, other.'
+    label: 'Gray media cabinet'
+    description: 'Features gray painted cabinets.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3949-dsc05611.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Other'
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Granite
-    label: Black bar cabinetry
-    description: 'Residence on Geiger featuring black bar cabinetry, other, black cabinetry, granite surfaces.'
+    countertop: ''
+    label: 'Black bar with granite countertop'
+    description: 'This space features black painted cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3952-dsc05659.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Bright kitchen overview
-    description: 'Residence on Geiger featuring bright kitchen overview, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Kitchen island with quartzite countertop'
+    description: 'This kitchen features timber stained cabinets, white painted cabinets, and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3953-dsc05652.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Bathroom wood vanity
-    description: 'Residence on Geiger featuring bathroom wood vanity, bathroom, timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Stained wood vanity'
+    description: 'Bathroom with mocha stained vanity and quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3954-dsc05641.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Other
-    cabinetPaints:
-      - black
+    flooring: true
+    room: 'Other'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
-    label: Black built-in cabinetry
-    description: 'Residence on Geiger featuring black built-in cabinetry, other, black cabinetry, other surfaces.'
+    countertop: ''
+    label: 'Gray office built-ins'
+    description: 'This room features gray painted cabinetry.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3956-dsc05301.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - off white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Modern kitchen island
-    description: 'Residence on Geiger featuring modern kitchen island, kitchen, off white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Bright kitchen with island'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with a quartzite countertop.'
 cabinetProducts:
-  - cabinet: null
   - cabinet: content/cabinets/swoa.md
   - cabinet: content/cabinets/ssgh.md
   - cabinet: content/cabinets/mbs.md

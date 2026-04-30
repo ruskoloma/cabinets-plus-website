@@ -101,7 +101,6 @@ media:
 relatedProjects:
   - project: content/projects/residence-on-7th-street.md
 relatedProducts:
-  - product: null
   - product: content/cabinets/twb.md
   - product: content/cabinets/aab.md
   - product: content/cabinets/aap.md

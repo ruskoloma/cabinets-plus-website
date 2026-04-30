@@ -41,7 +41,6 @@ media:
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/aeb.md
-  - product: null
   - {}
   - product: content/cabinets/aop.md
 sourceId: 240

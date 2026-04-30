@@ -15,7 +15,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Quartzite
+    countertop: ''
     label: Kitchen island and cabinetry
     description: 'Residence on Akre Heights Drive featuring kitchen island and cabinetry, kitchen, timber + black cabinetry, quartzite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/02-dsc03201.jpg'
@@ -29,7 +29,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Quartzite
+    countertop: ''
     label: Kitchen with island
     description: 'Residence on Akre Heights Drive featuring kitchen with island, kitchen, timber + black cabinetry, quartzite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/05-dsc03213.jpg'
@@ -41,9 +41,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - black
-      - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen with mixed cabinetry
     description: 'Residence on Akre Heights Drive featuring kitchen with mixed cabinetry, kitchen, black + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/06-dsc03217.jpg'
@@ -55,9 +54,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - black
-      - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen corner cabinetry
     description: 'Residence on Akre Heights Drive featuring kitchen corner cabinetry, kitchen, black + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/07-dsc03220.jpg'
@@ -71,7 +69,7 @@ media:
       - black
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen range wall
     description: 'Residence on Akre Heights Drive featuring kitchen range wall, kitchen, black + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/09-dsc03241.jpg'
@@ -85,7 +83,7 @@ media:
       - black
       - timber
     cabinetStains: []
-    countertop: Quartzite
+    countertop: ''
     label: Black island kitchen
     description: 'Residence on Akre Heights Drive featuring black island kitchen, kitchen, black + timber cabinetry, quartzite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/17-dsc03388.jpg'
@@ -95,10 +93,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Green bathroom vanity
     description: 'Residence on Akre Heights Drive featuring green bathroom vanity, bathroom, green cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-akre-heights-drive/18-dsc03398.jpg'
@@ -108,8 +105,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
     countertop: ''
     label: Mudroom storage bench

@@ -11,10 +11,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Walnut kitchen cabinets
     description: 'Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, timber cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2616-project-example-7.jpg'
@@ -25,9 +24,8 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Walnut kitchen island
     description: 'Residence on Chattaroy featuring walnut kitchen island, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2617-project-example-13.jpg'
@@ -38,8 +36,7 @@ media:
     flooring: false
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
+    cabinetStains: []
     countertop: ''
     label: Walnut kitchen cabinets
     description: 'Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, mocha stain.'
@@ -62,10 +59,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Walnut kitchen island
     description: 'Residence on Chattaroy featuring walnut kitchen island, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2620-project-example-11.jpg'
@@ -75,10 +71,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Walnut kitchen cabinets
     description: 'Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2621-project-example-5.jpg'
@@ -89,9 +84,8 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Walnut kitchen cabinets
     description: 'Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2622-project-example-16.jpg'
@@ -101,10 +95,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Walnut kitchen cabinets
     description: 'Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2627-project-example-18.jpg'
@@ -115,9 +108,8 @@ media:
     flooring: false
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Walnut kitchen cabinets
     description: 'Residence on Chattaroy featuring walnut kitchen cabinets, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2626-project-example-22.jpg'
@@ -127,10 +119,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White built-in cabinets
     description: 'Residence on Chattaroy featuring white built-in cabinets, other, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2628-project-example-24.jpg'
@@ -140,10 +131,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinets
     description: 'Residence on Chattaroy featuring white kitchen cabinets, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2629-project-example-23.jpg'
@@ -155,7 +145,7 @@ media:
     room: Laundry
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry sink
     description: 'Residence on Chattaroy featuring white laundry sink, laundry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2630-project-example-26.jpg'
@@ -165,10 +155,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Chattaroy featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2631-project-example-29.jpg'
@@ -190,10 +179,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Chattaroy featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2633-project-example-33.jpg'
@@ -203,10 +191,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Chattaroy featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2634-project-example-34.jpg'
@@ -216,10 +203,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Chattaroy featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2635-project-example-38.jpg'
@@ -229,10 +215,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry cabinets
     description: 'Residence on Chattaroy featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-chattaroy/2636-project-example-39.jpg'
@@ -242,10 +227,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry cabinets
     description: 'Residence on Chattaroy featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
 countertopProducts:

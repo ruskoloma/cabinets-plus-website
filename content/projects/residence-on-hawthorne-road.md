@@ -144,7 +144,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Hawthorne Road featuring white bathroom vanity, bathroom, white cabinetry, other surfaces.'
 cabinetProducts:

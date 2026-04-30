@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen island
     description: 'Residence on Huxley Drive featuring white kitchen island, kitchen, white cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/02-dsc05104.jpg'
@@ -27,7 +27,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on Huxley Drive featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/03-dsc05120.jpg'
@@ -40,7 +40,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen island
     description: 'Residence on Huxley Drive featuring white kitchen island, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/04-dsc05128.jpg'
@@ -53,7 +53,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on Huxley Drive featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/05-dsc05135.jpg'
@@ -66,7 +66,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on Huxley Drive featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/06-dsc05143.jpg'
@@ -79,7 +79,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen island
     description: 'Residence on Huxley Drive featuring white kitchen island, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/07-dsc05158.jpg'
@@ -104,7 +104,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white kitchen cabinetry
     description: 'Residence on Huxley Drive featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/10-dsc05195.jpg'
@@ -117,7 +117,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on Huxley Drive featuring white kitchen cabinetry, kitchen, white cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/11-dsc05197.jpg'
@@ -140,10 +140,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Residence on Huxley Drive featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/14-dsc05245.jpg'
@@ -153,10 +152,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity
     description: 'Residence on Huxley Drive featuring bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/15-dsc05266.jpg'
@@ -169,7 +167,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Laundry room cabinetry
     description: 'Residence on Huxley Drive featuring laundry room cabinetry, laundry, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/16-dsc05276.jpg'
@@ -204,10 +202,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Residence on Huxley Drive featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-huxley-drive/20-dsc05346.jpg'
@@ -220,7 +217,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Huxley Drive featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
 cabinetProducts:

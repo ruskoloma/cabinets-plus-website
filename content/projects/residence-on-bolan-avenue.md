@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2875-project-example-36.jpg'
@@ -27,7 +27,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2872-project-example-35.jpg'
@@ -40,7 +40,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2841-project-example-39.jpg'
@@ -53,7 +53,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2840-project-example-38.jpg'
@@ -66,7 +66,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2869-project-example-33.jpg'
@@ -79,7 +79,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2839-project-example-37.jpg'
@@ -92,7 +92,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2868-project-example-68.jpg'
@@ -118,7 +118,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white kitchen sink
     description: 'Residence on Bolan Avenue featuring white kitchen sink, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2863-project-example-61.jpg'
@@ -156,7 +156,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Bolan Avenue featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2855-project-example-54.jpg'
@@ -169,7 +169,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White laundry cabinet
     description: 'Residence on Bolan Avenue featuring white laundry cabinet, laundry, white cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2852-project-example-52.jpg'
@@ -194,7 +194,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry cabinets
     description: 'Residence on Bolan Avenue featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2850-project-example-50.jpg'
@@ -220,7 +220,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white bathroom vanity
     description: 'Residence on Bolan Avenue featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2847-project-example-45.jpg'
@@ -233,7 +233,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white bathroom vanity
     description: 'Residence on Bolan Avenue featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2846-project-example-48.jpg'
@@ -246,7 +246,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: white bathroom vanity
     description: 'Residence on Bolan Avenue featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bolan-avenue/2842-project-example-43.jpg'

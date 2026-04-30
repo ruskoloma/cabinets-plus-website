@@ -13,9 +13,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White kitchen with island
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring white kitchen with island, kitchen, white + brown cabinetry, other surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/18-dsc01788.jpg'
@@ -27,9 +26,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White and wood kitchen
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring white and wood kitchen, kitchen, white + brown cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/19-dsc01792.jpg'
@@ -41,9 +39,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Kitchen island cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring kitchen island cabinetry, kitchen, white + brown cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/32-dsc01900.jpg'
@@ -56,7 +53,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/21-dsc01811.jpg'
@@ -68,9 +65,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Wood island kitchen
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring wood island kitchen, kitchen, white + brown cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/31-dsc01897.jpg'
@@ -82,9 +78,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring white kitchen cabinetry, kitchen, white + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/30-dsc01894.jpg'
@@ -96,9 +91,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring white kitchen cabinetry, kitchen, white + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/36-dsc01952.jpg'
@@ -111,7 +105,7 @@ media:
     cabinetPaints:
       - gray
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Kitchen pantry cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring kitchen pantry cabinetry, kitchen, gray + timber cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/10-dsc01687.jpg'
@@ -121,10 +115,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Wet bar cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring wet bar cabinetry, kitchen, brown cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/11-dsc01707.jpg'
@@ -134,10 +127,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Wet bar cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring wet bar cabinetry, kitchen, brown cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/12-dsc01723-1.jpg'
@@ -147,10 +139,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Brown wet bar cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring brown wet bar cabinetry, kitchen, brown cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/02-dsc01567.jpg'
@@ -163,7 +154,7 @@ media:
     cabinetPaints:
       - off white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring double vanity bathroom, bathroom, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/14-dsc01744.jpg'
@@ -176,7 +167,7 @@ media:
     cabinetPaints:
       - gray
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Gray bathroom vanity
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring gray bathroom vanity, bathroom, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/07-dsc01663.jpg'
@@ -186,10 +177,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Laundry room cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring laundry room cabinetry, laundry, brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/06-dsc01658.jpg'
@@ -199,10 +189,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Laundry room cabinetry
     description: 'Modern Transitional Kitchen and Bath Cabinetry featuring laundry room cabinetry, laundry, brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sheneen-ct/08-dsc01678.jpg'

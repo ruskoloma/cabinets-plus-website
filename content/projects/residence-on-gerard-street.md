@@ -11,10 +11,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary kitchen island
     description: 'Residence on Gerard Street featuring contemporary kitchen island, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-02-dsc07371-edit.jpg'
@@ -24,11 +23,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - black
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary wood kitchen
     description: 'Residence on Gerard Street featuring contemporary wood kitchen, kitchen, black + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-03-dsc07418-edit.jpg'
@@ -38,10 +35,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Gerard Street featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-06-dsc07297-edit.jpg'
@@ -52,9 +48,8 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Gerard Street featuring warm wood kitchen, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-07-dsc07262-edit.jpg'
@@ -64,10 +59,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Gerard Street featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-08-dsc07279-edit.jpg'
@@ -79,7 +73,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Gerard Street featuring warm wood kitchen, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-09-dsc07281-edit.jpg'
@@ -91,7 +85,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Gerard Street featuring warm wood kitchen, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-16-dsc07045-edit.jpg'
@@ -101,11 +95,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary kitchen cabinetry
     description: 'Residence on Gerard Street featuring contemporary kitchen cabinetry, kitchen, timber + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-21-dsc07160-edit.jpg'
@@ -115,11 +107,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - black
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary kitchen island
     description: 'Residence on Gerard Street featuring contemporary kitchen island, kitchen, black + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-23-dsc07142-edit.jpg'
@@ -129,10 +119,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary kitchen cabinets
     description: 'Residence on Gerard Street featuring contemporary kitchen cabinets, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-25-dsc07079-edit.jpg'
@@ -142,10 +131,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Gerard Street featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-27-dsc07127-edit.jpg'
@@ -155,10 +143,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Gerard Street featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-28-dsc07070-edit.jpg'
@@ -168,10 +155,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary kitchen cabinetry
     description: 'Residence on Gerard Street featuring contemporary kitchen cabinetry, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-29-dsc07092-edit.jpg'
@@ -181,11 +167,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary kitchen cabinetry
     description: 'Residence on Gerard Street featuring contemporary kitchen cabinetry, kitchen, timber + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-30-dsc07074-edit.jpg'
@@ -195,11 +179,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - brown
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Contemporary wood kitchen
     description: 'Residence on Gerard Street featuring contemporary wood kitchen, kitchen, brown + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-01-dsc07361-edit.jpg'
@@ -221,8 +203,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
     countertop: ''
     label: Wood living built-ins
@@ -234,10 +215,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Residence on Gerard Street featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-15-dsc07188-edit.jpg'
@@ -247,10 +227,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom timber vanity
     description: 'Residence on Gerard Street featuring bathroom timber vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-10-dsc07248-edit.jpg'
@@ -260,10 +239,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity detail
     description: 'Residence on Gerard Street featuring bathroom vanity detail, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-11-dsc07218-edit.jpg'
@@ -273,10 +251,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity
     description: 'Residence on Gerard Street featuring bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-gerard-street/clean-20260326-r2-13-dsc07205-edit.jpg'
@@ -286,10 +263,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood vanity bathroom
     description: 'Residence on Gerard Street featuring wood vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
 relatedProjects:

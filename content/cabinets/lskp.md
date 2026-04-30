@@ -44,7 +44,6 @@ relatedProjects:
 relatedProducts:
   - product: content/cabinets/lsw.md
   - product: content/cabinets/mbs.md
-  - product: null
   - product: content/cabinets/moss.md
 sourceId: 294
 sourceUpdatedAt: '2025-07-25T22:53:53.246Z'

@@ -9,489 +9,463 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Kitchen
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Quartz
-    label: Black kitchen cabinets
-    description: 'Residence on Honeycomb featuring black kitchen cabinets, kitchen, black cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Black and white kitchen island'
+    description: 'This kitchen features black painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3767-4r9a4174.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Light wood bathroom vanity
-    description: 'Residence on Honeycomb featuring light wood bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Light wood bathroom vanity'
+    description: 'Bathroom featuring light stained wood cabinetry and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3738-4r9a2348.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Granite
-    label: Outdoor kitchen area
-    description: 'Residence on Honeycomb featuring outdoor kitchen area, other, granite surfaces.'
+    countertop: ''
+    label: 'Outdoor kitchen with granite countertop'
+    description: 'This outdoor kitchen features stainless steel cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3772-4r9a4099.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
+    room: 'Bathroom'
     cabinetPaints: []
-    cabinetStains:
-      - white glaze stain
-    countertop: Quartz
-    label: Bathroom timber vanity
-    description: 'Residence on Honeycomb featuring bathroom timber vanity, bathroom, timber cabinetry, quartz surfaces.'
+    cabinetStains: []
+    countertop: ''
+    label: 'Wood vanity with quartzite countertop'
+    description: 'Bathroom featuring stained wood vanity cabinets and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3774-4r9a4164.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Bathroom
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Bathroom vanity detail
-    description: 'Residence on Honeycomb featuring bathroom vanity detail, bathroom, quartz surfaces.'
+    countertop: ''
+    label: 'Stained wood vanity'
+    description: 'Bathroom with stained wood vanity and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3780-4r9a4184.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Light wood vanity
-    description: 'Residence on Honeycomb featuring light wood vanity, bathroom, timber cabinetry, quartz surfaces.'
+    room: 'Bathroom'
+    cabinetPaints: []
+    cabinetStains:
+      - white glaze stain
+    countertop: ''
+    label: 'Light wood bathroom vanity'
+    description: 'Bathroom featuring light wood stained cabinets and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3796-4r9a4439.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Other
+    flooring: true
+    room: 'Other'
     cabinetPaints:
       - green
     cabinetStains: []
     countertop: ''
-    label: Green built-in cabinets
-    description: 'Residence on Honeycomb featuring green built-in cabinets, other, green cabinetry.'
+    label: 'Green storage cabinets'
+    description: 'Features green painted cabinets.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3797-4r9a4434.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Laundry'
     cabinetPaints:
       - green
     cabinetStains: []
     countertop: ''
-    label: Green laundry cabinets
-    description: 'Residence on Honeycomb featuring green laundry cabinets, laundry, green cabinetry.'
+    label: 'Green laundry room cabinets'
+    description: 'This laundry room features green painted cabinets.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3799-4r9a4454.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Laundry
-    cabinetPaints:
-      - white
+    room: 'Laundry'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White laundry room
-    description: 'Residence on Honeycomb featuring white laundry room, laundry, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3802-4r9a4529.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Laundry
-    cabinetPaints:
-      - off white
+    flooring: true
+    room: 'Other'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Laundry room cabinetry
-    description: 'Residence on Honeycomb featuring laundry room cabinetry, laundry, off white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White cabinets quartzite countertop'
+    description: 'White painted cabinets with a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3805-4r9a4494.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Laundry
-    cabinetPaints:
-      - off white
+    room: 'Laundry'
+    cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: Off-white laundry cabinets
-    description: 'Residence on Honeycomb featuring off-white laundry cabinets, laundry, off white cabinetry.'
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3806-4r9a4499.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Laundry
-    cabinetPaints:
-      - white
+    room: 'Laundry'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White laundry cabinets
-    description: 'Residence on Honeycomb featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3807-4r9a4479.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Laundry
-    cabinetPaints:
-      - white
+    flooring: true
+    room: 'Laundry'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White laundry cabinets
-    description: 'Residence on Honeycomb featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3808-4r9a4549.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Other
-    cabinetPaints:
-      - white
+    room: 'Other'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White cabinets with quartz
-    description: 'Residence on Honeycomb featuring white cabinets with quartz, other, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White cabinets quartzite countertop'
+    description: 'Features white painted cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3809-4r9a4574.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Laundry
-    cabinetPaints:
-      - white
+    flooring: true
+    room: 'Other'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White laundry cabinets
-    description: 'Residence on Honeycomb featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White cabinet storage area'
+    description: 'This room features white painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3813-4r9a4589.jpg'
     roomPriority: true
     paintPriority: true
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
-    cabinetPaints:
-      - white
+    room: 'Laundry'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White laundry cabinetry
-    description: 'Residence on Honeycomb featuring white laundry cabinetry, laundry, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3814-4r9a4614.jpg'
     roomPriority: true
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Other'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White and timber cabinetry
-    description: 'Residence on Honeycomb featuring white and timber cabinetry, other, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and timber bar area'
+    description: 'This bar area features white painted upper cabinets and timber stained lower cabinets with a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3816-4r9a4634.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    flooring: true
+    room: 'Other'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White and timber kitchen
-    description: 'Residence on Honeycomb featuring white and timber kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and timber bar'
+    description: 'This bar area features white painted upper cabinets, timber stained lower cabinets, and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3822-4r9a4724.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Other
+    flooring: true
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Built-in storage cabinets
-    description: 'Residence on Honeycomb featuring built-in storage cabinets, other, quartz surfaces.'
+    countertop: ''
+    label: 'White and timber cabinetry'
+    description: 'Features white painted upper cabinets and timber lower cabinets with quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3823-4r9a4699.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White and timber kitchen
-    description: 'Residence on Honeycomb featuring white and timber kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Two-tone kitchen cabinetry'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3827-4r9a4764.jpg'
     roomPriority: true
     paintPriority: true
     stainPriority: true
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints:
-      - off white
       - black
-    cabinetStains:
-      - white glaze stain
-    countertop: Quartz
-    label: Modern kitchen cabinetry
-    description: 'Residence on Honeycomb featuring modern kitchen cabinetry, kitchen, off white + black cabinetry, quartz surfaces.'
+    cabinetStains: []
+    countertop: ''
+    label: 'Multi-tone kitchen with quartzite'
+    description: 'This kitchen features black, timber, and white cabinetry with quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3829-4r9a4749.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints:
-      - white
       - black
     cabinetStains: []
-    countertop: Quartz
-    label: Modern kitchen cabinetry
-    description: 'Residence on Honeycomb featuring modern kitchen cabinetry, kitchen, white + black cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Large quartzite kitchen island'
+    description: 'This kitchen features white and timber cabinets, a black range hood, and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3830-4r9a4789.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Kitchen timber cabinetry
-    description: 'Residence on Honeycomb featuring kitchen timber cabinetry, kitchen, timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Wood kitchen cabinets'
+    description: 'This kitchen features stained wood cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3831-4r9a4799.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Light wood kitchen
-    description: 'Residence on Honeycomb featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Wood kitchen island range'
+    description: 'This kitchen features stained wood cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3832-4r9a4824.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints:
-      - timber
       - black
     cabinetStains: []
-    countertop: Quartz
-    label: Kitchen with timber cabinets
-    description: 'Residence on Honeycomb featuring kitchen with timber cabinets, kitchen, timber + black cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Modern timber and black kitchen'
+    description: 'This kitchen features timber and black painted cabinetry with a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3833-4r9a4839.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White and wood kitchen
-    description: 'Residence on Honeycomb featuring white and wood kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and timber kitchen'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3834-4r9a4794.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints:
-      - timber
       - black
     cabinetStains: []
-    countertop: Quartz
-    label: Kitchen with mixed cabinetry
-    description: 'Residence on Honeycomb featuring kitchen with mixed cabinetry, kitchen, timber + black cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Black island quartzite countertop'
+    description: 'This kitchen features black painted island cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3835-4r9a4779.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - off white
-      - timber
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Two-tone kitchen cabinetry
-    description: 'Residence on Honeycomb featuring two-tone kitchen cabinetry, kitchen, off white + timber cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and timber cabinetry'
+    description: 'This kitchen features white painted upper cabinets and timber stained lower cabinets with quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3840-4r9a4869.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
+    room: 'Kitchen'
     cabinetPaints:
-      - white
+      - black
     cabinetStains: []
-    countertop: Quartz
-    label: Open kitchen and dining
-    description: 'Residence on Honeycomb featuring open kitchen and dining, kitchen, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Modern kitchen island'
+    description: 'This kitchen features black and white painted cabinets, mocha stained cabinets, and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3849-4r9a5079.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Other
-    cabinetPaints: []
+    flooring: true
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: Other
-    label: Living room built-ins
-    description: 'Residence on Honeycomb featuring living room built-ins, other, other surfaces.'
+    countertop: ''
+    label: 'Black built-in cabinets'
+    description: 'This room features black painted cabinets.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3856-4r9a5089.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Other'
     cabinetPaints:
       - black
     cabinetStains: []
     countertop: ''
-    label: Living room built-ins
-    description: 'Residence on Honeycomb featuring living room built-ins, other, black cabinetry.'
+    label: 'Black cabinets with quartz countertop'
+    description: 'Features black painted cabinets with a white quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3859-4r9a5184.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Other
+    flooring: true
+    room: 'Other'
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Other
-    label: Black cabinet vignette
-    description: 'Residence on Honeycomb featuring black cabinet vignette, other, black cabinetry, other surfaces.'
+    countertop: ''
+    label: 'Black cabinets with white countertop'
+    description: 'Features black painted cabinets and a white quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3869-4r9a5274.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Other
+    flooring: true
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: Dining area built-in
-    description: 'Residence on Honeycomb featuring dining area built-in, other.'
+    label: 'Wood cabinet dining area'
+    description: 'This space features stained wood cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3877-4r9a5339.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Light wood vanity
-    description: 'Residence on Honeycomb featuring light wood vanity, bathroom, timber cabinetry, quartz surfaces.'
+    room: 'Bathroom'
+    cabinetPaints: []
+    cabinetStains:
+      - white glaze stain
+    countertop: ''
+    label: 'White glaze vanity cabinet'
+    description: 'This bathroom features white glaze stained cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3878-4r9a5349.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Light wood vanity
-    description: 'Residence on Honeycomb featuring light wood vanity, bathroom, timber cabinetry, quartz surfaces.'
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
+    cabinetStains:
+      - white glaze stain
+    countertop: ''
+    label: 'Wood vanity with quartzite'
+    description: 'Bathroom featuring white glaze stain cabinets and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3881-4r9a5435.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
-    cabinetPaints: []
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
     countertop: ''
-    label: Entry hallway
-    description: 'Residence on Honeycomb featuring entry hallway, other.'
+    label: 'Black accent cabinet'
+    description: 'This space features white and black painted cabinetry with a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3886-4r9a5404.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - timber
-    cabinetStains: []
-    countertop: Quartz
-    label: Light wood vanity
-    description: 'Residence on Honeycomb featuring light wood vanity, bathroom, timber cabinetry, quartz surfaces.'
+    room: 'Bathroom'
+    cabinetPaints: []
+    cabinetStains:
+      - white glaze stain
+    countertop: ''
+    label: 'Light wood vanity cabinet'
+    description: 'This bathroom features a light wood vanity cabinet with a quartz countertop.'
 cabinetProducts:
   - cabinet: content/cabinets/swoa.md
-  - cabinet: null
   - cabinet: content/cabinets/ssgh.md
   - cabinet: content/cabinets/mbs.md
 countertopProducts:

@@ -78,7 +78,6 @@ stainType: mocha stain
 relatedProjects: []
 relatedProducts:
   - product: content/cabinets/sfb.md
-  - product: null
   - product: content/cabinets/sk.md
   - product: content/cabinets/skk.md
 doorStyle: shaker

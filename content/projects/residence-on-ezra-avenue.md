@@ -11,11 +11,10 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains:
       - mocha stain
-    countertop: Quartz
+    countertop: ''
     label: Brown kitchen island
     description: 'Residence on Ezra Avenue featuring brown kitchen island, kitchen, brown cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/01-inside-spokane-1359-ezra-10.jpg'
@@ -26,10 +25,9 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints:
-      - brown
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Modern kitchen and dining
     description: 'Residence on Ezra Avenue featuring modern kitchen and dining, kitchen, brown + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/03-inside-spokane-1359-ezra-12.jpg'
@@ -39,10 +37,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Modern kitchen island
     description: 'Residence on Ezra Avenue featuring modern kitchen island, kitchen, brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/04-inside-spokane-1359-ezra-13.jpg'
@@ -53,10 +50,9 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints:
-      - brown
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen island seating
     description: 'Residence on Ezra Avenue featuring kitchen island seating, kitchen, brown + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/05-inside-spokane-1359-ezra-14.jpg'
@@ -67,10 +63,9 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints:
-      - brown
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen with island
     description: 'Residence on Ezra Avenue featuring kitchen with island, kitchen, brown + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/07-inside-spokane-1359-ezra-16.jpg'
@@ -82,9 +77,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - timber
-      - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen island
     description: 'Residence on Ezra Avenue featuring two-tone kitchen island, kitchen, timber + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/08-inside-spokane-1359-ezra-17.jpg'
@@ -94,11 +88,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - off white
-      - brown
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen with island
     description: 'Residence on Ezra Avenue featuring kitchen with island, kitchen, off white + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/09-inside-spokane-1359-ezra-18.jpg'
@@ -109,10 +101,9 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints:
-      - brown
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Modern kitchen island
     description: 'Residence on Ezra Avenue featuring modern kitchen island, kitchen, brown + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/10-inside-spokane-1359-ezra-19.jpg'
@@ -125,7 +116,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen island view
     description: 'Residence on Ezra Avenue featuring kitchen island view, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/11-inside-spokane-1359-ezra-26.jpg'
@@ -135,11 +126,10 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - brown
+    cabinetPaints: []
     cabinetStains:
       - mocha stain
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Residence on Ezra Avenue featuring double vanity bathroom, bathroom, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-ezra-avenue/12-inside-spokane-1359-ezra-40.jpg'
@@ -152,7 +142,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Laundry room cabinetry
     description: 'Residence on Ezra Avenue featuring laundry room cabinetry, laundry, timber cabinetry, quartz surfaces.'
 cabinetProducts:

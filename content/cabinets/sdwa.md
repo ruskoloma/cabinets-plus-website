@@ -66,11 +66,10 @@ stainType: ''
 relatedProjects:
   - project: content/projects/residence-on-sheneen-ct.md
   - project: content/projects/residence-on-villier-road.md
+  - project: content/projects/residence-on-plymouth-road.md
 relatedProducts:
-  - product: null
   - product: content/cabinets/sek.md
   - product: content/cabinets/sfb.md
-  - product: null
 doorStyle: slim shaker
 paint: white
 ---

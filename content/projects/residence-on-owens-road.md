@@ -11,11 +11,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Modern kitchen island
     description: 'Residence on Owens Road featuring modern kitchen island, kitchen, timber + black cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/03-dsc01383.jpg'
@@ -25,10 +23,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Timber kitchen island
     description: 'Residence on Owens Road featuring timber kitchen island, kitchen, timber cabinetry, marble surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/02-dsc01372.jpg'
@@ -38,8 +35,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartzite
     label: Modern timber kitchen
@@ -51,10 +47,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Timber kitchen cabinetry
     description: 'Residence on Owens Road featuring timber kitchen cabinetry, kitchen, timber cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/06-dsc01402.jpg'
@@ -64,10 +59,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Timber kitchen island
     description: 'Residence on Owens Road featuring timber kitchen island, kitchen, timber cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/08-dsc01427.jpg'
@@ -77,8 +71,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartzite
     label: Kitchen sink area
@@ -90,11 +83,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen sink wall
     description: 'Residence on Owens Road featuring kitchen sink wall, kitchen, timber + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/10-dsc01438.jpg'
@@ -104,8 +95,7 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartzite
     label: Timber kitchen island
@@ -141,8 +131,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartzite
     label: Timber kitchen island
@@ -154,8 +143,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartzite
     label: Timber kitchen cabinetry
@@ -167,10 +155,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light timber kitchen
     description: 'Residence on Owens Road featuring light timber kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/18-dsc01505.jpg'
@@ -180,11 +167,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
-      - black
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Kitchen island seating
     description: 'Residence on Owens Road featuring kitchen island seating, kitchen, timber + black cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-owens-road/19-dsc01515.jpg'
@@ -194,9 +179,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
-      - black
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartzite
     label: Kitchen island and seating

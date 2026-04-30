@@ -67,6 +67,7 @@ relatedProjects:
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-villier-road.md
   - project: content/projects/restaurant-project.md
+  - project: content/projects/residence-on-plymouth-road.md
 relatedProducts:
   - {}
   - product: content/cabinets/moss.md

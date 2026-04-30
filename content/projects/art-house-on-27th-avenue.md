@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3686-dsc00067.jpg'
@@ -27,7 +27,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3687-dsc00008.jpg'
@@ -40,7 +40,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3688-dsc00012.jpg'
@@ -65,7 +65,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light wood bathroom vanity
     description: 'Art House on 27th Avenue featuring light wood bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3693-dsc00079.jpg'
@@ -78,7 +78,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Light wood bathroom vanity
     description: 'Art House on 27th Avenue featuring light wood bathroom vanity, bathroom, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3694-dsc00062.jpg'
@@ -91,7 +91,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3695-dsc00108.jpg'
@@ -104,7 +104,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Light wood laundry cabinets
     description: 'Art House on 27th Avenue featuring light wood laundry cabinets, laundry, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3697-dsc00036.jpg'
@@ -117,7 +117,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Wood cabinet niche
     description: 'Art House on 27th Avenue featuring wood cabinet niche, other, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3698-dsc00065.jpg'
@@ -130,7 +130,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3699-dsc000512.jpg'
@@ -143,7 +143,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Light wood kitchen
     description: 'Art House on 27th Avenue featuring light wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
 cabinetProducts:

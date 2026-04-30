@@ -25,10 +25,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber kitchen island
     description: 'Residence on Long Road featuring timber kitchen island, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/16-dsc02619.jpg'
@@ -41,7 +40,7 @@ media:
     cabinetPaints:
       - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Brown kitchen cabinetry
     description: 'Residence on Long Road featuring brown kitchen cabinetry, kitchen, brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/19-dsc02635.jpg'
@@ -54,7 +53,7 @@ media:
     cabinetPaints:
       - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen with island
     description: 'Residence on Long Road featuring kitchen with island, kitchen, brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/21-dsc02649.jpg'
@@ -67,7 +66,7 @@ media:
     cabinetPaints:
       - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Brown kitchen cabinetry
     description: 'Residence on Long Road featuring brown kitchen cabinetry, kitchen, brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/15-dsc02605.jpg'
@@ -77,10 +76,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber kitchen cabinetry
     description: 'Residence on Long Road featuring timber kitchen cabinetry, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/02-dsc02524.jpg'
@@ -90,11 +88,10 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains:
       - white glaze stain
-    countertop: Other
+    countertop: ''
     label: Living room built-ins
     description: 'Residence on Long Road featuring living room built-ins, other, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/04-dsc02541.jpg'
@@ -104,10 +101,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Arched timber cabinetry
     description: 'Residence on Long Road featuring arched timber cabinetry, other, timber cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/06-dsc02553.jpg'
@@ -119,7 +115,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Timber cabinetry detail
     description: 'Residence on Long Road featuring timber cabinetry detail, other, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-long-road/08-dsc02558.jpg'
@@ -155,10 +151,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Bathroom vanity and tower
     description: 'Residence on Long Road featuring bathroom vanity and tower, bathroom, timber cabinetry, marble surfaces.'
 cabinetProducts:

@@ -13,7 +13,6 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - black
     cabinetStains: []
     countertop: Quartz
     label: Two-tone kitchen cabinets
@@ -40,9 +39,7 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
-    cabinetStains:
-      - mocha stain
+    cabinetStains: []
     countertop: Quartz
     label: Kitchen with island
     description: 'Residence on June Bug Street featuring kitchen with island, kitchen, white + brown cabinetry, quartz surfaces.'
@@ -55,7 +52,6 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
     countertop: Quartz
     label: Two-tone kitchen island
@@ -69,7 +65,6 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
     countertop: Quartz
     label: Kitchen with dark island
@@ -83,7 +78,6 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
     countertop: Quartz
     label: Kitchen island sink
@@ -97,7 +91,6 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
     countertop: Quartz
     label: Two-tone kitchen cabinetry
@@ -111,7 +104,6 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - gray
     cabinetStains: []
     countertop: Quartz
     label: White kitchen island
@@ -123,8 +115,7 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
     countertop: ''
     label: Living room built-in
@@ -136,10 +127,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Built-in green cabinetry
     description: 'Residence on June Bug Street featuring built-in green cabinetry, other, green cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-june-bug-street/17-dsc00891.jpg'

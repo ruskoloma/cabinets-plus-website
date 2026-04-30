@@ -15,7 +15,7 @@ media:
       - timber
     cabinetStains:
       - white glaze stain
-    countertop: Other
+    countertop: ''
     label: Natural wood kitchen
     description: 'Residence on Priest View Lane featuring natural wood kitchen, kitchen, timber cabinetry, other surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-priest-view-lane/3568-dsc08094.jpg'
@@ -28,7 +28,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Natural wood kitchen
     description: 'Residence on Priest View Lane featuring natural wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-priest-view-lane/3567-dsc08117.jpg'
@@ -41,7 +41,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Natural wood kitchen
     description: 'Residence on Priest View Lane featuring natural wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-priest-view-lane/3566-dsc08122.jpg'
@@ -54,7 +54,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Natural wood kitchen
     description: 'Residence on Priest View Lane featuring natural wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
 cabinetProducts:

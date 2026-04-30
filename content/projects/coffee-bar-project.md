@@ -13,7 +13,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Slatted wood coffee bar
     description: 'Coffee Bar Project featuring slatted wood coffee bar, other, timber cabinetry, other surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/coffee-bar-project/3706-dsc08131.jpg'
@@ -25,7 +25,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Slatted wood coffee bar
     description: 'Coffee Bar Project featuring slatted wood coffee bar, other, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/coffee-bar-project/3708-dsc08161.jpg'
@@ -37,7 +37,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Slatted wood coffee bar
     description: 'Coffee Bar Project featuring slatted wood coffee bar, other, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/coffee-bar-project/3709-dsc08156.jpg'
@@ -47,10 +47,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Slatted wood coffee bar
     description: 'Coffee Bar Project featuring slatted wood coffee bar, other, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/coffee-bar-project/3710-dsc08167.jpg'
@@ -62,7 +61,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Slatted wood coffee bar
     description: 'Coffee Bar Project featuring slatted wood coffee bar, other, other surfaces.'
 countertopProducts:

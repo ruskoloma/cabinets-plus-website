@@ -13,8 +13,7 @@ relatedProjects:
   - project: content/projects/residence-on-peone-road.md
   - project: content/projects/two-tone-residence-on-locust-road.md
   - project: content/projects/residence-on-vera-crest-drive.md
-cabinetProducts:
-  - cabinet: null
+cabinetProducts: []
 countertopProducts:
   - countertop: content/countertops/calacattaelitegray.md
 media:
@@ -24,250 +23,228 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - gray
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Bright shaker kitchen
-    description: 'Residence on Redemption Rock Road featuring bright shaker kitchen, kitchen, white + gray cabinetry, quartz surfaces, primary project view.'
+    countertop: ''
+    label: 'White and gray kitchen'
+    description: 'This kitchen features white and gray painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-02-dsc00039-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - gray
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Bright shaker kitchen
-    description: 'Residence on Redemption Rock Road featuring bright shaker kitchen, kitchen, white + gray cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and gray kitchen'
+    description: 'This kitchen features white and gray painted cabinets with quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-03-dsc00160-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - white
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White shaker bathroom vanity'
+    description: 'This bathroom features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-04-dsc00031-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - off white
+    flooring: true
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White kitchen cabinets
-    description: 'Residence on Redemption Rock Road featuring white kitchen cabinets, kitchen, white + off white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and gray kitchen'
+    description: 'This kitchen features white and gray painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-05-dsc00048-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
-    cabinetPaints:
-      - white
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White built-in cabinets
-    description: 'Residence on Redemption Rock Road featuring white built-in cabinets, other, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White kitchen cabinets'
+    description: 'This kitchen features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-06-dsc00126-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - white
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White shaker bathroom vanity'
+    description: 'This bathroom features white painted shaker cabinets and a white quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-07-dsc00014-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Kitchen
-    cabinetPaints:
-      - white
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White shaker kitchen
-    description: 'Residence on Redemption Rock Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'Bright kitchen with island'
+    description: 'This kitchen features white and gray painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-08-dsc00008-edit-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: Kitchen
-    cabinetPaints:
-      - white
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White shaker kitchen
-    description: 'Residence on Redemption Rock Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and gray kitchen'
+    description: 'This kitchen features white and gray painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-09-dsc00002-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Kitchen
-    cabinetPaints:
-      - white
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White kitchen cabinets
-    description: 'Residence on Redemption Rock Road featuring white kitchen cabinets, kitchen, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White kitchen with island'
+    description: 'This kitchen features white and gray painted cabinets and quartz countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-10-dsc00161-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - white
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White shaker bathroom vanity'
+    description: 'This bathroom features white painted shaker cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-11-dsc00064-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - white
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White double vanity'
+    description: 'This bathroom features white painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-12-dsc00132-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Laundry
-    cabinetPaints:
-      - white
+    room: 'Laundry'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: White laundry cabinets
-    description: 'Residence on Redemption Rock Road featuring white laundry cabinets, laundry, white cabinetry.'
+    countertop: 'Quartz'
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-13-dsc00052-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Other
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
-    label: White dining cabinets
-    description: 'Residence on Redemption Rock Road featuring white dining cabinets, other, other surfaces.'
+    countertop: 'Quartz'
+    label: 'Bright white kitchen cabinets'
+    description: 'This kitchen features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-14-dsc00121-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - white
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White shaker bathroom vanity'
+    description: 'Bathroom featuring white painted shaker cabinets and quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-15-dsc00080-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - white
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Marble
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, marble surfaces.'
+    countertop: ''
+    label: 'White shaker bathroom vanity'
+    description: 'This bathroom features white painted shaker cabinets and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-16-dsc00112-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - white
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White shaker bathroom vanity'
+    description: 'This bathroom features white painted shaker cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-17-dsc00108-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: true
-    room: Bathroom
-    cabinetPaints:
-      - white
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: 'Quartz'
+    label: 'White shaker bathroom vanity'
+    description: 'This bathroom features white painted shaker cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-18-dsc00088-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints:
-      - white
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: White bathroom vanity
-    description: 'Residence on Redemption Rock Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White shaker bathroom vanity'
+    description: 'Bathroom featuring white painted shaker cabinets and marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-redemption-rock-road/clean-20260326-r2-19-dsc00041-edit.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: Kitchen
-    cabinetPaints:
-      - white
-      - gray
+    flooring: true
+    room: 'Kitchen'
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
-    label: Two-tone shaker kitchen
-    description: 'Residence on Redemption Rock Road featuring two-tone shaker kitchen, kitchen, white + gray cabinetry, quartz surfaces.'
+    countertop: ''
+    label: 'White and gray kitchen'
+    description: 'This kitchen features white and gray painted cabinets and quartzite countertops.'
 sourceId: 22
 sourceUpdatedAt: '2024-05-02T22:37:46.674Z'
 ---

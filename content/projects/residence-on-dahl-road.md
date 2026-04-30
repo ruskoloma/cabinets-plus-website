@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Dahl Road featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3624-dsc00450.jpg'
@@ -25,10 +25,9 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints:
-      - blue
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Blue and wood kitchen
     description: 'Residence on Dahl Road featuring blue and wood kitchen, kitchen, blue + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3629-dsc00389.jpg'
@@ -42,7 +41,7 @@ media:
       - black
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen with island
     description: 'Residence on Dahl Road featuring wood kitchen with island, kitchen, black cabinetry, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3619-dsc00432.jpg'
@@ -56,7 +55,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Dahl Road featuring warm wood kitchen, kitchen, timber + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3616-dsc00406.jpg'
@@ -68,7 +67,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen cabinets
     description: 'Residence on Dahl Road featuring wood kitchen cabinets, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3613-dsc00414.jpg'
@@ -80,9 +79,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - black
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Kitchen with wood cabinets
     description: 'Residence on Dahl Road featuring kitchen with wood cabinets, kitchen, black cabinetry, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3611-dsc00431.jpg'
@@ -95,7 +93,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Dahl Road featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3626-dsc00381.jpg'
@@ -108,7 +106,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity and tub
     description: 'Residence on Dahl Road featuring bathroom vanity and tub, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3628-dsc00377.jpg'
@@ -121,7 +119,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom timber vanity
     description: 'Residence on Dahl Road featuring bathroom timber vanity, bathroom, timber cabinetry, quartz surfaces, primary project view.'
 cabinetProducts:

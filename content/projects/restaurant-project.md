@@ -35,7 +35,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Cafe service counter
     description: >-
       Restaurant Project featuring cafe service counter, other, other surfaces,
@@ -79,7 +79,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Modern cafe counter
     description: 'Restaurant Project featuring modern cafe counter, other, other surfaces.'
   - file: >-
@@ -108,7 +108,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Cafe white counters
     description: 'Restaurant Project featuring cafe white counters, other, other surfaces.'
 sourceId: 50

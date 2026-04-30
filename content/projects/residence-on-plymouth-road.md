@@ -9,1021 +9,1040 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 001 7115 S Plymouth Rd 001
-    description: 'Residence on Plymouth Road featuring 001 7115 s plymouth rd 001, primary project view.'
+    countertop: 'Quartzite'
+    label: 'Wood stained kitchen island'
+    description: 'This kitchen features wood stained cabinetry and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/02-002-7115-s-plymouth-rd-002.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
-    cabinetStains: []
-    countertop: ''
-    label: 002 7115 S Plymouth Rd 002
-    description: Residence on Plymouth Road featuring 002 7115 s plymouth rd 002.
+    cabinetStains:
+      - white glaze stain
+    countertop: 'Quartzite'
+    label: 'Light wood kitchen island'
+    description: 'This kitchen features light wood stained cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/03-003-7115-s-plymouth-rd-003.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 003 7115 S Plymouth Rd 003
-    description: Residence on Plymouth Road featuring 003 7115 s plymouth rd 003.
+    countertop: 'Quartzite'
+    label: 'Light timber kitchen cabinets'
+    description: 'This kitchen features light timber cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/04-004-7115-s-plymouth-rd-004.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
-    cabinetStains: []
+    cabinetStains:
+      - white glaze stain
     countertop: ''
-    label: 004 7115 S Plymouth Rd 004
-    description: Residence on Plymouth Road featuring 004 7115 s plymouth rd 004.
+    label: 'Wood stained kitchen cabinets'
+    description: 'This kitchen features wood stained cabinets and marble countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/05-005-7115-s-plymouth-rd-005.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 005 7115 S Plymouth Rd 005
-    description: Residence on Plymouth Road featuring 005 7115 s plymouth rd 005.
+    countertop: 'Quartzite'
+    label: 'Wood kitchen cabinets and range'
+    description: 'This kitchen features stained wood cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/06-006-7115-s-plymouth-rd-006.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 006 7115 S Plymouth Rd 006
-    description: Residence on Plymouth Road featuring 006 7115 s plymouth rd 006.
+    countertop: 'Quartzite'
+    label: 'Light wood kitchen cabinets'
+    description: 'This kitchen features light wood cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/07-007-7115-s-plymouth-rd-007.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 007 7115 S Plymouth Rd 007
-    description: Residence on Plymouth Road featuring 007 7115 s plymouth rd 007.
+    countertop: 'Quartzite'
+    label: 'Timber kitchen cabinets'
+    description: 'Kitchen features stained timber cabinets and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/08-008-7115-s-plymouth-rd-008.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 008 7115 S Plymouth Rd 008
-    description: Residence on Plymouth Road featuring 008 7115 s plymouth rd 008.
+    countertop: 'Quartzite'
+    label: 'Light wood kitchen cabinets'
+    description: 'This kitchen features light stained wood cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/09-009-7115-s-plymouth-rd-009.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 009 7115 S Plymouth Rd 009
-    description: Residence on Plymouth Road featuring 009 7115 s plymouth rd 009.
+    label: 'Farmhouse sink marble countertop'
+    description: 'This kitchen features mocha stained cabinets and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/10-010-7115-s-plymouth-rd-010.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 010 7115 S Plymouth Rd 010
-    description: Residence on Plymouth Road featuring 010 7115 s plymouth rd 010.
+    label: 'Wood stained kitchen cabinets'
+    description: 'This kitchen features wood stained cabinets and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/11-011-7115-s-plymouth-rd-011.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Kitchen'
     cabinetPaints: []
-    cabinetStains: []
+    cabinetStains:
+      - white glaze stain
     countertop: ''
-    label: 011 7115 S Plymouth Rd 011
-    description: Residence on Plymouth Road featuring 011 7115 s plymouth rd 011.
+    label: 'Wood kitchen cabinets'
+    description: 'Kitchen with white glaze stain cabinets and marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/13-013-7115-s-plymouth-rd-013.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 013 7115 S Plymouth Rd 013
-    description: Residence on Plymouth Road featuring 013 7115 s plymouth rd 013.
+    label: 'Light wood kitchen cabinets'
+    description: 'Features light wood stained cabinets and marble countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/14-014-7115-s-plymouth-rd-014.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 014 7115 S Plymouth Rd 014
-    description: Residence on Plymouth Road featuring 014 7115 s plymouth rd 014.
+    countertop: 'Quartzite'
+    label: 'Light timber kitchen cabinets'
+    description: 'This kitchen features light timber cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/15-015-7115-s-plymouth-rd-015.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
-    cabinetStains: []
+    cabinetStains:
+      - white glaze stain
     countertop: ''
-    label: 015 7115 S Plymouth Rd 015
-    description: Residence on Plymouth Road featuring 015 7115 s plymouth rd 015.
+    label: 'Natural wood kitchen cabinets'
+    description: 'This kitchen features natural wood stained cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/16-016-7115-s-plymouth-rd-016.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 016 7115 S Plymouth Rd 016
-    description: Residence on Plymouth Road featuring 016 7115 s plymouth rd 016.
+    countertop: 'Quartzite'
+    label: 'Wood kitchen island microwave'
+    description: 'This kitchen features stained wood cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/17-017-7115-s-plymouth-rd-017.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 017 7115 S Plymouth Rd 017
-    description: Residence on Plymouth Road featuring 017 7115 s plymouth rd 017.
+    countertop: 'Quartzite'
+    label: 'Quartzite countertop surface'
+    description: 'This image shows a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/18-018-7115-s-plymouth-rd-018.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 018 7115 S Plymouth Rd 018
-    description: Residence on Plymouth Road featuring 018 7115 s plymouth rd 018.
+    label: 'Marble countertop with wood cabinets'
+    description: 'Features stained wood cabinets and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/19-019-7115-s-plymouth-rd-019.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 019 7115 S Plymouth Rd 019
-    description: Residence on Plymouth Road featuring 019 7115 s plymouth rd 019.
+    label: 'Wood kitchen pantry pullout'
+    description: 'Kitchen features stained wood cabinetry and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/20-020-7115-s-plymouth-rd-020.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 020 7115 S Plymouth Rd 020
-    description: Residence on Plymouth Road featuring 020 7115 s plymouth rd 020.
+    label: 'Wood kitchen with pullouts'
+    description: 'This kitchen features stained wood cabinetry and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/21-021-7115-s-plymouth-rd-021.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 021 7115 S Plymouth Rd 021
-    description: Residence on Plymouth Road featuring 021 7115 s plymouth rd 021.
+    countertop: 'Quartzite'
+    label: 'Open timber pantry shelving'
+    description: 'Features open timber shelving and gray painted cabinets with quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/22-022-7115-s-plymouth-rd-021-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 022 7115 S Plymouth Rd 021 2
-    description: Residence on Plymouth Road featuring 022 7115 s plymouth rd 021 2.
+    countertop: 'Quartzite'
+    label: 'Open timber pantry shelving'
+    description: 'This kitchen features open timber shelving and gray painted cabinets with a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/23-023-7115-s-plymouth-rd-022.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Other'
     cabinetPaints: []
-    cabinetStains: []
+    cabinetStains:
+      - white glaze stain
     countertop: ''
-    label: 023 7115 S Plymouth Rd 022
-    description: Residence on Plymouth Road featuring 023 7115 s plymouth rd 022.
+    label: 'Timber shelving pantry storage'
+    description: 'This is a pantry with timber shelving and white glaze stain.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/24-024-7115-s-plymouth-rd-022-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
-    cabinetStains: []
+    cabinetStains:
+      - white glaze stain
     countertop: ''
-    label: 024 7115 S Plymouth Rd 022 2
-    description: Residence on Plymouth Road featuring 024 7115 s plymouth rd 022 2.
+    label: 'Open timber pantry shelving'
+    description: 'This kitchen features open timber shelving with a white glaze stain.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/25-025-7115-s-plymouth-rd-023.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 025 7115 S Plymouth Rd 023
-    description: Residence on Plymouth Road featuring 025 7115 s plymouth rd 023.
+    label: 'Gray kitchen cabinets'
+    description: 'This kitchen features gray painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/26-026-7115-s-plymouth-rd-023-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Laundry'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 026 7115 S Plymouth Rd 023 2
-    description: Residence on Plymouth Road featuring 026 7115 s plymouth rd 023 2.
+    label: 'Gray laundry room cabinets'
+    description: 'This laundry room features gray painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/27-027-7115-s-plymouth-rd-024.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Laundry'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 027 7115 S Plymouth Rd 024
-    description: Residence on Plymouth Road featuring 027 7115 s plymouth rd 024.
+    label: 'Gray laundry room cabinets'
+    description: 'This laundry room features gray painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/28-028-7115-s-plymouth-rd-025.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Other'
     cabinetPaints: []
-    cabinetStains: []
+    cabinetStains:
+      - white glaze stain
     countertop: ''
-    label: 028 7115 S Plymouth Rd 025
-    description: Residence on Plymouth Road featuring 028 7115 s plymouth rd 025.
+    label: 'Timber pantry shelving'
+    description: 'This pantry features timber shelving.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/29-029-7115-s-plymouth-rd-025-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 029 7115 S Plymouth Rd 025 2
-    description: Residence on Plymouth Road featuring 029 7115 s plymouth rd 025 2.
+    label: 'Timber pantry shelving'
+    description: 'This kitchen features timber shelving.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/30-030-7115-s-plymouth-rd-026.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 030 7115 S Plymouth Rd 026
-    description: Residence on Plymouth Road featuring 030 7115 s plymouth rd 026.
+    label: 'Timber shelving with floral wallpaper'
+    description: 'This space features timber shelving with floral wallpaper.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/32-032-7115-s-plymouth-rd-028.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Kitchen'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 032 7115 S Plymouth Rd 028
-    description: Residence on Plymouth Road featuring 032 7115 s plymouth rd 028.
+    countertop: 'Quartzite'
+    label: 'Gray kitchen cabinets'
+    description: 'This kitchen features gray painted cabinets and quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/33-033-7115-s-plymouth-rd-029.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 033 7115 S Plymouth Rd 029
-    description: Residence on Plymouth Road featuring 033 7115 s plymouth rd 029.
+    countertop: 'Quartzite'
+    label: 'Gray vanity with quartzite'
+    description: 'Bathroom vanity with gray painted cabinets and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/34-034-7115-s-plymouth-rd-030.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Laundry'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 034 7115 S Plymouth Rd 030
-    description: Residence on Plymouth Road featuring 034 7115 s plymouth rd 030.
+    countertop: 'Quartzite'
+    label: 'Gray laundry room cabinets'
+    description: 'This laundry room features gray painted cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/36-036-7115-s-plymouth-rd-032.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 036 7115 S Plymouth Rd 032
-    description: Residence on Plymouth Road featuring 036 7115 s plymouth rd 032.
+    label: 'Timber cabinets with marble countertop'
+    description: 'This room features timber cabinets with a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/37-037-7115-s-plymouth-rd-033.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 037 7115 S Plymouth Rd 033
-    description: Residence on Plymouth Road featuring 037 7115 s plymouth rd 033.
+    label: 'Timber cabinets with marble countertop'
+    description: 'Features timber cabinets with a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/40-040-7115-s-plymouth-rd-036.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 040 7115 S Plymouth Rd 036
-    description: Residence on Plymouth Road featuring 040 7115 s plymouth rd 036.
+    label: 'Stained wood vanity'
+    description: 'This bathroom features mocha stained wood vanity cabinets and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/41-041-7115-s-plymouth-rd-037.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 041 7115 S Plymouth Rd 037
-    description: Residence on Plymouth Road featuring 041 7115 s plymouth rd 037.
+    label: 'Wood vanity with marble countertop'
+    description: 'This bathroom features mocha stained wood vanity cabinets and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/42-042-7115-s-plymouth-rd-038.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 042 7115 S Plymouth Rd 038
-    description: Residence on Plymouth Road featuring 042 7115 s plymouth rd 038.
+    label: 'Stained wood bathroom vanity'
+    description: 'This bathroom features stained wood cabinetry and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/43-043-7115-s-plymouth-rd-039.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 043 7115 S Plymouth Rd 039
-    description: Residence on Plymouth Road featuring 043 7115 s plymouth rd 039.
+    label: 'Stained wood double vanity'
+    description: 'Bathroom featuring stained wood cabinets and marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/44-044-7115-s-plymouth-rd-040.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 044 7115 S Plymouth Rd 040
-    description: Residence on Plymouth Road featuring 044 7115 s plymouth rd 040.
+    label: 'Stained wood bathroom vanity'
+    description: 'This bathroom features mocha stained wood cabinetry and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/47-047-7115-s-plymouth-rd-043.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 047 7115 S Plymouth Rd 043
-    description: Residence on Plymouth Road featuring 047 7115 s plymouth rd 043.
+    label: 'Marble bathroom countertop'
+    description: 'This bathroom features a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/48-048-7115-s-plymouth-rd-044.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 048 7115 S Plymouth Rd 044
-    description: Residence on Plymouth Road featuring 048 7115 s plymouth rd 044.
+    countertop: 'Quartzite'
+    label: 'Stained vanity with quartzite'
+    description: 'This bathroom features mocha stained wood vanity cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/49-049-7115-s-plymouth-rd-045.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 049 7115 S Plymouth Rd 045
-    description: Residence on Plymouth Road featuring 049 7115 s plymouth rd 045.
+    countertop: 'Quartzite'
+    label: 'Mocha stained vanity'
+    description: 'This bathroom features mocha stained wood cabinetry and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/50-050-7115-s-plymouth-rd-046.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 050 7115 S Plymouth Rd 046
-    description: Residence on Plymouth Road featuring 050 7115 s plymouth rd 046.
+    label: 'Stained wood bathroom vanity'
+    description: 'Bathroom featuring mocha stained wood cabinets and a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/51-051-7115-s-plymouth-rd-047.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 051 7115 S Plymouth Rd 047
-    description: Residence on Plymouth Road featuring 051 7115 s plymouth rd 047.
+    label: 'Stained wood bathroom shelves'
+    description: 'Bathroom with mocha stained wood shelves and marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/52-052-7115-s-plymouth-rd-048.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 052 7115 S Plymouth Rd 048
-    description: Residence on Plymouth Road featuring 052 7115 s plymouth rd 048.
+    label: 'Marble accent wall'
+    description: 'This bathroom features a marble accent wall and floor.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/53-053-7115-s-plymouth-rd-049.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 053 7115 S Plymouth Rd 049
-    description: Residence on Plymouth Road featuring 053 7115 s plymouth rd 049.
+    label: 'Marble shower and flooring'
+    description: 'This bathroom features marble shower walls and flooring.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/54-054-7115-s-plymouth-rd-050.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 054 7115 S Plymouth Rd 050
-    description: Residence on Plymouth Road featuring 054 7115 s plymouth rd 050.
+    countertop: 'Quartzite'
+    label: 'Quartzite shower bench'
+    description: 'This bathroom features a quartzite shower bench.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/55-055-7115-s-plymouth-rd-051.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 055 7115 S Plymouth Rd 051
-    description: Residence on Plymouth Road featuring 055 7115 s plymouth rd 051.
+    countertop: 'Quartzite'
+    label: 'Quartzite shower wall'
+    description: 'This bathroom features quartzite shower walls and flooring.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/56-056-7115-s-plymouth-rd-052.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 056 7115 S Plymouth Rd 052
-    description: Residence on Plymouth Road featuring 056 7115 s plymouth rd 052.
+    label: 'Freestanding white bathtub'
+    description: 'This bathroom features marble countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/57-057-7115-s-plymouth-rd-053.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 057 7115 S Plymouth Rd 053
-    description: Residence on Plymouth Road featuring 057 7115 s plymouth rd 053.
+    label: 'White freestanding bathtub'
+    description: 'This bathroom features marble countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/58-058-7115-s-plymouth-rd-054.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 058 7115 S Plymouth Rd 054
-    description: Residence on Plymouth Road featuring 058 7115 s plymouth rd 054.
+    countertop: 'Quartzite'
+    label: 'Neutral bathroom tile'
+    description: 'This bathroom features quartzite countertops.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/59-059-7115-s-plymouth-rd-055.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 059 7115 S Plymouth Rd 055
-    description: Residence on Plymouth Road featuring 059 7115 s plymouth rd 055.
+    label: 'Marble bathtub surround'
+    description: 'This bathroom features a marble bathtub surround.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/60-060-7115-s-plymouth-rd-056.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 060 7115 S Plymouth Rd 056
-    description: Residence on Plymouth Road featuring 060 7115 s plymouth rd 056.
+    label: 'Marble tiled bathroom'
+    description: 'This bathroom features marble tile on the walls and floor.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/61-061-7115-s-plymouth-rd-057.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 061 7115 S Plymouth Rd 057
-    description: Residence on Plymouth Road featuring 061 7115 s plymouth rd 057.
+    label: 'Marble tiled bathroom'
+    description: 'This bathroom features marble countertops and flooring.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/62-062-7115-s-plymouth-rd-058.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 062 7115 S Plymouth Rd 058
-    description: Residence on Plymouth Road featuring 062 7115 s plymouth rd 058.
+    countertop: 'Quartzite'
+    label: 'Quartzite countertop with tile backsplash'
+    description: 'This bathroom features a quartzite countertop and a white tile backsplash.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/63-063-7115-s-plymouth-rd-059.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 063 7115 S Plymouth Rd 059
-    description: Residence on Plymouth Road featuring 063 7115 s plymouth rd 059.
+    label: 'Marble bathroom floor'
+    description: 'Marble flooring and wall.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/64-064-7115-s-plymouth-rd-060.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 064 7115 S Plymouth Rd 060
-    description: Residence on Plymouth Road featuring 064 7115 s plymouth rd 060.
+    countertop: 'Granite'
+    label: 'Black granite vanity'
+    description: 'This bathroom features a black granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/65-065-7115-s-plymouth-rd-061.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 065 7115 S Plymouth Rd 061
-    description: Residence on Plymouth Road featuring 065 7115 s plymouth rd 061.
+    countertop: 'Granite'
+    label: 'Black granite vanity'
+    description: 'This bathroom features a black granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/66-066-7115-s-plymouth-rd-062.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 066 7115 S Plymouth Rd 062
-    description: Residence on Plymouth Road featuring 066 7115 s plymouth rd 062.
+    countertop: 'Granite'
+    label: 'Black granite vanity'
+    description: 'This bathroom features a black granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/67-067-7115-s-plymouth-rd-063.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 067 7115 S Plymouth Rd 063
-    description: Residence on Plymouth Road featuring 067 7115 s plymouth rd 063.
+    countertop: 'Granite'
+    label: 'Black granite vanity'
+    description: 'This bathroom features a black granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/68-068-7115-s-plymouth-rd-064.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Bathroom'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: ''
-    label: 068 7115 S Plymouth Rd 064
-    description: Residence on Plymouth Road featuring 068 7115 s plymouth rd 064.
+    countertop: 'Granite'
+    label: 'Black granite vanity'
+    description: 'This bathroom features black painted cabinetry and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/69-069-7115-s-plymouth-rd-065.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Laundry'
+    cabinetPaints:
+      - white
     cabinetStains: []
     countertop: ''
-    label: 069 7115 S Plymouth Rd 065
-    description: Residence on Plymouth Road featuring 069 7115 s plymouth rd 065.
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/70-070-7115-s-plymouth-rd-066.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Laundry'
+    cabinetPaints:
+      - white
     cabinetStains: []
     countertop: ''
-    label: 070 7115 S Plymouth Rd 066
-    description: Residence on Plymouth Road featuring 070 7115 s plymouth rd 066.
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/71-071-7115-s-plymouth-rd-067.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Laundry'
+    cabinetPaints:
+      - white
     cabinetStains: []
     countertop: ''
-    label: 071 7115 S Plymouth Rd 067
-    description: Residence on Plymouth Road featuring 071 7115 s plymouth rd 067.
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/72-072-7115-s-plymouth-rd-068.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Laundry'
+    cabinetPaints:
+      - white
     cabinetStains: []
     countertop: ''
-    label: 072 7115 S Plymouth Rd 068
-    description: Residence on Plymouth Road featuring 072 7115 s plymouth rd 068.
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/74-074-7115-s-plymouth-rd-070.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
-    cabinetPaints: []
+    room: 'Laundry'
+    cabinetPaints:
+      - white
     cabinetStains: []
     countertop: ''
-    label: 074 7115 S Plymouth Rd 070
-    description: Residence on Plymouth Road featuring 074 7115 s plymouth rd 070.
+    label: 'White laundry room cabinets'
+    description: 'This laundry room features white painted cabinets and a quartz countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/76-076-7115-s-plymouth-rd-072.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
-    cabinetPaints: []
+    room: 'Laundry'
+    cabinetPaints:
+      - white
     cabinetStains: []
-    countertop: ''
-    label: 076 7115 S Plymouth Rd 072
-    description: Residence on Plymouth Road featuring 076 7115 s plymouth rd 072.
+    countertop: 'Quartzite'
+    label: 'White laundry room sink'
+    description: 'White painted cabinets with a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/77-077-7115-s-plymouth-rd-073.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 077 7115 S Plymouth Rd 073
-    description: Residence on Plymouth Road featuring 077 7115 s plymouth rd 073.
+    countertop: 'Quartzite'
+    label: 'Stained wood bathroom vanity'
+    description: 'Bathroom featuring mocha stained wood vanity and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/78-078-7115-s-plymouth-rd-074.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 078 7115 S Plymouth Rd 074
-    description: Residence on Plymouth Road featuring 078 7115 s plymouth rd 074.
+    countertop: 'Quartzite'
+    label: 'Mocha stained vanity'
+    description: 'This bathroom features mocha stained wood cabinetry and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/79-079-7115-s-plymouth-rd-075.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 079 7115 S Plymouth Rd 075
-    description: Residence on Plymouth Road featuring 079 7115 s plymouth rd 075.
+    countertop: 'Quartzite'
+    label: 'Mocha stained vanity'
+    description: 'This bathroom features mocha stained wood vanity cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/80-080-7115-s-plymouth-rd-076.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 080 7115 S Plymouth Rd 076
-    description: Residence on Plymouth Road featuring 080 7115 s plymouth rd 076.
+    countertop: 'Quartzite'
+    label: 'Mocha stained vanity'
+    description: 'Bathroom vanity with mocha stained cabinets and quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/81-081-7115-s-plymouth-rd-077.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 081 7115 S Plymouth Rd 077
-    description: Residence on Plymouth Road featuring 081 7115 s plymouth rd 077.
+    countertop: 'Quartzite'
+    label: 'Quartzite bathroom countertop'
+    description: 'This bathroom features mocha stained cabinets and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/91-091-7115-s-plymouth-rd-087.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
-    label: 091 7115 S Plymouth Rd 087
-    description: Residence on Plymouth Road featuring 091 7115 s plymouth rd 087.
+    label: 'Mocha stained vanity'
+    description: 'This bathroom features mocha stained wood vanity with a marble countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/92-092-7115-s-plymouth-rd-088.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 092 7115 S Plymouth Rd 088
-    description: Residence on Plymouth Road featuring 092 7115 s plymouth rd 088.
+    countertop: 'Quartzite'
+    label: 'Mocha stained vanity'
+    description: 'This bathroom features mocha stained cabinetry and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/93-093-7115-s-plymouth-rd-089.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 093 7115 S Plymouth Rd 089
-    description: Residence on Plymouth Road featuring 093 7115 s plymouth rd 089.
+    countertop: 'Quartzite'
+    label: 'Mocha stained vanity'
+    description: 'This bathroom features mocha stained cabinetry and a quartzite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/98-098-7115-s-plymouth-rd-094.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Laundry'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 098 7115 S Plymouth Rd 094
-    description: Residence on Plymouth Road featuring 098 7115 s plymouth rd 094.
+    countertop: 'Granite'
+    label: 'Timber mudroom bench'
+    description: 'This mudroom features timber cabinetry and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/99-099-7115-s-plymouth-rd-094-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 099 7115 S Plymouth Rd 094 2
-    description: Residence on Plymouth Road featuring 099 7115 s plymouth rd 094 2.
+    countertop: 'Granite'
+    label: 'Timber mudroom bench'
+    description: 'This mudroom features timber cabinetry with a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/100-100-7115-s-plymouth-rd-095.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Laundry'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 100 7115 S Plymouth Rd 095
-    description: Residence on Plymouth Road featuring 100 7115 s plymouth rd 095.
+    countertop: 'Granite'
+    label: 'Timber mudroom bench'
+    description: 'This mudroom features timber cabinetry and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/101-101-7115-s-plymouth-rd-095-2.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
+    flooring: true
+    room: 'Other'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 101 7115 S Plymouth Rd 095 2
-    description: Residence on Plymouth Road featuring 101 7115 s plymouth rd 095 2.
+    countertop: 'Granite'
+    label: 'Timber mudroom storage bench'
+    description: 'This mudroom features timber cabinetry with a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/105-105-7115-s-plymouth-rd-099.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: ''
-    label: 105 7115 S Plymouth Rd 099
-    description: Residence on Plymouth Road featuring 105 7115 s plymouth rd 099.
+    countertop: 'Granite'
+    label: 'Black bar cabinetry'
+    description: 'This space features black painted cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/106-106-7115-s-plymouth-rd-100.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: ''
-    label: 106 7115 S Plymouth Rd 100
-    description: Residence on Plymouth Road featuring 106 7115 s plymouth rd 100.
+    countertop: 'Granite'
+    label: 'Black bar cabinetry'
+    description: 'This space features black painted cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/107-107-7115-s-plymouth-rd-101.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
+    flooring: true
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: ''
-    label: 107 7115 S Plymouth Rd 101
-    description: Residence on Plymouth Road featuring 107 7115 s plymouth rd 101.
+    countertop: 'Granite'
+    label: 'Black bar with granite countertop'
+    description: 'Features black painted cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/108-108-7115-s-plymouth-rd-102.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
-    cabinetPaints: []
+    room: 'Bathroom'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: ''
-    label: 108 7115 S Plymouth Rd 102
-    description: Residence on Plymouth Road featuring 108 7115 s plymouth rd 102.
+    countertop: 'Granite'
+    label: 'Black vanity granite countertop'
+    description: 'Features black painted cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/109-109-7115-s-plymouth-rd-103.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
-    cabinetPaints: []
+    room: 'Other'
+    cabinetPaints:
+      - black
     cabinetStains: []
-    countertop: ''
-    label: 109 7115 S Plymouth Rd 103
-    description: Residence on Plymouth Road featuring 109 7115 s plymouth rd 103.
+    countertop: 'Granite'
+    label: 'Black cabinets with granite countertop'
+    description: 'Features black painted cabinets and a granite countertop.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/110-110-7115-s-plymouth-rd-104.jpg'
     roomPriority: false
     paintPriority: false
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ''
+    room: 'Bathroom'
     cabinetPaints: []
     cabinetStains: []
-    countertop: ''
-    label: 110 7115 S Plymouth Rd 104
-    description: Residence on Plymouth Road featuring 110 7115 s plymouth rd 104.
+    countertop: 'Granite'
+    label: 'Black granite vanity countertop'
+    description: 'This bathroom features gray painted cabinets and a black granite countertop.'
 cabinetProducts:
   - cabinet: content/cabinets/osn.md
   - cabinet: content/cabinets/sdwa.md

@@ -42,7 +42,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Kitchen range wall
     description: 'Residence on Little Deep Creek Lane featuring kitchen range wall, kitchen, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/04-dsc05409.jpg'
@@ -69,7 +69,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Timber kitchen cabinetry
     description: 'Residence on Little Deep Creek Lane featuring timber kitchen cabinetry, kitchen, timber cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/23-dsc05628.jpg'
@@ -97,7 +97,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Kitchen beverage station
     description: 'Residence on Little Deep Creek Lane featuring kitchen beverage station, kitchen, timber + black cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/12-dsc05496.jpg'
@@ -110,7 +110,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Black kitchen island
     description: 'Residence on Little Deep Creek Lane featuring black kitchen island, kitchen, black cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/13-dsc05530.jpg'
@@ -121,10 +121,9 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints:
-      - white
       - black
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Butler pantry cabinetry
     description: 'Residence on Little Deep Creek Lane featuring butler pantry cabinetry, kitchen, white + black cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/14-dsc05533.jpg'
@@ -136,9 +135,8 @@ media:
     room: Other
     cabinetPaints:
       - black
-      - white
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Bar with shelving
     description: 'Residence on Little Deep Creek Lane featuring bar with shelving, other, black + white cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/15-dsc05543.jpg'
@@ -148,8 +146,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
     countertop: ''
     label: Green mudroom built-in
@@ -177,7 +174,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Black built-in niche
     description: 'Residence on Little Deep Creek Lane featuring black built-in niche, other, black cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-little-deep-creek-lane/18-dsc05580.jpg'

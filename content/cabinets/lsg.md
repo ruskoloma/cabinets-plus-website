@@ -142,7 +142,6 @@ relatedProducts:
   - product: content/cabinets/lskp.md
   - product: content/cabinets/lsw.md
   - product: content/cabinets/mbs.md
-  - product: null
 doorStyle: shaker
 paint: gray
 ---

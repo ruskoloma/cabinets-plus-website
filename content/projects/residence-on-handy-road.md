@@ -15,7 +15,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3482-dsc08349.jpg'
@@ -29,7 +29,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen island
     description: 'Residence on Handy Road featuring two-tone kitchen island, kitchen, white + timber cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3470-dsc08464.jpg'
@@ -43,7 +43,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3471-dsc08459.jpg'
@@ -57,7 +57,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3472-dsc08385.jpg'
@@ -70,7 +70,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3474-dsc08366.jpg'
@@ -84,7 +84,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3475-dsc08437.jpg'
@@ -97,7 +97,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3476-dsc08406.jpg'
@@ -111,7 +111,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Handy Road featuring two-tone kitchen cabinets, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-handy-road/3479-dsc08430.jpg'
@@ -124,7 +124,7 @@ media:
     cabinetPaints:
       - blue
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Blue kitchen cabinets
     description: 'Residence on Handy Road featuring blue kitchen cabinets, kitchen, blue cabinetry, quartz surfaces.'
 cabinetProducts:

@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Bathroom wood vanities
     description: 'Residence on Madison Road featuring bathroom wood vanities, bathroom, timber cabinetry, other surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-madison-road/clean-20260326-r2-04-dsc07987.jpg'
@@ -101,8 +101,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - off white
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartz
     label: Two-tone kitchen cabinetry
@@ -117,7 +116,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: wood bathroom vanity
     description: 'Residence on Madison Road featuring wood bathroom vanity, bathroom, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-madison-road/clean-20260326-r2-13-dsc07853.jpg'

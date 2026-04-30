@@ -38,7 +38,8 @@ media:
     countertop: ''
     label: OSN Oak.jpg
     description: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/residence-on-plymouth-road.md
 relatedProducts:
   - product: content/cabinets/osu.md
   - product: content/cabinets/otu.md

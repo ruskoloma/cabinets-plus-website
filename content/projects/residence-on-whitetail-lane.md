@@ -15,7 +15,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and wood kitchen
     description: 'Residence on Whitetail Lane featuring white and wood kitchen, kitchen, white + timber cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3026-dsc03150-edit.jpg'
@@ -28,7 +28,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and wood kitchen
     description: 'Residence on Whitetail Lane featuring white and wood kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3027-dsc03146.jpg'
@@ -41,7 +41,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and wood kitchen
     description: 'Residence on Whitetail Lane featuring white and wood kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3028-dsc03125-edit.jpg'
@@ -55,7 +55,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and wood kitchen
     description: 'Residence on Whitetail Lane featuring white and wood kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3030-dsc03117-edit.jpg'
@@ -69,7 +69,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood and white kitchen
     description: 'Residence on Whitetail Lane featuring wood and white kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3031-dsc03155-edit.jpg'
@@ -83,7 +83,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and wood kitchen
     description: 'Residence on Whitetail Lane featuring white and wood kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3032-dsc03181-edit.jpg'
@@ -96,7 +96,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and wood kitchen
     description: 'Residence on Whitetail Lane featuring white and wood kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3033-dsc03200-edit.jpg'
@@ -120,7 +120,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White cabinet with wood top
     description: 'Residence on Whitetail Lane featuring white cabinet with wood top, other, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3020-dsc03274-edit.jpg'
@@ -130,8 +130,7 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
     countertop: ''
     label: Black built-in lockers
@@ -143,10 +142,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - blue
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Blue bathroom vanity
     description: 'Residence on Whitetail Lane featuring blue bathroom vanity, bathroom, blue cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3024-dsc03215-edit.jpg'
@@ -156,10 +154,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
-    cabinetPaints:
-      - gray
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Gray bathroom vanity
     description: 'Residence on Whitetail Lane featuring gray bathroom vanity, bathroom, gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3021-dsc03290-edit.jpg'
@@ -172,7 +169,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Wood bathroom vanity
     description: 'Residence on Whitetail Lane featuring wood bathroom vanity, bathroom, timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3025-dsc03319-edit.jpg'
@@ -183,9 +180,8 @@ media:
     flooring: true
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Other
+    cabinetStains: []
+    countertop: ''
     label: wood bathroom vanity
     description: 'Residence on Whitetail Lane featuring wood bathroom vanity, bathroom, mocha stain, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-whitetail-lane/3022-dsc03262-edit.jpg'
@@ -197,7 +193,7 @@ media:
     room: Bathroom
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom quartz vanity
     description: 'Residence on Whitetail Lane featuring bathroom quartz vanity, bathroom, quartz surfaces.'
 cabinetProducts:

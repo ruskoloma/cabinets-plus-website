@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen island
     description: 'Residence on May Ella Loop featuring white kitchen island, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3314-dsc07380.jpg'
@@ -27,7 +27,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Open concept kitchen
     description: 'Residence on May Ella Loop featuring open concept kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3317-dsc07281.jpg'
@@ -39,9 +39,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bright white kitchen
     description: 'Residence on May Ella Loop featuring bright white kitchen, kitchen, white + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3318-dsc07275.jpg'
@@ -54,7 +53,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on May Ella Loop featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3319-dsc07246.jpg'
@@ -65,9 +64,8 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Kitchen island cabinetry
     description: 'Residence on May Ella Loop featuring kitchen island cabinetry, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3323-dsc07272.jpg'
@@ -79,9 +77,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: White and mocha kitchen
     description: 'Residence on May Ella Loop featuring white and mocha kitchen, kitchen, white cabinetry, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3325-dsc07235.jpg'
@@ -94,7 +91,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on May Ella Loop featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3327-dsc07227.jpg'
@@ -107,7 +104,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on May Ella Loop featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3328-dsc07161.jpg'
@@ -119,9 +116,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - brown
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen island
     description: 'Residence on May Ella Loop featuring white kitchen island, kitchen, white + brown cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3329-dsc07181.jpg'
@@ -134,7 +130,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on May Ella Loop featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3332-dsc07176.jpg'
@@ -146,9 +142,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on May Ella Loop featuring white kitchen cabinetry, kitchen, white + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3309-dsc07346.jpg'
@@ -161,7 +156,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White double vanity
     description: 'Residence on May Ella Loop featuring white double vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3312-dsc07342.jpg'
@@ -174,7 +169,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on May Ella Loop featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3308-dsc07356.jpg'
@@ -187,7 +182,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on May Ella Loop featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3316-dsc07328.jpg'
@@ -200,7 +195,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry cabinetry
     description: 'Residence on May Ella Loop featuring white laundry cabinetry, laundry, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3310-dsc07330.jpg'
@@ -213,7 +208,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry cabinetry
     description: 'Residence on May Ella Loop featuring white laundry cabinetry, laundry, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-may-ella-loop/3321-dsc07302.jpg'
@@ -237,7 +232,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Built-in dark cabinetry
     description: 'Residence on May Ella Loop featuring built-in dark cabinetry, other, other surfaces.'
 cabinetProducts:

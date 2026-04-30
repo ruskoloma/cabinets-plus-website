@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2952-dsc04056.jpg'
@@ -28,7 +28,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, timber + black cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2947-dsc04053.jpg'
@@ -40,9 +40,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - black
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black cabinetry, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2948-dsc03999.jpg'
@@ -54,10 +53,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - black
-      - gray
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black + gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2953-dsc04060.jpg'
@@ -70,7 +67,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen black island
     description: 'Black Island Project at the Art House featuring wood kitchen black island, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2955-dsc04103.jpg'
@@ -84,7 +81,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, timber + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2956-dsc04087.jpg'
@@ -97,7 +94,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Black island kitchen
     description: 'Black Island Project at the Art House featuring black island kitchen, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2957-dsc04100.jpg'
@@ -110,7 +107,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2960-dsc04119.jpg'
@@ -123,7 +120,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen cabinetry
     description: 'Black Island Project at the Art House featuring wood kitchen cabinetry, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2961-dsc04125.jpg'
@@ -136,7 +133,7 @@ media:
     cabinetPaints: []
     cabinetStains:
       - white glaze stain
-    countertop: Quartz
+    countertop: ''
     label: Wood cabinetry nook
     description: 'Black Island Project at the Art House featuring wood cabinetry nook, other, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2962-dsc04129.jpg'
@@ -150,7 +147,7 @@ media:
       - timber
       - off white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Laundry with timber cabinets
     description: 'Black Island Project at the Art House featuring laundry with timber cabinets, laundry, timber + off white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2964-dsc04142.jpg'
@@ -162,7 +159,7 @@ media:
     room: Laundry
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Laundry with custom cabinets
     description: 'Black Island Project at the Art House featuring laundry with custom cabinets, laundry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2967-dsc04171.jpg'
@@ -174,7 +171,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2968-dsc04176.jpg'
@@ -185,9 +182,8 @@ media:
     flooring: false
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Warm wood kitchen
     description: 'Black Island Project at the Art House featuring warm wood kitchen, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2970-dsc04186.jpg'
@@ -200,7 +196,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood cabinets
     description: 'Black Island Project at the Art House featuring warm wood cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2971-dsc04209.jpg'
@@ -212,7 +208,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen cabinets
     description: 'Black Island Project at the Art House featuring wood kitchen cabinets, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2972-dsc04233-2.jpg'
@@ -236,7 +232,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Wood base cabinets
     description: 'Black Island Project at the Art House featuring wood base cabinets, other, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2974-dsc04216.jpg'
@@ -261,7 +257,7 @@ media:
     cabinetPaints:
       - green
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2983-dsc04283.jpg'
@@ -287,7 +283,7 @@ media:
     cabinetPaints:
       - green
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2979-dsc04262.jpg'
@@ -300,7 +296,7 @@ media:
     cabinetPaints:
       - green
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2982-dsc04269.jpg'
@@ -313,7 +309,7 @@ media:
     cabinetPaints:
       - green
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Green laundry cabinets
     description: 'Black Island Project at the Art House featuring green laundry cabinets, laundry, green cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2985-dsc04309.jpg'
@@ -325,7 +321,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartzite
+    countertop: ''
     label: Wood cabinets pantry
     description: 'Black Island Project at the Art House featuring wood cabinets pantry, kitchen, quartzite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2987-dsc04295.jpg'
@@ -338,7 +334,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Timber bathroom vanity
     description: 'Black Island Project at the Art House featuring timber bathroom vanity, bathroom, timber cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2988-dsc04301.jpg'
@@ -351,7 +347,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Timber bathroom vanity
     description: 'Black Island Project at the Art House featuring timber bathroom vanity, bathroom, timber cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2991-dsc04340.jpg'
@@ -376,7 +372,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood vanity bathroom
     description: 'Black Island Project at the Art House featuring wood vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2997-dsc04385.jpg'
@@ -387,9 +383,8 @@ media:
     flooring: true
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Wood double vanity
     description: 'Black Island Project at the Art House featuring wood double vanity, bathroom, mocha stain, quartz surfaces.'
 cabinetProducts:

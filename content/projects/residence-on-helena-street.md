@@ -15,7 +15,7 @@ media:
       - white
       - gray
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and gray kitchen
     description: 'Residence on Helena Street featuring white and gray kitchen, kitchen, white + gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2573-project-example-14.jpg'
@@ -28,7 +28,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Helena Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2572-project-example-15.jpg'
@@ -40,7 +40,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White quartz sink area
     description: 'Residence on Helena Street featuring white quartz sink area, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2570-project-example-13.jpg'
@@ -54,7 +54,7 @@ media:
       - white
       - gray
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and gray kitchen
     description: 'Residence on Helena Street featuring white and gray kitchen, kitchen, white + gray cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2568-project-example-11.jpg'
@@ -67,7 +67,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Helena Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2563-project-example-3.jpg'
@@ -80,7 +80,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Helena Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2562-project-example-6.jpg'
@@ -93,7 +93,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Helena Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-helena-street/2561-project-example-4.jpg'
@@ -106,7 +106,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Helena Street featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
 cabinetProducts:

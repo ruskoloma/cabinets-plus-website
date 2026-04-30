@@ -41,7 +41,6 @@ sourceUpdatedAt: '2025-07-25T22:53:55.774Z'
 stainType: ''
 relatedProjects: []
 relatedProducts:
-  - product: null
   - product: content/cabinets/sk.md
   - product: content/cabinets/skk.md
   - product: content/cabinets/smb.md

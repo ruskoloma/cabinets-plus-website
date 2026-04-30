@@ -92,7 +92,6 @@ relatedProjects:
   - project: content/projects/residence-on-little-deep-creek-lane.md
   - project: content/projects/residence-on-shiva-lane.md
 relatedProducts:
-  - product: null
   - {}
   - product: content/cabinets/aop.md
   - {}

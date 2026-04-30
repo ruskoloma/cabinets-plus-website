@@ -11,10 +11,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen cabinets
     description: 'Residence on Dishman Road featuring wood kitchen cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2479-project-example-27.jpg'
@@ -25,9 +24,8 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Wood kitchen island
     description: 'Residence on Dishman Road featuring wood kitchen island, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2478-project-example-26.jpg'
@@ -37,10 +35,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Dishman Road featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2472-project-example-20.jpg'
@@ -50,10 +47,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen cabinets
     description: 'Residence on Dishman Road featuring wood kitchen cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2476-project-example-23.jpg'
@@ -65,7 +61,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Built-in office desk
     description: 'Residence on Dishman Road featuring built-in office desk, other, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2473-project-example-22.jpg'
@@ -76,9 +72,8 @@ media:
     flooring: true
     room: Other
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Other
+    cabinetStains: []
+    countertop: ''
     label: Wood built-in office
     description: 'Residence on Dishman Road featuring wood built-in office, other, mocha stain, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2468-project-example-16.jpg'
@@ -88,10 +83,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood kitchen cabinets
     description: 'Residence on Dishman Road featuring wood kitchen cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2467-project-example-15.jpg'
@@ -101,10 +95,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Warm wood kitchen
     description: 'Residence on Dishman Road featuring warm wood kitchen, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2466-project-example-13.jpg'
@@ -115,9 +108,8 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Wood kitchen cabinets
     description: 'Residence on Dishman Road featuring wood kitchen cabinets, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2470-project-example-18.jpg'
@@ -152,9 +144,8 @@ media:
     flooring: false
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Wood vanity bathroom
     description: 'Residence on Dishman Road featuring wood vanity bathroom, bathroom, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2462-project-example-9.jpg'
@@ -164,10 +155,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood built-in desk
     description: 'Residence on Dishman Road featuring wood built-in desk, other, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2461-project-example-10.jpg'
@@ -177,10 +167,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber kitchen cabinets
     description: 'Residence on Dishman Road featuring timber kitchen cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2460-project-example-8.jpg'
@@ -214,10 +203,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood bathroom vanity
     description: 'Residence on Dishman Road featuring wood bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2457-project-example-1.jpg'
@@ -227,10 +215,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood laundry cabinets
     description: 'Residence on Dishman Road featuring wood laundry cabinets, laundry, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2456-project-example-6.jpg'
@@ -241,9 +228,8 @@ media:
     flooring: false
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Double vanity bathroom
     description: 'Residence on Dishman Road featuring double vanity bathroom, bathroom, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2455-project-example-4.jpg'
@@ -254,9 +240,8 @@ media:
     flooring: false
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Wood vanity bathroom
     description: 'Residence on Dishman Road featuring wood vanity bathroom, bathroom, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2454-project-example-2.jpg'
@@ -266,10 +251,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood laundry cabinets
     description: 'Residence on Dishman Road featuring wood laundry cabinets, laundry, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dishman-road/2453-project-example-3.jpg'
@@ -279,10 +263,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
-    cabinetPaints:
-      - timber
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity and shower
     description: 'Residence on Dishman Road featuring bathroom vanity and shower, bathroom, timber cabinetry, quartz surfaces.'
 relatedProjects:

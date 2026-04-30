@@ -11,8 +11,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
     countertop: Granite
     label: arched wet bar
@@ -24,8 +23,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - blue
+    cabinetPaints: []
     cabinetStains: []
     countertop: Granite
     label: Blue kitchen island
@@ -37,8 +35,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
     countertop: Granite
     label: Green wet bar
@@ -50,10 +47,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Green wet bar
     description: 'Residence on Dunn Road featuring green wet bar, other, green cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dunn-road/06-dsc00235.jpg'
@@ -63,10 +59,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: arched wet bar
     description: 'Residence on Dunn Road featuring arched wet bar, other, green cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dunn-road/08-dsc00246.jpg'
@@ -76,10 +71,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Green kitchen island
     description: 'Residence on Dunn Road featuring green kitchen island, kitchen, green cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dunn-road/11-dsc00271.jpg'
@@ -89,8 +83,7 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - green
+    cabinetPaints: []
     cabinetStains: []
     countertop: Granite
     label: Bar sink detail
@@ -102,10 +95,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - blue
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Blue kitchen island
     description: 'Residence on Dunn Road featuring blue kitchen island, kitchen, blue cabinetry, other surfaces.'
 countertopProducts:

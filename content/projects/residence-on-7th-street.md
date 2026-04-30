@@ -15,7 +15,7 @@ media:
       - white
       - blue
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + blue cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3437-dsc05592.jpg'
@@ -27,9 +27,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - green
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + green cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3439-dsc05553.jpg'
@@ -42,7 +41,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White laundry cabinets
     description: 'Residence on 7th Street featuring white laundry cabinets, laundry, white cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3440-dsc05567.jpg'
@@ -52,11 +51,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - off white
-      - green
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, off white + green cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3442-dsc05577.jpg'
@@ -68,9 +65,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-      - green
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + green cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3443-dsc05547.jpg'
@@ -81,10 +77,9 @@ media:
     flooring: false
     room: Kitchen
     cabinetPaints:
-      - off white
       - blue
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on 7th Street featuring two-tone kitchen cabinets, kitchen, off white + blue cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3444-dsc05575.jpg'
@@ -95,10 +90,9 @@ media:
     flooring: false
     room: Kitchen
     cabinetPaints:
-      - off white
       - blue
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, off white + blue cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3445-dsc05581.jpg'
@@ -112,7 +106,7 @@ media:
       - white
       - blue
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone shaker kitchen
     description: 'Residence on 7th Street featuring two-tone shaker kitchen, kitchen, white + blue cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3435-dsc05565.jpg'
@@ -125,7 +119,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on 7th Street featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
 cabinetProducts:

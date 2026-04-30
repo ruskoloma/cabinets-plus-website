@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Jacobs Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2596-project-example-10.jpg'
@@ -27,7 +27,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Jacobs Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2599-project-example-8.jpg'
@@ -40,7 +40,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Jacobs Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2600-project-example-2.jpg'
@@ -53,7 +53,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Jacobs Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2601-project-example-12.jpg'
@@ -66,7 +66,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Jacobs Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2602-project-example-14.jpg'
@@ -79,7 +79,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Jacobs Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2603-project-example-16.jpg'
@@ -92,7 +92,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker kitchen
     description: 'Residence on Jacobs Road featuring white shaker kitchen, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2604-project-example-22.jpg'
@@ -105,7 +105,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White shaker cabinets
     description: 'Residence on Jacobs Road featuring white shaker cabinets, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2605-project-example-18.jpg'
@@ -117,9 +117,8 @@ media:
     room: Kitchen
     cabinetPaints:
       - white
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: White kitchen island
     description: 'Residence on Jacobs Road featuring white kitchen island, kitchen, white cabinetry, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2608-project-example-40.jpg'
@@ -132,7 +131,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White laundry cabinets
     description: 'Residence on Jacobs Road featuring white laundry cabinets, laundry, white cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2609-project-example-36.jpg'
@@ -158,7 +157,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry cabinets
     description: 'Residence on Jacobs Road featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2611-project-example-34.jpg'
@@ -171,7 +170,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White laundry cabinets
     description: 'Residence on Jacobs Road featuring white laundry cabinets, laundry, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2612-project-example-42.jpg'
@@ -184,7 +183,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Jacobs Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-jacobs-road/2613-project-example-45.jpg'
@@ -197,7 +196,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Jacobs Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
 cabinetProducts:

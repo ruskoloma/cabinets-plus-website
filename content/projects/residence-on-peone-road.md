@@ -15,7 +15,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen island
     description: 'Residence on Peone Road featuring two-tone kitchen island, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3483-dsc06815.jpg'
@@ -29,7 +29,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinetry
     description: 'Residence on Peone Road featuring two-tone kitchen cabinetry, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3486-dsc06822.jpg'
@@ -43,7 +43,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Two-tone kitchen cabinetry
     description: 'Residence on Peone Road featuring two-tone kitchen cabinetry, kitchen, white + timber cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3488-dsc06817.jpg'
@@ -57,7 +57,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinetry
     description: 'Residence on Peone Road featuring two-tone kitchen cabinetry, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3489-dsc06703.jpg'
@@ -70,7 +70,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinetry
     description: 'Residence on Peone Road featuring two-tone kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3493-dsc06771.jpg'
@@ -81,9 +81,8 @@ media:
     flooring: true
     room: Kitchen
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Wood kitchen island
     description: 'Residence on Peone Road featuring wood kitchen island, kitchen, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3494-dsc06746.jpg'
@@ -97,7 +96,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen island
     description: 'Residence on Peone Road featuring two-tone kitchen island, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3507-dsc06811.jpg'
@@ -110,7 +109,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber kitchen cabinets
     description: 'Residence on Peone Road featuring timber kitchen cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3496-dsc06758.jpg'
@@ -124,7 +123,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinetry
     description: 'Residence on Peone Road featuring two-tone kitchen cabinetry, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3508-dsc06717.jpg'
@@ -137,7 +136,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinetry
     description: 'Residence on Peone Road featuring two-tone kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3505-dsc06862.jpg'
@@ -149,7 +148,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Built-in timber cabinets
     description: 'Residence on Peone Road featuring built-in timber cabinets, other, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3504-dsc06873.jpg'
@@ -174,7 +173,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: White utility cabinetry
     description: 'Residence on Peone Road featuring white utility cabinetry, other, white cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3500-dsc06906.jpg'
@@ -187,7 +186,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Residence on Peone Road featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3491-dsc06910.jpg'
@@ -199,7 +198,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood desk cabinetry
     description: 'Residence on Peone Road featuring wood desk cabinetry, other, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3498-dsc06880.jpg'
@@ -212,7 +211,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Modern bathroom vanity
     description: 'Residence on Peone Road featuring modern bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-peone-road/3485-dsc06888.jpg'
@@ -225,7 +224,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity timber cabinets
     description: 'Residence on Peone Road featuring double vanity timber cabinets, bathroom, timber cabinetry, quartz surfaces, primary project view.'
 cabinetProducts:

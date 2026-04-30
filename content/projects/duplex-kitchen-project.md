@@ -13,7 +13,6 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains:
-      - mocha stain
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces, primary project view.'
@@ -26,7 +25,6 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains:
-      - mocha stain
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces.'
@@ -39,7 +37,6 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains:
-      - mocha stain
     countertop: ''
     label: Mocha stained cabinets
     description: 'Duplex Kitchen Project featuring mocha stained cabinets, kitchen, mocha stain.'
@@ -52,7 +49,6 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains:
-      - mocha stain
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces.'
@@ -65,7 +61,6 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains:
-      - mocha stain
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces.'
@@ -78,7 +73,6 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains:
-      - mocha stain
     countertop: Quartz
     label: Brown cabinets white quartz
     description: 'Duplex Kitchen Project featuring brown cabinets white quartz, kitchen, mocha stain, quartz surfaces.'
@@ -90,7 +84,6 @@ media:
     flooring: false
     room: Kitchen
     cabinetPaints:
-      - brown
     cabinetStains: []
     countertop: Quartz
     label: Brown shaker kitchen
@@ -104,7 +97,6 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains:
-      - mocha stain
     countertop: Quartz
     label: Brown shaker kitchen
     description: 'Duplex Kitchen Project featuring brown shaker kitchen, kitchen, mocha stain, quartz surfaces.'

@@ -16,7 +16,7 @@ media:
       - black
     cabinetStains:
       - white glaze stain
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Villier Road featuring two-tone kitchen cabinets, kitchen, timber + black cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3288-dsc07987.jpg'
@@ -29,7 +29,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Black and wood kitchen
     description: 'Residence on Villier Road featuring black and wood kitchen, kitchen, black cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3289-dsc08042.jpg'
@@ -43,7 +43,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber and black kitchen
     description: 'Residence on Villier Road featuring timber and black kitchen, kitchen, timber + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3305-dsc07943.jpg'
@@ -56,7 +56,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Black and wood kitchen
     description: 'Residence on Villier Road featuring black and wood kitchen, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3306-dsc07962.jpg'
@@ -69,7 +69,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber pantry cabinetry
     description: 'Residence on Villier Road featuring timber pantry cabinetry, other, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3294-dsc08028.jpg'
@@ -82,7 +82,7 @@ media:
     cabinetPaints:
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen
     description: 'Residence on Villier Road featuring two-tone kitchen, kitchen, black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3301-dsc07952.jpg'
@@ -96,7 +96,7 @@ media:
       - timber
       - black
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen
     description: 'Residence on Villier Road featuring two-tone kitchen, kitchen, timber + black cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3293-dsc08049.jpg'
@@ -109,7 +109,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber kitchen cabinets
     description: 'Residence on Villier Road featuring timber kitchen cabinets, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3295-dsc07945.jpg'
@@ -121,7 +121,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood cabinets kitchen
     description: 'Residence on Villier Road featuring wood cabinets kitchen, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3307-dsc08054.jpg'
@@ -134,7 +134,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber laundry cabinets
     description: 'Residence on Villier Road featuring timber laundry cabinets, laundry, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3298-dsc08008.jpg'
@@ -146,7 +146,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber cabinets with quartz
     description: 'Residence on Villier Road featuring timber cabinets with quartz, other, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3300-dsc07965.jpg'
@@ -158,7 +158,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood cabinetry pantry
     description: 'Residence on Villier Road featuring wood cabinetry pantry, other, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3304-dsc07990.jpg'
@@ -171,7 +171,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Marble
+    countertop: ''
     label: Oak kitchen cabinets
     description: 'Residence on Villier Road featuring oak kitchen cabinets, kitchen, timber cabinetry, marble surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3297-dsc07897.jpg'
@@ -181,10 +181,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
-    cabinetPaints:
-      - custom paint
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Blush laundry cabinets
     description: 'Residence on Villier Road featuring blush laundry cabinets, laundry, custom paint cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3296-dsc07903.jpg'
@@ -194,10 +193,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
-    cabinetPaints:
-      - custom paint
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Blush laundry cabinets
     description: 'Residence on Villier Road featuring blush laundry cabinets, laundry, custom paint cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3302-dsc07906.jpg'
@@ -207,10 +205,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
-    cabinetPaints:
-      - custom paint
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Blush laundry cabinets
     description: 'Residence on Villier Road featuring blush laundry cabinets, laundry, custom paint cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3303-dsc07912.jpg'
@@ -220,10 +217,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
-    cabinetPaints:
-      - custom paint
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Blush laundry cabinets
     description: 'Residence on Villier Road featuring blush laundry cabinets, laundry, custom paint cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-villier-road/3292-dsc08072.jpg'
@@ -236,7 +232,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White bathroom vanity
     description: 'Residence on Villier Road featuring white bathroom vanity, bathroom, white cabinetry, quartz surfaces.'
 cabinetProducts:

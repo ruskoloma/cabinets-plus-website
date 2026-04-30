@@ -11,10 +11,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Reception desk and cabinetry
     description: 'Dental Clinic Project featuring reception desk and cabinetry, other, white cabinetry, other surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/dental-clinic-project/3711-dsc03037-edit-10.jpg'
@@ -24,8 +23,7 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartz
     label: Modern reception desk
@@ -37,8 +35,7 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
     countertop: Quartz
     label: Dental reception workspace
@@ -50,10 +47,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Dental operatory cabinetry
     description: 'Dental Clinic Project featuring dental operatory cabinetry, other, white cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/dental-clinic-project/3718-dsc03076-edit-19.jpg'
@@ -63,10 +59,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: White dental cabinetry
     description: 'Dental Clinic Project featuring white dental cabinetry, other, white cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/dental-clinic-project/3719-dsc03086-edit-20.jpg'
@@ -76,10 +71,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Dental operatory cabinetry
     description: 'Dental Clinic Project featuring dental operatory cabinetry, other, white cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/dental-clinic-project/3722-dsc03089-21.jpg'
@@ -89,10 +83,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Granite
+    countertop: ''
     label: Dental operatory cabinetry
     description: 'Dental Clinic Project featuring dental operatory cabinetry, other, white cabinetry, granite surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/dental-clinic-project/3725-dsc02999-edit-1.jpg'
@@ -102,10 +95,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Dental reception desk
     description: 'Dental Clinic Project featuring dental reception desk, other, white cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/dental-clinic-project/3727-dsc03010-edit-7.jpg'
@@ -127,10 +119,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
-    cabinetPaints:
-      - white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Dental reception desk
     description: 'Dental Clinic Project featuring dental reception desk, other, white cabinetry, other surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/dental-clinic-project/3731-dsc03024-edit-8.jpg'

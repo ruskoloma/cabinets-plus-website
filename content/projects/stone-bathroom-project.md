@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Primary bath vanity
     description: 'Stone Bathroom Project featuring primary bath vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3644-dsc08329.jpg'
@@ -26,7 +26,7 @@ media:
     room: Bathroom
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Rustic bathroom vanity
     description: 'Stone Bathroom Project featuring rustic bathroom vanity, bathroom, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3641-dsc08262.jpg'
@@ -37,9 +37,8 @@ media:
     flooring: true
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Primary bath vanity
     description: 'Stone Bathroom Project featuring primary bath vanity, bathroom, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3640-dsc08333.jpg'
@@ -50,9 +49,8 @@ media:
     flooring: false
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Stone bathroom vanity
     description: 'Stone Bathroom Project featuring stone bathroom vanity, bathroom, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3638-dsc08277-copy1.jpg'
@@ -65,7 +63,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Stone Bathroom Project featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3636-dsc08307.jpg'
@@ -76,9 +74,8 @@ media:
     flooring: true
     room: Bathroom
     cabinetPaints: []
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetStains: []
+    countertop: ''
     label: Wood vanity bathroom
     description: 'Stone Bathroom Project featuring wood vanity bathroom, bathroom, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3635-dsc08320.jpg'
@@ -91,7 +88,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Rustic bathroom vanity
     description: 'Stone Bathroom Project featuring rustic bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-sassin-station-rd/3632-dsc08308.jpg'
@@ -103,7 +100,7 @@ media:
     room: Bathroom
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity detail
     description: 'Stone Bathroom Project featuring bathroom vanity detail, bathroom, quartz surfaces.'
 cabinetProducts:

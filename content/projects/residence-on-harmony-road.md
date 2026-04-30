@@ -14,7 +14,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White kitchen cabinetry
     description: 'Residence on Harmony Road featuring white kitchen cabinetry, kitchen, white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3961-dsc02100-edit.jpg'
@@ -28,7 +28,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and wood kitchen
     description: 'Residence on Harmony Road featuring white and wood kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3963-dsc02095-edit.jpg'
@@ -42,7 +42,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White and timber kitchen
     description: 'Residence on Harmony Road featuring white and timber kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3972-dsc02135-edit.jpg'
@@ -55,7 +55,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White oak kitchen island
     description: 'Residence on Harmony Road featuring white oak kitchen island, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3979-dsc02139-edit.jpg'
@@ -68,7 +68,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Timber kitchen island
     description: 'Residence on Harmony Road featuring timber kitchen island, kitchen, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3976-dsc01906-edit.jpg'
@@ -81,7 +81,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Double vanity bathroom
     description: 'Residence on Harmony Road featuring double vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3978-dsc01910-edit.jpg'
@@ -94,7 +94,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity
     description: 'Residence on Harmony Road featuring bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3983-dsc02017-edit.jpg'
@@ -107,7 +107,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Wood vanity bathroom
     description: 'Residence on Harmony Road featuring wood vanity bathroom, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3958-dsc02020-edit.jpg'
@@ -120,7 +120,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Bathroom vanity
     description: 'Residence on Harmony Road featuring bathroom vanity, bathroom, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3986-dsc01978-edit.jpg'
@@ -133,7 +133,7 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Laundry with timber cabinets
     description: 'Residence on Harmony Road featuring laundry with timber cabinets, laundry, timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-harmony-road/3964-dsc02062-edit.jpg'
@@ -157,7 +157,7 @@ media:
     room: Other
     cabinetPaints: []
     cabinetStains: []
-    countertop: Other
+    countertop: ''
     label: Built-in media cabinets
     description: 'Residence on Harmony Road featuring built-in media cabinets, other, other surfaces.'
 cabinetProducts:

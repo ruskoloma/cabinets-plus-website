@@ -15,7 +15,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen island
     description: 'Residence on Bush Drive featuring two-tone kitchen island, kitchen, white + timber cabinetry, quartz surfaces, primary project view.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3610-dsc00348.jpg'
@@ -25,11 +25,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - off white
-    cabinetStains:
-      - mocha stain
-    countertop: Quartz
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: ''
     label: Two-tone kitchen cabinets
     description: 'Residence on Bush Drive featuring two-tone kitchen cabinets, kitchen, off white cabinetry, mocha stain, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3608-dsc00327.jpg'
@@ -39,10 +37,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
-    cabinetPaints:
-      - off white
+    cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Off-white kitchen cabinets
     description: 'Residence on Bush Drive featuring off-white kitchen cabinets, kitchen, off white cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3604-dsc00344.jpg'
@@ -54,7 +51,7 @@ media:
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Kitchen island cabinetry
     description: 'Residence on Bush Drive featuring kitchen island cabinetry, kitchen, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3602-dsc00323.jpg'
@@ -68,7 +65,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen
     description: 'Residence on Bush Drive featuring two-tone kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3599-dsc00315.jpg'
@@ -82,7 +79,7 @@ media:
       - white
       - timber
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: Two-tone kitchen
     description: 'Residence on Bush Drive featuring two-tone kitchen, kitchen, white + timber cabinetry, quartz surfaces.'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3598-dsc00334.jpg'
@@ -108,7 +105,7 @@ media:
     cabinetPaints:
       - white
     cabinetStains: []
-    countertop: Quartz
+    countertop: ''
     label: White double vanity
     description: 'Residence on Bush Drive featuring white double vanity, bathroom, white cabinetry, quartz surfaces.'
 cabinetProducts:
