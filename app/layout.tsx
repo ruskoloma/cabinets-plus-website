@@ -6,12 +6,12 @@ import { getGlobalDocumentSafe } from "@/app/get-global-document-safe";
 import { getSharedSectionsSafe } from "@/app/get-shared-sections-safe";
 import LayoutClient from "@/components/layout/LayoutClient";
 import InjectedScripts from "@/components/layout/InjectedScripts";
+import { getSiteUrl } from "@/app/lib/site-url";
 import {
   FALLBACK_FOOTER_DOCUMENT,
   FALLBACK_GENERAL_DOCUMENT,
   FALLBACK_HEADER_DOCUMENT,
 } from "@/components/layout/global-settings";
-import { getSiteUrl } from "@/app/lib/site-url";
 
 const redHatDisplay = Red_Hat_Display({ variable: "--font-red-hat-display", subsets: ["latin"] });
 const redHatText = Red_Hat_Text({ variable: "--font-red-hat-text", subsets: ["latin"] });

@@ -41,7 +41,7 @@ npm run lint
 
 The app can run with local content only, but these variables are used in different parts of the repo:
 
-- `NEXT_PUBLIC_SITE_URL`: canonical production site URL for metadata, robots, and sitemap generation. Defaults to `https://www.spokanecabinetsplus.com` if unset.
+- `NEXT_PUBLIC_SITE_URL`: canonical production site URL for metadata, robots, and sitemap generation. In Vercel Production, set this to `https://spokanecabinetsplus.com`.
 - `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`: Web3Forms access key used by the browser contact form. Web3Forms documents this key as safe to include in form markup.
 - `NEXT_PUBLIC_TINA_CLIENT_ID`
 - `TINA_TOKEN`
