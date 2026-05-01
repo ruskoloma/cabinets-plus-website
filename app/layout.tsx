@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     template: "%s | Cabinets Plus Spokane",
   },
   description: "Spokane's premier cabinet and stone showroom. Factory-direct semi-custom cabinets, granite & quartz countertops, and flooring.",
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     siteName: "Cabinets Plus Spokane",
     type: "website",
