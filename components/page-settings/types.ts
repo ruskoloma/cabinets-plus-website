@@ -190,19 +190,19 @@ export const FALLBACK_GLASS_ENCLOSURES_MAIN_PAGE_SETTINGS: GlassEnclosuresMainPa
 
 export const FALLBACK_CABINETS_OVERVIEW_PAGE_SETTINGS: CabinetsOverviewPageSettings = {
   blocks: [
-    { _template: "cabinetCatalogGrid", pageTitle: "Cabinets", cardImageSize: "card", filterImageSize: "thumb" },
+    { _template: "cabinetCatalogGrid", pageTitle: "Cabinets", pageSubtitle: "", cardImageSize: "card", filterImageSize: "thumb" },
   ],
 };
 
 export const FALLBACK_COUNTERTOPS_OVERVIEW_PAGE_SETTINGS: CountertopsOverviewPageSettings = {
   blocks: [
-    { _template: "countertopCatalogGrid", pageTitle: "Countertops", cardImageSize: "card", filterImageSize: "thumb" },
+    { _template: "countertopCatalogGrid", pageTitle: "Countertops", pageSubtitle: "", cardImageSize: "card", filterImageSize: "thumb" },
   ],
 };
 
 export const FALLBACK_FLOORING_OVERVIEW_PAGE_SETTINGS: FlooringOverviewPageSettings = {
   blocks: [
-    { _template: "flooringCatalogGrid", pageTitle: "Flooring Catalog", cardImageSize: "card", filterImageSize: "thumb" },
+    { _template: "flooringCatalogGrid", pageTitle: "Flooring Catalog", pageSubtitle: "", cardImageSize: "card", filterImageSize: "thumb" },
   ],
 };
 

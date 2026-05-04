@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import ClearFiltersButton from "@/components/ui/ClearFiltersButton";
 import { formatProductCode } from "@/components/special/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/special/catalog-overview/CatalogSortDropdown";
+import CatalogPageSubtitle from "@/components/special/catalog-overview/CatalogPageSubtitle";
 import { usePaginationScrollTarget } from "@/components/special/catalog-overview/use-pagination-scroll";
 import { normalizeImageSizeChoice, resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import CatalogMobileFilterOverlay from "./CatalogMobileFilterOverlay";
@@ -476,6 +477,7 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
         >
           {pageTitle}
         </h1>
+        <CatalogPageSubtitle block={block} />
 
         <div ref={filtersRef}>
           <div className="mt-4 flex items-center justify-between gap-6 md:hidden">

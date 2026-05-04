@@ -3,6 +3,7 @@
   "blocks": [
     {
       "pageTitle": "Countertops",
+      "pageSubtitle": "All quartz options listed on this page are part of our square footage program, meaning you only pay for the material your project actually needs—not the entire slab.\n",
       "cardImageSize": "card",
       "filterImageSize": "thumb",
       "_template": "countertopCatalogGrid"

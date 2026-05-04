@@ -350,6 +350,7 @@ export const CABINETS_OVERVIEW_PAGE_SETTINGS_QUERY = `
           __typename
           ... on PagesCabinetsOverviewBlocksCabinetCatalogGrid {
             pageTitle
+            pageSubtitle
             cardImageSize
             filterImageSize
           }
@@ -376,6 +377,7 @@ export const COUNTERTOPS_OVERVIEW_PAGE_SETTINGS_QUERY = `
           __typename
           ... on PagesCountertopsOverviewBlocksCountertopCatalogGrid {
             pageTitle
+            pageSubtitle
             cardImageSize
             filterImageSize
           }
@@ -402,6 +404,7 @@ export const FLOORING_OVERVIEW_PAGE_SETTINGS_QUERY = `
           __typename
           ... on PagesFlooringOverviewBlocksFlooringCatalogGrid {
             pageTitle
+            pageSubtitle
             cardImageSize
             filterImageSize
           }
