@@ -4,7 +4,7 @@ name: Jade Green
 code: JGS
 slug: jgs
 description: >-
-  Jade Green sample door from Sand Collection is produced using the exact same
+  Jade Green sample door is produced using the exact same
   manufacturing process as our full cabinet line, ensuring absolute consistency
   in material selection, construction methods, and finishing techniques. The
   style, recessed panel, stile and rail dimensions, and solid birchwood are
@@ -17,8 +17,6 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/JGS/3146-jgs-jade-green.jpg
 technicalDetails:
-  - key: Manufacturer
-    value: Sand Collection
   - key: Doors
     value: Birch
   - key: Hinges

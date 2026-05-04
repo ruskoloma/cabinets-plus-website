@@ -4,13 +4,11 @@ name: Slim Dove White
 code: SDWA
 slug: sdwa
 description: |-
-  Slim Dove White sample door from Access Collection is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
+  Slim Dove White sample door is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
   This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
 picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDWA/3076-sdwa-slim-dove-white.jpg'
 technicalDetails:
-  - key: Manufacturer
-    value: Access Collection
   - key: Doors
     value: Birch
   - key: Hinges
