@@ -1,4 +1,5 @@
 import type { GlobalSettings } from "./GlobalContext";
+import { normalizeImageSrc } from "@/lib/image-variants";
 
 interface ProductReferenceInput {
   __typename?: string | null;
@@ -111,7 +112,7 @@ function resolveCatalogItem(
   if (!slug) return null;
 
   const name = typeof rawProduct.name === "string" ? rawProduct.name.trim() : "";
-  const image = typeof rawProduct.picture === "string" ? rawProduct.picture : "";
+  const image = normalizeImageSrc(rawProduct.picture);
   if (!name || !image) return null;
 
   return {

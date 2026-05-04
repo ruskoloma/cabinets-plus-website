@@ -12,7 +12,7 @@ import { formatProductCode } from "@/components/special/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/special/catalog-overview/CatalogSortDropdown";
 import { usePaginationScrollTarget } from "@/components/special/catalog-overview/use-pagination-scroll";
 import { normalizeImageSizeChoice, resolveConfiguredImageVariant } from "@/lib/image-size-controls";
-import type { ImageVariantPreset } from "@/lib/image-variants";
+import { normalizeImageSrc, type ImageVariantPreset } from "@/lib/image-variants";
 import CatalogMobileFilterOverlay from "@/components/special/cabinets-overview/CatalogMobileFilterOverlay";
 import {
   getOverviewFlooringItems,
@@ -21,6 +21,7 @@ import {
 import type { FlooringOverviewDataShape } from "./types";
 
 const PAGE_SIZE = 16;
+const FLOORING_IMAGE_FALLBACK = "/library/catalog/material-placeholder-flooring.svg";
 const SORT_OPTIONS = [
   { value: "az", label: "Products (A-Z)" },
   { value: "za", label: "Products (Z-A)" },
@@ -190,13 +191,14 @@ function FlooringOptionCard({
   onClick: () => void;
 }) {
   const record = option as unknown as Record<string, unknown>;
+  const imageSrc = normalizeImageSrc(option.image);
 
   return (
     <button className="group flex flex-col items-center gap-2" onClick={onClick} type="button">
       <span className="relative flex h-[173px] w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2]">
-        {option.image ? (
+        {imageSrc ? (
           <span className="relative block h-[116px] w-[116px]" data-tina-field={tinaField(record, "image")}>
-            <FillImage alt={option.label} className="object-cover object-center" sizes="116px" src={option.image} variant={imageVariant} />
+            <FillImage alt={option.label} className="object-cover object-center" sizes="116px" src={imageSrc} variant={imageVariant} />
           </span>
         ) : null}
         <FlooringOptionState selected={selected} />
@@ -244,18 +246,17 @@ function StaticFlooringCard({
   return (
     <Link className="group block" href={`/flooring/catalog/${item.slug}`}>
       <span className="block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
-        {item.picture ? (
-          <div className="relative h-full w-full">
-            <FillImage
-              alt={item.name}
-              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              data-tina-field={tinaField(item.raw, "picture")}
-              sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
-              src={item.picture}
-              variant={imageVariant}
-            />
-          </div>
-        ) : null}
+        <div className="relative h-full w-full">
+          <FillImage
+            alt={item.name}
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            data-tina-field={tinaField(item.raw, "picture")}
+            fallbackSrc={FLOORING_IMAGE_FALLBACK}
+            sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
+            src={item.picture}
+            variant={imageVariant}
+          />
+        </div>
       </span>
       <span className="mt-3 block max-w-[270px]">
         <span
@@ -309,17 +310,16 @@ function TinaFlooringCard({
       href={`/flooring/catalog/${liveSlug}`}
     >
       <span className="block aspect-square overflow-hidden bg-[var(--cp-primary-100)]">
-        {livePicture ? (
-          <div className="relative h-full w-full">
-            <FillImage
-              alt={liveName}
-              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
-              src={livePicture}
-              variant={imageVariant}
-            />
-          </div>
-        ) : null}
+        <div className="relative h-full w-full">
+          <FillImage
+            alt={liveName}
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            fallbackSrc={FLOORING_IMAGE_FALLBACK}
+            sizes="(min-width: 1280px) 279px, (min-width: 1024px) calc((100vw - 300px) / 4), (min-width: 768px) calc((100vw - 160px) / 3), calc((100vw - 47px) / 2)"
+            src={livePicture}
+            variant={imageVariant}
+          />
+        </div>
       </span>
       <span className="mt-3 block max-w-[270px]">
         <span className="block font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]">
