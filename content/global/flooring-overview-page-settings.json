@@ -5,6 +5,7 @@
     {
       "_template": "flooringCatalogGrid",
       "pageTitle": "Flooring",
+      "pageSubtitle": "",
       "cardImageSize": "card",
       "filterImageSize": "thumb"
     },

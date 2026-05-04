@@ -2532,6 +2532,15 @@ export default defineConfig({
                     label: "Cabinet Catalog Grid (filters + product grid — required)",
                     fields: [
                       { type: "string" as const, name: "pageTitle", label: "Page Title" },
+                      {
+                        type: "rich-text" as const,
+                        name: "pageSubtitle",
+                        label: "Page Subtitle",
+                        description: "Use bold/italic to emphasize phrases. Headings, lists, links and images are intentionally disabled for this field.",
+                        overrides: {
+                          toolbar: ["bold" as const, "italic" as const],
+                        },
+                      },
                       imageSizeSettingField(
                         "cardImageSize",
                         "Card Images",
@@ -2568,6 +2577,15 @@ export default defineConfig({
                     label: "Countertop Catalog Grid (filters + product grid — required)",
                     fields: [
                       { type: "string" as const, name: "pageTitle", label: "Page Title" },
+                      {
+                        type: "rich-text" as const,
+                        name: "pageSubtitle",
+                        label: "Page Subtitle",
+                        description: "Use bold/italic to emphasize phrases. Headings, lists, links and images are intentionally disabled for this field.",
+                        overrides: {
+                          toolbar: ["bold" as const, "italic" as const],
+                        },
+                      },
                       imageSizeSettingField(
                         "cardImageSize",
                         "Card Images",
@@ -2604,6 +2622,15 @@ export default defineConfig({
                     label: "Flooring Catalog Grid (filters + product grid — required)",
                     fields: [
                       { type: "string" as const, name: "pageTitle", label: "Page Title" },
+                      {
+                        type: "rich-text" as const,
+                        name: "pageSubtitle",
+                        label: "Page Subtitle",
+                        description: "Use bold/italic to emphasize phrases. Headings, lists, links and images are intentionally disabled for this field.",
+                        overrides: {
+                          toolbar: ["bold" as const, "italic" as const],
+                        },
+                      },
                       imageSizeSettingField(
                         "cardImageSize",
                         "Card Images",

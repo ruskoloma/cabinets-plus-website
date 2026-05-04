@@ -5,6 +5,7 @@
     {
       "_template": "cabinetCatalogGrid",
       "pageTitle": "Cabinets",
+      "pageSubtitle": "",
       "cardImageSize": "card",
       "filterImageSize": "thumb"
     },

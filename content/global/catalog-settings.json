@@ -98,14 +98,14 @@
       "image": "/library/catalog/countertop-granite.png"
     },
     {
-      "value": "Marble",
-      "label": "Marble",
-      "image": "/library/catalog/countertop-marble.png"
-    },
-    {
       "value": "Quartzite",
       "label": "Quartzite",
       "image": "/library/catalog/countertop-quartzite.png"
+    },
+    {
+      "value": "Marble",
+      "label": "Marble",
+      "image": "/library/catalog/countertop-marble.png"
     }
   ],
   "flooringTypes": [

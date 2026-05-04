@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import ClearFiltersButton from "@/components/ui/ClearFiltersButton";
 import { formatProductCode } from "@/components/special/cabinet-door/helpers";
 import CatalogSortDropdown from "@/components/special/catalog-overview/CatalogSortDropdown";
+import CatalogPageSubtitle from "@/components/special/catalog-overview/CatalogPageSubtitle";
 import { usePaginationScrollTarget } from "@/components/special/catalog-overview/use-pagination-scroll";
 import { normalizeImageSizeChoice, resolveConfiguredImageVariant } from "@/lib/image-size-controls";
 import CatalogMobileFilterOverlay from "./CatalogMobileFilterOverlay";
@@ -476,6 +477,7 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
         >
           {pageTitle}
         </h1>
+        <CatalogPageSubtitle block={block} />
 
         <div ref={filtersRef}>
           <div className="mt-4 flex items-center justify-between gap-6 md:hidden">
@@ -646,18 +648,18 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
 
                   <div className="mt-6 flex items-start justify-center gap-8">
                     <button
-                      className={`cp-tab-button text-[20px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
+                      className={`cp-tab-button !font-[var(--font-red-hat-display)] !font-semibold !leading-[1.5] tracking-[0.2px] text-[20px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
                       onClick={() => setFinishTab("paint")}
                       type="button"
                     >
-                      <span>Paint</span>
+                      <span>PAINT</span>
                     </button>
                     <button
-                      className={`cp-tab-button text-[20px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
+                      className={`cp-tab-button !font-[var(--font-red-hat-display)] !font-semibold !leading-[1.5] tracking-[0.2px] text-[20px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
                       onClick={() => setFinishTab("stain")}
                       type="button"
                     >
-                      <span>Stain</span>
+                      <span>STAIN</span>
                     </button>
                   </div>
 
@@ -763,25 +765,25 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
             tabs={
               <div className="flex items-start gap-8">
                 <button
-                  className={`cp-tab-button text-[18px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
+                  className={`cp-tab-button !font-[var(--font-red-hat-display)] !font-semibold !leading-[1.5] tracking-[0.18px] text-[18px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
                   onClick={() => setFinishTab("paint")}
                   type="button"
                 >
-                  <span>Paint</span>
+                  <span>PAINT</span>
                 </button>
                 <button
-                  className={`cp-tab-button text-[18px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
+                  className={`cp-tab-button !font-[var(--font-red-hat-display)] !font-semibold !leading-[1.5] tracking-[0.18px] text-[18px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
                   onClick={() => setFinishTab("stain")}
                   type="button"
                 >
-                  <span>Stain</span>
+                  <span>STAIN</span>
                 </button>
               </div>
             }
             title="Select Finish"
           >
             {finishTab === "paint" ? (
-              <div className="grid grid-cols-3 justify-between gap-x-[12.5px] gap-y-8">
+              <div className="grid grid-cols-3 gap-x-[15px] gap-y-8">
                 {paintOptions.map((option, index) => {
                   const value = normalizeOptionValue(option.value);
                   const selected = pendingFinishes.includes(value);
@@ -805,7 +807,11 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
                   const selected = pendingFinishes.includes(value);
 
                   return (
-                    <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`mobile-stain-${option.value}-${index}`}>
+                    <div
+                      className="w-full max-w-[173px]"
+                      data-tina-field={tinaField(option as unknown as Record<string, unknown>)}
+                      key={`mobile-stain-${option.value}-${index}`}
+                    >
                       <DoorStyleOptionCard
                         imageSizeChoice={filterImageSizeChoice || undefined}
                         onClick={() => setPendingFinishes((current) => toggleMultiValue(current, value))}
