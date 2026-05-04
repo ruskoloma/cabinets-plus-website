@@ -138,10 +138,14 @@ function CountertopOptionState({ selected }: { selected: boolean }) {
   }
 
   return (
-    <span className="absolute inset-0 flex items-center justify-center bg-black/25 opacity-0 transition-opacity group-hover:opacity-100">
+    <span className="absolute inset-0 hidden items-center justify-center bg-black/25 opacity-0 transition-opacity md:flex md:group-hover:opacity-100">
       <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-white">Select</span>
     </span>
   );
+}
+
+function isCatalogFilterAsset(src?: string | null): boolean {
+  return Boolean(src?.includes("/library/catalog/"));
 }
 
 function CountertopOptionCard({
@@ -156,13 +160,20 @@ function CountertopOptionCard({
   onClick: () => void;
 }) {
   const record = option as unknown as Record<string, unknown>;
+  const resolvedImageVariant = isCatalogFilterAsset(option.image) ? undefined : imageVariant;
 
   return (
-    <button className="group flex flex-col items-center gap-2" onClick={onClick} type="button">
-      <span className="relative flex h-[173px] w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2]">
+    <button className="group flex w-full flex-col items-center gap-2" onClick={onClick} type="button">
+      <span className="relative flex aspect-square w-full max-w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2]">
         {option.image ? (
-          <span className="relative block h-[116px] w-[116px]" data-tina-field={tinaField(record, "image")}>
-            <FillImage alt={option.label} className="object-cover object-center" sizes="116px" src={option.image} variant={imageVariant} />
+          <span className="relative block aspect-square w-[67.05%]" data-tina-field={tinaField(record, "image")}>
+            <FillImage
+              alt={option.label}
+              className="object-cover object-center"
+              sizes="(max-width: 392px) calc(((100vw - 47px) / 2) * 0.6705), 116px"
+              src={option.image}
+              variant={resolvedImageVariant}
+            />
           </span>
         ) : null}
         <CountertopOptionState selected={selected} />

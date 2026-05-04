@@ -5,6 +5,10 @@ import FillImage from "@/components/ui/FillImage";
 import { resolveConfiguredImageVariant, type ImageSizeChoice } from "@/lib/image-size-controls";
 import type { CatalogVisualOption } from "./types";
 
+function isCatalogFilterAsset(src?: string | null): boolean {
+  return Boolean(src?.includes("/library/catalog/"));
+}
+
 function OverlayOptionState({ selected }: { selected: boolean }) {
   if (selected) {
     return (
@@ -17,7 +21,7 @@ function OverlayOptionState({ selected }: { selected: boolean }) {
   }
 
   return (
-    <span className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
+    <span className="absolute inset-0 hidden items-center justify-center bg-black/30 opacity-0 transition-opacity md:flex md:group-hover:opacity-100">
       <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-white">Select</span>
     </span>
   );
@@ -35,17 +39,17 @@ export function DoorStyleOptionCard({
   onClick: () => void;
 }) {
   const record = option as unknown as Record<string, unknown>;
-  const imageVariant = resolveConfiguredImageVariant(imageSizeChoice, "thumb");
+  const imageVariant = isCatalogFilterAsset(option.image) ? undefined : resolveConfiguredImageVariant(imageSizeChoice, "thumb");
 
   return (
-    <button className="group flex flex-col items-center gap-2" onClick={onClick} type="button">
-      <span className="relative block h-[173px] w-[173px] overflow-hidden bg-[#f2f2f2]">
+    <button className="group flex w-full flex-col items-center gap-2" onClick={onClick} type="button">
+      <span className="relative block aspect-square w-full max-w-[173px] overflow-hidden bg-[#f2f2f2]">
         {option.image ? (
           <FillImage
             alt={option.label}
             className="object-contain"
             data-tina-field={tinaField(record, "image")}
-            sizes="173px"
+            sizes="(max-width: 392px) calc((100vw - 47px) / 2), 173px"
             src={option.image}
             variant={imageVariant}
           />
@@ -54,7 +58,7 @@ export function DoorStyleOptionCard({
         <OverlayOptionState selected={selected} />
       </span>
       <span
-        className="w-full text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]"
+        className="w-full whitespace-nowrap text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] max-[374px]:text-[14px]"
         data-tina-field={tinaField(record, "label")}
       >
         {option.label}
@@ -77,18 +81,26 @@ export function FinishOptionCard({
   const record = option as unknown as Record<string, unknown>;
   const swatchColor = option.swatchColor?.trim();
   const hasImage = Boolean(option.image);
-  const imageVariant = resolveConfiguredImageVariant(imageSizeChoice, "thumb");
+  const imageVariant = isCatalogFilterAsset(option.image) ? undefined : resolveConfiguredImageVariant(imageSizeChoice, "thumb");
   const swatchStyle = !hasImage && swatchColor ? { backgroundColor: swatchColor } : undefined;
   const needsBorder = !hasImage && (!swatchColor || ["#ffffff", "#faf9f6"].includes(swatchColor.toLowerCase()));
 
   return (
-    <button className="group flex flex-col items-center gap-2" onClick={onClick} type="button">
+    <button className="group flex w-full flex-col items-center gap-2" onClick={onClick} type="button">
       <span
-        className={`relative block h-[112px] w-[112px] overflow-hidden bg-white ${needsBorder ? "border border-[var(--cp-primary-100)]" : ""}`}
+        className={`relative block aspect-square w-full max-w-[112px] overflow-hidden bg-white ${needsBorder ? "border border-[var(--cp-primary-100)]" : ""}`}
         data-tina-field={hasImage ? tinaField(record, "image") : tinaField(record, "swatchColor")}
         style={swatchStyle}
       >
-        {hasImage ? <FillImage alt={option.label} className="object-contain" sizes="112px" src={option.image || ""} variant={imageVariant} /> : null}
+        {hasImage ? (
+          <FillImage
+            alt={option.label}
+            className="object-contain"
+            sizes="(max-width: 392px) calc((100vw - 62px) / 3), 112px"
+            src={option.image || ""}
+            variant={imageVariant}
+          />
+        ) : null}
 
         <OverlayOptionState selected={selected} />
       </span>
