@@ -3634,7 +3634,7 @@ export default defineConfig({
           { type: "string", name: "address", label: "Address" },
           { type: "string", name: "notes", label: "Notes", ui: { component: "textarea" } },
           { type: "number", name: "sourceId", label: "Source ID (Strapi)" },
-          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At" },
+          { type: "datetime", name: "sourceUpdatedAt", label: "Source Updated At", required: true },
         ],
       },
 

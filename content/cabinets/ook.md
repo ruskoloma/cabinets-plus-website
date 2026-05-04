@@ -6,8 +6,6 @@ doorStyle: slim shaker
 paint: timber
 stainType: white glaze stain
 technicalDetails:
-  - key: Manufacturer
-    value: KCD Collection
   - key: Doors
     value: Birch
   - key: Hinges

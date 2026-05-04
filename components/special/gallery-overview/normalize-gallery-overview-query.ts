@@ -22,6 +22,12 @@ function asString(value: unknown): string | undefined {
   return typeof value === "string" ? value : undefined;
 }
 
+function asDateString(value: unknown): string | undefined {
+  if (typeof value === "string") return value;
+  if (value instanceof Date && Number.isFinite(value.getTime())) return value.toISOString();
+  return undefined;
+}
+
 function asBoolean(value: unknown): boolean | undefined {
   return typeof value === "boolean" ? value : undefined;
 }
@@ -257,7 +263,7 @@ function normalizeCollection(value: unknown, fallbackFilename?: string): Collect
     slug: toCollectionSlug(asString(record.slug) || sysFallback || ""),
     description: asString(record.description) ?? null,
     coverImage: asString(record.coverImage) ?? null,
-    sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
+    sourceUpdatedAt: asDateString(record.sourceUpdatedAt) ?? null,
     media,
     relatedProjects: (() => {
       const typedRelated = Array.isArray(record.relatedProjects)
@@ -292,7 +298,7 @@ function normalizeProject(value: unknown): ProjectOverviewItem | null {
     description: asString(record.description) ?? null,
     notes: asString(record.notes) ?? null,
     primaryPicture: null,
-    sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
+    sourceUpdatedAt: asDateString(record.sourceUpdatedAt) ?? null,
     media,
     _content_source: record._content_source as unknown,
     _values: record._values as unknown,

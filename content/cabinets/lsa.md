@@ -4,7 +4,7 @@ name: Liberty Shaker Ashen
 code: LSA
 slug: lsa
 description: >-
-  Liberty Shaker Ashen sample door from Pro Collection is produced using the
+  Liberty Shaker Ashen sample door is produced using the
   exact same manufacturing process as our full cabinet line, ensuring absolute
   consistency in material selection, construction methods, and finishing
   techniques. The style, recessed panel, stile and rail dimensions, and solid
@@ -17,8 +17,6 @@ description: >-
 picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/LSA/3131-lsa.jpg
 technicalDetails:
-  - key: Manufacturer
-    value: Pro Collection
   - key: Doors
     value: Birch
   - key: Hinges

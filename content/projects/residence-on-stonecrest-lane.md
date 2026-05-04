@@ -117,4 +117,5 @@ media:
     countertop: ''
     label: Glass shower enclosure
     description: Residence on Stonecrest Lane featuring glass shower enclosure, bathroom.
+sourceUpdatedAt: 2026-04-30T08:30:44.000Z
 ---

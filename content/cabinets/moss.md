@@ -6,8 +6,6 @@ doorStyle: shaker
 paint: green
 stainType: ''
 technicalDetails:
-  - key: Manufacturer
-    value: KCD Collection
   - key: Doors
     value: Birch
   - key: Hinges

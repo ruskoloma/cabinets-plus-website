@@ -6,8 +6,6 @@ slug: owk
 description: 'NEW, update code, Oslo White'
 picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/OWK/3103-oslo-white.jpg'
 technicalDetails:
-  - key: Manufacturer
-    value: KCD Collection
   - key: Doors
     value: Birch
   - key: Hinges
