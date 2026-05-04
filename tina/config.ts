@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import React from "react";
-import { defineConfig, EditIcon, ImageField, useCMS } from "tinacms";
+import { defineConfig, EditIcon, ImageField, ImageFieldPlugin, useCMS } from "tinacms";
 import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
 import {
   getCabinetProductFocusItemId,
@@ -660,12 +660,90 @@ type MediaFieldRendererProps = {
   };
   field?: {
     label?: string | boolean;
+    uploadDir?: (formValues: Record<string, unknown>) => string;
   };
 } & Record<string, unknown>;
 
 const TypedImageField = ImageField as React.ComponentType<Record<string, unknown>>;
 const TINA_MEDIA_ITEM_HIGHLIGHT_DURATION_MS = 2200;
 const TINA_SIDEBAR_MEDIA_ITEM_ROW_ATTRIBUTE = "data-cp-tina-media-item-row";
+
+function stripQueryAndHash(value: string) {
+  return value.split("#")[0].split("?")[0];
+}
+
+function safelyDecodePathname(value: string) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function configuredCdnPathPrefix() {
+  const cdnUrl = typeof process !== "undefined" ? process.env.S3_CDN_URL : undefined;
+  if (!cdnUrl) return "";
+
+  try {
+    return new URL(cdnUrl).pathname.replace(/^\/+|\/+$/g, "");
+  } catch {
+    return "";
+  }
+}
+
+function normalizeMediaPathFromValue(value: string) {
+  let mediaPath = value.trim();
+
+  try {
+    const url = new URL(mediaPath);
+    mediaPath = safelyDecodePathname(url.pathname);
+  } catch {
+    mediaPath = stripQueryAndHash(mediaPath);
+  }
+
+  mediaPath = mediaPath.replace(/^\/+/, "");
+
+  const cdnPathPrefix = configuredCdnPathPrefix();
+  if (cdnPathPrefix && (mediaPath === cdnPathPrefix || mediaPath.startsWith(`${cdnPathPrefix}/`))) {
+    mediaPath = mediaPath.slice(cdnPathPrefix.length).replace(/^\/+/, "");
+  }
+
+  return mediaPath.replace(/\/+$/, "");
+}
+
+function directoryFromSelectedImage(value: unknown) {
+  if (typeof value !== "string") return null;
+
+  const mediaPath = normalizeMediaPathFromValue(value);
+  if (!mediaPath) return null;
+
+  const lastSlashIndex = mediaPath.lastIndexOf("/");
+  return lastSlashIndex === -1 ? "" : mediaPath.slice(0, lastSlashIndex);
+}
+
+function withSelectedImageDirectoryUpload(props: MediaFieldRendererProps): Record<string, unknown> {
+  const selectedImageDirectory = directoryFromSelectedImage(props.input?.value);
+  const field = props.field || {};
+  const existingUploadDir = typeof field.uploadDir === "function" ? field.uploadDir : undefined;
+
+  return {
+    ...props,
+    field: {
+      ...field,
+      uploadDir: (formValues: Record<string, unknown>) => {
+        if (selectedImageDirectory !== null) {
+          return selectedImageDirectory;
+        }
+
+        return existingUploadDir?.(formValues) || "";
+      },
+    },
+  };
+}
+
+function DirectoryAwareImageField(props: MediaFieldRendererProps) {
+  return React.createElement(TypedImageField, withSelectedImageDirectoryUpload(props));
+}
 
 function clearTinaMediaItemHighlight(target: HTMLElement) {
   target.style.backgroundColor = "";
@@ -1119,7 +1197,7 @@ function renderLargeMediaPreviewField(props: MediaFieldRendererProps) {
           ),
         )
       : null,
-    React.createElement(TypedImageField, props),
+    React.createElement(DirectoryAwareImageField, props),
   );
 }
 
@@ -2180,6 +2258,10 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
   cmsCallback: (cms) => {
+    cms.fields.add({
+      ...ImageFieldPlugin,
+      Component: DirectoryAwareImageField,
+    });
     cms.plugins.add({
       __type: "screen",
       name: "Edit Current Page",
