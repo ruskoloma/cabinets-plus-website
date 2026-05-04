@@ -20,7 +20,6 @@ relatedProducts:
   - product: content/countertops/calacattabellagio.md
   - product: content/countertops/calacattabrezze.md
   - product: content/countertops/calacattadays.md
-  - product: content/countertops/calacattahighlight.md
 technicalDetails:
   - key: Type
     value: Quartz

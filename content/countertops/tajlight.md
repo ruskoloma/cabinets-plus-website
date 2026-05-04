@@ -18,7 +18,6 @@ picture: >-
   https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/tajlight/3271-taj-light.jpg
 relatedProjects: []
 relatedProducts:
-  - product: content/countertops/calacattahighlight.md
   - product: content/countertops/calacattabellagio.md
   - product: content/countertops/calacattabrezze.md
   - product: content/countertops/calacattadays.md

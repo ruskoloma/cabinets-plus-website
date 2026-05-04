@@ -143,7 +143,6 @@ const PRODUCTS = [
       "content/countertops/calacattabellagio.md",
       "content/countertops/calacattabrezze.md",
       "content/countertops/calacattadays.md",
-      "content/countertops/calacattahighlight.md",
     ],
   },
   {
