@@ -2,7 +2,19 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import React from "react";
-import { defineConfig, EditIcon, ImageField, ImageFieldPlugin, useCMS } from "tinacms";
+import {
+  BlocksField,
+  BlocksFieldPlugin,
+  defineConfig,
+  EditIcon,
+  GroupListField,
+  GroupListFieldPlugin,
+  ImageField,
+  ImageFieldPlugin,
+  ListField,
+  ListFieldPlugin,
+  useCMS,
+} from "tinacms";
 import { IMAGE_SIZE_SELECT_OPTIONS } from "../lib/image-size-controls";
 import {
   getCabinetProductFocusItemId,
@@ -665,8 +677,242 @@ type MediaFieldRendererProps = {
 } & Record<string, unknown>;
 
 const TypedImageField = ImageField as React.ComponentType<Record<string, unknown>>;
+const TypedGroupListField = GroupListField as unknown as React.ComponentType<Record<string, unknown>>;
+const TypedBlocksField = BlocksField as unknown as React.ComponentType<Record<string, unknown>>;
+const TypedListField = ListField as unknown as React.ComponentType<Record<string, unknown>>;
 const TINA_MEDIA_ITEM_HIGHLIGHT_DURATION_MS = 2200;
 const TINA_SIDEBAR_MEDIA_ITEM_ROW_ATTRIBUTE = "data-cp-tina-media-item-row";
+const TINA_LIST_DUPLICATE_BUTTON_ATTRIBUTE = "data-cp-tina-list-duplicate-button";
+const TINA_LIST_DUPLICATE_ICON =
+  '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="8" y="8" width="10" height="10" rx="2"></rect><path d="M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+
+type TinaListMutators = {
+  insert?: (name: string, index: number, value: unknown) => void;
+};
+
+type TinaListFormRef = {
+  mutators?: TinaListMutators;
+};
+
+type DuplicateEnabledListFieldProps = {
+  input?: {
+    value?: unknown;
+  };
+  field?: {
+    name?: string;
+    max?: number;
+  };
+  form?: TinaListFormRef;
+  tinaForm?: TinaListFormRef;
+} & Record<string, unknown>;
+
+function cloneTinaListItem(value: unknown) {
+  if (typeof globalThis.structuredClone === "function") {
+    return globalThis.structuredClone(value);
+  }
+
+  if (value && typeof value === "object") {
+    return JSON.parse(JSON.stringify(value));
+  }
+
+  return value;
+}
+
+function isHTMLElement(value: Element): value is HTMLElement {
+  return value instanceof HTMLElement;
+}
+
+function findTinaListRows(root: HTMLElement) {
+  return Array.from(root.querySelectorAll<HTMLElement>('[role="button"]')).filter((row) => {
+    const className = typeof row.className === "string" ? row.className : "";
+    return (
+      className.includes("items-stretch") &&
+      className.includes("bg-white") &&
+      className.includes("border") &&
+      className.includes("cursor-pointer")
+    );
+  });
+}
+
+function createTinaDuplicateButton(disabled: boolean) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.title = "Duplicate";
+  button.setAttribute("aria-label", "Duplicate");
+  button.setAttribute(TINA_LIST_DUPLICATE_BUTTON_ATTRIBUTE, "true");
+  button.innerHTML = TINA_LIST_DUPLICATE_ICON;
+  button.style.width = "32px";
+  button.style.minWidth = "32px";
+  button.style.maxWidth = "32px";
+  button.style.flex = "0 0 32px";
+  button.style.boxSizing = "border-box";
+  button.style.padding = "10px 4px";
+  button.style.border = "0";
+  button.style.background = "transparent";
+  button.style.color = "#3b82f6";
+  button.style.display = "flex";
+  button.style.alignItems = "center";
+  button.style.justifyContent = "center";
+  button.style.opacity = disabled ? "0.2" : "0.3";
+  button.style.cursor = disabled ? "not-allowed" : "pointer";
+  button.disabled = disabled;
+
+  if (!disabled) {
+    button.addEventListener("mouseenter", () => {
+      button.style.opacity = "1";
+      button.style.background = "#f9fafb";
+    });
+    button.addEventListener("mouseleave", () => {
+      button.style.opacity = "0.3";
+      button.style.background = "transparent";
+    });
+  }
+
+  return button;
+}
+
+function normalizeTinaListRowWidth(row: HTMLElement) {
+  row.style.width = "100%";
+  row.style.maxWidth = "100%";
+  row.style.minWidth = "0";
+  row.style.boxSizing = "border-box";
+
+  Array.from(row.children).filter(isHTMLElement).forEach((child) => {
+    const className = typeof child.className === "string" ? child.className : "";
+
+    if (className.includes("flex-1")) {
+      child.style.flex = "1 1 0%";
+      child.style.minWidth = "0";
+      child.style.maxWidth = "100%";
+      child.style.boxSizing = "border-box";
+    }
+  });
+}
+
+function insertTinaDuplicateButton(row: HTMLElement, button: HTMLButtonElement) {
+  normalizeTinaListRowWidth(row);
+
+  const rowChildren = Array.from(row.children).filter(isHTMLElement);
+  const clickTarget = rowChildren.find((child) => {
+    const className = typeof child.className === "string" ? child.className : "";
+    return child.tagName !== "BUTTON" && className.includes("flex-1") && className.includes("justify-between");
+  });
+
+  if (clickTarget) {
+    clickTarget.style.flex = "1 1 0%";
+    clickTarget.style.minWidth = "0";
+    clickTarget.style.maxWidth = "100%";
+    clickTarget.style.boxSizing = "border-box";
+
+    const clickTargetChildren = Array.from(clickTarget.children).filter(isHTMLElement);
+    const editIcon = [...clickTargetChildren].reverse().find((child) => child.tagName.toLowerCase() === "svg");
+    const hasGroupLabel = clickTargetChildren.some((child) => {
+      const className = typeof child.className === "string" ? child.className : "";
+      return child.tagName === "SPAN" && className.includes("text-xs") && className.includes("font-semibold");
+    });
+
+    if (editIcon && hasGroupLabel) {
+      clickTarget.insertBefore(button, editIcon);
+      return;
+    }
+  }
+
+  const deleteButton = rowChildren.find((child) => child.tagName === "BUTTON");
+  if (deleteButton) {
+    row.insertBefore(button, deleteButton);
+    return;
+  }
+
+  row.appendChild(button);
+}
+
+function DuplicateEnabledTinaListField({
+  component: Component,
+  props,
+}: {
+  component: React.ComponentType<Record<string, unknown>>;
+  props: DuplicateEnabledListFieldProps;
+}) {
+  const [root, setRoot] = React.useState<HTMLDivElement | null>(null);
+
+  React.useEffect(() => {
+    const fieldName = props.field?.name;
+    const items = Array.isArray(props.input?.value) ? props.input.value : [];
+    const insert = props.form?.mutators?.insert || props.tinaForm?.mutators?.insert;
+
+    if (!root || !fieldName || !insert) return undefined;
+
+    root.querySelectorAll<HTMLButtonElement>(`button[${TINA_LIST_DUPLICATE_BUTTON_ATTRIBUTE}]`).forEach((button) => {
+      button.remove();
+    });
+
+    const isMax = typeof props.field?.max === "number" && items.length >= props.field.max;
+    const buttons: HTMLButtonElement[] = [];
+
+    findTinaListRows(root)
+      .slice(0, items.length)
+      .forEach((row, index) => {
+        const button = createTinaDuplicateButton(isMax);
+
+        button.addEventListener("mousedown", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+        });
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          if (isMax) return;
+
+          insert(fieldName, index + 1, cloneTinaListItem(items[index]));
+        });
+
+        insertTinaDuplicateButton(row, button);
+        buttons.push(button);
+      });
+
+    return () => {
+      buttons.forEach((button) => {
+        button.remove();
+      });
+    };
+  }, [props, root]);
+
+  return React.createElement(
+    "div",
+    {
+      ref: setRoot,
+      style: {
+        width: "100%",
+        maxWidth: "100%",
+        minWidth: 0,
+        boxSizing: "border-box",
+      },
+    },
+    React.createElement(Component, props),
+  );
+}
+
+function DuplicateEnabledGroupListField(props: DuplicateEnabledListFieldProps) {
+  return React.createElement(DuplicateEnabledTinaListField, {
+    component: TypedGroupListField,
+    props,
+  });
+}
+
+function DuplicateEnabledBlocksField(props: DuplicateEnabledListFieldProps) {
+  return React.createElement(DuplicateEnabledTinaListField, {
+    component: TypedBlocksField,
+    props,
+  });
+}
+
+function DuplicateEnabledListField(props: DuplicateEnabledListFieldProps) {
+  return React.createElement(DuplicateEnabledTinaListField, {
+    component: TypedListField,
+    props,
+  });
+}
 
 function stripQueryAndHash(value: string) {
   return value.split("#")[0].split("?")[0];
@@ -2220,6 +2466,18 @@ export default defineConfig({
     cms.fields.add({
       ...ImageFieldPlugin,
       Component: DirectoryAwareImageField,
+    });
+    cms.fields.add({
+      ...GroupListFieldPlugin,
+      Component: DuplicateEnabledGroupListField as unknown as typeof GroupListFieldPlugin.Component,
+    });
+    cms.fields.add({
+      ...BlocksFieldPlugin,
+      Component: DuplicateEnabledBlocksField as unknown as typeof BlocksFieldPlugin.Component,
+    });
+    cms.fields.add({
+      ...ListFieldPlugin,
+      Component: DuplicateEnabledListField as unknown as typeof ListFieldPlugin.Component,
     });
     cms.plugins.add({
       __type: "screen",
