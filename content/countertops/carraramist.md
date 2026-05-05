@@ -30,14 +30,6 @@ media:
     altText: Carrara Mist
     description: ''
     sourceId: 3270
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraramist/3270-carrara-mist.jpg'
-    kind: image
-    mimeType: image/jpeg
-    isPrimary: true
-    label: Carrara Mist.jpg
-    altText: Carrara Mist
-    description: ''
-    sourceId: 3270
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraramist/3564-carrara-mist.mp4'
     kind: video
     mimeType: video/mp4
