@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Jost, Open_Sans, Red_Hat_Display, Red_Hat_Text } from "next/font/google";
+import Script from "next/script";
 import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
 import { getGlobalDocumentSafe } from "@/app/get-global-document-safe";
@@ -17,6 +18,12 @@ const redHatDisplay = Red_Hat_Display({ variable: "--font-red-hat-display", subs
 const redHatText = Red_Hat_Text({ variable: "--font-red-hat-text", subsets: ["latin"] });
 const jost = Jost({ variable: "--font-jost", subsets: ["latin"] });
 const openSans = Open_Sans({ variable: "--font-open-sans", subsets: ["latin"] });
+const GOOGLE_TAG_MANAGER_ID = "GTM-WPVBM7L";
+const googleTagManagerScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GOOGLE_TAG_MANAGER_ID}');`;
 
 // Site-wide fallback metadata — individual pages override title & description via generateMetadata
 export const metadata: Metadata = {
@@ -62,9 +69,21 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <Script id="google-tag-manager" strategy="beforeInteractive">
+          {googleTagManagerScript}
+        </Script>
         <InjectedScripts placement="head" snippet={headScripts} />
       </head>
       <body className={`${redHatDisplay.variable} ${redHatText.variable} ${jost.variable} ${openSans.variable} antialiased`}>
+        <noscript>
+          <iframe
+            height="0"
+            src={`https://www.googletagmanager.com/ns.html?id=${GOOGLE_TAG_MANAGER_ID}`}
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+            width="0"
+          />
+        </noscript>
         <LayoutClient
           footerData={footerData}
           generalData={generalData}
