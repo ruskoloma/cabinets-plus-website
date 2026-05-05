@@ -226,6 +226,36 @@ function resolveFlooringDocumentReferenceLabel(value: unknown) {
   return resolveFlooringReferenceLabel(value);
 }
 
+function resolveCollectionReferenceLabel(value: unknown) {
+  const normalized = normalizeReferenceValue(String(value || ""), "collections");
+  if (!normalized) return "Select collection";
+
+  const file = normalized.split("/").pop() || normalized;
+  const slug = file.replace(/\.md$/i, "");
+  return humanizeSlug(slug);
+}
+
+function resolveCollectionDocumentReferenceLabel(value: unknown) {
+  const record = asRecord(value);
+  if (record) {
+    const title = typeof record.title === "string" ? record.title.trim() : "";
+    const sys = asRecord(record._sys);
+    const fallback = resolveCollectionReferenceLabel(
+      typeof record.slug === "string" && record.slug.trim()
+        ? `content/collections/${record.slug.trim()}.md`
+        : typeof sys?.relativePath === "string"
+          ? sys.relativePath
+          : typeof sys?.filename === "string"
+            ? `content/collections/${sys.filename}`
+            : "",
+    );
+
+    return title || fallback;
+  }
+
+  return resolveCollectionReferenceLabel(value);
+}
+
 function resolveProjectReferenceLabel(value: unknown) {
   const normalized = normalizeReferenceValue(String(value || ""), "projects");
   if (!normalized) return "Select project";
@@ -437,6 +467,23 @@ function readFlooringReferenceData(
   };
 }
 
+function readCollectionReferenceData(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const record = asRecord(values);
+  const coverImage = typeof record?.coverImage === "string" ? record.coverImage.trim() : "";
+  const fallbackImage = getReferenceMediaFallback(record?.media);
+
+  return {
+    title: typeof record?.title === "string" ? record.title.trim() : "",
+    slug: typeof record?.slug === "string" ? record.slug.trim() : "",
+    coverImage: coverImage || fallbackImage,
+    filename: internalSys?.filename?.trim() || "",
+    path: internalSys?.path?.trim() || "",
+  };
+}
+
 function renderProjectReferenceOption(
   values: unknown,
   internalSys?: { filename?: string; path?: string },
@@ -633,6 +680,61 @@ function renderFlooringReferenceOption(
     flooring.picture
       ? React.createElement("img", {
           src: flooring.picture,
+          alt: title,
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            objectFit: "cover",
+            backgroundColor: "#f9fafb",
+            display: "block",
+          },
+        })
+      : React.createElement("div", {
+          style: {
+            width: "252px",
+            height: "168px",
+            flexShrink: 0,
+            borderRadius: "6px",
+            border: "1px solid #e5e7eb",
+            backgroundColor: "#f9fafb",
+          },
+        }),
+    React.createElement(
+      "div",
+      { style: { minWidth: 0, flex: 1 } },
+      React.createElement("div", { style: { fontSize: "14px", lineHeight: 1.3, fontWeight: 600, color: "#111827" } }, title),
+      meta
+        ? React.createElement("div", { style: { marginTop: "4px", fontSize: "12px", lineHeight: 1.3, color: "#6b7280" } }, meta)
+        : null,
+    ),
+  );
+}
+
+function renderCollectionReferenceOption(
+  values: unknown,
+  internalSys?: { filename?: string; path?: string },
+) {
+  const collection = readCollectionReferenceData(values, internalSys);
+  const title = collection.title || resolveCollectionReferenceLabel(collection.filename || collection.path);
+  const meta = collection.slug || collection.filename || "";
+
+  return React.createElement(
+    "div",
+    {
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "14px",
+        minWidth: 0,
+        padding: "6px 0",
+      },
+    },
+    collection.coverImage
+      ? React.createElement("img", {
+          src: collection.coverImage,
           alt: title,
           style: {
             width: "252px",
@@ -2646,6 +2748,40 @@ export default defineConfig({
                             ui: {
                               optionComponent: renderFlooringReferenceOption,
                               experimental___filter: filterFlooringReferenceOptions,
+                            },
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    name: "glassCatalog",
+                    label: "Glass Catalog",
+                    ui: { itemProps: (item: TinaListItem) => ({ label: getListItemLabel(item, ["label"], "Glass Catalog") }) },
+                    fields: [
+                      { type: "string", name: "label", label: "Label" },
+                      { type: "string", name: "href", label: "Link" },
+                      { type: "string", name: "buttonLabel", label: "Button Label" },
+                      { type: "string", name: "buttonLink", label: "Button Link" },
+                      {
+                        type: "object",
+                        name: "catalogItems",
+                        label: "Catalog Items",
+                        list: true,
+                        description: "Search and select collection pages to show in the Products dropdown.",
+                        ui: {
+                          itemProps: (item: TinaListItem) => ({
+                            label: resolveCollectionDocumentReferenceLabel(getListItemValue(item, "collection")) || "Catalog item",
+                          }),
+                        },
+                        fields: [
+                          {
+                            type: "reference",
+                            name: "collection",
+                            label: "Collection",
+                            collections: ["specialityCollection"],
+                            ui: {
+                              optionComponent: renderCollectionReferenceOption,
                             },
                           },
                         ],

@@ -80,6 +80,18 @@
             }
           ],
           "_template": "flooringCatalog"
+        },
+        {
+          "label": "Glass & Enclosures",
+          "href": "/glass-enclosures",
+          "buttonLabel": "",
+          "buttonLink": "",
+          "catalogItems": [
+            {
+              "collection": "content/collections/glass.md"
+            }
+          ],
+          "_template": "glassCatalog"
         }
       ]
     },
