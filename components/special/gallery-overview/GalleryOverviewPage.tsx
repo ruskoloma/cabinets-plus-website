@@ -182,9 +182,15 @@ function RoomOptionCard({
   onClick: () => void;
 }) {
   return (
-    <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
-      <span className="relative block h-[132px] w-[132px] overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
-        <FillImage alt={label} className="object-cover" sizes="177px" src={image} variant={imageVariant} />
+    <button className="group flex w-full flex-col items-center gap-[9px]" onClick={onClick} type="button">
+      <span className="relative block aspect-square w-full max-w-[173px] overflow-hidden bg-[#f2f2f2] md:max-w-[177px]">
+        <FillImage
+          alt={label}
+          className="object-cover"
+          sizes="(max-width: 392px) calc((100vw - 47px) / 2), 177px"
+          src={image}
+          variant={imageVariant}
+        />
         <OverlayOptionState selected={selected} />
       </span>
       <span className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
@@ -206,7 +212,7 @@ function OverlayOptionState({ selected }: { selected: boolean }) {
   }
 
   return (
-    <span className="absolute inset-0 flex items-center justify-center bg-black/25 opacity-0 transition-opacity group-hover:opacity-100">
+    <span className="absolute inset-0 hidden items-center justify-center bg-black/25 opacity-0 transition-opacity md:flex md:group-hover:opacity-100">
       <span className="font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-white">Select</span>
     </span>
   );
@@ -240,11 +246,17 @@ function CountertopOptionCard({
   const hasImage = Boolean(option.image);
 
   return (
-    <button className="group flex flex-col items-center gap-[9px]" onClick={onClick} type="button">
-      <span className="relative flex h-[132px] w-[132px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:h-[177px] md:w-[177px]">
+    <button className="group flex w-full flex-col items-center gap-[9px]" onClick={onClick} type="button">
+      <span className="relative flex aspect-square w-full max-w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:max-w-[177px]">
         {hasImage ? (
-          <span className="relative block h-[90px] w-[90px] overflow-hidden md:h-[120px] md:w-[120px]">
-            <FillImage alt={option.label} className="object-cover" sizes="120px" src={option.image || ""} variant={imageVariant} />
+          <span className="relative block aspect-square w-[67.05%] overflow-hidden">
+            <FillImage
+              alt={option.label}
+              className="object-cover"
+              sizes="(max-width: 392px) calc(((100vw - 47px) / 2) * 0.6705), 120px"
+              src={option.image || ""}
+              variant={imageVariant}
+            />
           </span>
         ) : (
           <span className="px-4 text-center font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.25] text-[var(--cp-primary-500)]/70">
@@ -1012,18 +1024,26 @@ export default function GalleryOverviewPage({
               open={openPanel === "finish"}
               tabs={
                 <div className="flex items-start gap-8">
-                  <button className={`cp-tab-button text-[18px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`} onClick={() => setFinishTab("paint")} type="button">
-                    <span>Paint</span>
+                  <button
+                    className={`cp-tab-button !font-[var(--font-red-hat-display)] !font-semibold !leading-[1.5] tracking-[0.18px] text-[18px] ${finishTab === "paint" ? "cp-tab-button--active" : ""}`}
+                    onClick={() => setFinishTab("paint")}
+                    type="button"
+                  >
+                    <span>PAINT</span>
                   </button>
-                  <button className={`cp-tab-button text-[18px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`} onClick={() => setFinishTab("stain")} type="button">
-                    <span>Stain</span>
+                  <button
+                    className={`cp-tab-button !font-[var(--font-red-hat-display)] !font-semibold !leading-[1.5] tracking-[0.18px] text-[18px] ${finishTab === "stain" ? "cp-tab-button--active" : ""}`}
+                    onClick={() => setFinishTab("stain")}
+                    type="button"
+                  >
+                    <span>STAIN</span>
                   </button>
                 </div>
               }
               title="Select finish"
             >
               {finishTab === "paint" ? (
-                <div className="grid grid-cols-3 justify-between gap-x-[12.5px] gap-y-8">
+                <div className="grid grid-cols-3 gap-x-[15px] gap-y-8">
                   {paintOptions.map((option, index) => {
                     const value = normalizeOptionValue(option.value);
                     const selected = pendingFilters.finishes.includes(value);
@@ -1052,7 +1072,11 @@ export default function GalleryOverviewPage({
                     const selected = pendingFilters.finishes.includes(value);
 
                     return (
-                      <div data-tina-field={tinaField(option as unknown as Record<string, unknown>)} key={`gallery-mobile-stain-${option.value}-${index}`}>
+                      <div
+                        className="w-full max-w-[173px]"
+                        data-tina-field={tinaField(option as unknown as Record<string, unknown>)}
+                        key={`gallery-mobile-stain-${option.value}-${index}`}
+                      >
                         <SharedDoorStyleOptionCard
                           imageSizeChoice={normalizedFilterImageSizeChoice}
                           onClick={() =>
