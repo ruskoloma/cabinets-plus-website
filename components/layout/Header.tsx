@@ -7,7 +7,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { tinaField, useEditState } from "tinacms/dist/react";
 import FallbackImg from "@/components/ui/FallbackImg";
 
-type NavChildKind = "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "simpleLink";
+type NavChildKind = "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "glassCatalog" | "simpleLink";
 
 interface NavChild {
   label: string;
@@ -55,7 +55,7 @@ interface RawNavLink extends Record<string, unknown> {
   label?: string;
 }
 
-type ProductCatalogKey = "cabinets" | "countertops" | "flooring";
+type ProductCatalogKey = "cabinets" | "countertops" | "flooring" | "glass";
 const DESKTOP_DROPDOWN_TOP = 90;
 const DESKTOP_DROPDOWN_LEFT_OFFSET = 30;
 const DESKTOP_PRODUCTS_DROPDOWN_SIZE = { width: 599, height: 558 } as const;
@@ -64,16 +64,19 @@ const PRODUCT_CATALOG_COLUMN_WIDTH_BY_KEY: Record<ProductCatalogKey, number> = {
   cabinets: 203,
   countertops: 232,
   flooring: 251,
+  glass: 203,
 };
 const PRODUCT_CATALOG_KINDS: ReadonlySet<NavChildKind> = new Set([
   "cabinetCatalog",
   "countertopCatalog",
   "flooringCatalog",
+  "glassCatalog",
 ]);
 const NAV_CHILD_KIND_TO_CATALOG_KEY: Record<NavChildKind, ProductCatalogKey | null> = {
   cabinetCatalog: "cabinets",
   countertopCatalog: "countertops",
   flooringCatalog: "flooring",
+  glassCatalog: "glass",
   simpleLink: null,
 };
 
@@ -164,12 +167,14 @@ function BathroomIcon() {
 function getProductIcon(child: NavChild): string {
   if (child.kind === "cabinetCatalog") return "/library/header/nav-product-cabinets.svg";
   if (child.kind === "countertopCatalog") return "/library/header/nav-product-countertops.svg";
+  if (child.kind === "glassCatalog") return "/library/header/nav-product-glass.svg";
   return "/library/header/nav-product-flooring.svg";
 }
 
 function getDesktopProductIcon(child: NavChild): string {
   if (child.kind === "cabinetCatalog") return "/library/header/nav-product-cabinets-desktop.svg";
   if (child.kind === "countertopCatalog") return "/library/header/nav-product-countertops.svg";
+  if (child.kind === "glassCatalog") return "/library/header/nav-product-glass.svg";
   return "/library/header/nav-product-flooring.svg";
 }
 
@@ -238,7 +243,7 @@ export default function Header({
       dropdownLinks.find((link) => link !== productsGroup),
     [dropdownLinks, productsGroup]
   );
-  const productsItems = useMemo(() => (productsGroup?.children || []).slice(0, 3), [productsGroup]);
+  const productsItems = useMemo(() => productsGroup?.children || [], [productsGroup]);
   const servicesItems = useMemo(() => servicesGroup?.children || [], [servicesGroup]);
   const productsGroupIndex = useMemo(() => topLevelLinks.findIndex((link) => link === productsGroup), [topLevelLinks, productsGroup]);
   const servicesGroupIndex = useMemo(() => topLevelLinks.findIndex((link) => link === servicesGroup), [topLevelLinks, servicesGroup]);
@@ -267,7 +272,7 @@ export default function Header({
   const activeCatalogItems = activeProductItem?.catalogItems || [];
   const activeCatalogColumnWidth = PRODUCT_CATALOG_COLUMN_WIDTH_BY_KEY[activeProductCatalogKey];
   const desktopProductsPanelLink = activeProductItem?.buttonLink || activeProductItem?.href || productsItems[0]?.href || "/cabinets";
-  const desktopProductsPanelLabel = activeProductItem?.buttonLabel?.trim() || "View All Catalog";
+  const desktopProductsPanelLabel = activeProductItem?.buttonLabel?.trim();
   const activeProductRawItem = rawProductsItems[activeProductItemIndex];
 
   const getDropdownLeft = useCallback((triggerElement: HTMLButtonElement, panelWidth: number): number => {
@@ -689,21 +694,23 @@ export default function Header({
                         <p className="truncate text-[var(--cp-primary-500)] group-hover:text-[var(--cp-primary-350)]" title={item.name}>
                           {item.name}
                         </p>
-                        <p className="truncate text-[var(--cp-primary-300)]">{item.code}</p>
+                        {item.code ? <p className="truncate text-[var(--cp-primary-300)]">{item.code}</p> : null}
                       </div>
                     </Link>
                   );
                 })}
               </div>
 
-              <Link
-                className="cp-btn cp-btn--secondary cp-btn--small absolute left-[286px] top-[478px] !min-h-10 !px-5 !text-base"
-                data-tina-field={activeProductRawItem ? tinaField(activeProductRawItem, "buttonLabel") || undefined : undefined}
-                href={desktopProductsPanelLink}
-                onClick={() => setDesktopProductsOpen(false)}
-              >
-                {desktopProductsPanelLabel}
-              </Link>
+              {desktopProductsPanelLabel ? (
+                <Link
+                  className="cp-btn cp-btn--outline cp-btn--small absolute left-[286px] top-[478px]"
+                  data-tina-field={activeProductRawItem ? tinaField(activeProductRawItem, "buttonLabel") || undefined : undefined}
+                  href={desktopProductsPanelLink}
+                  onClick={() => setDesktopProductsOpen(false)}
+                >
+                  {desktopProductsPanelLabel}
+                </Link>
+              ) : null}
             </div>
           ) : null}
 

@@ -4,14 +4,17 @@ import { normalizeImageSrc } from "@/lib/image-variants";
 interface ProductReferenceInput {
   __typename?: string | null;
   name?: string | null;
+  title?: string | null;
   code?: string | null;
   picture?: string | null;
+  coverImage?: string | null;
   slug?: string | null;
   _sys?: { filename?: string | null; breadcrumbs?: Array<string | null> | null } | null;
 }
 
 interface CatalogItemReferenceInput {
   __typename?: string | null;
+  collection?: ProductReferenceInput | Record<string, unknown> | null;
   product?: ProductReferenceInput | Record<string, unknown> | null;
 }
 
@@ -58,7 +61,7 @@ export interface GlobalDocumentQueryResult {
   variables?: Record<string, unknown>;
 }
 
-type NavLinkChildKind = "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "simpleLink";
+type NavLinkChildKind = "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "glassCatalog" | "simpleLink";
 type CatalogItemInput = {
   name: string;
   code: string;
@@ -70,6 +73,7 @@ const NAV_CHILD_TEMPLATE_MAP: Record<string, NavLinkChildKind> = {
   GlobalNavLinksChildrenCabinetCatalog: "cabinetCatalog",
   GlobalNavLinksChildrenCountertopCatalog: "countertopCatalog",
   GlobalNavLinksChildrenFlooringCatalog: "flooringCatalog",
+  GlobalNavLinksChildrenGlassCatalog: "glassCatalog",
   GlobalNavLinksChildrenSimpleLink: "simpleLink",
 };
 
@@ -77,6 +81,7 @@ const CATALOG_PRODUCT_PREFIX_BY_TYPENAME: Record<string, string> = {
   Cabinet: "/cabinets",
   Countertop: "/countertops",
   Flooring: "/flooring/catalog",
+  SpecialityCollection: "/collections",
 };
 
 function resolveProductSlug(product: ProductReferenceInput | null | undefined): string | null {
@@ -98,9 +103,10 @@ function resolveCatalogItem(
 ): CatalogItemInput | null {
   if (!item) return null;
 
-  const rawProduct = (item.product && typeof item.product === "object"
-    ? (item.product as ProductReferenceInput)
-    : null);
+  const rawReference = item.product || item.collection;
+  const rawProduct = rawReference && typeof rawReference === "object"
+    ? (rawReference as ProductReferenceInput)
+    : null;
 
   if (!rawProduct) return null;
 
@@ -111,8 +117,13 @@ function resolveCatalogItem(
   const slug = resolveProductSlug(rawProduct);
   if (!slug) return null;
 
-  const name = typeof rawProduct.name === "string" ? rawProduct.name.trim() : "";
-  const image = normalizeImageSrc(rawProduct.picture);
+  const name =
+    typeof rawProduct.name === "string" && rawProduct.name.trim()
+      ? rawProduct.name.trim()
+      : typeof rawProduct.title === "string"
+        ? rawProduct.title.trim()
+        : "";
+  const image = normalizeImageSrc(rawProduct.picture || rawProduct.coverImage);
   if (!name || !image) return null;
 
   return {
@@ -131,7 +142,13 @@ function resolveNavChildKind(child: NavLinkChildInput | null | undefined): NavLi
     typeof (child as Record<string, unknown>)._template === "string"
       ? ((child as Record<string, unknown>)._template as string)
       : "";
-  if (template === "cabinetCatalog" || template === "countertopCatalog" || template === "flooringCatalog" || template === "simpleLink") {
+  if (
+    template === "cabinetCatalog" ||
+    template === "countertopCatalog" ||
+    template === "flooringCatalog" ||
+    template === "glassCatalog" ||
+    template === "simpleLink"
+  ) {
     return template;
   }
   return null;

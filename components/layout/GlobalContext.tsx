@@ -24,7 +24,7 @@ export interface GlobalSettings {
     children?: Array<{
       label: string;
       href: string;
-      kind?: "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "simpleLink";
+      kind?: "cabinetCatalog" | "countertopCatalog" | "flooringCatalog" | "glassCatalog" | "simpleLink";
       buttonLabel?: string;
       buttonLink?: string;
       catalogItems?: Array<{
