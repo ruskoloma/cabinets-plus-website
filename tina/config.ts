@@ -1157,48 +1157,7 @@ const collectionRelatedProjectsItemProps = createFocusableObjectListItemProps<{ 
 );
 
 function renderLargeMediaPreviewField(props: MediaFieldRendererProps) {
-  const src = typeof props?.input?.value === "string" ? props.input.value.trim() : "";
-  const alt = typeof props?.field?.label === "string" ? props.field.label : "Media preview";
-
-  return React.createElement(
-    "div",
-    {
-      style: {
-        display: "grid",
-        gap: "12px",
-      },
-    },
-    src
-      ? React.createElement(
-          "div",
-          {
-            style: {
-              border: "1px solid #e5e7eb",
-              borderRadius: "8px",
-              backgroundColor: "#ffffff",
-              padding: "10px",
-              maxWidth: "560px",
-            },
-          },
-          React.createElement(
-            "div",
-            {
-              style: {
-                width: "100%",
-                maxWidth: "560px",
-                height: "360px",
-              },
-            },
-            React.createElement(TinaVariantPreviewImage, {
-              src,
-              alt,
-              fit: "contain",
-            }),
-          ),
-        )
-      : null,
-    React.createElement(DirectoryAwareImageField, props),
-  );
+  return React.createElement(DirectoryAwareImageField, props);
 }
 
 function filterProjectReferenceOptions(list: Array<unknown>, searchQuery?: string) {
