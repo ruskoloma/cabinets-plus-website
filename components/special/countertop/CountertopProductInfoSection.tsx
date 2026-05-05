@@ -145,7 +145,7 @@ export default function CountertopProductInfoSection({
             </h1>
 
             <div className="mt-6 flex flex-col gap-8">
-              <Button className="order-1 !min-h-12 !px-8 !text-[20px] md:order-2 md:w-fit" href="/contact-us" size="small" variant="primary">
+              <Button className="order-1 w-fit !min-h-12 !px-8 !text-[20px] md:order-2" href="/contact-us" size="small" variant="secondary">
                 {pageText.contactButtonLabel}
               </Button>
 
