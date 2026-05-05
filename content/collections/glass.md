@@ -40,7 +40,32 @@ media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/12-dsc02467.jpg'
     label: Glass detail 12
     description: ''
-relatedProjects: []
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/03-img-9406.jpg'
+    label: Stonecrest Lane glass shower enclosure
+    description: Residence on Stonecrest Lane featuring glass shower enclosure, bathroom, primary project view.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/01-img-9404.jpg'
+    label: Stonecrest Lane bathroom with patterned tile
+    description: Residence on Stonecrest Lane featuring bathroom with patterned tile, bathroom.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/02-img-9405.jpg'
+    label: Stonecrest Lane glass shower enclosure
+    description: Residence on Stonecrest Lane featuring glass shower enclosure, bathroom.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/04-img-9407.jpg'
+    label: Stonecrest Lane walk-in tiled shower
+    description: Residence on Stonecrest Lane featuring walk-in tiled shower, bathroom.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/05-img-9408.jpg'
+    label: Stonecrest Lane glass shower stall
+    description: Residence on Stonecrest Lane featuring glass shower stall, bathroom.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/06-img-9409.jpg'
+    label: Stonecrest Lane white tiled shower
+    description: Residence on Stonecrest Lane featuring white tiled shower, bathroom.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/07-img-9410.jpg'
+    label: Stonecrest Lane white tiled shower
+    description: Residence on Stonecrest Lane featuring white tiled shower, bathroom.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/08-img-9411.jpg'
+    label: Stonecrest Lane glass shower enclosure
+    description: Residence on Stonecrest Lane featuring glass shower enclosure, bathroom.
+relatedProjects:
+  - project: content/projects/residence-on-stonecrest-lane.md
 slug: glass
 sourceUpdatedAt: 2026-04-28T00:00:00.000Z
 ---
