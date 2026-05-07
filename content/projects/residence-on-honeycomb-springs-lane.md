@@ -4,6 +4,18 @@ published: true
 title: Residence on Honeycomb Springs Lane
 description: 'This contemporary residential project showcases a sophisticated two-tone cabinetry design throughout multiple spaces. The kitchen features crisp white upper cabinets paired with warm natural oak lower cabinetry, complemented by white quartz countertops and a subtle vertical tile backsplash. Black matte hardware and fixtures provide modern contrast. The laundry room introduces sage green cabinetry alongside white uppers, while the primary bathroom continues the oak and white theme. A custom walk-in closet displays floor-to-ceiling natural wood organization with integrated LED lighting. Light wood flooring unifies the open-concept layout, creating an airy, modern interior.'
 media:
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-springs-lane/02-dsc02021.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: ''
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: ''
+    label: Dsc02021
+    description: Residence on Honeycomb Springs Lane featuring dsc02021.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-springs-lane/51-dsc02462.jpg'
     roomPriority: false
     paintPriority: false
@@ -28,18 +40,6 @@ media:
     countertop: ''
     label: Dsc02004
     description: 'Residence on Honeycomb Springs Lane featuring dsc02004, primary project view.'
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-springs-lane/02-dsc02021.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: ''
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: ''
-    label: Dsc02021
-    description: Residence on Honeycomb Springs Lane featuring dsc02021.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-springs-lane/03-dsc02028.jpg'
     roomPriority: false
     paintPriority: false
