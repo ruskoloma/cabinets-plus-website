@@ -66,8 +66,8 @@
       "ctaLink": "/gallery",
       "projects": [
         {
-          "project": "content/projects/art-house-on-27th-avenue.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/project-main.jpg"
+          "project": "content/projects/residence-on-plymouth-road.md",
+          "imageOverride": ""
         },
         {
           "project": "content/projects/two-tone-residence-on-locust-road.md",
@@ -90,8 +90,8 @@
     },
     {
       "title": "The difference is real:",
-      "text1": "When you walk into a big-box store, you're navigating aisles of stock options with limited help.",
-      "text2": "You're buying from people **you can call directly** if anything needs attention,\nnot a 1-800 number three states away.",
+      "text1": "When you walk into a big-box store, you're navigating aisles of stock options with limited help.\n",
+      "text2": "You're buying from people **you can call directly** if anything needs attention,\nnot a 1-800 number three states away.\n",
       "features": [
         {
           "title": "More Design Freedom, Better Value",
@@ -112,7 +112,7 @@
       "_template": "whyUsSection"
     },
     {
-      "trustStripContent": "You're buying from people **you can call directly** if anything needs attention, \n\nnot a 1-800 number three states away.\n",
+      "trustStripContent": "You're buying from people **you can call directly** if anything needs attention,\n\nnot a 1-800 number three states away.\n",
       "trustStripTexture": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/assets/trust-strip-texture.jpg",
       "_template": "trustStrip"
     },
