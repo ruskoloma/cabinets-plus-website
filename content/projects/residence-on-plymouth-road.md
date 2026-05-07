@@ -4,18 +4,6 @@ published: true
 title: Residence on Plymouth Road
 description: 'This residential project showcases a sophisticated blend of natural oak and soft gray cabinetry throughout multiple spaces. The kitchen features shaker-style oak cabinets with white vertical tile backsplash, white quartz countertops, and a statement chandelier above a large island with seating. A walk-in pantry displays open oak shelving with decorative wallpaper. Bathrooms incorporate floating oak vanities with quartzite countertops, herringbone tile walls, brass fixtures, and spa-like features including a freestanding tub and frameless glass shower. The laundry room offers floor-to-ceiling white storage with light wood flooring and neutral tile unifying the spaces.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/53-053-7115-s-plymouth-rd-049.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Bathroom
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: ''
-    label: Marble shower and flooring
-    description: This bathroom features marble shower walls and flooring.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/01-001-7115-s-plymouth-rd-001.jpg'
     roomPriority: true
     paintPriority: false
@@ -28,6 +16,18 @@ media:
     countertop: Quartzite
     label: Wood stained kitchen island
     description: This kitchen features wood stained cabinetry and quartzite countertops.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/53-053-7115-s-plymouth-rd-049.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Bathroom
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: ''
+    label: Marble shower and flooring
+    description: This bathroom features marble shower walls and flooring.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/02-002-7115-s-plymouth-rd-002.jpg'
     roomPriority: false
     paintPriority: false
