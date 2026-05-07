@@ -11,6 +11,8 @@ export const IMAGE_VARIANT_PRESETS = presets as Record<string, VariantPresetConf
 export type ImageVariantPreset = keyof typeof presets;
 
 const ALLOWED_REMOTE_IMAGE_HOSTS = new Set(["cabinetsplus4630.s3.us-west-2.amazonaws.com"]);
+const CONTROL_CHARACTER_PATTERN = /[\u0000-\u001f\u007f]/;
+const WHITESPACE_PATTERN = /\s/;
 
 const VARIANT_SUFFIX_PATTERN = new RegExp(
   `\\.(${Object.values(IMAGE_VARIANT_PRESETS)
@@ -44,16 +46,20 @@ export function normalizeImageSrc(src: unknown): string | null {
   const trimmed = src.trim();
   if (!trimmed) return null;
   if (trimmed.startsWith("data:image/")) return trimmed;
-  if (/[\u0000-\u001f\u007f\s]/.test(trimmed)) return null;
+
+  if (CONTROL_CHARACTER_PATTERN.test(trimmed)) return null;
+
+  const remoteUrl = parseRemoteImageUrl(trimmed);
+  if (remoteUrl) return remoteUrl.toString();
+
+  if (WHITESPACE_PATTERN.test(trimmed)) return null;
 
   if (trimmed.startsWith("/")) {
     if (trimmed.startsWith("//")) return null;
     if (trimmed.startsWith("/_next/image")) return null;
     return trimmed;
   }
-
-  const remoteUrl = parseRemoteImageUrl(trimmed);
-  return remoteUrl ? remoteUrl.toString() : null;
+  return null;
 }
 
 export function isVectorAsset(src: string): boolean {

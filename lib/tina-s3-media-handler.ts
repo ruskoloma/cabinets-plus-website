@@ -106,6 +106,46 @@ function findErrorMessage(error: unknown) {
   return "an error occurred";
 }
 
+function safelyDecodeKeySegment(segment: string) {
+  try {
+    return decodeURIComponent(segment);
+  } catch {
+    return segment;
+  }
+}
+
+function sanitizeKeyPart(value: string) {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\x20-\x7e]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^A-Za-z0-9._-]+/g, "-")
+    .replace(/[-_]{2,}/g, "-")
+    .replace(/\.{2,}/g, ".")
+    .replace(/^[._-]+|[._-]+$/g, "")
+    .toLowerCase();
+}
+
+export function sanitizeS3ObjectKey(key: string) {
+  const segments = key
+    .split("/")
+    .map((segment, index, allSegments) => {
+      const decodedSegment = safelyDecodeKeySegment(segment);
+      const extension = path.extname(decodedSegment);
+      const name = extension ? decodedSegment.slice(0, -extension.length) : decodedSegment;
+      const safeName = sanitizeKeyPart(name) || (index === allSegments.length - 1 ? "upload" : "");
+      const safeExtension = sanitizeKeyPart(extension.replace(/^\./, ""));
+
+      if (!safeName && !safeExtension) return "";
+      return safeExtension ? `${safeName || "upload"}.${safeExtension}` : safeName;
+    })
+    .filter(Boolean);
+
+  return segments.join("/");
+}
+
 async function keyExists(client: S3Client, bucket: string, key: string) {
   try {
     const output = await client.send(
@@ -299,7 +339,8 @@ export function createTinaS3MediaHandler(
       case "GET": {
         if (req.query.key) {
           const expiresIn = req.query.expiresIn ? Number(req.query.expiresIn) : 3600;
-          const key = Array.isArray(req.query.key) ? req.query.key[0] : req.query.key;
+          const rawKey = Array.isArray(req.query.key) ? req.query.key[0] : req.query.key;
+          const key = typeof rawKey === "string" ? sanitizeS3ObjectKey(rawKey) : "";
 
           if (!key) {
             res.status(400).json({ message: "key is required" });
