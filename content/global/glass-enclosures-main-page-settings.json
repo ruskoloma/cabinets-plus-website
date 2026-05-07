@@ -37,7 +37,8 @@
           "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/DSC05489.jpg"
         },
         {
-          "project": "content/projects/residence-on-plymouth-road.md"
+          "project": "content/projects/residence-on-plymouth-road.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/085-7115 S Plymouth Rd-081.jpg"
         },
         {
           "project": "content/projects/residence-on-honeycomb.md"
