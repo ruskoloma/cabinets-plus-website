@@ -4,18 +4,6 @@ published: true
 title: Residence on Geiger
 description: 'Airy open-concept interiors showcase a refined modern kitchen with a large waterfall island, white upper cabinetry, warm wood lower cabinets, and subtle stone surfaces. Oversized windows, double-height ceilings, and integrated lighting create a luminous backdrop, while sculptural pendants, open shelving, and clean hardware add tailored contemporary detail. The connected dining and living areas reinforce a calm, natural palette with crisp contrast and inviting functionality.'
 media:
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3930-dsc05489.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Bathroom
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: ''
-    label: Marble shower with bench
-    description: This bathroom features a marble shower with a built-in bench.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3909-dsc05319.jpg'
     roomPriority: false
     paintPriority: false
@@ -28,6 +16,18 @@ media:
     countertop: ''
     label: Bright kitchen with island
     description: This kitchen features white painted upper cabinets and timber stained lower cabinets with quartzite countertops.
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3930-dsc05489.jpg'
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: true
+    room: Bathroom
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: ''
+    label: Marble shower with bench
+    description: This bathroom features a marble shower with a built-in bench.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-geiger/3957-dsc05668.jpg'
     roomPriority: false
     paintPriority: false
