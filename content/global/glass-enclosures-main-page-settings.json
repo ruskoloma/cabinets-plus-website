@@ -29,7 +29,8 @@
           "project": "content/projects/residence-on-stonecrest-lane.md"
         },
         {
-          "project": "content/projects/residence-on-honeycomb-springs-lane.md"
+          "project": "content/projects/residence-on-honeycomb-springs-lane.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/DSC02462 (1).jpg"
         },
         {
           "project": "content/projects/residence-on-geiger.md",
