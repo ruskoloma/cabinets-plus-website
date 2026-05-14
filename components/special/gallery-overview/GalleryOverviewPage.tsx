@@ -182,8 +182,8 @@ function RoomOptionCard({
   onClick: () => void;
 }) {
   return (
-    <button className="group flex w-full flex-col items-center gap-[9px]" onClick={onClick} type="button">
-      <span className="relative block aspect-square w-full max-w-[173px] overflow-hidden bg-[#f2f2f2] md:max-w-[177px]">
+    <button className="group flex w-full flex-col items-center gap-[9px] md:w-[177px]" onClick={onClick} type="button">
+      <span className="relative block aspect-square w-full max-w-[173px] overflow-hidden bg-[#f2f2f2] md:max-w-none">
         <FillImage
           alt={label}
           className="object-cover"
@@ -246,8 +246,8 @@ function CountertopOptionCard({
   const hasImage = Boolean(option.image);
 
   return (
-    <button className="group flex w-full flex-col items-center gap-[9px]" onClick={onClick} type="button">
-      <span className="relative flex aspect-square w-full max-w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:max-w-[177px]">
+    <button className="group flex w-full flex-col items-center gap-[9px] md:w-[177px]" onClick={onClick} type="button">
+      <span className="relative flex aspect-square w-full max-w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:max-w-none">
         {hasImage ? (
           <span className="relative block aspect-square w-[67.05%] overflow-hidden">
             <FillImage
@@ -941,7 +941,7 @@ export default function GalleryOverviewPage({
             ) : null}
 
             {openPanel === "countertop" ? (
-              <PanelShell title="Select countertop">
+              <PanelShell title="Select Countertop">
                 <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:mt-[52px] md:gap-10">
                   {countertopOptions.map((option, index) => {
                     const value = normalizeOptionValue(option.value);
@@ -1095,7 +1095,7 @@ export default function GalleryOverviewPage({
               )}
             </CatalogMobileFilterOverlay>
 
-            <CatalogMobileFilterOverlay onApply={applyOpenPanel} onClose={() => setOpenPanel(null)} open={openPanel === "countertop"} title="Select countertop">
+            <CatalogMobileFilterOverlay onApply={applyOpenPanel} onClose={() => setOpenPanel(null)} open={openPanel === "countertop"} title="Select Countertop">
               <div className="grid grid-cols-2 gap-x-[15px] gap-y-8">
                 {countertopOptions.map((option, index) => {
                   const value = normalizeOptionValue(option.value);
