@@ -163,14 +163,14 @@ function CountertopOptionCard({
   const resolvedImageVariant = isCatalogFilterAsset(option.image) ? undefined : imageVariant;
 
   return (
-    <button className="group flex w-full flex-col items-center gap-2" onClick={onClick} type="button">
-      <span className="relative flex aspect-square w-full max-w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2]">
+    <button className="group flex w-full flex-col items-center gap-2 md:w-[177px] md:gap-[9px]" onClick={onClick} type="button">
+      <span className="relative flex aspect-square w-full max-w-[173px] items-center justify-center overflow-hidden bg-[#f2f2f2] md:max-w-none">
         {option.image ? (
           <span className="relative block aspect-square w-[67.05%]" data-tina-field={tinaField(record, "image")}>
             <FillImage
               alt={option.label}
               className="object-cover object-center"
-              sizes="(max-width: 392px) calc(((100vw - 47px) / 2) * 0.6705), 116px"
+              sizes="(max-width: 392px) calc(((100vw - 47px) / 2) * 0.6705), 120px"
               src={option.image}
               variant={resolvedImageVariant}
             />
@@ -179,7 +179,7 @@ function CountertopOptionCard({
         <CountertopOptionState selected={selected} />
       </span>
       <span
-        className="w-full text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]"
+        className="w-full text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
         data-tina-field={tinaField(record, "label")}
       >
         {option.label}

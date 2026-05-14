@@ -42,14 +42,14 @@ export function DoorStyleOptionCard({
   const imageVariant = isCatalogFilterAsset(option.image) ? undefined : resolveConfiguredImageVariant(imageSizeChoice, "thumb");
 
   return (
-    <button className="group flex w-full flex-col items-center gap-2" onClick={onClick} type="button">
-      <span className="relative block aspect-square w-full max-w-[173px] overflow-hidden bg-[#f2f2f2]">
+    <button className="group flex w-full flex-col items-center gap-2 md:w-[177px] md:gap-[9px]" onClick={onClick} type="button">
+      <span className="relative block aspect-square w-full max-w-[173px] overflow-hidden bg-[#f2f2f2] md:max-w-none">
         {option.image ? (
           <FillImage
             alt={option.label}
             className="object-contain"
             data-tina-field={tinaField(record, "image")}
-            sizes="(max-width: 392px) calc((100vw - 47px) / 2), 173px"
+            sizes="(max-width: 392px) calc((100vw - 47px) / 2), 177px"
             src={option.image}
             variant={imageVariant}
           />
@@ -58,7 +58,7 @@ export function DoorStyleOptionCard({
         <OverlayOptionState selected={selected} />
       </span>
       <span
-        className="w-full whitespace-nowrap text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] max-[374px]:text-[14px]"
+        className="w-full whitespace-nowrap text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] max-[374px]:text-[14px] md:text-[18px]"
         data-tina-field={tinaField(record, "label")}
       >
         {option.label}
@@ -86,9 +86,9 @@ export function FinishOptionCard({
   const needsBorder = !hasImage && (!swatchColor || ["#ffffff", "#faf9f6"].includes(swatchColor.toLowerCase()));
 
   return (
-    <button className="group flex w-full flex-col items-center gap-2" onClick={onClick} type="button">
+    <button className="group flex w-full flex-col items-center gap-2 md:w-[120px] md:gap-[9px]" onClick={onClick} type="button">
       <span
-        className={`relative block aspect-square w-full max-w-[112px] overflow-hidden bg-white ${needsBorder ? "border border-[var(--cp-primary-100)]" : ""}`}
+        className={`relative block aspect-square w-full max-w-[112px] overflow-hidden bg-white md:max-w-none ${needsBorder ? "border border-[var(--cp-primary-100)]" : ""}`}
         data-tina-field={hasImage ? tinaField(record, "image") : tinaField(record, "swatchColor")}
         style={swatchStyle}
       >
@@ -96,7 +96,7 @@ export function FinishOptionCard({
           <FillImage
             alt={option.label}
             className="object-contain"
-            sizes="(max-width: 392px) calc((100vw - 62px) / 3), 112px"
+            sizes="(max-width: 392px) calc((100vw - 62px) / 3), 120px"
             src={option.image || ""}
             variant={imageVariant}
           />
@@ -105,7 +105,7 @@ export function FinishOptionCard({
         <OverlayOptionState selected={selected} />
       </span>
       <span
-        className="w-full text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]"
+        className="w-full text-center font-[var(--font-red-hat-display)] text-[16px] font-semibold leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
         data-tina-field={tinaField(record, "label")}
       >
         {option.label}

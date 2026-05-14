@@ -614,7 +614,7 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
                     Select door style
                   </h2>
 
-                  <div className="mt-8 flex flex-wrap items-start justify-center gap-8">
+                  <div className="mt-8 flex flex-wrap items-start justify-center gap-8 md:gap-10">
                     {doorStyles.map((option, index) => {
                       const value = normalizeOptionValue(option.value);
                       const selected = pendingDoorStyles.includes(value);
@@ -663,7 +663,7 @@ export default function CabinetCatalogGridSection({ block, data }: CabinetCatalo
                     </button>
                   </div>
 
-                  <div className="mt-9 flex flex-wrap items-start justify-center gap-6">
+                  <div className="mt-9 flex flex-wrap items-start justify-center gap-[14px]">
                     {(finishTab === "paint" ? paintOptions : stainTypes).map((option, index) => {
                       const value = normalizeOptionValue(option.value);
                       const selected = pendingFinishes.includes(value);

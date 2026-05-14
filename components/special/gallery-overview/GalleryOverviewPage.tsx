@@ -862,7 +862,7 @@ export default function GalleryOverviewPage({
 
             {openPanel === "doorStyle" ? (
               <PanelShell title="Select door style">
-                <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:gap-8">
+                <div className="mt-8 flex flex-wrap items-start justify-center gap-6 md:gap-10">
                   {doorStyles.map((option, index) => {
                     const value = normalizeOptionValue(option.value);
                     const selected = pendingFilters.doorStyles.includes(value);
@@ -910,7 +910,7 @@ export default function GalleryOverviewPage({
                     <span>Stain</span>
                   </button>
                 </div>
-                <div className="mt-8 flex flex-wrap items-start justify-center gap-4 md:gap-6">
+                <div className="mt-8 flex flex-wrap items-start justify-center gap-4 md:gap-[14px]">
                   {(finishTab === "paint" ? paintOptions : stainTypes).map((option, index) => {
                     const value = normalizeOptionValue(option.value);
                     const selected = pendingFilters.finishes.includes(value);
