@@ -750,12 +750,10 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Bathroom
-    doorStyles:
-      - slim shaker
-    cabinetPaints:
-      - black
+    doorStyles: []
+    cabinetPaints: []
     cabinetStains: []
     countertop: Granite
     label: Black granite vanity

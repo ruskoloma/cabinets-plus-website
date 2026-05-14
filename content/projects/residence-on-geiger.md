@@ -389,9 +389,15 @@ cabinetProducts:
   - cabinet: content/cabinets/mbs.md
   - cabinet: content/cabinets/aeb.md
 countertopProducts:
-  - customName: Mont Blanc quartzite (Kitchen and Pantry)
-  - customName: Cambria Everleigh (Bathroom and Laundry)
-  - customName: Titanium Gold granite (Media room)
+  - countertop: ''
+    customName: Mont Blanc Quartzite
+    subtitle: Kitchen and Pantry
+  - countertop: ''
+    customName: Cambria Everleigh
+    subtitle: Bathroom and Laundry
+  - countertop: ''
+    customName: Titanium Gold Granite
+    subtitle: Media Room
 flooringProducts:
   - customName: Laminate by Lyons
 relatedProjects:
