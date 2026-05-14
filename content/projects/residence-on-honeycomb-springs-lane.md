@@ -800,6 +800,8 @@ cabinetProducts:
   - cabinet: content/cabinets/swoa.md
   - cabinet: content/cabinets/sdwa.md
   - cabinet: content/cabinets/ssgh.md
+countertopProducts:
+  - countertop: content/countertops/carraramist.md
 slug: residence-on-honeycomb-springs-lane
 address: 11708 E Honeycomb Springs Ln
 sourceUpdatedAt: 2026-04-27T03:19:59.000Z
