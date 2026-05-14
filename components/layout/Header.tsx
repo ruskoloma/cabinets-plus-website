@@ -600,9 +600,11 @@ export default function Header({
           </div>
 
           <div className="flex items-center gap-5 md:hidden">
-            <Link aria-label={data.navSearchLabel || "Search"} className="text-[var(--cp-primary-500)]" href="/search">
-              <SearchIcon />
-            </Link>
+            {!isSearchRoute ? (
+              <Link aria-label={data.navSearchLabel || "Search"} className="text-[var(--cp-primary-500)]" href="/search">
+                <SearchIcon />
+              </Link>
+            ) : null}
             <button aria-expanded={mobileOpen} aria-label={mobileOpen ? "Close navigation" : "Open navigation"} onClick={() => setMobileOpen((v) => !v)} type="button">
               {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
