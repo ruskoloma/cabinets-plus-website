@@ -156,7 +156,7 @@ function resolveNavChildKind(child: NavLinkChildInput | null | undefined): NavLi
 
 export const FALLBACK_HEADER_DOCUMENT: GlobalDocumentInput = {
   siteName: "Cabinets Plus",
-  logo: "/library/branding/logo-main.svg",
+  logo: "/library/branding/logo-main.png",
   ctaLabel: "Free Design Consultation",
   ctaLink: "/contact-us",
   navSearchLabel: "Search",

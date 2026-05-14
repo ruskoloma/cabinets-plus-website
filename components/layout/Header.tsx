@@ -480,7 +480,7 @@ export default function Header({
             href="/"
           >
             {data.logo ? (
-              <FallbackImg alt={logoLabel} className="h-[37px] w-auto" data-tina-field={tinaField(headerRaw, "logo")} src={data.logo} variant="thumb" />
+              <FallbackImg alt={logoLabel} className="h-auto w-[192px]" data-tina-field={tinaField(headerRaw, "logo")} src={data.logo} variant="thumb" />
             ) : (
               <span className="font-[var(--font-red-hat-display)] text-2xl font-semibold uppercase tracking-wide text-[var(--cp-primary-500)]">{logoLabel}</span>
             )}
