@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -24,6 +26,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -37,6 +41,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -50,6 +56,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -63,6 +71,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -76,6 +86,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -89,6 +101,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -102,6 +116,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - shaker
     cabinetPaints:
       - gray
     cabinetStains: []
@@ -151,6 +167,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - off white
     cabinetStains: []
@@ -164,6 +182,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - gray
     cabinetStains: []
@@ -201,6 +221,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - elegant shaker
     cabinetPaints: []
     cabinetStains:
       - mocha stain

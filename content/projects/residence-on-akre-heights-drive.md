@@ -11,6 +11,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
+      - shaker
     cabinetPaints:
       - timber
       - black
@@ -25,6 +28,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
+      - shaker
     cabinetPaints:
       - timber
       - black
@@ -39,6 +45,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -52,6 +60,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -65,6 +75,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - elegant shaker
+      - shaker
     cabinetPaints:
       - black
       - timber
@@ -79,6 +92,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
+      - shaker
     cabinetPaints:
       - black
       - timber

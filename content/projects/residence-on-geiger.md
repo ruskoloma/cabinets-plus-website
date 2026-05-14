@@ -167,6 +167,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - green
     cabinetStains: []
@@ -180,6 +182,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -192,6 +196,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - green
     cabinetStains: []
@@ -217,6 +223,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains:
       - white glaze stain
@@ -230,6 +238,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -255,6 +266,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -268,6 +282,9 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
+    doorStyles:
+      - slim shaker
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -281,6 +298,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -306,6 +326,9 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []

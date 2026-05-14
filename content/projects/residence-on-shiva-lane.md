@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - black
@@ -25,6 +27,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - black
@@ -39,6 +43,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -52,6 +58,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - black
@@ -66,6 +74,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -79,6 +89,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - black
@@ -93,6 +105,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - black
@@ -107,6 +121,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - black
@@ -121,6 +137,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -134,6 +152,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -147,6 +167,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -160,6 +182,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - black

@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -24,6 +26,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -37,6 +41,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -50,6 +56,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -63,6 +71,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -76,6 +86,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -89,6 +101,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -102,6 +116,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -115,6 +131,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -128,6 +146,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -140,6 +160,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -153,6 +175,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -166,6 +190,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -191,6 +217,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -204,6 +232,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -217,6 +247,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -230,6 +262,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -243,6 +277,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []

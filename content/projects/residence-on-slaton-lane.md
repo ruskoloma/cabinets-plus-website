@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -23,6 +25,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -35,6 +39,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -47,6 +53,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -59,6 +67,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -71,6 +81,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -83,6 +95,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -95,6 +109,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -107,6 +123,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -119,6 +137,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -131,6 +151,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -143,6 +165,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -155,6 +179,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -167,6 +193,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -179,6 +207,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -191,6 +221,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -203,6 +235,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -215,6 +249,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -227,6 +263,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -239,6 +277,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -251,6 +291,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -263,6 +305,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -275,6 +319,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -287,6 +333,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -299,6 +347,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -311,6 +361,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -323,6 +375,8 @@ media:
     countertopPriority: false
     flooring: false
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -335,6 +389,8 @@ media:
     countertopPriority: false
     flooring: false
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -347,6 +403,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -359,6 +417,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -371,6 +431,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -383,6 +445,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Kitchen'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -395,6 +459,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -407,6 +473,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -419,6 +487,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -431,6 +501,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -443,6 +515,8 @@ media:
     countertopPriority: false
     flooring: false
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -455,6 +529,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Laundry'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -467,6 +543,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -479,6 +557,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -491,6 +571,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -503,6 +585,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -515,6 +599,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -527,6 +613,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -539,6 +627,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -551,6 +641,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -563,6 +655,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -575,6 +669,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -587,6 +683,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -599,6 +697,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -611,6 +711,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -623,6 +725,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Other'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -635,6 +739,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -647,6 +753,8 @@ media:
     countertopPriority: false
     flooring: false
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'
@@ -659,6 +767,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -671,6 +781,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -683,6 +795,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -695,6 +809,8 @@ media:
     countertopPriority: false
     flooring: false
     room: 'Bathroom'
+    doorStyles:
+      - flat panel
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartzite'

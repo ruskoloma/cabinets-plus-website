@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains:
@@ -25,6 +27,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -38,6 +42,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -51,6 +57,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []

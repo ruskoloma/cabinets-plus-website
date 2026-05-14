@@ -66,6 +66,7 @@ export interface ProjectFeatureSummary {
   stains: string[];
   countertops: string[];
   flooring: boolean;
+  doorStyles: string[];
   doorStyle: string;
 }
 

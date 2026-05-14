@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains:
       - mocha stain
@@ -24,6 +26,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -37,6 +41,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -49,6 +55,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -62,6 +70,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -75,6 +85,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -88,6 +100,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -100,6 +114,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -113,6 +129,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -126,6 +144,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains:
       - mocha stain
@@ -139,6 +159,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []

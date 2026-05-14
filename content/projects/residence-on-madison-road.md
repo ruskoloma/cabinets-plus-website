@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -24,6 +26,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -37,6 +41,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -50,6 +56,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - elegant shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: Quartz
@@ -62,6 +70,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: Quartz
@@ -74,6 +84,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -87,6 +99,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - white
       - timber
@@ -101,6 +115,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: Quartz
@@ -113,6 +129,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -126,6 +144,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - white
     cabinetStains: []

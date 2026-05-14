@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -24,6 +26,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
       - black
@@ -38,6 +42,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -51,6 +57,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -64,6 +72,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -77,6 +87,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
       - black
@@ -91,6 +103,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -104,6 +118,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -117,6 +133,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -130,6 +148,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
+    doorStyles:
+      - elegant shaker
     cabinetPaints: []
     cabinetStains:
       - white glaze stain
@@ -143,6 +163,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
       - off white
@@ -193,6 +215,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -254,6 +278,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - green
     cabinetStains: []
@@ -267,6 +293,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - green
     cabinetStains: []
@@ -280,6 +308,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - green
     cabinetStains: []
@@ -293,6 +323,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - green
     cabinetStains: []
@@ -306,6 +338,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - green
     cabinetStains: []
@@ -331,6 +365,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Bathroom
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -344,6 +380,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -369,6 +407,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - elegant shaker
     cabinetPaints:
       - timber
     cabinetStains: []

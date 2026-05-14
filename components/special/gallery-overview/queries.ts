@@ -57,6 +57,7 @@ export const GALLERY_OVERVIEW_QUERY = `
               countertopPriority
               flooring
               room
+              doorStyles
               cabinetPaints
               cabinetStains
               countertop

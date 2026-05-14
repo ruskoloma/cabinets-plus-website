@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains:
     countertop: Quartz
@@ -23,6 +25,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains:
     countertop: Quartz
@@ -35,6 +39,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains:
     countertop: ''
@@ -47,6 +53,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains:
     countertop: Quartz
@@ -59,6 +67,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains:
     countertop: Quartz
@@ -71,6 +81,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains:
     countertop: Quartz
@@ -83,6 +95,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
     cabinetStains: []
     countertop: Quartz
@@ -95,6 +109,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains:
     countertop: Quartz

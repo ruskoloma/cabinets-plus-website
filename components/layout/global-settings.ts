@@ -14,8 +14,8 @@ interface ProductReferenceInput {
 
 interface CatalogItemReferenceInput {
   __typename?: string | null;
-  collection?: ProductReferenceInput | Record<string, unknown> | null;
-  product?: ProductReferenceInput | Record<string, unknown> | null;
+  collection?: ProductReferenceInput | Record<string, unknown> | string | null;
+  product?: ProductReferenceInput | Record<string, unknown> | string | null;
 }
 
 interface NavLinkChildInput {

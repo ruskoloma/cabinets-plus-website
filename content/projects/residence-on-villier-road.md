@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
       - black
@@ -26,6 +28,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -39,6 +43,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
       - black
@@ -53,6 +59,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -66,6 +74,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -79,6 +89,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -92,6 +104,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
       - black
@@ -106,6 +120,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -119,6 +135,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -131,6 +149,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -144,6 +164,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -156,6 +178,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -168,6 +192,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -181,6 +207,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -193,6 +221,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -205,6 +235,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -217,6 +249,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Laundry
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -229,6 +263,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - white
     cabinetStains: []

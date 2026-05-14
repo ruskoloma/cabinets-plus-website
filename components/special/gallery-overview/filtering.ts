@@ -70,16 +70,18 @@ function compareRoomOnlyMedia(left: GalleryProjectMediaData, right: GalleryProje
 
 function scoreMedia(
   media: GalleryProjectMediaData,
+  selectedDoorStyles: string[],
   selectedFinishes: string[],
   selectedCountertops: string[],
 ): MediaScore {
+  const doorStyleMatches = selectedDoorStyles.filter((value) => media.doorStyles.includes(value)).length;
   const paintMatches = selectedFinishes.filter((value) => media.paints.includes(value)).length;
   const stainMatches = selectedFinishes.filter((value) => media.stains.includes(value)).length;
   const countertopMatches = selectedCountertops.filter((value) => media.countertop === value).length;
 
   return {
     media,
-    matchCount: paintMatches + stainMatches + countertopMatches,
+    matchCount: doorStyleMatches + paintMatches + stainMatches + countertopMatches,
     priorityScore:
       (paintMatches > 0 && media.paintPriority ? 1 : 0) +
       (stainMatches > 0 && media.stainPriority ? 1 : 0) +
@@ -116,7 +118,7 @@ function pickPreviewImage(
 ): { previewImage: string; previewMedia: GalleryProjectMediaData | null } {
   const fallbackMedia = scopedMedia[0] || project.media[0] || null;
   const fallbackImage = fallbackMedia?.file || project.coverImage;
-  const hasMediaFilters = filters.finishes.length > 0 || filters.countertops.length > 0;
+  const hasMediaFilters = filters.doorStyles.length > 0 || filters.finishes.length > 0 || filters.countertops.length > 0;
 
   if (!fallbackImage) {
     return {
@@ -148,7 +150,7 @@ function pickPreviewImage(
   }
 
   const bestMatch = scopedMedia
-    .map((media) => scoreMedia(media, filters.finishes, filters.countertops))
+    .map((media) => scoreMedia(media, filters.doorStyles, filters.finishes, filters.countertops))
     .sort(compareScoredMedia)[0];
 
   if (!bestMatch || bestMatch.matchCount <= 0) {
@@ -248,7 +250,11 @@ export function filterGalleryProjects(
         return null;
       }
 
-      const matchedDoorStyles = effectiveFilters.doorStyles.filter((value) => project.doorStyle === value);
+      const projectHasExplicitDoorStyleMedia = project.media.some((media) => media.doorStyles.length > 0);
+      const matchedDoorStyles = effectiveFilters.doorStyles.filter((value) =>
+        scopedMedia.some((media) => media.doorStyles.includes(value)) ||
+        (!projectHasExplicitDoorStyleMedia && project.doorStyles.includes(value)),
+      );
       const matchedFinishes = effectiveFilters.finishes.filter((value) =>
         scopedMedia.some((media) => media.finishes.includes(value)),
       );

@@ -48,6 +48,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartz'
@@ -84,6 +86,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartz'
@@ -132,6 +136,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartz'
@@ -180,6 +186,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartz'
@@ -192,6 +200,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -204,6 +214,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartz'
@@ -216,6 +228,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: 'Quartz'
@@ -228,6 +242,8 @@ media:
     countertopPriority: false
     flooring: true
     room: 'Bathroom'
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''

@@ -271,10 +271,11 @@ function buildCabinetProjectFinishProfile(cabinet: CabinetData): CabinetProjectF
 function buildCabinetPreviewFilters(cabinet: CabinetData): GalleryFilterState {
   const finishProfile = buildCabinetProjectFinishProfile(cabinet);
   const finishes = [...finishProfile.paints, ...finishProfile.stains];
+  const doorStyle = normalizeOptionValue(cabinet.doorStyle || "");
 
   return {
     room: "",
-    doorStyles: [],
+    doorStyles: doorStyle ? [doorStyle] : [],
     finishes,
     countertops: [],
     flooringOnly: false,
@@ -404,7 +405,8 @@ function scoreCabinetMedia(
 
   if (cabinetPaint && media.paints.includes(cabinetPaint)) score += media.paintPriority ? 12 : 9;
   if (cabinetStain && media.stains.includes(cabinetStain)) score += media.stainPriority ? 12 : 9;
-  if (cabinetDoorStyle && project.doorStyle === cabinetDoorStyle) score += 5;
+  if (cabinetDoorStyle && media.doorStyles.includes(cabinetDoorStyle)) score += 9;
+  if (cabinetDoorStyle && project.doorStyles.includes(cabinetDoorStyle)) score += 5;
   if (media.roomPriority) score += 1;
 
   score += countTokenMatches(cabinetTokens, mediaText, 2);
@@ -518,7 +520,8 @@ export function buildCabinetProjectMatches(
       score += mediaCounts.matching * 3;
       score -= mediaCounts.mixed * 2;
       score -= otherFinishCount * 8;
-      if (cabinetDoorStyle && project.doorStyle === cabinetDoorStyle) score += 7;
+      if (cabinetDoorStyle && previewMedia.doorStyles.includes(cabinetDoorStyle)) score += 10;
+      if (cabinetDoorStyle && project.doorStyles.includes(cabinetDoorStyle)) score += 7;
       score += countTokenMatches(cabinetTokens, projectText, 1);
 
       return {

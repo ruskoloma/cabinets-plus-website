@@ -82,6 +82,7 @@ export const PROJECT_LIVE_QUERY = `
           countertopPriority
           flooring
           room
+          doorStyles
           cabinetPaints
           cabinetStains
           countertop

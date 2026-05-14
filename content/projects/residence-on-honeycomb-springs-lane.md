@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -35,6 +37,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -47,6 +51,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -59,6 +65,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -71,6 +79,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -83,6 +93,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -95,6 +107,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -107,6 +121,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -119,6 +135,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -131,6 +149,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -143,6 +163,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -155,6 +177,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -167,6 +191,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -179,6 +205,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -191,6 +219,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -203,6 +233,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -215,6 +247,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -239,6 +273,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -251,6 +287,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -263,6 +301,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -275,6 +315,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -287,6 +329,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -299,6 +343,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -311,6 +357,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -323,6 +371,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -335,6 +385,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -347,6 +399,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -359,6 +413,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -371,6 +427,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -383,6 +441,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -395,6 +455,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -419,6 +481,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -431,6 +495,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -443,6 +509,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -467,6 +535,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -503,6 +573,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -515,6 +587,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -527,6 +601,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -539,6 +615,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -551,6 +629,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -563,6 +643,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -575,6 +657,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -587,6 +671,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -623,6 +709,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -635,6 +723,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -647,6 +737,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -659,6 +751,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -671,6 +765,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -683,6 +779,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -779,6 +877,8 @@ media:
     countertopPriority: false
     flooring: false
     room: ''
+    doorStyles:
+      - slim shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''

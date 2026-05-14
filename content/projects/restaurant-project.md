@@ -61,6 +61,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - slim shaker
     cabinetPaints:
       - black
     cabinetStains: []
@@ -90,6 +92,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []

@@ -14,6 +14,7 @@ export interface ProjectMediaItem {
   countertopPriority?: boolean | null;
   flooring?: boolean | null;
   room?: string | null;
+  doorStyles?: Array<string | null> | null;
   cabinetPaints?: Array<string | null> | null;
   cabinetStains?: Array<string | null> | null;
   countertop?: string | null;
@@ -123,6 +124,7 @@ export interface GalleryProjectItemData {
   stains: string[];
   countertops: string[];
   flooring: boolean;
+  doorStyles: string[];
   doorStyle: string;
   updatedAt: number;
 }
@@ -131,6 +133,7 @@ export interface GalleryProjectMediaData {
   rawMedia: Record<string, unknown>;
   file: string;
   room: string;
+  doorStyles: string[];
   paints: string[];
   stains: string[];
   finishes: string[];

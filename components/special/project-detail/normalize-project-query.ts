@@ -71,6 +71,9 @@ function normalizeProjectMedia(value: unknown): ProjectMediaItem | null {
     countertopPriority: asBoolean(record.countertopPriority) ?? null,
     flooring: asBoolean(record.flooring) ?? null,
     room: asString(record.room) ?? null,
+    doorStyles: Array.isArray(record.doorStyles)
+      ? record.doorStyles.map((entry) => (typeof entry === "string" ? entry : null))
+      : null,
     cabinetPaints: Array.isArray(record.cabinetPaints)
       ? record.cabinetPaints.map((entry) => (typeof entry === "string" ? entry : null))
       : null,

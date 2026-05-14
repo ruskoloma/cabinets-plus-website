@@ -11,6 +11,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - timber
@@ -25,6 +27,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - timber
@@ -39,6 +43,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - timber
@@ -53,6 +59,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - timber
@@ -67,6 +75,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -80,6 +90,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -92,6 +104,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - timber
@@ -106,6 +120,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -119,6 +135,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
       - timber
@@ -133,6 +151,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Kitchen
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -146,6 +166,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Other
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -158,6 +180,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: Granite
@@ -170,6 +194,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
+    doorStyles:
+      - shaker
     cabinetPaints:
       - white
     cabinetStains: []
@@ -183,6 +209,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -196,6 +224,8 @@ media:
     countertopPriority: false
     flooring: false
     room: Other
+    doorStyles:
+      - shaker
     cabinetPaints: []
     cabinetStains: []
     countertop: ''
@@ -208,6 +238,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []
@@ -221,6 +253,8 @@ media:
     countertopPriority: false
     flooring: true
     room: Bathroom
+    doorStyles:
+      - shaker
     cabinetPaints:
       - timber
     cabinetStains: []

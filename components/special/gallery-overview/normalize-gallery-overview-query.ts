@@ -192,6 +192,9 @@ function normalizeProjectMedia(value: unknown): ProjectMediaItem | null {
     countertopPriority: asBoolean(record.countertopPriority) ?? null,
     flooring: asBoolean(record.flooring) ?? null,
     room: asString(record.room) ?? null,
+    doorStyles: Array.isArray(record.doorStyles)
+      ? record.doorStyles.map((entry) => (typeof entry === "string" ? entry : null))
+      : null,
     cabinetPaints: Array.isArray(record.cabinetPaints)
       ? record.cabinetPaints.map((entry) => (typeof entry === "string" ? entry : null))
       : null,
@@ -401,6 +404,7 @@ export function buildGalleryProjects(data: GalleryOverviewDataShape): GalleryPro
         rawMedia: media.raw || {},
         file: (media.file || "").trim(),
         room: normalizeOptionValue(media.room || ""),
+        doorStyles: cleanList(media.doorStyles || []),
         paints: cleanList(media.cabinetPaints || []),
         stains: cleanList(media.cabinetStains || []),
         finishes: cleanList([...(media.cabinetPaints || []), ...(media.cabinetStains || [])]),
@@ -422,6 +426,9 @@ export function buildGalleryProjects(data: GalleryOverviewDataShape): GalleryPro
         ...mediaItems.map((media) => media.label || ""),
         ...mediaItems.map((media) => media.description || ""),
       ].join(" ");
+      const explicitDoorStyles = cleanList(normalizedMedia.flatMap((media) => media.doorStyles));
+      const inferredDoorStyle = inferDoorStyleFromText(searchableText, doorStyleValues);
+      const projectDoorStyles = explicitDoorStyles.length ? explicitDoorStyles : cleanList([inferredDoorStyle]);
 
       return {
         rawProject,
@@ -434,7 +441,8 @@ export function buildGalleryProjects(data: GalleryOverviewDataShape): GalleryPro
         stains: cleanList(normalizedMedia.flatMap((media) => media.stains)),
         countertops: cleanList(normalizedMedia.map((media) => media.countertop)),
         flooring: normalizedMedia.some((media) => media.flooring),
-        doorStyle: inferDoorStyleFromText(searchableText, doorStyleValues),
+        doorStyle: projectDoorStyles[0] || "",
+        doorStyles: projectDoorStyles,
         updatedAt: Number.isFinite(updatedAt) ? updatedAt : 0,
       };
     })

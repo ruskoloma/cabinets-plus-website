@@ -3958,6 +3958,7 @@ export default defineConfig({
               { type: "boolean", name: "countertopPriority", label: "Countertop Priority" },
               { type: "boolean", name: "flooring", label: "Flooring" },
               { type: "string", name: "room", label: "Room", options: catalogSettingsOptions.rooms },
+              { type: "string", name: "doorStyles", label: "Door Styles", list: true, options: catalogSettingsOptions.doorStyles },
               { type: "string", name: "cabinetPaints", label: "Cabinet Paints", list: true, options: catalogSettingsOptions.paintOptions },
               { type: "string", name: "cabinetStains", label: "Cabinet Stains", list: true, options: catalogSettingsOptions.stainTypes },
               { type: "string", name: "countertop", label: "Countertop", options: catalogSettingsOptions.countertopTypes },
