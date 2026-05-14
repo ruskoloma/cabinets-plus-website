@@ -802,6 +802,8 @@ cabinetProducts:
   - cabinet: content/cabinets/ssgh.md
 countertopProducts:
   - countertop: content/countertops/carraramist.md
+flooringProducts:
+  - flooring: content/flooring/comfort-heights-country-aura-li-ch07.md
 slug: residence-on-honeycomb-springs-lane
 address: 11708 E Honeycomb Springs Ln
 sourceUpdatedAt: 2026-04-27T03:19:59.000Z
