@@ -3,7 +3,7 @@ published: true
 name: Rocky Gray Sparkle
 code: RockyGraySparkle
 slug: rockygraysparkle
-countertopType: ''
+countertopType: Quartz
 description: >-
   Rocky Gray Sparkle presents a deep charcoal to graphite gray palette with
   subtle tonal variation across the surface. Fine, evenly dispersed reflective

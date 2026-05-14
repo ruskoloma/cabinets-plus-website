@@ -32,6 +32,19 @@ function readStringField(block: Record<string, unknown> | null | undefined, key:
   return typeof value === "string" ? value : null;
 }
 
+function normalizeDetailKey(value: string | null | undefined): string {
+  return (value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function hasDetailKey(details: ProductTechnicalDetailViewModel[], keys: string[]): boolean {
+  const normalizedKeys = new Set(keys.map(normalizeDetailKey));
+  return details.some((detail) => normalizedKeys.has(normalizeDetailKey(detail.key)));
+}
+
+function titleCaseWords(value: string): string {
+  return value.replace(/\b[a-z]/g, (letter) => letter.toUpperCase());
+}
+
 function formatProductCode(code?: string | null): string {
   if (!code?.trim()) return "";
   return `#${code.replace(/^#+/, "").trim()}`;
@@ -81,6 +94,30 @@ export default function CountertopProductInfoSection({
 
   const breadcrumbField = block ? tinaField(block, "breadcrumbLabel") || undefined : undefined;
   const technicalDetailsTitleField = block ? tinaField(block, "technicalDetailsTitle") || undefined : undefined;
+  const countertopType = countertop.countertopType?.trim() || "";
+  const normalizedTechnicalDetails = technicalDetails.map((detail) => {
+    if (normalizeDetailKey(detail.key) !== "type") return detail;
+
+    return {
+      ...detail,
+      key: "Type",
+      keyTinaField: undefined,
+      value: titleCaseWords(countertopType || detail.value?.trim() || ""),
+      valueTinaField: countertopType
+        ? tinaField(countertopRecord, "countertopType") || undefined
+        : detail.valueTinaField,
+    };
+  });
+  const displayedTechnicalDetails = countertopType && !hasDetailKey(normalizedTechnicalDetails, ["Type"])
+    ? [
+        {
+          key: "Type",
+          value: titleCaseWords(countertopType),
+          valueTinaField: tinaField(countertopRecord, "countertopType") || undefined,
+        },
+        ...normalizedTechnicalDetails,
+      ]
+    : normalizedTechnicalDetails;
 
   const galleryItemsWithFields = useMemo(
     () =>
@@ -156,7 +193,7 @@ export default function CountertopProductInfoSection({
                 >
                   {pageText.technicalDetailsTitle}
                 </h2>
-                <ProductTechnicalDetailsTable details={technicalDetails} />
+                <ProductTechnicalDetailsTable details={displayedTechnicalDetails} />
               </div>
 
               {description ? (

@@ -3,7 +3,7 @@ published: true
 name: Carrara Classic
 code: CarraraClassic
 slug: carraraclassic
-countertopType: ''
+countertopType: Quartz
 description: >-
   Carrara Classic presents a soft white to pale gray palette with very subtle,
   diffuse gray veining and faint speckling dispersed across the surface.

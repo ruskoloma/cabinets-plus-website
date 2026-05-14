@@ -2,7 +2,7 @@
 published: true
 name: Calacatta Dolce
 code: CalacattaDolce
-countertopType: ''
+countertopType: Quartz
 technicalDetails:
   - key: Thickness
     value: 3CM

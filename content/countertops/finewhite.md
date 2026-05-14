@@ -3,7 +3,7 @@ published: true
 name: Fine White
 code: FineWhite
 slug: finewhite
-countertopType: ''
+countertopType: Quartz
 description: >-
   Fine White presents a soft, nearly uniform white palette with faint cool gray
   undertones and extremely subtle tonal variation. Veining is virtually absent,

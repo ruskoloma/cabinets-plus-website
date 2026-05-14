@@ -3,7 +3,7 @@ published: true
 name: Coastal Brown
 code: CoastalBrown
 slug: coastalbrown
-countertopType: ''
+countertopType: Quartz
 description: >-
   Coastal Brown presents a soft, sandy palette of warm beige, light taupe,
   cream, and subtle gray undertones. Fine, diffuse mineral flecking replaces

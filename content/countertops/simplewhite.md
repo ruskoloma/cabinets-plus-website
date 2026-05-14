@@ -3,7 +3,7 @@ published: true
 name: Simple White
 code: SimpleWhite
 slug: simplewhite
-countertopType: ''
+countertopType: Quartz
 description: >-
   Simple White presents a soft, uniform white field with faint cool gray
   undertones and extremely subtle tonal variation. Veining is essentially

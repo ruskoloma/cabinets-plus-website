@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { tinaField, useEditState } from "tinacms/dist/react";
+import ProductTechnicalDetailsTable from "@/components/special/catalog-product/ProductTechnicalDetailsTable";
 import Button from "@/components/ui/Button";
 import ArrowNavButton from "@/components/ui/ArrowNavButton";
 import { formatProductCode } from "./helpers";
 import CabinetImageGallery from "./CabinetImageGallery";
-import CabinetTechnicalDetailsTable from "./CabinetTechnicalDetailsTable";
+import type { ProductTechnicalDetailViewModel } from "@/components/special/catalog-product/types";
 import type {
   CabinetData,
   CabinetGalleryItem,
@@ -30,6 +31,23 @@ function readStringField(block: Record<string, unknown> | null | undefined, key:
   if (!block) return null;
   const value = block[key];
   return typeof value === "string" ? value : null;
+}
+
+function normalizeDetailKey(value: string | null | undefined): string {
+  return (value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function hasDetailKey(details: ProductTechnicalDetailViewModel[], keys: string[]): boolean {
+  const normalizedKeys = new Set(keys.map(normalizeDetailKey));
+  return details.some((detail) => normalizedKeys.has(normalizeDetailKey(detail.key)));
+}
+
+function readTrimmed(value: string | null | undefined): string {
+  return value?.trim() || "";
+}
+
+function titleCaseWords(value: string): string {
+  return value.replace(/\b[a-z]/g, (letter) => letter.toUpperCase());
 }
 
 export default function CabinetProductInfoSection({
@@ -56,6 +74,35 @@ export default function CabinetProductInfoSection({
 
   const breadcrumbField = block ? tinaField(block, "breadcrumbLabel") || undefined : undefined;
   const technicalDetailsTitleField = block ? tinaField(block, "technicalDetailsTitle") || undefined : undefined;
+  const technicalDetailRows: ProductTechnicalDetailViewModel[] = technicalDetails.map((detail) => ({
+    key: detail.key,
+    value: detail.value,
+    keyTinaField: tinaField(detail as unknown as Record<string, unknown>, "key") || undefined,
+    valueTinaField: tinaField(detail as unknown as Record<string, unknown>, "value") || undefined,
+  }));
+  const productDetailRows: ProductTechnicalDetailViewModel[] = [];
+  const doorStyle = readTrimmed(cabinet.doorStyle);
+  const paint = readTrimmed(cabinet.paint);
+  const stainType = readTrimmed(cabinet.stainType);
+  const paintStain = [paint, stainType].filter(Boolean).join(" / ");
+
+  if (doorStyle && !hasDetailKey(technicalDetailRows, ["Door Style"])) {
+    productDetailRows.push({
+      key: "Door Style",
+      value: titleCaseWords(doorStyle),
+      valueTinaField: tinaField(cabinetRecord, "doorStyle") || undefined,
+    });
+  }
+
+  if (paintStain && !hasDetailKey(technicalDetailRows, ["Paint/Stain", "Paint", "Stain", "Stain Type"])) {
+    productDetailRows.push({
+      key: "Paint/Stain",
+      value: titleCaseWords(paintStain),
+      valueTinaField: tinaField(cabinetRecord, paint ? "paint" : "stainType") || undefined,
+    });
+  }
+
+  const displayedTechnicalDetails = [...productDetailRows, ...technicalDetailRows];
 
   return (
     <section className="bg-white" data-tina-field={edit ? undefined : cabinetFieldName}>
@@ -121,7 +168,7 @@ export default function CabinetProductInfoSection({
                 >
                   {pageText.technicalDetailsTitle}
                 </h2>
-                <CabinetTechnicalDetailsTable details={technicalDetails} />
+                <ProductTechnicalDetailsTable details={displayedTechnicalDetails} />
               </div>
 
               {description ? (

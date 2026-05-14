@@ -3,7 +3,7 @@ published: true
 name: Calacatta Simple Gold
 code: CalacattaSimpleGold
 slug: calacattasimplegold
-countertopType: ''
+countertopType: Quartz
 description: >-
   Calacatta Simple Gold presents a soft white background with extremely
   delicate, pale warm-gray to faint gold veining that traces thin, meandering

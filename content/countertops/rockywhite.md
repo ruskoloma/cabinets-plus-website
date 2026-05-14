@@ -3,7 +3,7 @@ published: true
 name: Rocky White
 code: RockyWhite
 slug: rockywhite
-countertopType: ''
+countertopType: Quartz
 description: >-
   Rocky White presents a soft white to very light gray background with delicate,
   evenly dispersed gray speckling throughout. The surface shows no pronounced

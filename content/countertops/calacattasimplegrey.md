@@ -3,7 +3,7 @@ published: true
 name: Calacatta Simple Grey
 code: CalacattaSimpleGrey
 slug: calacattasimplegrey
-countertopType: ''
+countertopType: Quartz
 description: >-
   Calacatta Simple Grey presents a soft white to pale cool-gray background with
   extremely subtle, thin gray veining drifting diagonally across the surface.

@@ -3,7 +3,7 @@ published: true
 name: Rocky White Sparkle
 code: RockyWhiteSparkle
 slug: rockywhitesparkle
-countertopType: ''
+countertopType: Quartz
 description: >-
   Rocky White Sparkle presents a soft white to very pale gray palette with
   delicate, evenly dispersed speckling that creates a subtle shimmering effect.

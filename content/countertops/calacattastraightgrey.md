@@ -3,7 +3,7 @@ published: true
 name: Calacatta Straight Grey
 code: CalacattaStraightGrey
 slug: calacattastraightgrey
-countertopType: ''
+countertopType: Quartz
 description: >-
   A soft white background is traced with fine, linear grey veining that runs
   diagonally in long, steady bands. The movement is subtle and orderly rather

@@ -3,7 +3,7 @@ published: true
 name: Simple Black Laza
 code: SimpleBlackLaza
 slug: simpleblacklaza
-countertopType: ''
+countertopType: Quartz
 description: >-
   Simple Black Laza presents a deep black field crossed by bold, flowing white
   veining with occasional softer gray tracings. The movement is dramatic and

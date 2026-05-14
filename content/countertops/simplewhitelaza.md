@@ -3,7 +3,7 @@ published: true
 name: Simple White Laza
 code: SimpleWhiteLaza
 slug: simplewhitelaza
-countertopType: ''
+countertopType: Quartz
 description: >-
   Simple White Laza features a crisp white background traced with soft to medium
   gray veining that flows diagonally in elongated, branching lines. The movement

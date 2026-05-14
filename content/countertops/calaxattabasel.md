@@ -2,7 +2,7 @@
 published: true
 name: Calacatta Basel
 code: CalacattaBasel
-countertopType: ''
+countertopType: Quartz
 technicalDetails:
   - key: Thickness
     value: 3CM

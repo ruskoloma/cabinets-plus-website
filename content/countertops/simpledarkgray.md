@@ -3,7 +3,7 @@ published: true
 name: Simple Dark Gray
 code: SimpleDarkGray
 slug: simpledarkgray
-countertopType: ''
+countertopType: Quartz
 description: >-
   A deep charcoal to near-black gray palette defines this slab, with very subtle
   tonal variation softly dispersed across the surface. Veining is essentially

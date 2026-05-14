@@ -3,7 +3,7 @@ published: true
 name: Carrara Original
 code: CarraraOriginal
 slug: carraraoriginal
-countertopType: ''
+countertopType: Quartz
 description: >-
   Carrara Original presents a soft white to very light gray background with
   delicate, misty gray veining dispersed across the surface. The movement is

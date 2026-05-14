@@ -3,7 +3,7 @@ published: true
 name: Calacatta Slim Grey
 code: CalacattaSlimGrey
 slug: calacattaslimgrey
-countertopType: ''
+countertopType: Quartz
 description: >-
   A soft white to very light gray background is traced with long, slim gray
   veining that drifts diagonally across the slab. The lines are delicate and

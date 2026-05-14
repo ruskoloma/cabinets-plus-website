@@ -3,7 +3,7 @@ published: true
 name: Calacatta Slim Gold
 code: CalacattaSlimGold
 slug: calacattaslimgold
-countertopType: ''
+countertopType: Quartz
 description: >-
   A soft white background is traced with very fine, elongated veining in pale
   gold and light gray, creating an airy, understated pattern. The movement is
