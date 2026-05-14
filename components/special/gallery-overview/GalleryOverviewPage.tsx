@@ -142,15 +142,15 @@ function FlooringToggle({
   onChange: () => void;
 }) {
   return (
-    <button className="inline-flex shrink-0 items-center gap-4" onClick={onChange} type="button">
+    <button className="inline-flex min-w-0 shrink items-center gap-3 max-[360px]:gap-2 md:shrink-0 md:gap-4" onClick={onChange} type="button">
       <span
-        className={`flex h-6 w-[42px] items-center rounded-full border border-[var(--cp-primary-100)] bg-white px-[3px] transition-colors md:h-8 md:w-14 md:px-1 ${
+        className={`flex h-[22px] w-10 shrink-0 items-center rounded-full border border-[var(--cp-primary-100)] bg-white px-[3px] transition-colors max-[360px]:h-5 max-[360px]:w-[34px] max-[360px]:px-[2px] md:h-8 md:w-14 md:px-1 ${
           checked ? "justify-end" : "justify-start"
         }`}
       >
-        <span className="h-[18px] w-[18px] rounded-full bg-[var(--cp-primary-300)] md:h-6 md:w-6" />
+        <span className="h-4 w-4 rounded-full bg-[var(--cp-primary-300)] md:h-6 md:w-6" />
       </span>
-      <span className="whitespace-nowrap font-[var(--font-red-hat-display)] text-[20px] leading-none text-[var(--cp-primary-500)] md:text-[24px]">
+      <span className="min-w-0 whitespace-nowrap font-[var(--font-red-hat-display)] text-[18px] leading-none text-[var(--cp-primary-500)] max-[360px]:text-[14px] md:text-[24px]">
         Flooring Projects Only
       </span>
     </button>
@@ -673,7 +673,7 @@ export default function GalleryOverviewPage({
             <div className="relative" ref={filtersRef}>
               <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
                 <div className="order-2 flex flex-col gap-5 md:order-1 md:gap-8">
-                  <div className="-mx-4 flex items-center gap-10 overflow-x-auto px-4 cp-hide-scrollbar md:hidden">
+                  <div className="flex w-full items-center justify-between gap-4 overflow-hidden md:hidden">
                     <FilterTrigger
                       active={openPanel === "room"}
                       className="shrink-0 cp-inline-trigger--large"
@@ -696,7 +696,7 @@ export default function GalleryOverviewPage({
                     />
                   </div>
 
-                  <div className="-mx-4 flex items-center gap-10 overflow-x-auto px-4 cp-hide-scrollbar md:hidden">
+                  <div className="-mx-4 flex items-center gap-10 overflow-x-auto overflow-y-hidden px-4 cp-hide-scrollbar md:hidden">
                     <FilterTrigger
                       active={openPanel === "doorStyle"}
                       className="shrink-0 text-[18px]"
