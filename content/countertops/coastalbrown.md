@@ -42,6 +42,14 @@ media:
     description: ''
     sourceId: 3659
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/coastalbrown/coastal-brown-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Coastal Brown - full slab.jpg
+    altText: Coastal Brown
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/coastalbrown/3684-coastal-brown.mp4
     kind: video
     mimeType: video/mp4

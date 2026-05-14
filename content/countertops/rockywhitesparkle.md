@@ -43,6 +43,14 @@ media:
     description: ''
     sourceId: 3665
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockywhitesparkle/rocky-white-sparkle-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Rocky White Sparkle - full slab.jpg
+    altText: Rocky White Sparkle
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockywhitesparkle/3682-rocky-white-sparkle.mp4
     kind: video
     mimeType: video/mp4

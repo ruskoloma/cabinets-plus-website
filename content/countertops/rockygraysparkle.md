@@ -42,6 +42,14 @@ media:
     description: ''
     sourceId: 3658
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockygraysparkle/rocky-gray-sparkle-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Rocky Gray Sparkle - full slab.jpg
+    altText: Rocky Gray Sparkle
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockygraysparkle/3680-rocky-gray-sparkle.mp4
     kind: video
     mimeType: video/mp4

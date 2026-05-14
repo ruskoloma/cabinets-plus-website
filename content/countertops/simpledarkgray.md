@@ -43,6 +43,14 @@ media:
     description: ''
     sourceId: 3664
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/simple-dark-gray-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Simple Dark Gray - full slab.jpg
+    altText: Simple Dark Gray
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpledarkgray/3675-simple-dark-gray.mp4
     kind: video
     mimeType: video/mp4

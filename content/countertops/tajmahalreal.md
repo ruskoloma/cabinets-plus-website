@@ -48,7 +48,7 @@ media:
     kind: image
     mimeType: image/jpeg
     isPrimary: false
-    label: Taj Mahal Real full slab.jpg
+    label: Taj Mahal Real - full slab.jpg
     altText: Taj Mahal Real
     description: ""
 ---

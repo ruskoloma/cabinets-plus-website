@@ -26,6 +26,14 @@ media:
     altText: Calacatta Dolce
     description: ''
     sourceId: 3648
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/calacatta-dolce-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Dolce - full slab.jpg
+    altText: Calacatta Dolce
+    description: ""
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadolce/3667-calacatta-dolce.mp4'
     kind: video
     mimeType: video/mp4

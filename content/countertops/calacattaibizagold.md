@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3275
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaibizagold/calacatta-ibiza-gold-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Ibiza Gold - full slab.jpg
+    altText: Calacatta Ibiza Gold
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaibizagold/3561-calacatta-ibiza-gold.mp4
     kind: video
     mimeType: video/mp4

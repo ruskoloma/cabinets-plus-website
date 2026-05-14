@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3281
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/cararrablackmistsuede/cararra-black-mist-suede-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Cararra Black Mist Suede - full slab.jpg
+    altText: Cararra Black Mist Suede
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/cararrablackmistsuede/3562-carrara-mist-black-suede.mp4
     kind: video
     mimeType: video/mp4

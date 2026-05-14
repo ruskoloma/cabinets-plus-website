@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3283
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasilver/calacatta-silver-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Silver - full slab.jpg
+    altText: Calacatta Silver
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasilver/3551-calacatta-silver.mp4
     kind: video
     mimeType: video/mp4

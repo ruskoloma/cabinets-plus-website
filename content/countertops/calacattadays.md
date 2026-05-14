@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3282
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/calacatta-days-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Days - full slab.jpg
+    altText: Calacatta Days
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattadays/3547-calacatta-days.mp4
     kind: video
     mimeType: video/mp4

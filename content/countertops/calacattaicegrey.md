@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3273
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaicegrey/calacatta-ice-grey-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Ice Grey - full slab.jpg
+    altText: Calacatta Ice Grey
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaicegrey/3544-calacatta-ice-grey.mp4
     kind: video
     mimeType: video/mp4

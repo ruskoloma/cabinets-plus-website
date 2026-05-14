@@ -46,7 +46,7 @@ media:
     kind: image
     mimeType: image/jpeg
     isPrimary: false
-    label: Calacatta Great full slab.jpg
+    label: Calacatta Great - full slab.jpg
     altText: Calacatta Great
     description: ""
 ---

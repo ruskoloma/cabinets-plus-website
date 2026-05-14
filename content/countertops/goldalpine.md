@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3278
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/gold-alpine-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Gold Alpine - full slab.jpg
+    altText: Gold Alpine
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/goldalpine/3552-alpine-gold.mp4
     kind: video
     mimeType: video/mp4

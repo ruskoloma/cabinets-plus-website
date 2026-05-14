@@ -43,6 +43,14 @@ media:
     description: ''
     sourceId: 3662
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpleblacklaza/simple-black-laza-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Simple Black Laza - full slab.jpg
+    altText: Simple Black Laza
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simpleblacklaza/3676-simple-black-laza.mp4
     kind: video
     mimeType: video/mp4

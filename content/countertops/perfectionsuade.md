@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3269
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/perfectionsuade/soapstone-perfection-suade-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Soapstone Perfection Suade - full slab.jpg
+    altText: Perfection Suade
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/perfectionsuade/3553-soapstone-perfection-suede.mp4
     kind: video
     mimeType: video/mp4

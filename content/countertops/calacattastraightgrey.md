@@ -42,6 +42,14 @@ media:
     description: ''
     sourceId: 3652
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattastraightgrey/calacatta-straight-grey-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Straight Grey - full slab.jpg
+    altText: Calacatta Straight Grey
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattastraightgrey/3674-calacatta-straight-grey.mp4
     kind: video
     mimeType: video/mp4

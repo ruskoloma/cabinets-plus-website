@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3285
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaperfection/calacatta-perfection-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Perfection - full slab.jpg
+    altText: Calacatta Perfection
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaperfection/3558-calacatta-perfection.mp4
     kind: video
     mimeType: video/mp4

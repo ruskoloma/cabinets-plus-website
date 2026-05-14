@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3267
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/tajperfection/taj-perfection-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Taj Perfection - full slab.jpg
+    altText: Taj Perfection
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/tajperfection/3556-taj-perfection.mp4
     kind: video
     mimeType: video/mp4

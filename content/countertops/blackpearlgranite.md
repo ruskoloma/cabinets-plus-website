@@ -64,4 +64,12 @@ media:
     label: Black Pearl Granite - full slab.jpg
     altText: Black Pearl Granite
     description: ""
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/blackpearlgranite/black-pearl-granite-leathered-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Black Pearl Granite - leathered - full slab.jpg
+    altText: Black Pearl Granite
+    description: ""
 ---

@@ -43,6 +43,14 @@ media:
     description: ''
     sourceId: 3653
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgrey/calacatta-slim-grey-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Slim Grey - full slab.jpg
+    altText: Calacatta Slim Grey
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgrey/3672-calacatta-slim-grey.mp4
     kind: video
     mimeType: video/mp4

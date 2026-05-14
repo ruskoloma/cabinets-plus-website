@@ -49,6 +49,14 @@ media:
     description: ''
     sourceId: 3274
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaelitegold/calacatta-elite-gold-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Elite Gold - full slab.jpg
+    altText: Calacatta Elite Gold
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaelitegold/3543-calacatta-elite-gold.mp4
     kind: video
     mimeType: video/mp4

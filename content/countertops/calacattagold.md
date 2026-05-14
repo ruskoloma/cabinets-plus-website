@@ -46,7 +46,7 @@ media:
     kind: image
     mimeType: image/jpeg
     isPrimary: false
-    label: Calacatta Gold full slab.jpg
+    label: Calacatta Gold - full slab.jpg
     altText: Calacatta Gold
     description: ""
 ---

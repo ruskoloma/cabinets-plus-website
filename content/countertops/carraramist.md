@@ -30,6 +30,14 @@ media:
     altText: Carrara Mist
     description: ''
     sourceId: 3270
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraramist/carrara-mist-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Carrara Mist - full slab.jpg
+    altText: Carrara Mist
+    description: ""
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraramist/3564-carrara-mist.mp4'
     kind: video
     mimeType: video/mp4

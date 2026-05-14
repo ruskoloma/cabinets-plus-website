@@ -42,6 +42,14 @@ media:
     description: ''
     sourceId: 3660
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockywhite/rocky-white-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Rocky White - full slab.jpg
+    altText: Rocky White
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/rockywhite/3681-rocky-white.mp4
     kind: video
     mimeType: video/mp4

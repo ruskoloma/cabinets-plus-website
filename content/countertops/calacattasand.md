@@ -46,7 +46,7 @@ media:
     kind: image
     mimeType: image/jpeg
     isPrimary: false
-    label: Calacatta Sand full slab.jpg
+    label: Calacatta Sand - full slab.jpg
     altText: Calacatta Sand
     description: ""
 ---

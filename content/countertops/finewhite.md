@@ -42,6 +42,14 @@ media:
     description: ''
     sourceId: 3657
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/finewhite/fine-white-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Fine White - full slab.jpg
+    altText: Fine White
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/finewhite/3669-fine-white.mp4
     kind: video
     mimeType: video/mp4

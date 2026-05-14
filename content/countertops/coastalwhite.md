@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3276
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/coastalwhite/coastal-white-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Coastal White - full slab.jpg
+    altText: Coastal White
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/coastalwhite/3560-coastal-white.mp4
     kind: video
     mimeType: video/mp4

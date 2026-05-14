@@ -47,6 +47,14 @@ media:
     description: ''
     sourceId: 3286
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattabrezze/calacatta-brezze-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Brezze - full slab.jpg
+    altText: Calacatta Brezze
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattabrezze/3545-calacatta-brezze.mp4
     kind: video
     mimeType: video/mp4

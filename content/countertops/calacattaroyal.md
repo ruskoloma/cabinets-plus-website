@@ -47,7 +47,7 @@ media:
     kind: image
     mimeType: image/jpeg
     isPrimary: false
-    label: Calacatta Royal full slab.jpg
+    label: Calacatta Royal - full slab.jpg
     altText: Calacatta Royal
     description: ""
 ---

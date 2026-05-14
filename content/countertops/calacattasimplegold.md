@@ -44,6 +44,14 @@ media:
     description: ''
     sourceId: 3651
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasimplegold/calacatta-simple-gold-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Simple Gold - full slab.jpg
+    altText: Calacatta Simple Gold
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattasimplegold/3670-calacatta-simple-gold.mp4
     kind: video
     mimeType: video/mp4

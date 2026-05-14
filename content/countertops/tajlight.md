@@ -45,6 +45,14 @@ media:
     description: ''
     sourceId: 3271
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/tajlight/taj-light-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Taj Light - full slab.jpg
+    altText: Taj Light
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/tajlight/3549-taj-light.mp4
     kind: video
     mimeType: video/mp4

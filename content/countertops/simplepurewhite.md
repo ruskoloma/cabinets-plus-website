@@ -53,6 +53,14 @@ media:
     description: ''
     sourceId: 3268
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/simple-pure-white-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Simple Pure White - full slab.jpg
+    altText: Simple Pure White
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/simplepurewhite/3555-simple-pure-white.mp4
     kind: video
     mimeType: video/mp4

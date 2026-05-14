@@ -26,6 +26,14 @@ media:
     altText: Calaxatta Basel
     description: ''
     sourceId: 3654
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/calacatta-basel-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Basel - full slab.jpg
+    altText: Calacatta Basel
+    description: ""
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calaxattabasel/3678-calaxatta-basel.mp4'
     kind: video
     mimeType: video/mp4

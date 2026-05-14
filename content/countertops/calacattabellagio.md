@@ -46,6 +46,14 @@ media:
     description: ''
     sourceId: 3287
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattabellagio/calacatta-bellagio-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Bellagio - full slab.jpg
+    altText: Calacatta Bellagio
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattabellagio/3550-calacatta-bellagio.mp4
     kind: video
     mimeType: video/mp4

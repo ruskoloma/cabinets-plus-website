@@ -43,6 +43,14 @@ media:
     description: ''
     sourceId: 3655
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraraoriginal/carrara-original-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Carrara Original - full slab.jpg
+    altText: Carrara Original
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/carraraoriginal/3683-carrara-original.mp4
     kind: video
     mimeType: video/mp4

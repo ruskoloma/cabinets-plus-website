@@ -42,6 +42,14 @@ media:
     description: ''
     sourceId: 3650
   - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgold/calacatta-slim-gold-full-slab.jpg
+    kind: image
+    mimeType: image/jpeg
+    isPrimary: false
+    label: Calacatta Slim Gold - full slab.jpg
+    altText: Calacatta Slim Gold
+    description: ""
+  - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/countertops/calacattaslimgold/3671-calacatta-slim-gold.mp4
     kind: video
     mimeType: video/mp4
