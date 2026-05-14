@@ -3994,6 +3994,12 @@ export default defineConfig({
               },
               {
                 type: "string",
+                name: "subtitle",
+                label: "Subtitle (if no linked product)",
+                description: "Optional. Displayed below the custom name in the same style as a linked product code.",
+              },
+              {
+                type: "string",
                 name: "type",
                 label: "Type",
                 description: "Optional. Pulled from Catalog Settings → Door Style Options.",
@@ -4029,6 +4035,12 @@ export default defineConfig({
               },
               {
                 type: "string",
+                name: "subtitle",
+                label: "Subtitle (if no linked product)",
+                description: "Optional. Displayed below the custom name in the same style as a linked product code.",
+              },
+              {
+                type: "string",
                 name: "type",
                 label: "Type",
                 description: "Optional. Pulled from Catalog Settings → Countertop Types.",
@@ -4061,6 +4073,12 @@ export default defineConfig({
                 name: "customName",
                 label: "Custom Name (if no linked product)",
                 description: "Shown with a placeholder image when no linked product is selected.",
+              },
+              {
+                type: "string",
+                name: "subtitle",
+                label: "Subtitle (if no linked product)",
+                description: "Optional. Displayed below the custom name in the same style as a linked product code.",
               },
               {
                 type: "string",

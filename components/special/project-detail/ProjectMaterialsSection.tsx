@@ -62,8 +62,8 @@ function MaterialCard({
         {image ? <FillImage alt={title} className="object-cover" sizes="80px" src={image} variant={imageVariant} /> : null}
       </div>
       <div className="min-w-0">
-        <div className="flex items-start gap-2">
-          <p className="font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
+        <div className="flex min-w-0 items-start gap-2">
+          <p className="min-w-0 truncate font-[var(--font-red-hat-display)] text-[18px] font-semibold leading-[1.5] text-[var(--cp-primary-500)]">
             {title}
           </p>
           {href ? <img alt="" aria-hidden className="mt-[2px] h-4 w-4 shrink-0 md:hidden" src="/library/header/nav-chevron-right.svg" /> : null}
