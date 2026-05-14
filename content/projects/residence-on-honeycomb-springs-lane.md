@@ -804,6 +804,10 @@ countertopProducts:
   - countertop: content/countertops/carraramist.md
 flooringProducts:
   - flooring: content/flooring/comfort-heights-country-aura-li-ch07.md
+relatedProjects:
+  - project: content/projects/residence-on-honeycomb.md
+  - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-ezra-avenue.md
 slug: residence-on-honeycomb-springs-lane
 address: 11708 E Honeycomb Springs Ln
 sourceUpdatedAt: 2026-04-27T03:19:59.000Z
