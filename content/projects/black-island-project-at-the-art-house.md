@@ -434,7 +434,8 @@ cabinetProducts:
   - cabinet: content/cabinets/ssgh.md
 countertopProducts:
   - countertop: ''
-    customName: Whitendale by Cambria
+    customName: Whitendale
+    subtitle: by Cambria
   - countertop: ''
     customName: Titanium Gold granite
 relatedProjects:
@@ -452,4 +453,3 @@ notes: |-
 sourceId: 25
 sourceUpdatedAt: 2024-09-19T23:33:48.917Z
 ---
-

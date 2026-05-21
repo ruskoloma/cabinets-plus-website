@@ -399,7 +399,8 @@ countertopProducts:
     customName: Titanium Gold Granite
     subtitle: Media Room
 flooringProducts:
-  - customName: Laminate by Lyons
+  - customName: Laminate
+    subtitle: by Lyons
 relatedProjects:
   - project: content/projects/residence-on-honeycomb.md
   - project: content/projects/residence-on-may-ella-loop.md
@@ -418,4 +419,3 @@ notes: |-
 sourceId: 54
 sourceUpdatedAt: 2025-09-18T21:10:07.268Z
 ---
-

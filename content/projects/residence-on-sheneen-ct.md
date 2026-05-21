@@ -241,7 +241,8 @@ countertopProducts:
     customName: Luxo Oro quartz
 flooringProducts:
   - flooring: ''
-    customName: Waterwise Laminate by Mozaik
+    customName: Waterwise Laminate
+    subtitle: by Mozaik
 relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
   - project: content/projects/residence-on-22nd-avenue.md
@@ -253,4 +254,3 @@ notes: |-
   Flooring - Waterwise Laminate by Mozaik
 sourceUpdatedAt: 2026-04-08T00:00:23.000Z
 ---
-

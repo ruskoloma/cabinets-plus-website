@@ -131,7 +131,8 @@ cabinetProducts:
   - cabinet: content/cabinets/otu.md
 countertopProducts:
   - countertop: ''
-    customName: Brittanica Gold Cool by Cambria
+    customName: Brittanica Gold Cool
+    subtitle: by Cambria
 relatedProjects:
   - project: content/projects/residence-on-dunn-road.md
   - project: content/projects/residence-on-bruce-road.md
@@ -141,4 +142,3 @@ address: '789 Akre Heights Dr, Blanchard, ID 83804, USA'
 notes: 'Countertop - Brittanica Gold Cool by Cambria '
 sourceUpdatedAt: 2026-04-08T00:00:23.000Z
 ---
-
