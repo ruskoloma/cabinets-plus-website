@@ -240,6 +240,8 @@ media:
     countertop: Quartz
     label: Modern Bathroom Design
     description: 'Residence on 11th Avenue featuring modern bathroom design, bathroom, black cabinetry, quartz surfaces.'
+cabinetProducts:
+  - cabinet: content/cabinets/osu.md
 slug: residence-on-11th-avenue
 address: '1708 E 11th Ave, Spokane, WA 99202, USA'
 sourceUpdatedAt: 2026-05-21T17:56:43.805Z
