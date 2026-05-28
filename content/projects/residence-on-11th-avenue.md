@@ -248,7 +248,7 @@ countertopProducts:
 relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
   - project: content/projects/residence-on-dunn-road.md
-  - {}
+  - project: content/projects/residence-on-walnut-street.md
 slug: residence-on-11th-avenue
 address: '1708 E 11th Ave, Spokane, WA 99202, USA'
 sourceUpdatedAt: 2026-05-21T17:56:43.805Z
