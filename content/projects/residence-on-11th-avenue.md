@@ -247,7 +247,7 @@ countertopProducts:
   - countertop: content/countertops/calacattasimplegrey.md
 relatedProjects:
   - project: content/projects/residence-on-20th-avenue.md
-  - {}
+  - project: content/projects/residence-on-dunn-road.md
   - {}
 slug: residence-on-11th-avenue
 address: '1708 E 11th Ave, Spokane, WA 99202, USA'
