@@ -243,6 +243,8 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/osu.md
   - cabinet: content/cabinets/abb.md
+countertopProducts:
+  - countertop: content/countertops/calacattasimplegrey.md
 slug: residence-on-11th-avenue
 address: '1708 E 11th Ave, Spokane, WA 99202, USA'
 sourceUpdatedAt: 2026-05-21T17:56:43.805Z
