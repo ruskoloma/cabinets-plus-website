@@ -43,6 +43,10 @@ export default function ContactUsSection({ block, imageVariant }: ContactUsSecti
               nameLabelField={tinaField(block, "nameLabel")}
               namePlaceholder={text(block.namePlaceholder, "Enter your name")}
               namePlaceholderField={tinaField(block, "namePlaceholder")}
+              phoneLabel={text(block.phoneLabel, "Phone")}
+              phoneLabelField={tinaField(block, "phoneLabel")}
+              phonePlaceholder={text(block.phonePlaceholder, "Enter your phone")}
+              phonePlaceholderField={tinaField(block, "phonePlaceholder")}
               submitLabel={text(block.submitLabel, "Send request")}
               submitLabelField={tinaField(block, "submitLabel")}
             />

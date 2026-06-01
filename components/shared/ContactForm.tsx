@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button";
 interface ContactFormProps {
   nameLabel: string;
   namePlaceholder: string;
+  phoneLabel: string;
+  phonePlaceholder: string;
   emailLabel: string;
   emailPlaceholder: string;
   messageLabel: string;
@@ -13,6 +15,8 @@ interface ContactFormProps {
   submitLabel: string;
   nameLabelField?: string;
   namePlaceholderField?: string;
+  phoneLabelField?: string;
+  phonePlaceholderField?: string;
   emailLabelField?: string;
   emailPlaceholderField?: string;
   messageLabelField?: string;
@@ -47,6 +51,8 @@ function hasSpamSignals(...values: FormDataEntryValue[]): boolean {
 export default function ContactForm({
   nameLabel,
   namePlaceholder,
+  phoneLabel,
+  phonePlaceholder,
   emailLabel,
   emailPlaceholder,
   messageLabel,
@@ -54,6 +60,8 @@ export default function ContactForm({
   submitLabel,
   nameLabelField,
   namePlaceholderField,
+  phoneLabelField,
+  phonePlaceholderField,
   emailLabelField,
   emailPlaceholderField,
   messageLabelField,
@@ -61,6 +69,7 @@ export default function ContactForm({
   submitLabelField,
 }: ContactFormProps) {
   const nameId = useId();
+  const phoneId = useId();
   const emailId = useId();
   const messageId = useId();
   const honeyId = useId();
@@ -148,6 +157,23 @@ export default function ContactForm({
           placeholder={namePlaceholder}
           required
           type="text"
+        />
+      </div>
+
+      <div>
+        <label className="cp-field-label" data-tina-field={phoneLabelField} htmlFor={phoneId}>
+          <span>{phoneLabel}</span>
+          <span className="cp-field-label__required">*</span>
+        </label>
+        <input
+          autoComplete="tel"
+          className="cp-field-control"
+          data-tina-field={phonePlaceholderField}
+          id={phoneId}
+          name="phone"
+          placeholder={phonePlaceholder}
+          required
+          type="tel"
         />
       </div>
 

@@ -32,6 +32,8 @@ export const SHARED_SECTIONS_QUERY = `
           imageSize
           nameLabel
           namePlaceholder
+          phoneLabel
+          phonePlaceholder
           emailLabel
           emailPlaceholder
           messageLabel
@@ -103,6 +105,8 @@ export const FALLBACK_SHARED_SECTIONS: SharedSectionsDocument = {
     image: "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/contact-figma.jpg",
     nameLabel: "Name",
     namePlaceholder: "Enter your name",
+    phoneLabel: "Phone",
+    phonePlaceholder: "Enter your phone",
     emailLabel: "Email",
     emailPlaceholder: "Enter your email",
     messageLabel: "Project Idea (optional)",

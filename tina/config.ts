@@ -1962,6 +1962,8 @@ function sharedContactSectionTemplate() {
       ...homepageSectionImageFields(),
       { type: "string" as const, name: "nameLabel", label: "Name Field Label" },
       { type: "string" as const, name: "namePlaceholder", label: "Name Placeholder" },
+      { type: "string" as const, name: "phoneLabel", label: "Phone Field Label" },
+      { type: "string" as const, name: "phonePlaceholder", label: "Phone Placeholder" },
       { type: "string" as const, name: "emailLabel", label: "Email Field Label" },
       { type: "string" as const, name: "emailPlaceholder", label: "Email Placeholder" },
       { type: "string" as const, name: "messageLabel", label: "Message Field Label" },
