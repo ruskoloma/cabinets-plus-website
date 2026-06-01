@@ -48,6 +48,14 @@ function hasSpamSignals(...values: FormDataEntryValue[]): boolean {
   return linkCount > 2 || SPAM_TERMS.some((term) => content.includes(term));
 }
 
+function isValidEmail(value: string): boolean {
+  return value.length >= 5 && value.includes("@");
+}
+
+function isValidPhone(value: string): boolean {
+  return /^[\d\s()+.-]+$/.test(value) && value.replace(/\D/g, "").length >= 7;
+}
+
 export default function ContactForm({
   nameLabel,
   namePlaceholder,
@@ -86,15 +94,29 @@ export default function ContactForm({
     setStatusMessage("");
 
     try {
-      if (!WEB3FORMS_ACCESS_KEY) {
-        throw new Error("Contact form is not configured. Please try again later.");
-      }
-
       if (formData.get("botcheck")) {
         formElement.reset();
         setStatus("success");
         setStatusMessage("Thanks, your request was sent. We will get back to you shortly.");
         return;
+      }
+
+      const email = formData.get("email")?.toString().trim() || "";
+      const phone = formData.get("phone")?.toString().trim() || "";
+
+      if (!isValidEmail(email)) {
+        throw new Error("Please enter a valid email address.");
+      }
+
+      if (!isValidPhone(phone)) {
+        throw new Error("Please enter a valid phone number.");
+      }
+
+      formData.set("email", email);
+      formData.set("phone", phone);
+
+      if (!WEB3FORMS_ACCESS_KEY) {
+        throw new Error("Contact form is not configured. Please try again later.");
       }
 
       if (hasSpamSignals(...formData.values())) {
@@ -104,7 +126,7 @@ export default function ContactForm({
         return;
       }
 
-      formData.set("replyto", formData.get("email")?.toString() || "");
+      formData.set("replyto", email);
       formData.set("source_page", `${window.location.pathname}${window.location.search}`);
 
       const response = await fetch(WEB3FORMS_ENDPOINT, {
