@@ -129,6 +129,8 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             imageSize
             nameLabel
             namePlaceholder
+            phoneLabel
+            phonePlaceholder
             emailLabel
             emailPlaceholder
             messageLabel
