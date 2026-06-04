@@ -13,6 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Browse completed cabinet, bath, laundry, and interior projects from Cabinets Plus.",
+    alternates: { canonical: "/gallery" },
     openGraph: built.openGraph,
   };
 }

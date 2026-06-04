@@ -8,6 +8,7 @@ import { getPageDataSafe } from "@/app/get-page-data-safe";
 export const metadata: Metadata = {
   title: "Countertop Catalog",
   description: "Browse quartz, granite, marble, and other countertop materials in our full countertop catalog.",
+  alternates: { canonical: "/countertops/catalog" },
 };
 
 export default async function CountertopsCatalogPage() {

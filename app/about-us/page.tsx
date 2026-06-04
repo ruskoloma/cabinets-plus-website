@@ -5,7 +5,7 @@ import { getPageDataSafe } from "../get-page-data-safe";
 
 export async function generateMetadata(): Promise<Metadata> {
   const result = await getPageDataSafe("about-us.md");
-  return buildDocumentMetadata(result.data.page);
+  return { ...buildDocumentMetadata(result.data.page), alternates: { canonical: "/about-us" } };
 }
 
 export default async function AboutPage() {

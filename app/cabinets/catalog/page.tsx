@@ -8,6 +8,7 @@ import { getPageDataSafe } from "@/app/get-page-data-safe";
 export const metadata: Metadata = {
   title: "Cabinet Catalog",
   description: "Browse cabinet door styles, finishes, and product details in our full cabinet catalog.",
+  alternates: { canonical: "/cabinets/catalog" },
 };
 
 export default async function CabinetsCatalogPage() {

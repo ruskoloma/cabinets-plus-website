@@ -8,6 +8,7 @@ import { getPageDataSafe } from "@/app/get-page-data-safe";
 export const metadata: Metadata = {
   title: "Flooring Catalog",
   description: "Browse LVP, laminate, carpet, and hardwood products in our full flooring catalog.",
+  alternates: { canonical: "/flooring/catalog" },
 };
 
 export default async function FlooringCatalogPage() {

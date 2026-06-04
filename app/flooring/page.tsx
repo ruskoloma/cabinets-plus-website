@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Hardwood, luxury vinyl plank, tile, and laminate flooring at Cabinets Plus in Spokane. Visit our showroom to compare styles and plan your project.",
+    alternates: { canonical: "/flooring" },
     openGraph: built.openGraph,
   };
 }

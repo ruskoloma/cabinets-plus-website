@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Bathroom remodel materials and installation in Spokane — vanities, countertops, flooring, and shower glass at our Sprague Avenue showroom. We work with homeowners and contractors.",
+    alternates: { canonical: "/bathroom-remodel" },
     openGraph: built.openGraph,
   };
 }

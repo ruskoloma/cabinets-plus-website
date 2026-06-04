@@ -26,6 +26,7 @@ export async function generateMetadata(
   return {
     title: `${name}${code}`,
     description: cabinet.description || undefined,
+    alternates: { canonical: `/cabinets/${slug}` },
     openGraph: cabinet.picture ? { images: [{ url: cabinet.picture }] } : undefined,
   };
 }

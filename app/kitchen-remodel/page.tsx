@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Plan your Spokane kitchen remodel at Cabinets Plus — full range of cabinets, countertops, and flooring with in-house design help and cabinet & countertop installation.",
+    alternates: { canonical: "/kitchen-remodel" },
     openGraph: built.openGraph,
   };
 }
