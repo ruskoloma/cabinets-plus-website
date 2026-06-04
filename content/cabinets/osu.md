@@ -36,7 +36,8 @@ media:
     countertop: ''
     label: OSU.jpg
     description: ''
-relatedProjects: []
+relatedProjects:
+  - project: content/projects/residence-on-11th-avenue.md
 relatedProducts:
   - product: content/cabinets/otu.md
   - product: content/cabinets/owk.md
@@ -46,4 +47,3 @@ sourceId: 306
 sourceUpdatedAt: 2025-07-25T22:53:52.788Z
 slug: osu
 ---
-

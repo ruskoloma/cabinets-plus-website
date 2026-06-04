@@ -97,6 +97,7 @@ media:
     label: DSC08430.jpg
     description: ''
 relatedProjects:
+  - project: content/projects/residence-on-11th-avenue.md
   - project: content/projects/residence-on-handy-road.md
   - project: content/projects/residence-on-kate-drive.md
 relatedProducts:
@@ -107,5 +108,4 @@ sourceId: 239
 sourceUpdatedAt: '2025-07-25T22:53:55.158Z'
 slug: abb
 ---
-
 

@@ -79,14 +79,6 @@ function isTruthyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
-function isGenericProjectLabel(label: string): boolean {
-  const normalized = label.trim().toLowerCase();
-  if (!normalized) return true;
-  if (normalized === "project") return true;
-  if (normalized === "image" || normalized === "photo") return true;
-  return /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(normalized);
-}
-
 function readNonEmpty(value: unknown, fallback: string): string {
   if (typeof value !== "string") return fallback;
   const trimmed = value.trim();
@@ -169,40 +161,14 @@ export function buildProjectItems(
   },
 ): CabinetProjectItem[] {
   const maxItems = options?.maxItems ?? 3;
-  const matchedProjects = buildCabinetProjectMatches(cabinet, overviewData, maxItems);
-
-  if (matchedProjects.length) {
-    return matchedProjects.map((item) => ({
-      file: item.file,
-      title: item.title || DEFAULT_PROJECT_CARD_TITLE,
-      href: item.href,
-      selectionIndex: item.selectionIndex,
-      projectSource: item.projectSource,
-      mediaSource: item.mediaSource,
-    }));
-  }
-
-  const mediaItems = (cabinet.media || []).filter((item): item is CabinetMediaItem => Boolean(item && isTruthyString(item.file)));
-
-  if (!mediaItems.length) return [];
-
-  const mainImage = isTruthyString(cabinet.picture) ? cabinet.picture.trim() : mediaItems[0]?.file?.trim();
-
-  const projectCandidates = mediaItems.filter((item) => {
-    if (!isTruthyString(item.file)) return false;
-    return item.file.trim() !== mainImage;
-  });
-
-  return projectCandidates.slice(0, maxItems).map((item) => {
-    const label = isTruthyString(item.label) ? item.label.trim() : "";
-    const title = isGenericProjectLabel(label) ? DEFAULT_PROJECT_CARD_TITLE : label;
-
-    return {
-      file: item.file!.trim(),
-      title,
-      source: item,
-    };
-  });
+  return buildCabinetProjectMatches(cabinet, overviewData, maxItems).map((item) => ({
+    file: item.file,
+    title: item.title || DEFAULT_PROJECT_CARD_TITLE,
+    href: item.href,
+    selectionIndex: item.selectionIndex,
+    projectSource: item.projectSource,
+    mediaSource: item.mediaSource,
+  }));
 }
 
 export function resolveCabinetPageText(settings?: CabinetPageSettings | null): CabinetPageTextConfig {

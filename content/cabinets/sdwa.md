@@ -62,6 +62,7 @@ sourceId: 231
 sourceUpdatedAt: '2025-07-25T22:53:52.362Z'
 stainType: ''
 relatedProjects:
+  - project: content/projects/residence-on-honeycomb-springs-lane.md
   - project: content/projects/residence-on-sheneen-ct.md
   - project: content/projects/residence-on-villier-road.md
   - project: content/projects/residence-on-plymouth-road.md
@@ -71,5 +72,4 @@ relatedProducts:
 doorStyle: slim shaker
 paint: white
 ---
-
 
