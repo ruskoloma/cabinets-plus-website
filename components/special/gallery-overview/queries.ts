@@ -49,6 +49,27 @@ export const GALLERY_OVERVIEW_QUERY = `
             description
             notes
             sourceUpdatedAt
+            cabinetProducts {
+              cabinet {
+                ... on Document {
+                  _sys {
+                    filename
+                    basename
+                    relativePath
+                  }
+                }
+                ... on Cabinet {
+                  id
+                  name
+                  code
+                  slug
+                  picture
+                }
+              }
+              customName
+              subtitle
+              type
+            }
             media {
               file
               roomPriority

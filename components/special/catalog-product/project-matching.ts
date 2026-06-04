@@ -391,77 +391,58 @@ function resolveExplicitProjectEntries(
     });
 }
 
-function scoreCabinetMedia(
-  cabinet: CabinetData,
-  project: GalleryProjectItemData,
-  media: GalleryProjectMediaData,
-  cabinetTokens: string[],
-): number {
-  let score = 0;
-  const cabinetPaint = normalizeOptionValue(cabinet.paint || "");
-  const cabinetStain = normalizeOptionValue(cabinet.stainType || "");
-  const cabinetDoorStyle = normalizeOptionValue(cabinet.doorStyle || "");
-  const mediaText = normalizeSearchText(`${media.label} ${media.description}`);
+function normalizeProductReferencePath(value: unknown, collectionName: "cabinets" | "countertops" | "flooring"): string {
+  if (!value) return "";
 
-  if (cabinetPaint && media.paints.includes(cabinetPaint)) score += media.paintPriority ? 12 : 9;
-  if (cabinetStain && media.stains.includes(cabinetStain)) score += media.stainPriority ? 12 : 9;
-  if (cabinetDoorStyle && media.doorStyles.includes(cabinetDoorStyle)) score += 9;
-  if (cabinetDoorStyle && project.doorStyles.includes(cabinetDoorStyle)) score += 5;
-  if (media.roomPriority) score += 1;
-
-  score += countTokenMatches(cabinetTokens, mediaText, 2);
-  return score;
-}
-
-function getAllowedCabinetPaints(cabinet: CabinetData): string[] {
-  return buildCabinetProjectFinishProfile(cabinet).paints;
-}
-
-function getAllowedCabinetStains(cabinet: CabinetData): string[] {
-  return buildCabinetProjectFinishProfile(cabinet).stains;
-}
-
-function mediaMatchesCabinetFinish(media: GalleryProjectMediaData, allowedPaints: string[], allowedStains: string[]): boolean {
-  const paintMatch = allowedPaints.some((paint) => media.paints.includes(paint));
-  const stainMatch = allowedStains.some((stain) => media.stains.includes(stain));
-  return paintMatch || stainMatch;
-}
-
-function mediaIsPureCabinetFinish(media: GalleryProjectMediaData, allowedPaints: string[], allowedStains: string[]): boolean {
-  const allPaintsAllowed = media.paints.every((paint) => allowedPaints.includes(paint));
-  const allStainsAllowed = media.stains.every((stain) => allowedStains.includes(stain));
-  return mediaMatchesCabinetFinish(media, allowedPaints, allowedStains) && allPaintsAllowed && allStainsAllowed;
-}
-
-function countMatchingCabinetMedia(
-  project: GalleryProjectItemData,
-  allowedPaints: string[],
-  allowedStains: string[],
-): { matching: number; pure: number; mixed: number } {
-  let matching = 0;
-  let pure = 0;
-
-  for (const media of project.media) {
-    if (!mediaMatchesCabinetFinish(media, allowedPaints, allowedStains)) continue;
-    matching += 1;
-    if (mediaIsPureCabinetFinish(media, allowedPaints, allowedStains)) pure += 1;
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    if (!trimmed) return "";
+    const withCollection = trimmed
+      .replace(/^\/+/, "")
+      .replace(/^content\//i, "")
+      .replace(new RegExp(`^${collectionName}/`, "i"), "");
+    const filename = withCollection.endsWith(".md") ? withCollection : `${withCollection}.md`;
+    return `content/${collectionName}/${filename}`.toLowerCase();
   }
 
-  return {
-    matching,
-    pure,
-    mixed: matching - pure,
-  };
+  const record = value && typeof value === "object" ? (value as Record<string, unknown>) : null;
+  if (!record) return "";
+
+  const sys = record._sys && typeof record._sys === "object" ? (record._sys as Record<string, unknown>) : null;
+  const reference =
+    (typeof sys?.relativePath === "string" && sys.relativePath) ||
+    (typeof sys?.filename === "string" && sys.filename) ||
+    (typeof record.slug === "string" && record.slug) ||
+    "";
+
+  return normalizeProductReferencePath(reference, collectionName);
 }
 
-function countProjectOtherCabinetFinishes(
-  project: GalleryProjectItemData,
-  allowedPaints: string[],
-  allowedStains: string[],
-): number {
-  const otherPaints = project.paints.filter((paint) => !allowedPaints.includes(paint));
-  const otherStains = project.stains.filter((stain) => !allowedStains.includes(stain));
-  return otherPaints.length + otherStains.length;
+function cabinetReferencePaths(cabinet: CabinetData): Set<string> {
+  const sys = cabinet._sys;
+  return new Set(
+    [
+      normalizeProductReferencePath(cabinet.slug || "", "cabinets"),
+      normalizeProductReferencePath(sys?.relativePath || "", "cabinets"),
+      normalizeProductReferencePath(sys?.filename || "", "cabinets"),
+    ].filter(Boolean),
+  );
+}
+
+function projectUsesCabinet(project: GalleryProjectItemData, cabinet: CabinetData): boolean {
+  const rawProject = project.rawProject || {};
+  const cabinetProducts = Array.isArray(rawProject.cabinetProducts) ? rawProject.cabinetProducts : [];
+  if (!cabinetProducts.length) return false;
+
+  const cabinetPaths = cabinetReferencePaths(cabinet);
+  if (!cabinetPaths.size) return false;
+
+  return cabinetProducts.some((item) => {
+    if (!item || typeof item !== "object") return false;
+    const cabinetReference = (item as Record<string, unknown>).cabinet;
+    const normalizedReference = normalizeProductReferencePath(cabinetReference, "cabinets");
+    return Boolean(normalizedReference && cabinetPaths.has(normalizedReference));
+  });
 }
 
 export function buildCabinetProjectMatches(
@@ -472,112 +453,15 @@ export function buildCabinetProjectMatches(
   const projects = buildGalleryProjects(overviewData);
   if (!projects.length) return [];
 
-  const explicitProjects = resolveExplicitProjectEntries(cabinet.relatedProjects, projects);
   const previewFilters = buildCabinetPreviewFilters(cabinet);
-  if (explicitProjects.length) {
-    return buildExplicitProjectCards(explicitProjects, previewFilters, maxItems);
-  }
-
-  const projectPool = projects;
-  const cabinetText = normalizeSearchText([
-    cabinet.name || "",
-    cabinet.paint || "",
-    cabinet.stainType || "",
-    cabinet.doorStyle || "",
-  ].join(" "));
-  const cabinetTokens = tokenizeSearchText(cabinetText);
-  const allowedPaints = getAllowedCabinetPaints(cabinet);
-  const allowedStains = getAllowedCabinetStains(cabinet);
-  const cabinetDoorStyle = normalizeOptionValue(cabinet.doorStyle || "");
-
-  const rankedPrimary = sortRankedProjects(
-    projectPool.map((project) => {
-      const projectText = buildProjectSearchText(project);
+  return projects
+    .filter((project) => projectUsesCabinet(project, cabinet))
+    .slice(0, maxItems)
+    .map((project) => {
       const preview = pickProjectPreviewForFilters(project, previewFilters);
-      const previewMedia = preview.previewMedia;
-      const mediaCounts = countMatchingCabinetMedia(project, allowedPaints, allowedStains);
-      const otherFinishCount = countProjectOtherCabinetFinishes(project, allowedPaints, allowedStains);
-      const mediaRanking = project.media
-        .map((media) => ({
-          media,
-          score: scoreCabinetMedia(cabinet, project, media, cabinetTokens),
-        }))
-        .sort((left, right) => right.score - left.score);
-
-      const bestMedia = mediaRanking[0];
-      if (!previewMedia || !mediaMatchesCabinetFinish(previewMedia, allowedPaints, allowedStains)) {
-        return {
-          project,
-          media: bestMedia?.media,
-          score: 0,
-        };
-      }
-
-      let score = bestMedia?.score || 0;
-
-      score += mediaIsPureCabinetFinish(previewMedia, allowedPaints, allowedStains) ? 40 : 10;
-      score += mediaCounts.pure * 6;
-      score += mediaCounts.matching * 3;
-      score -= mediaCounts.mixed * 2;
-      score -= otherFinishCount * 8;
-      if (cabinetDoorStyle && previewMedia.doorStyles.includes(cabinetDoorStyle)) score += 10;
-      if (cabinetDoorStyle && project.doorStyles.includes(cabinetDoorStyle)) score += 7;
-      score += countTokenMatches(cabinetTokens, projectText, 1);
-
-      return {
-        project,
-        media: previewMedia || bestMedia?.media,
-        score,
-      };
-    }).filter((entry) => entry.score > 0),
-  );
-
-  const primaryCards = pickTopProjectCards(rankedPrimary, maxItems);
-  if (primaryCards.length >= maxItems) return primaryCards;
-
-  const usedHrefs = new Set(primaryCards.map((item) => item.href));
-  const fallback = sortRankedProjects(
-    projects
-      .filter((project) => !usedHrefs.has(`/projects/${project.projectSlug}`))
-      .map((project) => {
-        const projectText = buildProjectSearchText(project);
-        const preview = pickProjectPreviewForFilters(project, previewFilters);
-        const previewMedia = preview.previewMedia;
-        const mediaCounts = countMatchingCabinetMedia(project, allowedPaints, allowedStains);
-        const otherFinishCount = countProjectOtherCabinetFinishes(project, allowedPaints, allowedStains);
-        const mediaRanking = project.media
-          .map((media) => ({
-            media,
-            score: scoreCabinetMedia(cabinet, project, media, cabinetTokens),
-          }))
-          .sort((left, right) => right.score - left.score);
-
-        const bestMedia = mediaRanking[0];
-        if (!previewMedia || !mediaMatchesCabinetFinish(previewMedia, allowedPaints, allowedStains)) {
-          return {
-            project,
-            media: bestMedia?.media,
-            score: 0,
-          };
-        }
-
-        return {
-          project,
-          media: previewMedia || bestMedia?.media,
-          score:
-            (bestMedia?.score || 0) +
-            (mediaIsPureCabinetFinish(previewMedia, allowedPaints, allowedStains) ? 30 : 8) +
-            mediaCounts.pure * 5 +
-            mediaCounts.matching * 2 -
-            mediaCounts.mixed * 2 -
-            otherFinishCount * 8 +
-            countTokenMatches(cabinetTokens, projectText, 1),
-        };
-      })
-      .filter((entry) => entry.score > 0),
-  );
-
-  return [...primaryCards, ...pickTopProjectCards(fallback, maxItems - primaryCards.length)];
+      return buildProjectCard(project, preview.previewMedia || undefined);
+    })
+    .filter((item): item is MatchedProjectCard => Boolean(item));
 }
 
 function scoreCountertopMedia(

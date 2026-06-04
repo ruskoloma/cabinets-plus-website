@@ -208,6 +208,36 @@ function normalizeProjectMedia(value: unknown): ProjectMediaItem | null {
   };
 }
 
+function normalizeReferencedProduct(value: unknown) {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    _sys: normalizeSystemInfo(record._sys),
+    id: asString(record.id),
+    name: asString(record.name) ?? null,
+    code: asString(record.code) ?? null,
+    slug: asString(record.slug) ?? null,
+    picture: asString(record.picture) ?? null,
+  };
+}
+
+function normalizeProjectCabinetProduct(value: unknown) {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  return {
+    cabinet:
+      typeof record.cabinet === "string"
+        ? record.cabinet
+        : normalizeReferencedProduct(record.cabinet),
+    customName: asString(record.customName) ?? null,
+    subtitle: asString(record.subtitle) ?? null,
+    type: asString(record.type) ?? null,
+    _content_source: record._content_source as unknown,
+  };
+}
+
 function toCollectionSlug(value: string): string {
   return value
     .trim()
@@ -301,6 +331,11 @@ function normalizeProject(value: unknown): ProjectOverviewItem | null {
     description: asString(record.description) ?? null,
     notes: asString(record.notes) ?? null,
     primaryPicture: null,
+    cabinetProducts: Array.isArray(record.cabinetProducts)
+      ? record.cabinetProducts
+          .map((entry) => normalizeProjectCabinetProduct(entry))
+          .filter((entry): entry is NonNullable<ReturnType<typeof normalizeProjectCabinetProduct>> => Boolean(entry))
+      : [],
     sourceUpdatedAt: asDateString(record.sourceUpdatedAt) ?? null,
     media,
     _content_source: record._content_source as unknown,
