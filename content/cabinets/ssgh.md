@@ -87,6 +87,7 @@ media:
 relatedProjects:
   - project: content/projects/black-island-project-at-the-art-house.md
   - project: content/projects/residence-on-geiger.md
+  - project: content/projects/residence-on-honeycomb-springs-lane.md
   - project: content/projects/residence-on-honeycomb.md
 relatedProducts:
   - {}
@@ -97,4 +98,3 @@ sourceId: 251
 sourceUpdatedAt: 2025-07-25T22:53:51.791Z
 slug: ssgh
 ---
-
