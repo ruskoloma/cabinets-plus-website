@@ -7,7 +7,7 @@ const RELATIVE_PATH = "privacy-policy.json";
 
 export async function generateMetadata(): Promise<Metadata> {
   const result = await getPageDataSafe(RELATIVE_PATH);
-  return buildDocumentMetadata(result.data.page);
+  return { ...buildDocumentMetadata(result.data.page), alternates: { canonical: "/privacy-policy" } };
 }
 
 export default async function PrivacyPolicyPage() {

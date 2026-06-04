@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Browse cabinet styles, finishes, and services at Cabinets Plus in Spokane. Semi-custom cabinetry, in-house design consultation, and professional installation.",
+    alternates: { canonical: "/cabinets" },
     openGraph: built.openGraph,
   };
 }

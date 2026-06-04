@@ -40,6 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Discover helpful insights for your home renovation journey from the Cabinets Plus team.",
+    alternates: { canonical: "/blog" },
     openGraph: built.openGraph,
   };
 }

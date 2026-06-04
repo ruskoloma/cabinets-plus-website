@@ -29,6 +29,7 @@ export async function generateMetadata(
   return {
     title: collection.title || getCollectionHeading(collection, slug),
     description: collection.description || undefined,
+    alternates: { canonical: `/collections/${slug}` },
     openGraph: defaultImage ? { images: [{ url: defaultImage }] } : undefined,
   };
 }

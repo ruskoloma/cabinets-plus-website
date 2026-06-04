@@ -26,6 +26,7 @@ export async function generateMetadata(
   return {
     title: `${name}${code}`,
     description: flooring.description || undefined,
+    alternates: { canonical: `/flooring/catalog/${slug}` },
     openGraph: flooring.picture ? { images: [{ url: flooring.picture }] } : undefined,
   };
 }

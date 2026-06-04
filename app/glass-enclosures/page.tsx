@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Custom shower glass, frameless shower doors, glass panels, and mirrors measured, fabricated, and installed by Cabinets Plus in Spokane.",
+    alternates: { canonical: "/glass-enclosures" },
     openGraph: built.openGraph,
   };
 }

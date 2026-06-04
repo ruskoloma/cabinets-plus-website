@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       built.description ||
       "Explore quartz, granite, marble and quartzite countertops at Cabinets Plus in Spokane. In-house fabrication, free measurements and professional installation.",
+    alternates: { canonical: "/countertops" },
     openGraph: built.openGraph,
   };
 }

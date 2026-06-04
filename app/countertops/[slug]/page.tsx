@@ -26,6 +26,7 @@ export async function generateMetadata(
   return {
     title: `${name}${code}`,
     description: countertop.description || undefined,
+    alternates: { canonical: `/countertops/${slug}` },
     openGraph: countertop.picture ? { images: [{ url: countertop.picture }] } : undefined,
   };
 }
