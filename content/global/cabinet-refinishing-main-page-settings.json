@@ -124,41 +124,53 @@
       "anchorId": "finish-color",
       "title": "Finish & Color",
       "paragraphs": "**Cabinet painting**, **cabinet refinishing**, and **wood tone refinishing** all refresh your existing cabinets without replacing a single box — the right choice comes down to the look you're after and the condition of your current finish. **Cabinet painting** lays down a smooth, solid color that covers the wood grain completely — the go-to for taking dated oak or honey-stained cabinets to a clean, modern white, navy, gray, or black. **Cabinet refinishing** strips the worn finish back and rebuilds it from the surface up, restoring a durable, like-new coat on the cabinets you already have. **Wood tone refinishing** re-stains your cabinets to a new shade — lighter, darker, warmer, or cooler — while letting the natural wood grain show through.\n\nIn short: paint to cover the wood, refinish to renew it, wood tone to recolor it.\n",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3436-dsc05586.jpg",
+      "beforeImage": "/library/cabinet-refinishing/before-after/project-1-before.png",
+      "afterImage": "/library/cabinet-refinishing/before-after/project-1-after.png",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
       "imagePosition": "right",
       "ctaLabel": "",
       "ctaLink": "",
-      "_template": "textImageSection"
+      "_template": "beforeAfterTextImageSection"
     },
     {
       "anchorId": "surface-structure",
       "title": "Surface & Structure",
       "paragraphs": "Sometimes the doors and drawer fronts are the problem, but your cabinet boxes are still structurally sound — and when that's the case, there's no reason to pay for a full replacement. **Cabinet door replacement** swaps out the existing doors and drawer fronts for an updated style and leaves your boxes in place. It's the most budget-friendly way to modernize a kitchen, and a great fit when the frames are solid but the fronts look tired or damaged. **Cabinet refacing** takes it a step further: new doors and drawer fronts plus a fresh hardwood skin over the visible box surfaces, so every part of the kitchen looks brand new — all while keeping your existing layout and footprint.\n\nChoose door replacement if your boxes still look good; choose refacing for a complete visual reset without a full remodel.\n",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3415-02-27603-n-bruce-rd-024.jpg",
+      "beforeImage": "/library/cabinet-refinishing/before-after/project-6-before.png",
+      "afterImage": "/library/cabinet-refinishing/before-after/project-6-after.png",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
       "imagePosition": "left",
       "ctaLabel": "",
       "ctaLink": "",
-      "_template": "textImageSection"
+      "_template": "beforeAfterTextImageSection"
     },
     {
       "anchorId": "modifications-upgrades",
       "title": "Modifications & Upgrades",
       "paragraphs": "Beyond color and surfaces, **cabinet modifications** and **hardware upgrades** make your existing cabinets work better and feel better every day. **Cabinet modifications & upgrades** cover the practical side: repairs, adjustments, and structural tweaks that adapt aging or awkward cabinetry to the way you actually use your kitchen — from fixing worn components to improving how doors and drawers open and close. **Hardware & soft-close upgrades** swap in modern pulls, knobs, and hinges and add soft-close mechanisms so doors and drawers shut quietly on their own. It's one of the smallest changes you can make, with one of the biggest payoffs in how high-end the kitchen feels.\n\nBoth pair naturally with any painting, refinishing, or refacing work for a complete, top-to-bottom refresh.\n",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3601-dsc00299.jpg",
+      "beforeImage": "/library/cabinet-refinishing/before-after/project-2-before.png",
+      "afterImage": "/library/cabinet-refinishing/before-after/project-2-after.png",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
       "imagePosition": "right",
       "ctaLabel": "",
       "ctaLink": "",
-      "_template": "textImageSection"
+      "_template": "beforeAfterTextImageSection"
     },
     {
       "anchorId": "add-ons",
       "title": "Add-Ons",
       "paragraphs": "Two optional add-ons — **interior door refinishing** and **window trim refinishing** — carry your refreshed look beyond the cabinets to the surrounding woodwork, so nothing in the room feels left behind. **Interior door refinishing** brings full-size interior doors in line with your newly finished cabinets, and **window trim refinishing** matches your window trim and packages to the same updated color or tone. Offered as part of a cabinet refinishing project, they tie the entire space together for a cohesive, finished result.\n",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-beverly-drive/25-dsc00331.jpg",
+      "beforeImage": "/library/cabinet-refinishing/before-after/project-5-before.png",
+      "afterImage": "/library/cabinet-refinishing/before-after/project-5-after.png",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
       "imagePosition": "left",
       "ctaLabel": "",
       "ctaLink": "",
-      "_template": "textImageSection"
+      "_template": "beforeAfterTextImageSection"
     },
     {
       "title": "F.A.Q.",

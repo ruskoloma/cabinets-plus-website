@@ -172,6 +172,18 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             ctaLabel
             ctaLink
           }
+          ... on ${prefix}BeforeAfterTextImageSection {
+            anchorId
+            title
+            paragraphs
+            beforeImage
+            afterImage
+            beforeLabel
+            afterLabel
+            imagePosition
+            ctaLabel
+            ctaLink
+          }
           ... on ${prefix}PartnersSection {
             title
             description

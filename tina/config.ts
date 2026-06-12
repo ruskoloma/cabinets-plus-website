@@ -2355,6 +2355,34 @@ function sharedTextImageSectionTemplate() {
   };
 }
 
+function sharedBeforeAfterTextImageSectionTemplate() {
+  return {
+    name: "beforeAfterTextImageSection" as const,
+    label: "Before/After Info Section",
+    fields: [
+      { type: "string" as const, name: "anchorId", label: "Anchor ID (optional)" },
+      { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "rich-text" as const, name: "paragraphs", label: "Body Paragraphs" },
+      { type: "image" as const, name: "beforeImage", label: "Before Image" },
+      { type: "image" as const, name: "afterImage", label: "After Image" },
+      { type: "string" as const, name: "beforeLabel", label: "Before Label" },
+      { type: "string" as const, name: "afterLabel", label: "After Label" },
+      {
+        type: "string" as const,
+        name: "imagePosition",
+        label: "Image Position",
+        options: [
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+        ],
+        ui: { component: "select" as const },
+      },
+      { type: "string" as const, name: "ctaLabel", label: "CTA Button Text (optional)" },
+      { type: "string" as const, name: "ctaLink", label: "CTA Button Link (optional)" },
+    ],
+  };
+}
+
 function sharedRelatedArticlesSectionTemplate() {
   return {
     name: "relatedArticlesSection" as const,
@@ -2408,6 +2436,7 @@ function sharedPageSectionTemplates() {
     sharedArticleContentSectionTemplate(),
     sharedMagazineEmbedTemplate(),
     sharedTextImageSectionTemplate(),
+    sharedBeforeAfterTextImageSectionTemplate(),
     sharedPartnersSectionTemplate(),
     sharedPartnersSectionTemplate({
       name: "countertopPartnersSection",
