@@ -164,6 +164,7 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             iframeTitle
           }
           ... on ${prefix}TextImageSection {
+            anchorId
             title
             paragraphs
             image
@@ -327,6 +328,13 @@ export const BATHROOM_REMODEL_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSet
   resultKey: "bathroomRemodelMainPageSettings",
   templateTypename: "PagesBathroomRemodelMainPage",
   blocksTypenamePrefix: "PagesBathroomRemodelMainPageBlocks",
+});
+
+export const CABINET_REFINISHING_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({
+  operationName: "CabinetRefinishingMainPageSettingsDocument",
+  resultKey: "cabinetRefinishingMainPageSettings",
+  templateTypename: "PagesCabinetRefinishingMainPage",
+  blocksTypenamePrefix: "PagesCabinetRefinishingMainPageBlocks",
 });
 
 export const GLASS_ENCLOSURES_MAIN_PAGE_SETTINGS_QUERY = buildServiceMainPageSettingsQuery({

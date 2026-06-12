@@ -59,7 +59,7 @@ type ProductCatalogKey = "cabinets" | "countertops" | "flooring" | "glass";
 const DESKTOP_DROPDOWN_TOP = 90;
 const DESKTOP_DROPDOWN_LEFT_OFFSET = 30;
 const DESKTOP_PRODUCTS_DROPDOWN_SIZE = { width: 599, height: 558 } as const;
-const DESKTOP_SERVICES_DROPDOWN_SIZE = { width: 332, height: 262 } as const;
+const DESKTOP_SERVICES_DROPDOWN_SIZE = { width: 332, height: 334 } as const;
 const PRODUCT_CATALOG_COLUMN_WIDTH_BY_KEY: Record<ProductCatalogKey, number> = {
   cabinets: 203,
   countertops: 232,
@@ -135,16 +135,16 @@ function KitchenIcon() {
   return (
     <svg aria-hidden className="h-10 w-10" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
       <rect fill="white" height="40" width="40" />
-      <rect height="38" stroke="#2E2E2E" strokeWidth="2" width="16" x="1" y="1" />
-      <rect height="14" stroke="#2E2E2E" strokeWidth="2" width="38" x="1" y="25" />
-      <rect fill="#2E2E2E" height="2" width="6" x="7" y="20" />
-      <rect fill="#2E2E2E" height="2" rx="1" width="2" x="23" y="28" />
-      <rect fill="#2E2E2E" height="2" rx="1" width="2" x="31" y="28" />
-      <rect height="6" stroke="#2E2E2E" strokeWidth="2" width="22" x="17" y="19" />
-      <line stroke="#2E2E2E" strokeWidth="2" x1="28" x2="28" y1="25" y2="39" />
-      <path d="M28 18L28 10C28 8.89543 27.1046 8 26 8C24.8954 8 24 8.89543 24 10L24 11" stroke="#2E2E2E" strokeWidth="2" />
-      <path d="M32 16C32 15.4477 32.4477 15 33 15C33.5523 15 34 15.4477 34 16V18H32V16Z" fill="#2E2E2E" />
-      <path d="M22 16C22 15.4477 22.4477 15 23 15C23.5523 15 24 15.4477 24 16V18H22V16Z" fill="#2E2E2E" />
+      <rect height="38" stroke="currentColor" strokeWidth="2" width="16" x="1" y="1" />
+      <rect height="14" stroke="currentColor" strokeWidth="2" width="38" x="1" y="25" />
+      <rect fill="currentColor" height="2" width="6" x="7" y="20" />
+      <rect fill="currentColor" height="2" rx="1" width="2" x="23" y="28" />
+      <rect fill="currentColor" height="2" rx="1" width="2" x="31" y="28" />
+      <rect height="6" stroke="currentColor" strokeWidth="2" width="22" x="17" y="19" />
+      <line stroke="currentColor" strokeWidth="2" x1="28" x2="28" y1="25" y2="39" />
+      <path d="M28 18L28 10C28 8.89543 27.1046 8 26 8C24.8954 8 24 8.89543 24 10L24 11" stroke="currentColor" strokeWidth="2" />
+      <path d="M32 16C32 15.4477 32.4477 15 33 15C33.5523 15 34 15.4477 34 16V18H32V16Z" fill="currentColor" />
+      <path d="M22 16C22 15.4477 22.4477 15 23 15C23.5523 15 24 15.4477 24 16V18H22V16Z" fill="currentColor" />
     </svg>
   );
 }
@@ -153,13 +153,27 @@ function BathroomIcon() {
   return (
     <svg aria-hidden className="h-10 w-10" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
       <rect fill="white" height="40" width="40" />
-      <rect height="19" stroke="#2E2E2E" strokeWidth="2" width="24" x="8" y="1" />
-      <path d="M30 24C30 26.7614 27.7614 29 25 29H15C12.2386 29 10 26.7614 10 24H30Z" stroke="#2E2E2E" strokeWidth="2" />
-      <path d="M29 27H35V39H5V27H11" stroke="#2E2E2E" strokeWidth="2" />
-      <path d="M23 23L23 17C23 15.8954 22.1046 15 21 15L19 15C17.8954 15 17 15.8954 17 17L17 17.4" stroke="#2E2E2E" strokeWidth="2" />
-      <line stroke="#2E2E2E" strokeWidth="2" x1="20" x2="20" y1="29" y2="39" />
-      <rect fill="#2E2E2E" height="2" transform="rotate(-90 23 36)" width="5" x="23" y="36" />
-      <rect fill="#2E2E2E" height="2" transform="rotate(-90 15 36)" width="5" x="15" y="36" />
+      <rect height="19" stroke="currentColor" strokeWidth="2" width="24" x="8" y="1" />
+      <path d="M30 24C30 26.7614 27.7614 29 25 29H15C12.2386 29 10 26.7614 10 24H30Z" stroke="currentColor" strokeWidth="2" />
+      <path d="M29 27H35V39H5V27H11" stroke="currentColor" strokeWidth="2" />
+      <path d="M23 23L23 17C23 15.8954 22.1046 15 21 15L19 15C17.8954 15 17 15.8954 17 17L17 17.4" stroke="currentColor" strokeWidth="2" />
+      <line stroke="currentColor" strokeWidth="2" x1="20" x2="20" y1="29" y2="39" />
+      <rect fill="currentColor" height="2" transform="rotate(-90 23 36)" width="5" x="23" y="36" />
+      <rect fill="currentColor" height="2" transform="rotate(-90 15 36)" width="5" x="15" y="36" />
+    </svg>
+  );
+}
+
+function CabinetRefinishingIcon() {
+  return (
+    <svg aria-hidden className="h-10 w-10" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <rect fill="white" height="40" width="40" />
+      <rect height="30" stroke="currentColor" strokeWidth="2" width="28" x="6" y="5" />
+      <line stroke="currentColor" strokeWidth="2" x1="20" x2="20" y1="5" y2="35" />
+      <rect fill="currentColor" height="2" rx="1" width="2" x="15" y="19" />
+      <rect fill="currentColor" height="2" rx="1" width="2" x="23" y="19" />
+      <path d="M10 31H17" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+      <path d="M23 31H30" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
     </svg>
   );
 }
@@ -180,6 +194,17 @@ function getDesktopProductIcon(child: NavChild): string {
 
 function isKitchenServiceItem(item: NavChild): boolean {
   return getNavItemLookupValue(item.label, item.href).includes("kitchen");
+}
+
+function isCabinetRefinishingServiceItem(item: NavChild): boolean {
+  const lookup = getNavItemLookupValue(item.label, item.href);
+  return lookup.includes("refinishing") || lookup.includes("cabinet-refinishing");
+}
+
+function ServiceIcon({ item }: { item: NavChild }) {
+  if (isKitchenServiceItem(item)) return <KitchenIcon />;
+  if (isCabinetRefinishingServiceItem(item)) return <CabinetRefinishingIcon />;
+  return <BathroomIcon />;
 }
 
 function SearchParamsSync({
@@ -742,13 +767,13 @@ export default function Header({
                 <div className="mt-10 space-y-8">
                   {servicesItems.map((item, index) => (
                     <Link
-                      className="flex items-center gap-4 text-base font-medium leading-6 text-[var(--cp-primary-500)]"
+                      className="flex items-center gap-4 text-base font-medium leading-6 text-[var(--cp-primary-500)] transition-[color,opacity] hover:text-[var(--cp-primary-350)] hover:opacity-80 focus-visible:text-[var(--cp-primary-350)] focus-visible:opacity-80"
                       data-tina-field={rawServicesItems[index] ? tinaField(rawServicesItems[index]) || undefined : undefined}
                       href={item.href}
                       key={`${item.label}-${item.href}-desktop-services`}
                     >
                       <span className="flex items-center gap-4">
-                        {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
+                        <ServiceIcon item={item} />
                         <span>{item.label}</span>
                       </span>
                     </Link>
@@ -808,9 +833,9 @@ export default function Header({
                           key={`${item.label}-${item.href}`}
                           onClick={() => setMobileOpen(false)}
                         >
-                          <span className="flex items-center gap-4">
-                            {isKitchenServiceItem(item) ? <KitchenIcon /> : <BathroomIcon />}
-                            <span className="text-base font-medium text-[var(--cp-primary-500)]">{item.label}</span>
+                          <span className="flex items-center gap-4 text-[var(--cp-primary-500)]">
+                            <ServiceIcon item={item} />
+                            <span className="text-base font-medium">{item.label}</span>
                           </span>
                         </Link>
                       ))}

@@ -1,0 +1,214 @@
+{
+  "title": "Cabinet Refinishing",
+  "seo": {
+    "title": "Cabinet Refinishing in Spokane WA | Cabinets Plus",
+    "description": "Refresh your kitchen without the cost of replacement. Cabinets Plus offers cabinet refinishing, painting, refacing, and wood tone changes in Spokane & Spokane Valley — done in-house by a full cabinet shop."
+  },
+  "blocks": [
+    {
+      "heading": "Cabinet Refinishing in Spokane WA",
+      "subtext": "Don't replace — refinish. Give the cabinets you already have a completely new look — without the cost, mess, or weeks of downtime that come with a full replacement.",
+      "ctaLabel": "Free Refinishing Consultation",
+      "ctaLink": "/contact-us",
+      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg",
+      "imageSize": "full",
+      "_template": "hero"
+    },
+    {
+      "title": "Our Refinishing Services",
+      "ctaLabel": "Free Refinishing Consultation",
+      "ctaLink": "/contact-us",
+      "imageSize": "full",
+      "products": [
+        {
+          "name": "Finish & Color",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg",
+          "link": "#finish-color"
+        },
+        {
+          "name": "Surface & Structure",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3415-02-27603-n-bruce-rd-024.jpg",
+          "link": "#surface-structure"
+        },
+        {
+          "name": "Modifications & Upgrades",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3601-dsc00299.jpg",
+          "link": "#modifications-upgrades"
+        },
+        {
+          "name": "Add-Ons",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2988-dsc04301.jpg",
+          "link": "#add-ons"
+        }
+      ],
+      "_template": "productsSection"
+    },
+    {
+      "title": "Refinishing, Built on a Foundation of Cabinet Expertise",
+      "paragraphs": "For years, our customers kept asking the same question: instead of replacing our cabinets, can you just refresh the ones we have? The demand was clear — so we built the service to meet it.\n\nAs a Spokane kitchen and cabinet company first, we already have everything refinishing requires under one roof: the shop space, the finishing equipment, the material sourcing, and a team that understands how cabinets are built, finished, and meant to hold up over time. That foundation lets us offer refinishing that goes well beyond a coat of paint.\n\nWhether you want to modernize a dated kitchen, brighten the whole space, or preserve the character of cabinets you already love, our team can give them a fresh, lasting finish — handled in-house from start to finish, right here in Spokane Valley.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2948-dsc03999.jpg",
+      "imagePosition": "right",
+      "ctaLabel": "",
+      "ctaLink": "",
+      "_template": "textImageSection"
+    },
+    {
+      "title": "Why Refinish Instead of Replace",
+      "paragraphs": "Most refinishing projects wrap in days, not weeks. You get back to enjoying your kitchen faster, with less mess and less disruption than a full replacement.\n\nRefinishing can also create a high-end, custom look for a fraction of the cost of replacing every cabinet. A refreshed kitchen boosts your home's appeal and resale value, making it a smart, low-risk investment when your existing cabinet boxes are still solid.\n\nAnd because we're a full cabinet shop — not a paint crew — every project is backed by real cabinetry experience.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-beverly-drive/01-dsc00199.jpg",
+      "imagePosition": "left",
+      "ctaLabel": "",
+      "ctaLink": "",
+      "_template": "textImageSection"
+    },
+    {
+      "title": "Our Refinishing Process",
+      "steps": [
+        {
+          "number": 1,
+          "iconImage": "/library/countertops/process/step-showroom.svg",
+          "title": "Consultation & Assessment",
+          "description": "We start with a free consultation, talk through your goals, and recommend the right approach — paint, refinish, reface, or a combination. You'll leave with a clear plan and a no-pressure quote."
+        },
+        {
+          "number": 2,
+          "iconImage": "/library/countertops/process/step-measurement.svg",
+          "title": "Prep, Repair & Finish Selection",
+          "description": "We clean, sand, and properly prep every surface, handle any repairs, and help you lock in your color or wood tone so the final result looks intentional and lasts."
+        },
+        {
+          "number": 3,
+          "iconImage": "/library/countertops/process/step-fabrication.svg",
+          "title": "Refinishing & Reveal",
+          "description": "Our team applies your finish with shop-grade equipment and attention to detail, then reinstalls everything clean. The result: cabinets that look brand new — in a fraction of the time a full remodel would take."
+        }
+      ],
+      "_template": "processSection"
+    },
+    {
+      "title": "See the Difference",
+      "ctaLabel": "View All projects",
+      "ctaLink": "/gallery",
+      "projects": [
+        {
+          "project": "content/projects/art-house-on-27th-avenue.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-7th-street.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3436-dsc05586.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-bruce-road.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3415-02-27603-n-bruce-rd-024.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-bush-drive.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3601-dsc00299.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-dahl-road.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3629-dsc00389.jpg"
+        }
+      ],
+      "imageSize": "card",
+      "_template": "projectsSection"
+    },
+    {
+      "title": "Cabinet Refinishing Articles",
+      "imageSize": "card",
+      "posts": [],
+      "_template": "relatedArticlesSection"
+    },
+    {
+      "anchorId": "finish-color",
+      "title": "Finish & Color",
+      "paragraphs": "**Cabinet painting**, **cabinet refinishing**, and **wood tone refinishing** all refresh your existing cabinets without replacing a single box — the right choice comes down to the look you're after and the condition of your current finish. **Cabinet painting** lays down a smooth, solid color that covers the wood grain completely — the go-to for taking dated oak or honey-stained cabinets to a clean, modern white, navy, gray, or black. **Cabinet refinishing** strips the worn finish back and rebuilds it from the surface up, restoring a durable, like-new coat on the cabinets you already have. **Wood tone refinishing** re-stains your cabinets to a new shade — lighter, darker, warmer, or cooler — while letting the natural wood grain show through.\n\nIn short: paint to cover the wood, refinish to renew it, wood tone to recolor it.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3436-dsc05586.jpg",
+      "imagePosition": "right",
+      "ctaLabel": "",
+      "ctaLink": "",
+      "_template": "textImageSection"
+    },
+    {
+      "anchorId": "surface-structure",
+      "title": "Surface & Structure",
+      "paragraphs": "Sometimes the doors and drawer fronts are the problem, but your cabinet boxes are still structurally sound — and when that's the case, there's no reason to pay for a full replacement. **Cabinet door replacement** swaps out the existing doors and drawer fronts for an updated style and leaves your boxes in place. It's the most budget-friendly way to modernize a kitchen, and a great fit when the frames are solid but the fronts look tired or damaged. **Cabinet refacing** takes it a step further: new doors and drawer fronts plus a fresh hardwood skin over the visible box surfaces, so every part of the kitchen looks brand new — all while keeping your existing layout and footprint.\n\nChoose door replacement if your boxes still look good; choose refacing for a complete visual reset without a full remodel.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3415-02-27603-n-bruce-rd-024.jpg",
+      "imagePosition": "left",
+      "ctaLabel": "",
+      "ctaLink": "",
+      "_template": "textImageSection"
+    },
+    {
+      "anchorId": "modifications-upgrades",
+      "title": "Modifications & Upgrades",
+      "paragraphs": "Beyond color and surfaces, **cabinet modifications** and **hardware upgrades** make your existing cabinets work better and feel better every day. **Cabinet modifications & upgrades** cover the practical side: repairs, adjustments, and structural tweaks that adapt aging or awkward cabinetry to the way you actually use your kitchen — from fixing worn components to improving how doors and drawers open and close. **Hardware & soft-close upgrades** swap in modern pulls, knobs, and hinges and add soft-close mechanisms so doors and drawers shut quietly on their own. It's one of the smallest changes you can make, with one of the biggest payoffs in how high-end the kitchen feels.\n\nBoth pair naturally with any painting, refinishing, or refacing work for a complete, top-to-bottom refresh.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3601-dsc00299.jpg",
+      "imagePosition": "right",
+      "ctaLabel": "",
+      "ctaLink": "",
+      "_template": "textImageSection"
+    },
+    {
+      "anchorId": "add-ons",
+      "title": "Add-Ons",
+      "paragraphs": "Two optional add-ons — **interior door refinishing** and **window trim refinishing** — carry your refreshed look beyond the cabinets to the surrounding woodwork, so nothing in the room feels left behind. **Interior door refinishing** brings full-size interior doors in line with your newly finished cabinets, and **window trim refinishing** matches your window trim and packages to the same updated color or tone. Offered as part of a cabinet refinishing project, they tie the entire space together for a cohesive, finished result.\n",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-beverly-drive/25-dsc00331.jpg",
+      "imagePosition": "left",
+      "ctaLabel": "",
+      "ctaLink": "",
+      "_template": "textImageSection"
+    },
+    {
+      "title": "F.A.Q.",
+      "faqs": [
+        {
+          "question": "How long does cabinet refinishing take?",
+          "answer": "Most projects are completed in a matter of days rather than the weeks a full replacement can take. Exact timing depends on the size of your kitchen and the services involved — we'll give you a clear timeline at your consultation."
+        },
+        {
+          "question": "Is a refinished cabinet as durable as a new one?",
+          "answer": "Yes. Because we properly prep every surface and use shop-grade finishes, a refinished cabinet stands up to daily kitchen use just like a factory finish. The durability comes from the prep work — which is exactly where our cabinet experience pays off."
+        },
+        {
+          "question": "Can you change the color or wood tone of my cabinets?",
+          "answer": "Absolutely. We can paint cabinets a new color, refinish them for a fresh surface, or change the wood tone entirely — lighter, darker, or a completely different look. If you can picture it, we can usually match it."
+        },
+        {
+          "question": "What's the difference between refinishing, refacing, and painting?",
+          "answer": "Painting applies a solid color over your existing cabinets. Refinishing strips and rebuilds the finish for a renewed surface. Refacing replaces the doors and adds a new hardwood skin to the boxes for a brand-new look — all while keeping your existing layout. We'll help you pick the right one at your consultation."
+        },
+        {
+          "question": "Do I have to move out during the project?",
+          "answer": "No. Refinishing is one of the least disruptive ways to update a kitchen. We work clean, keep our footprint contained, and stay out of your way as much as possible."
+        },
+        {
+          "question": "Should I refinish or replace my cabinets?",
+          "answer": "If your cabinet boxes are structurally sound and you're mainly after a new look, refinishing gives you a high-end result for far less than replacement. If your layout isn't working or the cabinets are failing, replacement may make more sense — and we can walk you through both options honestly at your consultation."
+        },
+        {
+          "question": "Which cabinets and surfaces can be refinished?",
+          "answer": "Most solid wood and quality cabinetry refinishes beautifully. During your free assessment, we'll confirm what's a good candidate and recommend the best approach for your specific cabinets."
+        }
+      ],
+      "_template": "miniFaqSection"
+    },
+    {
+      "heading": "We can refresh the space you already love.",
+      "subtext": "Get a free, no-pressure refinishing consultation with Spokane's cabinet experts. Give us a call — (509) 218-3349.",
+      "ctaLabel": "Book Your Free Consultation",
+      "ctaLink": "/contact-us",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/showroom-banner.jpg",
+      "imageSize": "full",
+      "_template": "showroomBanner"
+    },
+    {
+      "_template": "sharedContactSection"
+    },
+    {
+      "_template": "sharedShowroomSection"
+    }
+  ],
+  "_template": "cabinetRefinishingMainPage"
+}

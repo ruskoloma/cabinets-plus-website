@@ -30,6 +30,7 @@ const STATIC_ROUTES: StaticRouteConfig[] = [
   { path: "/about-us", changeFrequency: "monthly", priority: 0.7 },
   { path: "/bathroom-remodel", changeFrequency: "monthly", priority: 0.8 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/cabinet-refinishing", changeFrequency: "monthly", priority: 0.8 },
   { path: "/cabinets", changeFrequency: "weekly", priority: 0.85 },
   { path: "/cabinets/catalog", changeFrequency: "weekly", priority: 0.8 },
   { path: "/contact-us", changeFrequency: "monthly", priority: 0.8 },

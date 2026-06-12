@@ -107,6 +107,11 @@
           "label": "Bathroom remodeling",
           "href": "/bathroom-remodel",
           "_template": "simpleLink"
+        },
+        {
+          "label": "Cabinet refinishing",
+          "href": "/cabinet-refinishing",
+          "_template": "simpleLink"
         }
       ]
     },

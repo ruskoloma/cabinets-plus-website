@@ -115,6 +115,7 @@ const ACTUAL_PAGE_BLOCK_PREFIXES = [
   "PagesFlooringMainPageBlocks",
   "PagesKitchenRemodelMainPageBlocks",
   "PagesBathroomRemodelMainPageBlocks",
+  "PagesCabinetRefinishingMainPageBlocks",
   "PagesGlassEnclosuresMainPageBlocks",
 ];
 
@@ -124,6 +125,7 @@ const LEGACY_PAGE_SETTINGS_BLOCK_PREFIXES = [
   "PageSettingsFlooringMainPageBlocks",
   "PageSettingsKitchenRemodelMainPageBlocks",
   "PageSettingsBathroomRemodelMainPageBlocks",
+  "PageSettingsCabinetRefinishingMainPageBlocks",
   "PageSettingsGlassEnclosuresMainPageBlocks",
 ];
 
