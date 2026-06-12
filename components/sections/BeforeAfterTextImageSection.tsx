@@ -1,6 +1,6 @@
 "use client";
 
-import type { ComponentProps, CSSProperties } from "react";
+import type { ComponentProps, CSSProperties, SyntheticEvent } from "react";
 import { useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import FillImage from "@/components/ui/FillImage";
 
 type RichTextContent = ComponentProps<typeof TinaMarkdown>["content"];
+const DEFAULT_VIEWER_ASPECT_RATIO = "1448 / 1086";
 
 interface Props {
   block: Record<string, unknown>;
@@ -74,15 +75,25 @@ function BeforeAfterImageViewer({
   block: Record<string, unknown>;
 }) {
   const [position, setPosition] = useState(50);
+  const [aspectRatio, setAspectRatio] = useState(DEFAULT_VIEWER_ASPECT_RATIO);
   const clipStyle = { clipPath: `inset(0 ${100 - position}% 0 0)` } as CSSProperties;
   const handleStyle = { left: `${position}%` } as CSSProperties;
+  const viewerStyle = { aspectRatio } as CSSProperties;
+
+  const updateAspectRatio = (event: SyntheticEvent<HTMLImageElement>) => {
+    const { naturalHeight, naturalWidth } = event.currentTarget;
+    if (naturalHeight > 0 && naturalWidth > 0) {
+      setAspectRatio(`${naturalWidth} / ${naturalHeight}`);
+    }
+  };
 
   return (
-    <div className="relative aspect-[275/361] w-full overflow-hidden rounded-[1.071px] bg-[var(--cp-brand-neutral-100)] md:aspect-auto md:h-[514px] md:rounded-[2px]">
+    <div className="relative w-full overflow-hidden rounded-[1.071px] bg-[var(--cp-brand-neutral-100)] md:h-[514px] md:rounded-[2px]" style={viewerStyle}>
       <div className="absolute inset-0" data-tina-field={tinaField(block, "afterImage")}>
         <FillImage
           alt={`${title || "Project"} after`}
           className="object-cover"
+          onLoad={updateAspectRatio}
           sizes="(min-width: 768px) 674px, 100vw"
           src={afterImage}
           variant="full"
