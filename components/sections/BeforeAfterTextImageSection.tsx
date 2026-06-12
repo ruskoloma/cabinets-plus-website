@@ -163,7 +163,7 @@ export default function BeforeAfterTextImageSection({ block }: Props) {
   const imageOnLeft = imagePosition === "left";
 
   const textColumn = (
-    <div className={imageOnLeft ? "order-2 md:order-2" : "order-1 md:order-1"}>
+    <div className={imageOnLeft ? "order-1 md:order-2" : "order-1 md:order-1"}>
       {title ? (
         <h2
           className="font-[var(--font-red-hat-display)] text-[32px] font-normal uppercase leading-[1.25] tracking-[0.01em] text-[var(--cp-primary-500)]"
@@ -195,7 +195,7 @@ export default function BeforeAfterTextImageSection({ block }: Props) {
   );
 
   const imageColumn = fallbackImage ? (
-    <div className={imageOnLeft ? "order-1 md:order-1" : "order-2 md:order-2"}>
+    <div className={imageOnLeft ? "order-2 md:order-1" : "order-2 md:order-2"}>
       <BeforeAfterImageViewer
         afterImage={afterImage || fallbackImage}
         afterLabel={afterLabel}
