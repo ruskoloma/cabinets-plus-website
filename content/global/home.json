@@ -56,6 +56,12 @@
           "description": "Cabinets Plus provides professional bathroom remodeling services in Spokane, WA. We design and renovate bathrooms with a focus on functionality, clean design, and quality craftsmanship — from full remodels to targeted upgrades.",
           "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/service-kitchen.jpg",
           "link": "/kitchen-remodel"
+        },
+        {
+          "title": "Cabinet refinishing",
+          "description": "Refresh your existing cabinets with professional painting, refinishing, refacing, and hardware upgrades. We help Spokane homeowners get a clean, updated look without the cost or disruption of a full cabinet replacement.",
+          "image": "/library/cabinet-refinishing/work-in-progress.png",
+          "link": "/cabinet-refinishing"
         }
       ],
       "_template": "servicesSection"

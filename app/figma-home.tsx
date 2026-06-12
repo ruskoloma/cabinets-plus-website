@@ -143,7 +143,7 @@ export default function FigmaHome({ page }: Props) {
   ];
 
   const productItems = mapProducts(toBlockArray(products.products)).slice(0, 4);
-  const serviceItems = mapServices(toBlockArray(services.services)).slice(0, 2);
+  const serviceItems = mapServices(toBlockArray(services.services)).slice(0, 3);
   const featureItems = mapFeatures(toBlockArray(whyUs.features)).slice(0, 3);
   const statsItems = mapStats(toBlockArray(about.stats)).slice(0, 3);
   const processItems = mapSteps(toBlockArray(process.steps));
@@ -268,14 +268,14 @@ export default function FigmaHome({ page }: Props) {
         <h2 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(servicesRecord, "title")}>
           {text(services.title, "Services")}
         </h2>
-        <div className="mt-8 grid gap-8 md:mt-4 md:grid-cols-2 md:gap-x-[30px] md:gap-y-4">
+        <div className="mt-8 grid gap-8 md:mt-4 md:grid-cols-3 md:gap-x-[30px] md:gap-y-4">
           {serviceItems.map((item, index) => (
             <PreviewCard
               description={item.description}
               descriptionClassName="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
               href={item.link || "#"}
               image={item.image}
-              imageClassName="h-[214px] md:h-[399px]"
+              imageClassName="h-[214px] md:h-[292px]"
               imageVariant={servicesImageOptions.useOriginal ? null : servicesImageOptions.variant}
               key={`${item.title}-${index}`}
               showMobileChevron
