@@ -275,7 +275,7 @@ export default function FigmaFlooringOverviewPage({ page }: Props) {
 
       {hasTemplate("processSection") ? (
         <section
-          className="bg-white py-12 md:py-20"
+          className="bg-[var(--cp-brand-neutral-50)] py-12 md:py-20"
           data-tina-field={tinaField(processRecord)}
           style={{ order: getSectionOrder("processSection", 4) }}
         >

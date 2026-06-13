@@ -6,7 +6,7 @@ export default function ProcessSectionBlock({ block }: { block: BlockRecord }) {
   const steps = asBlockArray(block.steps);
 
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-20 bg-[var(--cp-brand-neutral-50)]">
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle title={asText(block.title)} tinaField={tinaField(block, "title")} centered />
         <div className="relative mt-12">
