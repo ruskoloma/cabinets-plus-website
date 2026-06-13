@@ -10,7 +10,7 @@
       "subtext": "Don't replace — refinish. Give the cabinets you already have a completely new look — without the cost, mess, or weeks of downtime that come with a full replacement.",
       "ctaLabel": "Free Refinishing Consultation",
       "ctaLink": "/contact-us",
-      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg",
+      "backgroundImage": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/services/cabinet-refinishing/work-in-progress-2.png",
       "imageSize": "full",
       "_template": "hero"
     },
@@ -22,22 +22,22 @@
       "products": [
         {
           "name": "Finish & Color",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/product-cabinets.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb/3796-4r9a4439.jpg",
           "link": "#finish-color"
         },
         {
           "name": "Surface & Structure",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3415-02-27603-n-bruce-rd-024.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/services/cabinet-refinishing/project-6-after.png",
           "link": "#surface-structure"
         },
         {
           "name": "Modifications & Upgrades",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3601-dsc00299.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/services/cabinet-refinishing/upgrades.png",
           "link": "#modifications-upgrades"
         },
         {
           "name": "Add-Ons",
-          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2988-dsc04301.jpg",
+          "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/services/cabinet-refinishing/addons.png",
           "link": "#add-ons"
         }
       ],
@@ -46,7 +46,7 @@
     {
       "title": "Refinishing, Built on a Foundation of Cabinet Expertise",
       "paragraphs": "For years, our customers kept asking the same question: instead of replacing our cabinets, can you just refresh the ones we have? The demand was clear — so we built the service to meet it.\n\nAs a Spokane kitchen and cabinet company first, we already have everything refinishing requires under one roof: the shop space, the finishing equipment, the material sourcing, and a team that understands how cabinets are built, finished, and meant to hold up over time. That foundation lets us offer refinishing that goes well beyond a coat of paint.\n\nWhether you want to modernize a dated kitchen, brighten the whole space, or preserve the character of cabinets you already love, our team can give them a fresh, lasting finish — handled in-house from start to finish, right here in Spokane Valley.\n",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-honeycomb-ln/2948-dsc03999.jpg",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/home/feature-2.jpg",
       "imagePosition": "right",
       "ctaLabel": "",
       "ctaLink": "",
@@ -55,7 +55,7 @@
     {
       "title": "Why Refinish Instead of Replace",
       "paragraphs": "Most refinishing projects wrap in days, not weeks. You get back to enjoying your kitchen faster, with less mess and less disruption than a full replacement.\n\nRefinishing can also create a high-end, custom look for a fraction of the cost of replacing every cabinet. A refreshed kitchen boosts your home's appeal and resale value, making it a smart, low-risk investment when your existing cabinet boxes are still solid.\n\nAnd because we're a full cabinet shop — not a paint crew — every project is backed by real cabinetry experience.\n",
-      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-beverly-drive/01-dsc00199.jpg",
+      "image": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/library/services/cabinet-refinishing/work-in-progress.png",
       "imagePosition": "left",
       "ctaLabel": "",
       "ctaLink": "",
@@ -86,35 +86,6 @@
       "_template": "processSection"
     },
     {
-      "title": "See the Difference",
-      "ctaLabel": "View All projects",
-      "ctaLink": "/gallery",
-      "projects": [
-        {
-          "project": "content/projects/art-house-on-27th-avenue.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-27th-avenue/3691-dsc00051.jpg"
-        },
-        {
-          "project": "content/projects/residence-on-7th-street.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-7th-street/3436-dsc05586.jpg"
-        },
-        {
-          "project": "content/projects/residence-on-bruce-road.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bruce-road/3415-02-27603-n-bruce-rd-024.jpg"
-        },
-        {
-          "project": "content/projects/residence-on-bush-drive.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-bush-drive/3601-dsc00299.jpg"
-        },
-        {
-          "project": "content/projects/residence-on-dahl-road.md",
-          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3629-dsc00389.jpg"
-        }
-      ],
-      "imageSize": "card",
-      "_template": "projectsSection"
-    },
-    {
       "title": "Cabinet Refinishing Articles",
       "imageSize": "card",
       "posts": [],
@@ -123,7 +94,7 @@
     {
       "anchorId": "finish-color",
       "title": "Finish & Color",
-      "paragraphs": "**Cabinet painting**, **cabinet refinishing**, and **wood tone refinishing** all refresh your existing cabinets without replacing a single box — the right choice comes down to the look you're after and the condition of your current finish. **Cabinet painting** lays down a smooth, solid color that covers the wood grain completely — the go-to for taking dated oak or honey-stained cabinets to a clean, modern white, navy, gray, or black. **Cabinet refinishing** strips the worn finish back and rebuilds it from the surface up, restoring a durable, like-new coat on the cabinets you already have. **Wood tone refinishing** re-stains your cabinets to a new shade — lighter, darker, warmer, or cooler — while letting the natural wood grain show through.\n\nIn short: paint to cover the wood, refinish to renew it, wood tone to recolor it.\n",
+      "paragraphs": "**Cabinet painting**, **cabinet refinishing**, and **wood tone refinishing** all refresh your existing cabinets without replacing a single box — the right choice comes down to the look you're after and the condition of your current finish. **Cabinet painting** lays down a smooth, solid color that covers the wood grain — the go-to for taking dated oak or honey-stained cabinets to a clean, modern white, navy, gray, or black. **Cabinet refinishing** strips the worn finish back and rebuilds it from the surface up, restoring a durable, like-new coat on the cabinets you already have. **Wood tone refinishing** re-stains your cabinets to a new shade — lighter, darker, warmer, or cooler — while letting the natural wood grain show through.\n\nIn short: paint to cover the wood, refinish to renew it, wood tone to recolor it.\n",
       "beforeImage": "/library/cabinet-refinishing/before-after/project-1-before.png",
       "afterImage": "/library/cabinet-refinishing/before-after/project-1-after.png",
       "beforeLabel": "Before",
