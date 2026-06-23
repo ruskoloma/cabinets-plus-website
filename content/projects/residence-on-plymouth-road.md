@@ -256,18 +256,6 @@ media:
     countertop: ''
     label: Wood kitchen with pullouts
     description: This kitchen features stained wood cabinetry and a quartz countertop.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/21-021-7115-s-plymouth-rd-021.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Kitchen
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: Quartzite
-    label: Open timber pantry shelving
-    description: Features open timber shelving and gray painted cabinets with quartzite countertop.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/22-022-7115-s-plymouth-rd-021-2.jpg'
     roomPriority: false
     paintPriority: false
@@ -280,21 +268,6 @@ media:
     countertop: Quartzite
     label: Open timber pantry shelving
     description: This kitchen features open timber shelving and gray painted cabinets with a quartzite countertop.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/23-023-7115-s-plymouth-rd-022.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Other
-    doorStyles:
-      - shaker
-    cabinetPaints: []
-    cabinetStains:
-      - white glaze stain
-    countertop: ''
-    label: Timber shelving pantry storage
-    description: This is a pantry with timber shelving and white glaze stain.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/24-024-7115-s-plymouth-rd-022-2.jpg'
     roomPriority: false
     paintPriority: false
@@ -310,18 +283,6 @@ media:
     countertop: ''
     label: Open timber pantry shelving
     description: This kitchen features open timber shelving with a white glaze stain.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/25-025-7115-s-plymouth-rd-023.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Kitchen
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: ''
-    label: Gray kitchen cabinets
-    description: This kitchen features gray painted cabinets and a quartz countertop.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/26-026-7115-s-plymouth-rd-023-2.jpg'
     roomPriority: false
     paintPriority: false
@@ -346,21 +307,6 @@ media:
     countertop: ''
     label: Gray laundry room cabinets
     description: This laundry room features gray painted cabinets and a quartz countertop.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/28-028-7115-s-plymouth-rd-025.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Other
-    doorStyles:
-      - shaker
-    cabinetPaints: []
-    cabinetStains:
-      - white glaze stain
-    countertop: ''
-    label: Timber pantry shelving
-    description: This pantry features timber shelving.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/29-029-7115-s-plymouth-rd-025-2.jpg'
     roomPriority: false
     paintPriority: false
@@ -673,30 +619,6 @@ media:
     countertop: ''
     label: Marble tiled bathroom
     description: This bathroom features marble countertops and flooring.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/62-062-7115-s-plymouth-rd-058.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: false
-    room: Bathroom
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: Quartzite
-    label: Quartzite countertop with tile backsplash
-    description: This bathroom features a quartzite countertop and a white tile backsplash.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/63-063-7115-s-plymouth-rd-059.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Bathroom
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: ''
-    label: Marble bathroom floor
-    description: Marble flooring and wall.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/64-064-7115-s-plymouth-rd-060.jpg'
     roomPriority: false
     paintPriority: false
@@ -944,18 +866,6 @@ media:
     countertop: Quartzite
     label: Mocha stained vanity
     description: This bathroom features mocha stained cabinetry and a quartzite countertop.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/98-098-7115-s-plymouth-rd-094.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Laundry
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: Granite
-    label: Timber mudroom bench
-    description: This mudroom features timber cabinetry and a granite countertop.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/99-099-7115-s-plymouth-rd-094-2.jpg'
     roomPriority: false
     paintPriority: false
@@ -968,18 +878,6 @@ media:
     countertop: Granite
     label: Timber mudroom bench
     description: This mudroom features timber cabinetry with a granite countertop.
-  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/100-100-7115-s-plymouth-rd-095.jpg'
-    roomPriority: false
-    paintPriority: false
-    stainPriority: false
-    countertopPriority: false
-    flooring: true
-    room: Laundry
-    cabinetPaints: []
-    cabinetStains: []
-    countertop: Granite
-    label: Timber mudroom bench
-    description: This mudroom features timber cabinetry and a granite countertop.
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-plymouth-road/101-101-7115-s-plymouth-rd-095-2.jpg'
     roomPriority: false
     paintPriority: false
