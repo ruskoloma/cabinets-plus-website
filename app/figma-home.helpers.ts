@@ -86,6 +86,7 @@ const SHARED_PAGE_TYPENAME_TO_TEMPLATE: Record<string, string> = {
   FlooringPartnersSection: "flooringPartnersSection",
   RelatedArticlesSection: "relatedArticlesSection",
   TextImageSection: "textImageSection",
+  BeforeAfterTextImageSection: "beforeAfterTextImageSection",
   SharedContactSection: "sharedContactSection",
   SharedShowroomSection: "sharedShowroomSection",
   SharedAboutSection: "sharedAboutSection",
@@ -115,6 +116,7 @@ const ACTUAL_PAGE_BLOCK_PREFIXES = [
   "PagesFlooringMainPageBlocks",
   "PagesKitchenRemodelMainPageBlocks",
   "PagesBathroomRemodelMainPageBlocks",
+  "PagesCabinetRefinishingMainPageBlocks",
   "PagesGlassEnclosuresMainPageBlocks",
 ];
 
@@ -124,6 +126,7 @@ const LEGACY_PAGE_SETTINGS_BLOCK_PREFIXES = [
   "PageSettingsFlooringMainPageBlocks",
   "PageSettingsKitchenRemodelMainPageBlocks",
   "PageSettingsBathroomRemodelMainPageBlocks",
+  "PageSettingsCabinetRefinishingMainPageBlocks",
   "PageSettingsGlassEnclosuresMainPageBlocks",
 ];
 

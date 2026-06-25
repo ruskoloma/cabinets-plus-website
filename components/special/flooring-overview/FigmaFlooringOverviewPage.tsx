@@ -17,8 +17,8 @@ import {
 import ContactUsSection from "@/components/shared/ContactUsSection";
 import OurShowroomSection from "@/components/shared/OurShowroomSection";
 import Button from "@/components/ui/Button";
-import FallbackImg from "@/components/ui/FallbackImg";
 import PreviewCard from "@/components/home/PreviewCard";
+import ProcessTimeline from "@/components/home/ProcessTimeline";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import { FlooringPartnersSection } from "@/components/shared/OurPartnersSection";
@@ -119,19 +119,6 @@ export default function FigmaFlooringOverviewPage({ page }: Props) {
     options: { useOriginal?: boolean; variant?: ImageVariantPreset },
     defaultVariant: ImageVariantPreset,
   ) => (options.useOriginal ? undefined : (options.variant ?? defaultVariant));
-
-  const processDesktopLineSegments = [
-    { left: "22px", top: "65px", height: "80px" },
-    { left: "22px", top: "205px", height: "80px" },
-    { left: "22px", top: "345px", height: "80px" },
-    { left: "22px", top: "485px", height: "80px" },
-  ];
-  const processMobileLineSegments = [
-    { left: "18px", top: "60px", height: "120px" },
-    { left: "18px", top: "245px", height: "165px" },
-    { left: "18px", top: "475px", height: "140px" },
-    { left: "18px", top: "680px", height: "125px" },
-  ];
 
   return (
     <div className="flex flex-col bg-white text-[var(--cp-primary-500)]">
@@ -275,7 +262,7 @@ export default function FigmaFlooringOverviewPage({ page }: Props) {
 
       {hasTemplate("processSection") ? (
         <section
-          className="bg-white py-12 md:py-20"
+          className="bg-[var(--cp-brand-neutral-50)] py-12 md:py-20"
           data-tina-field={tinaField(processRecord)}
           style={{ order: getSectionOrder("processSection", 4) }}
         >
@@ -287,64 +274,7 @@ export default function FigmaFlooringOverviewPage({ page }: Props) {
               {text(process.title, "How We Help You Pick Flooring")}
             </h2>
 
-            <div className="relative mx-auto mt-10 w-full max-w-[361px] md:mt-12 md:max-w-[1018px]">
-              {processMobileLineSegments.slice(0, Math.max(0, processItems.length - 1)).map((segment, index) => (
-                <span
-                  className="absolute w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:hidden"
-                  key={`flr-process-mobile-line-${index}`}
-                  style={{ height: segment.height, left: segment.left, top: segment.top }}
-                />
-              ))}
-              {processDesktopLineSegments.slice(0, Math.max(0, processItems.length - 1)).map((segment, index) => (
-                <span
-                  className="absolute hidden w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:block"
-                  key={`flr-process-desktop-line-${index}`}
-                  style={{ height: segment.height, left: segment.left, top: segment.top }}
-                />
-              ))}
-
-              <div className="flex flex-col gap-10 md:gap-12">
-                {processItems.map((item, index) => {
-                  const iconSrc = item.iconImage || FALLBACK_PROCESS_ICONS[index] || FALLBACK_PROCESS_ICONS[0];
-                  return (
-                    <article
-                      className="grid items-start grid-cols-[40px_1fr] gap-6 md:grid-cols-[48px_1fr]"
-                      data-tina-field={tinaField(item.raw as Record<string, unknown>)}
-                      key={`${item.title}-${index}`}
-                    >
-                      <div className="relative z-10 flex justify-center">
-                        <div className="flex items-center justify-center bg-white h-10 w-10 md:h-12 md:w-12">
-                          {iconSrc ? (
-                            <FallbackImg
-                              alt=""
-                              aria-hidden
-                              className="h-10 w-10 md:h-12 md:w-12 object-contain"
-                              data-tina-field={tinaField(item.raw as Record<string, unknown>, "iconImage")}
-                              src={iconSrc}
-                              variant="thumb"
-                            />
-                          ) : null}
-                        </div>
-                      </div>
-                      <div>
-                        <h3
-                          className="font-[var(--font-red-hat-display)] text-[20px] font-semibold leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]"
-                          data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}
-                        >
-                          {item.title}
-                        </h3>
-                        <p
-                          className="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)] md:text-[16px]"
-                          data-tina-field={tinaField(item.raw as Record<string, unknown>, "description")}
-                        >
-                          {item.description}
-                        </p>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
+            <ProcessTimeline fallbackIcons={FALLBACK_PROCESS_ICONS} items={processItems} keyPrefix="flr-process" />
           </div>
         </section>
       ) : null}

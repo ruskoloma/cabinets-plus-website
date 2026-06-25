@@ -26,6 +26,18 @@ function hasRichText(value: unknown): boolean {
   return false;
 }
 
+function parseInlineBold(textValue: string) {
+  return textValue
+    .split(/(\*\*[^*]+\*\*)/g)
+    .filter(Boolean)
+    .map((part) => {
+      const boldMatch = part.match(/^\*\*([^*]+)\*\*$/);
+      return boldMatch
+        ? { type: "text", text: boldMatch[1], bold: true }
+        : { type: "text", text: part };
+    });
+}
+
 function normalizeRichText(value: unknown): RichTextContent | null {
   if (!hasRichText(value)) return null;
 
@@ -39,7 +51,7 @@ function normalizeRichText(value: unknown): RichTextContent | null {
     .filter(Boolean)
     .map((paragraph) => ({
       type: "p",
-      children: [{ type: "text", text: paragraph }],
+      children: parseInlineBold(paragraph),
     }));
 
   return { type: "root", children } as unknown as RichTextContent;
@@ -52,6 +64,7 @@ export default function TextImageSection({ block }: Props) {
   const imagePosition = text(block.imagePosition, "right");
   const ctaLabel = text(block.ctaLabel);
   const ctaLink = text(block.ctaLink, "/contact-us");
+  const anchorId = text(block.anchorId);
 
   const imageOnLeft = imagePosition === "left";
 
@@ -105,7 +118,7 @@ export default function TextImageSection({ block }: Props) {
   ) : null;
 
   return (
-    <section className="bg-white" data-tina-field={tinaField(block)}>
+    <section className="bg-white scroll-mt-24" data-tina-field={tinaField(block)} id={anchorId || undefined}>
       <div className="cp-container px-4 py-12 md:px-8 md:py-[64px]">
         <div className="flex flex-col gap-8 md:grid md:grid-cols-2 md:items-center md:gap-[28px]">
           {textColumn}

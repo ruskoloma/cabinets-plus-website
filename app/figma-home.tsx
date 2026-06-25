@@ -21,8 +21,8 @@ import {
 import ContactUsSection from "@/components/shared/ContactUsSection";
 import OurShowroomSection from "@/components/shared/OurShowroomSection";
 import Button from "@/components/ui/Button";
-import FallbackImg from "@/components/ui/FallbackImg";
 import PreviewCard from "@/components/home/PreviewCard";
+import ProcessTimeline from "@/components/home/ProcessTimeline";
 import ProjectMosaic from "@/components/home/ProjectMosaic";
 import FaqTabsAccordion from "@/components/home/FaqTabsAccordion";
 import TrustBar from "@/components/home/TrustBar";
@@ -131,19 +131,8 @@ export default function FigmaHome({ page }: Props) {
     ["We start with a free 3D design consultation"],
     ["Our installation team"],
   ];
-  const processDesktopLineSegments = [
-    { left: "22px", top: "65px", height: "80px" },
-    { left: "22px", top: "221px", height: "80px" },
-    { left: "23px", top: "380px", height: "80px" },
-  ];
-  const processMobileLineSegments = [
-    { left: "19px", top: "66px", height: "176px" },
-    { left: "18px", top: "349px", height: "222px" },
-    { left: "15px", top: "666px", height: "215px" },
-  ];
-
   const productItems = mapProducts(toBlockArray(products.products)).slice(0, 4);
-  const serviceItems = mapServices(toBlockArray(services.services)).slice(0, 2);
+  const serviceItems = mapServices(toBlockArray(services.services)).slice(0, 3);
   const featureItems = mapFeatures(toBlockArray(whyUs.features)).slice(0, 3);
   const statsItems = mapStats(toBlockArray(about.stats)).slice(0, 3);
   const processItems = mapSteps(toBlockArray(process.steps));
@@ -268,14 +257,14 @@ export default function FigmaHome({ page }: Props) {
         <h2 className="text-[32px] uppercase leading-[1.25] tracking-[0.01em] md:text-[48px]" data-tina-field={tinaField(servicesRecord, "title")}>
           {text(services.title, "Services")}
         </h2>
-        <div className="mt-8 grid gap-8 md:mt-4 md:grid-cols-2 md:gap-x-[30px] md:gap-y-4">
+        <div className="mt-8 grid gap-8 md:mt-4 md:grid-cols-3 md:gap-x-[30px] md:gap-y-4">
           {serviceItems.map((item, index) => (
             <PreviewCard
               description={item.description}
               descriptionClassName="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)] md:text-[18px]"
               href={item.link || "#"}
               image={item.image}
-              imageClassName="h-[214px] md:h-[399px]"
+              imageClassName="h-[214px] md:h-[292px]"
               imageVariant={servicesImageOptions.useOriginal ? null : servicesImageOptions.variant}
               key={`${item.title}-${index}`}
               showMobileChevron
@@ -411,47 +400,7 @@ export default function FigmaHome({ page }: Props) {
             {text(process.title, "Our process")}
           </h2>
 
-          <div className="relative mx-auto mt-12 w-full max-w-[361px] md:max-w-[1018px]">
-            {processMobileLineSegments.map((segment, index) => (
-              <span
-                className="absolute w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:hidden"
-                key={`process-mobile-line-${index}`}
-                style={{ height: segment.height, left: segment.left, top: segment.top }}
-              />
-            ))}
-            {processDesktopLineSegments.map((segment, index) => (
-              <span
-                className="absolute hidden w-[2px] rounded-[2px] bg-[var(--cp-primary-100)] md:block"
-                key={`process-desktop-line-${index}`}
-                style={{ height: segment.height, left: segment.left, top: segment.top }}
-              />
-            ))}
-
-            <div className="flex flex-col gap-12">
-              {processItems.map((item, index) => {
-                const iconSizeClass = index < 2 ? "h-10 w-10 md:h-12 md:w-12" : "h-8 w-8 md:h-12 md:w-12";
-                const iconMaskClass = index < 2 ? "h-10 w-10 md:h-12 md:w-12" : "h-8 w-8 md:h-12 md:w-12";
-                const iconSrc = item.iconImage || FALLBACK_PROCESS_ICONS[index];
-                return (
-                  <article className="grid items-start grid-cols-[40px_1fr] gap-6 md:grid-cols-[48px_1fr]" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
-                    <div className="relative z-10 flex justify-center">
-                      <div className={`flex items-center justify-center bg-[var(--cp-brand-neutral-50)] ${iconMaskClass}`}>
-                        {iconSrc ? <FallbackImg alt="" aria-hidden className={`${iconSizeClass} object-contain`} data-tina-field={tinaField(item.raw as Record<string, unknown>, "iconImage")} src={iconSrc} variant="thumb" /> : null}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-[var(--font-red-hat-display)] text-[20px] font-normal leading-[1.25] text-[var(--cp-primary-500)] md:text-[24px]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "title")}>
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 text-base leading-[1.5] text-[var(--cp-primary-500)]" data-tina-field={tinaField(item.raw as Record<string, unknown>, "description")}>
-                        {item.description}
-                      </p>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
+          <ProcessTimeline fallbackIcons={FALLBACK_PROCESS_ICONS} items={processItems} />
         </div>
       </section> : null}
 

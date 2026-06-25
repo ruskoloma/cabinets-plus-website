@@ -4,6 +4,7 @@ import { tinaField } from "tinacms/dist/react";
 import AboutStorySection from "@/components/about/AboutStorySection";
 import AboutTrustSection from "@/components/about/AboutTrustSection";
 import ArticleContentSection from "@/components/sections/ArticleContentSection";
+import BeforeAfterTextImageSection from "@/components/sections/BeforeAfterTextImageSection";
 import FAQSectionBlock from "@/components/sections/FAQSectionBlock";
 import MiniFAQSectionBlock from "@/components/sections/MiniFAQSectionBlock";
 import HeroBlock from "@/components/sections/HeroBlock";
@@ -122,6 +123,8 @@ export default function SharedPageSectionRenderer({
       return <ProjectsSectionBlock block={resolvedBlock} />;
     case "textImageSection":
       return <TextImageSection block={resolvedBlock} />;
+    case "beforeAfterTextImageSection":
+      return <BeforeAfterTextImageSection block={resolvedBlock} />;
     case "partnersSection":
       return <PartnersSection block={resolvedBlock} />;
     case "countertopPartnersSection":

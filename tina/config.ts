@@ -2335,9 +2335,38 @@ function sharedTextImageSectionTemplate() {
     name: "textImageSection" as const,
     label: "Info Section",
     fields: [
+      { type: "string" as const, name: "anchorId", label: "Anchor ID (optional)" },
       { type: "string" as const, name: "title", label: "Section Title" },
       { type: "rich-text" as const, name: "paragraphs", label: "Body Paragraphs" },
       { type: "image" as const, name: "image", label: "Image" },
+      {
+        type: "string" as const,
+        name: "imagePosition",
+        label: "Image Position",
+        options: [
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+        ],
+        ui: { component: "select" as const },
+      },
+      { type: "string" as const, name: "ctaLabel", label: "CTA Button Text (optional)" },
+      { type: "string" as const, name: "ctaLink", label: "CTA Button Link (optional)" },
+    ],
+  };
+}
+
+function sharedBeforeAfterTextImageSectionTemplate() {
+  return {
+    name: "beforeAfterTextImageSection" as const,
+    label: "Before/After Info Section",
+    fields: [
+      { type: "string" as const, name: "anchorId", label: "Anchor ID (optional)" },
+      { type: "string" as const, name: "title", label: "Section Title" },
+      { type: "rich-text" as const, name: "paragraphs", label: "Body Paragraphs" },
+      { type: "image" as const, name: "beforeImage", label: "Before Image" },
+      { type: "image" as const, name: "afterImage", label: "After Image" },
+      { type: "string" as const, name: "beforeLabel", label: "Before Label" },
+      { type: "string" as const, name: "afterLabel", label: "After Label" },
       {
         type: "string" as const,
         name: "imagePosition",
@@ -2407,6 +2436,7 @@ function sharedPageSectionTemplates() {
     sharedArticleContentSectionTemplate(),
     sharedMagazineEmbedTemplate(),
     sharedTextImageSectionTemplate(),
+    sharedBeforeAfterTextImageSectionTemplate(),
     sharedPartnersSectionTemplate(),
     sharedPartnersSectionTemplate({
       name: "countertopPartnersSection",
@@ -2457,6 +2487,7 @@ const pageSettingsEditTargetsByRoute: Record<string, TinaEditTarget> = {
   "/flooring": { collectionName: "pages", filename: "flooring-main-page-settings" },
   "/kitchen-remodel": { collectionName: "pages", filename: "kitchen-remodel-main-page-settings" },
   "/bathroom-remodel": { collectionName: "pages", filename: "bathroom-remodel-main-page-settings" },
+  "/cabinet-refinishing": { collectionName: "pages", filename: "cabinet-refinishing-main-page-settings" },
   "/glass-enclosures": { collectionName: "pages", filename: "glass-enclosures-main-page-settings" },
   "/cabinets/catalog": { collectionName: "pages", filename: "cabinets-overview-page-settings" },
   "/countertops/catalog": { collectionName: "pages", filename: "countertops-overview-page-settings" },
@@ -2930,7 +2961,7 @@ export default defineConfig({
         format: "json",
         match: {
           include:
-            "@(home|about-us|contact-us|privacy-policy|magazine|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|glass-enclosures-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|blog-page-settings)",
+            "@(home|about-us|contact-us|privacy-policy|magazine|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinet-refinishing-main-page-settings|glass-enclosures-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|blog-page-settings)",
         },
         ui: {
           router: ({ document }) => {
@@ -2949,6 +2980,7 @@ export default defineConfig({
           serviceMainPageSettingsTemplate("flooringMainPage", "Page: Flooring (/flooring)", "/flooring"),
           serviceMainPageSettingsTemplate("kitchenRemodelMainPage", "Page: Kitchen Remodel (/kitchen-remodel)", "/kitchen-remodel"),
           serviceMainPageSettingsTemplate("bathroomRemodelMainPage", "Page: Bathroom Remodel (/bathroom-remodel)", "/bathroom-remodel"),
+          serviceMainPageSettingsTemplate("cabinetRefinishingMainPage", "Page: Cabinet Refinishing (/cabinet-refinishing)", "/cabinet-refinishing"),
           serviceMainPageSettingsTemplate("glassEnclosuresMainPage", "Page: Glass Enclosures (/glass-enclosures)", "/glass-enclosures"),
           {
             name: "cabinetsOverview",

@@ -46,6 +46,7 @@ const PAGE_TEMPLATE_TYPENAMES: Record<string, string> = {
   countertopPartnersSection: "PageBlocksCountertopPartnersSection",
   flooringPartnersSection: "PageBlocksFlooringPartnersSection",
   textImageSection: "PageBlocksTextImageSection",
+  beforeAfterTextImageSection: "PageBlocksBeforeAfterTextImageSection",
   sharedContactSection: "PageBlocksSharedContactSection",
   sharedShowroomSection: "PageBlocksSharedShowroomSection",
   sharedAboutSection: "PageBlocksSharedAboutSection",
