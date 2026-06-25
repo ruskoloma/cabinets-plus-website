@@ -307,7 +307,7 @@ export default function FigmaCabinetsOverviewPage({ page }: Props) {
                       key={`${item.title}-${index}`}
                     >
                       <div className="relative z-10 flex justify-center">
-                        <div className="flex items-center justify-center bg-white h-10 w-10 md:h-12 md:w-12">
+                        <div className="flex items-center justify-center h-10 w-10 md:h-12 md:w-12">
                           {iconSrc ? (
                             <FallbackImg
                               alt=""

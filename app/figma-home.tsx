@@ -435,7 +435,7 @@ export default function FigmaHome({ page }: Props) {
                 return (
                   <article className="grid items-start grid-cols-[40px_1fr] gap-6 md:grid-cols-[48px_1fr]" data-tina-field={tinaField(item.raw as Record<string, unknown>)} key={`${item.title}-${index}`}>
                     <div className="relative z-10 flex justify-center">
-                      <div className={`flex items-center justify-center bg-[var(--cp-brand-neutral-50)] ${iconMaskClass}`}>
+                      <div className={`flex items-center justify-center ${iconMaskClass}`}>
                         {iconSrc ? <FallbackImg alt="" aria-hidden className={`${iconSizeClass} object-contain`} data-tina-field={tinaField(item.raw as Record<string, unknown>, "iconImage")} src={iconSrc} variant="thumb" /> : null}
                       </div>
                     </div>
