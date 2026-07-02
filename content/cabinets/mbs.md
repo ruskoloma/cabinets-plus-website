@@ -1,6 +1,6 @@
 ---
 published: true
-name: Milton Black
+name: Black
 code: MBS
 doorStyle: slim shaker
 paint: black

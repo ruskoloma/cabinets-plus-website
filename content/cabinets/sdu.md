@@ -1,6 +1,6 @@
 ---
 published: true
-name: Shaker Dove
+name: Light Grey
 code: SDU
 doorStyle: shaker
 paint: gray

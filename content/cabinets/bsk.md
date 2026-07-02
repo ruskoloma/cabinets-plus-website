@@ -1,6 +1,6 @@
 ---
 published: true
-name: Brooklyn Slate
+name: Gray Stain
 code: BSK
 doorStyle: shaker
 paint: brown

@@ -1,6 +1,6 @@
 ---
 published: true
-name: Jade Green
+name: Green
 code: JGS
 slug: jgs
 description: >-

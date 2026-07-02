@@ -1,6 +1,6 @@
 ---
 published: true
-name: Oxford White
+name: White
 code: OWU
 doorStyle: shaker
 paint: white

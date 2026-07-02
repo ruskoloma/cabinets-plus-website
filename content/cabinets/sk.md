@@ -1,6 +1,6 @@
 ---
 published: true
-name: Sand Shaker
+name: Mocha
 code: SK
 doorStyle: shaker
 paint: off white

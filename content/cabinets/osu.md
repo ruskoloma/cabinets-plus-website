@@ -1,6 +1,6 @@
 ---
 published: true
-name: Oxford Sage
+name: Light Green
 code: OSU
 doorStyle: shaker
 paint: green

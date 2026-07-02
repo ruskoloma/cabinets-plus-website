@@ -1,6 +1,6 @@
 ---
 published: true
-name: Liberty Shaker White
+name: White
 code: LSW
 slug: lsw
 description: |-

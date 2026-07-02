@@ -1,6 +1,6 @@
 ---
 published: true
-name: Brooklyn Bright White
+name: White
 code: BWK
 doorStyle: shaker
 paint: white

@@ -1,6 +1,6 @@
 ---
 published: true
-name: Ivory Elegant Shaker
+name: Ivory
 code: ESOIN
 doorStyle: elegant shaker
 paint: off white

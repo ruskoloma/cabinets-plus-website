@@ -1,6 +1,6 @@
 ---
 published: true
-name: White Oak
+name: Oak
 code: ESON
 doorStyle: elegant shaker
 paint: timber

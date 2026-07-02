@@ -1,6 +1,6 @@
 ---
 published: true
-name: Shaker Kodiak
+name: Mocha
 code: SKK
 doorStyle: shaker
 paint: brown

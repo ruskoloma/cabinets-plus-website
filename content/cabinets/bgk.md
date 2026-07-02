@@ -1,6 +1,6 @@
 ---
 published: true
-name: Modern Gray
+name: Gray
 code: BGK
 doorStyle: shaker
 paint: gray

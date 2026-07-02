@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Mocha
+name: Mocha Stain
 code: SMB
 doorStyle: slim shaker
 paint: ''

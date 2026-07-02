@@ -1,6 +1,6 @@
 ---
 published: true
-name: Liberty Shaker Espresso
+name: Espresso Stain
 code: LSE
 slug: lse
 description: >-

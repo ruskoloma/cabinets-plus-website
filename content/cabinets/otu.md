@@ -1,6 +1,6 @@
 ---
 published: true
-name: Oxford Toffee
+name: Light Brown Stain
 code: OTU
 doorStyle: shaker
 paint: timber

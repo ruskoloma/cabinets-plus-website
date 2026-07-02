@@ -1,6 +1,6 @@
 ---
 published: true
-name: Black Shaker
+name: Black
 code: AEB
 doorStyle: shaker
 paint: black

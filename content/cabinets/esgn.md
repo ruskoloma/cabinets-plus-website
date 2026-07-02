@@ -1,6 +1,6 @@
 ---
 published: true
-name: Elegant Gray
+name: Grey
 code: ESGN
 doorStyle: elegant shaker
 paint: gray

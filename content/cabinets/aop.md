@@ -1,6 +1,6 @@
 ---
 published: true
-name: Arlington Oatmeal
+name: Off White
 code: AOP
 doorStyle: shaker
 paint: white

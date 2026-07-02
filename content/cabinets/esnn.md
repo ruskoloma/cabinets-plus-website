@@ -1,6 +1,6 @@
 ---
 published: true
-name: Navy Elegant Shaker
+name: Blue
 code: ESNN
 doorStyle: elegant shaker
 paint: blue

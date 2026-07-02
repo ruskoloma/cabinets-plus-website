@@ -1,6 +1,6 @@
 ---
 published: true
-name: Timber Shaker
+name: Light Brown Stain
 code: ATB
 doorStyle: shaker
 paint: timber

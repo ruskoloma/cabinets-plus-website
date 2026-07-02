@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Dove White
+name: White
 code: SDWA
 slug: sdwa
 description: |-
