@@ -1,6 +1,6 @@
 ---
 published: true
-name: Liberty Shaker Karmel
+name: Light Brown Stain
 code: LSKP
 doorStyle: shaker
 paint: brown

@@ -1,6 +1,6 @@
 ---
 published: true
-name: 'Sage Green Slim '
+name: Green
 code: SSGH
 doorStyle: slim shaker
 paint: green

@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Shaker White Oak
+name: Oak
 code: OOK
 doorStyle: slim shaker
 paint: timber

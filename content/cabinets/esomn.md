@@ -1,6 +1,6 @@
 ---
 published: true
-name: Mocha Elegant Shaker
+name: Mocha
 code: ESOMN
 doorStyle: elegant shaker
 paint: timber

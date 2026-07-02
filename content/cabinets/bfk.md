@@ -1,6 +1,6 @@
 ---
 published: true
-name: Brooklyn Fawn
+name: Light Brown Stain
 code: BFK
 doorStyle: shaker
 paint: timber

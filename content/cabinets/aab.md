@@ -1,6 +1,6 @@
 ---
 published: true
-name: Light Gray shaker
+name: Light Gray
 code: AAB
 doorStyle: shaker
 paint: gray

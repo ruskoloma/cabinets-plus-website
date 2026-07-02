@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Frost
+name: White
 code: SFB
 slug: sfb
 description: |-

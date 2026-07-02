@@ -1,6 +1,6 @@
 ---
 published: true
-name: Bright White shaker
+name: White
 code: AWB
 doorStyle: shaker
 paint: white

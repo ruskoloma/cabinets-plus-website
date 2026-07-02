@@ -1,6 +1,6 @@
 ---
 published: true
-name: Liberty Shaker Ashen
+name: Light Grey
 code: LSA
 slug: lsa
 description: >-

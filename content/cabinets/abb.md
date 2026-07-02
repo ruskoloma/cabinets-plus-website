@@ -1,6 +1,6 @@
 ---
 published: true
-name: Dark Blue shaker
+name: Blue
 code: ABB
 doorStyle: shaker
 paint: blue

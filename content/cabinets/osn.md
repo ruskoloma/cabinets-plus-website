@@ -1,6 +1,6 @@
 ---
 published: true
-name: Oak Shaker
+name: Oak
 code: OSN
 doorStyle: shaker
 paint: timber

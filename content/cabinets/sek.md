@@ -1,6 +1,6 @@
 ---
 published: true
-name: Shaker Espresso
+name: Espresso
 code: SEK
 slug: sek
 description: |-

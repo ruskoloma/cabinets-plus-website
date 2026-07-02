@@ -1,6 +1,6 @@
 ---
 published: true
-name: Arlington Oatmeal Shaker
+name: Off White
 code: LSOP
 doorStyle: shaker
 paint: off white

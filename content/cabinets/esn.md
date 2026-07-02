@@ -1,6 +1,6 @@
 ---
 published: true
-name: White Elegant Shaker
+name: White
 code: ESN
 doorStyle: elegant shaker
 paint: white

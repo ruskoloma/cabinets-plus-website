@@ -1,6 +1,6 @@
 ---
 published: true
-name: Essense Shaker Clemento
+name: Grey Stain
 code: ESCP
 doorStyle: shaker
 paint: custom paint

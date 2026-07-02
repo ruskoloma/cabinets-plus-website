@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Shaker White
+name: White
 code: OWK
 slug: owk
 description: 'NEW, update code, Oslo White'

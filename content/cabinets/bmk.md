@@ -1,6 +1,6 @@
 ---
 published: true
-name: Brooklyn Midnight
+name: Blue
 code: BMK
 doorStyle: shaker
 paint: blue

@@ -1,6 +1,6 @@
 ---
 published: true
-name: Oxford Mist
+name: Light Grey Stain
 code: OMU
 doorStyle: shaker
 paint: gray

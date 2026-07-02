@@ -1,6 +1,6 @@
 ---
 published: true
-name: Ivory Shaker
+name: Off White
 code: TWB
 doorStyle: shaker
 paint: off white

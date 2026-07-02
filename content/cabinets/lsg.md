@@ -1,6 +1,6 @@
 ---
 published: true
-name: Liberty Shaker Gray
+name: Dark Grey
 code: LSG
 slug: lsg
 description: |-
