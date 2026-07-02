@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Dove White
+name: White
 code: SDWA
 slug: sdwa
 description: |-
@@ -18,7 +18,7 @@ technicalDetails:
   - key: Shelves
     value: Made of Plywood
   - key: Face Frame
-    value: Made of wood
+    value: Made of Wood
   - key: Box Construction
     value: Plywood
 media:

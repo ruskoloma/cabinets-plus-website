@@ -1,6 +1,6 @@
 ---
 published: true
-name: Arlington Oatmeal
+name: Off White
 code: AOP
 doorStyle: shaker
 paint: white
@@ -15,7 +15,7 @@ technicalDetails:
   - key: Shelves
     value: Made of Plywood
   - key: Face Frame
-    value: Made of wood
+    value: Made of Wood
   - key: Box Construction
     value: Plywood
 description: |-

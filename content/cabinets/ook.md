@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Shaker White Oak
+name: Oak
 code: OOK
 doorStyle: slim shaker
 paint: timber
@@ -15,7 +15,7 @@ technicalDetails:
   - key: Shelves
     value: Made of Plywood
   - key: Face Frame
-    value: Made of wood
+    value: Made of Wood
   - key: Box Construction
     value: Plywood
 description: 'NEW, update code, Oslo Oak'

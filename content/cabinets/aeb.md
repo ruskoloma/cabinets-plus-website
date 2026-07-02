@@ -1,6 +1,6 @@
 ---
 published: true
-name: Black Shaker
+name: Black
 code: AEB
 doorStyle: shaker
 paint: black
@@ -15,7 +15,7 @@ technicalDetails:
   - key: Shelves
     value: Made of Plywood
   - key: Face Frame
-    value: Made of wood
+    value: Made of Wood
   - key: Box Construction
     value: Plywood
 description: |-

@@ -1,6 +1,6 @@
 ---
 published: true
-name: Slim Shaker White
+name: White
 code: OWK
 slug: owk
 description: 'NEW, update code, Oslo White'
@@ -15,7 +15,7 @@ technicalDetails:
   - key: Shelves
     value: Made of Plywood
   - key: Face Frame
-    value: Made of wood
+    value: Made of Wood
   - key: Box Construction
     value: Plywood
 media:

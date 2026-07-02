@@ -1,6 +1,6 @@
 ---
 published: true
-name: Jade Green
+name: Green
 code: JGS
 slug: jgs
 description: >-
@@ -26,7 +26,7 @@ technicalDetails:
   - key: Shelves
     value: Made of Plywood
   - key: Face Frame
-    value: Made of wood
+    value: Made of Wood
   - key: Box Construction
     value: Plywood
 media:
