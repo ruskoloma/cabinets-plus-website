@@ -1,0 +1,53 @@
+---
+published: true
+name: Black
+code: SIBA
+doorStyle: slim shaker
+paint: black
+stainType: ""
+technicalDetails:
+  - key: Doors
+    value: Solid wood frame
+  - key: Center Panel
+    value: Engineered wood panel
+  - key: Hinges
+    value: 6-way adjustable; Soft Close
+  - key: Drawers
+    value: Dovetail; Soft Close
+  - key: Shelves
+    value: Made of Plywood
+  - key: Face Frame
+    value: Made of Wood
+  - key: Box Construction
+    value: Plywood
+description: >-
+  Black gives a dark finish to a narrow-rail cabinet-door profile. The slimmer frame makes the door feel more
+  contemporary while the black finish adds a strong, tailored edge.
+
+
+  This sample is helpful for deciding whether the finish should be used as an accent, island color, or full-room cabinet
+  selection.
+picture: /library/cabinets/doors/siba.png
+media:
+  - file: /library/cabinets/doors/siba.png
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: ""
+    cabinetPaints: []
+    cabinetStains: []
+    countertop: ""
+    label: Black door sample
+    description: Black slim shaker cabinet door sample
+relatedProjects: []
+relatedProducts:
+  - product: content/cabinets/saoa.md
+  - product: content/cabinets/ab.md
+  - product: content/cabinets/aga.md
+  - product: content/cabinets/bob.md
+sourceId: 2026070220
+sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+slug: siba
+---
