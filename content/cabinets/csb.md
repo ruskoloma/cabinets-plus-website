@@ -1,6 +1,6 @@
 ---
 published: true
-name: Coyote Shaker
+name: Wood Shaker
 code: CSB
 doorStyle: shaker
 paint: timber
@@ -20,13 +20,10 @@ technicalDetails:
     value: Made of Wood
   - key: Box Construction
     value: Plywood
-description: >-
-  Coyote Shaker brings a pale natural-wood tone to a crisp recessed-panel door. It has the clean geometry of shaker
-  cabinetry with a lighter finish that can soften modern and transitional spaces.
+description: |-
+  Wood Shaker brings a pale natural-wood tone to a crisp recessed-panel door. It has the clean geometry of shaker cabinetry with a lighter finish that can soften modern and transitional spaces.
 
-
-  This sample is well suited for checking undertones beside flooring, wall color, and countertop slabs before the final
-  cabinet order.
+  This sample is well suited for checking undertones beside flooring, wall color, and countertop slabs before the final cabinet order.
 picture: /library/cabinets/doors/csb.png
 media:
   - file: /library/cabinets/doors/csb.png
@@ -35,10 +32,10 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ""
+    room: ''
     cabinetPaints: []
     cabinetStains: []
-    countertop: ""
+    countertop: ''
     label: Coyote Shaker door sample
     description: Coyote Shaker shaker cabinet door sample
 relatedProjects: []
@@ -48,6 +45,7 @@ relatedProducts:
   - product: content/cabinets/bsb.md
   - product: content/cabinets/hsb.md
 sourceId: 2026070206
-sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+sourceUpdatedAt: 2026-07-02T00:00:00.000Z
 slug: csb
 ---
+
