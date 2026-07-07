@@ -1,10 +1,10 @@
 ---
 published: true
-name: Amber Shaker
+name: Antique White Shaker
 code: AB
 doorStyle: shaker
-paint: brown
-stainType: white glaze stain
+paint: off white
+stainType: ''
 technicalDetails:
   - key: Doors
     value: Solid wood frame
@@ -20,13 +20,10 @@ technicalDetails:
     value: Made of Wood
   - key: Box Construction
     value: Plywood
-description: >-
-  Amber Shaker brings a warm honey-brown tone to a clean recessed-panel profile. The balanced rails and soft wood
-  character make it a flexible choice for kitchens that need natural warmth without feeling heavy.
+description: |-
+  Antique White Shaker brings a warm honey-brown tone to a clean recessed-panel profile. The balanced rails and soft wood character make it a flexible choice for kitchens that need natural warmth without feeling heavy.
 
-
-  This sample door is useful for comparing how the amber finish works with countertops, flooring, and hardware before
-  final cabinet selections are made.
+  This sample door is useful for comparing how the amber finish works with countertops, flooring, and hardware before final cabinet selections are made.
 picture: /library/cabinets/doors/ab.png
 media:
   - file: /library/cabinets/doors/ab.png
@@ -35,10 +32,10 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ""
+    room: ''
     cabinetPaints: []
     cabinetStains: []
-    countertop: ""
+    countertop: ''
     label: Amber Shaker door sample
     description: Amber Shaker shaker cabinet door sample
 relatedProjects: []
@@ -48,6 +45,7 @@ relatedProducts:
   - product: content/cabinets/csb.md
   - product: content/cabinets/hsb.md
 sourceId: 2026070201
-sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+sourceUpdatedAt: 2026-07-02T00:00:00.000Z
 slug: ab
 ---
+
