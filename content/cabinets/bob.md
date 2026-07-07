@@ -2,9 +2,9 @@
 published: true
 name: Beacon Oak
 code: BOB
-doorStyle: elegant shaker
+doorStyle: shaker
 paint: timber
-stainType: white glaze stain
+stainType: mocha stain
 technicalDetails:
   - key: Doors
     value: Solid wood frame
@@ -20,13 +20,10 @@ technicalDetails:
     value: Made of Wood
   - key: Box Construction
     value: Plywood
-description: >-
-  Beacon Oak combines a warm oak look with a more detailed cabinet-door profile. The visible grain and raised center
-  detail give the door a furniture-like presence while keeping the overall finish approachable.
+description: |-
+  Beacon Oak combines a warm oak look with a more detailed cabinet-door profile. The visible grain and raised center detail give the door a furniture-like presence while keeping the overall finish approachable.
 
-
-  This sample helps show how the oak tone responds to surrounding surfaces, especially lighter counters and brushed
-  metal hardware.
+  This sample helps show how the oak tone responds to surrounding surfaces, especially lighter counters and brushed metal hardware.
 picture: /library/cabinets/doors/bob.png
 media:
   - file: /library/cabinets/doors/bob.png
@@ -35,10 +32,10 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ""
+    room: ''
     cabinetPaints: []
     cabinetStains: []
-    countertop: ""
+    countertop: ''
     label: Beacon Oak door sample
     description: Beacon Oak elegant shaker cabinet door sample
 relatedProjects: []
@@ -48,6 +45,7 @@ relatedProducts:
   - product: content/cabinets/oob.md
   - product: content/cabinets/ab.md
 sourceId: 2026070203
-sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+sourceUpdatedAt: 2026-07-02T00:00:00.000Z
 slug: bob
 ---
+
