@@ -1,6 +1,6 @@
 ---
 published: true
-name: Light Brown Stain
+name: White Oak Slim Shaker
 code: SWOA
 doorStyle: slim shaker
 paint: timber
@@ -87,3 +87,4 @@ sourceId: 232
 sourceUpdatedAt: 2025-07-25T22:53:53.679Z
 slug: swoa
 ---
+
