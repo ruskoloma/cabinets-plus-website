@@ -1,8 +1,8 @@
 ---
 published: true
-name: Coyote Oak
+name: White Oak Shaker
 code: COB
-doorStyle: elegant shaker
+doorStyle: shaker
 paint: timber
 stainType: white glaze stain
 technicalDetails:
@@ -20,10 +20,8 @@ technicalDetails:
     value: Made of Wood
   - key: Box Construction
     value: Plywood
-description: >-
-  Coyote Oak offers a light natural-oak look with a refined raised profile. The finish keeps the wood tone bright and
-  open while the shaped panel adds more traditional detail than a standard shaker door.
-
+description: |-
+  White Oak Shaker offers a light natural-oak look with a refined raised profile. The finish keeps the wood tone bright and open while the shaped panel adds more traditional detail than a standard shaker door.
 
   Review this sample when you want cabinetry that feels warm, detailed, and still light enough for an airy layout.
 picture: /library/cabinets/doors/cob.png
@@ -34,10 +32,10 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ""
+    room: ''
     cabinetPaints: []
     cabinetStains: []
-    countertop: ""
+    countertop: ''
     label: Coyote Oak door sample
     description: Coyote Oak elegant shaker cabinet door sample
 relatedProjects: []
@@ -47,6 +45,7 @@ relatedProducts:
   - product: content/cabinets/oob.md
   - product: content/cabinets/ab.md
 sourceId: 2026070205
-sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+sourceUpdatedAt: 2026-07-02T00:00:00.000Z
 slug: cob
 ---
+
