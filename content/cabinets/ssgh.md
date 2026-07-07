@@ -1,6 +1,6 @@
 ---
 published: true
-name: Green
+name: Green Slim Shaker
 code: SSGH
 doorStyle: slim shaker
 paint: green
@@ -98,3 +98,4 @@ sourceId: 251
 sourceUpdatedAt: 2025-07-25T22:53:51.791Z
 slug: ssgh
 ---
+
