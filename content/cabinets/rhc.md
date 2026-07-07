@@ -1,6 +1,6 @@
 ---
 published: true
-name: Clear Stain
+name: Rustic Hickory
 code: RHC
 doorStyle: shaker
 paint: timber
