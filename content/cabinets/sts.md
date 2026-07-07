@@ -3,8 +3,8 @@ published: true
 name: Taupe
 code: STS
 doorStyle: shaker
-paint: brown
-stainType: ""
+paint: off white
+stainType: ''
 technicalDetails:
   - key: Doors
     value: Solid wood frame
@@ -20,13 +20,10 @@ technicalDetails:
     value: Made of Wood
   - key: Box Construction
     value: Plywood
-description: >-
-  Taupe offers a warm gray-brown neutral on a simple recessed-panel door. It is a useful middle ground when white feels
-  too bright and darker cabinet colors feel too heavy.
+description: |-
+  Taupe offers a warm gray-brown neutral on a simple recessed-panel door. It is a useful middle ground when white feels too bright and darker cabinet colors feel too heavy.
 
-
-  This sample helps compare the taupe finish against both cool and warm materials before committing to the full cabinet
-  palette.
+  This sample helps compare the taupe finish against both cool and warm materials before committing to the full cabinet palette.
 picture: /library/cabinets/doors/sts.png
 media:
   - file: /library/cabinets/doors/sts.png
@@ -35,10 +32,10 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ""
+    room: ''
     cabinetPaints: []
     cabinetStains: []
-    countertop: ""
+    countertop: ''
     label: Taupe door sample
     description: Taupe shaker cabinet door sample
 relatedProjects: []
@@ -48,6 +45,7 @@ relatedProducts:
   - product: content/cabinets/lsa.md
   - product: content/cabinets/lsg.md
 sourceId: 2026070222
-sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+sourceUpdatedAt: 2026-07-02T00:00:00.000Z
 slug: sts
 ---
+
