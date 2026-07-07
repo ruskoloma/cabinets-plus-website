@@ -1,6 +1,6 @@
 ---
 published: true
-name: Light Grey
+name: Ivory Shaker
 code: SDU
 doorStyle: shaker
 paint: gray
@@ -19,7 +19,7 @@ technicalDetails:
   - key: Box Construction
     value: Plywood
 description: |-
-  Shaker Dove sample door is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
+  Ivory Shaker sample door is produced using the exact same manufacturing process as our full cabinet line, ensuring absolute consistency in material selection, construction methods, and finishing techniques. The style, recessed panel, stile and rail dimensions, and solid birchwood are aligned with our true cabinet products, offering a precise representation of the quality you can expect in your completed cabinets.
 
   This sample allows you to inspect the authentic craftsmanship, durability, and finish before making your final selection.
 picture: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/cabinets/SDU/3152-sdu-shaker-dove.jpg'
