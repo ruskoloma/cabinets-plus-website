@@ -1,10 +1,10 @@
 ---
 published: true
-name: Green
+name: Ivy Green
 code: SIU
 doorStyle: shaker
 paint: green
-stainType: ""
+stainType: ''
 technicalDetails:
   - key: Doors
     value: Solid wood frame
@@ -20,13 +20,10 @@ technicalDetails:
     value: Made of Wood
   - key: Box Construction
     value: Plywood
-description: >-
-  Green uses a saturated finish on a classic recessed-panel door. The color gives cabinetry a grounded, built-in look
-  while keeping the door profile familiar and easy to pair with other finishes.
+description: |-
+  Ivy Green uses a saturated finish on a classic recessed-panel door. The color gives cabinetry a grounded, built-in look while keeping the door profile familiar and easy to pair with other finishes.
 
-
-  Review this sample with countertop, backsplash, and hardware options to make sure the green reads correctly in the
-  space.
+  Review this sample with countertop, backsplash, and hardware options to make sure the green reads correctly in the space.
 picture: /library/cabinets/doors/siu.png
 media:
   - file: /library/cabinets/doors/siu.png
@@ -35,10 +32,10 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ""
+    room: ''
     cabinetPaints: []
     cabinetStains: []
-    countertop: ""
+    countertop: ''
     label: Green door sample
     description: Green shaker cabinet door sample
 relatedProjects: []
@@ -46,6 +43,7 @@ relatedProducts:
   - product: content/cabinets/sau.md
   - product: content/cabinets/shu.md
 sourceId: 2026070221
-sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+sourceUpdatedAt: 2026-07-02T00:00:00.000Z
 slug: siu
 ---
+
