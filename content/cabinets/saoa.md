@@ -1,10 +1,10 @@
 ---
 published: true
-name: Amber Oak
+name: Wood Slim Oak
 code: SAOA
 doorStyle: slim shaker
 paint: timber
-stainType: white glaze stain
+stainType: mocha stain
 technicalDetails:
   - key: Doors
     value: Solid wood frame
@@ -20,10 +20,8 @@ technicalDetails:
     value: Made of Wood
   - key: Box Construction
     value: Plywood
-description: >-
-  Amber Oak pairs a warm oak finish with narrower rails for a lighter, more modern cabinet-door profile. The door keeps
-  natural wood character while reducing the visual weight of a wider shaker frame.
-
+description: |-
+  Wood Slim Oak pairs a warm oak finish with narrower rails for a lighter, more modern cabinet-door profile. The door keeps natural wood character while reducing the visual weight of a wider shaker frame.
 
   Use this sample when comparing slim shaker options for contemporary kitchens, vanities, or built-in storage.
 picture: /library/cabinets/doors/saoa.png
@@ -34,10 +32,10 @@ media:
     stainPriority: false
     countertopPriority: false
     flooring: false
-    room: ""
+    room: ''
     cabinetPaints: []
     cabinetStains: []
-    countertop: ""
+    countertop: ''
     label: Amber Oak door sample
     description: Amber Oak slim shaker cabinet door sample
 relatedProjects: []
@@ -47,6 +45,7 @@ relatedProducts:
   - product: content/cabinets/aga.md
   - product: content/cabinets/bob.md
 sourceId: 2026070217
-sourceUpdatedAt: "2026-07-02T00:00:00.000Z"
+sourceUpdatedAt: 2026-07-02T00:00:00.000Z
 slug: saoa
 ---
+
