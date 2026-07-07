@@ -3,7 +3,7 @@ published: true
 name: Ivory Shaker
 code: SDU
 doorStyle: shaker
-paint: gray
+paint: off white
 stainType: ''
 technicalDetails:
   - key: Doors
