@@ -1,6 +1,6 @@
 ---
 published: true
-name: Green
+name: Blue Shaker
 code: TGB
 doorStyle: shaker
 paint: blue
@@ -103,8 +103,7 @@ relatedProducts:
   - product: content/cabinets/aab.md
   - product: content/cabinets/aap.md
 sourceId: 247
-sourceUpdatedAt: '2025-07-25T22:53:55.709Z'
+sourceUpdatedAt: 2025-07-25T22:53:55.709Z
 slug: tgb
 ---
-
 
