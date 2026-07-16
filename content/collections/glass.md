@@ -19,6 +19,9 @@ media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/05-083-7115-s-plymouth-rd-079.jpg'
     label: Glass detail 05
     description: ''
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-54th-avenue/03-dsc09571.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-54th-avenue/05-dsc09812.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-54th-avenue/01-dsc09550.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/08-dsc02394.jpg'
     label: Glass detail 08
     description: ''
