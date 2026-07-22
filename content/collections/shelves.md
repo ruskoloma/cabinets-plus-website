@@ -4,6 +4,10 @@ title: Shelves
 description: Open and floating shelving studies — built-in millwork that doubles as architecture and storage.
 coverImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/shelves/cover/01-cover.jpg'
 media:
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-10th-avenue/13-15-1021-w-tenth-ave-015.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-10th-avenue/14-16-1021-w-tenth-ave-016.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-10th-avenue/08-10-1021-w-tenth-ave-010.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-10th-avenue/12-14-1021-w-tenth-ave-014.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/shelves/01-03-inside-spokane-dishman-11.jpg'
     label: Shelves detail 01
     description: ''
@@ -221,3 +225,4 @@ relatedProjects: []
 slug: shelves
 sourceUpdatedAt: 2026-04-29T00:00:00.000Z
 ---
+
