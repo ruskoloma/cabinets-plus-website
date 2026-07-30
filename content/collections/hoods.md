@@ -4,6 +4,15 @@ title: Hoods
 description: A curated showcase of statement range hoods — sculptural focal points blending craftsmanship with modern kitchen design.
 coverImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/hoods/cover/01-cover.jpg'
 media:
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-crescent-road/12-12-24625-n-crescent-rd-012.jpg'
+    label: Range hood detail 01
+    description: ''
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-crescent-road/16-16-24625-n-crescent-rd-016.jpg'
+    label: Range hood detail 01
+    description: ''
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-crescent-road/15-15-24625-n-crescent-rd-015.jpg'
+    label: Range hood detail 01
+    description: ''
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/hoods/01-002-7115-s-plymouth-rd-002.jpg'
     label: Range hood detail 01
     description: ''
@@ -68,3 +77,4 @@ relatedProjects: []
 slug: hoods
 sourceUpdatedAt: 2026-04-28T00:00:00.000Z
 ---
+
