@@ -9,6 +9,7 @@ media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-coyote-rock-drive/06-dsc07673.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-cottonwood-bay-lane/01-dsc05862.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-cottonwood-bay-lane/05-dsc05891.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-crescent-road/32-32-24625-n-crescent-rd-032.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-cottonwood-bay-lane/07-dsc05910.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-coyote-rock-drive/12-dsc07698.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-coyote-rock-drive/23-dsc07769.jpg'
