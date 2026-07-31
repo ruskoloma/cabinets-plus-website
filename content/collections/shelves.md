@@ -4,6 +4,9 @@ title: Shelves
 description: Open and floating shelving studies — built-in millwork that doubles as architecture and storage.
 coverImage: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/shelves/cover/01-cover.jpg'
 media:
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-crescent-road/01-01-24625-n-crescent-rd-001.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-crescent-road/02-02-24625-n-crescent-rd-002.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-crescent-road/03-03-24625-n-crescent-rd-003.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-10th-avenue/13-15-1021-w-tenth-ave-015.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-10th-avenue/14-16-1021-w-tenth-ave-016.jpg'
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-10th-avenue/08-10-1021-w-tenth-ave-010.jpg'
