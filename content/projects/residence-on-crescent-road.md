@@ -742,7 +742,7 @@ cabinetProducts:
 relatedProjects:
   - project: content/projects/residence-on-long-road.md
   - project: content/projects/residence-on-plymouth-road.md
-  - {}
+  - project: content/projects/residence-on-slaton-lane.md
 slug: residence-on-crescent-road
 address: 24625 N Crescent Rd
 sourceUpdatedAt: 2026-07-30T19:30:41.000Z
