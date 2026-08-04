@@ -741,7 +741,7 @@ cabinetProducts:
   - cabinet: content/cabinets/skk.md
 relatedProjects:
   - project: content/projects/residence-on-long-road.md
-  - {}
+  - project: content/projects/residence-on-plymouth-road.md
   - {}
 slug: residence-on-crescent-road
 address: 24625 N Crescent Rd
