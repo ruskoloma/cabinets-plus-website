@@ -739,6 +739,10 @@ media:
 cabinetProducts:
   - cabinet: content/cabinets/twb.md
   - cabinet: content/cabinets/skk.md
+relatedProjects:
+  - project: content/projects/residence-on-long-road.md
+  - {}
+  - {}
 slug: residence-on-crescent-road
 address: 24625 N Crescent Rd
 sourceUpdatedAt: 2026-07-30T19:30:41.000Z
