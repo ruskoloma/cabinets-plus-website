@@ -198,6 +198,10 @@ countertopProducts:
   - countertop: content/countertops/perfectionsuade.md
 flooringProducts:
   - flooring: content/flooring/comfort-heights-camden-ridge-li-ch05.md
+relatedProjects:
+  - project: content/projects/residence-on-helena-street.md
+  - project: content/projects/residence-on-11th-avenue.md
+  - project: content/projects/residence-on-crescent-road.md
 slug: residence-on-10th-avenue
 address: 1021 E 10th Ave
 sourceUpdatedAt: 2026-06-30T23:21:13.467Z
