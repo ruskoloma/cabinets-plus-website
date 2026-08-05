@@ -5,7 +5,7 @@ import { resolveTemplateName, toBlockArray, type HomeBlock } from "@/app/figma-h
 import SharedPageSectionRenderer from "@/components/shared/SharedPageSectionRenderer";
 import { useResolvedSharedSectionBlocks } from "@/components/shared/use-shared-sections";
 
-interface MagazinePageClientProps {
+interface ResourcesPageClientProps {
   data: { page?: { blocks?: unknown[] | null } | null };
   query?: string;
   variables?: Record<string, unknown>;
@@ -14,7 +14,7 @@ interface MagazinePageClientProps {
 function renderBlock(block: HomeBlock, index: number) {
   const template = resolveTemplateName(block);
   const blockRecord = block as Record<string, unknown>;
-  const key = `magazine-block-${template || "unknown"}-${index}`;
+  const key = `resources-block-${template || "unknown"}-${index}`;
 
   return (
     <SharedPageSectionRenderer
@@ -29,7 +29,7 @@ function renderPage(blocks: ReturnType<typeof toBlockArray>) {
   return <div className="flex flex-col bg-white text-[var(--cp-primary-500)]">{blocks.map(renderBlock)}</div>;
 }
 
-function TinaMagazinePageClient(props: MagazinePageClientProps) {
+function TinaResourcesPageClient(props: ResourcesPageClientProps) {
   const { data } = useTina({
     data: props.data,
     query: props.query || "",
@@ -39,17 +39,17 @@ function TinaMagazinePageClient(props: MagazinePageClientProps) {
   return renderPage(blocks);
 }
 
-function StaticMagazinePageClient({ blocks }: { blocks: unknown }) {
+function StaticResourcesPageClient({ blocks }: { blocks: unknown }) {
   const resolvedBlocks = useResolvedSharedSectionBlocks(blocks);
   return renderPage(resolvedBlocks);
 }
 
-export default function MagazinePageClient(props: MagazinePageClientProps) {
+export default function ResourcesPageClient(props: ResourcesPageClientProps) {
   const hasLiveQuery = Boolean(props.query && props.query.trim().length > 0);
 
   if (!hasLiveQuery) {
-    return <StaticMagazinePageClient blocks={props.data?.page?.blocks} />;
+    return <StaticResourcesPageClient blocks={props.data?.page?.blocks} />;
   }
 
-  return <TinaMagazinePageClient {...props} />;
+  return <TinaResourcesPageClient {...props} />;
 }

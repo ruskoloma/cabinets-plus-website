@@ -156,12 +156,39 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             subtitle
             body
           }
-          ... on ${prefix}MagazineEmbed {
+          ... on ${prefix}ResourceLibrary {
+            pageTitle
+            intro
+            heading
+            items {
+              title
+              subtitle
+              assetBase
+              spreadCount
+              downloadFile
+              downloadUrl
+              fileSize
+              coverOverride
+            }
+          }
+          ... on ${prefix}ResourceFiles {
             heading
             subheading
-            embedUrl
-            height
-            iframeTitle
+            items {
+              title
+              description
+              category
+              assetBase
+              pageCount
+              pageImages {
+                image
+              }
+              downloadFile
+              downloadUrl
+              fileType
+              fileSize
+              coverOverride
+            }
           }
           ... on ${prefix}TextImageSection {
             anchorId

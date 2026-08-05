@@ -41,8 +41,8 @@ const STATIC_ROUTES: StaticRouteConfig[] = [
   { path: "/gallery", changeFrequency: "weekly", priority: 0.8 },
   { path: "/glass-enclosures", changeFrequency: "monthly", priority: 0.75 },
   { path: "/kitchen-remodel", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/magazine", changeFrequency: "monthly", priority: 0.55 },
   { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.2 },
+  { path: "/resources", changeFrequency: "monthly", priority: 0.55 },
 ];
 
 const CONTENT_ROUTES: ContentRouteConfig[] = [

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "images:generate-variants": "node scripts/generate-s3-image-variants.mjs",
+    "resources:upload": "node scripts/upload-resource-assets.mjs",
     "media:migrate-project-folders": "node scripts/migrate-project-media-folders.mjs",
     "media:delete-duplicate-project-folders": "node scripts/delete-duplicate-project-media-folders.mjs"
   },

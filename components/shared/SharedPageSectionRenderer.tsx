@@ -13,7 +13,8 @@ import ProductsSectionBlock from "@/components/sections/ProductsSectionBlock";
 import ProjectsSectionBlock from "@/components/sections/ProjectsSectionBlock";
 import RelatedArticlesSection from "@/components/sections/RelatedArticlesSection";
 import RichContentBlock from "@/components/sections/RichContentBlock";
-import MagazineEmbedSection from "@/components/sections/MagazineEmbedSection";
+import ResourceFilesSection from "@/components/sections/ResourceFilesSection";
+import ResourceLibrarySection from "@/components/sections/ResourceLibrarySection";
 import ServicesSectionBlock from "@/components/sections/ServicesSectionBlock";
 import ShowroomBannerBlock from "@/components/sections/ShowroomBannerBlock";
 import WhyUsSectionBlock from "@/components/sections/WhyUsSectionBlock";
@@ -117,8 +118,10 @@ export default function SharedPageSectionRenderer({
       return <RichContentBlock block={resolvedBlock} />;
     case "articleContentSection":
       return <ArticleContentSection block={resolvedBlock} />;
-    case "magazineEmbed":
-      return <MagazineEmbedSection block={resolvedBlock} />;
+    case "resourceLibrary":
+      return <ResourceLibrarySection block={resolvedBlock} />;
+    case "resourceFiles":
+      return <ResourceFilesSection block={resolvedBlock} />;
     case "gallery":
       return <ProjectsSectionBlock block={resolvedBlock} />;
     case "textImageSection":

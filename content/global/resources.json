@@ -1,0 +1,92 @@
+{
+  "title": "Resources",
+  "seo": {
+    "title": "Resources | Cabinets Plus",
+    "description": "Browse the Cabinets Plus magazines, product catalog, countertop care guides and warehouse pickup map — read them online or download the PDF."
+  },
+  "blocks": [
+    {
+      "pageTitle": "Resources",
+      "intro": "Our magazines, catalogs and care guides — read any of them right here, or download the PDF to keep.",
+      "heading": "Magazines & Catalogs",
+      "items": [
+        {
+          "title": "Inspiration Guide",
+          "subtitle": "Kitchens, baths, cabinetry and countertops from our Spokane projects.",
+          "assetBase": "magazines/inspiration-guide",
+          "spreadCount": 85,
+          "downloadFile": "cabinets-plus-inspiration-guide.pdf",
+          "fileSize": "20.6 MB"
+        },
+        {
+          "title": "Products & Services",
+          "subtitle": "Everything we build, fabricate and install, in one catalog.",
+          "assetBase": "magazines/products-and-services",
+          "spreadCount": 12,
+          "downloadFile": "cabinets-plus-products-and-services.pdf",
+          "fileSize": "3.3 MB"
+        }
+      ],
+      "_template": "resourceLibrary"
+    },
+    {
+      "heading": "Guides & Brochures",
+      "subheading": "Short one- and two-page handouts. Preview any of them here, or download the file.",
+      "items": [
+        {
+          "title": "Quartz Countertop Care",
+          "description": "Daily cleaning, do's and don'ts, and pro tips for keeping quartz pristine.",
+          "category": "Care & Maintenance",
+          "assetBase": "documents/quartz-countertop-care",
+          "pageCount": 1,
+          "downloadFile": "quartz-countertop-care.jpg",
+          "fileSize": "0.5 MB"
+        },
+        {
+          "title": "Natural Stone Countertop Care",
+          "description": "How to clean, seal and protect granite, marble and quartzite surfaces.",
+          "category": "Care & Maintenance",
+          "assetBase": "documents/natural-stone-countertop-care",
+          "pageCount": 1,
+          "downloadFile": "natural-stone-countertop-care.jpg",
+          "fileSize": "0.5 MB"
+        },
+        {
+          "title": "Cabinet Quality at a Glance",
+          "description": "The construction specs behind every Cabinets Plus box, on one page.",
+          "category": "Product Guides",
+          "assetBase": "documents/cabinet-quality-at-a-glance",
+          "pageCount": 1,
+          "downloadFile": "cabinet-quality-at-a-glance.jpg",
+          "fileSize": "0.2 MB"
+        },
+        {
+          "title": "Stone Slab Vendors",
+          "description": "Addresses, hours and phone numbers for the Spokane slab yards we work with.",
+          "category": "Showroom & Pickup",
+          "assetBase": "documents/stone-slab-vendors",
+          "pageCount": 2,
+          "downloadFile": "stone-slab-vendors.pdf",
+          "fileSize": "0.6 MB"
+        },
+        {
+          "title": "Warehouse Pickup Map",
+          "description": "Where to park, check in and load up at our 4115 E Trent Ave warehouse.",
+          "category": "Showroom & Pickup",
+          "assetBase": "documents/warehouse-pickup-map",
+          "pageCount": 2,
+          "downloadFile": "warehouse-pickup-map.pdf",
+          "fileSize": "1.2 MB"
+        }
+      ],
+      "_template": "resourceFiles"
+    },
+    {
+      "_template": "sharedShowroomSection"
+    },
+    {
+      "_template": "sharedContactSection"
+    }
+  ],
+  "_template": "resourcesPage"
+}
