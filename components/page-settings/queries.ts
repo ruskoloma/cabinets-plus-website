@@ -262,7 +262,7 @@ const STATIC_PAGE_QUERY_TEMPLATES = [
   { templateTypename: "PagesAboutPage", blocksTypenamePrefix: "PagesAboutPageBlocks" },
   { templateTypename: "PagesContactPage", blocksTypenamePrefix: "PagesContactPageBlocks" },
   { templateTypename: "PagesPrivacyPolicyPage", blocksTypenamePrefix: "PagesPrivacyPolicyPageBlocks" },
-  { templateTypename: "PagesMagazinePage", blocksTypenamePrefix: "PagesMagazinePageBlocks" },
+  { templateTypename: "PagesResourcesPage", blocksTypenamePrefix: "PagesResourcesPageBlocks" },
 ];
 
 export const PAGE_QUERY = `
