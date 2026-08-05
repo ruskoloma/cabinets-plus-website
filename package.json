@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev --webpack --disable-source-maps\"",
-    "build": "tinacms build && next build",
+    "build": "npm run pinterest:generate && tinacms build && next build",
     "start": "next start",
     "lint": "eslint",
+    "pinterest:generate": "node scripts/generate-pinterest-rss.mjs",
+    "pinterest:validate": "node scripts/generate-pinterest-rss.mjs --check",
     "images:generate-variants": "node scripts/generate-s3-image-variants.mjs",
     "media:migrate-project-folders": "node scripts/migrate-project-media-folders.mjs",
     "media:delete-duplicate-project-folders": "node scripts/delete-duplicate-project-media-folders.mjs"
