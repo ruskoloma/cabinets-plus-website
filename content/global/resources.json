@@ -61,6 +61,33 @@
           "fileSize": "0.2 MB"
         },
         {
+          "title": "Custom Shower Glass & Enclosures",
+          "description": "Door and panel configurations, glass options, coatings and hardware for a custom enclosure.",
+          "category": "Product Guides",
+          "assetBase": "documents/shower-glass-brochure",
+          "pageCount": 2,
+          "downloadFile": "cabinets-plus-shower-glass.pdf",
+          "fileSize": "2.8 MB"
+        },
+        {
+          "title": "Cabinet Refinishing Services",
+          "description": "Painting, refacing, wood tone refinishing and hardware upgrades — the full service list and what it saves you.",
+          "category": "Product Guides",
+          "assetBase": "documents/cabinet-refinishing-brochure",
+          "pageCount": 2,
+          "downloadFile": "cabinets-plus-cabinet-refinishing.pdf",
+          "fileSize": "6.4 MB"
+        },
+        {
+          "title": "Festival of Homes Feature",
+          "description": "Our two pages from the HBA Festival of Homes guidebook, including a cabinet refinishing before and after.",
+          "category": "Product Guides",
+          "assetBase": "documents/festival-of-homes-feature",
+          "pageCount": 2,
+          "downloadFile": "cabinets-plus-festival-of-homes.pdf",
+          "fileSize": "1.1 MB"
+        },
+        {
           "title": "Stone Slab Vendors",
           "description": "Addresses, hours and phone numbers for the Spokane slab yards we work with.",
           "category": "Showroom & Pickup",
