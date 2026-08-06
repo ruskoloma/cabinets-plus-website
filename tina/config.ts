@@ -2297,34 +2297,190 @@ function sharedArticleContentSectionTemplate() {
   };
 }
 
-function sharedMagazineEmbedTemplate() {
+// Resources can be filled in two ways.
+//
+// 1. Asset folder — for magazines. A folder of pre-rendered page images
+//    (`magazines/inspiration-guide`) addressed by name plus a page count, so an
+//    85-spread magazine costs one entry instead of 85 image pickers. Upload one
+//    with `npm run resources:upload -- --staging-dir=<path>`.
+// 2. Direct upload — for short brochures. Pick the page images and the file
+//    itself through the media manager; no script, no folder convention.
+//
+// The direct fields win when both are filled in.
+const RESOURCE_ASSET_BASE_DESCRIPTION =
+  'Asset folder for this resource, e.g. "magazines/inspiration-guide". Page images and the download live inside it.';
+
+const RESOURCE_DOWNLOAD_URL_DESCRIPTION =
+  "Upload the file itself (PDF or image) instead of using the asset folder. Overrides Download Filename when set.";
+
+function sharedResourceLibraryTemplate() {
   return {
-    name: "magazineEmbed" as const,
-    label: "Magazine Embed",
+    name: "resourceLibrary" as const,
+    label: "Resources: Magazines",
     fields: [
-      { type: "string" as const, name: "heading", label: "Heading" },
+      {
+        type: "string" as const,
+        name: "pageTitle",
+        label: "Page Title (H1)",
+        description: "Leave empty on pages that already have their own H1.",
+      },
+      {
+        type: "string" as const,
+        name: "intro",
+        label: "Intro Paragraph",
+        ui: { component: "textarea" as const },
+      },
+      { type: "string" as const, name: "heading", label: "Section Heading" },
+      {
+        type: "object" as const,
+        name: "items",
+        label: "Magazines",
+        list: true,
+        ui: {
+          itemProps: (item: { title?: string }) => ({ label: item?.title || "Magazine" }),
+        },
+        fields: [
+          { type: "string" as const, name: "title", label: "Title" },
+          {
+            type: "string" as const,
+            name: "subtitle",
+            label: "Short Description",
+            ui: { component: "textarea" as const },
+          },
+          {
+            type: "string" as const,
+            name: "assetBase",
+            label: "Asset Folder",
+            description: RESOURCE_ASSET_BASE_DESCRIPTION,
+          },
+          {
+            type: "number" as const,
+            name: "spreadCount",
+            label: "Spread Count",
+            description: "How many spread-NNN.webp images the folder holds. Drives the viewer.",
+          },
+          {
+            type: "string" as const,
+            name: "downloadFile",
+            label: "Download Filename",
+            description: 'Original file inside the asset folder, e.g. "cabinets-plus-inspiration-guide.pdf".',
+          },
+          {
+            type: "image" as const,
+            name: "downloadUrl",
+            label: "Download File (upload)",
+            description: RESOURCE_DOWNLOAD_URL_DESCRIPTION,
+          },
+          {
+            type: "string" as const,
+            name: "fileSize",
+            label: "File Size Label",
+            description: 'Shown under the card, e.g. "20.6 MB".',
+          },
+          {
+            type: "image" as const,
+            name: "coverOverride",
+            label: "Cover Override",
+            description: "Optional. Defaults to cover.webp inside the asset folder.",
+          },
+        ],
+      },
+    ],
+  };
+}
+
+function sharedResourceFilesTemplate() {
+  return {
+    name: "resourceFiles" as const,
+    label: "Resources: Guides & Brochures",
+    fields: [
+      { type: "string" as const, name: "heading", label: "Section Heading" },
       {
         type: "string" as const,
         name: "subheading",
-        label: "Subheading",
+        label: "Section Subheading",
         ui: { component: "textarea" as const },
       },
       {
-        type: "string" as const,
-        name: "embedUrl",
-        label: "Embed URL",
-        description: "Full iframe src URL (e.g., a Google Drive PDF preview link).",
-      },
-      {
-        type: "string" as const,
-        name: "height",
-        label: "Embed Height",
-        description: "CSS height value for the iframe container (e.g., 85vh, 800px). Defaults to 85vh.",
-      },
-      {
-        type: "string" as const,
-        name: "iframeTitle",
-        label: "Iframe Title (accessibility)",
+        type: "object" as const,
+        name: "items",
+        label: "Documents",
+        description: "Grouped on the page by Category, in the order categories first appear here.",
+        list: true,
+        ui: {
+          itemProps: (item: { title?: string }) => ({ label: item?.title || "Document" }),
+        },
+        fields: [
+          { type: "string" as const, name: "title", label: "Title" },
+          {
+            type: "string" as const,
+            name: "description",
+            label: "Short Description",
+            ui: { component: "textarea" as const },
+          },
+          {
+            type: "string" as const,
+            name: "category",
+            label: "Category",
+            description: 'Group heading, e.g. "Care & Maintenance". Leave empty to show ungrouped.',
+          },
+          {
+            type: "string" as const,
+            name: "assetBase",
+            label: "Asset Folder",
+            description: RESOURCE_ASSET_BASE_DESCRIPTION,
+          },
+          {
+            type: "number" as const,
+            name: "pageCount",
+            label: "Page Count",
+            description: "How many page-NN.webp images the folder holds.",
+          },
+          {
+            type: "object" as const,
+            name: "pageImages",
+            label: "Page Images (upload)",
+            description:
+              "Upload the pages yourself instead of using an asset folder — right for one- and two-page handouts. Overrides Asset Folder / Page Count when filled.",
+            list: true,
+            ui: {
+              itemProps: (item: { image?: string }) => ({
+                label: item?.image ? item.image.split("/").pop() : "Page",
+              }),
+            },
+            fields: [{ type: "image" as const, name: "image", label: "Page" }],
+          },
+          {
+            type: "string" as const,
+            name: "downloadFile",
+            label: "Download Filename",
+            description: 'Original file inside the asset folder, e.g. "warehouse-pickup-map.pdf".',
+          },
+          {
+            type: "image" as const,
+            name: "downloadUrl",
+            label: "Download File (upload)",
+            description: RESOURCE_DOWNLOAD_URL_DESCRIPTION,
+          },
+          {
+            type: "string" as const,
+            name: "fileType",
+            label: "File Type Label",
+            description: 'Optional. Defaults to the download extension, e.g. "PDF".',
+          },
+          {
+            type: "string" as const,
+            name: "fileSize",
+            label: "File Size Label",
+            description: 'Shown on the card, e.g. "4.9 MB".',
+          },
+          {
+            type: "image" as const,
+            name: "coverOverride",
+            label: "Cover Override",
+            description: "Optional. Defaults to cover.webp inside the asset folder.",
+          },
+        ],
       },
     ],
   };
@@ -2434,7 +2590,8 @@ function sharedPageSectionTemplates() {
     sharedAboutStorySectionTemplate(),
     sharedRichContentTemplate(),
     sharedArticleContentSectionTemplate(),
-    sharedMagazineEmbedTemplate(),
+    sharedResourceLibraryTemplate(),
+    sharedResourceFilesTemplate(),
     sharedTextImageSectionTemplate(),
     sharedBeforeAfterTextImageSectionTemplate(),
     sharedPartnersSectionTemplate(),
@@ -2481,7 +2638,7 @@ const pageSettingsEditTargetsByRoute: Record<string, TinaEditTarget> = {
   "/about-us": { collectionName: "pages", filename: "about-us" },
   "/contact-us": { collectionName: "pages", filename: "contact-us" },
   "/privacy-policy": { collectionName: "pages", filename: "privacy-policy" },
-  "/magazine": { collectionName: "pages", filename: "magazine" },
+  "/resources": { collectionName: "pages", filename: "resources" },
   "/cabinets": { collectionName: "pages", filename: "cabinets-main-page-settings" },
   "/countertops": { collectionName: "pages", filename: "countertops-main-page-settings" },
   "/flooring": { collectionName: "pages", filename: "flooring-main-page-settings" },
@@ -2961,7 +3118,7 @@ export default defineConfig({
         format: "json",
         match: {
           include:
-            "@(home|about-us|contact-us|privacy-policy|magazine|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinet-refinishing-main-page-settings|glass-enclosures-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|blog-page-settings)",
+            "@(home|about-us|contact-us|privacy-policy|resources|cabinets-main-page-settings|countertops-main-page-settings|flooring-main-page-settings|kitchen-remodel-main-page-settings|bathroom-remodel-main-page-settings|cabinet-refinishing-main-page-settings|glass-enclosures-main-page-settings|cabinets-overview-page-settings|countertops-overview-page-settings|flooring-overview-page-settings|gallery-page-settings|blog-page-settings)",
         },
         ui: {
           router: ({ document }) => {
@@ -2974,7 +3131,7 @@ export default defineConfig({
           serviceMainPageSettingsTemplate("aboutPage", "Page: About (/about-us)", "/about-us"),
           serviceMainPageSettingsTemplate("contactPage", "Page: Contact (/contact-us)", "/contact-us"),
           serviceMainPageSettingsTemplate("privacyPolicyPage", "Page: Privacy Policy (/privacy-policy)", "/privacy-policy"),
-          serviceMainPageSettingsTemplate("magazinePage", "Page: Magazine (/magazine)", "/magazine"),
+          serviceMainPageSettingsTemplate("resourcesPage", "Page: Resources (/resources)", "/resources"),
           serviceMainPageSettingsTemplate("cabinetsMainPage", "Page: Cabinets (/cabinets)", "/cabinets"),
           serviceMainPageSettingsTemplate("countertopsMainPage", "Page: Countertops (/countertops)", "/countertops"),
           serviceMainPageSettingsTemplate("flooringMainPage", "Page: Flooring (/flooring)", "/flooring"),

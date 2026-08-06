@@ -33,6 +33,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# /resources magazine spreads and brochures — these live in S3 under
+# library/resources/ and are managed from the TinaCMS media manager. Staging
+# them here to preview a rebuild is fine; committing 40 MB of them is not.
+/public/library/resources/
+
 # vercel
 .vercel
 

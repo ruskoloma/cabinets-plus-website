@@ -156,12 +156,39 @@ function buildSharedPageSettingsBlockFragments(prefix: string) {
             subtitle
             body
           }
-          ... on ${prefix}MagazineEmbed {
+          ... on ${prefix}ResourceLibrary {
+            pageTitle
+            intro
+            heading
+            items {
+              title
+              subtitle
+              assetBase
+              spreadCount
+              downloadFile
+              downloadUrl
+              fileSize
+              coverOverride
+            }
+          }
+          ... on ${prefix}ResourceFiles {
             heading
             subheading
-            embedUrl
-            height
-            iframeTitle
+            items {
+              title
+              description
+              category
+              assetBase
+              pageCount
+              pageImages {
+                image
+              }
+              downloadFile
+              downloadUrl
+              fileType
+              fileSize
+              coverOverride
+            }
           }
           ... on ${prefix}TextImageSection {
             anchorId
@@ -235,7 +262,7 @@ const STATIC_PAGE_QUERY_TEMPLATES = [
   { templateTypename: "PagesAboutPage", blocksTypenamePrefix: "PagesAboutPageBlocks" },
   { templateTypename: "PagesContactPage", blocksTypenamePrefix: "PagesContactPageBlocks" },
   { templateTypename: "PagesPrivacyPolicyPage", blocksTypenamePrefix: "PagesPrivacyPolicyPageBlocks" },
-  { templateTypename: "PagesMagazinePage", blocksTypenamePrefix: "PagesMagazinePageBlocks" },
+  { templateTypename: "PagesResourcesPage", blocksTypenamePrefix: "PagesResourcesPageBlocks" },
 ];
 
 export const PAGE_QUERY = `
