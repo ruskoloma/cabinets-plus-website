@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
+import { createHash } from "node:crypto";
 import { promises as fs } from "node:fs";
+import { createReadStream } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import process from "node:process";
@@ -11,6 +13,13 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import sharp from "sharp";
 import { dump as toYaml } from "js-yaml";
 import variantPresets from "../lib/image-variant-presets.json" with { type: "json" };
+import {
+  loadCatalogOptions,
+  normalizeImageAnalysis,
+  normalizeText,
+  scoreCoverCandidate,
+  validateProjectDocument,
+} from "./project-import-lib.mjs";
 
 const execFileAsync = promisify(execFile);
 
@@ -21,11 +30,12 @@ const projectRoot = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(projectRoot, "content", "projects");
 const DEFAULT_SOURCE_DIR = path.join(projectRoot, "new-projects");
 const TEMP_ROOT = path.join(os.tmpdir(), "cabinets-plus-zip-import");
+const DEFAULT_MANIFEST_PATH = path.join(projectRoot, ".cache", "project-import", "state.json");
 const DEFAULT_UPLOAD_PREFIX = "uploads/projects";
-const DEFAULT_PROJECT_MODEL = process.env.OPENROUTER_PROJECT_MODEL || "openai/gpt-5.4";
-const DEFAULT_IMAGE_MODEL = process.env.OPENROUTER_IMAGE_MODEL || "openai/gpt-5.4";
+const FALLBACK_PROJECT_MODEL = "openai/gpt-5.4";
+const FALLBACK_IMAGE_MODEL = "openai/gpt-5.4";
+const MANIFEST_VERSION = 1;
 const PROJECT_SAMPLE_IMAGE_LIMIT = 12;
-const IMAGE_CONCURRENCY = Number(process.env.IMAGE_VISION_CONCURRENCY || 4);
 const MAX_ORIGINAL_WIDTH = 2400;
 const ORIGINAL_QUALITY = 82;
 const DEFAULT_CACHE_CONTROL = "public, max-age=31536000, immutable";
@@ -68,11 +78,6 @@ const STREET_SUFFIX_MAP = new Map([
   ["way", "Way"],
 ]);
 
-const ROOM_VALUES = ["Kitchen", "Bathroom", "Laundry", "Other"];
-const PAINT_VALUES = ["white", "off white", "timber", "gray", "brown", "blue", "green", "black", "custom paint"];
-const STAIN_VALUES = ["white glaze stain", "mocha stain"];
-const COUNTERTOP_VALUES = ["Quartz", "Granite", "Marble", "Quartzite", "Porcelain", "Butcher Block", "Other"];
-
 function parseArg(name) {
   const prefix = `--${name}=`;
   const match = process.argv.find((entry) => entry.startsWith(prefix));
@@ -111,7 +116,7 @@ async function loadEnvFile(filePath) {
 }
 
 function normalizeLabel(value) {
-  return String(value || "").replace(/\s+/g, " ").trim();
+  return normalizeText(value);
 }
 
 function normalizeSlug(value) {
@@ -280,21 +285,17 @@ function inferProjectIdentity(zipFileName) {
   };
 }
 
-function ensureUniqueSlug(initialSlug, usedSlugs) {
+function claimUnusedSlug(initialSlug, usedSlugs, label) {
   const base = normalizeSlug(initialSlug) || "project";
-  if (!usedSlugs.has(base)) {
-    usedSlugs.add(base);
-    return base;
+  if (usedSlugs.has(base)) {
+    throw new Error(
+      `${label || "Project"} resolves to existing slug "${base}". ` +
+        `Stop and confirm whether this is an update; the importer will not create a silent -2 duplicate.`,
+    );
   }
 
-  let suffix = 2;
-  while (usedSlugs.has(`${base}-${suffix}`)) {
-    suffix += 1;
-  }
-
-  const slug = `${base}-${suffix}`;
-  usedSlugs.add(slug);
-  return slug;
+  usedSlugs.add(base);
+  return base;
 }
 
 async function listImageFiles(directory) {
@@ -302,6 +303,7 @@ async function listImageFiles(directory) {
   const files = [];
 
   for (const entry of entries) {
+    if (entry.name === "__MACOSX" || entry.name.startsWith("._")) continue;
     const fullPath = path.join(directory, entry.name);
     if (entry.isDirectory()) {
       files.push(...(await listImageFiles(fullPath)));
@@ -319,6 +321,78 @@ async function listImageFiles(directory) {
       sensitivity: "base",
     }),
   );
+}
+
+async function hashFile(filePath, hash) {
+  await new Promise((resolve, reject) => {
+    const stream = createReadStream(filePath);
+    stream.on("data", (chunk) => hash.update(chunk));
+    stream.on("error", reject);
+    stream.on("end", resolve);
+  });
+}
+
+async function fingerprintSource(source) {
+  const hash = createHash("sha256");
+  hash.update(`${source.kind}\n${source.name}\n`);
+
+  if (source.kind === "zip") {
+    await hashFile(source.path, hash);
+    return hash.digest("hex");
+  }
+
+  const imageFiles = await listImageFiles(source.path);
+  for (const imagePath of imageFiles) {
+    hash.update(`${path.relative(source.path, imagePath)}\n`);
+    await hashFile(imagePath, hash);
+  }
+
+  return hash.digest("hex");
+}
+
+async function resolveSources(sourceArg, sourceDirArg) {
+  if (sourceArg) {
+    const sourcePath = path.resolve(sourceArg);
+    const stat = await fs.stat(sourcePath);
+
+    if (stat.isDirectory()) {
+      return [{ kind: "folder", name: path.basename(sourcePath), path: sourcePath }];
+    }
+
+    if (stat.isFile() && sourcePath.toLowerCase().endsWith(".zip")) {
+      return [{ kind: "zip", name: path.basename(sourcePath), path: sourcePath }];
+    }
+
+    throw new Error(`--source must point to a project image folder or ZIP file: ${sourcePath}`);
+  }
+
+  const sourceDir = path.resolve(sourceDirArg || DEFAULT_SOURCE_DIR);
+  const zipEntries = (await fs.readdir(sourceDir))
+    .filter((entry) => entry.toLowerCase().endsWith(".zip"))
+    .sort((left, right) => left.localeCompare(right, undefined, { numeric: true, sensitivity: "base" }));
+
+  if (!zipEntries.length) throw new Error(`No zip files found in ${sourceDir}`);
+  return zipEntries.map((name) => ({ kind: "zip", name, path: path.join(sourceDir, name) }));
+}
+
+async function readManifest(manifestPath) {
+  try {
+    const parsed = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+    if (parsed.version !== MANIFEST_VERSION || !parsed.sources || typeof parsed.sources !== "object") {
+      throw new Error(`Unsupported project import manifest at ${manifestPath}`);
+    }
+    return parsed;
+  } catch (error) {
+    if (error?.code === "ENOENT") return { version: MANIFEST_VERSION, sources: {} };
+    throw error;
+  }
+}
+
+async function writeManifest(manifestPath, manifest) {
+  await fs.mkdir(path.dirname(manifestPath), { recursive: true });
+  const temporaryPath = `${manifestPath}.${process.pid}.tmp`;
+  await fs.writeFile(temporaryPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+  await fs.rename(temporaryPath, manifestPath);
 }
 
 async function extractZip(zipPath, destinationPath) {
@@ -474,7 +548,7 @@ function fallbackProjectDescription(title) {
   );
 }
 
-async function analyzeProjectMeta({ apiKey, model, uploadedMedia, titleHint, zipHint }) {
+async function analyzeProjectMeta({ apiKey, model, uploadedMedia, titleHint }) {
   const sampleMedia = pickProjectSampleMedia(uploadedMedia);
   const content = [
     {
@@ -495,159 +569,84 @@ async function analyzeProjectMeta({ apiKey, model, uploadedMedia, titleHint, zip
     content.push({ type: "image_url", image_url: { url: media.featureUrl } });
   }
 
-  try {
-    const result = safeJsonParse(
-      await callOpenRouter({
-        apiKey,
-        model,
-        body: {
-          max_tokens: 500,
-          messages: [{ role: "user", content }],
-        },
-      }),
-    );
+  const result = safeJsonParse(
+    await callOpenRouter({
+      apiKey,
+      model,
+      body: {
+        max_tokens: 500,
+        response_format: { type: "json_object" },
+        messages: [{ role: "user", content }],
+      },
+    }),
+  );
 
-    return {
-      title: normalizeLabel(titleHint || result?.title),
-      description: clampDescription(result?.description),
-      summaryTags: Array.isArray(result?.summaryTags) ? dedupeStrings(result.summaryTags) : [],
-    };
-  } catch {
-    return {
-      title: normalizeLabel(titleHint),
-      description: "",
-      summaryTags: [],
-    };
-  }
-}
-
-function coerceAllowed(value, allowed) {
-  const normalized = normalizeLabel(value);
-  if (!normalized) return "";
-
-  const exact = allowed.find((item) => item.toLowerCase() === normalized.toLowerCase());
-  if (exact) return exact;
-
-  const lower = normalized.toLowerCase();
-
-  if (allowed === ROOM_VALUES) {
-    if (/(powder|bath|vanity)/i.test(lower)) return "Bathroom";
-    if (/(laundry|mudroom|utility)/i.test(lower)) return "Laundry";
-    if (/(kitchen|pantry)/i.test(lower)) return "Kitchen";
-    if (/(living|entry|hall|office|bar|closet)/i.test(lower)) return "Other";
+  const description = clampDescription(result?.description);
+  if (!description) {
+    throw new Error("OpenRouter returned no usable project description");
   }
 
-  if (allowed === COUNTERTOP_VALUES) {
-    if (lower.includes("quartzite")) return "Quartzite";
-    if (lower.includes("quartz")) return "Quartz";
-    if (lower.includes("granite")) return "Granite";
-    if (lower.includes("marble")) return "Marble";
-    if (lower.includes("porcelain")) return "Porcelain";
-    if (lower.includes("butcher")) return "Butcher Block";
-    if (lower.includes("stone") || lower.includes("solid surface")) return "Other";
-  }
-
-  return "";
-}
-
-function mapPaintValue(value) {
-  const normalized = normalizeLabel(value).toLowerCase();
-  if (!normalized) return "";
-
-  if (["white"].includes(normalized)) return "white";
-  if (["off white", "cream", "ivory", "beige-white", "warm white"].includes(normalized)) return "off white";
-  if (["timber", "wood", "wood tone", "natural wood", "light wood", "medium wood", "oak", "walnut", "maple"].includes(normalized)) {
-    return "timber";
-  }
-  if (["gray", "grey", "charcoal"].includes(normalized)) return "gray";
-  if (["brown", "espresso", "chocolate"].includes(normalized)) return "brown";
-  if (["blue", "navy"].includes(normalized)) return "blue";
-  if (["green", "olive", "sage"].includes(normalized)) return "green";
-  if (["black"].includes(normalized)) return "black";
-  if (["custom paint", "painted custom color"].includes(normalized)) return "custom paint";
-
-  return "";
-}
-
-function mapStainValue(value) {
-  const normalized = normalizeLabel(value).toLowerCase();
-  if (!normalized) return "";
-  if (normalized.includes("white glaze")) return "white glaze stain";
-  if (normalized.includes("mocha")) return "mocha stain";
-  return "";
+  return {
+    title: normalizeLabel(titleHint || result?.title),
+    description,
+    summaryTags: Array.isArray(result?.summaryTags) ? dedupeStrings(result.summaryTags) : [],
+  };
 }
 
 function buildFilenameLabel(sourceName, fallbackIndex) {
   const normalized = normalizeLabel(path.basename(sourceName, path.extname(sourceName)).replace(/[_-]+/g, " "));
-  if (!normalized) return `Project photo ${fallbackIndex + 1}`;
+  if (!normalized || /^(?:dsc|img|image|photo|project example)\s*\d+/i.test(normalized) || /^\d[\w\s-]*\d$/i.test(normalized)) {
+    return `Project photo ${fallbackIndex + 1}`;
+  }
   return titleCasePhrase(normalized);
 }
 
-async function analyzeSingleImage({ apiKey, model, projectTitle, media }) {
+function promptValues(values) {
+  return values.map((value) => JSON.stringify(value)).join(", ");
+}
+
+async function analyzeSingleImage({ apiKey, model, projectTitle, media, catalogOptions }) {
   const content = [
     {
       type: "text",
       text:
         `Analyze this single interior project image and return strict JSON only. ` +
-        `Required keys: room, cabinetPaints, cabinetStains, countertop, flooring, label, confidence. ` +
-        `Allowed room values: Kitchen, Bathroom, Laundry, Other, or empty string. ` +
-        `Allowed cabinetPaints values: white, off white, timber, gray, brown, blue, green, black, custom paint. ` +
-        `Allowed cabinetStains values: white glaze stain, mocha stain. ` +
-        `Allowed countertop values: Quartz, Granite, Marble, Quartzite, Porcelain, Butcher Block, Other, or empty string. ` +
-        `cabinetPaints and cabinetStains must be arrays with zero, one, or two items. ` +
+        `Required keys: room, cabinetPaints, cabinetStains, doorStyles, countertop, flooring, label, confidence, visualQuality. ` +
+        `Allowed room values: ${promptValues(catalogOptions.rooms)}, or empty string. ` +
+        `Allowed cabinetPaints values: ${promptValues(catalogOptions.paintOptions)}. ` +
+        `Allowed cabinetStains values: ${promptValues(catalogOptions.stainTypes)}. ` +
+        `Allowed doorStyles values: ${promptValues(catalogOptions.doorStyles)}. ` +
+        `Allowed countertop values: ${promptValues(catalogOptions.countertopTypes)}, or empty string. ` +
+        `cabinetPaints, cabinetStains, and doorStyles must be arrays with zero, one, or two items. ` +
         `Only identify cabinet finishes that are clearly visible on cabinetry. Ignore wall, decor, or flooring color. ` +
         `flooring is true only when the floor is clearly visible and substantial in the frame. ` +
         `label should be a short factual caption, 2-6 words, with no address or client names. ` +
+        `confidence must be an object with room, cabinetPaints, cabinetStains, doorStyles, countertop, flooring, and label scores from 0 to 1. ` +
+        `visualQuality must be an object with composition, sharpness, lighting, subjectCoverage, and obstructions scores from 0 to 1. ` +
+        `For obstructions, 1 means the main cabinetry or room is heavily blocked; for all other visualQuality fields, 1 is best. ` +
         `Project title context: ${projectTitle || "Project"}.`,
     },
     { type: "image_url", image_url: { url: media.featureUrl } },
   ];
 
-  try {
-    const parsed =
-      safeJsonParse(
-        await callOpenRouter({
-          apiKey,
-          model,
-          body: {
-            max_tokens: 400,
-            messages: [{ role: "user", content }],
-          },
-        }),
-      ) || {};
+  const parsed = safeJsonParse(
+    await callOpenRouter({
+      apiKey,
+      model,
+      body: {
+        max_tokens: 700,
+        response_format: { type: "json_object" },
+        messages: [{ role: "user", content }],
+      },
+    }),
+  );
+  const normalized = normalizeImageAnalysis(parsed, catalogOptions);
 
-    const cabinetPaints = dedupeStrings(
-      (Array.isArray(parsed.cabinetPaints) ? parsed.cabinetPaints : [])
-        .map((value) => mapPaintValue(value))
-        .filter(Boolean),
-    ).slice(0, 2);
-
-    const cabinetStains = dedupeStrings(
-      (Array.isArray(parsed.cabinetStains) ? parsed.cabinetStains : [])
-        .map((value) => mapStainValue(value))
-        .filter(Boolean),
-    ).slice(0, 2);
-
-    return {
-      room: coerceAllowed(parsed.room, ROOM_VALUES),
-      cabinetPaints,
-      cabinetStains,
-      countertop: coerceAllowed(parsed.countertop, COUNTERTOP_VALUES),
-      flooring: Boolean(parsed.flooring),
-      label: normalizeLabel(parsed.label),
-      confidence: Number(parsed.confidence || 0),
-    };
-  } catch {
-    return {
-      room: "",
-      cabinetPaints: [],
-      cabinetStains: [],
-      countertop: "",
-      flooring: false,
-      label: "",
-      confidence: 0,
-    };
+  if (!normalized.label) {
+    throw new Error(`OpenRouter returned no usable label for ${media.sourceName}`);
   }
+
+  return normalized;
 }
 
 async function mapWithConcurrency(items, concurrency, iteratee) {
@@ -671,13 +670,14 @@ async function mapWithConcurrency(items, concurrency, iteratee) {
   return results;
 }
 
-function buildMediaDescription({ projectTitle, room, cabinetPaints, cabinetStains, countertop, aiLabel, isCover }) {
+function buildMediaDescription({ projectTitle, room, cabinetPaints, cabinetStains, doorStyles, countertop, aiLabel, isCover }) {
   const parts = [];
 
   if (aiLabel) parts.push(aiLabel.toLowerCase());
   if (room) parts.push(room.toLowerCase());
   if (cabinetPaints.length) parts.push(`${cabinetPaints.join(" + ")} cabinetry`);
   if (cabinetStains.length) parts.push(cabinetStains.join(" + ").toLowerCase());
+  if (doorStyles.length) parts.push(`${doorStyles.join(" + ")} cabinet doors`);
   if (countertop) parts.push(`${countertop.toLowerCase()} surfaces`);
   if (isCover) parts.push("primary project view");
 
@@ -686,15 +686,10 @@ function buildMediaDescription({ projectTitle, room, cabinetPaints, cabinetStain
 }
 
 function scoreMediaForCover(item) {
-  const roomScore = item.room === "Kitchen" ? 40 : item.room === "Other" ? 24 : item.room === "Bathroom" ? 16 : item.room === "Laundry" ? 10 : 0;
-  const finishScore = item.cabinetPaints.length > 0 || item.cabinetStains.length > 0 ? 12 : 0;
-  const countertopScore = item.countertop ? 8 : 0;
-  const flooringScore = item.flooring ? 3 : 0;
-  const confidenceScore = Number.isFinite(item.confidence) ? item.confidence : 0;
-  return roomScore + finishScore + countertopScore + flooringScore + confidenceScore;
+  return scoreCoverCandidate(item);
 }
 
-function createProjectDocument({ title, slug, description, address, media }) {
+function createProjectDocument({ title, slug, description, address, media, sourceUpdatedAt }) {
   const coverMedia = media[0];
   const document = {
     published: true,
@@ -704,58 +699,48 @@ function createProjectDocument({ title, slug, description, address, media }) {
     ...(address ? { address } : {}),
     primaryPicture: coverMedia?.file || "",
     media,
+    sourceUpdatedAt,
   };
 
   return document;
 }
 
-async function readOptionalCsvCredentials(csvPath) {
-  if (!csvPath) return null;
-
-  const raw = await fs.readFile(csvPath, "utf8");
-  const lines = raw.split(/\r?\n/).filter(Boolean);
-  if (lines.length < 2) return null;
-
-  const [accessKeyId, secretAccessKey] = lines[1].replace(/^\uFEFF/, "").split(",");
-  if (!normalizeLabel(accessKeyId) || !normalizeLabel(secretAccessKey)) return null;
-
-  return {
-    accessKeyId: accessKeyId.trim(),
-    secretAccessKey: secretAccessKey.trim(),
-  };
-}
-
 async function main() {
+  await loadEnvFile(path.join(projectRoot, ".env.local"));
   await loadEnvFile(path.join(projectRoot, ".env"));
 
-  const sourceDir = path.resolve(parseArg("source-dir") || DEFAULT_SOURCE_DIR);
+  const sources = await resolveSources(parseArg("source"), parseArg("source-dir"));
+  const manifestPath = path.resolve(parseArg("manifest") || DEFAULT_MANIFEST_PATH);
   const uploadPrefix = parseArg("upload-prefix") || DEFAULT_UPLOAD_PREFIX;
-  const projectModel = parseArg("project-model") || parseArg("model") || DEFAULT_PROJECT_MODEL;
-  const imageModel = parseArg("image-model") || parseArg("model") || DEFAULT_IMAGE_MODEL;
-  const openRouterApiKey = parseArg("openrouter-key") || process.env.OPENROUTER_API_KEY;
-  const csvCredentials = await readOptionalCsvCredentials(parseArg("access-keys-csv"));
+  const projectModel = parseArg("project-model") || parseArg("model") || process.env.OPENROUTER_PROJECT_MODEL || FALLBACK_PROJECT_MODEL;
+  const imageModel = parseArg("image-model") || parseArg("model") || process.env.OPENROUTER_IMAGE_MODEL || FALLBACK_IMAGE_MODEL;
+  const configuredImageConcurrency = Number(process.env.IMAGE_VISION_CONCURRENCY || 4);
+  const imageConcurrency = Number.isFinite(configuredImageConcurrency) && configuredImageConcurrency > 0
+    ? Math.floor(configuredImageConcurrency)
+    : 4;
+  const openRouterApiKey = process.env.OPENROUTER_API_KEY;
 
   if (!openRouterApiKey) {
-    throw new Error("Missing OpenRouter key. Set OPENROUTER_API_KEY or pass --openrouter-key.");
+    throw new Error("Missing OPENROUTER_API_KEY. Inject it through the environment; command-line secrets are not accepted.");
   }
 
   const region = process.env.S3_REGION;
   const bucket = process.env.S3_BUCKET;
   const cdnBase = process.env.S3_CDN_URL;
-  const accessKeyId = csvCredentials?.accessKeyId || process.env.S3_ACCESS_KEY;
-  const secretAccessKey = csvCredentials?.secretAccessKey || process.env.S3_SECRET_KEY;
+  const accessKeyId = process.env.S3_ACCESS_KEY;
+  const secretAccessKey = process.env.S3_SECRET_KEY;
 
   if (!region || !bucket || !accessKeyId || !secretAccessKey) {
     throw new Error("Missing S3 configuration. Expected S3_REGION, S3_BUCKET, S3_ACCESS_KEY, and S3_SECRET_KEY.");
   }
 
-  const zipEntries = (await fs.readdir(sourceDir))
-    .filter((entry) => entry.toLowerCase().endsWith(".zip"))
-    .sort((left, right) => left.localeCompare(right, undefined, { numeric: true, sensitivity: "base" }));
-
-  if (!zipEntries.length) {
-    throw new Error(`No zip files found in ${sourceDir}`);
-  }
+  const catalogOptions = await loadCatalogOptions(projectRoot);
+  const manifest = await readManifest(manifestPath);
+  let manifestWriteQueue = Promise.resolve();
+  const persistManifest = () => {
+    manifestWriteQueue = manifestWriteQueue.then(() => writeManifest(manifestPath, manifest));
+    return manifestWriteQueue;
+  };
 
   const existingSlugs = new Set(
     (await fs.readdir(CONTENT_DIR))
@@ -763,6 +748,11 @@ async function main() {
       .map((entry) => normalizeSlug(entry.replace(/\.md$/i, ""))),
   );
   const usedUploadSlugs = new Set(existingSlugs);
+  const manifestUploadSlugOwners = new Map(
+    Object.entries(manifest.sources)
+      .filter(([, state]) => state?.uploadSlug)
+      .map(([key, state]) => [state.uploadSlug, key]),
+  );
 
   const s3 = new S3Client({
     region,
@@ -776,87 +766,194 @@ async function main() {
 
   const createdFiles = [];
   let uploadedImages = 0;
+  let resumedProjects = 0;
+  let skippedProjects = 0;
 
-  for (const zipName of zipEntries) {
-    const zipPath = path.join(sourceDir, zipName);
-    const identity = inferProjectIdentity(zipName);
-    const uniqueUploadSlug = ensureUniqueSlug(identity.uploadSlug || normalizeSlug(zipName), usedUploadSlugs);
-    const extractionDir = path.join(TEMP_ROOT, uniqueUploadSlug);
+  for (const source of sources) {
+    const fingerprint = await fingerprintSource(source);
+    const sourceKey = `${source.kind}:${source.name}:${fingerprint}`;
+    const identity = inferProjectIdentity(source.name);
+    let sourceState = manifest.sources[sourceKey];
 
-    console.log(`Processing ${zipName}`);
+    if (sourceState?.status === "complete") {
+      const completedPath = sourceState.outputFile ? path.join(projectRoot, sourceState.outputFile) : "";
+      if (!completedPath || !(await fs.stat(completedPath).catch(() => null))) {
+        throw new Error(`Manifest says ${source.name} is complete, but its project document is missing`);
+      }
+      console.log(`Skipping ${source.name}: already completed in import manifest`);
+      skippedProjects += 1;
+      continue;
+    }
 
-    await extractZip(zipPath, extractionDir);
-    const imageFiles = await listImageFiles(extractionDir);
+    if (!sourceState) {
+      const proposedUploadSlug = normalizeSlug(identity.uploadSlug || source.name) || "project";
+      const previousOwner = manifestUploadSlugOwners.get(proposedUploadSlug);
+      if (previousOwner && previousOwner !== sourceKey) {
+        throw new Error(
+          `${source.name} changed since an earlier import attempt but still resolves to upload slug ` +
+            `"${proposedUploadSlug}". Review the earlier manifest state before overwriting its S3 objects.`,
+        );
+      }
+      const uploadSlug = claimUnusedSlug(
+        proposedUploadSlug,
+        usedUploadSlugs,
+        source.name,
+      );
+      sourceState = {
+        status: "pending",
+        sourceKind: source.kind,
+        sourceName: source.name,
+        fingerprint,
+        uploadSlug,
+        importedAt: new Date().toISOString(),
+        uploadedMedia: [],
+        imageAnalyses: [],
+      };
+      manifest.sources[sourceKey] = sourceState;
+      manifestUploadSlugOwners.set(uploadSlug, sourceKey);
+      await persistManifest();
+    } else {
+      const resumableOutputPath = sourceState.outputFile ? path.join(projectRoot, sourceState.outputFile) : "";
+      const resumableOutputExists = resumableOutputPath && (await fs.stat(resumableOutputPath).catch(() => null));
+      if (usedUploadSlugs.has(sourceState.uploadSlug) && !resumableOutputExists) {
+        throw new Error(`Cannot resume ${source.name}: upload slug "${sourceState.uploadSlug}" now collides with existing content`);
+      }
+      usedUploadSlugs.add(sourceState.uploadSlug);
+      resumedProjects += 1;
+    }
+
+    const extractionDir = source.kind === "zip" ? path.join(TEMP_ROOT, sourceState.uploadSlug) : null;
+    const imageRoot = extractionDir || source.path;
+
+    console.log(`Processing ${source.name}${sourceState.status !== "pending" ? ` (resume: ${sourceState.status})` : ""}`);
+
+    if (source.kind === "zip") await extractZip(source.path, extractionDir);
+    const imageFiles = await listImageFiles(imageRoot);
 
     if (!imageFiles.length) {
-      console.warn(`Skipping ${zipName}: no image files found.`);
-      await fs.rm(extractionDir, { recursive: true, force: true });
-      continue;
+      if (!sourceState.uploadedMedia.length) {
+        delete manifest.sources[sourceKey];
+        manifestUploadSlugOwners.delete(sourceState.uploadSlug);
+        await persistManifest();
+      }
+      if (extractionDir && !hasFlag("keep-temp")) await fs.rm(extractionDir, { recursive: true, force: true });
+      throw new Error(`No image files found in ${source.path}`);
     }
 
     console.log(`  found ${imageFiles.length} images`);
 
     const uploadedMedia = [];
     for (const [index, imagePath] of imageFiles.entries()) {
+      const sourceRelativePath = path.relative(imageRoot, imagePath).split(path.sep).join("/");
+      const cached = sourceState.uploadedMedia[index];
+      if (cached) {
+        if (cached.sourceRelativePath !== sourceRelativePath) {
+          throw new Error(`Manifest image order mismatch for ${source.name} at index ${index}`);
+        }
+        uploadedMedia.push(cached);
+        continue;
+      }
+
       const uploaded = await optimizeAndUploadImage({
         s3,
         bucket,
         cdnBase,
         region,
         uploadPrefix,
-        projectUploadSlug: uniqueUploadSlug,
+        projectUploadSlug: sourceState.uploadSlug,
         sourcePath: imagePath,
         index,
       });
 
-      uploadedMedia.push(uploaded);
+      const persistedUpload = { ...uploaded, sourceRelativePath };
+      delete persistedUpload.sourcePath;
+      sourceState.uploadedMedia[index] = persistedUpload;
+      sourceState.status = "uploading";
+      uploadedMedia.push(persistedUpload);
       uploadedImages += 1;
+      await persistManifest();
 
       if ((index + 1) % 5 === 0 || index === imageFiles.length - 1) {
         console.log(`  uploaded ${index + 1}/${imageFiles.length}`);
       }
     }
+    sourceState.status = "uploaded";
+    await persistManifest();
 
-    console.log("  generating project description");
-    const projectMeta = await analyzeProjectMeta({
-      apiKey: openRouterApiKey,
-      model: projectModel,
-      uploadedMedia,
-      titleHint: identity.title,
-      zipHint: "",
-    });
+    let projectMeta = sourceState.projectMeta;
+    if (!projectMeta) {
+      console.log("  generating project description");
+      projectMeta = await analyzeProjectMeta({
+        apiKey: openRouterApiKey,
+        model: projectModel,
+        uploadedMedia,
+        titleHint: identity.title,
+      });
+      sourceState.projectMeta = projectMeta;
+      sourceState.status = "project-analyzed";
+      await persistManifest();
+    }
 
     const resolvedTitle =
       normalizeLabel(identity.title || projectMeta.title) ||
-      (identity.isAddressBased ? titleCasePhrase(cleanZipStem(zipName)) : "") ||
+      (identity.isAddressBased ? titleCasePhrase(cleanZipStem(source.name)) : "") ||
       "Custom Residence Project";
-
-    const resolvedSlug = ensureUniqueSlug(identity.slug || normalizeSlug(resolvedTitle), existingSlugs);
+    let resolvedSlug = sourceState.resolvedSlug;
+    if (!resolvedSlug) {
+      resolvedSlug = claimUnusedSlug(identity.slug || normalizeSlug(resolvedTitle), existingSlugs, source.name);
+      sourceState.resolvedTitle = resolvedTitle;
+      sourceState.resolvedSlug = resolvedSlug;
+      await persistManifest();
+    } else if (existingSlugs.has(resolvedSlug)) {
+      const outputPath = sourceState.outputFile ? path.join(projectRoot, sourceState.outputFile) : "";
+      if (outputPath && (await fs.stat(outputPath).catch(() => null))) {
+        sourceState.status = "complete";
+        await persistManifest();
+        skippedProjects += 1;
+        console.log(`Skipping ${source.name}: project document already exists from this manifest`);
+        if (extractionDir && !hasFlag("keep-temp")) await fs.rm(extractionDir, { recursive: true, force: true });
+        continue;
+      }
+      throw new Error(`Cannot resume ${source.name}: project slug "${resolvedSlug}" now belongs to existing content`);
+    } else {
+      existingSlugs.add(resolvedSlug);
+    }
 
     const skipImageMeta = hasFlag("skip-image-meta");
-    const imageAnalyses = skipImageMeta
-      ? uploadedMedia.map((media, index) => ({
+    const imageAnalyses = skipImageMeta ? uploadedMedia.map((media, index) => ({
           room: "",
           cabinetPaints: [],
           cabinetStains: [],
+          doorStyles: [],
           countertop: "",
           flooring: false,
           label: "",
-          confidence: 0,
+          confidence: {},
+          visualQuality: {},
           sourceName: media.sourceName,
           index,
-        }))
-      : await (async () => {
+        })) : await (async () => {
           console.log(`  analyzing image metadata for "${resolvedTitle}"`);
-          return mapWithConcurrency(uploadedMedia, IMAGE_CONCURRENCY, (media, index) =>
-            analyzeSingleImage({
+          return mapWithConcurrency(uploadedMedia, imageConcurrency, async (media, index) => {
+            const cached = sourceState.imageAnalyses[index];
+            if (cached?.sourceName === media.sourceName) return cached;
+
+            const result = await analyzeSingleImage({
               apiKey: openRouterApiKey,
               model: imageModel,
               projectTitle: resolvedTitle,
               media,
-            }).then((result) => ({ ...result, sourceName: media.sourceName, index })),
-          );
+              catalogOptions,
+            });
+            const persistedAnalysis = { ...result, sourceName: media.sourceName, index };
+            sourceState.imageAnalyses[index] = persistedAnalysis;
+            sourceState.status = "images-analyzing";
+            await persistManifest();
+            return persistedAnalysis;
+          });
         })();
+    sourceState.status = "analyzed";
+    await persistManifest();
 
     const scoredMedia = imageAnalyses.map((analysis, index) => ({
       ...analysis,
@@ -876,9 +973,12 @@ async function main() {
       ...(coverIndex >= 0 ? [scoredMedia[coverIndex]] : []),
       ...scoredMedia.filter((_, index) => index !== coverIndex),
     ].map((item, orderIndex) => {
-      const cabinetPaints = item.confidence >= 0.72 ? item.cabinetPaints : [];
-      const cabinetStains = item.confidence >= 0.8 ? item.cabinetStains : [];
-      const room = item.room || (cabinetPaints.length || cabinetStains.length || item.countertop ? "Kitchen" : "");
+      const confidence = item.confidence || {};
+      const cabinetPaints = confidence.cabinetPaints >= 0.72 ? item.cabinetPaints : [];
+      const cabinetStains = confidence.cabinetStains >= 0.8 ? item.cabinetStains : [];
+      const doorStyles = confidence.doorStyles >= 0.75 ? item.doorStyles : [];
+      const room = confidence.room >= 0.7 ? item.room : "";
+      const countertop = confidence.countertop >= 0.68 ? item.countertop : "";
       const label = item.label || item.fallbackLabel;
       const isCover = orderIndex === 0;
 
@@ -888,18 +988,20 @@ async function main() {
         paintPriority: false,
         stainPriority: false,
         countertopPriority: false,
-        flooring: item.confidence >= 0.7 ? Boolean(item.flooring) : false,
+        flooring: confidence.flooring >= 0.7 ? Boolean(item.flooring) : false,
         room,
+        doorStyles,
         cabinetPaints,
         cabinetStains,
-        countertop: item.confidence >= 0.68 ? item.countertop : "",
+        countertop,
         label,
         description: buildMediaDescription({
           projectTitle: resolvedTitle,
           room,
           cabinetPaints,
           cabinetStains,
-          countertop: item.confidence >= 0.68 ? item.countertop : "",
+          doorStyles,
+          countertop,
           aiLabel: label,
           isCover,
         }),
@@ -912,9 +1014,14 @@ async function main() {
       description: projectMeta.description,
       address: identity.address,
       media: orderedMedia,
+      sourceUpdatedAt: sourceState.importedAt,
     });
+    validateProjectDocument(projectDocument, catalogOptions);
 
     const outputPath = path.join(CONTENT_DIR, `${resolvedSlug}.md`);
+    sourceState.outputFile = path.relative(projectRoot, outputPath).split(path.sep).join("/");
+    sourceState.status = "ready-to-write";
+    await persistManifest();
 
     await fs.writeFile(
       outputPath,
@@ -929,9 +1036,12 @@ async function main() {
     );
 
     createdFiles.push(outputPath);
+    sourceState.status = "complete";
+    sourceState.completedAt = new Date().toISOString();
+    await persistManifest();
     console.log(`  wrote ${path.basename(outputPath)}`);
 
-    if (!hasFlag("keep-temp")) {
+    if (extractionDir && !hasFlag("keep-temp")) {
       await fs.rm(extractionDir, { recursive: true, force: true });
     }
   }
@@ -942,8 +1052,11 @@ async function main() {
         importedAt: new Date().toISOString(),
         projects: createdFiles.length,
         uploadedImages,
+        resumedProjects,
+        skippedProjects,
         projectModel,
         imageModel,
+        manifestPath,
         createdFiles,
       },
       null,

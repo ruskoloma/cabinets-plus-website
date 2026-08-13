@@ -9,6 +9,7 @@
     "lint": "eslint",
     "pinterest:generate": "node scripts/generate-pinterest-rss.mjs",
     "pinterest:validate": "node scripts/generate-pinterest-rss.mjs --check",
+    "project-import:test": "node --test scripts/project-import-lib.test.mjs",
     "images:generate-variants": "node scripts/generate-s3-image-variants.mjs",
     "resources:upload": "node scripts/upload-resource-assets.mjs",
     "media:migrate-project-folders": "node scripts/migrate-project-media-folders.mjs",

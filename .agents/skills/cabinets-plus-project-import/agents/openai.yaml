@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cabinets Plus Project Import"
+  short_description: "Import project photos into TinaCMS safely"
+  default_prompt: "Use $cabinets-plus-project-import to import the provided project photos into this repository."
