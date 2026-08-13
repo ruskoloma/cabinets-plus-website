@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/.cache/project-import/
 
 # next.js
 /.next/
