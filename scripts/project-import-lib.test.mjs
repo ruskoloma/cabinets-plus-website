@@ -3,8 +3,10 @@ import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 import {
+  createOpenRouterUsageSummary,
   loadCatalogOptions,
   normalizeImageAnalysis,
+  recordOpenRouterUsage,
   scoreCoverCandidate,
   validateProjectDocument,
 } from "./project-import-lib.mjs";
@@ -64,6 +66,46 @@ test("cover scoring does not favor one room type", () => {
     scoreCoverCandidate({ ...base, room: "Kitchen" }),
     scoreCoverCandidate({ ...base, room: "Bathroom" }),
   );
+});
+
+test("aggregates exact OpenRouter cost and token usage by job category and model", () => {
+  const summary = createOpenRouterUsageSummary();
+
+  recordOpenRouterUsage(summary, {
+    category: "project",
+    model: "openai/gpt-5.6-terra-pro",
+    usage: {
+      cost: 0.0125,
+      prompt_tokens: 1200,
+      completion_tokens: 180,
+      total_tokens: 1380,
+      completion_tokens_details: { reasoning_tokens: 40 },
+    },
+  });
+  recordOpenRouterUsage(summary, {
+    category: "image",
+    model: "openai/gpt-5.6-sol-pro",
+    usage: {
+      cost: 0.031,
+      prompt_tokens: 3600,
+      completion_tokens: 260,
+      total_tokens: 3860,
+      completion_tokens_details: { reasoning_tokens: 75 },
+    },
+  });
+
+  assert.deepEqual(summary.total, {
+    calls: 2,
+    costUsd: 0.0435,
+    promptTokens: 4800,
+    completionTokens: 440,
+    reasoningTokens: 115,
+    totalTokens: 5240,
+    costUnavailableCalls: 0,
+  });
+  assert.equal(summary.categories.project.costUsd, 0.0125);
+  assert.equal(summary.categories.image.costUsd, 0.031);
+  assert.equal(summary.models["openai/gpt-5.6-sol-pro"].calls, 1);
 });
 
 test("validates the complete Tina project contract", () => {

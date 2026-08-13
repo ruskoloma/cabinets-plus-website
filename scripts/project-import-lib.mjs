@@ -49,6 +49,59 @@ export function normalizeText(value) {
   return String(value || "").replace(/\s+/g, " ").trim();
 }
 
+function numericUsageValue(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function emptyUsageTotals() {
+  return {
+    calls: 0,
+    costUsd: 0,
+    promptTokens: 0,
+    completionTokens: 0,
+    reasoningTokens: 0,
+    totalTokens: 0,
+    costUnavailableCalls: 0,
+  };
+}
+
+export function createOpenRouterUsageSummary() {
+  return {
+    total: emptyUsageTotals(),
+    categories: {},
+    models: {},
+  };
+}
+
+function addUsageTotals(target, usage) {
+  const cost = numericUsageValue(usage?.cost);
+  const promptTokens = numericUsageValue(usage?.prompt_tokens) || 0;
+  const completionTokens = numericUsageValue(usage?.completion_tokens) || 0;
+  const reasoningTokens = numericUsageValue(usage?.completion_tokens_details?.reasoning_tokens) || 0;
+  const totalTokens = numericUsageValue(usage?.total_tokens) ?? promptTokens + completionTokens;
+
+  target.calls += 1;
+  target.costUsd += cost || 0;
+  target.promptTokens += promptTokens;
+  target.completionTokens += completionTokens;
+  target.reasoningTokens += reasoningTokens;
+  target.totalTokens += totalTokens;
+  if (cost === null) target.costUnavailableCalls += 1;
+}
+
+export function recordOpenRouterUsage(summary, { category = "other", model = "unknown", usage } = {}) {
+  if (!summary?.total) throw new Error("OpenRouter usage summary is required");
+
+  summary.categories[category] ||= emptyUsageTotals();
+  summary.models[model] ||= emptyUsageTotals();
+  addUsageTotals(summary.total, usage);
+  addUsageTotals(summary.categories[category], usage);
+  addUsageTotals(summary.models[model], usage);
+  return summary;
+}
+
 function optionValues(items) {
   if (!Array.isArray(items)) return [];
 

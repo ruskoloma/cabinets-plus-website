@@ -24,7 +24,9 @@ Use Vercel Development environment variables so the workflow works after cloning
 npx vercel env run -e development -- node scripts/import-projects-from-zips.mjs --source="/absolute/path/to/project.zip"
 ```
 
-The source may also be an image folder. Require `OPENROUTER_API_KEY`, `S3_REGION`, `S3_BUCKET`, `S3_ACCESS_KEY`, and `S3_SECRET_KEY`; allow `S3_CDN_URL`, `OPENROUTER_PROJECT_MODEL`, and `OPENROUTER_IMAGE_MODEL`. Never pass secrets as command arguments, commit them, copy them into the skill, or expose them in logs. If `.vercel/project.json` is absent, pause for the user to authenticate/link the clone rather than guessing the Vercel project.
+The source may also be an image folder. Require `OPENROUTER_API_KEY`, `S3_REGION`, `S3_BUCKET`, `S3_ACCESS_KEY`, and `S3_SECRET_KEY`; allow `S3_CDN_URL`, `OPENROUTER_PROJECT_MODEL`, `OPENROUTER_IMAGE_MODEL`, and `OPENROUTER_MANAGEMENT_API_KEY`. Never pass secrets as command arguments, commit them, copy them into the skill, or expose them in logs. If `.vercel/project.json` is absent, pause for the user to authenticate/link the clone rather than guessing the Vercel project.
+
+Keep `OPENROUTER_MANAGEMENT_API_KEY` optional and administrative-only. The importer must calculate the exact cost of the current job by summing `usage.cost` from its inference responses. When the management key is present, also compare account usage before and after the run and print remaining credits; label the account delta as a cross-check that may include concurrent OpenRouter activity. Print the cost summary on success and after a failed run that may already have incurred charges.
 
 Do not use `--skip-image-meta` for a real import.
 
@@ -69,6 +71,8 @@ npm run project-import:test
 npm run pinterest:validate
 npx tinacms build --datalayer-port 9100
 ```
+
+Confirm the final importer output includes the total OpenRouter cost for the job, the project/image cost breakdown, token counts in the JSON summary, and the Management API account cross-check when configured. Treat the per-response job total as authoritative for this import.
 
 Use port `9100` to avoid interfering with another Tina dev process. Review `git diff --check`, the complete diff, and changed-file scope. For a requested PR, use a dedicated `codex/` branch, stage only the skill/importer files plus the explicitly imported project Markdown, commit, push, create the PR, and verify its file list.
 

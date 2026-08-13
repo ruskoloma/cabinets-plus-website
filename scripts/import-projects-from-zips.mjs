@@ -14,9 +14,11 @@ import sharp from "sharp";
 import { dump as toYaml } from "js-yaml";
 import variantPresets from "../lib/image-variant-presets.json" with { type: "json" };
 import {
+  createOpenRouterUsageSummary,
   loadCatalogOptions,
   normalizeImageAnalysis,
   normalizeText,
+  recordOpenRouterUsage,
   scoreCoverCandidate,
   validateProjectDocument,
 } from "./project-import-lib.mjs";
@@ -40,6 +42,10 @@ const MAX_ORIGINAL_WIDTH = 2400;
 const ORIGINAL_QUALITY = 82;
 const DEFAULT_CACHE_CONTROL = "public, max-age=31536000, immutable";
 const IMAGE_EXTENSION_PATTERN = /\.(jpe?g|png|webp|heic|heif|tif|tiff)$/i;
+const openRouterJobUsage = createOpenRouterUsageSummary();
+let openRouterManagementApiKey = "";
+let openRouterCreditsBefore = null;
+let openRouterCostReport = null;
 
 const DIRECTION_TOKENS = new Set(["n", "s", "e", "w", "ne", "nw", "se", "sw"]);
 const STREET_SUFFIX_MAP = new Map([
@@ -479,7 +485,7 @@ async function optimizeAndUploadImage({ s3, bucket, cdnBase, region, uploadPrefi
   };
 }
 
-async function callOpenRouter({ apiKey, model, body }) {
+async function callOpenRouter({ apiKey, model, body, usageCategory }) {
   let lastError;
 
   for (let attempt = 1; attempt <= 4; attempt += 1) {
@@ -506,6 +512,11 @@ async function callOpenRouter({ apiKey, model, body }) {
       }
 
       const parsed = JSON.parse(text);
+      recordOpenRouterUsage(openRouterJobUsage, {
+        category: usageCategory,
+        model,
+        usage: parsed?.usage,
+      });
       return parsed?.choices?.[0]?.message?.content || "";
     } catch (error) {
       lastError = error;
@@ -517,6 +528,84 @@ async function callOpenRouter({ apiKey, model, body }) {
   }
 
   throw lastError;
+}
+
+async function getOpenRouterCredits(managementApiKey) {
+  if (!managementApiKey) return null;
+
+  const response = await fetch("https://openrouter.ai/api/v1/credits", {
+    headers: {
+      Authorization: `Bearer ${managementApiKey}`,
+      "HTTP-Referer": "https://local.codex.app",
+      "X-Title": "Cabinets Plus Zip Import",
+    },
+  });
+  const text = await response.text();
+  if (!response.ok) {
+    throw new Error(`OpenRouter credits request failed (${response.status}): ${text.slice(0, 500)}`);
+  }
+
+  const data = JSON.parse(text)?.data;
+  const totalCreditsUsd = Number(data?.total_credits);
+  const totalUsageUsd = Number(data?.total_usage);
+  if (!Number.isFinite(totalCreditsUsd) || !Number.isFinite(totalUsageUsd)) {
+    throw new Error("OpenRouter credits response contains no usable totals");
+  }
+
+  return {
+    totalCreditsUsd,
+    totalUsageUsd,
+    remainingCreditsUsd: totalCreditsUsd - totalUsageUsd,
+  };
+}
+
+function formatUsd(value) {
+  return `$${Number(value || 0).toFixed(6)}`;
+}
+
+async function finalizeOpenRouterCostReport() {
+  if (openRouterCostReport) return openRouterCostReport;
+
+  let account = null;
+  let managementError = "";
+  if (openRouterManagementApiKey) {
+    try {
+      const after = await getOpenRouterCredits(openRouterManagementApiKey);
+      account = {
+        ...after,
+        usageDeltaUsd: openRouterCreditsBefore
+          ? Math.max(0, after.totalUsageUsd - openRouterCreditsBefore.totalUsageUsd)
+          : null,
+      };
+    } catch (error) {
+      managementError = error.message;
+    }
+  }
+
+  openRouterCostReport = {
+    job: openRouterJobUsage,
+    account,
+    managementError,
+  };
+
+  console.log("OpenRouter cost summary:");
+  console.log(`  this job: ${formatUsd(openRouterJobUsage.total.costUsd)} across ${openRouterJobUsage.total.calls} responses`);
+  for (const [category, usage] of Object.entries(openRouterJobUsage.categories)) {
+    console.log(`  ${category}: ${formatUsd(usage.costUsd)} across ${usage.calls} responses`);
+  }
+  if (openRouterJobUsage.total.costUnavailableCalls) {
+    console.warn(`  warning: ${openRouterJobUsage.total.costUnavailableCalls} responses did not include usage.cost`);
+  }
+  if (account) {
+    if (account.usageDeltaUsd !== null) {
+      console.log(`  account usage delta: ${formatUsd(account.usageDeltaUsd)} (may include concurrent OpenRouter activity)`);
+    }
+    console.log(`  account credits remaining: ${formatUsd(account.remainingCreditsUsd)}`);
+  } else if (managementError) {
+    console.warn(`  management API cross-check unavailable: ${managementError}`);
+  }
+
+  return openRouterCostReport;
 }
 
 function pickProjectSampleMedia(uploadedMedia) {
@@ -573,6 +662,7 @@ async function analyzeProjectMeta({ apiKey, model, uploadedMedia, titleHint }) {
     await callOpenRouter({
       apiKey,
       model,
+      usageCategory: "project",
       body: {
         max_tokens: 500,
         response_format: { type: "json_object" },
@@ -633,6 +723,7 @@ async function analyzeSingleImage({ apiKey, model, projectTitle, media, catalogO
     await callOpenRouter({
       apiKey,
       model,
+      usageCategory: "image",
       body: {
         max_tokens: 700,
         response_format: { type: "json_object" },
@@ -719,9 +810,18 @@ async function main() {
     ? Math.floor(configuredImageConcurrency)
     : 4;
   const openRouterApiKey = process.env.OPENROUTER_API_KEY;
+  openRouterManagementApiKey = process.env.OPENROUTER_MANAGEMENT_API_KEY || "";
 
   if (!openRouterApiKey) {
     throw new Error("Missing OPENROUTER_API_KEY. Inject it through the environment; command-line secrets are not accepted.");
+  }
+
+  if (openRouterManagementApiKey) {
+    try {
+      openRouterCreditsBefore = await getOpenRouterCredits(openRouterManagementApiKey);
+    } catch (error) {
+      console.warn(`OpenRouter management API preflight unavailable: ${error.message}`);
+    }
   }
 
   const region = process.env.S3_REGION;
@@ -1046,6 +1146,7 @@ async function main() {
     }
   }
 
+  const openRouter = await finalizeOpenRouterCostReport();
   console.log(
     JSON.stringify(
       {
@@ -1056,6 +1157,7 @@ async function main() {
         skippedProjects,
         projectModel,
         imageModel,
+        openRouter,
         manifestPath,
         createdFiles,
       },
@@ -1065,7 +1167,8 @@ async function main() {
   );
 }
 
-main().catch((error) => {
+main().catch(async (error) => {
+  await finalizeOpenRouterCostReport();
   console.error(error);
   process.exit(1);
 });
