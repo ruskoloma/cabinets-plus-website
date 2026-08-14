@@ -3,14 +3,12 @@
 import { useMemo, useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import FillImage from "@/components/ui/FillImage";
-import { DownloadIcon, ExpandIcon, FileIcon } from "@/components/resources/ResourceIcons";
+import { DownloadIcon, ExpandIcon } from "@/components/resources/ResourceIcons";
 import ResourcePreviewLightbox from "@/components/resources/ResourcePreviewLightbox";
 import {
   documentPageUrls,
-  joinResourceMeta,
   resourceCoverUrl,
   resourceDownloadUrl,
-  resourceFileType,
 } from "@/lib/resource-assets";
 import { asBlockArray, asNumber, asText, type BlockRecord } from "./block-types";
 
@@ -20,8 +18,6 @@ interface ResourceFileItem {
   coverUrl: string;
   description: string;
   downloadUrl: string;
-  fileType: string;
-  meta: string;
   pageCount: number;
   pages: string[];
   raw: BlockRecord;
@@ -53,7 +49,6 @@ export default function ResourceFilesSection({ block }: { block: BlockRecord }) 
       const pages = documentPageUrls(assetBase, asNumber(item.pageCount), uploadedPages);
       const downloadUrl = resourceDownloadUrl(assetBase, downloadFile, asText(item.downloadUrl));
       const pageCount = pages.length;
-      const fileType = resourceFileType(downloadFile || downloadUrl, asText(item.fileType));
       const category = asText(item.category).trim();
       const categoryKey = category || UNGROUPED;
 
@@ -61,13 +56,7 @@ export default function ResourceFilesSection({ block }: { block: BlockRecord }) 
         coverUrl: resourceCoverUrl(assetBase, asText(item.coverOverride)) || pages[0] || "",
         description: asText(item.description),
         downloadUrl,
-        fileType,
         key: `${assetBase || downloadUrl || "resource"}-${index}`,
-        meta: joinResourceMeta([
-          fileType,
-          pageCount > 1 ? `${pageCount} pages` : pageCount === 1 ? "1 page" : "",
-          asText(item.fileSize),
-        ]),
         pageCount,
         pages,
         raw: item,
@@ -130,12 +119,12 @@ export default function ResourceFilesSection({ block }: { block: BlockRecord }) 
 
                     return (
                       <article
-                        className="group flex h-full flex-col border border-[var(--cp-primary-100)] bg-white"
+                        className="group flex h-full flex-col"
                         key={item.key}
                       >
                         <button
                           aria-label={`Preview ${item.title}`}
-                          className="relative block aspect-[4/5] w-full overflow-hidden bg-white p-3 disabled:cursor-default"
+                          className="relative block aspect-[4/5] w-full overflow-hidden rounded-[2px] bg-[var(--cp-primary-100)] disabled:cursor-default"
                           data-tina-field={tinaField(item.raw, "assetBase")}
                           disabled={!canPreview}
                           onClick={openPreview}
@@ -151,8 +140,8 @@ export default function ResourceFilesSection({ block }: { block: BlockRecord }) 
                           ) : null}
 
                           {canPreview ? (
-                            <span className="absolute inset-0 flex items-center justify-center bg-[rgba(20,20,19,0.45)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                              <span className="inline-flex items-center gap-2 border border-white/70 px-3 py-1.5 text-[12px] uppercase tracking-[0.08em] text-white">
+                            <span className="absolute inset-0 flex items-center justify-center bg-[rgba(38,38,35,0.4)] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                              <span className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[2px] border border-white bg-transparent px-8 text-[20px] font-medium leading-[1.2] text-white">
                                 <ExpandIcon className="h-4 w-4" />
                                 Preview
                               </span>
@@ -160,16 +149,9 @@ export default function ResourceFilesSection({ block }: { block: BlockRecord }) 
                           ) : null}
                         </button>
 
-                        <div className="flex flex-1 flex-col border-t border-[var(--cp-primary-100)] p-5">
-                          {item.meta ? (
-                            <span className="inline-flex items-center gap-1.5 text-[12px] uppercase tracking-[0.08em] text-[var(--cp-gray-3)]">
-                              <FileIcon className="h-4 w-4" />
-                              {item.meta}
-                            </span>
-                          ) : null}
-
+                        <div className="flex flex-1 flex-col pt-4">
                           <h4
-                            className="mt-2 text-[18px] font-semibold leading-[1.3] text-[var(--cp-primary-500)]"
+                            className="text-[18px] font-semibold leading-[1.3] text-[var(--cp-primary-500)]"
                             data-tina-field={tinaField(item.raw, "title")}
                           >
                             {item.title}
@@ -185,17 +167,6 @@ export default function ResourceFilesSection({ block }: { block: BlockRecord }) 
                           ) : null}
 
                           <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-5">
-                            {canPreview ? (
-                              <button
-                                className="inline-flex items-center gap-2 text-[15px] leading-[1.4] text-[var(--cp-primary-400)] transition-colors hover:text-[var(--cp-primary-350)]"
-                                onClick={openPreview}
-                                type="button"
-                              >
-                                <ExpandIcon className="h-[18px] w-[18px]" />
-                                Preview
-                              </button>
-                            ) : null}
-
                             {item.downloadUrl ? (
                               <a
                                 className="inline-flex items-center gap-2 text-[15px] leading-[1.4] text-[var(--cp-primary-500)] transition-colors hover:text-[var(--cp-primary-400)]"

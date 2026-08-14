@@ -6,11 +6,9 @@ import FillImage from "@/components/ui/FillImage";
 import { DownloadIcon, ExpandIcon } from "@/components/resources/ResourceIcons";
 import ResourcePreviewLightbox from "@/components/resources/ResourcePreviewLightbox";
 import {
-  joinResourceMeta,
   magazineSpreadUrls,
   resourceCoverUrl,
   resourceDownloadUrl,
-  resourceFileType,
 } from "@/lib/resource-assets";
 import { asBlockArray, asNumber, asText, type BlockRecord } from "./block-types";
 
@@ -23,8 +21,8 @@ interface OpenPreview {
  * The magazine shelf: cover cards that open a full-screen spread viewer.
  *
  * Nothing heavy loads with the page — the spread images are only requested
- * once a cover is clicked, so three 85-spread magazines cost three thumbnails
- * on first paint.
+ * once a cover is clicked, so each magazine costs only one thumbnail on first
+ * paint.
  */
 export default function ResourceLibrarySection({ block }: { block: BlockRecord }) {
   const [preview, setPreview] = useState<OpenPreview | null>(null);
@@ -48,11 +46,6 @@ export default function ResourceLibrarySection({ block }: { block: BlockRecord }
         return {
           coverUrl: resourceCoverUrl(assetBase, asText(item.coverOverride)),
           downloadUrl,
-          meta: joinResourceMeta([
-            spreadCount > 0 ? `${spreadCount} spreads` : "",
-            resourceFileType(downloadFile || downloadUrl),
-            asText(item.fileSize),
-          ]),
           raw: item,
           spreadCount,
           spreads: magazineSpreadUrls(assetBase, spreadCount),
@@ -151,14 +144,10 @@ export default function ResourceLibrarySection({ block }: { block: BlockRecord }
                     </p>
                   ) : null}
 
-                  {item.meta ? (
-                    <p className="mt-3 text-[13px] uppercase tracking-[0.08em] text-[var(--cp-gray-3)]">{item.meta}</p>
-                  ) : null}
-
                   {item.downloadUrl ? (
                     <div className="mt-auto pt-5">
                       <a
-                        className="inline-flex items-center gap-2 border-b border-[var(--cp-primary-100)] pb-1 text-[15px] leading-[1.4] text-[var(--cp-primary-500)] transition-colors hover:border-[var(--cp-primary-400)] hover:text-[var(--cp-primary-400)]"
+                        className="cp-btn cp-btn--outline cp-btn--small gap-2"
                         data-tina-field={tinaField(item.raw, "downloadFile")}
                         download
                         href={item.downloadUrl}
