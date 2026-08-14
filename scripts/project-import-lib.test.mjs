@@ -20,7 +20,7 @@ test("loads metadata values from Tina catalog settings", () => {
   assert.deepEqual(catalogOptions.countertopTypes, ["Quartz", "Granite", "Quartzite", "Marble"]);
 });
 
-test("normalizes vision metadata only to configured Tina values", () => {
+test("normalizes vision metadata to Tina values and ignores flooring inference", () => {
   const result = normalizeImageAnalysis(
     {
       room: "powder room",
@@ -41,7 +41,7 @@ test("normalizes vision metadata only to configured Tina values", () => {
   assert.deepEqual(result.cabinetStains, []);
   assert.deepEqual(result.doorStyles, ["slim shaker"]);
   assert.equal(result.countertop, "");
-  assert.equal(result.flooring, true);
+  assert.equal(result.flooring, false);
   assert.equal(result.visualQuality.composition, 1);
   assert.equal(result.visualQuality.obstructions, 0);
 });
@@ -133,6 +133,7 @@ test("validates the complete Tina project contract", () => {
   };
 
   assert.equal(validateProjectDocument(project, catalogOptions), project);
+  assert.equal(project.media[0].flooring, true, "validation must not rewrite a legacy flooring value");
   assert.throws(
     () => validateProjectDocument({ ...project, media: [{ ...project.media[0], countertop: "Other" }] }, catalogOptions),
     /unsupported countertopTypes value/,

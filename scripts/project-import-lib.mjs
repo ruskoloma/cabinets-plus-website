@@ -186,7 +186,6 @@ export function normalizeConfidence(value) {
     cabinetStains: clampUnit(source.cabinetStains ?? fallback),
     doorStyles: clampUnit(source.doorStyles ?? fallback),
     countertop: clampUnit(source.countertop ?? fallback),
-    flooring: clampUnit(source.flooring ?? fallback),
     label: clampUnit(source.label ?? fallback),
   };
 }
@@ -212,7 +211,7 @@ export function normalizeImageAnalysis(parsed, catalogOptions) {
     cabinetStains: coerceCatalogList(source.cabinetStains, "stainTypes", catalogOptions),
     doorStyles: coerceCatalogList(source.doorStyles, "doorStyles", catalogOptions),
     countertop: coerceCatalogValue(source.countertop, "countertopTypes", catalogOptions),
-    flooring: source.flooring === true,
+    flooring: false,
     label: normalizeText(source.label),
     confidence: normalizeConfidence(source.confidence),
     visualQuality: normalizeVisualQuality(source.visualQuality),

@@ -701,7 +701,7 @@ async function analyzeSingleImage({ apiKey, model, projectTitle, media, catalogO
       type: "text",
       text:
         `Analyze this single interior project image and return strict JSON only. ` +
-        `Required keys: room, cabinetPaints, cabinetStains, doorStyles, countertop, flooring, label, confidence, visualQuality. ` +
+        `Required keys: room, cabinetPaints, cabinetStains, doorStyles, countertop, label, confidence, visualQuality. ` +
         `Allowed room values: ${promptValues(catalogOptions.rooms)}, or empty string. ` +
         `Allowed cabinetPaints values: ${promptValues(catalogOptions.paintOptions)}. ` +
         `Allowed cabinetStains values: ${promptValues(catalogOptions.stainTypes)}. ` +
@@ -709,9 +709,8 @@ async function analyzeSingleImage({ apiKey, model, projectTitle, media, catalogO
         `Allowed countertop values: ${promptValues(catalogOptions.countertopTypes)}, or empty string. ` +
         `cabinetPaints, cabinetStains, and doorStyles must be arrays with zero, one, or two items. ` +
         `Only identify cabinet finishes that are clearly visible on cabinetry. Ignore wall, decor, or flooring color. ` +
-        `flooring is true only when the floor is clearly visible and substantial in the frame. ` +
         `label should be a short factual caption, 2-6 words, with no address or client names. ` +
-        `confidence must be an object with room, cabinetPaints, cabinetStains, doorStyles, countertop, flooring, and label scores from 0 to 1. ` +
+        `confidence must be an object with room, cabinetPaints, cabinetStains, doorStyles, countertop, and label scores from 0 to 1. ` +
         `visualQuality must be an object with composition, sharpness, lighting, subjectCoverage, and obstructions scores from 0 to 1. ` +
         `For obstructions, 1 means the main cabinetry or room is heavily blocked; for all other visualQuality fields, 1 is best. ` +
         `Project title context: ${projectTitle || "Project"}.`,
@@ -1088,7 +1087,7 @@ async function main() {
         paintPriority: false,
         stainPriority: false,
         countertopPriority: false,
-        flooring: confidence.flooring >= 0.7 ? Boolean(item.flooring) : false,
+        flooring: false,
         room,
         doorStyles,
         cabinetPaints,

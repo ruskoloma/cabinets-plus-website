@@ -38,9 +38,9 @@ Let the importer:
 - create the static frontend variants defined by `lib/image-variant-presets.json` (`thumb`, `card`, `feature`, `full`);
 - analyze every image, not only the project-level sample;
 - produce only Tina-configured metadata values;
-- set `flooring: true` only when flooring is clearly and substantially visible, otherwise `false`;
+- set `flooring: false` on every newly imported media item; do not infer this field from the image;
 - leave an uncertain `room` empty instead of forcing `Kitchen`;
-- recognize `doorStyles` as well as room, paint, stain, countertop, and flooring;
+- recognize `doorStyles` as well as room, paint, stain, and countertop;
 - generate a factual label and description for every image;
 - choose the cover by composition, sharpness, lighting, subject coverage, obstructions, and metadata confidence without favoring a room type;
 - set exactly one `roomPriority: true` and use that image as `primaryPicture`;
@@ -56,7 +56,7 @@ Open the generated `content/projects/<slug>.md` and verify:
 - source image count equals `media` count;
 - every item has `file`, `label`, `description`, `roomPriority`, and boolean `flooring`;
 - metadata values belong to the current catalog settings;
-- `flooring` decisions are plausible from the actual images rather than mass-normalized;
+- every newly imported media item has `flooring: false`;
 - the selected cover is visually strong and `primaryPicture` equals its file;
 - no filename-like captions, unsupported countertop values, product links, related projects, or special-page edits were introduced.
 
@@ -76,4 +76,4 @@ Confirm the final importer output includes the total OpenRouter cost for the job
 
 Use port `9100` to avoid interfering with another Tina dev process. Review `git diff --check`, the complete diff, and changed-file scope. For a requested PR, use a dedicated `codex/` branch, stage only the skill/importer files plus the explicitly imported project Markdown, commit, push, create the PR, and verify its file list.
 
-Keep legacy metadata reindexing in a separate PR from importer/skill changes unless the user explicitly combines the scopes.
+Keep legacy metadata reindexing in a separate PR from importer/skill changes unless the user explicitly combines the scopes. Preserve existing projects' `flooring` values during any metadata reindex; do not recalculate or normalize them unless the user explicitly requests a flooring migration.
