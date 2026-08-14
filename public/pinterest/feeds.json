@@ -1,19 +1,19 @@
 {
-  "generatedFromContentUpdatedThrough": "2026-08-05T17:14:27.000Z",
+  "generatedFromContentUpdatedThrough": "2026-08-14T20:06:50.858Z",
   "siteUrl": "https://www.spokanecabinetsplus.com",
-  "publishedProjects": 61,
-  "sourceImages": 1043,
-  "primaryItems": 1043,
-  "curatedItems": 77,
+  "publishedProjects": 62,
+  "sourceImages": 1054,
+  "primaryItems": 1054,
+  "curatedItems": 78,
   "feedCounts": {
-    "kitchen-cabinet-ideas": 512,
+    "kitchen-cabinet-ideas": 523,
     "bathroom-vanity-ideas": 247,
     "laundry-mudroom-cabinets": 86,
     "home-bar-cabinet-ideas": 26,
     "custom-built-ins": 128,
     "glass-shower-enclosures": 44,
     "countertop-design-ideas": 16,
-    "spokane-remodeling": 61
+    "spokane-remodeling": 62
   },
   "feeds": [
     {
@@ -22,7 +22,7 @@
       "boardName": "Kitchen Cabinet Ideas",
       "boardDescription": "Kitchen cabinet ideas from real Cabinets Plus projects in Spokane, Washington. Explore white shaker cabinets, natural wood cabinetry, two-tone kitchens, islands, pantries, quartz countertops and modern storage.",
       "kind": "primary",
-      "itemCount": 512
+      "itemCount": 523
     },
     {
       "id": "bathroom-vanity-ideas",
@@ -78,7 +78,7 @@
       "boardName": "Spokane Kitchen & Bathroom Remodeling",
       "boardDescription": "Kitchen, bathroom and custom cabinetry remodeling inspiration from completed Cabinets Plus projects in Spokane and the Inland Northwest.",
       "kind": "curated",
-      "itemCount": 61
+      "itemCount": 62
     }
   ]
 }
