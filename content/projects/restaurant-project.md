@@ -46,7 +46,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Other
     cabinetPaints: []
     cabinetStains: []
@@ -59,7 +59,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Other
     doorStyles:
       - slim shaker
