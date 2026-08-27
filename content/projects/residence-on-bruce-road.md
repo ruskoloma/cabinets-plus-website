@@ -9,7 +9,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -21,7 +21,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -45,7 +45,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -57,7 +57,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -69,7 +69,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -81,7 +81,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -93,7 +93,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -105,7 +105,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -117,7 +117,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -141,7 +141,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     cabinetPaints: []
     cabinetStains: []
@@ -165,7 +165,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Bathroom
     cabinetPaints: []
     cabinetStains: []
@@ -177,7 +177,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Other
     cabinetPaints: []
     cabinetStains: []
@@ -201,7 +201,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Bathroom
     cabinetPaints: []
     cabinetStains: []
@@ -213,7 +213,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Bathroom
     cabinetPaints: []
     cabinetStains: []
@@ -225,7 +225,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Laundry
     cabinetPaints: []
     cabinetStains: []

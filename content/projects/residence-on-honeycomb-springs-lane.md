@@ -9,7 +9,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
+    flooring: true
     room: ''
     doorStyles:
       - slim shaker

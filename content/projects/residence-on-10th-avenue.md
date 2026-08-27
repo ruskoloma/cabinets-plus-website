@@ -23,7 +23,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: false
+    flooring: true
     room: Kitchen
     cabinetPaints:
       - white

@@ -9,7 +9,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     doorStyles:
       - shaker
@@ -24,7 +24,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     doorStyles:
       - shaker
@@ -39,7 +39,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     doorStyles:
       - shaker
@@ -66,7 +66,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Bathroom
     doorStyles:
       - shaker
@@ -81,7 +81,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Bathroom
     doorStyles:
       - shaker
@@ -96,7 +96,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     doorStyles:
       - shaker
@@ -111,7 +111,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Laundry
     doorStyles:
       - shaker
@@ -126,7 +126,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Other
     doorStyles:
       - shaker
@@ -156,7 +156,7 @@ media:
     paintPriority: false
     stainPriority: false
     countertopPriority: false
-    flooring: true
+    flooring: false
     room: Kitchen
     doorStyles:
       - shaker
