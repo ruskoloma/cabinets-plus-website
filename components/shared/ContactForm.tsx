@@ -41,6 +41,21 @@ const SPAM_TERMS = [
   "viagra",
 ];
 
+function trackSuccessfulContactRequest() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "contact_form_success",
+    form_id: "contact_form",
+    form_name: "Contact request",
+  });
+}
+
+declare global {
+  interface Window {
+    dataLayer?: Array<Record<string, unknown>>;
+  }
+}
+
 function hasSpamSignals(...values: FormDataEntryValue[]): boolean {
   const content = values.map((value) => value.toString()).join(" ").toLowerCase();
   const linkCount = (content.match(/https?:\/\//g) || []).length;
@@ -143,6 +158,7 @@ export default function ContactForm({
       formElement.reset();
       setStatus("success");
       setStatusMessage("Thanks, your request was sent. We will get back to you shortly.");
+      trackSuccessfulContactRequest();
     } catch (error) {
       setStatus("error");
       setStatusMessage(error instanceof Error ? error.message : "Unable to send your request. Please try again.");
