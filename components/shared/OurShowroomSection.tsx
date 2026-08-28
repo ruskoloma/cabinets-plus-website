@@ -46,6 +46,8 @@ export default function OurShowroomSection({ block }: OurShowroomSectionProps) {
   const mapEmbedUrl = text(block.mapEmbedUrl, DEFAULT_MAP_EMBED_URL);
   const textureSrc = text(block.texture) || DEFAULT_SHOWROOM_TEXTURE;
   const pinterestUrl = global.pinterestUrl || "https://www.pinterest.com/";
+  const directionsAddress = /spokane/i.test(global.address) ? global.address : `${global.address}, Spokane, WA`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(directionsAddress)}`;
 
   return (
     <section className="relative overflow-hidden bg-[#f5f3ee] py-12 md:py-16" data-tina-field={tinaField(block)}>
@@ -72,7 +74,7 @@ export default function OurShowroomSection({ block }: OurShowroomSectionProps) {
             </h2>
 
             <div className="mt-12 space-y-8 text-[var(--cp-primary-500)] md:mt-16">
-              <div className="flex items-center gap-5">
+              <a className="flex items-center gap-5 hover:underline underline-offset-[0.14em]" href={directionsUrl} rel="noreferrer" target="_blank">
                 <LocationIcon />
                 <div className="text-[16px] leading-[1.5] md:text-[18px]">
                   <p className="font-semibold" data-tina-field={tinaField(generalRecord, "address")}>
@@ -80,21 +82,21 @@ export default function OurShowroomSection({ block }: OurShowroomSectionProps) {
                   </p>
                   <p data-tina-field={tinaField(generalRecord, "hours")}>{global.hours}</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-5">
+              <a className="flex items-center gap-5 hover:underline underline-offset-[0.14em]" href={`mailto:${global.email}`}>
                 <MailIcon />
                 <p className="text-[16px] leading-[1.5] md:text-[18px]" data-tina-field={tinaField(generalRecord, "email")}>
                   {global.email}
                 </p>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-5">
+              <a className="flex items-center gap-5 hover:underline underline-offset-[0.14em]" href={`tel:${global.phone.replace(/[^0-9+]/g, "")}`}>
                 <PhoneIcon />
                 <p className="text-[16px] leading-[1.5] md:text-[18px]" data-tina-field={tinaField(generalRecord, "phone")}>
                   {global.phone}
                 </p>
-              </div>
+              </a>
             </div>
 
             <div className="mt-12 md:mt-16">

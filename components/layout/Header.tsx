@@ -234,6 +234,8 @@ export default function Header({
   const pathname = usePathname();
   const router = useRouter();
   const isSearchRoute = pathname === "/search";
+  const directionsAddress = /spokane/i.test(data.address) ? data.address : `${data.address}, Spokane, WA`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(directionsAddress)}`;
   const [currentSearchQuery, setCurrentSearchQuery] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
@@ -482,7 +484,9 @@ export default function Header({
           <span className="inline-flex items-center gap-3 whitespace-nowrap" data-tina-field={tinaField(generalRaw, "address")}>
             <img alt="" aria-hidden className="h-4 w-4" src="/library/header/icon-location.svg" />
             <span className="hidden font-semibold md:inline">Find Us:</span>
-            <span className="hover:underline underline-offset-[0.14em] cursor-pointer">{topBarAddress}</span>
+            <a className="hover:underline underline-offset-[0.14em]" href={directionsUrl} rel="noreferrer" target="_blank">
+              {topBarAddress}
+            </a>
           </span>
         </div>
       </div>

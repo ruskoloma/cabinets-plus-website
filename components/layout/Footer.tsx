@@ -75,12 +75,18 @@ function FooterMembershipLogo() {
   );
 }
 
-function FooterContactRow({ iconSrc, value, field }: { iconSrc: string; value: string; field?: string }) {
+function FooterContactRow({ iconSrc, value, field, href }: { iconSrc: string; value: string; field?: string; href: string }) {
   return (
-    <p className="flex items-center gap-[19px] text-[16px] leading-6 text-white" data-tina-field={field}>
+    <a
+      className="flex items-center gap-[19px] text-[16px] leading-6 text-white hover:underline underline-offset-[0.14em]"
+      data-tina-field={field}
+      href={href}
+      rel={href.startsWith("http") ? "noreferrer" : undefined}
+      target={href.startsWith("http") ? "_blank" : undefined}
+    >
       <img alt="" aria-hidden className="h-5 w-5" src={iconSrc} />
       <span>{value}</span>
-    </p>
+    </a>
   );
 }
 
@@ -108,19 +114,23 @@ export default function Footer({
   const primaryAddress = (data.address || "").split(",")[0].trim();
   const phone = data.phone || "";
   const email = data.email || "";
+  const directionsAddress = /spokane/i.test(data.address || "") ? data.address || "" : `${data.address || ""}, Spokane, WA`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(directionsAddress)}`;
+  const phoneUrl = `tel:${phone.replace(/[^0-9+]/g, "")}`;
+  const emailUrl = `mailto:${email}`;
   const copyrightText = data.copyrightText || "© 2026 Cabinets Plus Spokane";
   const pinterestUrl = data.pinterestUrl || PINTEREST_URL;
   const instagramUrl = data.instagramUrl || "https://instagram.com";
   const facebookUrl = data.facebookUrl || "https://facebook.com";
   const desktopContactRows = [
-    { iconSrc: "/library/footer/footer-icon-location.svg", value: primaryAddress, field: tinaField(generalRaw, "address") },
-    { iconSrc: "/library/footer/footer-icon-phone.svg", value: phone, field: tinaField(generalRaw, "phone") },
-    { iconSrc: "/library/footer/footer-icon-mail.svg", value: email, field: tinaField(generalRaw, "email") },
+    { iconSrc: "/library/footer/footer-icon-location.svg", value: primaryAddress, field: tinaField(generalRaw, "address"), href: directionsUrl },
+    { iconSrc: "/library/footer/footer-icon-phone.svg", value: phone, field: tinaField(generalRaw, "phone"), href: phoneUrl },
+    { iconSrc: "/library/footer/footer-icon-mail.svg", value: email, field: tinaField(generalRaw, "email"), href: emailUrl },
   ];
   const mobileContactRows = [
-    { iconSrc: "/library/footer/footer-icon-location.svg", value: primaryAddress, field: tinaField(generalRaw, "address") },
-    { iconSrc: "/library/footer/footer-icon-mail.svg", value: email, field: tinaField(generalRaw, "email") },
-    { iconSrc: "/library/footer/footer-icon-phone.svg", value: phone, field: tinaField(generalRaw, "phone") },
+    { iconSrc: "/library/footer/footer-icon-location.svg", value: primaryAddress, field: tinaField(generalRaw, "address"), href: directionsUrl },
+    { iconSrc: "/library/footer/footer-icon-mail.svg", value: email, field: tinaField(generalRaw, "email"), href: emailUrl },
+    { iconSrc: "/library/footer/footer-icon-phone.svg", value: phone, field: tinaField(generalRaw, "phone"), href: phoneUrl },
   ];
 
   return (
@@ -160,7 +170,7 @@ export default function Footer({
         <div className="mt-[30px] flex items-start justify-between">
           <div className="w-[262px] space-y-4">
             {desktopContactRows.map((row) => (
-              <FooterContactRow field={row.field} iconSrc={row.iconSrc} key={`${row.iconSrc}-${row.value}`} value={row.value} />
+              <FooterContactRow field={row.field} href={row.href} iconSrc={row.iconSrc} key={`${row.iconSrc}-${row.value}`} value={row.value} />
             ))}
           </div>
 
@@ -211,7 +221,7 @@ export default function Footer({
 
         <div className="mt-[17px] w-[262px] space-y-4">
           {mobileContactRows.map((row) => (
-            <FooterContactRow field={row.field} iconSrc={row.iconSrc} key={`${row.iconSrc}-${row.value}`} value={row.value} />
+            <FooterContactRow field={row.field} href={row.href} iconSrc={row.iconSrc} key={`${row.iconSrc}-${row.value}`} value={row.value} />
           ))}
         </div>
 
