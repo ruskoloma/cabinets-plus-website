@@ -75,6 +75,10 @@
         {
           "project": "content/projects/residence-on-dahl-road.md",
           "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-dahl-road/3629-dsc00389.jpg"
+        },
+        {
+          "project": "content/projects/residence-on-best-road.md",
+          "imageOverride": "https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-best-road/01-dsc00601-64.jpg"
         }
       ],
       "_template": "projectsSection"
