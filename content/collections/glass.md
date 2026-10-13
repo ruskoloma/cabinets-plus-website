@@ -46,6 +46,8 @@ media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/glass/residence-on-stonecrest-lane/04-img-9407.jpg'
     label: Stonecrest Lane walk-in tiled shower
     description: 'Residence on Stonecrest Lane featuring walk-in tiled shower, bathroom.'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-road/09-dsc00199-40.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-road/11-dsc00229-42.jpg'
 relatedProjects:
   - project: content/projects/residence-on-stonecrest-lane.md
 slug: glass
