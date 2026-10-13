@@ -73,6 +73,10 @@ media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/hoods/20-img-5019.jpg'
     label: Range hood detail 20
     description: ''
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-road/30-dsc00531-61.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-road/59-dsc09924-27.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-at-36th-avenue-2/25-36th-avenue-76.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-at-36th-avenue-2/17-36th-avenue-37.jpg'
 relatedProjects: []
 slug: hoods
 sourceUpdatedAt: 2026-04-28T00:00:00.000Z

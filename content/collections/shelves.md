@@ -224,6 +224,9 @@ media:
   - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/collections/shelves/71-project-example-7.jpg'
     label: Shelves detail 71
     description: ''
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-road/04-dsc00070-35.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-road/32-dsc00567-63.jpg'
+  - file: 'https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-slaton-road/50-dsc09775-18.jpg'
 relatedProjects: []
 slug: shelves
 sourceUpdatedAt: 2026-04-29T00:00:00.000Z
