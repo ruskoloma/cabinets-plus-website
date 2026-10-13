@@ -423,8 +423,46 @@ async function uploadBuffer({ s3, bucket, key, body, contentType }) {
   );
 }
 
+async function readSharpCompatibleSource(sourcePath) {
+  if (!/\.hei[cf]$/i.test(sourcePath)) {
+    return fs.readFile(sourcePath);
+  }
+
+  const conversionDir = await fs.mkdtemp(path.join(os.tmpdir(), "cabinets-plus-heic-"));
+  const convertedPath = path.join(conversionDir, `${path.basename(sourcePath, path.extname(sourcePath))}.jpg`);
+
+  try {
+    try {
+      await execFileAsync("sips", ["-s", "format", "jpeg", sourcePath, "--out", convertedPath]);
+    } catch (sipsError) {
+      try {
+        await execFileAsync("ffmpeg", [
+          "-hide_banner",
+          "-loglevel",
+          "error",
+          "-y",
+          "-i",
+          sourcePath,
+          "-frames:v",
+          "1",
+          convertedPath,
+        ]);
+      } catch (ffmpegError) {
+        throw new AggregateError(
+          [sipsError, ffmpegError],
+          `Unable to convert HEIC image ${path.basename(sourcePath)} with sips or ffmpeg`,
+        );
+      }
+    }
+
+    return await fs.readFile(convertedPath);
+  } finally {
+    await fs.rm(conversionDir, { recursive: true, force: true });
+  }
+}
+
 async function optimizeAndUploadImage({ s3, bucket, cdnBase, region, uploadPrefix, projectUploadSlug, sourcePath, index }) {
-  const sourceBuffer = await fs.readFile(sourcePath);
+  const sourceBuffer = await readSharpCompatibleSource(sourcePath);
   const baseFilename = safeBaseFilename(sourcePath, index);
   const originalKey = `${uploadPrefix}/${projectUploadSlug}/${baseFilename}.jpg`;
 
