@@ -158,7 +158,7 @@ media:
       After refinishing: slate-blue kitchen cabinetry with metal bar pulls, white countertops, and a
       white tile backsplash.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/01-before-img-7574.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/01-oxford-before-zillow-8.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -170,13 +170,13 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
-    label: 'Before: Timber shaker kitchen'
+    countertop: Granite
+    label: 'Before: Kitchen and living area'
     description: >-
-      Before refinishing: original brown wood cabinetry in the kitchen, with white countertops, wood
-      trim, and a peninsula.
+      Before remodeling: original brown wood cabinetry, speckled granite countertops, and a raised
+      breakfast bar in the Oxford kitchen.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/02-before-img-7576.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/02-oxford-before-zillow-9.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -188,13 +188,13 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
-    label: 'Before: Timber shaker kitchen cabinetry'
+    countertop: Granite
+    label: 'Before: Kitchen and dining area'
     description: >-
-      Before refinishing: original brown wood cabinetry in the kitchen, with white countertops, wood
-      trim, and a peninsula.
+      Before remodeling: original brown wood cabinetry, speckled granite countertops, and a raised
+      breakfast bar in the Oxford kitchen.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/03-before-img-7580.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/03-oxford-before-zillow-10.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -206,13 +206,13 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
-    label: 'Before: Dark Wood Kitchen peninsula'
+    countertop: Granite
+    label: 'Before: Dining area and peninsula'
     description: >-
-      Before refinishing: original brown wood cabinetry in the kitchen, with white countertops, wood
-      trim, and a peninsula.
+      Before remodeling: original brown wood cabinetry, speckled granite countertops, and a raised
+      breakfast bar in the Oxford kitchen.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/04-before-img-7581.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/04-oxford-before-zillow-11.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -224,13 +224,13 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: ''
-    label: 'Before: Dark wood kitchen cabinetry'
+    countertop: Granite
+    label: 'Before: Original brown kitchen'
     description: >-
-      Before refinishing: original brown wood cabinetry in the kitchen, with white countertops, wood
-      trim, and a peninsula.
+      Before remodeling: original brown wood cabinetry, speckled granite countertops, and a raised
+      breakfast bar in the Oxford kitchen.
   - file: >-
-      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/05-before-img-7585.jpg
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/05-oxford-before-zillow-12.jpg
     roomPriority: false
     paintPriority: false
     stainPriority: false
@@ -242,10 +242,46 @@ media:
     cabinetPaints:
       - timber
     cabinetStains: []
-    countertop: Quartz
-    label: 'Before: Dark wood shaker kitchen'
+    countertop: Granite
+    label: 'Before: Cabinets and breakfast bar'
     description: >-
-      Before refinishing: original brown wood cabinetry in the kitchen, with white countertops, wood
-      trim, and a peninsula.
-sourceUpdatedAt: '2026-10-20T22:59:16.949Z'
+      Before remodeling: original brown wood cabinetry, speckled granite countertops, and a raised
+      breakfast bar in the Oxford kitchen.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/06-oxford-before-zillow-13.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Kitchen
+    doorStyles:
+      - shaker
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Granite
+    label: 'Before: Kitchen cabinets and appliances'
+    description: >-
+      Before remodeling: original brown wood cabinetry, speckled granite countertops, and a raised
+      breakfast bar in the Oxford kitchen.
+  - file: >-
+      https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/07-oxford-before-zillow-14.jpg
+    roomPriority: false
+    paintPriority: false
+    stainPriority: false
+    countertopPriority: false
+    flooring: false
+    room: Kitchen
+    doorStyles:
+      - shaker
+    cabinetPaints:
+      - timber
+    cabinetStains: []
+    countertop: Granite
+    label: 'Before: Sink and peninsula cabinetry'
+    description: >-
+      Before remodeling: original brown wood cabinetry, speckled granite countertops, and a raised
+      breakfast bar in the Oxford kitchen.
+sourceUpdatedAt: '2026-10-20T23:53:00.985Z'
 ---
