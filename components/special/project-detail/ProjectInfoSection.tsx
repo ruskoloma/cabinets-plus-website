@@ -10,6 +10,7 @@ import type { ImageVariantPreset } from "@/lib/image-variants";
 import { focusTinaSidebarMediaItem } from "@/lib/tina-media-focus";
 import { useTinaQuickEditEnabled } from "@/lib/use-tina-quick-edit-enabled";
 import {
+  buildProjectGallery,
   getProjectDescription,
   getProjectGalleryAlt,
   getProjectHeading,
@@ -51,15 +52,20 @@ export default function ProjectInfoSection({ block, project, galleryItems }: Pro
   const galleryImageSizeChoice = readStringField(block, "galleryImageSize");
   const galleryGridImageVariant: ImageVariantPreset | undefined = resolveConfiguredImageVariant(galleryImageSizeChoice, "card");
 
+  const [showBefore, setShowBefore] = useState(false);
+  const beforeGalleryItems = useMemo(() => buildProjectGallery(project, "imagesBefore"), [project]);
+  const hasBeforeImages = beforeGalleryItems.length > 0;
+  const isShowingBefore = hasBeforeImages && showBefore;
+  const visibleGalleryItems = isShowingBefore ? beforeGalleryItems : galleryItems;
   const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(null);
   const lightboxItems = useMemo(
     () =>
-      galleryItems.map((item) => ({
+      visibleGalleryItems.map((item) => ({
         alt: getProjectGalleryAlt(project, item),
         src: item.file,
         type: isVideoFile(item.file) ? ("video" as const) : ("image" as const),
       })),
-    [galleryItems, project],
+    [visibleGalleryItems, project],
   );
 
   return (
@@ -104,8 +110,34 @@ export default function ProjectInfoSection({ block, project, galleryItems }: Pro
               ) : null}
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-4 md:mt-8 md:grid-cols-4 md:gap-7">
-              {galleryItems.map((item, index) => {
+            {hasBeforeImages ? (
+              <button
+                aria-checked={!isShowingBefore}
+                aria-controls="project-photo-gallery"
+                aria-label="Show after remodel photos"
+                className="mt-8 inline-flex min-h-11 items-center gap-3 rounded-sm text-[16px] leading-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--cp-primary-300)]"
+                onClick={() => {
+                  setActiveGalleryIndex(null);
+                  setShowBefore(!isShowingBefore);
+                }}
+                role="switch"
+                type="button"
+              >
+                <span aria-hidden className={isShowingBefore ? "text-[var(--cp-primary-500)]" : "text-[var(--cp-primary-300)]"}>Before</span>
+                <span aria-hidden className="flex h-6 w-11 shrink-0 items-center rounded-full border border-[var(--cp-primary-100)] bg-white p-[3px]">
+                  <span className={`h-4 w-4 rounded-full bg-[var(--cp-primary-300)] transition-transform motion-reduce:transition-none ${isShowingBefore ? "translate-x-0" : "translate-x-[18px]"}`} />
+                </span>
+                <span aria-hidden className={isShowingBefore ? "text-[var(--cp-primary-300)]" : "text-[var(--cp-primary-500)]"}>After</span>
+              </button>
+            ) : null}
+
+            <div
+              aria-label={hasBeforeImages ? `${isShowingBefore ? "Before" : "After"} remodel photos` : "Project photos"}
+              className={`${hasBeforeImages ? "mt-6" : "mt-8"} grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-7`}
+              id="project-photo-gallery"
+              role="group"
+            >
+              {visibleGalleryItems.map((item, index) => {
                 const useCustomMediaFocus = Boolean(edit && quickEditEnabled && item.sourceType === "media");
                 const isVideo = isVideoFile(item.file);
                 const buttonClassName = useCustomMediaFocus

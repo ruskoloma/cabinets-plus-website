@@ -150,12 +150,15 @@ function resolveReferencedProductCard<
   };
 }
 
-export function buildProjectGallery(project: ProjectOverviewItem): ProjectGalleryItem[] {
+export function buildProjectGallery(
+  project: ProjectOverviewItem,
+  field: "media" | "imagesBefore" = "media",
+): ProjectGalleryItem[] {
   const items: ProjectGalleryItem[] = [];
   const seen = new Set<string>();
   const title = getProjectDisplayTitle(project);
 
-  for (const media of project.media || []) {
+  for (const media of project[field] || []) {
     const file = (media?.file || "").trim();
     if (!file || seen.has(file)) continue;
     seen.add(file);

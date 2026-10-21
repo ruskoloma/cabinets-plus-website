@@ -56,7 +56,7 @@ export default function ProjectDetailPage({
             // document's media list item, not the page-settings block. Block-level settings
             // (breadcrumb label, image sizes) stay reachable through inner data-tina-fields.
             return (
-              <ProjectInfoSection block={blockRecord} galleryItems={galleryItems} key={key} project={project} />
+              <ProjectInfoSection block={blockRecord} galleryItems={galleryItems} key={`${key}-${currentSlug}`} project={project} />
             );
 
           case "projectMaterials":

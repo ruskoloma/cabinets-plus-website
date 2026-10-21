@@ -92,6 +92,22 @@ export const PROJECT_LIVE_QUERY = `
           label
           description
         }
+        imagesBefore {
+          __typename
+          file
+          roomPriority
+          paintPriority
+          stainPriority
+          countertopPriority
+          flooring
+          room
+          doorStyles
+          cabinetPaints
+          cabinetStains
+          countertop
+          label
+          description
+        }
         sourceId
         sourceUpdatedAt
         _values
