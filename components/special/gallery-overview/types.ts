@@ -73,6 +73,7 @@ export interface ProjectOverviewItem {
   flooringProducts?: Array<ProjectFlooringProductLink | null> | null;
   sourceUpdatedAt?: string | null;
   media?: Array<ProjectMediaItem | null> | null;
+  imagesBefore?: Array<ProjectMediaItem | null> | null;
   _content_source?: unknown;
   _values?: unknown;
 }

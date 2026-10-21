@@ -198,6 +198,11 @@ function normalizeProject(value: unknown, fallbackFilename?: string): ProjectOve
           .map((item) => normalizeProjectFlooringProduct(item))
           .filter((item): item is ProjectFlooringProductLink => Boolean(item))
       : [],
+    imagesBefore: Array.isArray(record.imagesBefore)
+      ? record.imagesBefore
+          .map((item) => normalizeProjectMedia(item))
+          .filter((item): item is ProjectMediaItem => Boolean(item))
+      : [],
     media,
     sourceUpdatedAt: asString(record.sourceUpdatedAt) ?? null,
     _content_source: record._content_source as unknown,
