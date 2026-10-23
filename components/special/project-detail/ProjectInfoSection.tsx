@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { tinaField, useEditState } from "tinacms/dist/react";
+import ProjectBeforeCarousel from "./ProjectBeforeCarousel";
 import FillImage from "@/components/ui/FillImage";
 import MediaLightbox, { isVideoFile } from "@/components/ui/MediaLightbox";
 import { resolveConfiguredImageVariant } from "@/lib/image-size-controls";
@@ -45,6 +46,7 @@ export default function ProjectInfoSection({ block, project, galleryItems }: Pro
   const currentSlug = getProjectSlug(project, "project");
   const heading = getProjectHeading(project, currentSlug);
   const description = getProjectDescription(project);
+  const beforeImages = (project.imagesBefore || []).filter((item) => item?.file?.trim() && !isVideoFile(item.file));
 
   const breadcrumbLabel = (readStringField(block, "breadcrumbLabel") || "").trim() || "Gallery";
   const breadcrumbLink = (readStringField(block, "breadcrumbLink") || "").trim() || "/gallery";
@@ -104,7 +106,18 @@ export default function ProjectInfoSection({ block, project, galleryItems }: Pro
               ) : null}
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-4 md:mt-8 md:grid-cols-4 md:gap-7">
+            {beforeImages.length > 0 ? (
+              <>
+                <ProjectBeforeCarousel images={beforeImages} project={project} />
+                {galleryItems.length > 0 ? (
+                  <h2 className="mt-10 text-[24px] uppercase leading-[1.25] text-[var(--cp-primary-500)] md:mt-12 md:text-[32px]">
+                    After
+                  </h2>
+                ) : null}
+              </>
+            ) : null}
+
+            <div className={`${beforeImages.length > 0 ? "mt-5 md:mt-7" : "mt-8"} grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-7`}>
               {galleryItems.map((item, index) => {
                 const useCustomMediaFocus = Boolean(edit && quickEditEnabled && item.sourceType === "media");
                 const isVideo = isVideoFile(item.file);

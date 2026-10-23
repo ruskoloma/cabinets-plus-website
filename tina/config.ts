@@ -4135,6 +4135,19 @@ export default defineConfig({
           { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
           {
             type: "object",
+            name: "imagesBefore",
+            label: "Before Remodel Images",
+            description: "Optional. Shown in a separate carousel above the finished project photos.",
+            list: true,
+            ui: { itemProps: mediaGroupItemProps },
+            fields: [
+              { type: "image", name: "file", label: "Image", ui: { component: renderLargeMediaPreviewField } },
+              { type: "string", name: "label", label: "Label / Alt Text" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+            ],
+          },
+          {
+            type: "object",
             name: "media",
             label: "Media",
             list: true,

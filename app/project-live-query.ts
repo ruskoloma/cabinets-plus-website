@@ -76,6 +76,12 @@ export const PROJECT_LIVE_QUERY = `
           subtitle
           type
         }
+        imagesBefore {
+          __typename
+          file
+          label
+          description
+        }
         media {
           __typename
           file

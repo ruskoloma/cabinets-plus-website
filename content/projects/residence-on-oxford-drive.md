@@ -157,6 +157,7 @@ media:
     description: >-
       After refinishing: slate-blue kitchen cabinetry with metal bar pulls, white countertops, and a
       white tile backsplash.
+imagesBefore:
   - file: >-
       https://cabinetsplus4630.s3.us-west-2.amazonaws.com/uploads/projects/residence-on-oxford-drive/before-zillow/01-oxford-before-zillow-8.jpg
     roomPriority: false
