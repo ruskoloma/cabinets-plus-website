@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import Lightbox, { type Slide } from "yet-another-react-lightbox";
 import Video from "yet-another-react-lightbox/plugins/video";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 export interface MediaLightboxItem {
   alt?: string;
@@ -88,7 +89,7 @@ export default function MediaLightbox({ index, items, onClose, onIndexChange, op
       }}
       on={{ view: ({ index: currentIndex }) => onIndexChange?.(currentIndex) }}
       open={open}
-      plugins={[Video]}
+      plugins={[Video, Zoom]}
       slides={slides}
       styles={{
         button: {
@@ -103,6 +104,7 @@ export default function MediaLightbox({ index, items, onClose, onIndexChange, op
         playsInline: true,
         preload: "metadata",
       }}
+      zoom={{ maxZoomPixelRatio: 3, scrollToZoom: true }}
     />
   );
 }
